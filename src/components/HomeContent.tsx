@@ -212,7 +212,7 @@ function ArticlesSection() {
 
 function SkillsSection({ profile }: { profile: ProfileData }) {
   return (
-    <section className="mb-16">
+    <section id="skills" className="mb-16">
       <h2 className="mb-5 text-heading-lg text-white">Skills & Expertise</h2>
       <div className="grid gap-6 md:grid-cols-2">
         <div>
@@ -472,6 +472,39 @@ function FAQSection({ profile }: { profile: ProfileData }) {
   );
 }
 
+function Nav() {
+  const links = [
+    { label: 'Skills', href: '#skills' },
+    { label: 'Projects', href: '#projects' },
+    { label: 'About', href: '#about' },
+    { label: 'Experience', href: '#experience' },
+    { label: 'Articles', href: '#articles' },
+    { label: 'Testimonials', href: '#testimonials' },
+    { label: 'FAQ', href: '#faq' },
+  ];
+
+  return (
+    <nav className="sticky top-0 z-50 border-b border-slate-800/60 bg-[#0B0F19]/80 backdrop-blur-lg">
+      <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-3 sm:px-8 lg:px-12">
+        <a href="#" className="text-sm font-semibold text-white">
+          VO
+        </a>
+        <div className="flex gap-4 overflow-x-auto text-sm text-slate-400">
+          {links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="shrink-0 transition-colors hover:text-indigo-400"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </nav>
+  );
+}
+
 function FooterSection() {
   return (
     <footer className="border-t border-slate-800/60 py-12 text-center">
@@ -487,16 +520,19 @@ export function HomeContent({ projects }: { projects: ProjectData[] }) {
   const profile = usePortfolio();
 
   return (
-    <main className="mx-auto min-h-screen max-w-5xl px-6 py-12 sm:px-8 lg:px-12">
-      <HeroSection profile={profile} />
-      <SkillsSection profile={profile} />
-      <ProjectsSection projects={projects} />
-      <AboutSection profile={profile} />
-      <ExperienceSection profile={profile} />
-      <ArticlesSection />
-      <TestimonialsCarousel profile={profile} />
-      <FAQSection profile={profile} />
-      <FooterSection />
-    </main>
+    <>
+      <Nav />
+      <main className="mx-auto min-h-screen max-w-5xl px-6 py-12 sm:px-8 lg:px-12">
+        <HeroSection profile={profile} />
+        <SkillsSection profile={profile} />
+        <ProjectsSection projects={projects} />
+        <AboutSection profile={profile} />
+        <ExperienceSection profile={profile} />
+        <ArticlesSection />
+        <TestimonialsCarousel profile={profile} />
+        <FAQSection profile={profile} />
+        <FooterSection />
+      </main>
+    </>
   );
 }
