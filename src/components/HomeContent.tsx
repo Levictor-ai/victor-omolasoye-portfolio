@@ -54,25 +54,34 @@ function SkillBar({ label, value }: { label: string; value: number }) {
 
 function AnimatedTitle({ titles }: { titles: string[] }) {
   const [index, setIndex] = useState(0);
-  const [fade, setFade] = useState(true);
+  const [state, setState] = useState<'visible' | 'exiting' | 'entering'>('visible');
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setFade(false);
+      setState('exiting');
       setTimeout(() => {
         setIndex((prev) => (prev + 1) % titles.length);
-        setFade(true);
-      }, 200);
-    }, 2500);
+        setState('entering');
+        setTimeout(() => setState('visible'), 400);
+      }, 400);
+    }, 3000);
     return () => clearInterval(interval);
   }, [titles.length]);
 
   return (
     <div className="mb-2">
       <span
-        className={`inline-block text-2xl font-bold text-indigo-300 transition-opacity duration-200 sm:text-3xl ${
-          fade ? 'opacity-100' : 'opacity-0'
+        className={`inline-block text-2xl font-bold text-indigo-300 transition-all duration-400 sm:text-3xl ${
+          state === 'visible'
+            ? 'opacity-100 translate-y-0'
+            : state === 'exiting'
+            ? 'opacity-0 -translate-y-2'
+            : 'opacity-0 translate-y-2'
         }`}
+        style={{
+          transitionTimingFunction:
+            state === 'exiting' ? 'cubic-bezier(0.4, 0, 1, 1)' : 'cubic-bezier(0, 0, 0.2, 1)',
+        }}
       >
         {titles[index]}
       </span>
@@ -475,13 +484,13 @@ function FAQSection({ profile }: { profile: ProfileData }) {
 function Nav({ avatar }: { avatar: string }) {
   const [open, setOpen] = useState(false);
   const links = [
-    { label: 'Skills', href: '#skills' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'About', href: '#about' },
-    { label: 'Experience', href: '#experience' },
-    { label: 'Articles', href: '#articles' },
-    { label: 'Testimonials', href: '#testimonials' },
-    { label: 'FAQ', href: '#faq' },
+    { label: 'Skills', href: '#skills', icon: 'M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z' },
+    { label: 'Projects', href: '#projects', icon: 'M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z' },
+    { label: 'About', href: '#about', icon: 'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2 M12 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z' },
+    { label: 'Experience', href: '#experience', icon: 'M22 12h-4l-3 9L9 3l-3 9H2' },
+    { label: 'Articles', href: '#articles', icon: 'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z M14 2v6h6 M16 13H8 M16 17H8 M10 9H8' },
+    { label: 'Testimonials', href: '#testimonials', icon: 'M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z' },
+    { label: 'FAQ', href: '#faq', icon: 'M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3 M12 17h.01' },
   ];
 
   return (
@@ -525,8 +534,11 @@ function Nav({ avatar }: { avatar: string }) {
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="shrink-0 rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-slate-800/60 hover:text-indigo-400 sm:bg-transparent sm:p-0 sm:hover:bg-transparent"
+                className="flex items-center gap-2 shrink-0 rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-slate-800/60 hover:text-indigo-400 sm:bg-transparent sm:p-0 sm:hover:bg-transparent"
               >
+                <svg className="size-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d={link.icon} />
+                </svg>
                 {link.label}
               </a>
             ))}
