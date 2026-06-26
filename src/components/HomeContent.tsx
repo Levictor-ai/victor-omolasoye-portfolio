@@ -64,14 +64,14 @@ function AnimatedTitle({ titles }: { titles: string[] }) {
         setIndex((prev) => (prev + 1) % titles.length);
         setFade(true);
       }, 200);
-    }, 1000);
+    }, 2500);
     return () => clearInterval(interval);
   }, [titles.length]);
 
   return (
     <div className="mb-6">
       <span
-        className={`inline-flex items-center rounded-full border border-indigo-500/20 bg-indigo-500/10 px-3.5 py-1 text-sm font-medium text-indigo-300 transition-opacity duration-200 ${
+        className={`inline-flex items-center rounded-full border border-indigo-500/20 bg-indigo-500/10 px-5 py-1.5 text-base font-semibold text-indigo-300 transition-opacity duration-200 ${
           fade ? 'opacity-100' : 'opacity-0'
         }`}
       >
@@ -97,7 +97,7 @@ function HeroSection({ profile }: { profile: ProfileData }) {
         </div>
       </div>
       <div>
-        <h1 className="mb-5 text-display-md font-bold tracking-tight text-white sm:text-display-lg lg:text-display-xl">
+        <h1 className="mb-5 text-heading-lg font-bold tracking-tight text-white sm:text-display-md">
           {profile.name}
         </h1>
         <AnimatedTitle titles={profile.titles} />
@@ -262,9 +262,6 @@ function ExperienceSection({ profile }: { profile: ProfileData }) {
               </div>
               <span className="shrink-0 text-sm text-slate-500">{exp.period}</span>
             </div>
-            {exp.description && (
-              <p className="mt-3 text-body-sm text-slate-400">{exp.description}</p>
-            )}
           </div>
         ))}
       </div>
