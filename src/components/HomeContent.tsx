@@ -1,5 +1,6 @@
 'use client';
 
+import { useRef, useState, useEffect } from 'react';
 import { usePortfolio } from '@/context/PortfolioContext';
 import type { ProfileData } from '@/context/PortfolioContext';
 import type { ProjectData } from '@/types/project';
@@ -7,8 +8,27 @@ import { ProjectCard } from '@/components/ProjectCard';
 import { FAQAccordion } from '@/components/FAQAccordion';
 
 function SkillBar({ label, value }: { label: string; value: number }) {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="space-y-1.5">
+    <div ref={ref} className="space-y-1.5">
       <div className="flex items-center justify-between">
         <span className="text-sm font-medium text-slate-200">{label}</span>
         <span className="text-sm tabular-nums text-indigo-400">{value}%</span>
@@ -23,8 +43,8 @@ function SkillBar({ label, value }: { label: string; value: number }) {
         aria-label={`${label}: ${value}%`}
       >
         <div
-          className="h-full rounded-full transition-all duration-700"
-          style={{ width: `${value}%`, backgroundColor: '#818CF8' }}
+          className="h-full rounded-full transition-all duration-1000 ease-out"
+          style={{ width: isVisible ? `${value}%` : '0%', backgroundColor: '#818CF8' }}
         />
       </div>
     </div>
