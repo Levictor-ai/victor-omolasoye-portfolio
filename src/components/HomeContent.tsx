@@ -259,7 +259,7 @@ function AboutSection({ profile }: { profile: ProfileData }) {
             alt={profile.name}
             fill
             className="object-cover"
-            style={{ objectPosition: 'center 25%' }}
+            style={{ objectPosition: 'top' }}
             sizes="100vw"
             priority
           />
@@ -472,51 +472,13 @@ function FAQSection({ profile }: { profile: ProfileData }) {
   );
 }
 
-function FooterSection({ profile }: { profile: ProfileData }) {
+function FooterSection() {
   return (
     <footer className="border-t border-slate-800/60 py-12 text-center">
-      <div className="mb-4 flex justify-center gap-4">
-        {profile.socials.linkedin && (
-          <a
-            href={profile.socials.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-slate-400 transition-colors hover:text-indigo-400"
-            aria-label="LinkedIn"
-          >
-            LinkedIn
-          </a>
-        )}
-        {profile.socials.contra && (
-          <a
-            href={profile.socials.contra}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-slate-400 transition-colors hover:text-emerald-400"
-            aria-label="Contra"
-          >
-            Contra
-          </a>
-        )}
-        <a
-          href={`mailto:${profile.email}`}
-          className="text-sm text-slate-400 transition-colors hover:text-indigo-400"
-        >
-          Email
-        </a>
-        <a
-          href={profile.resumeUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-sm text-slate-400 transition-colors hover:text-indigo-400"
-        >
-          CV
-        </a>
-      </div>
-      <p className="mx-auto max-w-2xl text-balance text-sm leading-relaxed italic text-slate-400">
+      <p className="mx-auto max-w-2xl text-balance text-sm leading-relaxed italic text-slate-400 sm:text-base">
         &ldquo;Good design is expensive because it&rsquo;s created with the most valuable resource we have&mdash;time, which is life.&rdquo;
       </p>
-      <p className="mt-2 text-sm text-slate-500">&mdash; Victor Omolasoye</p>
+      <p className="mt-2 text-sm text-slate-500 sm:text-base">&mdash; Victor Omolasoye</p>
     </footer>
   );
 }
@@ -534,7 +496,7 @@ export function HomeContent({ projects }: { projects: ProjectData[] }) {
       <ArticlesSection />
       <TestimonialsCarousel profile={profile} />
       <FAQSection profile={profile} />
-      <FooterSection profile={profile} />
+      <FooterSection />
     </main>
   );
 }
