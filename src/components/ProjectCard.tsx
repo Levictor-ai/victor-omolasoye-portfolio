@@ -1,7 +1,9 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowUpRight, MapPin, Clock } from 'lucide-react';
 import type { ProjectData } from '@/types/project';
 
@@ -11,6 +13,8 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
+  const [imgError, setImgError] = useState(false);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 24 }}
@@ -24,6 +28,16 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
       >
         {/* Cover Image */}
         <div className="relative aspect-video overflow-hidden bg-slate-800">
+          {project.coverImage && !imgError ? (
+            <Image
+              src={project.coverImage}
+              alt={project.title}
+              fill
+              className="object-cover transition-transform duration-300 group-hover:scale-105"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              onError={() => setImgError(true)}
+            />
+          ) : null}
           <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F19] via-transparent to-transparent" />
           <div
             className="absolute inset-0 opacity-20 transition-opacity duration-300 group-hover:opacity-30"

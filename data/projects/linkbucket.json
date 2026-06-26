@@ -6,7 +6,7 @@
   "company": "Linkbucket",
   "companyUrl": null,
   "period": "Mar 2023 — May 2023",
-  "coverImage": "/images/projects/linkbucket/cover.jpg",
+  "coverImage": "/images/projects/linkbucket/cover.png",
   "color": "#a855f7",
   "overview": "Linkbucket is a link-in-bio and URL management platform tailored for African creators and small businesses. It provides detailed click analytics, custom domains, and mobile-optimized landing pages.",
   "problem": "African creators and SMEs needed an affordable, fast link management tool with proper analytics. Existing solutions were priced in USD, slow on local networks, and lacked region-specific features like mobile money payment links.",

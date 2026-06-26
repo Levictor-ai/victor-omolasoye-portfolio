@@ -6,7 +6,7 @@
   "company": "Token Forge",
   "companyUrl": null,
   "period": "Oct 2022 — Feb 2023",
-  "coverImage": "/images/projects/token-forge/cover.jpg",
+  "coverImage": "/images/projects/token-forge/cover.png",
   "color": "#10b981",
   "overview": "Token Forge is a no-code smart contract generator that enables users to deploy ERC-20, ERC-721, and ERC-1155 tokens across multiple EVM-compatible chains without writing a single line of Solidity.",
   "problem": "Launching a token required deep Solidity expertise, auditing knowledge, and familiarity with multiple blockchain explorers. Non-technical founders and communities had no accessible way to tokenize assets or create community tokens.",
