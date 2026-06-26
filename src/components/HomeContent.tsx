@@ -443,7 +443,7 @@ function TestimonialsCarousel({ profile }: { profile: ProfileData }) {
 function ProjectsSection({ projects }: { projects: ProjectData[] }) {
   return (
     <section id="projects" className="mb-16">
-      <h2 className="mb-6 text-heading-lg text-white">Projects</h2>
+      <h2 className="mb-6 text-heading-lg text-white">Featured Projects</h2>
       {projects.length > 0 ? (
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, i) => (

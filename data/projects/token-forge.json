@@ -1,84 +1,109 @@
 {
   "slug": "token-forge",
-  "title": "Token Forge",
-  "subtitle": "Smart Contract Generator & ERC-20 Dashboard",
-  "role": "Blockchain Developer",
-  "company": "Token Forge",
+  "title": "TokenForge",
+  "subtitle": "AI-Powered Design System Token Generator",
+  "role": "Product Designer",
+  "company": "Team 4 — Product Design Bootcamp",
   "companyUrl": null,
-  "period": "Oct 2022 — Feb 2023",
+  "period": "Product Design Bootcamp Project",
   "coverImage": "/images/projects/token-forge/cover.png",
-  "color": "#10b981",
-  "overview": "Token Forge is a no-code smart contract generator that enables users to deploy ERC-20, ERC-721, and ERC-1155 tokens across multiple EVM-compatible chains without writing a single line of Solidity.",
-  "problem": "Launching a token required deep Solidity expertise, auditing knowledge, and familiarity with multiple blockchain explorers. Non-technical founders and communities had no accessible way to tokenize assets or create community tokens.",
-  "solution": "A visual drag-and-drop interface that generates production-ready, OpenZeppelin-audited smart contracts. Users configure token parameters through a wizard and deploy with one click to any supported EVM chain.",
-  "targetAudience": ["Web3 Founders", "DAO Communities", "NFT Creators", "Developers"],
+  "color": "#6366f1",
+  "overview": "TokenForge is an AI-powered platform that transforms natural language into production-ready design tokens within seconds. Instead of manually creating a design system, users simply describe their brand, and TokenForge generates an accessible, scalable, and developer-ready foundation for digital products.",
+  "problem": "Most design systems begin with repetitive manual work—deciding on colors, typography, spacing, shadows, border radii, and naming conventions. These decisions consume valuable time before actual product design begins. Four major challenges emerged: creating design systems is repetitive and time-consuming, manual decisions lead to inconsistent products, accessibility is frequently overlooked, and existing tools cannot interpret a brand's personality.",
+  "solution": "A platform where users describe their brand in natural language and receive a complete, accessible design system in under 60 seconds. TokenForge generates semantic color palettes, typography scales, spacing systems, border radius values, and shadow systems—all with WCAG compliance built in. Users retain full editing control, and tokens export as CSS Variables, Tailwind Configuration, or JSON.",
+  "targetAudience": ["UI/UX Designers", "Front-end Developers", "Agencies & Startup Founders"],
   "regions": ["Global"],
-  "timeline": "5 months (v1 with 3 token standards)",
+  "timeline": "Product Design Bootcamp Project",
   "features": [
     {
-      "title": "Visual Contract Builder",
-      "description": "Step-by-step wizard for configuring token name, symbol, supply, decimals, mintability, burnability, and pausability through an intuitive UI."
+      "title": "AI Brand Interpretation",
+      "description": "Users describe their product naturally—'A calm, professional fintech platform for West African users'—and the AI converts it into structured design tokens."
     },
     {
-      "title": "Multi-Chain Deployment",
-      "description": "Deploy to Ethereum, Polygon, BNB Chain, Avalanche, and Base with automatic RPC switching and gas estimation before deployment."
+      "title": "Automated Token Generation",
+      "description": "Creates semantic color palettes, typography scales, spacing systems, border radius values, and shadow systems from a single prompt."
     },
     {
-      "title": "Built-in Audit Checklist",
-      "description": "Pre-deployment security scan that checks for common vulnerabilities, checks-effects-interactions patterns, and reentrancy guards."
+      "title": "Live Preview",
+      "description": "Generated tokens are immediately applied to sample interfaces including buttons, forms, cards, and navigation—no refresh required."
     },
     {
-      "title": "Dashboard & Analytics",
-      "description": "Post-deployment dashboard showing holder distribution, transfer volume, top holders, and contract interactions in real-time."
+      "title": "Manual Overrides",
+      "description": "Every generated token remains editable. Changes update the preview instantly without refreshing the page."
+    },
+    {
+      "title": "Accessibility Checker",
+      "description": "Automatically evaluates color combinations against WCAG standards and highlights combinations that fail contrast requirements."
+    },
+    {
+      "title": "Export Options",
+      "description": "Export tokens as CSS Variables, Tailwind Configuration, or JSON—bridging the gap between design and development."
+    },
+    {
+      "title": "Remix",
+      "description": "Users can generate multiple AI variations from an existing design system instead of starting over."
     }
   ],
   "techStack": [
-    { "name": "Next.js", "category": "frontend" },
+    { "name": "React", "category": "frontend" },
     { "name": "TypeScript", "category": "frontend" },
-    { "name": "Solidity", "category": "backend" },
-    { "name": "Hardhat", "category": "tools" },
-    { "name": "Ethers.js", "category": "frontend" },
-    { "name": "Wagmi", "category": "frontend" },
-    { "name": "The Graph", "category": "backend" },
-    { "name": "IPFS", "category": "infra" },
-    { "name": "Figma", "category": "design" }
+    { "name": "Node.js", "category": "backend" },
+    { "name": "AI/ML API", "category": "backend" },
+    { "name": "Figma", "category": "design" },
+    { "name": "WCAG Standards", "category": "design" }
   ],
   "architecture": {
-    "title": "Monorepo with Off-Chain/On-Chain Separation",
-    "description": "Token Forge uses a monorepo structure separating the Next.js frontend, Hardhat contract compilation pipeline, and Graph indexing layer. Smart contracts follow the factory pattern, deploying user tokens through a proxy registry.",
+    "title": "Prompt-to-Token Pipeline",
+    "description": "TokenForge uses a natural language processing pipeline that parses brand descriptions into design decisions. The output is a structured token set that maps to CSS custom properties, Tailwind config keys, and JSON schemas. The live preview layer renders these tokens against real UI components in real time.",
     "highlights": [
-      "Factory contract pattern for gas-efficient deployment",
-      "OpenZeppelin Defender for admin key management",
-      "The Graph hosted service for on-chain data indexing",
-      "CID-based versioning for contract metadata on IPFS"
+      "Natural language parsing for brand interpretation",
+      "Real-time token-to-UI preview rendering",
+      "WCAG AA/AAA contrast evaluation engine",
+      "Multi-format export pipeline (CSS, Tailwind, JSON)"
     ]
   },
   "results": [
     {
-      "metric": "Contracts Deployed",
-      "value": "1,800+",
-      "description": "Across all supported EVM chains"
+      "metric": "Time to Generate",
+      "value": "< 60s",
+      "description": "From brand description to complete design system"
     },
     {
-      "metric": "Users Onboarded",
-      "value": "4,500+",
-      "description": "Unique wallets that deployed at least one contract"
+      "metric": "Accessibility",
+      "value": "Built-in",
+      "description": "Automatic WCAG compliance evaluation on all color pairs"
     },
     {
-      "metric": "Gas Saved",
-      "value": "~32%",
-      "description": "Average gas optimization vs. naive OpenZeppelin implementations"
-    },
-    {
-      "metric": "Supported Chains",
-      "value": "5",
-      "description": "EVM-compatible chains at launch"
+      "metric": "Export Formats",
+      "value": "3",
+      "description": "CSS Variables, Tailwind Configuration, JSON"
     }
   ],
   "links": [
     { "label": "Live Platform", "url": "https://token-forge-three.vercel.app/", "type": "live" },
-    { "label": "GitHub", "url": "https://github.com/victoromolasoye/token-forge", "type": "github" },
     { "label": "Case Study", "url": "/projects/token-forge", "type": "case-study" }
   ],
-  "images": []
+  "images": [],
+  "sections": [
+    {
+      "title": "Research",
+      "content": "We explored existing workflows for creating design systems and discovered that most tools focus on editing existing systems rather than generating new ones. This revealed an opportunity to simplify the earliest stage of product design."
+    },
+    {
+      "title": "User Flow",
+      "content": "The experience was intentionally designed to require minimal learning: describe the brand, select optional mood and industry, generate design system, preview generated UI, edit tokens if needed, validate accessibility, export design tokens."
+    },
+    {
+      "title": "Design Decisions",
+      "content": "We intentionally reduced complexity by replacing dozens of configuration inputs with a conversational prompt—this lowers the learning curve for beginners while increasing speed for experienced designers. Seeing generated tokens applied immediately creates confidence and encourages iteration. Semantic naming improves scalability across teams, and accessibility is integrated into the generation process rather than treated as an afterthought."
+    },
+    {
+      "title": "Challenges",
+      "content": "One of our biggest challenges was balancing automation with user control. If the AI generated everything without customization, users might feel restricted. If users had to configure everything manually, the product would lose its speed advantage. We solved this through a hybrid workflow where AI creates the initial system while users retain complete editing control."
+    },
+    {
+      "title": "What I Learned",
+      "content": "This project expanded my understanding of design beyond interfaces. It challenged me to think about design systems as scalable products, AI-assisted user experiences, accessibility-first workflows, developer handoff, product thinking, and cross-functional collaboration. More importantly, it reinforced that great design isn't just about creating beautiful screens—it's about designing systems that help people work more efficiently."
+    }
+  ]
 }
