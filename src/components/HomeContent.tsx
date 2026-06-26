@@ -30,13 +30,13 @@ function SkillBar({ label, value }: { label: string; value: number }) {
   }, []);
 
   return (
-    <div ref={ref} className="space-y-1.5">
+    <div ref={ref} className="space-y-1">
       <div className="flex items-center justify-between">
-        <span className="text-sm font-medium text-slate-200">{label}</span>
-        <span className="text-sm tabular-nums text-indigo-400">{value}%</span>
+        <span className="text-xs font-medium text-slate-200">{label}</span>
+        <span className="text-xs tabular-nums text-indigo-400">{value}%</span>
       </div>
       <div
-        className="h-2 w-full overflow-hidden rounded-full"
+        className="h-1.5 w-full overflow-hidden rounded-full"
         style={{ backgroundColor: 'rgba(148, 163, 184, 0.12)' }}
         role="progressbar"
         aria-valuenow={value}
@@ -107,14 +107,14 @@ function HeroSection({ profile }: { profile: ProfileData }) {
 
 function SkillsSection({ profile }: { profile: ProfileData }) {
   return (
-    <section className="mb-24">
-      <h2 className="mb-8 text-heading-md text-white">Skills & Expertise</h2>
-      <div className="grid gap-10 md:grid-cols-2">
-        <div className="card p-6">
-          <h3 className="mb-5 text-label-lg uppercase tracking-wider text-indigo-400">
+    <section className="mb-16">
+      <h2 className="mb-5 text-heading-lg text-white">Skills & Expertise</h2>
+      <div className="grid gap-4 md:grid-cols-2">
+        <div className="card p-4">
+          <h3 className="mb-3 text-label-sm uppercase tracking-wider text-indigo-400">
             Tools & Technologies
           </h3>
-          <div className="space-y-4">
+          <div className="space-y-2.5">
             {profile.toolSkills.map((skill) => (
               <SkillBar
                 key={skill.name}
@@ -124,11 +124,11 @@ function SkillsSection({ profile }: { profile: ProfileData }) {
             ))}
           </div>
         </div>
-        <div className="card p-6">
-          <h3 className="mb-5 text-label-lg uppercase tracking-wider text-emerald-400">
+        <div className="card p-4">
+          <h3 className="mb-3 text-label-sm uppercase tracking-wider text-emerald-400">
             Disciplines
           </h3>
-          <div className="space-y-4">
+          <div className="space-y-2.5">
             {profile.softSkills.map((skill) => (
               <SkillBar
                 key={skill.name}
@@ -146,7 +146,7 @@ function SkillsSection({ profile }: { profile: ProfileData }) {
 function AboutSection({ profile }: { profile: ProfileData }) {
   return (
     <section id="about" className="mb-24">
-      <h2 className="mb-6 text-heading-md text-white">About Me</h2>
+      <h2 className="mb-6 text-heading-lg text-white">About Me</h2>
       <div className="card overflow-hidden p-0 sm:p-0">
         <div className="relative aspect-[16/9] w-full sm:aspect-[2/1]">
           <Image
@@ -250,7 +250,7 @@ function ExperienceSection({ profile }: { profile: ProfileData }) {
 
   return (
     <section id="experience" className="mb-24">
-      <h2 className="mb-8 text-heading-md text-white">Experience</h2>
+      <h2 className="mb-8 text-heading-lg text-white">Experience</h2>
       <div className="space-y-4">
         {profile.experience.map((exp, i) => (
           <div key={i} className="card p-5 sm:p-6">
@@ -290,7 +290,7 @@ function TestimonialsCarousel({ profile }: { profile: ProfileData }) {
 
   return (
     <section id="testimonials" className="mb-24">
-      <h2 className="mb-8 text-heading-md text-white">Testimonials</h2>
+      <h2 className="mb-8 text-heading-lg text-white">Testimonials</h2>
       <div className="relative mx-auto max-w-3xl overflow-hidden">
         <div className="relative h-[280px] sm:h-[240px]">
           <AnimatePresence custom={direction} mode="popLayout">
@@ -351,7 +351,7 @@ function TestimonialsCarousel({ profile }: { profile: ProfileData }) {
 function ProjectsSection({ projects }: { projects: ProjectData[] }) {
   return (
     <section id="projects" className="mb-24">
-      <h2 className="mb-8 text-heading-md text-white">Projects</h2>
+      <h2 className="mb-8 text-heading-lg text-white">Projects</h2>
       {projects.length > 0 ? (
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, i) => (
@@ -372,7 +372,7 @@ function FAQSection({ profile }: { profile: ProfileData }) {
 
   return (
     <section id="faq" className="mb-24">
-      <h2 className="mb-8 text-heading-md text-white">
+      <h2 className="mb-8 text-heading-lg text-white">
         Frequently Asked Questions
       </h2>
       <FAQAccordion items={profile.faqs} />
@@ -382,8 +382,46 @@ function FAQSection({ profile }: { profile: ProfileData }) {
 
 function FooterSection({ profile }: { profile: ProfileData }) {
   return (
-    <footer className="border-t border-slate-800/60 py-8 text-center">
-      <p className="text-body-sm text-slate-500">
+    <footer className="border-t border-slate-800/60 py-12 text-center">
+      <div className="mb-4 flex justify-center gap-4">
+        {profile.socials.linkedin && (
+          <a
+            href={profile.socials.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-slate-400 transition-colors hover:text-indigo-400"
+            aria-label="LinkedIn"
+          >
+            LinkedIn
+          </a>
+        )}
+        {profile.socials.contra && (
+          <a
+            href={profile.socials.contra}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-slate-400 transition-colors hover:text-emerald-400"
+            aria-label="Contra"
+          >
+            Contra
+          </a>
+        )}
+        <a
+          href={`mailto:${profile.email}`}
+          className="text-sm text-slate-400 transition-colors hover:text-indigo-400"
+        >
+          Email
+        </a>
+        <a
+          href={profile.resumeUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm text-slate-400 transition-colors hover:text-indigo-400"
+        >
+          CV
+        </a>
+      </div>
+      <p className="text-sm text-slate-600">
         &copy; {new Date().getFullYear()} {profile.name}. All rights reserved.
       </p>
     </footer>
