@@ -67,9 +67,19 @@ function HeroSection({ profile }: { profile: ProfileData }) {
           </span>
         ))}
       </div>
-      <p className="max-w-2xl text-body-lg text-slate-300">
+      <p className="mb-6 max-w-2xl text-body-lg text-slate-300">
         {profile.tagline}
       </p>
+      <a
+        href={`mailto:${profile.email}`}
+        className="inline-flex items-center gap-2 rounded-lg bg-indigo-500 px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-indigo-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/50"
+      >
+        Hire Me
+        <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M22 2L11 13" />
+          <path d="M22 2l-7 20-4-9-9-4 20-7z" />
+        </svg>
+      </a>
     </section>
   );
 }
@@ -288,8 +298,8 @@ export function HomeContent({ projects }: { projects: ProjectData[] }) {
     <main className="mx-auto min-h-screen max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
       <HeroSection profile={profile} />
       <SkillsSection profile={profile} />
-      <AboutSection profile={profile} />
       <ProjectsSection projects={projects} />
+      <AboutSection profile={profile} />
       <TestimonialsSection profile={profile} />
       <FAQSection profile={profile} />
       <FooterSection profile={profile} />
