@@ -571,11 +571,15 @@ function ContactForm() {
     e.preventDefault();
     setStatus('sending');
     const form = e.currentTarget;
-    const data = new FormData(form);
-    const res = await fetch('https://formspree.io/f/xrbpgjlp', {
+    const formData = new FormData(form);
+    const res = await fetch('/api/contact', {
       method: 'POST',
-      body: data,
-      headers: { Accept: 'application/json' },
+      body: JSON.stringify({
+        name: formData.get('name'),
+        email: formData.get('email'),
+        message: formData.get('message'),
+      }),
+      headers: { 'Content-Type': 'application/json' },
     });
     if (res.ok) {
       setStatus('sent');
