@@ -1,6 +1,8 @@
 'use client';
 
 import { useRef, useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { usePortfolio } from '@/context/PortfolioContext';
 import type { ProfileData } from '@/context/PortfolioContext';
 import type { ProjectData } from '@/types/project';
@@ -81,24 +83,38 @@ function AnimatedTitle({ titles }: { titles: string[] }) {
 
 function HeroSection({ profile }: { profile: ProfileData }) {
   return (
-    <section className="mb-24">
-      <h1 className="mb-5 text-display-md font-bold tracking-tight text-white sm:text-display-lg lg:text-display-xl">
-        {profile.name}
-      </h1>
-      <AnimatedTitle titles={profile.titles} />
-      <p className="mb-6 max-w-2xl text-body-lg text-slate-300">
-        {profile.tagline}
-      </p>
-      <a
-        href={`mailto:${profile.email}`}
-        className="inline-flex items-center gap-2 rounded-lg bg-indigo-500 px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-indigo-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/50"
-      >
-        Hire Me
-        <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-          <path d="M22 2L11 13" />
-          <path d="M22 2l-7 20-4-9-9-4 20-7z" />
-        </svg>
-      </a>
+    <section className="mb-24 flex flex-col items-start gap-8 sm:flex-row sm:items-center">
+      <div className="shrink-0">
+        <div className="relative size-28 overflow-hidden rounded-2xl border border-slate-700/50 sm:size-36">
+          <Image
+            src={profile.avatar}
+            alt={profile.name}
+            fill
+            className="object-cover"
+            sizes="(max-width: 640px) 112px, 144px"
+            priority
+          />
+        </div>
+      </div>
+      <div>
+        <h1 className="mb-5 text-display-md font-bold tracking-tight text-white sm:text-display-lg lg:text-display-xl">
+          {profile.name}
+        </h1>
+        <AnimatedTitle titles={profile.titles} />
+        <p className="mb-6 max-w-2xl text-body-lg text-slate-300">
+          {profile.tagline}
+        </p>
+        <a
+          href={`mailto:${profile.email}`}
+          className="inline-flex items-center gap-2 rounded-lg bg-indigo-500 px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-indigo-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/50"
+        >
+          Hire Me
+          <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M22 2L11 13" />
+            <path d="M22 2l-7 20-4-9-9-4 20-7z" />
+          </svg>
+        </a>
+      </div>
     </section>
   );
 }
@@ -264,30 +280,38 @@ function TestimonialsSection({ profile }: { profile: ProfileData }) {
       <h2 className="mb-8 text-heading-md text-white">Testimonials</h2>
       <div className="grid gap-6 md:grid-cols-2">
         {profile.testimonials.map((t, i) => (
-          <blockquote key={i} className="card flex flex-col p-6 sm:p-8">
-            <svg
-              className="mb-4 size-6 text-indigo-500/40"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151C7.563 6.068 6 8.789 6 11h4v10H0z" />
-            </svg>
-            <p className="mb-6 flex-1 text-body-md leading-relaxed text-slate-300">
-              &ldquo;{t.quote}&rdquo;
-            </p>
-            <footer>
-              <cite className="not-italic">
-                <span className="block text-sm font-medium text-white">
-                  {t.author}
-                </span>
-                <span className="text-sm text-slate-500">
-                  {t.role}
-                  {t.company ? ` @ ${t.company}` : ''}
-                </span>
-              </cite>
-            </footer>
-          </blockquote>
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.5, delay: i * 0.15 }}
+          >
+            <blockquote className="card flex flex-col p-6 sm:p-8">
+              <svg
+                className="mb-4 size-6 text-indigo-500/40"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151C7.563 6.068 6 8.789 6 11h4v10H0z" />
+              </svg>
+              <p className="mb-6 flex-1 text-body-md leading-relaxed text-slate-300">
+                &ldquo;{t.quote}&rdquo;
+              </p>
+              <footer>
+                <cite className="not-italic">
+                  <span className="block text-sm font-medium text-white">
+                    {t.author}
+                  </span>
+                  <span className="text-sm text-slate-500">
+                    {t.role}
+                    {t.company ? ` @ ${t.company}` : ''}
+                  </span>
+                </cite>
+              </footer>
+            </blockquote>
+          </motion.div>
         ))}
       </div>
     </section>
