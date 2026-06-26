@@ -571,17 +571,17 @@ function FooterSection({ socials }: { socials: ProfileData['socials'] }) {
 
   return (
     <footer className="border-t border-slate-800/60 py-12 text-center">
-      <div className="mb-6 flex flex-wrap items-center justify-center gap-3">
+      <div className="mb-6 flex items-center justify-center gap-5">
         {socialLinks.map((link) => (
           <a
             key={link.label}
             href={link.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-lg border border-slate-600/40 bg-slate-800/40 px-3.5 py-2 text-xs font-medium text-slate-400 transition-all hover:border-indigo-500/50 hover:bg-indigo-500/10 hover:text-indigo-300"
+            className="text-slate-500 transition-colors hover:text-indigo-400"
+            aria-label={link.label}
           >
-            <svg className="size-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">{link.icon}</svg>
-            {link.label}
+            <svg className="size-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">{link.icon}</svg>
           </a>
         ))}
       </div>
