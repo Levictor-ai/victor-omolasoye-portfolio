@@ -154,6 +154,7 @@ function AboutSection({ profile }: { profile: ProfileData }) {
             alt={profile.name}
             fill
             className="object-cover"
+            style={{ objectPosition: 'center 35%' }}
             sizes="100vw"
             priority
           />
