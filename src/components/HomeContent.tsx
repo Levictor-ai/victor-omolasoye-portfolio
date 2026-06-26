@@ -564,6 +564,73 @@ function BackToTop() {
   );
 }
 
+function ContactForm() {
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus('sending');
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const res = await fetch('https://formspree.io/f/xrbpgjlp', {
+      method: 'POST',
+      body: data,
+      headers: { Accept: 'application/json' },
+    });
+    if (res.ok) {
+      setStatus('sent');
+      form.reset();
+    } else {
+      setStatus('idle');
+    }
+  };
+
+  return (
+    <section id="contact" className="mb-16">
+      <h2 className="mb-6 text-heading-lg text-white">Get In Touch</h2>
+      <form onSubmit={handleSubmit} className="mx-auto max-w-xl space-y-4">
+        <div>
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            required
+            className="w-full rounded-lg border border-slate-700/40 bg-slate-800/40 px-4 py-2.5 text-sm text-slate-200 placeholder-slate-500 outline-none transition-colors focus:border-indigo-500/50 focus:bg-slate-800/60"
+          />
+        </div>
+        <div>
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            required
+            className="w-full rounded-lg border border-slate-700/40 bg-slate-800/40 px-4 py-2.5 text-sm text-slate-200 placeholder-slate-500 outline-none transition-colors focus:border-indigo-500/50 focus:bg-slate-800/60"
+          />
+        </div>
+        <div>
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            rows={4}
+            required
+            className="w-full rounded-lg border border-slate-700/40 bg-slate-800/40 px-4 py-2.5 text-sm text-slate-200 placeholder-slate-500 outline-none transition-colors focus:border-indigo-500/50 focus:bg-slate-800/60"
+          />
+        </div>
+        <button
+          type="submit"
+          disabled={status === 'sending'}
+          className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-indigo-500 px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-indigo-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/50 disabled:opacity-50"
+        >
+          {status === 'sending' ? 'Sending...' : 'Send Message'}
+        </button>
+        {status === 'sent' && (
+          <p className="text-center text-sm text-emerald-400">Message sent!</p>
+        )}
+      </form>
+    </section>
+  );
+}
+
 function FooterSection({ socials }: { socials: ProfileData['socials'] }) {
   const socialLinks = [
     socials.linkedin && {
@@ -642,6 +709,7 @@ export function HomeContent({ projects }: { projects: ProjectData[] }) {
         <ArticlesSection />
         <TestimonialsCarousel profile={profile} />
         <FAQSection profile={profile} />
+        <ContactForm />
         <FooterSection socials={profile.socials} />
       </main>
       <BackToTop />

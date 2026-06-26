@@ -141,7 +141,7 @@ const defaultProfile: ProfileData = {
     {
       question: 'How can I work with you?',
       answer:
-        'You can reach me via email at victor@omolasoye.com or connect with me on LinkedIn. I typically respond within 24 hours.',
+        'You can reach me via email at omolasoyevictorakinyemi@gmail.com or connect with me on LinkedIn. I typically respond within 24 hours.',
     },
   ],
   resumeUrl: 'https://canva.link/pl0y6d2kdh90hm1',
