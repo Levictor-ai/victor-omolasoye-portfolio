@@ -62,9 +62,9 @@ const defaultProfile: ProfileData = {
   socials: {
     linkedin: 'https://www.linkedin.com/in/omolasoyevictor/',
     contra: 'https://contra.com/omolasoye_victor_akinye_wziw3jpo',
-    github: 'https://github.com/victoromolasoye',
-    behance: 'https://www.behance.net/victoromolasoye',
-    twitter: 'https://x.com/omolasoye_victor',
+    github: 'https://github.com/Levictor-ai',
+    behance: 'https://www.behance.net/victoromo',
+    twitter: 'https://x.com/mlevictor21',
   },
   toolSkills: [
     { name: 'Figma', percentage: 95 },
