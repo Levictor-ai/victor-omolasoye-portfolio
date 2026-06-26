@@ -259,7 +259,7 @@ function AboutSection({ profile }: { profile: ProfileData }) {
             alt={profile.name}
             fill
             className="object-cover"
-            style={{ objectPosition: 'center 30%' }}
+            style={{ objectPosition: 'center 25%' }}
             sizes="100vw"
             priority
           />
@@ -513,9 +513,10 @@ function FooterSection({ profile }: { profile: ProfileData }) {
           CV
         </a>
       </div>
-      <p className="text-sm text-slate-600">
-        &copy; {new Date().getFullYear()} {profile.name}. All rights reserved.
+      <p className="mx-auto max-w-2xl text-balance text-sm leading-relaxed italic text-slate-400">
+        &ldquo;Good design is expensive because it&rsquo;s created with the most valuable resource we have&mdash;time, which is life.&rdquo;
       </p>
+      <p className="mt-2 text-sm text-slate-500">&mdash; Victor Omolasoye</p>
     </footer>
   );
 }
