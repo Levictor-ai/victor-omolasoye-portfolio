@@ -259,7 +259,7 @@ function AboutSection({ profile }: { profile: ProfileData }) {
           width={1200}
           height={675}
           className="w-full rounded-xl object-cover"
-          style={{ objectPosition: 'center 5%' }}
+          style={{ objectPosition: 'center 70%' }}
           sizes="100vw"
           priority
         />
