@@ -262,7 +262,7 @@ function AboutSection({ profile }: { profile: ProfileData }) {
     <section id="about" className="mb-16">
       <h2 className="mb-6 text-heading-lg text-white">About Me</h2>
       <div className="card overflow-hidden p-0 sm:p-0">
-        <div className="relative aspect-[3/2] w-full sm:aspect-[16/7]">
+        <div className="relative aspect-[4/5] w-full sm:aspect-[3/2]">
           <Image
             src={profile.avatar}
             alt={profile.name}
@@ -465,7 +465,7 @@ function Nav({ avatar }: { avatar: string }) {
         </a>
         <button
           onClick={() => setOpen(!open)}
-          className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm text-slate-400 transition-colors hover:bg-slate-800/60 hover:text-white sm:hidden"
+          className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm text-slate-400 transition-colors hover:bg-slate-800/60 hover:text-white"
           aria-label="Toggle navigation"
         >
           <svg className="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -484,14 +484,14 @@ function Nav({ avatar }: { avatar: string }) {
           </svg>
           <span>{open ? 'Close' : 'Menu'}</span>
         </button>
-        <div className={`${open ? 'flex' : 'hidden'} absolute right-4 top-full z-50 min-w-[200px] flex-col rounded-xl border border-slate-700/40 bg-[#0B0F19] p-2 shadow-xl sm:static sm:flex sm:flex-row sm:border-none sm:bg-transparent sm:p-0 sm:shadow-none`}>
+        <div className={`${open ? 'flex' : 'hidden'} absolute right-4 top-full z-50 min-w-[200px] flex-col rounded-xl border border-slate-700/40 bg-[#0B0F19] p-2 shadow-xl`}>
           <div className="flex flex-col gap-2 sm:flex-row sm:gap-4">
             {links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="flex items-center gap-2 shrink-0 rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-slate-800/60 hover:text-indigo-400 sm:bg-transparent sm:p-0 sm:hover:bg-transparent"
+                className="flex items-center gap-2 shrink-0 rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-slate-800/60 hover:text-indigo-400"
               >
                 <svg className="size-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d={link.icon} />
