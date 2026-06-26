@@ -453,13 +453,15 @@ function Nav({ avatar }: { avatar: string }) {
   return (
     <nav className="sticky top-0 z-50 border-b border-slate-800/60 bg-[#0B0F19]/80 backdrop-blur-lg">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-3 sm:px-8 lg:px-12">
-        <a href="#" className="flex items-center">
+        <a href="#" className="relative flex items-center">
+          <span className="absolute inset-0 animate-ping rounded-full bg-indigo-400/30" />
+          <span className="absolute inset-0 animate-spin rounded-full border-2 border-transparent border-t-indigo-400/40" />
           <Image
             src={avatar}
             alt="Victor Omolasoye"
             width={32}
             height={32}
-            className="size-8 rounded-full object-cover"
+            className="relative size-8 rounded-full object-cover"
             style={{ objectPosition: 'top' }}
           />
         </a>
@@ -484,7 +486,9 @@ function Nav({ avatar }: { avatar: string }) {
           </svg>
           <span>{open ? 'Close' : 'Menu'}</span>
         </button>
-        <div className={`${open ? 'flex' : 'hidden'} absolute right-4 top-full z-50 min-w-[200px] flex-col rounded-xl border border-slate-700/40 bg-[#0B0F19] p-2 shadow-xl`}>
+        <div className={`absolute right-4 top-full z-50 min-w-[200px] flex-col rounded-xl border border-slate-700/40 bg-[#0B0F19] p-2 shadow-xl sm:static sm:z-auto sm:min-w-0 sm:flex-row sm:rounded-none sm:border-none sm:bg-transparent sm:p-0 sm:shadow-none ${
+          open ? 'flex' : 'hidden'
+        } sm:flex`}>
           <div className="flex flex-col gap-2 sm:flex-row sm:gap-4">
             {links.map((link) => (
               <a
