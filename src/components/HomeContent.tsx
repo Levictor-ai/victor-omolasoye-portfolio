@@ -51,22 +51,41 @@ function SkillBar({ label, value }: { label: string; value: number }) {
   );
 }
 
+function AnimatedTitle({ titles }: { titles: string[] }) {
+  const [index, setIndex] = useState(0);
+  const [fade, setFade] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFade(false);
+      setTimeout(() => {
+        setIndex((prev) => (prev + 1) % titles.length);
+        setFade(true);
+      }, 200);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [titles.length]);
+
+  return (
+    <div className="mb-6">
+      <span
+        className={`inline-flex items-center rounded-full border border-indigo-500/20 bg-indigo-500/10 px-3.5 py-1 text-sm font-medium text-indigo-300 transition-opacity duration-200 ${
+          fade ? 'opacity-100' : 'opacity-0'
+        }`}
+      >
+        {titles[index]}
+      </span>
+    </div>
+  );
+}
+
 function HeroSection({ profile }: { profile: ProfileData }) {
   return (
     <section className="mb-24">
       <h1 className="mb-5 text-display-md font-bold tracking-tight text-white sm:text-display-lg lg:text-display-xl">
         {profile.name}
       </h1>
-      <div className="mb-6 flex flex-wrap gap-2">
-        {profile.titles.map((title) => (
-          <span
-            key={title}
-            className="inline-flex items-center rounded-full border border-indigo-500/20 bg-indigo-500/10 px-3.5 py-1 text-sm font-medium text-indigo-300"
-          >
-            {title}
-          </span>
-        ))}
-      </div>
+      <AnimatedTitle titles={profile.titles} />
       <p className="mb-6 max-w-2xl text-body-lg text-slate-300">
         {profile.tagline}
       </p>
@@ -211,6 +230,32 @@ function LinkButton({
   );
 }
 
+function ExperienceSection({ profile }: { profile: ProfileData }) {
+  if (profile.experience.length === 0) return null;
+
+  return (
+    <section id="experience" className="mb-24">
+      <h2 className="mb-8 text-heading-md text-white">Experience</h2>
+      <div className="space-y-4">
+        {profile.experience.map((exp, i) => (
+          <div key={i} className="card p-5 sm:p-6">
+            <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
+              <div>
+                <h3 className="text-heading-sm text-white">{exp.role}</h3>
+                <p className="text-sm text-indigo-400">{exp.company}</p>
+              </div>
+              <span className="shrink-0 text-sm text-slate-500">{exp.period}</span>
+            </div>
+            {exp.description && (
+              <p className="mt-3 text-body-sm text-slate-400">{exp.description}</p>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function TestimonialsSection({ profile }: { profile: ProfileData }) {
   if (profile.testimonials.length === 0) return null;
 
@@ -300,6 +345,7 @@ export function HomeContent({ projects }: { projects: ProjectData[] }) {
       <SkillsSection profile={profile} />
       <ProjectsSection projects={projects} />
       <AboutSection profile={profile} />
+      <ExperienceSection profile={profile} />
       <TestimonialsSection profile={profile} />
       <FAQSection profile={profile} />
       <FooterSection profile={profile} />

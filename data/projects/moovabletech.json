@@ -1,0 +1,66 @@
+{
+  "slug": "moovabletech",
+  "title": "Moovabletech",
+  "subtitle": "Mobility & Logistics Platform",
+  "role": "UI/UX Product Designer",
+  "company": "Moovable Technology Limited",
+  "companyUrl": null,
+  "period": "Jan 2026 — Present",
+  "coverImage": "/images/projects/moovabletech/cover.jpg",
+  "color": "#f59e0b",
+  "overview": "Moovabletech is a mobility and logistics platform designed to streamline urban transportation and delivery services across African cities. The product focuses on reliability, real-time tracking, and seamless payment integration.",
+  "problem": "Urban mobility in African cities faced challenges with unreliable tracking, inconsistent pricing, fragmented payment options, and poor user experience across existing platforms.",
+  "solution": "A unified mobility platform with real-time GPS tracking, transparent fare calculation, multi-payment support (card, mobile money, cash), and an intuitive interface optimized for low-bandwidth environments.",
+  "targetAudience": ["Urban Commuters", "Delivery Businesses", "Fleet Operators"],
+  "regions": ["Nigeria", "Ghana"],
+  "timeline": "Ongoing",
+  "features": [
+    {
+      "title": "Real-Time Tracking",
+      "description": "Live GPS tracking with estimated arrival times and route visualisation, optimised for low-bandwidth networks."
+    },
+    {
+      "title": "Multi-Payment Gateway",
+      "description": "Integrated card payments, mobile money (Paystack, Flutterwave), and cash options with instant confirmation."
+    },
+    {
+      "title": "Fleet Management Dashboard",
+      "description": "Operator dashboard for managing drivers, monitoring trips, and viewing analytics on fleet performance."
+    }
+  ],
+  "techStack": [
+    { "name": "Figma", "category": "design" },
+    { "name": "Framer", "category": "design" },
+    { "name": "React Native", "category": "frontend" },
+    { "name": "TypeScript", "category": "frontend" },
+    { "name": "Node.js", "category": "backend" },
+    { "name": "PostgreSQL", "category": "backend" },
+    { "name": "Firebase", "category": "backend" },
+    { "name": "Google Maps API", "category": "tools" }
+  ],
+  "architecture": {
+    "title": "Mobile-First with Real-Time Sync",
+    "description": "The platform uses a mobile-first architecture with Firestore real-time listeners for live tracking updates and a Node.js backend for fare calculation and payment orchestration.",
+    "highlights": [
+      "Firestore real-time listeners for live GPS updates",
+      "Serverless fare calculation via Firebase Functions",
+      "Offline-first data synchronisation for low-connectivity areas"
+    ]
+  },
+  "results": [
+    {
+      "metric": "Active Users",
+      "value": "500+",
+      "description": "Beta users across Lagos and Accra"
+    },
+    {
+      "metric": "On-Time Rate",
+      "value": "92%",
+      "description": "Trip completion within estimated window"
+    }
+  ],
+  "links": [
+    { "label": "Case Study", "url": "/projects/moovabletech", "type": "case-study" }
+  ],
+  "images": []
+}
