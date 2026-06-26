@@ -44,8 +44,8 @@ function SkillBar({ label, value }: { label: string; value: number }) {
         aria-label={`${label}: ${value}%`}
       >
         <div
-          className="h-full rounded-full bg-gradient-to-r from-indigo-400 to-violet-500 transition-all duration-1000 ease-out"
-          style={{ width: isVisible ? `${value}%` : '0%' }}
+          className="h-full rounded-full transition-all duration-1000 ease-out"
+          style={{ width: isVisible ? `${value}%` : '0%', backgroundColor: '#818CF8' }}
         />
       </div>
     </div>
@@ -71,7 +71,7 @@ function AnimatedTitle({ titles }: { titles: string[] }) {
   return (
     <div className="mb-2">
       <span
-        className={`inline-block bg-gradient-to-r from-indigo-300 to-violet-300 bg-clip-text text-transparent text-2xl font-bold transition-all duration-400 sm:text-3xl ${
+        className={`inline-block text-2xl font-bold text-indigo-300 transition-all duration-400 sm:text-3xl ${
           state === 'visible'
             ? 'opacity-100 translate-y-0'
             : state === 'exiting'
@@ -93,9 +93,9 @@ function HeroSection({ profile }: { profile: ProfileData }) {
   return (
     <section className="mb-14">
       <AvailableBanner />
-      <h1 className="mb-2 text-display-md font-bold leading-[0.9] tracking-tight sm:text-display-lg lg:text-display-xl">
-        <span className="block bg-gradient-to-r from-indigo-300 via-indigo-200 to-violet-300 bg-clip-text text-transparent">VICTOR</span>
-        <span className="block bg-gradient-to-r from-indigo-300 via-indigo-200 to-violet-300 bg-clip-text text-transparent">OMOLASOYE</span>
+      <h1 className="mb-2 text-display-md font-bold leading-[0.9] tracking-tight text-white sm:text-display-lg lg:text-display-xl">
+        <span className="block">VICTOR</span>
+        <span className="block">OMOLASOYE</span>
       </h1>
       <AnimatedTitle titles={profile.titles} />
       <p className="mb-4 max-w-2xl text-body-lg text-slate-300">
@@ -104,7 +104,7 @@ function HeroSection({ profile }: { profile: ProfileData }) {
       <div className="flex flex-wrap gap-3">
         <a
           href={`mailto:${profile.email}`}
-          className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-indigo-500 to-violet-500 px-5 py-2.5 text-sm font-medium text-white transition-all hover:from-indigo-400 hover:to-violet-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/50"
+          className="inline-flex items-center gap-2 rounded-lg bg-indigo-500 px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-indigo-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/50"
         >
           Hire Me
           <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -185,7 +185,7 @@ const articles = [
 function ArticlesSection() {
   return (
     <section id="articles" className="mb-16">
-      <h2 className="mb-6 bg-gradient-to-r from-indigo-300 to-violet-300 bg-clip-text text-transparent text-heading-lg">Articles</h2>
+      <h2 className="mb-6 text-heading-lg text-white">Articles</h2>
       <div className="space-y-3">
         {articles.map((article, i) => (
           <a
@@ -222,7 +222,7 @@ function ArticlesSection() {
 function SkillsSection({ profile }: { profile: ProfileData }) {
   return (
     <section id="skills" className="mb-16">
-      <h2 className="mb-5 bg-gradient-to-r from-indigo-300 to-violet-300 bg-clip-text text-transparent text-heading-lg">Skills & Expertise</h2>
+      <h2 className="mb-5 text-heading-lg text-white">Skills & Expertise</h2>
       <div className="grid gap-6 sm:grid-cols-2">
         <div>
           <h3 className="mb-4 text-label-sm uppercase tracking-wider text-indigo-400">
@@ -260,7 +260,7 @@ function SkillsSection({ profile }: { profile: ProfileData }) {
 function AboutSection({ profile }: { profile: ProfileData }) {
   return (
     <section id="about" className="mb-16">
-      <h2 className="mb-6 bg-gradient-to-r from-indigo-300 to-violet-300 bg-clip-text text-transparent text-heading-lg">About Me</h2>
+      <h2 className="mb-6 text-heading-lg text-white">About Me</h2>
       <div className="card overflow-hidden p-0 sm:p-0">
         <div className="relative aspect-[3/2] w-full sm:aspect-[16/7]">
           <Image
@@ -351,7 +351,7 @@ function ExperienceSection({ profile }: { profile: ProfileData }) {
 
   return (
     <section id="experience" className="mb-16">
-      <h2 className="mb-8 bg-gradient-to-r from-indigo-300 to-violet-300 bg-clip-text text-transparent text-heading-lg">Experience</h2>
+      <h2 className="mb-8 text-heading-lg text-white">Experience</h2>
       <div className="space-y-4">
         {profile.experience.map((exp, i) => (
           <div key={i} className="card p-4 sm:p-5">
@@ -391,7 +391,7 @@ function TestimonialsCarousel({ profile }: { profile: ProfileData }) {
 
   return (
     <section id="testimonials" className="mb-16">
-      <h2 className="mb-6 bg-gradient-to-r from-indigo-300 to-violet-300 bg-clip-text text-transparent text-heading-lg">Testimonials</h2>
+      <h2 className="mb-6 text-heading-lg text-white">Testimonials</h2>
       <div className="relative mx-auto max-w-3xl overflow-hidden">
         <div className="relative h-[280px] sm:h-[240px]">
           <AnimatePresence custom={direction} mode="popLayout">
@@ -452,7 +452,7 @@ function TestimonialsCarousel({ profile }: { profile: ProfileData }) {
 function ProjectsSection({ projects }: { projects: ProjectData[] }) {
   return (
     <section id="projects" className="mb-16">
-      <h2 className="mb-6 bg-gradient-to-r from-indigo-300 to-violet-300 bg-clip-text text-transparent text-heading-lg">Featured Projects</h2>
+      <h2 className="mb-6 text-heading-lg text-white">Featured Projects</h2>
       {projects.length > 0 ? (
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, i) => (
@@ -473,7 +473,7 @@ function FAQSection({ profile }: { profile: ProfileData }) {
 
   return (
     <section id="faq" className="mb-16">
-      <h2 className="mb-6 bg-gradient-to-r from-indigo-300 to-violet-300 bg-clip-text text-transparent text-heading-lg">
+      <h2 className="mb-6 text-heading-lg text-white">
         Frequently Asked Questions
       </h2>
       <FAQAccordion items={profile.faqs} />
