@@ -71,7 +71,7 @@ function AnimatedTitle({ titles }: { titles: string[] }) {
   return (
     <div className="mb-6">
       <span
-        className={`inline-flex items-center rounded-full border border-indigo-500/20 bg-indigo-500/10 px-5 py-1.5 text-base font-semibold text-indigo-300 transition-opacity duration-200 ${
+        className={`inline-block text-2xl font-bold text-indigo-300 transition-opacity duration-200 sm:text-3xl ${
           fade ? 'opacity-100' : 'opacity-0'
         }`}
       >
@@ -84,6 +84,7 @@ function AnimatedTitle({ titles }: { titles: string[] }) {
 function HeroSection({ profile }: { profile: ProfileData }) {
   return (
     <section className="mb-24">
+      <AvailableBanner />
       <h1 className="mb-5 text-display-md font-bold tracking-tight text-white sm:text-display-lg lg:text-display-xl">
         {profile.name}
       </h1>
@@ -101,6 +102,94 @@ function HeroSection({ profile }: { profile: ProfileData }) {
           <path d="M22 2l-7 20-4-9-9-4 20-7z" />
         </svg>
       </a>
+    </section>
+  );
+}
+
+function AvailableBanner() {
+  return (
+    <div className="mb-8 flex items-center gap-2.5">
+      <span className="relative flex size-3">
+        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+        <span className="relative inline-flex size-3 rounded-full bg-emerald-400" />
+      </span>
+      <span className="text-sm font-medium text-emerald-400">
+        Available for work
+      </span>
+    </div>
+  );
+}
+
+const articles = [
+  {
+    title:
+      'Vibe Coding Has Changed How Software Gets Built',
+    url: 'https://medium.com/@omolasoyevictorakinyemi/the-prd-in-vibe-coding-840594221458',
+  },
+  {
+    title:
+      'Design System Fundamentals: What They Really Are and Why They Matter',
+    url: 'https://medium.com/@omolasoyevictorakinyemi/design-system-fundamentals-what-they-really-are-and-why-they-matter-08df08a9f2d3',
+  },
+  {
+    title:
+      'The Quiet Power of UX Writing: Why Microcopy Decides Whether Your Design Works',
+    url: 'https://medium.com/@omolasoyevictorakinyemi/the-quiet-power-of-ux-writing-why-microcopy-decides-whether-your-design-works-0eb44fc72b55',
+  },
+  {
+    title:
+      'WCAG 2.1 Explained: What Every Product Designer Should Know About Accessibility',
+    url: 'https://medium.com/@omolasoyevictorakinyemi/wcag-2-1-explained-what-every-product-designer-should-know-about-accessibility-534cc6fa665a',
+  },
+  {
+    title:
+      'Why Most Designers Fail at the Ideate Stage (A Product Designer\u2019s Perspective)',
+    url: 'https://medium.com/@omolasoyevictorakinyemi/why-most-designers-fail-at-the-ideate-stage-a-product-designers-perspective-78f9ee120aad',
+  },
+  {
+    title:
+      'Scalability Starts on Paper: The Hidden Power of a PRD',
+    url: 'https://medium.com/@omolasoyevictorakinyemi/scalability-starts-on-paper-the-hidden-power-of-a-prd-99720508a680',
+  },
+  {
+    title: 'Typography Hierarchy',
+    url: 'https://medium.com/@omolasoyevictorakinyemi/typography-hierarchy-cf2d6b619556',
+  },
+];
+
+function ArticlesSection() {
+  return (
+    <section id="articles" className="mb-24">
+      <h2 className="mb-8 text-heading-lg text-white">Articles</h2>
+      <div className="space-y-3">
+        {articles.map((article, i) => (
+          <a
+            key={i}
+            href={article.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="card flex items-center gap-3 p-4 transition-all hover:border-indigo-500/30 hover:bg-slate-800/30 sm:p-5"
+          >
+            <span className="flex size-7 shrink-0 items-center justify-center rounded-md bg-indigo-500/10 text-xs font-bold text-indigo-400">
+              {String(i + 1).padStart(2, '0')}
+            </span>
+            <span className="flex-1 text-sm font-medium text-slate-200 transition-colors group-hover:text-indigo-300 sm:text-base">
+              {article.title}
+            </span>
+            <svg
+              className="size-4 shrink-0 text-slate-500"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M7 17l9.2-9.2M17 17V7H7" />
+            </svg>
+          </a>
+        ))}
+      </div>
     </section>
   );
 }
@@ -154,7 +243,7 @@ function AboutSection({ profile }: { profile: ProfileData }) {
             alt={profile.name}
             fill
             className="object-cover"
-            style={{ objectPosition: 'center 35%' }}
+            style={{ objectPosition: 'center 18%' }}
             sizes="100vw"
             priority
           />
@@ -437,6 +526,7 @@ export function HomeContent({ projects }: { projects: ProjectData[] }) {
       <HeroSection profile={profile} />
       <SkillsSection profile={profile} />
       <ProjectsSection projects={projects} />
+      <ArticlesSection />
       <AboutSection profile={profile} />
       <ExperienceSection profile={profile} />
       <TestimonialsCarousel profile={profile} />
