@@ -1,0 +1,84 @@
+{
+  "slug": "token-forge",
+  "title": "Token Forge",
+  "subtitle": "Smart Contract Generator & ERC-20 Dashboard",
+  "role": "Blockchain Developer",
+  "company": "Token Forge",
+  "companyUrl": null,
+  "period": "Oct 2022 — Feb 2023",
+  "coverImage": "/images/projects/token-forge/cover.jpg",
+  "color": "#10b981",
+  "overview": "Token Forge is a no-code smart contract generator that enables users to deploy ERC-20, ERC-721, and ERC-1155 tokens across multiple EVM-compatible chains without writing a single line of Solidity.",
+  "problem": "Launching a token required deep Solidity expertise, auditing knowledge, and familiarity with multiple blockchain explorers. Non-technical founders and communities had no accessible way to tokenize assets or create community tokens.",
+  "solution": "A visual drag-and-drop interface that generates production-ready, OpenZeppelin-audited smart contracts. Users configure token parameters through a wizard and deploy with one click to any supported EVM chain.",
+  "targetAudience": ["Web3 Founders", "DAO Communities", "NFT Creators", "Developers"],
+  "regions": ["Global"],
+  "timeline": "5 months (v1 with 3 token standards)",
+  "features": [
+    {
+      "title": "Visual Contract Builder",
+      "description": "Step-by-step wizard for configuring token name, symbol, supply, decimals, mintability, burnability, and pausability through an intuitive UI."
+    },
+    {
+      "title": "Multi-Chain Deployment",
+      "description": "Deploy to Ethereum, Polygon, BNB Chain, Avalanche, and Base with automatic RPC switching and gas estimation before deployment."
+    },
+    {
+      "title": "Built-in Audit Checklist",
+      "description": "Pre-deployment security scan that checks for common vulnerabilities, checks-effects-interactions patterns, and reentrancy guards."
+    },
+    {
+      "title": "Dashboard & Analytics",
+      "description": "Post-deployment dashboard showing holder distribution, transfer volume, top holders, and contract interactions in real-time."
+    }
+  ],
+  "techStack": [
+    { "name": "Next.js", "category": "frontend" },
+    { "name": "TypeScript", "category": "frontend" },
+    { "name": "Solidity", "category": "backend" },
+    { "name": "Hardhat", "category": "tools" },
+    { "name": "Ethers.js", "category": "frontend" },
+    { "name": "Wagmi", "category": "frontend" },
+    { "name": "The Graph", "category": "backend" },
+    { "name": "IPFS", "category": "infra" },
+    { "name": "Figma", "category": "design" }
+  ],
+  "architecture": {
+    "title": "Monorepo with Off-Chain/On-Chain Separation",
+    "description": "Token Forge uses a monorepo structure separating the Next.js frontend, Hardhat contract compilation pipeline, and Graph indexing layer. Smart contracts follow the factory pattern, deploying user tokens through a proxy registry.",
+    "highlights": [
+      "Factory contract pattern for gas-efficient deployment",
+      "OpenZeppelin Defender for admin key management",
+      "The Graph hosted service for on-chain data indexing",
+      "CID-based versioning for contract metadata on IPFS"
+    ]
+  },
+  "results": [
+    {
+      "metric": "Contracts Deployed",
+      "value": "1,800+",
+      "description": "Across all supported EVM chains"
+    },
+    {
+      "metric": "Users Onboarded",
+      "value": "4,500+",
+      "description": "Unique wallets that deployed at least one contract"
+    },
+    {
+      "metric": "Gas Saved",
+      "value": "~32%",
+      "description": "Average gas optimization vs. naive OpenZeppelin implementations"
+    },
+    {
+      "metric": "Supported Chains",
+      "value": "5",
+      "description": "EVM-compatible chains at launch"
+    }
+  ],
+  "links": [
+    { "label": "Live Platform", "url": "https://tokenforge.dev", "type": "live" },
+    { "label": "GitHub", "url": "https://github.com/victoromolasoye/token-forge", "type": "github" },
+    { "label": "Case Study", "url": "/projects/token-forge", "type": "case-study" }
+  ],
+  "images": []
+}

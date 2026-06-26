@@ -1,0 +1,82 @@
+{
+  "slug": "linkbucket",
+  "title": "Linkbucket",
+  "subtitle": "Link Management & Analytics Tool",
+  "role": "Full-Stack Developer",
+  "company": "Linkbucket",
+  "companyUrl": null,
+  "period": "Mar 2023 — May 2023",
+  "coverImage": "/images/projects/linkbucket/cover.jpg",
+  "color": "#a855f7",
+  "overview": "Linkbucket is a link-in-bio and URL management platform tailored for African creators and small businesses. It provides detailed click analytics, custom domains, and mobile-optimized landing pages.",
+  "problem": "African creators and SMEs needed an affordable, fast link management tool with proper analytics. Existing solutions were priced in USD, slow on local networks, and lacked region-specific features like mobile money payment links.",
+  "solution": "A lightweight link management platform with a free tier optimized for African mobile users. Includes QR code generation, click heatmaps, and integrations with Paystack and Flutterwave for payment link support.",
+  "targetAudience": ["Content Creators", "Small Business Owners", "Influencers"],
+  "regions": ["Nigeria", "Ghana", "South Africa", "Kenya"],
+  "timeline": "3 months (MVP)",
+  "features": [
+    {
+      "title": "Smart Link Shortening",
+      "description": "Custom short links with emoji support, UTM parameter forwarding, and expiration date settings for time-sensitive campaigns."
+    },
+    {
+      "title": "Analytics Dashboard",
+      "description": "Real-time click analytics with geographic heatmaps, device breakdown, referrer tracking, and hourly activity graphs."
+    },
+    {
+      "title": "Mobile Landing Pages",
+      "description": "Optimized link-in-bio landing pages that load instantly on 3G/4G networks with AMP-like performance characteristics."
+    },
+    {
+      "title": "Payment Link Integration",
+      "description": "Native integration with Paystack and Flutterwave allowing creators to embed payment buttons directly in their link pages."
+    }
+  ],
+  "techStack": [
+    { "name": "React", "category": "frontend" },
+    { "name": "TypeScript", "category": "frontend" },
+    { "name": "Node.js", "category": "backend" },
+    { "name": "MongoDB", "category": "backend" },
+    { "name": "Redis", "category": "backend" },
+    { "name": "DigitalOcean", "category": "infra" },
+    { "name": "Chart.js", "category": "frontend" },
+    { "name": "Figma", "category": "design" }
+  ],
+  "architecture": {
+    "title": "API-First with Caching at Edge",
+    "description": "Linkbucket uses a Node.js API server with Redis caching at the edge for sub-50ms redirect resolution. The analytics pipeline uses a worker-based architecture for async event processing.",
+    "highlights": [
+      "Redis-based URL cache for instant redirects",
+      "Worker threads for async analytics processing",
+      "Rate limiting with token bucket algorithm",
+      "Static generation for public link-in-bio pages"
+    ]
+  },
+  "results": [
+    {
+      "metric": "Links Created",
+      "value": "12,000+",
+      "description": "Total shortened links in the first month"
+    },
+    {
+      "metric": "Clicks Tracked",
+      "value": "340,000+",
+      "description": "Analytics events processed monthly"
+    },
+    {
+      "metric": "Avg. Redirect Time",
+      "value": "< 40ms",
+      "description": "Global average redirect resolution time"
+    },
+    {
+      "metric": "Active Users",
+      "value": "2,100+",
+      "description": "Registered users within 30 days of launch"
+    }
+  ],
+  "links": [
+    { "label": "Live Platform", "url": "https://linkbucket.io", "type": "live" },
+    { "label": "Case Study", "url": "/projects/linkbucket", "type": "case-study" }
+  ],
+  "images": []
+}

@@ -1,0 +1,87 @@
+{
+  "slug": "hapnin",
+  "title": "Hapnin",
+  "subtitle": "Social Event Discovery Platform",
+  "role": "Product Engineer",
+  "company": "Hapnin",
+  "companyUrl": null,
+  "period": "Jun 2023 — Dec 2023",
+  "coverImage": "/images/projects/hapnin/cover.jpg",
+  "color": "#22d3ee",
+  "overview": "Hapnin is a location-based social discovery platform that helps users find and share real-time events happening around them. Built with a focus on zero-friction onboarding and hyper-local relevance.",
+  "problem": "Existing event discovery tools required lengthy setup, lacked real-time accuracy, and failed to surface spontaneous local gatherings. Users missed out on events happening in their immediate vicinity.",
+  "solution": "A lightweight mobile-first PWA that leverages geolocation and interest-based filtering to surface events within a customizable radius. Users can create events in under 30 seconds and share them instantly via link.",
+  "targetAudience": ["Young Professionals", "University Students", "Event Organizers"],
+  "regions": ["Nigeria", "Ghana", "Kenya"],
+  "timeline": "7 months (idea to launch)",
+  "features": [
+    {
+      "title": "Instant Event Creation",
+      "description": "Create and publish an event in under 30 seconds with minimal required fields. Auto-fills location and time from device context."
+    },
+    {
+      "title": "Hyper-local Feed",
+      "description": "Geolocation-powered feed showing events within 1km, 5km, or 25km radius with real-time updates as events are created."
+    },
+    {
+      "title": "Interest Matching",
+      "description": "Onboarding-free interest detection using implicit signals from event interactions to personalize the discovery feed."
+    },
+    {
+      "title": "Shareable Event Links",
+      "description": "Every event generates a unique shareable link optimized for WhatsApp and Instagram sharing with rich preview cards."
+    }
+  ],
+  "techStack": [
+    { "name": "Next.js", "category": "frontend" },
+    { "name": "TypeScript", "category": "frontend" },
+    { "name": "Tailwind CSS", "category": "frontend" },
+    { "name": "Supabase", "category": "backend" },
+    { "name": "PostgreSQL", "category": "backend" },
+    { "name": "Mapbox GL", "category": "frontend" },
+    { "name": "Vercel", "category": "infra" },
+    { "name": "Figma", "category": "design" }
+  ],
+  "architecture": {
+    "title": "Serverless-First with Real-Time Subscriptions",
+    "description": "Hapnin leverages Supabase real-time subscriptions for live event updates. The serverless backend handles geolocation queries through PostGIS extensions, with edge functions processing location-based ranking algorithms.",
+    "highlights": [
+      "PostGIS-powered spatial queries for radius-based filtering",
+      "Supabase real-time channels for live feed updates",
+      "Edge functions for location processing and event ranking",
+      "Static generation for event share pages with ISR"
+    ]
+  },
+  "results": [
+    {
+      "metric": "Events Created",
+      "value": "3,200+",
+      "description": "In the first 3 months post-launch"
+    },
+    {
+      "metric": "Active Users",
+      "value": "8,500+",
+      "description": "Monthly active users across 3 countries"
+    },
+    {
+      "metric": "Avg. Event RSVP",
+      "value": "24",
+      "description": "Average confirmed attendees per event"
+    },
+    {
+      "metric": "Share Rate",
+      "value": "63%",
+      "description": "Events shared at least once on social platforms"
+    }
+  ],
+  "testimonial": {
+    "quote": "Hapnin solved a real pain point for event organizers in Lagos. The shareable link feature made it our go-to tool for campus events.",
+    "author": "Chidi Okonkwo",
+    "role": "Early Adopter & Community Manager"
+  },
+  "links": [
+    { "label": "Live App", "url": "https://hapnin.app", "type": "live" },
+    { "label": "Case Study", "url": "/projects/hapnin", "type": "case-study" }
+  ],
+  "images": []
+}

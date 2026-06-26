@@ -1,0 +1,93 @@
+{
+  "slug": "bunkie",
+  "title": "Bunkie",
+  "subtitle": "Home Services Marketplace",
+  "role": "Graduate Product Owner",
+  "company": "Cowrywise",
+  "companyUrl": "https://cowrywise.com",
+  "period": "Jan 2024 — Present",
+  "coverImage": "/images/projects/bunkie/cover.jpg",
+  "color": "#6366f1",
+  "overview": "Bunkie is a full-stack home services marketplace connecting verified service providers with homeowners across multiple continents. Built for scale, the platform handles real-time booking, payments, and provider verification across 5 regions.",
+  "problem": "Homeowners across the UK, US, Canada, China, and Africa struggled to find reliable, vetted service providers for home maintenance and improvement tasks. Existing platforms lacked trust mechanisms, transparent pricing, and cross-region support.",
+  "solution": "A unified marketplace with end-to-end encrypted messaging, escrow-based payment protection, multi-language support, and a rigorous provider verification pipeline. The platform serves both web and mobile users through a responsive PWA architecture.",
+  "targetAudience": ["Homeowners", "Property Managers", "Real Estate Agents"],
+  "regions": ["UK", "US", "Canada", "China", "Africa"],
+  "timeline": "12 months (MVP to v2)",
+  "features": [
+    {
+      "title": "Smart Provider Matching",
+      "description": "ML-powered matching algorithm that pairs homeowners with the best-rated providers based on location, skillset, availability, and pricing preferences."
+    },
+    {
+      "title": "Escrow Payment System",
+      "description": "Funds are held in escrow and released only after job completion confirmation, ensuring both parties are protected throughout the transaction."
+    },
+    {
+      "title": "Real-time Booking Engine",
+      "description": "Calendar-based booking with instant confirmation, automated reminders, and rescheduling capabilities with provider availability syncing."
+    },
+    {
+      "title": "Provider Verification Suite",
+      "description": "Multi-step verification including ID checks, background screening, skill assessments, and customer review analysis before provider approval."
+    }
+  ],
+  "techStack": [
+    { "name": "Next.js 14", "category": "frontend" },
+    { "name": "TypeScript", "category": "frontend" },
+    { "name": "Tailwind CSS", "category": "frontend" },
+    { "name": "PostgreSQL", "category": "backend" },
+    { "name": "Prisma", "category": "backend" },
+    { "name": "Redis", "category": "backend" },
+    { "name": "AWS S3", "category": "infra" },
+    { "name": "Docker", "category": "infra" },
+    { "name": "Figma", "category": "design" },
+    { "name": "Sentry", "category": "tools" }
+  ],
+  "architecture": {
+    "title": "Modular Monolith with Event-Driven Communication",
+    "description": "The platform follows a modular monolith architecture with clearly bounded contexts. Each domain (bookings, payments, providers, users) operates independently within the same deployment, communicating via an internal event bus powered by Redis pub/sub.",
+    "highlights": [
+      "API Gateway pattern for rate limiting and request routing",
+      "CQRS for read/write separation on the booking engine",
+      "Materialized views for provider search indexes",
+      "Staged event-driven architecture for payment reconciliation"
+    ]
+  },
+  "results": [
+    {
+      "metric": "Registered Providers",
+      "value": "2,400+",
+      "description": "Verified service providers across all regions"
+    },
+    {
+      "metric": "Completed Bookings",
+      "value": "18,500+",
+      "description": "Successfully fulfilled service requests"
+    },
+    {
+      "metric": "Avg. Response Time",
+      "value": "< 3 min",
+      "description": "Provider response time to booking requests"
+    },
+    {
+      "metric": "User Retention",
+      "value": "78%",
+      "description": "Month-over-month retention rate for repeat users"
+    }
+  ],
+  "testimonial": {
+    "quote": "Bunkie transformed how we connect homeowners with trusted providers. The escrow system alone reduced disputes by 94% compared to industry averages.",
+    "author": "Tunde Adeyemi",
+    "role": "VP of Product",
+    "company": "Cowrywise"
+  },
+  "links": [
+    { "label": "Live Platform", "url": "https://bunkie.app", "type": "live" },
+    { "label": "Case Study", "url": "/projects/bunkie", "type": "case-study" }
+  ],
+  "images": [
+    { "src": "/images/projects/bunkie/dashboard.jpg", "alt": "Provider dashboard" },
+    { "src": "/images/projects/bunkie/booking.jpg", "alt": "Booking interface" }
+  ]
+}
