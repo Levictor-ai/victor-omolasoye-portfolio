@@ -20,4 +20,5 @@ declare module 'lucide-react' {
   export const Palette: Icon;
   export const Wrench: Icon;
   export const Clock: Icon;
+  export const ChevronDown: Icon;
 }
