@@ -486,10 +486,10 @@ function Nav({ avatar }: { avatar: string }) {
           </svg>
           <span>{open ? 'Close' : 'Menu'}</span>
         </button>
-        <div className={`absolute right-4 top-full z-50 min-w-[200px] flex-col rounded-xl border border-slate-700/40 bg-[#0B0F19] p-2 shadow-xl sm:static sm:z-auto sm:min-w-0 sm:flex-row sm:rounded-none sm:border-none sm:bg-transparent sm:p-0 sm:shadow-none ${
+        <div className={`absolute right-4 top-full z-50 min-w-[200px] flex-col rounded-xl border border-slate-700/40 bg-[#0B0F19] p-2 shadow-xl ${
           open ? 'flex' : 'hidden'
-        } sm:flex`}>
-          <div className="flex flex-col gap-2 sm:flex-row sm:gap-4">
+        }`}>
+          <div className="flex flex-col gap-2">
             {links.map((link) => (
               <a
                 key={link.href}
