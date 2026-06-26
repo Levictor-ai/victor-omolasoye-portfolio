@@ -252,31 +252,30 @@ function AboutSection({ profile }: { profile: ProfileData }) {
   return (
     <section id="about" className="mb-16">
       <h2 className="mb-6 text-heading-lg text-white">About Me</h2>
-      <div className="card overflow-hidden p-0 sm:p-0">
-        <div className="relative aspect-[16/9] w-full sm:aspect-[2/1]">
-          <Image
-            src={profile.avatar}
-            alt={profile.name}
-            fill
-            className="object-cover"
-            style={{ objectPosition: 'center 5%' }}
-            sizes="100vw"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F19] via-[#0B0F19]/20 to-transparent" />
-        </div>
-        <div className="p-5 sm:p-6">
-          <div className="prose prose-invert max-w-none">
-            {profile.about.split('\n\n').map((paragraph, i) => (
-              <p
-                key={i}
-                className="mb-4 last:mb-0 text-body-md leading-relaxed text-slate-300"
-              >
-                {paragraph}
-              </p>
-            ))}
-          </div>
-              <div className="mt-6 flex flex-wrap gap-3">
+      <div className="relative mb-8">
+        <Image
+          src={profile.avatar}
+          alt={profile.name}
+          width={1200}
+          height={675}
+          className="w-full rounded-xl object-cover"
+          style={{ objectPosition: 'center 5%' }}
+          sizes="100vw"
+          priority
+        />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0B0F19] from-10% via-[#0B0F19]/30 to-transparent" />
+      </div>
+      <div className="prose prose-invert max-w-none">
+        {profile.about.split('\n\n').map((paragraph, i) => (
+          <p
+            key={i}
+            className="mb-4 last:mb-0 text-body-md leading-relaxed text-slate-300"
+          >
+            {paragraph}
+          </p>
+        ))}
+      </div>
+      <div className="mt-6 flex flex-wrap gap-3">
           {profile.socials.linkedin && (
             <LinkButton
               href={profile.socials.linkedin}
@@ -300,8 +299,6 @@ function AboutSection({ profile }: { profile: ProfileData }) {
             </LinkButton>
           )}
         </div>
-      </div>
-      </div>
     </section>
   );
 }
