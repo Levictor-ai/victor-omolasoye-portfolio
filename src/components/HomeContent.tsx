@@ -68,7 +68,7 @@ function AnimatedTitle({ titles }: { titles: string[] }) {
   }, [titles.length]);
 
   return (
-    <div className="mb-6">
+    <div className="mb-2">
       <span
         className={`inline-block text-2xl font-bold text-indigo-300 transition-opacity duration-200 sm:text-3xl ${
           fade ? 'opacity-100' : 'opacity-0'
@@ -82,13 +82,14 @@ function AnimatedTitle({ titles }: { titles: string[] }) {
 
 function HeroSection({ profile }: { profile: ProfileData }) {
   return (
-    <section className="mb-24">
+    <section className="mb-14">
       <AvailableBanner />
-      <h1 className="mb-5 text-center text-display-md font-bold tracking-tight text-white sm:text-display-lg lg:text-display-xl">
-        {profile.name}
+      <h1 className="mb-2 text-center text-display-md font-bold leading-tight tracking-tight text-white sm:text-display-lg lg:text-display-xl">
+        <span className="block">Victor</span>
+        <span className="block">Omolasoye</span>
       </h1>
       <AnimatedTitle titles={profile.titles} />
-      <p className="mb-6 max-w-2xl text-body-lg text-slate-300">
+      <p className="mb-4 max-w-2xl text-body-lg text-slate-300">
         {profile.tagline}
       </p>
       <a
@@ -107,7 +108,7 @@ function HeroSection({ profile }: { profile: ProfileData }) {
 
 function AvailableBanner() {
   return (
-    <div className="mb-8 flex items-center gap-2.5">
+    <div className="mb-6 flex items-center gap-2.5">
       <span className="relative flex size-3">
         <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
         <span className="relative inline-flex size-3 rounded-full bg-emerald-400" />
@@ -158,8 +159,8 @@ const articles = [
 
 function ArticlesSection() {
   return (
-    <section id="articles" className="mb-24">
-      <h2 className="mb-8 text-heading-lg text-white">Articles</h2>
+    <section id="articles" className="mb-16">
+      <h2 className="mb-6 text-heading-lg text-white">Articles</h2>
       <div className="space-y-3">
         {articles.map((article, i) => (
           <a
@@ -197,12 +198,12 @@ function SkillsSection({ profile }: { profile: ProfileData }) {
   return (
     <section className="mb-16">
       <h2 className="mb-5 text-heading-lg text-white">Skills & Expertise</h2>
-      <div className="grid gap-4 md:grid-cols-2">
-        <div className="card p-4">
-          <h3 className="mb-3 text-label-sm uppercase tracking-wider text-indigo-400">
+      <div className="grid gap-6 md:grid-cols-2">
+        <div>
+          <h3 className="mb-4 text-label-sm uppercase tracking-wider text-indigo-400">
             Tools & Technologies
           </h3>
-          <div className="space-y-2.5">
+          <div className="space-y-3">
             {profile.toolSkills.map((skill) => (
               <SkillBar
                 key={skill.name}
@@ -212,11 +213,11 @@ function SkillsSection({ profile }: { profile: ProfileData }) {
             ))}
           </div>
         </div>
-        <div className="card p-4">
-          <h3 className="mb-3 text-label-sm uppercase tracking-wider text-emerald-400">
+        <div>
+          <h3 className="mb-4 text-label-sm uppercase tracking-wider text-emerald-400">
             Disciplines
           </h3>
-          <div className="space-y-2.5">
+          <div className="space-y-3">
             {profile.softSkills.map((skill) => (
               <SkillBar
                 key={skill.name}
@@ -233,7 +234,7 @@ function SkillsSection({ profile }: { profile: ProfileData }) {
 
 function AboutSection({ profile }: { profile: ProfileData }) {
   return (
-    <section id="about" className="mb-24">
+    <section id="about" className="mb-16">
       <h2 className="mb-6 text-heading-lg text-white">About Me</h2>
       <div className="card overflow-hidden p-0 sm:p-0">
         <div className="relative aspect-[16/9] w-full sm:aspect-[2/1]">
@@ -248,7 +249,7 @@ function AboutSection({ profile }: { profile: ProfileData }) {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F19] via-[#0B0F19]/20 to-transparent" />
         </div>
-        <div className="p-6 sm:p-8">
+        <div className="p-5 sm:p-6">
           <div className="prose prose-invert max-w-none">
             {profile.about.split('\n\n').map((paragraph, i) => (
               <p
@@ -259,7 +260,7 @@ function AboutSection({ profile }: { profile: ProfileData }) {
               </p>
             ))}
           </div>
-          <div className="mt-8 flex flex-wrap gap-3">
+              <div className="mt-6 flex flex-wrap gap-3">
           {profile.socials.linkedin && (
             <LinkButton
               href={profile.socials.linkedin}
@@ -338,11 +339,11 @@ function ExperienceSection({ profile }: { profile: ProfileData }) {
   if (profile.experience.length === 0) return null;
 
   return (
-    <section id="experience" className="mb-24">
+    <section id="experience" className="mb-16">
       <h2 className="mb-8 text-heading-lg text-white">Experience</h2>
       <div className="space-y-4">
         {profile.experience.map((exp, i) => (
-          <div key={i} className="card p-5 sm:p-6">
+          <div key={i} className="card p-4 sm:p-5">
             <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
               <div>
                 <h3 className="text-heading-sm text-white">{exp.role}</h3>
@@ -378,8 +379,8 @@ function TestimonialsCarousel({ profile }: { profile: ProfileData }) {
   };
 
   return (
-    <section id="testimonials" className="mb-24">
-      <h2 className="mb-8 text-heading-lg text-white">Testimonials</h2>
+    <section id="testimonials" className="mb-16">
+      <h2 className="mb-6 text-heading-lg text-white">Testimonials</h2>
       <div className="relative mx-auto max-w-3xl overflow-hidden">
         <div className="relative h-[280px] sm:h-[240px]">
           <AnimatePresence custom={direction} mode="popLayout">
@@ -391,10 +392,10 @@ function TestimonialsCarousel({ profile }: { profile: ProfileData }) {
               animate="center"
               exit="exit"
               transition={{ duration: 1.2, ease: 'easeInOut' }}
-              className="card absolute inset-0 flex flex-col p-6 sm:p-8"
+              className="card absolute inset-0 flex flex-col p-5 sm:p-6"
             >
               <svg
-                className="mb-4 size-6 text-indigo-500/40"
+                className="mb-3 size-5 text-indigo-500/40"
                 viewBox="0 0 24 24"
                 fill="currentColor"
                 aria-hidden="true"
@@ -439,8 +440,8 @@ function TestimonialsCarousel({ profile }: { profile: ProfileData }) {
 
 function ProjectsSection({ projects }: { projects: ProjectData[] }) {
   return (
-    <section id="projects" className="mb-24">
-      <h2 className="mb-8 text-heading-lg text-white">Projects</h2>
+    <section id="projects" className="mb-16">
+      <h2 className="mb-6 text-heading-lg text-white">Projects</h2>
       {projects.length > 0 ? (
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, i) => (
@@ -460,8 +461,8 @@ function FAQSection({ profile }: { profile: ProfileData }) {
   if (profile.faqs.length === 0) return null;
 
   return (
-    <section id="faq" className="mb-24">
-      <h2 className="mb-8 text-heading-lg text-white">
+    <section id="faq" className="mb-16">
+      <h2 className="mb-6 text-heading-lg text-white">
         Frequently Asked Questions
       </h2>
       <FAQAccordion items={profile.faqs} />
@@ -521,7 +522,7 @@ export function HomeContent({ projects }: { projects: ProjectData[] }) {
   const profile = usePortfolio();
 
   return (
-    <main className="mx-auto min-h-screen max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+    <main className="mx-auto min-h-screen max-w-5xl px-6 py-12 sm:px-8 lg:px-12">
       <HeroSection profile={profile} />
       <SkillsSection profile={profile} />
       <ProjectsSection projects={projects} />
