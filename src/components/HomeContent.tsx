@@ -243,7 +243,7 @@ function AboutSection({ profile }: { profile: ProfileData }) {
             alt={profile.name}
             fill
             className="object-cover"
-            style={{ objectPosition: 'center 42%' }}
+            style={{ objectPosition: 'center 5%' }}
             sizes="100vw"
             priority
           />
