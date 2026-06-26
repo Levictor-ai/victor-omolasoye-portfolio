@@ -59,8 +59,8 @@ const defaultProfile: ProfileData = {
   email: 'victor@omolasoye.com',
   location: 'Lagos, Nigeria',
   socials: {
-    linkedin: 'https://linkedin.com/in/victoromolasoye',
-    contra: 'https://contra.com/victoromolasoye',
+    linkedin: 'https://www.linkedin.com/in/omolasoyevictor/',
+    contra: 'https://contra.com/omolasoye_victor_akinye_wziw3jpo',
     github: 'https://github.com/victoromolasoye',
   },
   toolSkills: [
@@ -120,7 +120,7 @@ const defaultProfile: ProfileData = {
         'You can reach me via email at victor@omolasoye.com or connect with me on LinkedIn. I typically respond within 24 hours.',
     },
   ],
-  resumeUrl: '/files/victor-omolasoye-resume.pdf',
+  resumeUrl: 'https://canva.link/pl0y6d2kdh90hm1',
   experience: [
     {
       company: 'Moovable Technology Limited',
