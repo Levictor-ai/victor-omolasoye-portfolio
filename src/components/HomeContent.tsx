@@ -440,6 +440,7 @@ function FAQSection({ profile }: { profile: ProfileData }) {
 
 function Nav({ avatar }: { avatar: string }) {
   const [open, setOpen] = useState(false);
+  const [showPreview, setShowPreview] = useState(false);
   const links = [
     { label: 'Skills', href: '#skills', icon: 'M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z' },
     { label: 'Projects', href: '#projects', icon: 'M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z' },
@@ -453,7 +454,7 @@ function Nav({ avatar }: { avatar: string }) {
   return (
     <nav className="sticky top-0 z-50 border-b border-slate-800/60 bg-[#0B0F19]/80 backdrop-blur-lg">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-3 sm:px-8 lg:px-12">
-        <a href="#" className="relative flex items-center">
+        <button onClick={() => setShowPreview(true)} className="relative flex cursor-pointer items-center">
           <span className="absolute inset-0 animate-ping rounded-full bg-indigo-400/30" />
           <span className="absolute inset-0 animate-spin rounded-full border-2 border-transparent border-t-indigo-400/40" />
           <Image
@@ -464,7 +465,23 @@ function Nav({ avatar }: { avatar: string }) {
             className="relative size-8 rounded-full object-cover"
             style={{ objectPosition: 'top' }}
           />
-        </a>
+        </button>
+        {showPreview && (
+          <div
+            className="fixed inset-0 z-[100] flex cursor-pointer items-center justify-center bg-black/60 backdrop-blur-sm"
+            onClick={() => setShowPreview(false)}
+          >
+            <div className="relative size-48 overflow-hidden rounded-full border-4 border-indigo-500/30 shadow-2xl shadow-indigo-500/20 sm:size-64">
+              <Image
+                src={avatar}
+                alt="Victor Omolasoye"
+                fill
+                className="object-cover"
+                style={{ objectPosition: 'top' }}
+              />
+            </div>
+          </div>
+        )}
         <button
           onClick={() => setOpen(!open)}
           className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm text-slate-400 transition-colors hover:bg-slate-800/60 hover:text-white"
