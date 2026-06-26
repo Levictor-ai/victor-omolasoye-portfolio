@@ -84,7 +84,7 @@ function HeroSection({ profile }: { profile: ProfileData }) {
   return (
     <section className="mb-24">
       <AvailableBanner />
-      <h1 className="mb-5 text-display-md font-bold tracking-tight text-white sm:text-display-lg lg:text-display-xl">
+      <h1 className="mb-5 text-center text-display-md font-bold tracking-tight text-white sm:text-display-lg lg:text-display-xl">
         {profile.name}
       </h1>
       <AnimatedTitle titles={profile.titles} />
@@ -160,14 +160,14 @@ function ArticlesSection() {
   return (
     <section id="articles" className="mb-24">
       <h2 className="mb-8 text-heading-lg text-white">Articles</h2>
-      <div className="space-y-3 text-left">
+      <div className="space-y-3">
         {articles.map((article, i) => (
           <a
             key={i}
             href={article.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="card flex items-center gap-3 p-4 text-left transition-all hover:border-indigo-500/30 hover:bg-slate-800/30 sm:p-5"
+            className="card flex items-center gap-3 p-4 transition-all hover:border-indigo-500/30 hover:bg-slate-800/30 sm:p-5"
           >
             <span className="flex size-7 shrink-0 items-center justify-center rounded-md bg-indigo-500/10 text-xs font-bold text-indigo-400">
               {String(i + 1).padStart(2, '0')}
@@ -248,7 +248,7 @@ function AboutSection({ profile }: { profile: ProfileData }) {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F19] via-[#0B0F19]/20 to-transparent" />
         </div>
-        <div className="p-6 text-left sm:p-8">
+        <div className="p-6 sm:p-8">
           <div className="prose prose-invert max-w-none">
             {profile.about.split('\n\n').map((paragraph, i) => (
               <p
@@ -259,7 +259,7 @@ function AboutSection({ profile }: { profile: ProfileData }) {
               </p>
             ))}
           </div>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
+          <div className="mt-8 flex flex-wrap gap-3">
           {profile.socials.linkedin && (
             <LinkButton
               href={profile.socials.linkedin}
@@ -340,7 +340,7 @@ function ExperienceSection({ profile }: { profile: ProfileData }) {
   return (
     <section id="experience" className="mb-24">
       <h2 className="mb-8 text-heading-lg text-white">Experience</h2>
-      <div className="space-y-4 text-left">
+      <div className="space-y-4">
         {profile.experience.map((exp, i) => (
           <div key={i} className="card p-5 sm:p-6">
             <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
@@ -521,7 +521,7 @@ export function HomeContent({ projects }: { projects: ProjectData[] }) {
   const profile = usePortfolio();
 
   return (
-    <main className="mx-auto min-h-screen max-w-6xl px-4 py-16 text-center sm:px-6 lg:px-8">
+    <main className="mx-auto min-h-screen max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
       <HeroSection profile={profile} />
       <SkillsSection profile={profile} />
       <ProjectsSection projects={projects} />
