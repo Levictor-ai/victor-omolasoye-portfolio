@@ -84,7 +84,7 @@ function HeroSection({ profile }: { profile: ProfileData }) {
   return (
     <section className="mb-14">
       <AvailableBanner />
-      <h1 className="mb-2 text-display-md font-bold leading-tight tracking-tight text-white sm:text-display-lg lg:text-display-xl">
+      <h1 className="mb-2 text-display-md font-bold leading-[0.9] tracking-tight text-white sm:text-display-lg lg:text-display-xl">
         <span className="block">VICTOR</span>
         <span className="block">OMOLASOYE</span>
       </h1>
@@ -243,7 +243,7 @@ function AboutSection({ profile }: { profile: ProfileData }) {
             alt={profile.name}
             fill
             className="object-cover"
-            style={{ objectPosition: 'center 30%' }}
+            style={{ objectPosition: 'center 42%' }}
             sizes="100vw"
             priority
           />
@@ -392,7 +392,7 @@ function TestimonialsCarousel({ profile }: { profile: ProfileData }) {
               animate="center"
               exit="exit"
               transition={{ duration: 1.2, ease: 'easeInOut' }}
-              className="card absolute inset-0 flex flex-col p-5 sm:p-6"
+              className="absolute inset-0 flex flex-col rounded-xl border border-slate-600/20 p-5 sm:p-6"
             >
               <svg
                 className="mb-3 size-5 text-indigo-500/40"
