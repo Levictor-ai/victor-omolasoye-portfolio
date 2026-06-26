@@ -144,46 +144,46 @@ const defaultProfile: ProfileData = {
   resumeUrl: 'https://canva.link/pl0y6d2kdh90hm1',
   experience: [
     {
-      company: 'Moovable Technology Limited',
-      role: 'UI/UX Product Designer',
-      period: 'Jan 2026 — Present',
-      description:
-        'Leading product design for mobile and web platforms, driving user research, prototyping, and cross-functional collaboration to ship intuitive interfaces.',
+      company: 'Forgelayers',
+      role: 'Graphic Designer',
+      period: 'Mar. 2026 — Present',
+      description: '',
     },
     {
-      company: 'Dev. and Design',
-      role: 'UI/UX Designer',
-      period: 'Oct 2025 — Mar 2026',
-      description:
-        'Designed and delivered end-to-end user experiences for client products, from wireframes to high-fidelity prototypes.',
+      company: 'Moovable Technology Limited',
+      role: 'UI/UX Product Designer',
+      period: 'Jan. 2026 — Present',
+      description: '',
     },
     {
       company: 'Jasper Creatives',
       role: 'Graphic Designer',
-      period: 'Sep 2025 — Present',
-      description:
-        'Creating brand identities, marketing collateral, and visual assets for a diverse portfolio of clients.',
+      period: 'Sep. 2025 — Apr. 2026',
+      description: '',
+    },
+    {
+      company: 'Untitled Designer',
+      role: 'Brand and Product Designer',
+      period: 'Feb. 2025 — Feb. 2026',
+      description: '',
     },
     {
       company: 'Anyrev',
       role: 'Brand Designer',
-      period: 'Sep 2025 — Dec 2025',
-      description:
-        'Developed brand strategies, visual systems, and design guidelines for the platform.',
+      period: 'Sep. 2025 — Dec. 2025',
+      description: '',
     },
     {
-      company: 'Untitled Designer',
-      role: 'Brand & Product Designer',
-      period: 'Feb 2025 — Feb 2026',
-      description:
-        'Delivered brand identity and product design solutions across multiple client engagements.',
+      company: 'Dev. and Design',
+      role: 'UI/UX Designer',
+      period: 'Oct. 2025 — Mar. 2026',
+      description: '',
     },
     {
       company: 'Venture Tribe',
       role: 'Graphic Designer',
-      period: 'Jul 2024 — Dec 2024',
-      description:
-        'Produced visual content, social media graphics, and branding materials for startup ecosystem events and campaigns.',
+      period: 'Jul. 2024 — Dec. 2024',
+      description: '',
     },
   ],
 };
