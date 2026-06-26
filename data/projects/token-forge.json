@@ -76,7 +76,7 @@
     }
   ],
   "links": [
-    { "label": "Live Platform", "url": "https://tokenforge.dev", "type": "live" },
+    { "label": "Live Platform", "url": "https://token-forge-three.vercel.app/", "type": "live" },
     { "label": "GitHub", "url": "https://github.com/victoromolasoye/token-forge", "type": "github" },
     { "label": "Case Study", "url": "/projects/token-forge", "type": "case-study" }
   ],

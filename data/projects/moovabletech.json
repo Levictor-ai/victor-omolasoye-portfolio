@@ -60,6 +60,7 @@
     }
   ],
   "links": [
+    { "label": "Live Platform", "url": "https://getmoovable.com/", "type": "live" },
     { "label": "Case Study", "url": "/projects/moovabletech", "type": "case-study" }
   ],
   "images": []
