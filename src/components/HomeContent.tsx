@@ -441,6 +441,18 @@ function FAQSection({ profile }: { profile: ProfileData }) {
 function Nav({ avatar }: { avatar: string }) {
   const [open, setOpen] = useState(false);
   const [showPreview, setShowPreview] = useState(false);
+
+  useEffect(() => {
+    if (!showPreview) return;
+    const close = () => setShowPreview(false);
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') close(); };
+    window.addEventListener('scroll', close, { passive: true });
+    window.addEventListener('keydown', onKey);
+    return () => {
+      window.removeEventListener('scroll', close);
+      window.removeEventListener('keydown', onKey);
+    };
+  }, [showPreview]);
   const links = [
     { label: 'Skills', href: '#skills', icon: 'M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z' },
     { label: 'Projects', href: '#projects', icon: 'M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z' },
@@ -468,10 +480,11 @@ function Nav({ avatar }: { avatar: string }) {
         </button>
         {showPreview && (
           <div
-            className="fixed inset-0 z-[100] flex cursor-pointer items-center justify-center bg-black/60 backdrop-blur-sm"
+            className="fixed left-0 top-0 z-[100] flex h-screen w-screen cursor-pointer items-center justify-center bg-black/60 backdrop-blur-sm"
             onClick={() => setShowPreview(false)}
+            onScroll={() => setShowPreview(false)}
           >
-            <div className="relative size-48 overflow-hidden rounded-full border-4 border-indigo-500/30 shadow-2xl shadow-indigo-500/20 sm:size-64">
+            <div className="relative size-48 overflow-hidden rounded-full border-4 border-indigo-500/30 shadow-2xl shadow-indigo-500/20 sm:size-64" onClick={(e) => e.stopPropagation()}>
               <Image
                 src={avatar}
                 alt="Victor Omolasoye"
