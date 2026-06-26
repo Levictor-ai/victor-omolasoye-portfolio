@@ -92,16 +92,32 @@ function HeroSection({ profile }: { profile: ProfileData }) {
       <p className="mb-4 max-w-2xl text-body-lg text-slate-300">
         {profile.tagline}
       </p>
-      <a
-        href={`mailto:${profile.email}`}
-        className="inline-flex items-center gap-2 rounded-lg bg-indigo-500 px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-indigo-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/50"
-      >
-        Hire Me
-        <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-          <path d="M22 2L11 13" />
-          <path d="M22 2l-7 20-4-9-9-4 20-7z" />
-        </svg>
-      </a>
+      <div className="flex flex-wrap gap-3">
+        <a
+          href={`mailto:${profile.email}`}
+          className="inline-flex items-center gap-2 rounded-lg bg-indigo-500 px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-indigo-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/50"
+        >
+          Hire Me
+          <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M22 2L11 13" />
+            <path d="M22 2l-7 20-4-9-9-4 20-7z" />
+          </svg>
+        </a>
+        <a
+          href={profile.resumeUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 rounded-lg border border-slate-600/40 bg-transparent px-5 py-2.5 text-sm font-medium text-slate-200 transition-all hover:border-indigo-500/50 hover:bg-indigo-500/10 hover:text-indigo-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/50"
+        >
+          <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+            <polyline points="14 2 14 8 20 8" />
+            <line x1="16" y1="13" x2="8" y2="13" />
+            <line x1="16" y1="17" x2="8" y2="17" />
+          </svg>
+          Resume
+        </a>
+      </div>
     </section>
   );
 }
@@ -283,20 +299,6 @@ function AboutSection({ profile }: { profile: ProfileData }) {
               </svg>
             </LinkButton>
           )}
-          <a
-            href={profile.resumeUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-lg bg-indigo-500/90 px-4 py-2.5 text-sm font-medium text-white transition-all hover:bg-indigo-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/50"
-          >
-            <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-              <polyline points="14 2 14 8 20 8" />
-              <line x1="16" y1="13" x2="8" y2="13" />
-              <line x1="16" y1="17" x2="8" y2="17" />
-            </svg>
-            Download CV
-          </a>
         </div>
       </div>
       </div>
