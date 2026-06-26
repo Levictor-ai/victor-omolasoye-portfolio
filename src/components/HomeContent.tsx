@@ -453,7 +453,7 @@ function Nav({ avatar }: { avatar: string }) {
 
   return (
     <nav className="sticky top-0 z-50 border-b border-slate-800/60 bg-[#0B0F19]/80 backdrop-blur-lg">
-      <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-3 sm:px-8 lg:px-12">
+      <div className="relative mx-auto flex max-w-5xl items-center justify-between px-6 py-3 sm:px-8 lg:px-12">
         <button onClick={() => setShowPreview(true)} className="relative flex cursor-pointer items-center">
           <span className="absolute inset-0 animate-ping rounded-full bg-indigo-400/30" />
           <span className="absolute inset-0 animate-spin rounded-full border-2 border-transparent border-t-indigo-400/40" />
@@ -503,10 +503,10 @@ function Nav({ avatar }: { avatar: string }) {
           </svg>
           <span>{open ? 'Close' : 'Menu'}</span>
         </button>
-        <div className={`absolute right-4 top-full z-50 min-w-[200px] flex-col rounded-xl border border-slate-700/40 bg-[#0B0F19] p-2 shadow-xl ${
+        <div className={`absolute right-4 top-full z-50 min-w-[200px] flex-col rounded-xl border border-slate-700/40 bg-gradient-to-b from-[#0B0F19] to-[#111827] p-3 shadow-xl ${
           open ? 'flex' : 'hidden'
         }`}>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-1">
             {links.map((link) => (
               <a
                 key={link.href}
