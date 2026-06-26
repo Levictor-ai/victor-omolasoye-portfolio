@@ -51,7 +51,7 @@ export interface ProfileData {
 const defaultProfile: ProfileData = {
   name: 'Victor Omolasoye',
   titles: ['Product Designer', 'Product Engineer', 'Brand Designer'],
-  tagline: 'Designing products that bridge brand and experience.',
+  tagline: 'Bridging the gap between brand identity and user experience to drive business growth.',
   bio: 'Product engineer with a passion for crafting scalable digital experiences.',
   about:
     'Victor Omolasoye is a user experience expert who puts users at the centre of every solution. From brand identity to digital products, he combines research, strategy, and design to bridge the gap between brand design and product development.\n\nHe has worked with founders across sectors to build meaningful, lasting brands and products for audiences in the UK, US, Canada, China, and across Africa. Victor has also partnered with Cowrywise as a Graduate Product Owner, collaborating on Bunkie, a home-services application.\n\nHis work is driven by a focus on clarity, usability, and creating experiences that serve both business goals and real user needs.',

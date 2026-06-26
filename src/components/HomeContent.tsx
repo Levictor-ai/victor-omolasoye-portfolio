@@ -84,9 +84,9 @@ function HeroSection({ profile }: { profile: ProfileData }) {
   return (
     <section className="mb-14">
       <AvailableBanner />
-      <h1 className="mb-2 text-center text-display-md font-bold leading-tight tracking-tight text-white sm:text-display-lg lg:text-display-xl">
-        <span className="block">Victor</span>
-        <span className="block">Omolasoye</span>
+      <h1 className="mb-2 text-display-md font-bold leading-tight tracking-tight text-white sm:text-display-lg lg:text-display-xl">
+        <span className="block">VICTOR</span>
+        <span className="block">OMOLASOYE</span>
       </h1>
       <AnimatedTitle titles={profile.titles} />
       <p className="mb-4 max-w-2xl text-body-lg text-slate-300">
@@ -243,7 +243,7 @@ function AboutSection({ profile }: { profile: ProfileData }) {
             alt={profile.name}
             fill
             className="object-cover"
-            style={{ objectPosition: 'center 18%' }}
+            style={{ objectPosition: 'center 30%' }}
             sizes="100vw"
             priority
           />
@@ -526,9 +526,9 @@ export function HomeContent({ projects }: { projects: ProjectData[] }) {
       <HeroSection profile={profile} />
       <SkillsSection profile={profile} />
       <ProjectsSection projects={projects} />
-      <ArticlesSection />
       <AboutSection profile={profile} />
       <ExperienceSection profile={profile} />
+      <ArticlesSection />
       <TestimonialsCarousel profile={profile} />
       <FAQSection profile={profile} />
       <FooterSection profile={profile} />
