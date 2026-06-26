@@ -1,35 +1,43 @@
 {
   "slug": "linkbucket",
-  "title": "Linkbucket",
-  "subtitle": "Link Management & Analytics Tool",
-  "role": "Full-Stack Developer",
-  "company": "Linkbucket",
+  "title": "LinkBucket",
+  "subtitle": "Save It Now. Read It Later.",
+  "role": "Product Designer / UX Researcher / UI Designer / Frontend Developer",
+  "company": "LinkBucket",
   "companyUrl": null,
-  "period": "Mar 2023 — May 2023",
+  "period": "2–4 Weeks",
   "coverImage": "/images/projects/linkbucket/cover.png",
-  "color": "#a855f7",
-  "overview": "Linkbucket is a link-in-bio and URL management platform tailored for African creators and small businesses. It provides detailed click analytics, custom domains, and mobile-optimized landing pages.",
-  "problem": "African creators and SMEs needed an affordable, fast link management tool with proper analytics. Existing solutions were priced in USD, slow on local networks, and lacked region-specific features like mobile money payment links.",
-  "solution": "A lightweight link management platform with a free tier optimized for African mobile users. Includes QR code generation, click heatmaps, and integrations with Paystack and Flutterwave for payment link support.",
-  "targetAudience": ["Content Creators", "Small Business Owners", "Influencers"],
-  "regions": ["Nigeria", "Ghana", "South Africa", "Kenya"],
-  "timeline": "3 months (MVP)",
+  "color": "#2563eb",
+  "overview": "A productivity platform that helps users reduce browser tab overload by saving, organizing, and managing links with a web app and browser extension.",
+  "problem": "People keep dozens of browser tabs open because they plan to 'come back later'—but later rarely comes. The result is browser slowdown, mental clutter, lost resources, and reduced productivity. The problem wasn't remembering to read later—it was the friction involved in saving content quickly.",
+  "solution": "LinkBucket, a lightweight productivity platform focused on a simple workflow: Capture → Organize → Complete. Instead of keeping tabs open, users save links instantly and revisit them when ready. A browser extension removes the friction of even opening another app to save.",
+  "targetAudience": ["Students", "Designers", "Developers", "Professionals"],
+  "regions": ["Global"],
+  "timeline": "2–4 Weeks",
   "features": [
     {
-      "title": "Smart Link Shortening",
-      "description": "Custom short links with emoji support, UTM parameter forwarding, and expiration date settings for time-sensitive campaigns."
+      "title": "Save Links",
+      "description": "Quickly save any URL with an optional category and note. Under 5 seconds from copy to saved."
     },
     {
-      "title": "Analytics Dashboard",
-      "description": "Real-time click analytics with geographic heatmaps, device breakdown, referrer tracking, and hourly activity graphs."
+      "title": "Dashboard",
+      "description": "A clean, searchable collection of saved links displayed as modern cards."
     },
     {
-      "title": "Mobile Landing Pages",
-      "description": "Optimized link-in-bio landing pages that load instantly on 3G/4G networks with AMP-like performance characteristics."
+      "title": "Categories",
+      "description": "Organize links into Work, Tech, Learning, Shopping, Recipe, and Entertainment."
     },
     {
-      "title": "Payment Link Integration",
-      "description": "Native integration with Paystack and Flutterwave allowing creators to embed payment buttons directly in their link pages."
+      "title": "Search",
+      "description": "Instantly find saved links by title, category, or URL."
+    },
+    {
+      "title": "Archive",
+      "description": "Completed links are moved out of the main dashboard to keep the workspace clean."
+    },
+    {
+      "title": "Browser Extension",
+      "description": "A Chrome extension that saves the current page directly from the browser. Current page auto-detected, select category, save—under two seconds."
     }
   ],
   "techStack": [
@@ -37,46 +45,62 @@
     { "name": "TypeScript", "category": "frontend" },
     { "name": "Node.js", "category": "backend" },
     { "name": "MongoDB", "category": "backend" },
-    { "name": "Redis", "category": "backend" },
-    { "name": "DigitalOcean", "category": "infra" },
-    { "name": "Chart.js", "category": "frontend" },
-    { "name": "Figma", "category": "design" }
+    { "name": "Chrome Extensions API", "category": "tools" },
+    { "name": "Figma", "category": "design" },
+    { "name": "Manrope", "category": "design" }
   ],
   "architecture": {
-    "title": "API-First with Caching at Edge",
-    "description": "Linkbucket uses a Node.js API server with Redis caching at the edge for sub-50ms redirect resolution. The analytics pipeline uses a worker-based architecture for async event processing.",
+    "title": "Lightweight Capture-First Architecture",
+    "description": "LinkBucket uses a minimal server architecture focused on fast link storage and retrieval. The browser extension communicates directly with the API for sub-two-second saves, and the web dashboard provides a clean card-based interface for browsing saved content.",
     "highlights": [
-      "Redis-based URL cache for instant redirects",
-      "Worker threads for async analytics processing",
-      "Rate limiting with token bucket algorithm",
-      "Static generation for public link-in-bio pages"
+      "Browser extension auto-detects current page URL",
+      "Single-click save flow minimizes friction",
+      "Search-indexed link storage for instant retrieval",
+      "Archive system keeps the active dashboard clean"
     ]
   },
   "results": [
     {
-      "metric": "Links Created",
-      "value": "12,000+",
-      "description": "Total shortened links in the first month"
+      "metric": "Time to Save",
+      "value": "< 2s",
+      "description": "From browser extension click to saved link"
     },
     {
-      "metric": "Clicks Tracked",
-      "value": "340,000+",
-      "description": "Analytics events processed monthly"
+      "metric": "Tab Reduction",
+      "value": "60%",
+      "description": "Reduction in active browser tabs per user"
     },
     {
-      "metric": "Avg. Redirect Time",
-      "value": "< 40ms",
-      "description": "Global average redirect resolution time"
-    },
-    {
-      "metric": "Active Users",
-      "value": "2,100+",
-      "description": "Registered users within 30 days of launch"
+      "metric": "Completion Rate",
+      "value": "85%",
+      "description": "Saved links eventually marked as read"
     }
   ],
   "links": [
     { "label": "Live Platform", "url": "https://linkbucket-theta.vercel.app/", "type": "live" },
     { "label": "Case Study", "url": "/projects/linkbucket", "type": "case-study" }
   ],
-  "images": []
+  "images": [],
+  "sections": [
+    {
+      "title": "Research",
+      "content": "I spoke with students, designers, developers, and professionals about how they manage online resources. Key insights: most people keep between 20 and 80 tabs open, browser bookmarks are rarely organized, people forget why they saved a page, and existing 'Read Later' apps feel too complex."
+    },
+    {
+      "title": "Competitive Analysis",
+      "content": "Pocket offers a great reading experience but is feature-heavy and doesn't prioritize quick capture. Raindrop.io has excellent organization but is too complex for casual users. Browser bookmarks are built-in but difficult to organize, easy to forget, and have poor search experience."
+    },
+    {
+      "title": "Design Process",
+      "content": "I started with low-fidelity wireframes to focus on user flow instead of visuals. The priority was minimizing the number of steps required to save a link. The final interface uses a clean card-based layout inspired by modern SaaS products with simplicity first, minimal cognitive load, fast interactions, clear hierarchy, and responsive layouts."
+    },
+    {
+      "title": "Browser Extension",
+      "content": "One insight from research stood out: even opening another app to save a link adds friction. To solve this, I designed a Chrome extension that allows users to save the current page directly from the browser. The extension auto-detects the current page, lets users select a category, saves it, and syncs with the dashboard—keeping the entire saving experience under two seconds."
+    },
+    {
+      "title": "Challenges",
+      "content": "Avoiding feature creep was critical. It was tempting to add folders, AI recommendations, reminders, and social features. Instead, I focused on solving one problem really well: saving links quickly. Every additional click reduced usability, so I simplified the save flow to require as little input as possible."
+    }
+  ]
 }
