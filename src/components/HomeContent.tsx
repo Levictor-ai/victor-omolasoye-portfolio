@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { usePortfolio } from '@/context/PortfolioContext';
 import type { ProfileData } from '@/context/PortfolioContext';
@@ -83,38 +83,24 @@ function AnimatedTitle({ titles }: { titles: string[] }) {
 
 function HeroSection({ profile }: { profile: ProfileData }) {
   return (
-    <section className="mb-24 flex flex-col items-start gap-8 sm:flex-row sm:items-center">
-      <div className="shrink-0">
-        <div className="relative size-28 overflow-hidden rounded-2xl border border-slate-700/50 sm:size-36">
-          <Image
-            src={profile.avatar}
-            alt={profile.name}
-            fill
-            className="object-cover"
-            sizes="(max-width: 640px) 112px, 144px"
-            priority
-          />
-        </div>
-      </div>
-      <div>
-        <h1 className="mb-5 text-heading-lg font-bold tracking-tight text-white sm:text-display-md">
-          {profile.name}
-        </h1>
-        <AnimatedTitle titles={profile.titles} />
-        <p className="mb-6 max-w-2xl text-body-lg text-slate-300">
-          {profile.tagline}
-        </p>
-        <a
-          href={`mailto:${profile.email}`}
-          className="inline-flex items-center gap-2 rounded-lg bg-indigo-500 px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-indigo-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/50"
-        >
-          Hire Me
-          <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <path d="M22 2L11 13" />
-            <path d="M22 2l-7 20-4-9-9-4 20-7z" />
-          </svg>
-        </a>
-      </div>
+    <section className="mb-24">
+      <h1 className="mb-5 text-heading-lg font-bold tracking-tight text-white sm:text-display-md">
+        {profile.name}
+      </h1>
+      <AnimatedTitle titles={profile.titles} />
+      <p className="mb-6 max-w-2xl text-body-lg text-slate-300">
+        {profile.tagline}
+      </p>
+      <a
+        href={`mailto:${profile.email}`}
+        className="inline-flex items-center gap-2 rounded-lg bg-indigo-500 px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-indigo-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/50"
+      >
+        Hire Me
+        <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M22 2L11 13" />
+          <path d="M22 2l-7 20-4-9-9-4 20-7z" />
+        </svg>
+      </a>
     </section>
   );
 }
@@ -161,18 +147,30 @@ function AboutSection({ profile }: { profile: ProfileData }) {
   return (
     <section id="about" className="mb-24">
       <h2 className="mb-6 text-heading-md text-white">About Me</h2>
-      <div className="card p-6 sm:p-8">
-        <div className="prose prose-invert max-w-none">
-          {profile.about.split('\n\n').map((paragraph, i) => (
-            <p
-              key={i}
-              className="mb-4 last:mb-0 text-body-md leading-relaxed text-slate-300"
-            >
-              {paragraph}
-            </p>
-          ))}
+      <div className="card overflow-hidden p-0 sm:p-0">
+        <div className="relative aspect-[16/9] w-full sm:aspect-[2/1]">
+          <Image
+            src={profile.avatar}
+            alt={profile.name}
+            fill
+            className="object-cover"
+            sizes="100vw"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F19] via-[#0B0F19]/20 to-transparent" />
         </div>
-        <div className="mt-8 flex flex-wrap gap-3">
+        <div className="p-6 sm:p-8">
+          <div className="prose prose-invert max-w-none">
+            {profile.about.split('\n\n').map((paragraph, i) => (
+              <p
+                key={i}
+                className="mb-4 last:mb-0 text-body-md leading-relaxed text-slate-300"
+              >
+                {paragraph}
+              </p>
+            ))}
+          </div>
+          <div className="mt-8 flex flex-wrap gap-3">
           {profile.socials.linkedin && (
             <LinkButton
               href={profile.socials.linkedin}
@@ -210,6 +208,7 @@ function AboutSection({ profile }: { profile: ProfileData }) {
             Download CV
           </a>
         </div>
+      </div>
       </div>
     </section>
   );
@@ -269,22 +268,42 @@ function ExperienceSection({ profile }: { profile: ProfileData }) {
   );
 }
 
-function TestimonialsSection({ profile }: { profile: ProfileData }) {
-  if (profile.testimonials.length === 0) return null;
+function TestimonialsCarousel({ profile }: { profile: ProfileData }) {
+  const [index, setIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
+  const items = profile.testimonials;
+  if (items.length === 0) return null;
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDirection(1);
+      setIndex((prev) => (prev + 1) % items.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [items.length]);
+
+  const variants = {
+    enter: (dir: number) => ({ x: dir * 120, opacity: 0 }),
+    center: { x: 0, opacity: 1 },
+    exit: (dir: number) => ({ x: dir * -120, opacity: 0 }),
+  };
 
   return (
     <section id="testimonials" className="mb-24">
       <h2 className="mb-8 text-heading-md text-white">Testimonials</h2>
-      <div className="grid gap-6 md:grid-cols-2">
-        {profile.testimonials.map((t, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-40px' }}
-            transition={{ duration: 0.5, delay: i * 0.15 }}
-          >
-            <blockquote className="card flex flex-col p-6 sm:p-8">
+      <div className="relative mx-auto max-w-3xl overflow-hidden">
+        <div className="relative h-[280px] sm:h-[240px]">
+          <AnimatePresence custom={direction} mode="popLayout">
+            <motion.blockquote
+              key={index}
+              custom={direction}
+              variants={variants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{ duration: 1.2, ease: 'easeInOut' }}
+              className="card absolute inset-0 flex flex-col p-6 sm:p-8"
+            >
               <svg
                 className="mb-4 size-6 text-indigo-500/40"
                 viewBox="0 0 24 24"
@@ -294,22 +313,36 @@ function TestimonialsSection({ profile }: { profile: ProfileData }) {
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151C7.563 6.068 6 8.789 6 11h4v10H0z" />
               </svg>
               <p className="mb-6 flex-1 text-body-md leading-relaxed text-slate-300">
-                &ldquo;{t.quote}&rdquo;
+                &ldquo;{items[index].quote}&rdquo;
               </p>
               <footer>
                 <cite className="not-italic">
                   <span className="block text-sm font-medium text-white">
-                    {t.author}
+                    {items[index].author}
                   </span>
                   <span className="text-sm text-slate-500">
-                    {t.role}
-                    {t.company ? ` @ ${t.company}` : ''}
+                    {items[index].role}
+                    {items[index].company ? ` @ ${items[index].company}` : ''}
                   </span>
                 </cite>
               </footer>
-            </blockquote>
-          </motion.div>
-        ))}
+            </motion.blockquote>
+          </AnimatePresence>
+        </div>
+        <div className="mt-6 flex justify-center gap-2">
+          {items.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => { setDirection(i > index ? 1 : -1); setIndex(i); }}
+              className={`size-2 rounded-full transition-all duration-300 ${
+                i === index
+                  ? 'w-6 bg-indigo-400'
+                  : 'bg-slate-600 hover:bg-slate-500'
+              }`}
+              aria-label={`Go to testimonial ${i + 1}`}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -367,7 +400,7 @@ export function HomeContent({ projects }: { projects: ProjectData[] }) {
       <ProjectsSection projects={projects} />
       <AboutSection profile={profile} />
       <ExperienceSection profile={profile} />
-      <TestimonialsSection profile={profile} />
+      <TestimonialsCarousel profile={profile} />
       <FAQSection profile={profile} />
       <FooterSection profile={profile} />
     </main>

@@ -56,7 +56,7 @@ const defaultProfile: ProfileData = {
   about:
     'Victor Omolasoye is a user experience expert who puts users at the centre of every solution. From brand identity to digital products, he combines research, strategy, and design to bridge the gap between brand design and product development.\n\nHe has worked with founders across sectors to build meaningful, lasting brands and products for audiences in the UK, US, Canada, China, and across Africa. Victor has also partnered with Cowrywise as a Graduate Product Owner, collaborating on Bunkie, a home-services application.\n\nHis work is driven by a focus on clarity, usability, and creating experiences that serve both business goals and real user needs.',
   avatar: '/images/victor-profile.jpg',
-  email: 'victor@omolasoye.com',
+  email: 'omolasoyevictorakinyemi@gmail.com',
   location: 'Lagos, Nigeria',
   socials: {
     linkedin: 'https://www.linkedin.com/in/omolasoyevictor/',
@@ -91,6 +91,27 @@ const defaultProfile: ProfileData = {
       author: 'Chioma Okafor',
       role: 'CEO',
       company: 'TechVentures Africa',
+    },
+    {
+      quote:
+        'Victor brought a level of intentionality to our brand identity that completely shifted how our customers perceive us. Every pixel had a purpose.',
+      author: 'Folake Balogun',
+      role: 'Founder',
+      company: 'Jasper Creatives',
+    },
+    {
+      quote:
+        'His ability to switch between design thinking and technical execution is unmatched. He doesn\'t just design — he builds.',
+      author: 'Emeka Nwosu',
+      role: 'CTO',
+      company: 'Moovable Technology Limited',
+    },
+    {
+      quote:
+        'Victor redesigned our entire product experience and the user feedback was overwhelmingly positive. Our engagement metrics doubled within a month.',
+      author: 'Sarah Adeleke',
+      role: 'Product Lead',
+      company: 'Dev. and Design',
     },
   ],
   faqs: [
