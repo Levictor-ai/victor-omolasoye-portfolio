@@ -84,7 +84,7 @@ function AnimatedTitle({ titles }: { titles: string[] }) {
 function HeroSection({ profile }: { profile: ProfileData }) {
   return (
     <section className="mb-24">
-      <h1 className="mb-5 text-heading-lg font-bold tracking-tight text-white sm:text-display-md">
+      <h1 className="mb-5 text-display-md font-bold tracking-tight text-white sm:text-display-lg lg:text-display-xl">
         {profile.name}
       </h1>
       <AnimatedTitle titles={profile.titles} />
