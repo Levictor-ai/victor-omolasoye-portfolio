@@ -34,6 +34,7 @@ export interface ProfileData {
     twitter?: string;
     website?: string;
     contra?: string;
+    behance?: string;
   };
   toolSkills: Skill[];
   softSkills: Skill[];
@@ -62,6 +63,8 @@ const defaultProfile: ProfileData = {
     linkedin: 'https://www.linkedin.com/in/omolasoyevictor/',
     contra: 'https://contra.com/omolasoye_victor_akinye_wziw3jpo',
     github: 'https://github.com/victoromolasoye',
+    behance: 'https://www.behance.net/victoromolasoye',
+    twitter: 'https://x.com/omolasoye_victor',
   },
   toolSkills: [
     { name: 'Figma', percentage: 95 },
