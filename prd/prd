@@ -1,0 +1,101 @@
+# Product Requirement Document (PRD)
+
+## Project: Victor Omolasoye Personal Portfolio Website
+**Version:** 1.0  
+**Author:** Victor Omolasoye  
+**Contact:** omolasoyevictorakinyemi@gmail.com  
+**Date:** June 2026
+
+---
+
+## 1. Executive Summary
+
+### 1.1 Objective
+To design, engineer, and deploy a high-converting, premium digital portfolio that showcases Victor Omolasoye’s multidisciplinary expertise as a **Product Designer**, **Product Engineer**, and **Brand Designer**. The site must serve as a living testament to his design philosophy: putting users at the center of every solution and bridging the gap between brand identity and product development.
+
+### 1.2 Target Audience
+* **Founders & Startup Teams:** Looking for a hands-on design partner who understands business metrics, user needs, and product implementation.
+* **Design Agencies & Product Leaders:** Seeking top-tier, international contract talent.
+* **Cross-Functional Teams:** Looking for a professional capable of communicating seamlessly with engineers, marketers, and product owners.
+* **Geographic Focus:** United Kingdom, United States, Canada, China, and across Africa.
+
+### 1.3 Core Value Proposition
+*"A multi-talented UX expert and product engineer who combines deep research, brand strategy, and emerging technologies (AI/Antigravity) to build beautiful, practical, and highly scalable digital products."*
+
+---
+
+## 2. Core Site Architecture & User Flows
+
+The portfolio will be structured as a high-performance single-page application (SPA) with dedicated, highly detailed sub-routes for case studies to ensure maximum SEO optimization and fast reading speeds.
+
+### 2.1 Site Map
+1. **Home Page:** Hero, Core Ethos, Skills Grid, Featured Projects Preview.
+2. **Case Study Page Template:** Deep-dives into specific projects like *Bunkie*.
+3. **FAQ & Contact Hub:** Dynamic accordion module + frictionless inquiry form.
+
+---
+
+## 3. Detailed Feature Requirements
+
+### 3.1 Hero & Branding Section
+* **Functional Description:** The entry point of the website must immediately state Victor's cross-disciplinary positioning.
+* **Elements:**
+    * **Headline:** `Victor Omolasoye`
+    * **Sub-headlines:** `Product Designer • Product Engineer • Brand Designer`
+    * **Hook Paragraph:** *"A user experience expert who puts users at the center of every solution. From brand identity to digital products, I combine research, strategy, and design to bridge the gap between brand design and product development."*
+    * **Primary CTA:** `View Case Studies` (Smooth scroll to projects grid)
+    * **Secondary CTA:** `Let's Collaborate` (Redirects to Contact Form)
+
+### 3.2 Visual Skill & Toolkit Analytics (Interactive Grid)
+To cleanly demonstrate competitive technical advantages, skill metrics should be presented using premium visual progress rings or interactive layout components.
+
+#### Tools & Technologies
+* **Figma:** 95%
+* **Photoshop:** 90%
+* **Antigravity:** 90%
+* **Artificial Intelligence Tools:** 90%
+* **Adobe Illustrator:** 70%
+* **Framer:** 50%
+
+#### Core Competencies
+* **User Experience (UX):** 90%
+* **Artificial Intelligence Systems:** 86%
+* **User Research & Testing:** 83%
+* **Prompt Engineering:** 80%
+
+### 3.3 Dynamic Project Case Study Engine
+* **Functional Description:** A structured, easy-to-read template to display major milestones, including the partnership with **Cowrywise** as a **Graduate Product Owner** on **Bunkie** (a home-services application).
+* **Template Sections:**
+    1. **Overview:** Context, geography (UK, US, CA, CN, Africa), timeline, and specific role.
+    2. **The Challenge:** Clear formulation of business goals versus user pain points.
+    3. **Research & Discovery:** Highlighting user research (83% competence score) and strategy.
+    4. **Execution & Engineering:** UI wireframes, design choices, system components, and developer-handoff specifications.
+    5. **Impact & Metrics:** How the solution served both business metrics and real user needs.
+
+### 3.4 Interactive FAQ Accordion Module
+A clean, smooth accordion layout to handle onboarding queries automatically and filter out low-intent leads.
+
+* **Q1: What services do you offer?** *A: I offer user experience design, product design, brand identity design, visual design, design strategy, user research, and design systems for digital products and growing brands.*
+* **Q2: What kind of clients do you work with?** *A: I work with founders, startups, businesses, organisations, and product teams across different industries that need clear, user-focused brands and digital experiences.*
+* **Q3: What is your design process?** *A: My process typically starts with understanding the business, users, and goals. From there, I carry out research, define the problem, explore ideas, create wireframes or visual directions, design the solution, and refine it based on feedback.*
+* **Q4: Do you work on both branding and product design?** *A: Yes. I help businesses create a consistent experience from their visual identity to their digital product. This means the brand does not only look good—it also works clearly across websites, apps, and customer touchpoints.*
+* **Q5: Can you work with an existing brand or product?** *A: Yes. I can improve an existing brand, redesign a website or mobile app, refine a product flow, create new features, or build a more consistent design system.*
+* **Q6: Do you work remotely?** *A: Yes. I work remotely with clients and teams across Africa, the UK, the US, Canada, China, and other locations.*
+* **Q7: What tools do you use?** *A: My core tools include Figma for product and interface design, alongside Adobe Illustrator, Photoshop, and other design tools depending on the project requirements.*
+* **Q8: How long does a project take?** *A: Project timelines depend on the scope. A focused design task may take a few days, while a full branding or product-design project can take several weeks. I provide a clear timeline after understanding the project requirements.*
+* **Q9: How do we get started?** *A: Start by sharing what you are building, the problem you want to solve, your target users, and any existing materials. From there, we can discuss the scope, timeline, and best approach for the project.*
+* **Q10: Can you collaborate with developers and product teams?** *A: Yes. I work closely with developers, founders, and product teams to ensure designs are practical, well-documented, and ready for implementation.*
+* **Q11: Do you offer revisions?** *A: Yes. Revisions are included at agreed stages of the project to ensure the final outcome aligns with the project goals and expectations.*
+
+---
+
+## 4. Technical Requirements & Design System
+
+### 4.1 UI Style Guide
+* **Theme:** Sleek, minimalist Dark Theme with high contrast neon or deep slate accents to reflect the "Product Engineer" and "Antigravity" futuristic styling.
+* **Typography:** Clean, premium sans-serif typography for maximum text legibility across multi-paragraph sections.
+* **Layout Safety:** Built with standard responsive grids for seamless resizing from mobile screens up to ultra-wide displays.
+
+### 4.2 Lead Capture & Contact Integrations
+* **Form Capture:** Integrated direct contact form that aggregates inputs: Name, Project Brief, Target Users, Budget/Timeline Range, and Company Website.
+* **Primary Email Fallback:** Clicking on any primary contact button triggers a pre-filled mail wrapper to `omolasoyevictorakinyemi@gmail.com`.

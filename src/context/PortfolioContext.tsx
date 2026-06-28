@@ -2,9 +2,11 @@
 
 import { createContext, useContext, type ReactNode } from 'react';
 
+export type SkillLevel = 'Familiar' | 'Proficient' | 'Expert';
+
 export interface Skill {
   name: string;
-  percentage: number;
+  level: SkillLevel;
 }
 
 export interface Testimonial {
@@ -36,8 +38,9 @@ export interface ProfileData {
     contra?: string;
     behance?: string;
   };
-  toolSkills: Skill[];
-  softSkills: Skill[];
+  coreDisciplines: Skill[];
+  tools: Skill[];
+  technicalHandoff: Skill[];
   testimonials: Testimonial[];
   faqs: FAQ[];
   resumeUrl: string;
@@ -66,19 +69,26 @@ const defaultProfile: ProfileData = {
     behance: 'https://www.behance.net/victoromo',
     twitter: 'https://x.com/mlevictor21',
   },
-  toolSkills: [
-    { name: 'Figma', percentage: 95 },
-    { name: 'Photoshop', percentage: 90 },
-    { name: 'Illustrator', percentage: 70 },
-    { name: 'Framer', percentage: 50 },
-    { name: 'Antigravity', percentage: 90 },
-    { name: 'AI', percentage: 90 },
+  coreDisciplines: [
+    { name: 'Brand Identity', level: 'Expert' },
+    { name: 'Typography', level: 'Proficient' },
+    { name: 'User Experience', level: 'Expert' },
+    { name: 'User Research', level: 'Expert' },
+    { name: 'Prototyping', level: 'Proficient' },
+    { name: 'Design Systems', level: 'Proficient' },
   ],
-  softSkills: [
-    { name: 'User Experience', percentage: 90 },
-    { name: 'User Research', percentage: 83 },
-    { name: 'Prompt Engineering', percentage: 80 },
-    { name: 'Artificial Intelligence', percentage: 86 },
+  tools: [
+    { name: 'Figma', level: 'Expert' },
+    { name: 'Photoshop', level: 'Expert' },
+    { name: 'Illustrator', level: 'Proficient' },
+    { name: 'Framer', level: 'Familiar' },
+    { name: 'InDesign', level: 'Familiar' },
+  ],
+  technicalHandoff: [
+    { name: 'Developer Handoff', level: 'Familiar' },
+    { name: 'Motion Design', level: 'Familiar' },
+    { name: 'HTML/CSS', level: 'Familiar' },
+    { name: 'React', level: 'Familiar' },
   ],
   testimonials: [
     {

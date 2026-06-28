@@ -1,0 +1,416 @@
+link: https://linkbucket-theta.vercel.app/
+
+# LinkBucket Case Study
+
+## Save It Now. Read It Later.
+
+*A productivity platform that helps users reduce browser tab overload by saving, organizing, and managing links with a web app and browser extension.*
+
+---
+
+# Overview
+
+## Project
+
+**LinkBucket**
+
+## Timeline
+
+2–4 Weeks
+
+## Role
+
+* Product Designer
+* UX Researcher
+* UI Designer
+* Frontend Developer
+
+## Responsibilities
+
+* Product Discovery
+* UX Research
+* User Flows
+* Wireframing
+* UI Design
+* Design System
+* Frontend Development
+* Browser Extension Design
+
+---
+
+# The Problem
+
+If you're anything like me, you've probably had dozens of browser tabs open because you planned to "come back later."
+
+Articles.
+
+Videos.
+
+Documentation.
+
+Shopping pages.
+
+Research.
+
+The problem is that **later rarely comes**.
+
+Instead, we end up with:
+
+* Browser slowdown
+* Mental clutter
+* Lost resources
+* Reduced productivity
+
+I realized that the problem wasn't remembering to read later—it was the friction involved in saving content quickly.
+
+---
+
+# Research
+
+## User Interviews
+
+I spoke with students, designers, developers, and professionals about how they manage online resources.
+
+### Key Insights
+
+* Most people keep between **20 and 80 tabs** open.
+* Browser bookmarks are rarely organized.
+* People forget why they saved a page.
+* Existing "Read Later" apps feel too complex.
+* Users want a faster way to save content without leaving their workflow.
+
+---
+
+# Problem Statement
+
+How might we help users save online resources instantly while reducing browser tab clutter and making saved content easier to revisit?
+
+---
+
+# Goals
+
+The product should allow users to:
+
+* Save links in seconds.
+* Organize links into categories.
+* Find saved content easily.
+* Mark completed resources as read.
+* Reduce digital clutter.
+
+---
+
+# Success Metrics
+
+* Time to save a link: **Under 5 seconds**
+* Increase completed reading sessions.
+* Reduce active browser tabs.
+* Encourage repeat usage.
+
+---
+
+# Competitive Analysis
+
+## Pocket
+
+Pros
+
+* Great reading experience
+
+Cons
+
+* Feature-heavy
+* Doesn't prioritize quick capture
+
+---
+
+## Raindrop.io
+
+Pros
+
+* Excellent organization
+
+Cons
+
+* Too complex for casual users
+
+---
+
+## Browser Bookmarks
+
+Pros
+
+* Built into browsers
+
+Cons
+
+* Difficult to organize
+* Easy to forget
+* Poor search experience
+
+---
+
+# Solution
+
+I designed **LinkBucket**, a lightweight productivity platform focused on one simple workflow:
+
+**Capture → Organize → Complete**
+
+Instead of keeping tabs open, users save links instantly and revisit them when they're ready.
+
+---
+
+# Information Architecture
+
+Home
+
+├── Dashboard
+
+├── Add Link
+
+├── Categories
+
+├── Search
+
+├── Archive
+
+└── Profile
+
+---
+
+# User Flow
+
+### Save a Link
+
+Open App
+
+↓
+
+Paste URL
+
+↓
+
+Choose Category
+
+↓
+
+Save
+
+↓
+
+Dashboard Updates
+
+---
+
+### Read Later
+
+Dashboard
+
+↓
+
+Open Link
+
+↓
+
+Consume Content
+
+↓
+
+Mark as Read
+
+↓
+
+Move to Archive
+
+---
+
+# Design Process
+
+## Wireframes
+
+I started with low-fidelity wireframes to focus on user flow instead of visuals.
+
+The priority was minimizing the number of steps required to save a link.
+
+---
+
+## High-Fidelity Design
+
+The final interface uses a clean card-based layout inspired by modern SaaS products.
+
+### Design Principles
+
+* Simplicity first
+* Minimal cognitive load
+* Fast interactions
+* Clear hierarchy
+* Responsive layouts
+
+---
+
+# Design System
+
+## Typography
+
+**Manrope**
+
+Weights:
+
+* Regular
+* Medium
+* SemiBold
+* Bold
+
+---
+
+## Color Palette
+
+Primary
+
+#2563EB
+
+Background
+
+#F8FAFC
+
+Surface
+
+#FFFFFF
+
+Text
+
+#0F172A
+
+Success
+
+#10B981
+
+Border
+
+#E2E8F0
+
+---
+
+# Key Features
+
+## Save Links
+
+Users can quickly save any URL with an optional category and note.
+
+---
+
+## Dashboard
+
+A clean, searchable collection of saved links displayed as modern cards.
+
+---
+
+## Categories
+
+Organize links into:
+
+* Work
+* Tech
+* Learning
+* Shopping
+* Recipe
+* Entertainment
+
+---
+
+## Search
+
+Instantly find saved links by title, category, or URL.
+
+---
+
+## Archive
+
+Completed links are moved out of the main dashboard to keep the workspace clean.
+
+---
+
+# Browser Extension
+
+One insight from research stood out:
+
+Even opening another app to save a link adds friction.
+
+To solve this, I designed a Chrome extension that allows users to save the current page directly from the browser.
+
+### Extension Flow
+
+Click Extension
+
+↓
+
+Current Page Auto-Detected
+
+↓
+
+Select Category
+
+↓
+
+Save
+
+↓
+
+Synced with Dashboard
+
+This keeps the saving experience under two seconds.
+
+---
+
+# Challenges
+
+### Avoiding Feature Creep
+
+It was tempting to add folders, AI recommendations, reminders, and social features.
+
+Instead, I focused on solving one problem really well: saving links quickly.
+
+---
+
+### Designing for Speed
+
+Every additional click reduced usability.
+
+I simplified the save flow to require as little input as possible.
+
+---
+
+# Outcomes
+
+The final product delivers:
+
+* Faster link saving
+* Cleaner browser sessions
+* Better organization
+* Reduced cognitive load
+* A seamless workflow between the browser extension and web application
+
+---
+
+# Future Improvements
+
+* AI-generated summaries
+* Smart auto-categorization
+* Browser extension keyboard shortcuts
+* Offline saving
+* Reading reminders
+* Shared collections
+* Cross-device synchronization
+
+---
+
+# Reflection
+
+Building LinkBucket reinforced an important lesson:
+
+The best products don't always introduce new behaviors—they improve existing ones.
+
+People already save content for later.
+
+The challenge was making that process simpler, faster, and more intentional.
+
+By combining a lightweight web application with a browser extension, LinkBucket turns a daily frustration into a focused, organized workflow.

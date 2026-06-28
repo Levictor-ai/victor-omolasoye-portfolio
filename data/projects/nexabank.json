@@ -1,0 +1,196 @@
+{
+  "slug": "nexabank",
+  "title": "NexaBank",
+  "subtitle": "Redefining Mobile Digital Banking",
+  "role": "Lead Product Designer (UX/UI)",
+  "company": "NexaBank",
+  "companyUrl": null,
+  "period": "Jun 2025 — Aug 2025",
+  "coverImage": "/images/projects/nexabank/Home.png",
+  "color": "#7c3aed",
+  "overview": "NexaBank is a comprehensive digital banking solution designed to streamline daily financial transactions, card management, and wealth tracking for modern users. The goal was to build a secure, unified financial ecosystem that feels intuitive, quick, and engaging.",
+  "problem": "Traditional banking apps often overwhelm users with cluttered dashboards, complex verification hoops, and fragmented transfer processes. Onboarding friction causes user drop-off during multi-step KYC, dashboard anxiety makes financial data difficult to parse, and transaction navigation requires too many taps for common tasks.",
+  "solution": "A modern digital banking app with minimalist onboarding flows, a modular dashboard prioritizing account balances and quick-action shortcuts, interactive card carousels for virtual card management, and integrated geolocation features for finding nearby ATMs and banking agents. Every flow was designed to reduce cognitive load and tap count.",
+  "targetAudience": ["Freelancers", "Young Professionals", "Digital Nomads", "Tech-savvy Banking Users"],
+  "regions": ["Global"],
+  "timeline": "8 Weeks",
+  "features": [
+    {
+      "title": "Secure Authentication & Onboarding",
+      "description": "Clean phone/email verification inputs, secure PIN pads, and biometric opt-in flows that guarantee a quick gateway into the app with transparent security messaging."
+    },
+    {
+      "title": "Unified Wallet Dashboard",
+      "description": "Dynamic digital debit card overlay with slide-through virtual cards, recent transactional itemizations in clean rows, and a prominent bottom navigation bar."
+    },
+    {
+      "title": "Seamless Money Transfers",
+      "description": "Isolated transaction menus with intuitive input fields for transfer amounts, beneficiary directories, and full confirmation flows with success states."
+    },
+    {
+      "title": "Geolocation & Map Utilities",
+      "description": "Fully integrated map view that visualizes financial touchpoints, nearby ATMs, banking agents, and localized banking perks geographically."
+    },
+    {
+      "title": "Bill Payments & Recharges",
+      "description": "Comprehensive bill payment system covering electricity, internet, and mobile recharge with multi-step confirmation and payment history tracking."
+    },
+    {
+      "title": "Virtual Card Management",
+      "description": "Full lifecycle management for virtual spend cards including card details, credit card views, account linking, and card-specific settings."
+    }
+  ],
+  "techStack": [
+    { "name": "Figma", "category": "design" },
+    { "name": "FigJam", "category": "design" },
+    { "name": "Design Systems", "category": "design" },
+    { "name": "User Research", "category": "tools" },
+    { "name": "Prototyping", "category": "tools" },
+    { "name": "Usability Testing", "category": "tools" }
+  ],
+  "architecture": {
+    "title": "Modular Screen Architecture with Consistent Design Language",
+    "description": "The product architecture was mapped to ensure seamless transitions across critical flows. A cohesive design system with purple primary, orange/blue accents, and geometric sans-serif typography was applied across all 89 screens to maintain visual consistency and user trust.",
+    "highlights": [
+      "Minimalist stepper components and transparent security messaging for KYC completion",
+      "Modular dashboard grid prioritizing account balances and quick-action shortcuts",
+      "Interactive card carousels for virtual card browsing and management",
+      "Integrated map view for geolocation-based banking services",
+      "Over 80 unique screens covering the full banking lifecycle"
+    ]
+  },
+  "results": [
+    {
+      "metric": "Onboarding Completion",
+      "value": "+88%",
+      "description": "Increase due to clearer KYC progress indicators"
+    },
+    {
+      "metric": "Transfer Time",
+      "value": "-35%",
+      "description": "Reduction in average time to initiate and complete P2P transfers"
+    },
+    {
+      "metric": "Screens Designed",
+      "value": "89",
+      "description": "Comprehensive screen library covering all banking flows"
+    },
+    {
+      "metric": "User Feedback",
+      "value": "Positive",
+      "description": "High praise for purple accent against clean white UI backgrounds"
+    }
+  ],
+  "links": [
+    { "label": "Case Study", "url": "/projects/nexabank", "type": "case-study" }
+  ],
+  "images": [
+    { "src": "/images/projects/nexabank/Home.png", "alt": "NexaBank Home Dashboard" },
+    { "src": "/images/projects/nexabank/Sign in.png", "alt": "Sign In Screen" },
+    { "src": "/images/projects/nexabank/Sign up #1.png", "alt": "Sign Up Step 1" },
+    { "src": "/images/projects/nexabank/Sign up #2.png", "alt": "Sign Up Step 2" },
+    { "src": "/images/projects/nexabank/Forgot password #1.png", "alt": "Forgot Password Step 1" },
+    { "src": "/images/projects/nexabank/Forgot password #2.png", "alt": "Forgot Password Step 2" },
+    { "src": "/images/projects/nexabank/Forgot password #3.png", "alt": "Forgot Password Step 3" },
+    { "src": "/images/projects/nexabank/Forgot password #4.png", "alt": "Forgot Password Step 4" },
+    { "src": "/images/projects/nexabank/Account & card #1.png", "alt": "Account & Card View 1" },
+    { "src": "/images/projects/nexabank/Account & card #2.png", "alt": "Account & Card View 2" },
+    { "src": "/images/projects/nexabank/Account management.png", "alt": "Account Management" },
+    { "src": "/images/projects/nexabank/Card Detail.png", "alt": "Card Detail View" },
+    { "src": "/images/projects/nexabank/Credit card #1.png", "alt": "Credit Card View 1" },
+    { "src": "/images/projects/nexabank/Credit card #2.png", "alt": "Credit Card View 2" },
+    { "src": "/images/projects/nexabank/Credit card #3.png", "alt": "Credit Card View 3" },
+    { "src": "/images/projects/nexabank/Credit card #4.png", "alt": "Credit Card View 4" },
+    { "src": "/images/projects/nexabank/Credit card #5.png", "alt": "Credit Card View 5" },
+    { "src": "/images/projects/nexabank/Transfer #1.png", "alt": "Transfer Step 1" },
+    { "src": "/images/projects/nexabank/Transfer #2.png", "alt": "Transfer Step 2" },
+    { "src": "/images/projects/nexabank/Transfer #3.png", "alt": "Transfer Step 3" },
+    { "src": "/images/projects/nexabank/Transfer #4.png", "alt": "Transfer Step 4" },
+    { "src": "/images/projects/nexabank/Transfer #5.png", "alt": "Transfer Step 5" },
+    { "src": "/images/projects/nexabank/Transfer #5 - Confirm #1.png", "alt": "Transfer Confirmation 1" },
+    { "src": "/images/projects/nexabank/Transfer #5 - Confirm #2.png", "alt": "Transfer Confirmation 2" },
+    { "src": "/images/projects/nexabank/Transfer #5 - Confirm #3.png", "alt": "Transfer Confirmation 3" },
+    { "src": "/images/projects/nexabank/Transfer #5 - Confirm #4.png", "alt": "Transfer Confirmation 4" },
+    { "src": "/images/projects/nexabank/Transfer #5 - Confirm #5.png", "alt": "Transfer Confirmation 5" },
+    { "src": "/images/projects/nexabank/Transfer #5 - Confirm #6.png", "alt": "Transfer Confirmation 6" },
+    { "src": "/images/projects/nexabank/Transfer #5 - Confirm #7.png", "alt": "Transfer Confirmation 7" },
+    { "src": "/images/projects/nexabank/Transfer #5 - Successfully.png", "alt": "Transfer Success" },
+    { "src": "/images/projects/nexabank/Transfer #6.png", "alt": "Transfer Step 6" },
+    { "src": "/images/projects/nexabank/Transfer #7.png", "alt": "Transfer Step 7" },
+    { "src": "/images/projects/nexabank/Transfer #8.png", "alt": "Transfer Step 8" },
+    { "src": "/images/projects/nexabank/Transfer #9.png", "alt": "Transfer Step 9" },
+    { "src": "/images/projects/nexabank/Withdraw #1.png", "alt": "Withdraw Step 1" },
+    { "src": "/images/projects/nexabank/Withdraw #2.png", "alt": "Withdraw Step 2" },
+    { "src": "/images/projects/nexabank/Withdraw #3.png", "alt": "Withdraw Step 3" },
+    { "src": "/images/projects/nexabank/Withdraw #4.png", "alt": "Withdraw Step 4" },
+    { "src": "/images/projects/nexabank/Withdraw #5.png", "alt": "Withdraw Step 5" },
+    { "src": "/images/projects/nexabank/Withdraw #6.png", "alt": "Withdraw Step 6" },
+    { "src": "/images/projects/nexabank/Pay the bill.png", "alt": "Pay Bill" },
+    { "src": "/images/projects/nexabank/Electric bill #1.png", "alt": "Electric Bill Step 1" },
+    { "src": "/images/projects/nexabank/Electric bill #2.png", "alt": "Electric Bill Step 2" },
+    { "src": "/images/projects/nexabank/Electric bill #3.png", "alt": "Electric Bill Step 3" },
+    { "src": "/images/projects/nexabank/Electric bill #4.png", "alt": "Electric Bill Step 4" },
+    { "src": "/images/projects/nexabank/Electric bill #5.png", "alt": "Electric Bill Step 5" },
+    { "src": "/images/projects/nexabank/Internet bill #1.png", "alt": "Internet Bill Step 1" },
+    { "src": "/images/projects/nexabank/Internet bill #2.png", "alt": "Internet Bill Step 2" },
+    { "src": "/images/projects/nexabank/Internet bill #3.png", "alt": "Internet Bill Step 3" },
+    { "src": "/images/projects/nexabank/Internet bill #4.png", "alt": "Internet Bill Step 4" },
+    { "src": "/images/projects/nexabank/Internet bill #5.png", "alt": "Internet Bill Step 5" },
+    { "src": "/images/projects/nexabank/Internet payment.png", "alt": "Internet Payment" },
+    { "src": "/images/projects/nexabank/Recharge the phone #1.png", "alt": "Mobile Recharge Step 1" },
+    { "src": "/images/projects/nexabank/Recharge the phone #2.png", "alt": "Mobile Recharge Step 2" },
+    { "src": "/images/projects/nexabank/Recharge the phone #3 - Confirm #1.png", "alt": "Mobile Recharge Confirm 1" },
+    { "src": "/images/projects/nexabank/Recharge the phone #3 - Confirm #2-1.png", "alt": "Mobile Recharge Confirm 2" },
+    { "src": "/images/projects/nexabank/Recharge the phone #3 - Confirm #2.png", "alt": "Mobile Recharge Confirm 3" },
+    { "src": "/images/projects/nexabank/Recharge the phone #4.png", "alt": "Mobile Recharge Step 4" },
+    { "src": "/images/projects/nexabank/Save online #1.png", "alt": "Save Online Step 1" },
+    { "src": "/images/projects/nexabank/Save online #2.png", "alt": "Save Online Step 2" },
+    { "src": "/images/projects/nexabank/Save online #3.png", "alt": "Save Online Step 3" },
+    { "src": "/images/projects/nexabank/Save online #4.png", "alt": "Save Online Step 4" },
+    { "src": "/images/projects/nexabank/Save online #5.png", "alt": "Save Online Step 5" },
+    { "src": "/images/projects/nexabank/Save online #6.png", "alt": "Save Online Step 6" },
+    { "src": "/images/projects/nexabank/Exchange #1.png", "alt": "Exchange Step 1" },
+    { "src": "/images/projects/nexabank/Exchange #2.png", "alt": "Exchange Step 2" },
+    { "src": "/images/projects/nexabank/Exchange #2-1.png", "alt": "Exchange Step 2 Alternative" },
+    { "src": "/images/projects/nexabank/Exchange rate.png", "alt": "Exchange Rate View" },
+    { "src": "/images/projects/nexabank/Interest rate.png", "alt": "Interest Rate View" },
+    { "src": "/images/projects/nexabank/Search for Branch.png", "alt": "Search for Branch" },
+    { "src": "/images/projects/nexabank/Search.png", "alt": "Search Screen" },
+    { "src": "/images/projects/nexabank/Message #1.png", "alt": "Messages Inbox" },
+    { "src": "/images/projects/nexabank/Message #2.png", "alt": "Message Thread" },
+    { "src": "/images/projects/nexabank/Message #3.png", "alt": "New Message" },
+    { "src": "/images/projects/nexabank/Directory of beneficiary #1.png", "alt": "Beneficiary Directory 1" },
+    { "src": "/images/projects/nexabank/Directory of beneficiary #2.png", "alt": "Beneficiary Directory 2" },
+    { "src": "/images/projects/nexabank/Directory of beneficiary #3.png", "alt": "Beneficiary Directory 3" },
+    { "src": "/images/projects/nexabank/Directory of beneficiary #4.png", "alt": "Beneficiary Directory 4" },
+    { "src": "/images/projects/nexabank/Payment history #1.png", "alt": "Payment History 1" },
+    { "src": "/images/projects/nexabank/Payment history #2.png", "alt": "Payment History 2" },
+    { "src": "/images/projects/nexabank/Transaction report #1.png", "alt": "Transaction Report 1" },
+    { "src": "/images/projects/nexabank/Transaction report #2.png", "alt": "Transaction Report 2" },
+    { "src": "/images/projects/nexabank/Detail payment.png", "alt": "Payment Detail" },
+    { "src": "/images/projects/nexabank/Setting.png", "alt": "Settings" },
+    { "src": "/images/projects/nexabank/Language.png", "alt": "Language Selection" },
+    { "src": "/images/projects/nexabank/App information.png", "alt": "App Information" },
+    { "src": "/images/projects/nexabank/Change password #1.png", "alt": "Change Password Step 1" },
+    { "src": "/images/projects/nexabank/Change password #2.png", "alt": "Change Password Step 2" },
+    { "src": "/images/projects/nexabank/Change password  #1.png", "alt": "Change Password Alt 1" }
+  ],
+  "sections": [
+    {
+      "title": "Research & Discovery",
+      "content": "Through user interviews and competitive analysis of top fintech apps, three primary pain points were uncovered: Onboarding Friction — Users drop off during multi-step identity verification (KYC). Dashboard Anxiety — Users find financial data dense and difficult to parse at a glance. Transaction Navigation — Sending money or managing virtual cards often requires too many taps."
+    },
+    {
+      "title": "User Persona",
+      "content": "Meet Alex, 28 (Freelance Digital Marketer). 'I need an app where I can manage my virtual spend cards instantly, split bills with friends, and see exactly where my money is without navigating a maze.'"
+    },
+    {
+      "title": "Visual Design System",
+      "content": "To build user trust while remaining modern, a deliberate and cohesive design language was established. Typography: Clean, geometric sans-serif for high readability across varying mobile screen densities. Color Palette: Primary Purple evokes a sense of security, modern technology, and premium service. Accent Orange/Blue used strategically for CTAs, card varieties, and financial alerts. Illustrations & Micro-interactions: Playful, vector-style spot illustrations used during loading screens, success states, and empty states to alleviate financial anxiety."
+    },
+    {
+      "title": "Testing & Outcomes",
+      "content": "Usability testing on high-fidelity prototypes yielded excellent qualitative and quantitative data. 88% Increase in onboarding completion rates due to clearer KYC progress indicators. 35% Reduction in the average time it takes for a user to initiate and complete a peer-to-peer money transfer. Positive Feedback regarding the clean contrast of the purple accent against white UI backgrounds."
+    }
+  ]
+}

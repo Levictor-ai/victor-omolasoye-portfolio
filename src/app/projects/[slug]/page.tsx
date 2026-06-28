@@ -60,7 +60,7 @@ export default async function ProjectPage({
 
   return (
     <main className="min-h-screen bg-[#0B0F19] text-slate-200">
-      <article className="mx-auto max-w-5xl px-4 py-20 sm:px-6 lg:px-8">
+      <article className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         {/* Back link */}
         <a
           href="/#projects"

@@ -2,86 +2,115 @@
   "slug": "hapnin",
   "title": "Hapnin",
   "subtitle": "Social Event Discovery Platform",
-  "role": "Product Engineer",
+  "role": "UI/UX Product Designer",
   "company": "Hapnin",
   "companyUrl": null,
-  "period": "Jun 2023 — Dec 2023",
-  "coverImage": "/images/projects/hapnin/cover.jpg",
+  "period": "Feb 2026",
+  "coverImage": "/images/projects/hapnin/cover.png",
   "color": "#22d3ee",
-  "overview": "Hapnin is a location-based social discovery platform that helps users find and share real-time events happening around them. Built with a focus on zero-friction onboarding and hyper-local relevance.",
-  "problem": "Existing event discovery tools required lengthy setup, lacked real-time accuracy, and failed to surface spontaneous local gatherings. Users missed out on events happening in their immediate vicinity.",
-  "solution": "A lightweight mobile-first PWA that leverages geolocation and interest-based filtering to surface events within a customizable radius. Users can create events in under 30 seconds and share them instantly via link.",
-  "targetAudience": ["Young Professionals", "University Students", "Event Organizers"],
-  "regions": ["Nigeria", "Ghana", "Kenya"],
+  "overview": "Hapnin is a centralized event discovery platform that helps people easily find, verify, and plan attendance for nearby events with confidence.",
+  "problem": "Across many states, people are genuinely interested in attending social events, festivals, faith-based gatherings, and educational programs. However, discovering these events remains a frustrating experience because there is no single, reliable platform that shows what is happening around them in one place. Event information is often scattered across social media posts, WhatsApp broadcasts, physical posters, word of mouth, and different websites. This fragmentation makes it time-consuming for users to search for events and difficult to verify important details. As a result, users frequently miss events they would have loved to attend or arrive with incomplete information.",
+  "solution": "A location-based event discovery app that helps users easily find upcoming events and programs within their state. The app centralizes event information into a single, organized platform, providing clear and complete details including event description, date and time, venue, pricing, attendance requirements, and organizer information. By simplifying how people discover and access events around them, the product seeks to reduce missed opportunities, improve trust in event information, and encourage greater social engagement, community participation, and attendance at cultural, festive, and educational programs.",
+  "targetAudience": ["Young Adults", "Working Professionals", "Community & Faith-Based Members", "Event Organizers"],
+  "regions": ["Nigeria"],
   "timeline": "7 months (idea to launch)",
   "features": [
     {
-      "title": "Instant Event Creation",
-      "description": "Create and publish an event in under 30 seconds with minimal required fields. Auto-fills location and time from device context."
+      "title": "Centralized Event Feed",
+      "description": "A single, reliable platform that aggregates all local events including social, cultural, faith-based, and educational programs."
     },
     {
-      "title": "Hyper-local Feed",
-      "description": "Geolocation-powered feed showing events within 1km, 5km, or 25km radius with real-time updates as events are created."
+      "title": "Smart Filtering & Discovery",
+      "description": "Filter events by location, date, category, and cost to help users find relevant events faster."
     },
     {
-      "title": "Interest Matching",
-      "description": "Onboarding-free interest detection using implicit signals from event interactions to personalize the discovery feed."
+      "title": "Clear Event Details",
+      "description": "Standardized event information with date, time, venue, pricing, registration, and organizer credibility clearly displayed."
     },
     {
-      "title": "Shareable Event Links",
-      "description": "Every event generates a unique shareable link optimized for WhatsApp and Instagram sharing with rich preview cards."
+      "title": "Event Reminders & Notifications",
+      "description": "Users receive reminders before events and updates if there are changes to time, venue, or schedule."
     }
   ],
   "techStack": [
-    { "name": "Next.js", "category": "frontend" },
-    { "name": "TypeScript", "category": "frontend" },
-    { "name": "Tailwind CSS", "category": "frontend" },
-    { "name": "Supabase", "category": "backend" },
-    { "name": "PostgreSQL", "category": "backend" },
-    { "name": "Mapbox GL", "category": "frontend" },
-    { "name": "Vercel", "category": "infra" },
-    { "name": "Figma", "category": "design" }
+    { "name": "Prototyping", "category": "design" },
+    { "name": "Design Systems", "category": "design" },
+    { "name": "Figma", "category": "design" },
+    { "name": "User Research", "category": "design" },
+    { "name": "Wireframing", "category": "design" },
+    { "name": "Usability Testing", "category": "design" }
   ],
   "architecture": {
-    "title": "Serverless-First with Real-Time Subscriptions",
-    "description": "Hapnin leverages Supabase real-time subscriptions for live event updates. The serverless backend handles geolocation queries through PostGIS extensions, with edge functions processing location-based ranking algorithms.",
-    "highlights": [
-      "PostGIS-powered spatial queries for radius-based filtering",
-      "Supabase real-time channels for live feed updates",
-      "Edge functions for location processing and event ranking",
-      "Static generation for event share pages with ISR"
-    ]
+    "title": "",
+    "description": "",
+    "highlights": []
   },
   "results": [
     {
-      "metric": "Events Created",
-      "value": "3,200+",
-      "description": "In the first 3 months post-launch"
+      "metric": "Research Participants",
+      "value": "32",
+      "description": "Interviewees across qualitative and quantitative research"
     },
     {
-      "metric": "Active Users",
-      "value": "8,500+",
-      "description": "Monthly active users across 3 countries"
+      "metric": "Pain Points Identified",
+      "value": "6",
+      "description": "Key UX insights from research synthesis"
     },
     {
-      "metric": "Avg. Event RSVP",
-      "value": "24",
-      "description": "Average confirmed attendees per event"
-    },
-    {
-      "metric": "Share Rate",
-      "value": "63%",
-      "description": "Events shared at least once on social platforms"
+      "metric": "Design Sprints",
+      "value": "5",
+      "description": "From empathize to test phase"
     }
   ],
-  "testimonial": {
-    "quote": "Hapnin solved a real pain point for event organizers in Lagos. The shareable link feature made it our go-to tool for campus events.",
-    "author": "Chidi Okonkwo",
-    "role": "Early Adopter & Community Manager"
-  },
+  "testimonial": null,
   "links": [
-    { "label": "Live App", "url": "https://hapnin.app", "type": "live" },
-    { "label": "Case Study", "url": "/projects/hapnin", "type": "case-study" }
+    { "label": "Case Study", "url": "https://www.behance.net/gallery/247623901/Hapnin-Event-Booking-App", "type": "case-study" }
   ],
-  "images": []
+  "images": [],
+  "sections": [
+    {
+      "title": "Product Overview",
+      "content": "Hapnin is a centralized event discovery platform that helps people easily find, verify, and plan attendance for nearby events with confidence.\n\nProblem Statement\n\nAcross many states, people are genuinely interested in attending social events, festivals, faith-based gatherings, and educational programs. However, discovering these events remains a frustrating experience because there is no single, reliable platform that shows what is happening around them in one place. Event information is often scattered across social media posts, WhatsApp broadcasts, physical posters, word of mouth, and different websites. This fragmentation makes it time-consuming for users to search for events and difficult to verify important details. As a result, users frequently miss events they would have loved to attend or arrive with incomplete information.\n\nIn many cases, essential details such as event date, venue, time, pricing (free or paid), registration process, and organizer credibility are either unclear or inconsistent across sources. This lack of clarity creates uncertainty, discourages attendance, and makes planning ahead stressful, especially for users who want to manage their time, budget, and location effectively.\n\nChallenges\n\n- Event information is scattered across multiple platforms, making discovery time-consuming and inefficient\n- There is no single trusted platform that aggregates events happening within a user's location\n- Users struggle to verify the accuracy and credibility of event information\n- Important event details like date, time, venue, pricing, registration are often missing, unclear, or inconsistent\n- Users find it difficult to compare multiple events and decide which one fits their schedule and budget\n- Lack of clear information creates uncertainty and hesitation, discouraging users from attending events\n\nSolution Statement\n\nThis project aims to design a location-based event discovery app that helps users easily find upcoming events and programs within their state. The app centralizes event information into a single, organized platform, providing clear and complete details including event description, date and time, venue, pricing, attendance requirements, and organizer information. By simplifying how people discover and access events around them, the product seeks to reduce missed opportunities, improve trust in event information, and encourage greater social engagement, community participation, and attendance at cultural, festive, and educational programs."
+    },
+    {
+      "title": "The Goal",
+      "content": "- Centralize event discovery by providing a single platform where users can find all nearby social, cultural, faith-based, and educational events\n- Reduce the time and effort required to discover relevant events by simplifying search and browsing\n- Ensure clarity and consistency of event information through standardized event details (date, time, venue, cost, registration)\n- Improve trust and credibility by helping users verify event organizers and event authenticity\n- Enable better planning by giving users clear visibility into event timing, location, and pricing\n- Help users find relevant events faster using smart filtering by location, date, category, and cost\n- Prevent missed opportunities by helping users discover events early and stay informed\n- Create a stress-free event discovery experience that replaces fragmented and unreliable sources\n- Support event organizers with a structured way to publish accurate and complete event details\n- Increase event attendance by reducing uncertainty and improving user confidence in event information"
+    },
+    {
+      "title": "Our Mission",
+      "content": "Our mission is to make discovering local events reliable and stress-free. We aim to bring all events into one trusted platform. By providing location-based information, we help people plan confidently and never miss events that matter to them."
+    },
+    {
+      "title": "Products",
+      "content": "Web-Based Landing Page\n\nWe will begin with a web-based landing page that serves as the primary entry point for users. This page will introduce the product, communicate its value, and allow early users to discover events, understand how the platform works, and sign up for updates. The landing page also helps validate interest, gather early feedback, and onboard event organizers with minimal friction.\n\nMobile Applications\n\nWe will expand into mobile applications to deliver a more personalized and location-driven experience. The mobile apps will focus on real-time event discovery, filtering, saving events, notifications, and planning features, providing users with a seamless and convenient way to stay updated on events around them. This phased approach allows us to test core assumptions early while building toward a richer, mobile-first experience."
+    },
+    {
+      "title": "Services",
+      "content": "Ticket Selling & Buying\n\nWe provide a seamless way for users to purchase or reserve tickets directly within the platform, eliminating the need to switch between multiple websites or links. For free events, users can register, while paid events benefit from clear pricing, availability, and confirmation. This ensures a trustworthy transaction process and reduces uncertainty around attendance.\n\nBooking & Logistics Support (Uber, Hotels)\n\nTo help users plan beyond just attending an event, the platform integrates transportation and accommodation options such as ride-hailing (e.g., Uber) and nearby hotels. Users can quickly estimate travel time, book rides, or find accommodation close to the event venue, especially for events outside their immediate area.\n\nEvent Location & Navigation Assistance\n\nThe app provides clear venue information, maps, and directions to help users arrive on time without confusion. This is especially valuable for first-time venues or large events.\n\nEvent Reminders & Notifications\n\nUsers receive reminders before events and updates if there are changes to time, venue, or schedule. This reduces missed events and last-minute surprises."
+    },
+    {
+      "title": "What Stands Out",
+      "content": "Our app stands out by offering a truly centralized, location-first platform that brings together social, cultural, faith-based, and educational events in one reliable space. Unlike existing platforms that focus mainly on ticketed or niche events, it is designed for local and community-driven gatherings, including free and informal events that are often overlooked. The app emphasizes clarity, consistency, and trust by standardizing event details and highlighting organizer credibility, helping users confidently plan their time, budget, and attendance. With a simple, planning-focused user experience that reduces reliance on scattered sources like social media and WhatsApp, the platform makes discovering and attending events easier, more reliable, and stress-free for both users and organizers."
+    },
+    {
+      "title": "Users",
+      "content": "Primary Users\n\n- Young adults and working professionals: People looking to attend social events, networking meetups, workshops, and community programs\n- Community and faith-based members: Individuals who regularly attend church programs, mosque gatherings, fellowships, conventions, and other faith-based events\n\nSecondary Users\n\n- Event organizers and community leaders: Individuals or groups hosting events who need a structured, trusted platform to share accurate event information and reach the right audience."
+    },
+    {
+      "title": "Our Competitors",
+      "content": "TechLinkUp primarily focuses on technology-related events such as meetups, hackathons, conferences, workshops, and networking sessions within the tech ecosystem.\n\nNaija.Events acts as a local event listing platform showcasing various events happening across Nigeria, including entertainment, social, and some cultural events.\n\nEventbrite is a global event management and ticketing platform that allows organizers to create, promote, and sell tickets for events.\n\nWhat's in for our Users\n\n- One reliable place to find events\n- Clear and complete event information\n- Confidence and trust in event listings\n- Time-saving discovery experience\n- Access to a wider range of events"
+    },
+    {
+      "title": "Design Thinking: Empathize",
+      "content": "Research: Qualitative and Quantitative Research\n\nWe combined qualitative and quantitative research because each provides unique value. Qualitative research helps us uncover deep insights into user emotions, pain points, and motivations, answering the \"why.\" Quantitative research allows us to measure and validate these insights with data, answering the \"how many.\"\n\nResearch Objectives\n\n- Identify how users currently find social, cultural, faith-based, and educational events\n- Understand pain points related to event discovery, information clarity, and trust\n- Explore how users evaluate event credibility and decide whether to attend\n- Determine what information is most important to users when planning events\n- Validate assumptions around location-based discovery and planning needs\n\nKey Assumptions to Validate\n\n- Users want a single, trusted platform for event discovery\n- Missing or inconsistent event details discourage attendance\n- Location-based filtering improves relevance\n- Trust and organizer credibility affect user decision-making\n\nParticipants: We interviewed 32 individuals — 30 for quantitative research and 2 for qualitative research.\n\n- Young Adults: 26\n- People new to a city: 6\n- Event organizers: 0\n\nUX Insight Bullets (From Quantitative Research)\n\n1. Users are interested in events but attend inconsistently. Missed events are often due to late discovery, not lack of interest. UX Insight: Users need early visibility of upcoming events to plan ahead.\n\n2. Users rely on WhatsApp, Instagram, word of mouth, and flyers. There is no single, trusted source of truth. UX Insight: Users want a centralized platform that removes the need to search across multiple channels.\n\n3. Many users spend 10-30 minutes or more searching for details. Information is often incomplete or scattered. UX Insight: Users value fast scanning and clarity over excessive content.\n\n4. Unclear venue, time, pricing, and registration discourage users. Verifying event legitimacy is difficult. UX Insight: Trust and clarity are essential for decision-making.\n\n5. Knowing whether an event is free or paid is extremely important. Unclear pricing leads to abandonment. UX Insight: Pricing should be visible at a glance, not hidden deep in the flow.\n\n6. Users strongly prefer events within their city or state. Seeing irrelevant events causes frustration. UX Insight: Location-based personalization is a core requirement, not a nice-to-have.\n\n7. Saved events and reminders are rated highly useful. UX Insight: Users want tools that support planning and follow-through, not just discovery."
+    },
+    {
+      "title": "Design Thinking: Define",
+      "content": "Problem Statement\n\nPeople are interested in attending local events, but often miss them because event discovery is fragmented, unclear, and unreliable. Information is scattered across multiple channels, making it hard to find, verify, and plan around key details like time, location, cost, and organizer credibility leading to missed opportunities and low attendance.\n\nResearch to Insights to Solution Flow\n\n- Research Finding: Users rely on scattered channels to discover events, often receive incomplete or unclear information, and frequently miss events they are interested in. Event discovery is time-consuming, stressful, and unreliable.\n- Key Insight: Users need a single, reliable source for discovering local events. Early and clear information increases the likelihood of attendance. Trust and transparency influence decision-making. Location relevance and category filtering reduce cognitive overload. Planning features (save, reminders) support real-life behavior.\n- Design Solution: Home feed prioritizes upcoming events and dates. Centralized event feed with complete details in one place. Scannable event cards, clear hierarchy, and filters. Organizer profiles, verified badges, and structured event details. Free/Paid tags displayed on event cards and details page. Location-based feed and interest selection during onboarding. Save events and reminder functionality."
+    },
+    {
+      "title": "Design Thinking: Ideate",
+      "content": "How Might We?\n\n- How might we help users discover relevant events early enough to plan and attend them?\n- How might we reduce the time and effort users spend searching for event information?\n- How might we bring all local event information into one reliable place?\n- How might we make event details clear, scannable, and easy to understand at a glance?\n- How might we help users quickly assess whether an event is worth their time and money?\n- How might we make pricing, timing, and location transparent so users can decide with confidence?\n- How might we surface organizer credibility without overwhelming the user?\n- How might we ensure users only see events that are relevant to their location and interests?\n- How might we reduce cognitive overload by filtering out irrelevant or low-value events?\n- How might we reduce the chances of users forgetting or missing events they are interested in?\n- How might we help organizers easily publish clear, complete, and trustworthy event information?\n- How might we help organizers reach the right audience without relying on fragmented channels?\n\nHMW Answers\n\n- Show upcoming events by default (not just happening today)\n- Use scannable event cards with key info visible upfront\n- Provide strong filters (date, location, category, price)\n- Enable keyword search with smart suggestions\n- Partner with organizers and communities for direct submissions\n- Allow verified organizers to publish events\n- Use a consistent event layout and visual hierarchy\n- Highlight date, time, price, and distance prominently\n- Use icons and tags (Free, Online, This Weekend)\n- Require pricing to be marked as Free or Paid\n- Show exact start and end times\n- Show distance and travel estimate from user's location\n- Show credibility only when users tap into details\n- Keep profiles clean and minimal\n- Ask for location and interests during onboarding\n- Default the feed to the user's city\n- Allow users to update preferences anytime\n- Limit the number of events shown per screen\n- Allow users to save events\n- Send reminder notifications before the event\n- Offer calendar sync\n- Provide a guided event creation form with required fields\n- Use prompts for missing information\n- Preview event layout before publishing\n- Match events to users based on location and interests\n- Allow organizers to select relevant categories\n- Provide insights into who is viewing or saving their event"
+    }
+  ]
 }

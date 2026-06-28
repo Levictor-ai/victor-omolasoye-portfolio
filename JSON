@@ -1,0 +1,105 @@
+{
+  "profile": {
+    "name": "Victor Omolasoye",
+    "roles": [
+      "Product Designer",
+      "Product Engineer",
+      "Brand Designer"
+    ],
+    "email": "omolasoyevictorakinyemi@gmail.com",
+    "avatarUrl": "/images/victor-profile.jpg",
+    "bio": "Victor Omolasoye is a user experience expert who puts users at the centre of every solution. From brand identity to digital products, he combines research, strategy, and design to bridge the gap between brand design and product development."
+  },
+  "metrics": {
+    "tools": [
+      {
+        "name": "Figma",
+        "level": 95
+      },
+      {
+        "name": "Photoshop",
+        "level": 90
+      },
+      {
+        "name": "Antigravity",
+        "level": 90
+      },
+      {
+        "name": "AI",
+        "level": 90
+      },
+      {
+        "name": "Illustrator",
+        "level": 70
+      },
+      {
+        "name": "Framer",
+        "level": 50
+      }
+    ],
+    "competencies": [
+      {
+        "name": "User Experience",
+        "level": 90
+      },
+      {
+        "name": "Artificial Intelligence",
+        "level": 86
+      },
+      {
+        "name": "User Research",
+        "level": 83
+      },
+      {
+        "name": "Prompt Engineering",
+        "level": 80
+      }
+    ]
+  },
+  "faqs": [
+    {
+      "question": "What services do you offer?",
+      "answer": "I offer user experience design, product design, brand identity design, visual design, design strategy, user research, and design systems for digital products and growing brands."
+    },
+    {
+      "question": "What kind of clients do you work with?",
+      "answer": "I work with founders, startups, businesses, organisations, and product teams across different industries that need clear, user-focused brands and digital experiences."
+    },
+    {
+      "question": "What is your design process?",
+      "answer": "My process typically starts with understanding the business, users, and goals. From there, I carry out research, define the problem, explore ideas, create wireframes or visual directions, design the solution, and refine it based on feedback."
+    },
+    {
+      "question": "Do you work on both branding and product design?",
+      "answer": "Yes. I help businesses create a consistent experience from their visual identity to their digital product. This means the brand does not only look good—it also works clearly across websites, apps, and customer touchpoints."
+    },
+    {
+      "question": "Can you work with an existing brand or product?",
+      "answer": "Yes. I can improve an existing brand, redesign a website or mobile app, refine a product flow, create new features, or build a more consistent design system."
+    },
+    {
+      "question": "Do you work remotely?",
+      "answer": "Yes. I work remotely with clients and teams across Africa, the UK, the US, Canada, China, and other locations."
+    },
+    {
+      "question": "What tools do you use?",
+      "answer": "My core tools include Figma for product and interface design, alongside Adobe Illustrator, Photoshop, and other design tools depending on the project requirements."
+    },
+    {
+      "question": "How long does a project take?",
+      "answer": "Project timelines depend on the scope. A focused design task may take a few days, while a full branding or product-design project can take several weeks. I provide a clear timeline after understanding the project requirements."
+    },
+    {
+      "question": "How do we get started?",
+      "answer": "Start by sharing what you are building, the problem you want to solve, your target users, and any existing materials. From there, we can discuss the scope, timeline, and best approach for the project."
+    },
+    {
+      "question": "Can you collaborate with developers and product teams?",
+      "answer": "Yes. I work closely with developers, founders, and product teams to ensure designs are practical, well-documented, and ready for implementation."
+    },
+    {
+      "question": "Do you offer revisions?",
+      "answer": "Yes. Revisions are included at agreed stages of the project to ensure the final outcome aligns with the project goals and expectations."
+    }
+  ]
+}

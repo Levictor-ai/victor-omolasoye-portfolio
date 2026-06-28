@@ -12,7 +12,7 @@
   "problem": "Urban mobility in African cities faced challenges with unreliable tracking, inconsistent pricing, fragmented payment options, and poor user experience across existing platforms.",
   "solution": "A unified mobility platform with real-time GPS tracking, transparent fare calculation, multi-payment support (card, mobile money, cash), and an intuitive interface optimized for low-bandwidth environments.",
   "targetAudience": ["Urban Commuters", "Delivery Businesses", "Fleet Operators"],
-  "regions": ["Nigeria", "Ghana"],
+  "regions": ["Nigeria"],
   "timeline": "Ongoing",
   "features": [
     {
@@ -60,8 +60,7 @@
     }
   ],
   "links": [
-    { "label": "Live Platform", "url": "https://getmoovable.com/", "type": "live" },
-    { "label": "Case Study", "url": "/projects/moovabletech", "type": "case-study" }
+    { "label": "Live Platform", "url": "https://getmoovable.com/", "type": "live" }
   ],
   "images": []
 }

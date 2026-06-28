@@ -77,8 +77,7 @@
     }
   ],
   "links": [
-    { "label": "Live Platform", "url": "https://linkbucket-theta.vercel.app/", "type": "live" },
-    { "label": "Case Study", "url": "/projects/linkbucket", "type": "case-study" }
+    { "label": "Live Platform", "url": "https://linkbucket-theta.vercel.app/", "type": "live" }
   ],
   "images": [],
   "sections": [

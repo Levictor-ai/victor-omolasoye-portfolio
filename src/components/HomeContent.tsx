@@ -9,8 +9,15 @@ import type { ProjectData } from '@/types/project';
 import { ProjectCard } from '@/components/ProjectCard';
 import { FAQAccordion } from '@/components/FAQAccordion';
 
-function SkillBar({ label, value }: { label: string; value: number }) {
-  const [isVisible, setIsVisible] = useState(false);
+const levelColors: Record<string, { bg: string; text: string; dot: string }> = {
+  Expert: { bg: 'bg-indigo-500/15', text: 'text-indigo-300', dot: 'bg-indigo-400' },
+  Proficient: { bg: 'bg-emerald-500/15', text: 'text-emerald-300', dot: 'bg-emerald-400' },
+  Familiar: { bg: 'bg-slate-500/15', text: 'text-slate-400', dot: 'bg-slate-500' },
+};
+
+function AnimatedCounter({ end, suffix = '' }: { end: number; suffix?: string }) {
+  const [count, setCount] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -18,36 +25,68 @@ function SkillBar({ label, value }: { label: string; value: number }) {
     if (!el) return;
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
+          let start = 0;
+          const duration = 1500;
+          const step = Math.ceil(end / (duration / 16));
+          const timer = setInterval(() => {
+            start += step;
+            if (start >= end) {
+              setCount(end);
+              clearInterval(timer);
+            } else {
+              setCount(start);
+            }
+          }, 16);
         }
       },
-      { threshold: 0.2 },
+      { threshold: 0.3 },
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, []);
+  }, [end, hasAnimated]);
 
   return (
-    <div ref={ref} className="space-y-1">
-      <div className="flex items-center justify-between">
-        <span className="text-xs font-medium text-slate-200">{label}</span>
+    <div ref={ref} className="text-center">
+      <span className="text-2xl font-bold text-white sm:text-3xl">
+        {count}{suffix}
+      </span>
+    </div>
+  );
+}
+
+function StatsSection() {
+  return (
+    <section className="mb-24">
+      <div className="grid grid-cols-3 gap-2 sm:gap-4">
+        <div className="rounded-lg border border-slate-700/30 bg-slate-800/30 p-2 text-center sm:p-4">
+          <AnimatedCounter end={52} />
+          <p className="mt-1 text-xs text-slate-400 sm:text-sm">Clients</p>
+        </div>
+        <div className="rounded-lg border border-slate-700/30 bg-slate-800/30 p-2 text-center sm:p-4">
+          <AnimatedCounter end={2000} suffix="+" />
+          <p className="mt-1 text-xs text-slate-400 sm:text-sm">Projects</p>
+        </div>
+        <div className="rounded-lg border border-slate-700/30 bg-slate-800/30 p-2 text-center sm:p-4">
+          <AnimatedCounter end={99} suffix="%" />
+          <p className="mt-1 text-xs text-slate-400 sm:text-sm">Satisfied Clients</p>
+        </div>
       </div>
-      <div
-        className="h-1.5 w-full overflow-hidden rounded-full"
-        style={{ backgroundColor: 'rgba(148, 163, 184, 0.12)' }}
-        role="progressbar"
-        aria-valuenow={value}
-        aria-valuemin={0}
-        aria-valuemax={100}
-        aria-label={`${label}: ${value}%`}
-      >
-        <div
-          className="h-full rounded-full transition-all duration-1000 ease-out"
-          style={{ width: isVisible ? `${value}%` : '0%', backgroundColor: '#818CF8' }}
-        />
-      </div>
+    </section>
+  );
+}
+
+function SkillBar({ label, level }: { label: string; level: string }) {
+  const colors = levelColors[level] ?? levelColors.Familiar;
+
+  return (
+    <div className="flex items-center justify-between">
+      <span className="text-xs font-medium text-slate-200">{label}</span>
+      <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wider ${colors.bg} ${colors.text}`}>
+        <span className={`size-1.5 rounded-full ${colors.dot}`} />
+        {level}
+      </span>
     </div>
   );
 }
@@ -91,14 +130,14 @@ function AnimatedTitle({ titles }: { titles: string[] }) {
 
 function HeroSection({ profile }: { profile: ProfileData }) {
   return (
-    <section className="mb-14">
+    <section className="flex min-h-0 flex-col justify-center py-12 lg:min-h-[calc(100vh-57px)] lg:py-0">
       <AvailableBanner />
-      <h1 className="mb-2 text-display-md font-bold leading-[0.9] tracking-tight text-white sm:text-display-lg lg:text-display-xl">
+      <h1 className="mb-4 text-[clamp(3rem,15vw,10rem)] font-display leading-[0.85] tracking-tight text-white">
         <span className="block">VICTOR</span>
         <span className="block">OMOLASOYE</span>
       </h1>
       <AnimatedTitle titles={profile.titles} />
-      <p className="mb-4 max-w-2xl text-body-lg text-slate-300">
+      <p className="mb-6 max-w-2xl text-body-lg text-slate-300">
         {profile.tagline}
       </p>
       <div className="flex flex-wrap gap-3">
@@ -184,7 +223,7 @@ const articles = [
 
 function ArticlesSection() {
   return (
-    <section id="articles" className="mb-16">
+    <section id="articles" className="mb-20">
       <h2 className="mb-6 text-heading-lg text-white">Articles</h2>
       <div className="space-y-3">
         {articles.map((article, i) => (
@@ -221,33 +260,50 @@ function ArticlesSection() {
 
 function SkillsSection({ profile }: { profile: ProfileData }) {
   return (
-    <section id="skills" className="mb-16">
+    <section id="skills" className="mb-20">
       <h2 className="mb-5 text-heading-lg text-white">Skills & Expertise</h2>
-      <div className="grid gap-6 sm:grid-cols-2">
+      <p className="mb-8 max-w-2xl text-body-md leading-relaxed text-slate-400">
+        From discovery and strategy to visual execution and developer handoff, I bridge every phase of the product design lifecycle.
+      </p>
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         <div>
           <h3 className="mb-4 text-label-sm uppercase tracking-wider text-indigo-400">
-            Tools & Technologies
+            Core Disciplines
           </h3>
           <div className="space-y-3">
-            {profile.toolSkills.map((skill) => (
+            {profile.coreDisciplines.map((skill) => (
               <SkillBar
                 key={skill.name}
                 label={skill.name}
-                value={skill.percentage}
+                level={skill.level}
               />
             ))}
           </div>
         </div>
         <div>
           <h3 className="mb-4 text-label-sm uppercase tracking-wider text-emerald-400">
-            Disciplines
+            Tools &amp; Software
           </h3>
           <div className="space-y-3">
-            {profile.softSkills.map((skill) => (
+            {profile.tools.map((skill) => (
               <SkillBar
                 key={skill.name}
                 label={skill.name}
-                value={skill.percentage}
+                level={skill.level}
+              />
+            ))}
+          </div>
+        </div>
+        <div>
+          <h3 className="mb-4 text-label-sm uppercase tracking-wider text-violet-400">
+            Technical &amp; Handoff
+          </h3>
+          <div className="space-y-3">
+            {profile.technicalHandoff.map((skill) => (
+              <SkillBar
+                key={skill.name}
+                label={skill.name}
+                level={skill.level}
               />
             ))}
           </div>
@@ -259,7 +315,7 @@ function SkillsSection({ profile }: { profile: ProfileData }) {
 
 function AboutSection({ profile }: { profile: ProfileData }) {
   return (
-    <section id="about" className="mb-16">
+    <section id="about" className="mb-20">
       <h2 className="mb-6 text-heading-lg text-white">About Me</h2>
       <div className="card overflow-hidden p-0 sm:p-0">
         <div className="relative aspect-[4/5] w-full sm:aspect-[3/2]">
@@ -307,18 +363,16 @@ function ExperienceSection({ profile }: { profile: ProfileData }) {
   if (profile.experience.length === 0) return null;
 
   return (
-    <section id="experience" className="mb-16">
-      <h2 className="mb-8 text-heading-lg text-white">Experience</h2>
-      <div className="space-y-4">
+    <section id="experience" className="mb-20">
+      <h2 className="mb-6 text-heading-lg text-white">Experience</h2>
+      <div className="space-y-2">
         {profile.experience.map((exp, i) => (
-          <div key={i} className="card p-4 sm:p-5">
-            <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
-              <div>
-                <h3 className="text-heading-sm text-white">{exp.role}</h3>
-                <p className="text-sm text-indigo-400">{exp.company}</p>
-              </div>
-              <span className="shrink-0 text-sm text-slate-500">{exp.period}</span>
+          <div key={i}>
+            <div className="flex items-baseline justify-between gap-2">
+              <p className="text-right text-sm text-slate-200">{exp.role}</p>
+              <p className="text-xs font-medium uppercase tracking-wider text-indigo-400">{exp.company}</p>
             </div>
+            <p className="text-xs text-slate-500">{exp.period}</p>
           </div>
         ))}
       </div>
@@ -341,52 +395,50 @@ function TestimonialsCarousel({ profile }: { profile: ProfileData }) {
   }, [items.length]);
 
   const variants = {
-    enter: (dir: number) => ({ x: dir * 120, opacity: 0 }),
-    center: { x: 0, opacity: 1 },
-    exit: (dir: number) => ({ x: dir * -120, opacity: 0 }),
+    initial: (dir: number) => ({ x: dir * 60, opacity: 0 }),
+    animate: { x: 0, opacity: 1 },
+    exit: (dir: number) => ({ x: dir * -60, opacity: 0 }),
   };
 
   return (
-    <section id="testimonials" className="mb-16">
+    <section id="testimonials" className="mb-20">
       <h2 className="mb-6 text-heading-lg text-white">Testimonials</h2>
-      <div className="relative mx-auto max-w-3xl overflow-hidden">
-        <div className="relative h-[280px] sm:h-[240px]">
-          <AnimatePresence custom={direction} mode="popLayout">
-            <motion.blockquote
-              key={index}
-              custom={direction}
-              variants={variants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={{ duration: 1.2, ease: 'easeInOut' }}
-              className="absolute inset-0 flex flex-col rounded-xl border border-slate-600/20 p-5 sm:p-6"
+      <div className="relative mx-auto overflow-hidden">
+        <AnimatePresence custom={direction} mode="wait">
+          <motion.blockquote
+            key={index}
+            custom={direction}
+            variants={variants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={{ duration: 0.5, ease: 'easeInOut' }}
+            className="flex flex-col rounded-xl border border-slate-600/20 p-5 sm:p-6"
+          >
+            <svg
+              className="mb-3 size-5 text-indigo-500/40"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
             >
-              <svg
-                className="mb-3 size-5 text-indigo-500/40"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151C7.563 6.068 6 8.789 6 11h4v10H0z" />
-              </svg>
-              <p className="mb-6 flex-1 text-body-md leading-relaxed text-slate-300">
-                &ldquo;{items[index].quote}&rdquo;
-              </p>
-              <footer>
-                <cite className="not-italic">
-                  <span className="block text-sm font-medium text-white">
-                    {items[index].author}
-                  </span>
-                  <span className="text-sm text-slate-500">
-                    {items[index].role}
-                    {items[index].company ? ` @ ${items[index].company}` : ''}
-                  </span>
-                </cite>
-              </footer>
-            </motion.blockquote>
-          </AnimatePresence>
-        </div>
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151C7.563 6.068 6 8.789 6 11h4v10H0z" />
+            </svg>
+            <p className="mb-6 text-body-md leading-relaxed text-slate-300">
+              &ldquo;{items[index].quote}&rdquo;
+            </p>
+            <footer>
+              <cite className="not-italic">
+                <span className="block text-sm font-medium text-white">
+                  {items[index].author}
+                </span>
+                <span className="text-sm text-slate-500">
+                  {items[index].role}
+                  {items[index].company ? ` @ ${items[index].company}` : ''}
+                </span>
+              </cite>
+            </footer>
+          </motion.blockquote>
+        </AnimatePresence>
         <div className="mt-6 flex justify-center gap-2">
           {items.map((_, i) => (
             <button
@@ -406,9 +458,9 @@ function TestimonialsCarousel({ profile }: { profile: ProfileData }) {
   );
 }
 
-function ProjectsSection({ projects }: { projects: ProjectData[] }) {
+function ProjectsSection({ projects, behanceUrl }: { projects: ProjectData[]; behanceUrl?: string }) {
   return (
-    <section id="projects" className="mb-16">
+    <section id="projects" className="mb-20">
       <h2 className="mb-6 text-heading-lg text-white">Featured Projects</h2>
       {projects.length > 0 ? (
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -421,6 +473,21 @@ function ProjectsSection({ projects }: { projects: ProjectData[] }) {
           No projects published yet.
         </p>
       )}
+      {behanceUrl && (
+        <a
+          href={behanceUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-6 flex w-full items-center justify-center gap-2 rounded-lg bg-indigo-500 px-5 py-3 text-sm font-medium text-white transition-all hover:bg-indigo-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/50"
+        >
+          View all projects on Behance
+          <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+            <polyline points="15 3 21 3 21 9" />
+            <line x1="10" y1="14" x2="21" y2="3" />
+          </svg>
+        </a>
+      )}
     </section>
   );
 }
@@ -429,7 +496,7 @@ function FAQSection({ profile }: { profile: ProfileData }) {
   if (profile.faqs.length === 0) return null;
 
   return (
-    <section id="faq" className="mb-16">
+    <section id="faq" className="mb-20">
       <h2 className="mb-6 text-heading-lg text-white">
         Frequently Asked Questions
       </h2>
@@ -465,7 +532,7 @@ function Nav({ avatar }: { avatar: string }) {
 
   return (
     <nav className="sticky top-0 z-50 border-b border-slate-800/60 bg-[#0B0F19]/80 backdrop-blur-lg">
-      <div className="relative mx-auto flex max-w-5xl items-center justify-between px-6 py-3 sm:px-8 lg:px-12">
+      <div className="relative mx-auto flex max-w-7xl items-center justify-between px-6 py-3 sm:px-8 lg:px-12">
         <button onClick={() => setShowPreview(true)} className="relative flex cursor-pointer items-center">
           <span className="absolute inset-0 animate-ping rounded-full bg-indigo-400/30" />
           <span className="absolute inset-0 animate-spin rounded-full border-2 border-transparent border-t-indigo-400/40" />
@@ -590,7 +657,7 @@ function ContactForm() {
   };
 
   return (
-    <section id="contact" className="mb-16">
+    <section id="contact" className="mb-20">
       <h2 className="mb-6 text-heading-lg text-white">Get In Touch</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
@@ -704,10 +771,11 @@ export function HomeContent({ projects }: { projects: ProjectData[] }) {
   return (
     <>
       <Nav avatar={profile.avatar} />
-      <main className="mx-auto min-h-screen max-w-5xl px-6 py-12 sm:px-8 lg:px-12">
+      <main className="mx-auto min-h-screen max-w-7xl px-6 py-6 sm:py-8 sm:px-8 lg:px-12">
         <HeroSection profile={profile} />
+        <StatsSection />
         <SkillsSection profile={profile} />
-        <ProjectsSection projects={projects} />
+        <ProjectsSection projects={projects} behanceUrl={profile.socials.behance} />
         <AboutSection profile={profile} />
         <ExperienceSection profile={profile} />
         <ArticlesSection />

@@ -1,11 +1,18 @@
 import type { Metadata } from 'next';
-import { Manrope } from 'next/font/google';
+import { Manrope, Bebas_Neue } from 'next/font/google';
 import { PortfolioProvider } from '@/context/PortfolioContext';
 import './globals.css';
 
 const manrope = Manrope({
   subsets: ['latin'],
   variable: '--font-manrope',
+  display: 'swap',
+});
+
+const bebasNeue = Bebas_Neue({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-bebas-neue',
   display: 'swap',
 });
 
@@ -21,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${manrope.variable} antialiased`}>
+    <html lang="en" className={`${manrope.variable} ${bebasNeue.variable} antialiased`}>
       <body className="min-h-screen bg-[#0B0F19] font-sans text-slate-200">
         <PortfolioProvider>{children}</PortfolioProvider>
       </body>
