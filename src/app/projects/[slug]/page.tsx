@@ -85,7 +85,7 @@ function GalleryView({ project }: { project: ProjectData }) {
     <>
       <GalleryHeader project={project} />
       {project.overview && (
-        <p className="mb-12 max-w-3xl text-lg leading-relaxed text-slate-300">
+        <p className="mb-12 text-lg leading-relaxed text-slate-300">
           {project.overview}
         </p>
       )}
