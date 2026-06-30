@@ -60,10 +60,5 @@
     { "src": "/images/projects/carthena/carthena ad3.png", "alt": "Carthena Ledgers Ad 3" },
     { "src": "/images/projects/carthena/carthena ad5.png", "alt": "Carthena Ledgers Ad 4" }
   ],
-  "sections": [
-    {
-      "title": "Project Overview",
-      "content": "This project involved developing a cohesive social media visual system for Carthena Ledgers, a professional accounting and business advisory firm. The primary objective was to position the brand as a reliable partner that simplifies complex financial data into actionable insights. The campaign targets small to medium-sized enterprises (SMEs) and individuals seeking compliance, organization, and financial health."
-    }
-  ]
+  "sections": []
 }

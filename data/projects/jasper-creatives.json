@@ -62,10 +62,5 @@
     { "src": "/images/projects/jasper-creatives/SAVE_20251005_145610 1.png", "alt": "Brand Graphic 4" },
     { "src": "/images/projects/jasper-creatives/SAVE_20251031_020206 1.jpg", "alt": "Brand Graphic 5" }
   ],
-  "sections": [
-    {
-      "title": "Project Overview",
-      "content": "This project involved the design of a comprehensive social media grid for Jasper Creatives, a multi-disciplinary service agency. The primary goal was to establish a professional yet approachable brand presence that communicates a wide range of services—including Graphic Design, Content Creation, and Social Media Management—through a consistent visual language."
-    }
-  ]
+  "sections": []
 }

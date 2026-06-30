@@ -84,6 +84,11 @@ function GalleryView({ project }: { project: ProjectData }) {
   return (
     <>
       <GalleryHeader project={project} />
+      {project.overview && (
+        <p className="mb-12 max-w-3xl text-lg leading-relaxed text-slate-300">
+          {project.overview}
+        </p>
+      )}
       <div className="columns-1 gap-6 sm:columns-2 lg:columns-3">
         {project.images.map((img) => (
           <div key={img.src} className="mb-6 break-inside-avoid overflow-hidden rounded-xl border border-slate-700/30 bg-slate-800/20">

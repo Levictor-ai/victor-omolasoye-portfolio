@@ -68,14 +68,5 @@
     { "src": "/images/projects/hevaura/HEVAURA BRAND ASSET-14.png", "alt": "Hevaura Brand Asset 11" },
     { "src": "/images/projects/hevaura/HEVAURA BRAND ASSET-15.png", "alt": "Hevaura Brand Asset 12" }
   ],
-  "sections": [
-    {
-      "title": "Brand Direction",
-      "content": "Hevaura's brand identity centers on purity, care, and natural beauty. The fuchsia-purple palette evokes luxury and vitality, while clean typography and elegant compositions communicate premium quality."
-    },
-    {
-      "title": "Asset Suite",
-      "content": "A comprehensive set of 12 brand assets was created to ensure consistent application across digital and print touchpoints, from social media to packaging."
-    }
-  ]
+  "sections": []
 }
