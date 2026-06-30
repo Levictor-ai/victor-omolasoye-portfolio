@@ -1,36 +1,40 @@
 {
   "slug": "vybe",
   "title": "Vybe",
-  "subtitle": "Brand & Social Media Design",
+  "subtitle": "Social Media Campaign",
   "role": "Brand Designer",
   "company": "Vybe",
   "companyUrl": null,
   "period": "2025",
   "coverImage": "/images/projects/vybe/cover.png",
-  "color": "#f43f5e",
-  "overview": "Vybe is a brand identity and social media design project focused on creating a vibrant, youthful, and energetic visual presence. The design system spans social media creatives, advertising visuals, and brand collateral that captures the essence of the Vybe lifestyle.",
-  "problem": "The challenge was to craft a cohesive brand identity that feels fresh, energetic, and instantly recognizable across digital platforms. Social media content needed to stand out in crowded feeds while maintaining consistency in tone, color, and typography.",
-  "solution": "A bold, vibrant design language built around a striking red-pink color palette, playful typography, and dynamic compositions. Each creative asset was designed to stop the scroll and communicate the Vybe energy at a glance.",
-  "targetAudience": ["Young Adults", "Social Media Users", "Lifestyle Enthusiasts"],
+  "color": "#7c3aed",
+  "overview": "This project involved the creation of a 9-grid visual strategy for Vybe, a social networking application designed to foster meaningful connections through shared interests and \"energy.\" The campaign focuses on moving past superficial digital interactions by highlighting the platform's unique value proposition: matching based on \"vibes\" rather than just traditional profile metrics.",
+  "problem": "Modern dating and social apps often reduce users to profile metrics and superficial swiping, leaving users tired of generic interactions and lacking meaningful connection.",
+  "solution": "A bold, monochromatic purple palette to establish a strong brand association with creativity, mystery, and modern social tech. Crafted a series of relatable pain points (e.g., being tired of generic \"Hey\" messages) and positioned Vybe as the solution for more intentional communication. Combined lifestyle photography with stylized graphic masks and 3D UI elements to bridge the gap between human connection and digital interface. Clean, geometric sans-serif typography for high impact and readability.",
+  "targetAudience": ["Young Adults", "Social Media Users", "Dating App Users"],
   "regions": ["Global"],
   "timeline": "2025",
   "features": [
     {
-      "title": "Brand Identity",
-      "description": "Cohesive visual identity with a bold color palette, custom typography treatment, and consistent brand voice across all touchpoints."
+      "title": "9-Grid Visual Strategy",
+      "description": "A cohesive 9-grid Instagram layout that tells a sequential story about the problem and solution Vybe offers."
     },
     {
-      "title": "Social Media Creatives",
-      "description": "Scroll-stopping social media ads and posts designed for high engagement across Instagram, Facebook, and other platforms."
+      "title": "Bold Monochromatic Palette",
+      "description": "Purple-centric visual identity establishing strong brand association with creativity, mystery, and modern social tech."
     },
     {
-      "title": "Advertising Visuals",
-      "description": "Dynamic ad creatives that communicate the brand's energy and lifestyle appeal through bold compositions and vibrant imagery."
+      "title": "Narrative Design",
+      "description": "Relatable pain points positioned against Vybe's solution for more intentional and meaningful communication."
+    },
+    {
+      "title": "Layered Imagery",
+      "description": "Lifestyle photography combined with stylized graphic masks and 3D UI elements bridging human connection and digital interface."
     }
   ],
   "techStack": [
-    { "name": "Figma", "category": "design" },
-    { "name": "Photoshop", "category": "design" },
+    { "name": "Adobe Photoshop", "category": "design" },
+    { "name": "Adobe Illustrator", "category": "design" },
     { "name": "Brand Identity", "category": "design" },
     { "name": "Social Media Design", "category": "design" }
   ],
@@ -41,14 +45,14 @@
   },
   "results": [
     {
-      "metric": "Brand Assets",
-      "value": "10+",
-      "description": "Social media creatives and ad designs"
+      "metric": "Grid Posts",
+      "value": "9",
+      "description": "Cohesive Instagram grid strategy"
     },
     {
       "metric": "Style",
-      "value": "Vibrant",
-      "description": "Bold red-pink palette with dynamic compositions"
+      "value": "Bold & Monochromatic",
+      "description": "Purple palette with layered imagery and 3D UI elements"
     }
   ],
   "layout": "gallery",
@@ -67,12 +71,16 @@
   ],
   "sections": [
     {
-      "title": "Brand Direction",
-      "content": "The Vybe brand direction centers on energy, movement, and youthful expression. Every visual element was chosen to evoke a sense of excitement and belonging — from the bold typography to the vibrant color palette. The designs prioritize high contrast, clear hierarchy, and emotional resonance to connect with the target audience instantly."
+      "title": "Visual Identity",
+      "content": "Leveraged a bold, monochromatic purple palette to establish a strong brand association with creativity, mystery, and modern social tech."
     },
     {
-      "title": "Design Approach",
-      "content": "Each creative was built around a central hero visual supported by bold text overlays and consistent branding elements. The compositions use dynamic angles, overlapping elements, and strategic negative space to create visual interest. The color palette stays rooted in warm reds and pinks, occasionally punctuated by neutral tones for balance."
+      "title": "Narrative Design",
+      "content": "Crafted a series of relatable pain points (e.g., being tired of generic 'Hey' messages) and positioned Vybe as the solution for more intentional communication."
+    },
+    {
+      "title": "Key Design Elements",
+      "content": "Layered Imagery: Combined lifestyle photography with stylized graphic masks and 3D UI elements to bridge the gap between human connection and digital interface. Typography: Utilized a clean, geometric sans-serif font for high impact and readability."
     }
   ]
 }

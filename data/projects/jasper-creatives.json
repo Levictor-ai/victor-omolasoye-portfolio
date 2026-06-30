@@ -1,36 +1,36 @@
 {
   "slug": "jasper-creatives",
   "title": "Jasper Creatives",
-  "subtitle": "Brand & Social Media Design",
+  "subtitle": "Social Media Visual Identity",
   "role": "Brand Designer",
   "company": "Jasper Creatives",
   "companyUrl": null,
   "period": "2025",
   "coverImage": "/images/projects/jasper-creatives/cover.png",
   "color": "#f59e0b",
-  "overview": "Jasper Creatives is a brand design project delivering compelling social media visuals and brand collateral. The work spans motivational content, promotional graphics, and lifestyle imagery designed to build a strong, recognizable brand presence across digital platforms.",
-  "problem": "Building a consistent and engaging brand presence on social media requires a steady stream of high-quality visual content. The challenge was creating a versatile design system that works across different content types — from motivational posts to promotional graphics — while maintaining a unified brand identity.",
-  "solution": "A warm, earthy design language anchored by an amber-gold color palette with clean typography and balanced compositions. Each design was crafted to be both visually appealing and strategically aligned with the brand's voice and audience expectations.",
-  "targetAudience": ["Social Media Audiences", "Creative Professionals", "Lifestyle Brands"],
+  "overview": "This project involved the design of a comprehensive social media grid for Jasper Creatives, a multi-disciplinary service agency. The primary goal was to establish a professional yet approachable brand presence that communicates a wide range of services—including Graphic Design, Content Creation, and Social Media Management—through a consistent visual language.",
+  "problem": "A multi-disciplinary agency needs a versatile visual identity that can represent diverse service offerings without feeling fragmented or inconsistent across different content types.",
+  "solution": "A professional yet approachable social media grid built on a consistent visual language. Warm amber-gold tones balanced with clean layouts to communicate creativity, reliability, and versatility across all service lines.",
+  "targetAudience": ["Businesses Seeking Creative Services", "Startups", "Content Creators"],
   "regions": ["Global"],
   "timeline": "2025",
   "features": [
     {
-      "title": "Brand Visual System",
-      "description": "Consistent use of color, typography, and layout patterns across all social media content for instant brand recognition."
+      "title": "Comprehensive Social Media Grid",
+      "description": "A full social media grid establishing a professional yet approachable brand presence across all platforms."
     },
     {
-      "title": "Motivational Content",
-      "description": "Inspirational quote graphics and lifestyle imagery designed to drive engagement and shareability."
+      "title": "Multi-Service Visual Language",
+      "description": "Consistent visual system representing Graphic Design, Content Creation, and Social Media Management services."
     },
     {
-      "title": "Promotional Graphics",
-      "description": "Event announcements, offers, and brand messaging presented through clean, professional visual layouts."
+      "title": "Brand Cohesion",
+      "description": "Unified design language ensuring all service offerings feel part of one cohesive brand identity."
     }
   ],
   "techStack": [
-    { "name": "Figma", "category": "design" },
-    { "name": "Canva", "category": "design" },
+    { "name": "Adobe Photoshop", "category": "design" },
+    { "name": "Adobe Illustrator", "category": "design" },
     { "name": "Brand Identity", "category": "design" },
     { "name": "Social Media Design", "category": "design" }
   ],
@@ -47,8 +47,8 @@
     },
     {
       "metric": "Style",
-      "value": "Warm & Earthy",
-      "description": "Amber-gold palette with clean, professional layouts"
+      "value": "Warm & Professional",
+      "description": "Amber-gold palette with clean, approachable layouts"
     }
   ],
   "layout": "gallery",
@@ -68,12 +68,12 @@
   ],
   "sections": [
     {
-      "title": "Brand Direction",
-      "content": "Jasper Creatives embraces a warm, approachable aesthetic rooted in earthy tones and clean design. The amber-gold color palette conveys optimism and creativity, while the typography remains clean and professional for broad appeal across different content verticals."
+      "title": "Goal",
+      "content": "The primary goal was to establish a professional yet approachable brand presence that communicates a wide range of services—including Graphic Design, Content Creation, and Social Media Management—through a consistent visual language."
     },
     {
-      "title": "Design Approach",
-      "content": "The designs balance text and imagery carefully, ensuring each piece communicates its message at a glance. Motivational content uses bold quotes with soft backgrounds, while promotional graphics lean into cleaner layouts with clear calls-to-action. Consistency in branding elements — logos, colors, and fonts — ties the entire content library together."
+      "title": "Services",
+      "content": "Graphic Design, Content Creation, and Social Media Management — all represented through a unified visual identity."
     }
   ]
 }
