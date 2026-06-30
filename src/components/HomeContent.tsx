@@ -58,22 +58,36 @@ function AnimatedCounter({ end, suffix = '' }: { end: number; suffix?: string })
 
 function StatsSection() {
   return (
-    <section className="mb-24">
+    <motion.section
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: '-50px' }}
+      variants={{
+        hidden: {},
+        show: { transition: { staggerChildren: 0.15 } },
+      }}
+      className="mb-24"
+    >
       <div className="grid grid-cols-3 gap-2 sm:gap-4">
-        <div className="rounded-lg border border-slate-700/30 bg-slate-800/30 p-2 text-center sm:p-4">
-          <AnimatedCounter end={52} />
-          <p className="mt-1 text-xs text-slate-400 sm:text-sm">Clients</p>
-        </div>
-        <div className="rounded-lg border border-slate-700/30 bg-slate-800/30 p-2 text-center sm:p-4">
-          <AnimatedCounter end={2000} suffix="+" />
-          <p className="mt-1 text-xs text-slate-400 sm:text-sm">Projects</p>
-        </div>
-        <div className="rounded-lg border border-slate-700/30 bg-slate-800/30 p-2 text-center sm:p-4">
-          <AnimatedCounter end={99} suffix="%" />
-          <p className="mt-1 text-xs text-slate-400 sm:text-sm">Satisfied Clients</p>
-        </div>
+        {[
+          { end: 52, label: 'Clients' },
+          { end: 700, suffix: '+', label: 'Projects' },
+          { end: 99, suffix: '%', label: 'Satisfied Clients' },
+        ].map((stat, i) => (
+          <motion.div
+            key={i}
+            variants={{
+              hidden: { opacity: 0, y: 20, scale: 0.95 },
+              show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: 'easeOut' } },
+            }}
+            className="rounded-lg border border-slate-700/30 bg-slate-800/30 p-2 text-center sm:p-4"
+          >
+            <AnimatedCounter end={stat.end} suffix={stat.suffix ?? ''} />
+            <p className="mt-1 text-xs text-slate-400 sm:text-sm">{stat.label}</p>
+          </motion.div>
+        ))}
       </div>
-    </section>
+    </motion.section>
   );
 }
 
@@ -129,33 +143,58 @@ function AnimatedTitle({ titles }: { titles: string[] }) {
 }
 
 function HeroSection({ profile }: { profile: ProfileData }) {
+  const container = {
+    hidden: {},
+    show: {
+      transition: { staggerChildren: 0.12, delayChildren: 0.2 },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 24 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+  };
+
   return (
-    <section className="flex min-h-0 flex-col justify-center py-12 lg:min-h-[calc(100vh-57px)] lg:py-0">
-      <AvailableBanner />
-      <h1 className="mb-4 text-[clamp(3rem,15vw,10rem)] font-display leading-[0.85] tracking-tight text-white">
-        <span className="block">VICTOR</span>
-        <span className="block">OMOLASOYE</span>
-      </h1>
-      <AnimatedTitle titles={profile.titles} />
-      <p className="mb-6 max-w-2xl text-body-lg text-slate-300">
-        {profile.tagline}
-      </p>
-      <div className="flex flex-wrap gap-3">
-        <a
+    <motion.section
+      variants={container}
+      initial="hidden"
+      animate="show"
+      className="flex min-h-0 flex-col justify-center py-12 lg:min-h-[calc(100vh-57px)] lg:py-0"
+    >
+      <motion.div variants={item}><AvailableBanner /></motion.div>
+      <motion.div variants={item}>
+        <h1 className="mb-4 text-[clamp(3rem,15vw,10rem)] font-display leading-[0.85] tracking-tight text-white">
+          <span className="block">VICTOR</span>
+          <span className="block">OMOLASOYE</span>
+        </h1>
+      </motion.div>
+      <motion.div variants={item}><AnimatedTitle titles={profile.titles} /></motion.div>
+      <motion.div variants={item}>
+        <p className="mb-6 max-w-2xl text-body-lg text-slate-300">
+          {profile.tagline}
+        </p>
+      </motion.div>
+      <motion.div variants={item} className="flex flex-wrap gap-3">
+        <motion.a
+          whileHover={{ scale: 1.04 }}
+          whileTap={{ scale: 0.97 }}
           href={`mailto:${profile.email}`}
-          className="inline-flex items-center gap-2 rounded-lg bg-indigo-500 px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-indigo-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/50"
+          className="inline-flex items-center gap-2 rounded-lg bg-indigo-500 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-indigo-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/50"
         >
           Hire Me
           <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M22 2L11 13" />
             <path d="M22 2l-7 20-4-9-9-4 20-7z" />
           </svg>
-        </a>
-        <a
+        </motion.a>
+        <motion.a
+          whileHover={{ scale: 1.04 }}
+          whileTap={{ scale: 0.97 }}
           href={profile.resumeUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 rounded-lg border border-slate-600/40 bg-transparent px-5 py-2.5 text-sm font-medium text-slate-200 transition-all hover:border-indigo-500/50 hover:bg-indigo-500/10 hover:text-indigo-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/50"
+          className="inline-flex items-center gap-2 rounded-lg border border-slate-600/40 bg-transparent px-5 py-2.5 text-sm font-medium text-slate-200 transition-colors hover:border-indigo-500/50 hover:bg-indigo-500/10 hover:text-indigo-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/50"
         >
           <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
@@ -164,9 +203,9 @@ function HeroSection({ profile }: { profile: ProfileData }) {
             <line x1="16" y1="17" x2="8" y2="17" />
           </svg>
           Resume
-        </a>
-      </div>
-    </section>
+        </motion.a>
+      </motion.div>
+    </motion.section>
   );
 }
 
@@ -223,16 +262,39 @@ const articles = [
 
 function ArticlesSection() {
   return (
-    <section id="articles" className="mb-20">
-      <h2 className="mb-6 text-heading-lg text-white">Articles</h2>
+    <motion.section
+      id="articles"
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: '-50px' }}
+      variants={{
+        hidden: {},
+        show: { transition: { staggerChildren: 0.08 } },
+      }}
+      className="mb-20"
+    >
+      <motion.h2
+        variants={{
+          hidden: { opacity: 0, y: 20 },
+          show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+        }}
+        className="mb-6 text-heading-lg text-white"
+      >
+        Articles
+      </motion.h2>
       <div className="space-y-3">
         {articles.map((article, i) => (
-          <a
+          <motion.a
             key={i}
             href={article.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="card flex items-center gap-3 p-4 transition-all hover:border-indigo-500/30 hover:bg-slate-800/30 sm:p-5"
+            variants={{
+              hidden: { opacity: 0, y: 16 },
+              show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+            }}
+            whileHover={{ scale: 1.01, x: 4 }}
+            className="card flex items-center gap-3 p-4 transition-colors hover:border-indigo-500/30 hover:bg-slate-800/30 sm:p-5"
           >
             <span className="flex size-7 shrink-0 items-center justify-center rounded-md bg-indigo-500/10 text-xs font-bold text-indigo-400">
               {String(i + 1).padStart(2, '0')}
@@ -251,73 +313,109 @@ function ArticlesSection() {
             >
               <path d="M7 17l9.2-9.2M17 17V7H7" />
             </svg>
-          </a>
+          </motion.a>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 }
 
 function SkillsSection({ profile }: { profile: ProfileData }) {
   return (
-    <section id="skills" className="mb-20">
-      <h2 className="mb-5 text-heading-lg text-white">Skills & Expertise</h2>
-      <p className="mb-8 max-w-2xl text-body-md leading-relaxed text-slate-400">
+    <motion.section
+      id="skills"
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: '-50px' }}
+      variants={{
+        hidden: {},
+        show: { transition: { staggerChildren: 0.12 } },
+      }}
+      className="mb-20"
+    >
+      <motion.h2
+        variants={{
+          hidden: { opacity: 0, y: 20 },
+          show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+        }}
+        className="mb-5 text-heading-lg text-white"
+      >
+        Skills &amp; Expertise
+      </motion.h2>
+      <motion.p
+        variants={{
+          hidden: { opacity: 0, y: 20 },
+          show: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 } },
+        }}
+        className="mb-8 max-w-2xl text-body-md leading-relaxed text-slate-400"
+      >
         From discovery and strategy to visual execution and developer handoff, I bridge every phase of the product design lifecycle.
-      </p>
+      </motion.p>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <div>
-          <h3 className="mb-4 text-label-sm uppercase tracking-wider text-indigo-400">
-            Core Disciplines
-          </h3>
-          <div className="space-y-3">
-            {profile.coreDisciplines.map((skill) => (
-              <SkillBar
-                key={skill.name}
-                label={skill.name}
-                level={skill.level}
-              />
-            ))}
-          </div>
-        </div>
-        <div>
-          <h3 className="mb-4 text-label-sm uppercase tracking-wider text-emerald-400">
-            Tools &amp; Software
-          </h3>
-          <div className="space-y-3">
-            {profile.tools.map((skill) => (
-              <SkillBar
-                key={skill.name}
-                label={skill.name}
-                level={skill.level}
-              />
-            ))}
-          </div>
-        </div>
-        <div>
-          <h3 className="mb-4 text-label-sm uppercase tracking-wider text-violet-400">
-            Technical &amp; Handoff
-          </h3>
-          <div className="space-y-3">
-            {profile.technicalHandoff.map((skill) => (
-              <SkillBar
-                key={skill.name}
-                label={skill.name}
-                level={skill.level}
-              />
-            ))}
-          </div>
-        </div>
+        {[
+          { title: 'Core Disciplines', color: 'text-indigo-400', skills: profile.coreDisciplines },
+          { title: 'Tools & Software', color: 'text-emerald-400', skills: profile.tools },
+          { title: 'Technical & Handoff', color: 'text-violet-400', skills: profile.technicalHandoff },
+        ].map((group, gi) => (
+          <motion.div
+            key={gi}
+            variants={{
+              hidden: { opacity: 0, y: 24 },
+              show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+            }}
+          >
+            <h3 className={`mb-4 text-label-sm uppercase tracking-wider ${group.color}`}>
+              {group.title}
+            </h3>
+            <div className="space-y-3">
+              {group.skills.map((skill, si) => (
+                <motion.div
+                  key={skill.name}
+                  initial={{ opacity: 0, x: -12 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: si * 0.05 }}
+                >
+                  <SkillBar label={skill.name} level={skill.level} />
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        ))}
       </div>
-    </section>
+    </motion.section>
   );
 }
 
 function AboutSection({ profile }: { profile: ProfileData }) {
   return (
-    <section id="about" className="mb-20">
-      <h2 className="mb-6 text-heading-lg text-white">About Me</h2>
-      <div className="card overflow-hidden p-0 sm:p-0">
+    <motion.section
+      id="about"
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: '-50px' }}
+      variants={{
+        hidden: {},
+        show: { transition: { staggerChildren: 0.1 } },
+      }}
+      className="mb-20"
+    >
+      <motion.h2
+        variants={{
+          hidden: { opacity: 0, y: 20 },
+          show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+        }}
+        className="mb-6 text-heading-lg text-white"
+      >
+        About Me
+      </motion.h2>
+      <motion.div
+        variants={{
+          hidden: { opacity: 0, y: 24 },
+          show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+        }}
+        className="card overflow-hidden p-0 sm:p-0"
+      >
         <div className="relative aspect-[4/5] w-full sm:aspect-[3/2]">
           <Image
             src={profile.avatar}
@@ -353,9 +451,9 @@ function AboutSection({ profile }: { profile: ProfileData }) {
               </svg>
             </a>
           </div>
-      </div>
-      </div>
-    </section>
+        </div>
+      </motion.div>
+    </motion.section>
   );
 }
 
@@ -363,20 +461,44 @@ function ExperienceSection({ profile }: { profile: ProfileData }) {
   if (profile.experience.length === 0) return null;
 
   return (
-    <section id="experience" className="mb-20">
-      <h2 className="mb-6 text-heading-lg text-white">Experience</h2>
+    <motion.section
+      id="experience"
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: '-50px' }}
+      variants={{
+        hidden: {},
+        show: { transition: { staggerChildren: 0.1 } },
+      }}
+      className="mb-20"
+    >
+      <motion.h2
+        variants={{
+          hidden: { opacity: 0, y: 20 },
+          show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+        }}
+        className="mb-6 text-heading-lg text-white"
+      >
+        Experience
+      </motion.h2>
       <div className="space-y-2">
         {profile.experience.map((exp, i) => (
-          <div key={i}>
+          <motion.div
+            key={i}
+            variants={{
+              hidden: { opacity: 0, x: -16 },
+              show: { opacity: 1, x: 0, transition: { duration: 0.4 } },
+            }}
+          >
             <div className="flex items-baseline justify-between gap-2">
               <p className="text-right text-sm text-slate-200">{exp.role}</p>
               <p className="text-xs font-medium uppercase tracking-wider text-indigo-400">{exp.company}</p>
             </div>
             <p className="text-xs text-slate-500">{exp.period}</p>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 }
 
@@ -460,8 +582,26 @@ function TestimonialsCarousel({ profile }: { profile: ProfileData }) {
 
 function ProjectsSection({ projects, behanceUrl }: { projects: ProjectData[]; behanceUrl?: string }) {
   return (
-    <section id="projects" className="mb-20">
-      <h2 className="mb-6 text-heading-lg text-white">Featured Projects</h2>
+    <motion.section
+      id="projects"
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: '-50px' }}
+      variants={{
+        hidden: {},
+        show: { transition: { staggerChildren: 0.08 } },
+      }}
+      className="mb-20"
+    >
+      <motion.h2
+        variants={{
+          hidden: { opacity: 0, y: 20 },
+          show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+        }}
+        className="mb-6 text-heading-lg text-white"
+      >
+        Featured Projects
+      </motion.h2>
       {projects.length > 0 ? (
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, i) => (
@@ -488,7 +628,7 @@ function ProjectsSection({ projects, behanceUrl }: { projects: ProjectData[]; be
           </svg>
         </a>
       )}
-    </section>
+    </motion.section>
   );
 }
 
@@ -496,12 +636,35 @@ function FAQSection({ profile }: { profile: ProfileData }) {
   if (profile.faqs.length === 0) return null;
 
   return (
-    <section id="faq" className="mb-20">
-      <h2 className="mb-6 text-heading-lg text-white">
+    <motion.section
+      id="faq"
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: '-50px' }}
+      variants={{
+        hidden: {},
+        show: { transition: { staggerChildren: 0.08 } },
+      }}
+      className="mb-20"
+    >
+      <motion.h2
+        variants={{
+          hidden: { opacity: 0, y: 20 },
+          show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+        }}
+        className="mb-6 text-heading-lg text-white"
+      >
         Frequently Asked Questions
-      </h2>
-      <FAQAccordion items={profile.faqs} />
-    </section>
+      </motion.h2>
+      <motion.div
+        variants={{
+          hidden: { opacity: 0, y: 20 },
+          show: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 } },
+        }}
+      >
+        <FAQAccordion items={profile.faqs} />
+      </motion.div>
+    </motion.section>
   );
 }
 
@@ -656,17 +819,39 @@ function ContactForm() {
     }
   };
 
+  const stagger = {
+    hidden: {},
+    show: { transition: { staggerChildren: 0.08 } },
+  };
+
+  const fadeUp = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
   return (
-    <section id="contact" className="mb-20">
-      <h2 className="mb-6 text-heading-lg text-white">Get In Touch</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
+    <motion.section
+      id="contact"
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: '-50px' }}
+      variants={stagger}
+      className="mb-20"
+    >
+      <motion.h2
+        variants={fadeUp}
+        className="mb-6 text-heading-lg text-white"
+      >
+        Get In Touch
+      </motion.h2>
+      <motion.form variants={fadeUp} onSubmit={handleSubmit} className="space-y-4">
         <div>
           <input
             type="text"
             name="name"
             placeholder="Your Name"
             required
-            className="w-full rounded-lg border border-slate-700/40 bg-slate-800/40 px-4 py-2.5 text-sm text-slate-200 placeholder-slate-500 outline-none transition-colors focus:border-indigo-500"
+            className="w-full rounded-lg border border-slate-700/40 bg-transparent px-4 py-2.5 text-sm text-slate-200 placeholder-slate-500 shadow-none outline-none transition-colors focus:border-indigo-500 focus-visible:shadow-none focus-visible:ring-0"
           />
         </div>
         <div>
@@ -675,7 +860,7 @@ function ContactForm() {
             name="email"
             placeholder="Your Email"
             required
-            className="w-full rounded-lg border border-slate-700/40 bg-slate-800/40 px-4 py-2.5 text-sm text-slate-200 placeholder-slate-500 outline-none transition-colors focus:border-indigo-500"
+            className="w-full rounded-lg border border-slate-700/40 bg-transparent px-4 py-2.5 text-sm text-slate-200 placeholder-slate-500 shadow-none outline-none transition-colors focus:border-indigo-500 focus-visible:shadow-none focus-visible:ring-0"
           />
         </div>
         <div>
@@ -684,7 +869,7 @@ function ContactForm() {
             placeholder="Your Message"
             rows={4}
             required
-            className="w-full rounded-lg border border-slate-700/40 bg-slate-800/40 px-4 py-2.5 text-sm text-slate-200 placeholder-slate-500 outline-none transition-colors focus:border-indigo-500"
+            className="w-full rounded-lg border border-slate-700/40 bg-transparent px-4 py-2.5 text-sm text-slate-200 placeholder-slate-500 shadow-none outline-none transition-colors focus:border-indigo-500 focus-visible:shadow-none focus-visible:ring-0"
           />
         </div>
         <button
@@ -697,8 +882,8 @@ function ContactForm() {
         {status === 'sent' && (
           <p className="text-center text-sm text-emerald-400">Message sent!</p>
         )}
-      </form>
-    </section>
+      </motion.form>
+    </motion.section>
   );
 }
 
@@ -745,16 +930,18 @@ function FooterSection({ socials }: { socials: ProfileData['socials'] }) {
     <footer className="border-t border-slate-800/60 py-12 text-center">
       <div className="mb-6 flex items-center justify-center gap-5">
         {socialLinks.map((link) => (
-          <a
+          <motion.a
             key={link.label}
             href={link.href}
             target="_blank"
             rel="noopener noreferrer"
+            whileHover={{ scale: 1.2, rotate: 4 }}
+            whileTap={{ scale: 0.9 }}
             className="text-slate-500 transition-colors hover:text-indigo-400"
             aria-label={link.label}
           >
             <svg className="size-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">{link.icon}</svg>
-          </a>
+          </motion.a>
         ))}
       </div>
       <p className="mx-auto max-w-2xl text-balance text-sm leading-relaxed italic text-slate-400 sm:text-base">

@@ -1,0 +1,72 @@
+{
+  "slug": "carthena",
+  "title": "Carthena",
+  "subtitle": "Brand & Social Media Design",
+  "role": "Brand Designer",
+  "company": "Carthena",
+  "companyUrl": null,
+  "period": "2025",
+  "coverImage": "/images/projects/carthena/cover.png",
+  "color": "#06b6d4",
+  "overview": "Carthena is a brand design project focused on building a refined visual identity through social media creatives and advertising materials. The design language blends elegance with modernity to create a distinctive brand presence.",
+  "problem": "Establishing a premium yet approachable brand identity requires a careful balance of sophistication and relatability. The challenge was creating visual assets that communicate quality and trust while remaining engaging and accessible on social media platforms.",
+  "solution": "A clean, modern design system anchored by a cyan-teal color palette with elegant typography and minimalist compositions. Each creative asset balances whitespace with strategic visual elements to convey a sense of premium simplicity.",
+  "targetAudience": ["Professionals", "Lifestyle Consumers", "Design-Conscious Users"],
+  "regions": ["Global"],
+  "timeline": "2025",
+  "features": [
+    {
+      "title": "Brand Identity Design",
+      "description": "Elegant visual identity with a sophisticated color palette and refined typography choices."
+    },
+    {
+      "title": "Advertising Creatives",
+      "description": "Polished ad designs that communicate brand values through clean layouts and strategic imagery."
+    },
+    {
+      "title": "Social Media Assets",
+      "description": "Consistent social media graphics that maintain brand recognition across all platforms."
+    }
+  ],
+  "techStack": [
+    { "name": "Figma", "category": "design" },
+    { "name": "Photoshop", "category": "design" },
+    { "name": "Brand Identity", "category": "design" },
+    { "name": "Social Media Design", "category": "design" }
+  ],
+  "architecture": {
+    "title": "",
+    "description": "",
+    "highlights": []
+  },
+  "results": [
+    {
+      "metric": "Ad Designs",
+      "value": "4",
+      "description": "Brand advertising creatives"
+    },
+    {
+      "metric": "Style",
+      "value": "Modern & Elegant",
+      "description": "Cyan-teal palette with minimalist compositions"
+    }
+  ],
+  "links": [],
+  "images": [
+    { "src": "/images/projects/carthena/cover.png", "alt": "Carthena Cover" },
+    { "src": "/images/projects/carthena/carthena ad.png", "alt": "Carthena Ad 1" },
+    { "src": "/images/projects/carthena/carthena ad2.png", "alt": "Carthena Ad 2" },
+    { "src": "/images/projects/carthena/carthena ad3.png", "alt": "Carthena Ad 3" },
+    { "src": "/images/projects/carthena/carthena ad5.png", "alt": "Carthena Ad 4" }
+  ],
+  "sections": [
+    {
+      "title": "Brand Direction",
+      "content": "Carthena's brand direction leans into minimalism and elegance. The cyan-teal color palette evokes feelings of clarity, trust, and modernity. Clean sans-serif typography and generous whitespace create a sense of sophistication that appeals to a professional, design-conscious audience."
+    },
+    {
+      "title": "Design Approach",
+      "content": "Each creative follows a structured grid system with careful attention to visual hierarchy. Product and model imagery takes center stage, supported by subtle branding elements and concise messaging. The designs prioritize clarity and impact, ensuring each piece communicates its purpose without visual clutter."
+    }
+  ]
+}

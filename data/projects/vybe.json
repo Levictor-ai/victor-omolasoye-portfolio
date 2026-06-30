@@ -1,0 +1,77 @@
+{
+  "slug": "vybe",
+  "title": "Vybe",
+  "subtitle": "Brand & Social Media Design",
+  "role": "Brand Designer",
+  "company": "Vybe",
+  "companyUrl": null,
+  "period": "2025",
+  "coverImage": "/images/projects/vybe/cover.png",
+  "color": "#f43f5e",
+  "overview": "Vybe is a brand identity and social media design project focused on creating a vibrant, youthful, and energetic visual presence. The design system spans social media creatives, advertising visuals, and brand collateral that captures the essence of the Vybe lifestyle.",
+  "problem": "The challenge was to craft a cohesive brand identity that feels fresh, energetic, and instantly recognizable across digital platforms. Social media content needed to stand out in crowded feeds while maintaining consistency in tone, color, and typography.",
+  "solution": "A bold, vibrant design language built around a striking red-pink color palette, playful typography, and dynamic compositions. Each creative asset was designed to stop the scroll and communicate the Vybe energy at a glance.",
+  "targetAudience": ["Young Adults", "Social Media Users", "Lifestyle Enthusiasts"],
+  "regions": ["Global"],
+  "timeline": "2025",
+  "features": [
+    {
+      "title": "Brand Identity",
+      "description": "Cohesive visual identity with a bold color palette, custom typography treatment, and consistent brand voice across all touchpoints."
+    },
+    {
+      "title": "Social Media Creatives",
+      "description": "Scroll-stopping social media ads and posts designed for high engagement across Instagram, Facebook, and other platforms."
+    },
+    {
+      "title": "Advertising Visuals",
+      "description": "Dynamic ad creatives that communicate the brand's energy and lifestyle appeal through bold compositions and vibrant imagery."
+    }
+  ],
+  "techStack": [
+    { "name": "Figma", "category": "design" },
+    { "name": "Photoshop", "category": "design" },
+    { "name": "Brand Identity", "category": "design" },
+    { "name": "Social Media Design", "category": "design" }
+  ],
+  "architecture": {
+    "title": "",
+    "description": "",
+    "highlights": []
+  },
+  "results": [
+    {
+      "metric": "Brand Assets",
+      "value": "10+",
+      "description": "Social media creatives and ad designs"
+    },
+    {
+      "metric": "Style",
+      "value": "Vibrant",
+      "description": "Bold red-pink palette with dynamic compositions"
+    }
+  ],
+  "links": [],
+  "images": [
+    { "src": "/images/projects/vybe/cover.png", "alt": "Vybe Brand Cover" },
+    { "src": "/images/projects/vybe/vybe ad 20.png", "alt": "Vybe Ad Creative 1" },
+    { "src": "/images/projects/vybe/vybe ad 21.png", "alt": "Vybe Ad Creative 2" },
+    { "src": "/images/projects/vybe/vybe ad12 - Copy.png", "alt": "Vybe Ad Creative 3" },
+    { "src": "/images/projects/vybe/vybe ad13 - Copy.png", "alt": "Vybe Ad Creative 4" },
+    { "src": "/images/projects/vybe/vybe ad14.png", "alt": "Vybe Ad Creative 5" },
+    { "src": "/images/projects/vybe/vybe ad15 - Copy.png", "alt": "Vybe Ad Creative 6" },
+    { "src": "/images/projects/vybe/vybe ad16 - Copy.png", "alt": "Vybe Ad Creative 7" },
+    { "src": "/images/projects/vybe/vybe ad17.png", "alt": "Vybe Ad Creative 8" },
+    { "src": "/images/projects/vybe/vybes ad10.png", "alt": "Vybe Ad Creative 9" }
+  ],
+  "sections": [
+    {
+      "title": "Brand Direction",
+      "content": "The Vybe brand direction centers on energy, movement, and youthful expression. Every visual element was chosen to evoke a sense of excitement and belonging — from the bold typography to the vibrant color palette. The designs prioritize high contrast, clear hierarchy, and emotional resonance to connect with the target audience instantly."
+    },
+    {
+      "title": "Design Approach",
+      "content": "Each creative was built around a central hero visual supported by bold text overlays and consistent branding elements. The compositions use dynamic angles, overlapping elements, and strategic negative space to create visual interest. The color palette stays rooted in warm reds and pinks, occasionally punctuated by neutral tones for balance."
+    }
+  ]
+}

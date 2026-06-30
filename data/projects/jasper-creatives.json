@@ -1,0 +1,78 @@
+{
+  "slug": "jasper-creatives",
+  "title": "Jasper Creatives",
+  "subtitle": "Brand & Social Media Design",
+  "role": "Brand Designer",
+  "company": "Jasper Creatives",
+  "companyUrl": null,
+  "period": "2025",
+  "coverImage": "/images/projects/jasper-creatives/cover.png",
+  "color": "#f59e0b",
+  "overview": "Jasper Creatives is a brand design project delivering compelling social media visuals and brand collateral. The work spans motivational content, promotional graphics, and lifestyle imagery designed to build a strong, recognizable brand presence across digital platforms.",
+  "problem": "Building a consistent and engaging brand presence on social media requires a steady stream of high-quality visual content. The challenge was creating a versatile design system that works across different content types — from motivational posts to promotional graphics — while maintaining a unified brand identity.",
+  "solution": "A warm, earthy design language anchored by an amber-gold color palette with clean typography and balanced compositions. Each design was crafted to be both visually appealing and strategically aligned with the brand's voice and audience expectations.",
+  "targetAudience": ["Social Media Audiences", "Creative Professionals", "Lifestyle Brands"],
+  "regions": ["Global"],
+  "timeline": "2025",
+  "features": [
+    {
+      "title": "Brand Visual System",
+      "description": "Consistent use of color, typography, and layout patterns across all social media content for instant brand recognition."
+    },
+    {
+      "title": "Motivational Content",
+      "description": "Inspirational quote graphics and lifestyle imagery designed to drive engagement and shareability."
+    },
+    {
+      "title": "Promotional Graphics",
+      "description": "Event announcements, offers, and brand messaging presented through clean, professional visual layouts."
+    }
+  ],
+  "techStack": [
+    { "name": "Figma", "category": "design" },
+    { "name": "Canva", "category": "design" },
+    { "name": "Brand Identity", "category": "design" },
+    { "name": "Social Media Design", "category": "design" }
+  ],
+  "architecture": {
+    "title": "",
+    "description": "",
+    "highlights": []
+  },
+  "results": [
+    {
+      "metric": "Designs Created",
+      "value": "10+",
+      "description": "Social media graphics and brand assets"
+    },
+    {
+      "metric": "Style",
+      "value": "Warm & Earthy",
+      "description": "Amber-gold palette with clean, professional layouts"
+    }
+  ],
+  "links": [],
+  "images": [
+    { "src": "/images/projects/jasper-creatives/cover.png", "alt": "Jasper Creatives Cover" },
+    { "src": "/images/projects/jasper-creatives/Jasper_Oct13_Monday_MotivationalPost 1.jpg", "alt": "Motivational Post" },
+    { "src": "/images/projects/jasper-creatives/SAVE_20251001_203822 1.png", "alt": "Brand Graphic 1" },
+    { "src": "/images/projects/jasper-creatives/SAVE_20251001_203822 1.jpg", "alt": "Brand Graphic 2" },
+    { "src": "/images/projects/jasper-creatives/SAVE_20251005_145424 1.png", "alt": "Brand Graphic 3" },
+    { "src": "/images/projects/jasper-creatives/SAVE_20251005_145424 1.jpg", "alt": "Brand Graphic 4" },
+    { "src": "/images/projects/jasper-creatives/SAVE_20251005_145459 1.png", "alt": "Brand Graphic 5" },
+    { "src": "/images/projects/jasper-creatives/SAVE_20251005_145459 1.jpg", "alt": "Brand Graphic 6" },
+    { "src": "/images/projects/jasper-creatives/SAVE_20251005_145610 1.png", "alt": "Brand Graphic 7" },
+    { "src": "/images/projects/jasper-creatives/SAVE_20251005_145610 1.jpg", "alt": "Brand Graphic 8" },
+    { "src": "/images/projects/jasper-creatives/SAVE_20251031_020206 1.jpg", "alt": "Brand Graphic 9" }
+  ],
+  "sections": [
+    {
+      "title": "Brand Direction",
+      "content": "Jasper Creatives embraces a warm, approachable aesthetic rooted in earthy tones and clean design. The amber-gold color palette conveys optimism and creativity, while the typography remains clean and professional for broad appeal across different content verticals."
+    },
+    {
+      "title": "Design Approach",
+      "content": "The designs balance text and imagery carefully, ensuring each piece communicates its message at a glance. Motivational content uses bold quotes with soft backgrounds, while promotional graphics lean into cleaner layouts with clear calls-to-action. Consistency in branding elements — logos, colors, and fonts — ties the entire content library together."
+    }
+  ]
+}
