@@ -1,24 +1,81 @@
 {
   "slug": "hevaura",
   "title": "Hevaura",
-  "subtitle": "Project Coming Soon",
-  "role": "",
-  "company": "",
-  "period": "",
-  "coverImage": "",
-  "overview": "Project coming soon.",
-  "problem": "",
-  "solution": "",
-  "targetAudience": [],
-  "regions": [],
-  "timeline": "",
-  "features": [],
-  "techStack": [],
+  "subtitle": "Skincare Brand Identity",
+  "role": "Brand Designer",
+  "company": "Hevaura",
+  "companyUrl": null,
+  "period": "2025",
+  "coverImage": "/images/projects/hevaura/cover.png",
+  "color": "#d946ef",
+  "overview": "This project involved developing a complete brand identity system for Hevaura, a premium skincare brand. The visual identity combines elegance with a fresh, modern aesthetic to communicate purity, care, and natural beauty.",
+  "problem": "The skincare market is saturated with brands using similar visual tropes. Hevaura needed a distinctive identity that conveys premium quality and natural ingredients while remaining approachable and modern.",
+  "solution": "A sophisticated brand identity built around a fuchsia-purple color palette symbolizing luxury and natural vitality. Clean typography, elegant compositions, and refined brand assets create a cohesive visual language that stands out in the beauty and skincare space.",
+  "targetAudience": ["Skincare Enthusiasts", "Beauty-Conscious Consumers", "Premium Lifestyle Shoppers"],
+  "regions": ["Global"],
+  "timeline": "2025",
+  "features": [
+    {
+      "title": "Brand Identity System",
+      "description": "Complete visual identity with distinctive color palette and refined typography for the premium skincare market."
+    },
+    {
+      "title": "Brand Assets",
+      "description": "Comprehensive set of brand assets including logos, patterns, and visual elements for consistent brand application."
+    },
+    {
+      "title": "Visual Language",
+      "description": "Cohesive design language conveying purity, luxury, and natural beauty across all touchpoints."
+    }
+  ],
+  "techStack": [
+    { "name": "Adobe Photoshop", "category": "design" },
+    { "name": "Adobe Illustrator", "category": "design" },
+    { "name": "Brand Identity", "category": "design" },
+    { "name": "Packaging Design", "category": "design" }
+  ],
   "architecture": {
+    "title": "",
     "description": "",
     "highlights": []
   },
-  "results": [],
+  "results": [
+    {
+      "metric": "Brand Assets",
+      "value": "12",
+      "description": "Brand identity assets and visuals"
+    },
+    {
+      "metric": "Style",
+      "value": "Elegant & Modern",
+      "description": "Fuchsia-purple palette with refined, premium aesthetic"
+    }
+  ],
+  "layout": "gallery",
   "links": [],
-  "images": []
+  "images": [
+    { "src": "/images/projects/hevaura/cover.png", "alt": "Hevaura Cover" },
+    { "src": "/images/projects/hevaura/HEVAURA BRAND ASSET-01.png", "alt": "Hevaura Brand Asset 1" },
+    { "src": "/images/projects/hevaura/HEVAURA BRAND ASSET-02.png", "alt": "Hevaura Brand Asset 2" },
+    { "src": "/images/projects/hevaura/HEVAURA BRAND ASSET-03.png", "alt": "Hevaura Brand Asset 3" },
+    { "src": "/images/projects/hevaura/HEVAURA BRAND ASSET-04.png", "alt": "Hevaura Brand Asset 4" },
+    { "src": "/images/projects/hevaura/HEVAURA BRAND ASSET-05.png", "alt": "Hevaura Brand Asset 5" },
+    { "src": "/images/projects/hevaura/HEVAURA BRAND ASSET-06.png", "alt": "Hevaura Brand Asset 6" },
+    { "src": "/images/projects/hevaura/HEVAURA BRAND ASSET-07.png", "alt": "Hevaura Brand Asset 7" },
+    { "src": "/images/projects/hevaura/HEVAURA BRAND ASSET-08.png", "alt": "Hevaura Brand Asset 8" },
+    { "src": "/images/projects/hevaura/HEVAURA BRAND ASSET-09.png", "alt": "Hevaura Brand Asset 9" },
+    { "src": "/images/projects/hevaura/HEVAURA BRAND ASSET-11.png", "alt": "Hevaura Brand Asset 10" },
+    { "src": "/images/projects/hevaura/HEVAURA BRAND ASSET-14.png", "alt": "Hevaura Brand Asset 11" },
+    { "src": "/images/projects/hevaura/HEVAURA BRAND ASSET-15.png", "alt": "Hevaura Brand Asset 12" }
+  ],
+  "sections": [
+    {
+      "title": "Brand Direction",
+      "content": "Hevaura's brand identity centers on purity, care, and natural beauty. The fuchsia-purple palette evokes luxury and vitality, while clean typography and elegant compositions communicate premium quality."
+    },
+    {
+      "title": "Asset Suite",
+      "content": "A comprehensive set of 12 brand assets was created to ensure consistent application across digital and print touchpoints, from social media to packaging."
+    }
+  ]
 }
