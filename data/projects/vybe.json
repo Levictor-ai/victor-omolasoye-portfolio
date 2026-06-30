@@ -51,6 +51,7 @@
       "description": "Bold red-pink palette with dynamic compositions"
     }
   ],
+  "layout": "gallery",
   "links": [],
   "images": [
     { "src": "/images/projects/vybe/cover.png", "alt": "Vybe Brand Cover" },

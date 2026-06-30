@@ -51,6 +51,7 @@
       "description": "Cyan-teal palette with minimalist compositions"
     }
   ],
+  "layout": "gallery",
   "links": [],
   "images": [
     { "src": "/images/projects/carthena/cover.png", "alt": "Carthena Cover" },

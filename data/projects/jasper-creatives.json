@@ -51,6 +51,7 @@
       "description": "Amber-gold palette with clean, professional layouts"
     }
   ],
+  "layout": "gallery",
   "links": [],
   "images": [
     { "src": "/images/projects/jasper-creatives/cover.png", "alt": "Jasper Creatives Cover" },
