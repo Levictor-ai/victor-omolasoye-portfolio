@@ -93,38 +93,23 @@ const defaultProfile: ProfileData = {
   testimonials: [
     {
       quote:
-        'Victor has a rare ability to translate complex user needs into elegant, intuitive designs. His work on our platform transformed how users interact with our product.',
-      author: 'Tunde Adeyemi',
-      role: 'VP of Product',
-      company: 'Cowrywise',
-    },
-    {
-      quote:
-        'Working with Victor was a masterclass in user-centred design. He brought clarity to every stage of the product development process.',
-      author: 'Chioma Okafor',
+        "Victor's creativity is truly exceptional. He took my vision and transformed it into reality with remarkable precision and creativity. What impressed me most was his openness to feedback, professionalism, and ability to understand exactly what I had in mind. He not only welcomed corrections but also contributed valuable suggestions that made the final result even better than I imagined. Working with Victor has been an outstanding experience. His commitment to excellence, attention to detail, and creative insight have earned my complete trust. I look forward to working with him on many more projects and confidently recommend him to anyone seeking a talented, reliable, and highly professional designer.",
+      author: 'CEO',
       role: 'CEO',
-      company: 'TechVentures Africa',
+      company: 'Hevaura',
     },
     {
       quote:
-        'Victor brought a level of intentionality to our brand identity that completely shifted how our customers perceive us. Every pixel had a purpose.',
-      author: 'Folake Balogun',
-      role: 'Founder',
-      company: 'Jasper Creatives',
+        'Victor never delivers average designs—he always delivers a masterclass. Every project exceeds my expectations. Thank you for the amazing work!',
+      author: 'Alabi Onifoto',
+      role: 'Creative Director',
     },
     {
       quote:
-        'His ability to switch between design thinking and technical execution is unmatched. He doesn\'t just design — he builds.',
-      author: 'Emeka Nwosu',
-      role: 'CTO',
-      company: 'Moovable Technology Limited',
-    },
-    {
-      quote:
-        'Victor redesigned our entire product experience and the user feedback was overwhelmingly positive. Our engagement metrics doubled within a month.',
-      author: 'Sarah Adeleke',
-      role: 'Product Lead',
-      company: 'Dev. and Design',
+        "Working with Victor has been an outstanding experience. From our very first project, he demonstrated exceptional commitment, professionalism, and attention to detail. He consistently delivers high-quality designs on time, even under tight deadlines. His creativity, reliability, and strong work ethic make every collaboration seamless and enjoyable. Having worked with several designers, I can confidently say Victor stands out. His discipline, design expertise, and ability to exceed expectations have made him my preferred graphic designer. I highly recommend Victor to anyone looking for a skilled, dependable, and professional designer. He consistently delivers work of exceptional quality and always goes the extra mile.",
+      author: 'Barrister Seyifunmi',
+      role: 'Co-founder',
+      company: 'Luminous Attorney',
     },
   ],
   faqs: [

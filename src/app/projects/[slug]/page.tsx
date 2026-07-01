@@ -305,6 +305,27 @@ function CaseStudyView({ project }: { project: ProjectData }) {
         </section>
       )}
 
+      {/* Screens Gallery */}
+      {project.images.length > 0 && (
+        <section className="mb-16">
+          <h2 className="mb-6 text-2xl font-semibold text-white">Screens Gallery</h2>
+          <div className="columns-1 gap-4 sm:columns-2 lg:columns-3">
+            {project.images.map((img) => (
+              <div key={img.src} className="mb-4 break-inside-avoid overflow-hidden rounded-xl border border-slate-700/30 bg-slate-800/20">
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  width={1200}
+                  height={900}
+                  className="h-auto w-full object-cover"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
       {/* Additional Sections */}
       {project.sections?.map((section) => (
         <section key={section.title} className="mb-16">
