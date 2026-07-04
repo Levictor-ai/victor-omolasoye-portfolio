@@ -157,7 +157,7 @@ const defaultProfile: ProfileData = {
     {
       company: 'Moovable Technology Limited',
       role: 'UI/UX Product Designer',
-      period: 'Jan. 2026 — Present',
+      period: 'Jan. 2026 — June 2026',
       description: '',
     },
     {
