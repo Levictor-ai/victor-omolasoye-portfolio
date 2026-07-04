@@ -111,6 +111,13 @@ const defaultProfile: ProfileData = {
       role: 'Co-founder',
       company: 'Luminous Attorney',
     },
+    {
+      quote:
+        'Working with Victor revealed his deep understanding of product development and user experience. He was able to single handedly design accurately major screens during our time together and he\'s exceptional',
+      author: 'Precious Okhueleigbe',
+      role: 'Lead Product design',
+      company: 'moovable tech',
+    },
   ],
   faqs: [
     {
