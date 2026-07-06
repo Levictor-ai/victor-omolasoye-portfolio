@@ -152,7 +152,7 @@ function CaseStudyView({ project }: { project: ProjectData }) {
                 href={link.url}
                 target={link.type !== 'case-study' ? '_blank' : undefined}
                 rel={link.type !== 'case-study' ? 'noopener noreferrer' : undefined}
-                className="inline-flex items-center gap-2 rounded-lg border border-gray-300 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-700 transition-all hover:border-black/30 hover:bg-black/5 hover:text-black"
+                className="inline-flex items-center gap-2 rounded-lg bg-gray-900 px-4 py-2 text-sm font-medium text-white transition-all hover:bg-black"
               >
                 {linkIcon(link.type)}
                 {link.label}
