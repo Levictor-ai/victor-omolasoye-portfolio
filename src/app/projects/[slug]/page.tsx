@@ -332,9 +332,22 @@ function CaseStudyView({ project }: { project: ProjectData }) {
         <section key={section.title} className="mb-16">
           <h2 className="mb-4 text-2xl font-bold tracking-tight text-gray-900">{section.title}</h2>
           <div className="space-y-4">
-            {section.content.split('\n\n').map((paragraph, i) => (
-              <p key={i} className="leading-relaxed text-gray-700">{paragraph}</p>
-            ))}
+            {section.content.split('\n\n').map((paragraph, i) => {
+              const lines = paragraph.split('\n').filter(l => l.trim());
+              if (lines.every(l => l.trimStart().startsWith('-'))) {
+                return (
+                  <ul key={i} className="space-y-1.5">
+                    {lines.map((line, j) => (
+                      <li key={j} className="flex items-start gap-2 text-sm leading-relaxed text-gray-700">
+                        <span className="mt-1.5 block size-1 shrink-0 rounded-full bg-gray-400" />
+                        {line.trimStart().replace(/^-\s+/, '')}
+                      </li>
+                    ))}
+                  </ul>
+                );
+              }
+              return <p key={i} className="leading-relaxed text-gray-700">{paragraph}</p>;
+            })}
           </div>
           {section.images && section.images.length > 0 && (
             <div className="mt-4 grid gap-4 sm:grid-cols-2">
