@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { notFound } from 'next/navigation';
 import type { ProjectData } from '@/types/project';
+import { BackToTop } from '@/components/BackToTop';
 import {
   ExternalLink,
   Users,
@@ -380,6 +381,7 @@ export default async function ProjectPage({
 
         {isGallery ? <GalleryView project={project} /> : <CaseStudyView project={project} />}
       </article>
+      <BackToTop />
     </main>
   );
 }
