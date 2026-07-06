@@ -426,7 +426,6 @@ function AboutSection({ profile }: { profile: ProfileData }) {
             sizes="100vw"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
         </div>
         <div className="p-5 sm:p-6">
           <div className="prose prose-invert max-w-none">

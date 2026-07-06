@@ -38,7 +38,6 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
               onError={() => setImgError(true)}
             />
           ) : null}
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
           <div
             className="absolute inset-0 opacity-20 transition-opacity duration-300 group-hover:opacity-30"
             style={{
