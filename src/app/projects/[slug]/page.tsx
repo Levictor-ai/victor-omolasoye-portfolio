@@ -163,7 +163,7 @@ function CaseStudyView({ project }: { project: ProjectData }) {
 
       {/* Overview */}
       <section className="mb-16">
-        <h2 className="mb-4 text-2xl font-semibold text-gray-900">Overview</h2>
+        <h2 className="mb-4 text-2xl font-bold tracking-tight text-gray-900">Overview</h2>
         <p className="text-lg leading-relaxed text-gray-700">
           {project.overview}
         </p>
@@ -183,7 +183,7 @@ function CaseStudyView({ project }: { project: ProjectData }) {
 
       {/* Target Audience / Regions */}
       <section className="mb-16 rounded-xl border border-gray-200 bg-gray-50 p-6">
-        <h2 className="mb-4 text-xl font-semibold text-gray-900">Target & Reach</h2>
+        <h2 className="mb-4 text-xl font-bold tracking-tight text-gray-900">Target & Reach</h2>
         <div className="grid gap-6 sm:grid-cols-2">
           <div>
             <h3 className="mb-2 text-sm font-medium uppercase tracking-wider text-gray-900">
@@ -216,7 +216,7 @@ function CaseStudyView({ project }: { project: ProjectData }) {
 
       {/* Features */}
       <section className="mb-16">
-        <h2 className="mb-6 text-2xl font-semibold text-gray-900">Key Features</h2>
+        <h2 className="mb-6 text-2xl font-bold tracking-tight text-gray-900">Key Features</h2>
         <div className="grid gap-4 sm:grid-cols-2">
           {project.features.map((feature) => (
             <div
@@ -232,7 +232,7 @@ function CaseStudyView({ project }: { project: ProjectData }) {
 
       {/* Tech Stack */}
       <section className="mb-16">
-        <h2 className="mb-6 text-2xl font-semibold text-gray-900">Technology Stack</h2>
+        <h2 className="mb-6 text-2xl font-bold tracking-tight text-gray-900">Technology Stack</h2>
         <div className="flex flex-wrap gap-2">
           {project.techStack.map((tech) => (
             <span
@@ -248,7 +248,7 @@ function CaseStudyView({ project }: { project: ProjectData }) {
 
       {/* Architecture */}
       <section className="mb-16">
-        <h2 className="mb-4 text-2xl font-semibold text-gray-900">Architecture</h2>
+        <h2 className="mb-4 text-2xl font-bold tracking-tight text-gray-900">Architecture</h2>
         {project.architecture.title && (
           <p className="mb-3 text-sm font-medium text-gray-900">
             {project.architecture.title}
@@ -271,7 +271,7 @@ function CaseStudyView({ project }: { project: ProjectData }) {
 
       {/* Results */}
       <section className="mb-16">
-        <h2 className="mb-6 text-2xl font-semibold text-gray-900">Results</h2>
+        <h2 className="mb-6 text-2xl font-bold tracking-tight text-gray-900">Results</h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {project.results.map((result) => (
             <div
@@ -308,7 +308,7 @@ function CaseStudyView({ project }: { project: ProjectData }) {
       {/* Screens Gallery */}
       {project.images.length > 0 && (
         <section className="mb-16">
-          <h2 className="mb-6 text-2xl font-semibold text-gray-900">Screens Gallery</h2>
+          <h2 className="mb-6 text-2xl font-bold tracking-tight text-gray-900">Screens Gallery</h2>
           <div className="columns-1 gap-4 sm:columns-2 lg:columns-3">
             {project.images.map((img) => (
               <div key={img.src} className="mb-4 break-inside-avoid overflow-hidden rounded-xl border border-gray-200 bg-gray-50">
@@ -329,8 +329,12 @@ function CaseStudyView({ project }: { project: ProjectData }) {
       {/* Additional Sections */}
       {project.sections?.map((section) => (
         <section key={section.title} className="mb-16">
-          <h2 className="mb-4 text-2xl font-semibold text-gray-900">{section.title}</h2>
-          <p className="leading-relaxed text-gray-700">{section.content}</p>
+          <h2 className="mb-4 text-2xl font-bold tracking-tight text-gray-900">{section.title}</h2>
+          <div className="space-y-4">
+            {section.content.split('\n\n').map((paragraph, i) => (
+              <p key={i} className="leading-relaxed text-gray-700">{paragraph}</p>
+            ))}
+          </div>
           {section.images && section.images.length > 0 && (
             <div className="mt-4 grid gap-4 sm:grid-cols-2">
               {section.images.map((img) => (

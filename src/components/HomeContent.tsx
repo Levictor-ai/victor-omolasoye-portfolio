@@ -278,7 +278,7 @@ function ArticlesSection() {
           hidden: { opacity: 0, y: 20 },
           show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
         }}
-        className="mb-6 text-heading-lg text-gray-900"
+        className="mb-6 text-heading-lg font-bold tracking-tight text-gray-900"
       >
         Articles
       </motion.h2>
@@ -338,7 +338,7 @@ function SkillsSection({ profile }: { profile: ProfileData }) {
           hidden: { opacity: 0, y: 20 },
           show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
         }}
-        className="mb-5 text-heading-lg text-gray-900"
+        className="mb-5 text-heading-lg font-bold tracking-tight text-gray-900"
       >
         Skills &amp; Expertise
       </motion.h2>
@@ -405,7 +405,7 @@ function AboutSection({ profile }: { profile: ProfileData }) {
           hidden: { opacity: 0, y: 20 },
           show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
         }}
-        className="mb-6 text-heading-lg text-gray-900"
+        className="mb-6 text-heading-lg font-bold tracking-tight text-gray-900"
       >
         About Me
       </motion.h2>
@@ -476,7 +476,7 @@ function ExperienceSection({ profile }: { profile: ProfileData }) {
           hidden: { opacity: 0, y: 20 },
           show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
         }}
-        className="mb-6 text-heading-lg text-gray-900"
+        className="mb-6 text-heading-lg font-bold tracking-tight text-gray-900"
       >
         Experience
       </motion.h2>
@@ -523,7 +523,7 @@ function TestimonialsCarousel({ profile }: { profile: ProfileData }) {
 
   return (
     <section id="testimonials" className="mb-20">
-      <h2 className="mb-6 text-heading-lg text-gray-900">Testimonials</h2>
+      <h2 className="mb-6 text-heading-lg font-bold tracking-tight text-gray-900">Testimonials</h2>
       <div className="relative mx-auto overflow-hidden">
         <AnimatePresence custom={direction} mode="wait">
           <motion.blockquote
@@ -597,7 +597,7 @@ function ProjectsSection({ projects, behanceUrl }: { projects: ProjectData[]; be
           hidden: { opacity: 0, y: 20 },
           show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
         }}
-        className="mb-6 text-heading-lg text-gray-900"
+        className="mb-6 text-heading-lg font-bold tracking-tight text-gray-900"
       >
         Featured Projects
       </motion.h2>
@@ -651,7 +651,7 @@ function FAQSection({ profile }: { profile: ProfileData }) {
           hidden: { opacity: 0, y: 20 },
           show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
         }}
-        className="mb-6 text-heading-lg text-gray-900"
+        className="mb-6 text-heading-lg font-bold tracking-tight text-gray-900"
       >
         Frequently Asked Questions
       </motion.h2>
@@ -839,7 +839,7 @@ function ContactForm() {
     >
       <motion.h2
         variants={fadeUp}
-        className="mb-6 text-heading-lg text-gray-900"
+        className="mb-6 text-heading-lg font-bold tracking-tight text-gray-900"
       >
         Get In Touch
       </motion.h2>
