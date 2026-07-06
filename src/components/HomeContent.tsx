@@ -294,9 +294,9 @@ function ArticlesSection() {
               show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
             }}
             whileHover={{ scale: 1.01, x: 4 }}
-            className="card flex items-center gap-3 p-4 transition-colors hover:border-black/20 hover:bg-gray-50 sm:p-5"
+            className="card flex items-center gap-3 p-4 shadow-none transition-colors hover:border-black/20 hover:bg-gray-50 sm:p-5"
           >
-            <span className="flex size-7 shrink-0 items-center justify-center rounded-md bg-black/10 text-xs font-bold text-gray-900">
+            <span className="flex size-7 shrink-0 items-center justify-center rounded-md bg-black/5 text-xs font-bold text-gray-900">
               {String(i + 1).padStart(2, '0')}
             </span>
             <span className="flex-1 text-sm font-medium text-gray-900 transition-colors group-hover:text-black sm:text-base">
@@ -534,6 +534,19 @@ function TestimonialsCarousel({ profile }: { profile: ProfileData }) {
             animate="animate"
             exit="exit"
             transition={{ duration: 0.5, ease: 'easeInOut' }}
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.2}
+            onDragEnd={(_, info) => {
+              const threshold = 50;
+              if (info.offset.x < -threshold) {
+                setDirection(1);
+                setIndex((prev) => (prev + 1) % items.length);
+              } else if (info.offset.x > threshold) {
+                setDirection(-1);
+                setIndex((prev) => (prev - 1 + items.length) % items.length);
+              }
+            }}
             className="flex flex-col rounded-xl border border-gray-200 p-5 sm:p-6"
           >
             <svg
