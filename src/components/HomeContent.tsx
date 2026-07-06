@@ -10,9 +10,9 @@ import { ProjectCard } from '@/components/ProjectCard';
 import { FAQAccordion } from '@/components/FAQAccordion';
 
 const levelColors: Record<string, { bg: string; text: string; dot: string }> = {
-  Expert: { bg: 'bg-indigo-500/15', text: 'text-indigo-300', dot: 'bg-indigo-400' },
-  Proficient: { bg: 'bg-emerald-500/15', text: 'text-emerald-300', dot: 'bg-emerald-400' },
-  Familiar: { bg: 'bg-slate-500/15', text: 'text-slate-400', dot: 'bg-slate-500' },
+  Expert: { bg: 'bg-black/5', text: 'text-black', dot: 'bg-gray-900' },
+  Proficient: { bg: 'bg-gray-100', text: 'text-gray-700', dot: 'bg-gray-500' },
+  Familiar: { bg: 'bg-gray-50', text: 'text-gray-400', dot: 'bg-gray-400' },
 };
 
 function AnimatedCounter({ end, suffix = '' }: { end: number; suffix?: string }) {
@@ -49,7 +49,7 @@ function AnimatedCounter({ end, suffix = '' }: { end: number; suffix?: string })
 
   return (
     <div ref={ref} className="text-center">
-      <span className="text-2xl font-bold text-white sm:text-3xl">
+      <span className="text-2xl font-bold text-gray-900 sm:text-3xl">
         {count}{suffix}
       </span>
     </div>
@@ -80,10 +80,10 @@ function StatsSection() {
               hidden: { opacity: 0, y: 20, scale: 0.95 },
               show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: 'easeOut' } },
             }}
-            className="rounded-lg border border-slate-700/30 bg-slate-800/30 p-2 text-center sm:p-4"
+            className="rounded-lg border border-gray-200 bg-gray-50 p-2 text-center sm:p-4"
           >
             <AnimatedCounter end={stat.end} suffix={stat.suffix ?? ''} />
-            <p className="mt-1 text-xs text-slate-400 sm:text-sm">{stat.label}</p>
+            <p className="mt-1 text-xs text-gray-500 sm:text-sm">{stat.label}</p>
           </motion.div>
         ))}
       </div>
@@ -96,7 +96,7 @@ function SkillBar({ label, level }: { label: string; level: string }) {
 
   return (
     <div className="flex items-center justify-between">
-      <span className="text-xs font-medium text-slate-200">{label}</span>
+      <span className="text-xs font-medium text-gray-900">{label}</span>
       <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wider ${colors.bg} ${colors.text}`}>
         <span className={`size-1.5 rounded-full ${colors.dot}`} />
         {level}
@@ -124,7 +124,7 @@ function AnimatedTitle({ titles }: { titles: string[] }) {
   return (
     <div className="mb-2">
       <span
-        className={`inline-block text-2xl font-bold text-indigo-300 transition-all duration-400 sm:text-3xl ${
+        className={`inline-block text-2xl font-bold text-black transition-all duration-400 sm:text-3xl ${
           state === 'visible'
             ? 'opacity-100 translate-y-0'
             : state === 'exiting'
@@ -164,14 +164,14 @@ function HeroSection({ profile }: { profile: ProfileData }) {
     >
       <motion.div variants={item}><AvailableBanner /></motion.div>
       <motion.div variants={item}>
-        <h1 className="mb-4 text-[clamp(3rem,15vw,10rem)] font-display leading-[0.85] tracking-tight text-white">
+          <h1 className="mb-4 text-[clamp(3rem,15vw,10rem)] font-display leading-[0.85] tracking-tight text-gray-900">
           <span className="block">VICTOR</span>
           <span className="block">OMOLASOYE</span>
         </h1>
       </motion.div>
       <motion.div variants={item}><AnimatedTitle titles={profile.titles} /></motion.div>
       <motion.div variants={item}>
-        <p className="mb-6 max-w-2xl text-body-lg text-slate-300">
+        <p className="mb-6 max-w-2xl text-body-lg text-gray-700">
           {profile.tagline}
         </p>
       </motion.div>
@@ -180,7 +180,7 @@ function HeroSection({ profile }: { profile: ProfileData }) {
           whileHover={{ scale: 1.04 }}
           whileTap={{ scale: 0.97 }}
           href={`mailto:${profile.email}`}
-          className="inline-flex items-center gap-2 rounded-lg bg-indigo-500 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-indigo-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/50"
+          className="inline-flex items-center gap-2 rounded-lg bg-black px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20"
         >
           Hire Me
           <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -194,7 +194,7 @@ function HeroSection({ profile }: { profile: ProfileData }) {
           href={profile.resumeUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 rounded-lg border border-slate-600/40 bg-transparent px-5 py-2.5 text-sm font-medium text-slate-200 transition-colors hover:border-indigo-500/50 hover:bg-indigo-500/10 hover:text-indigo-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/50"
+          className="inline-flex items-center gap-2 rounded-lg border border-gray-300 bg-transparent px-5 py-2.5 text-sm font-medium text-gray-900 transition-colors hover:border-black/30 hover:bg-black/10 hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20"
         >
           <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
@@ -213,10 +213,10 @@ function AvailableBanner() {
   return (
     <div className="mb-6 flex items-center gap-2.5">
       <span className="relative flex size-3">
-        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-        <span className="relative inline-flex size-3 rounded-full bg-emerald-400" />
+        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gray-900 opacity-75" />
+        <span className="relative inline-flex size-3 rounded-full bg-gray-900" />
       </span>
-      <span className="text-sm font-medium text-emerald-400">
+      <span className="text-sm font-medium text-gray-900">
         Available for work
       </span>
     </div>
@@ -278,7 +278,7 @@ function ArticlesSection() {
           hidden: { opacity: 0, y: 20 },
           show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
         }}
-        className="mb-6 text-heading-lg text-white"
+        className="mb-6 text-heading-lg text-gray-900"
       >
         Articles
       </motion.h2>
@@ -294,16 +294,16 @@ function ArticlesSection() {
               show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
             }}
             whileHover={{ scale: 1.01, x: 4 }}
-            className="card flex items-center gap-3 p-4 transition-colors hover:border-indigo-500/30 hover:bg-slate-800/30 sm:p-5"
+            className="card flex items-center gap-3 p-4 transition-colors hover:border-black/20 hover:bg-gray-50 sm:p-5"
           >
-            <span className="flex size-7 shrink-0 items-center justify-center rounded-md bg-indigo-500/10 text-xs font-bold text-indigo-400">
+            <span className="flex size-7 shrink-0 items-center justify-center rounded-md bg-black/10 text-xs font-bold text-gray-900">
               {String(i + 1).padStart(2, '0')}
             </span>
-            <span className="flex-1 text-sm font-medium text-slate-200 transition-colors group-hover:text-indigo-300 sm:text-base">
+            <span className="flex-1 text-sm font-medium text-gray-900 transition-colors group-hover:text-black sm:text-base">
               {article.title}
             </span>
             <svg
-              className="size-4 shrink-0 text-slate-500"
+              className="size-4 shrink-0 text-gray-400"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -338,7 +338,7 @@ function SkillsSection({ profile }: { profile: ProfileData }) {
           hidden: { opacity: 0, y: 20 },
           show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
         }}
-        className="mb-5 text-heading-lg text-white"
+        className="mb-5 text-heading-lg text-gray-900"
       >
         Skills &amp; Expertise
       </motion.h2>
@@ -347,15 +347,15 @@ function SkillsSection({ profile }: { profile: ProfileData }) {
           hidden: { opacity: 0, y: 20 },
           show: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 } },
         }}
-        className="mb-8 max-w-2xl text-body-md leading-relaxed text-slate-400"
+        className="mb-8 max-w-2xl text-body-md leading-relaxed text-gray-500"
       >
         From discovery and strategy to visual execution and developer handoff, I bridge every phase of the product design lifecycle.
       </motion.p>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {[
-          { title: 'Core Disciplines', color: 'text-indigo-400', skills: profile.coreDisciplines },
-          { title: 'Tools & Software', color: 'text-emerald-400', skills: profile.tools },
-          { title: 'Technical & Handoff', color: 'text-violet-400', skills: profile.technicalHandoff },
+          { title: 'Core Disciplines', color: 'text-gray-900', skills: profile.coreDisciplines },
+          { title: 'Tools & Software', color: 'text-gray-700', skills: profile.tools },
+          { title: 'Technical & Handoff', color: 'text-gray-700', skills: profile.technicalHandoff },
         ].map((group, gi) => (
           <motion.div
             key={gi}
@@ -405,7 +405,7 @@ function AboutSection({ profile }: { profile: ProfileData }) {
           hidden: { opacity: 0, y: 20 },
           show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
         }}
-        className="mb-6 text-heading-lg text-white"
+        className="mb-6 text-heading-lg text-gray-900"
       >
         About Me
       </motion.h2>
@@ -426,14 +426,14 @@ function AboutSection({ profile }: { profile: ProfileData }) {
             sizes="100vw"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F19] via-[#0B0F19]/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent" />
         </div>
         <div className="p-5 sm:p-6">
           <div className="prose prose-invert max-w-none">
             {profile.about.split('\n\n').map((paragraph, i) => (
               <p
                 key={i}
-                className="mb-4 last:mb-0 text-body-md leading-relaxed text-slate-300"
+                className="mb-4 last:mb-0 text-body-md leading-relaxed text-gray-700"
               >
                 {paragraph}
               </p>
@@ -442,7 +442,7 @@ function AboutSection({ profile }: { profile: ProfileData }) {
           <div className="mt-6">
             <a
               href={`mailto:${profile.email}`}
-              className="inline-flex items-center gap-2 rounded-lg bg-indigo-500 px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-indigo-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/50"
+              className="inline-flex items-center gap-2 rounded-lg bg-black px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20"
             >
               Hire Me
               <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -477,7 +477,7 @@ function ExperienceSection({ profile }: { profile: ProfileData }) {
           hidden: { opacity: 0, y: 20 },
           show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
         }}
-        className="mb-6 text-heading-lg text-white"
+        className="mb-6 text-heading-lg text-gray-900"
       >
         Experience
       </motion.h2>
@@ -491,10 +491,10 @@ function ExperienceSection({ profile }: { profile: ProfileData }) {
             }}
           >
             <div className="flex items-baseline justify-between gap-2">
-              <p className="text-right text-sm text-slate-200">{exp.role}</p>
-              <p className="text-xs font-medium uppercase tracking-wider text-indigo-400">{exp.company}</p>
+              <p className="text-right text-sm text-gray-900">{exp.role}</p>
+              <p className="text-xs font-medium uppercase tracking-wider text-gray-900">{exp.company}</p>
             </div>
-            <p className="text-xs text-slate-500">{exp.period}</p>
+            <p className="text-xs text-gray-400">{exp.period}</p>
           </motion.div>
         ))}
       </div>
@@ -524,7 +524,7 @@ function TestimonialsCarousel({ profile }: { profile: ProfileData }) {
 
   return (
     <section id="testimonials" className="mb-20">
-      <h2 className="mb-6 text-heading-lg text-white">Testimonials</h2>
+      <h2 className="mb-6 text-heading-lg text-gray-900">Testimonials</h2>
       <div className="relative mx-auto overflow-hidden">
         <AnimatePresence custom={direction} mode="wait">
           <motion.blockquote
@@ -535,25 +535,25 @@ function TestimonialsCarousel({ profile }: { profile: ProfileData }) {
             animate="animate"
             exit="exit"
             transition={{ duration: 0.5, ease: 'easeInOut' }}
-            className="flex flex-col rounded-xl border border-slate-600/20 p-5 sm:p-6"
+            className="flex flex-col rounded-xl border border-gray-200 p-5 sm:p-6"
           >
             <svg
-              className="mb-3 size-5 text-indigo-500/40"
+              className="mb-3 size-5 text-black/40"
               viewBox="0 0 24 24"
               fill="currentColor"
               aria-hidden="true"
             >
               <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151C7.563 6.068 6 8.789 6 11h4v10H0z" />
             </svg>
-            <p className="mb-6 text-body-md leading-relaxed text-slate-300">
+            <p className="mb-6 text-body-md leading-relaxed text-gray-700">
               &ldquo;{items[index].quote}&rdquo;
             </p>
             <footer>
               <cite className="not-italic">
-                <span className="block text-sm font-medium text-white">
+                <span className="block text-sm font-medium text-gray-900">
                   {items[index].author}
                 </span>
-                <span className="text-sm text-slate-500">
+                <span className="text-sm text-gray-400">
                   {items[index].role}
                   {items[index].company ? ` @ ${items[index].company}` : ''}
                 </span>
@@ -568,8 +568,8 @@ function TestimonialsCarousel({ profile }: { profile: ProfileData }) {
               onClick={() => { setDirection(i > index ? 1 : -1); setIndex(i); }}
               className={`size-2 rounded-full transition-all duration-300 ${
                 i === index
-                  ? 'w-6 bg-indigo-400'
-                  : 'bg-slate-600 hover:bg-slate-500'
+                  ? 'w-6 bg-gray-900'
+                  : 'bg-gray-300 hover:bg-gray-400'
               }`}
               aria-label={`Go to testimonial ${i + 1}`}
             />
@@ -598,7 +598,7 @@ function ProjectsSection({ projects, behanceUrl }: { projects: ProjectData[]; be
           hidden: { opacity: 0, y: 20 },
           show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
         }}
-        className="mb-6 text-heading-lg text-white"
+        className="mb-6 text-heading-lg text-gray-900"
       >
         Featured Projects
       </motion.h2>
@@ -609,7 +609,7 @@ function ProjectsSection({ projects, behanceUrl }: { projects: ProjectData[]; be
           ))}
         </div>
       ) : (
-        <p className="text-body-md text-slate-500">
+        <p className="text-body-md text-gray-400">
           No projects published yet.
         </p>
       )}
@@ -618,7 +618,7 @@ function ProjectsSection({ projects, behanceUrl }: { projects: ProjectData[]; be
           href={behanceUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-6 flex w-full items-center justify-center gap-2 rounded-lg bg-indigo-500 px-5 py-3 text-sm font-medium text-white transition-all hover:bg-indigo-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/50"
+          className="mt-6 flex w-full items-center justify-center gap-2 rounded-lg bg-black px-5 py-3 text-sm font-medium text-white transition-all hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20"
         >
           View all projects on Behance
           <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -652,7 +652,7 @@ function FAQSection({ profile }: { profile: ProfileData }) {
           hidden: { opacity: 0, y: 20 },
           show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
         }}
-        className="mb-6 text-heading-lg text-white"
+        className="mb-6 text-heading-lg text-gray-900"
       >
         Frequently Asked Questions
       </motion.h2>
@@ -694,11 +694,11 @@ function Nav({ avatar }: { avatar: string }) {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-slate-800/60 bg-[#0B0F19]/80 backdrop-blur-lg">
+    <nav className="sticky top-0 z-50 border-b border-gray-200 bg-white/80 backdrop-blur-lg">
       <div className="relative mx-auto flex max-w-7xl items-center justify-between px-6 py-3 sm:px-8 lg:px-12">
         <button onClick={() => setShowPreview(true)} className="relative flex cursor-pointer items-center">
-          <span className="absolute inset-0 animate-ping rounded-full bg-indigo-400/30" />
-          <span className="absolute inset-0 animate-spin rounded-full border-2 border-transparent border-t-indigo-400/40" />
+          <span className="absolute inset-0 animate-ping rounded-full bg-black/10" />
+          <span className="absolute inset-0 animate-spin rounded-full border-2 border-transparent border-t-black/30" />
           <Image
             src={avatar}
             alt="Victor Omolasoye"
@@ -714,7 +714,7 @@ function Nav({ avatar }: { avatar: string }) {
             onClick={() => setShowPreview(false)}
             onScroll={() => setShowPreview(false)}
           >
-            <div className="relative size-48 overflow-hidden rounded-full border-4 border-indigo-500/30 shadow-2xl shadow-indigo-500/20 sm:size-64" onClick={(e) => e.stopPropagation()}>
+            <div className="relative size-48 overflow-hidden rounded-full border-4 border-black/20 shadow-2xl shadow-black/10 sm:size-64" onClick={(e) => e.stopPropagation()}>
               <Image
                 src={avatar}
                 alt="Victor Omolasoye"
@@ -727,7 +727,7 @@ function Nav({ avatar }: { avatar: string }) {
         )}
         <button
           onClick={() => setOpen(!open)}
-          className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm text-slate-400 transition-colors hover:bg-slate-800/60 hover:text-white"
+          className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm text-gray-500 transition-colors hover:bg-gray-100/60 hover:text-gray-900"
           aria-label="Toggle navigation"
         >
           <svg className="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -746,7 +746,7 @@ function Nav({ avatar }: { avatar: string }) {
           </svg>
           <span>{open ? 'Close' : 'Menu'}</span>
         </button>
-        <div className={`absolute right-4 top-full z-50 min-w-[200px] flex-col rounded-xl border border-slate-700/40 bg-gradient-to-b from-[#0B0F19] to-[#111827] p-3 shadow-xl ${
+        <div className={`absolute right-4 top-full z-50 min-w-[200px] flex-col rounded-xl border border-gray-200 bg-gradient-to-b from-white to-gray-50 p-3 shadow-xl ${
           open ? 'flex' : 'hidden'
         }`}>
           <div className="flex flex-col gap-1">
@@ -755,7 +755,7 @@ function Nav({ avatar }: { avatar: string }) {
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="flex items-center gap-2 shrink-0 rounded-lg px-3 py-2 text-sm text-slate-400 transition-colors hover:bg-slate-800/60 hover:text-indigo-400"
+                className="flex items-center gap-2 shrink-0 rounded-lg px-3 py-2 text-sm text-gray-500 transition-colors hover:bg-gray-100/60 hover:text-gray-900"
               >
                 <svg className="size-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d={link.icon} />
@@ -782,7 +782,7 @@ function BackToTop() {
   return (
     <button
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-      className={`fixed bottom-6 right-6 z-50 flex size-11 items-center justify-center rounded-full border border-slate-700/40 bg-slate-800/80 text-slate-400 shadow-lg backdrop-blur transition-all duration-300 hover:border-indigo-500/50 hover:bg-indigo-500/10 hover:text-indigo-300 ${
+      className={`fixed bottom-6 right-6 z-50 flex size-11 items-center justify-center rounded-full border border-gray-200 bg-gray-100/80 text-gray-500 shadow-lg backdrop-blur transition-all duration-300 hover:border-black/30 hover:bg-black/10 hover:text-black ${
         visible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0 pointer-events-none'
       }`}
       aria-label="Back to top"
@@ -840,7 +840,7 @@ function ContactForm() {
     >
       <motion.h2
         variants={fadeUp}
-        className="mb-6 text-heading-lg text-white"
+        className="mb-6 text-heading-lg text-gray-900"
       >
         Get In Touch
       </motion.h2>
@@ -851,7 +851,7 @@ function ContactForm() {
             name="name"
             placeholder="Your Name"
             required
-            className="w-full rounded-lg border border-slate-700/40 bg-transparent px-4 py-2.5 text-sm text-slate-200 placeholder-slate-500 shadow-none outline-none transition-colors focus:border-indigo-500 focus-visible:shadow-none focus-visible:ring-0"
+            className="w-full rounded-lg border border-gray-200 bg-transparent px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 shadow-none outline-none transition-colors focus:border-black focus-visible:shadow-none focus-visible:ring-0"
           />
         </div>
         <div>
@@ -860,7 +860,7 @@ function ContactForm() {
             name="email"
             placeholder="Your Email"
             required
-            className="w-full rounded-lg border border-slate-700/40 bg-transparent px-4 py-2.5 text-sm text-slate-200 placeholder-slate-500 shadow-none outline-none transition-colors focus:border-indigo-500 focus-visible:shadow-none focus-visible:ring-0"
+            className="w-full rounded-lg border border-gray-200 bg-transparent px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 shadow-none outline-none transition-colors focus:border-black focus-visible:shadow-none focus-visible:ring-0"
           />
         </div>
         <div>
@@ -869,18 +869,18 @@ function ContactForm() {
             placeholder="Your Message"
             rows={4}
             required
-            className="w-full rounded-lg border border-slate-700/40 bg-transparent px-4 py-2.5 text-sm text-slate-200 placeholder-slate-500 shadow-none outline-none transition-colors focus:border-indigo-500 focus-visible:shadow-none focus-visible:ring-0"
+            className="w-full rounded-lg border border-gray-200 bg-transparent px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 shadow-none outline-none transition-colors focus:border-black focus-visible:shadow-none focus-visible:ring-0"
           />
         </div>
         <button
           type="submit"
           disabled={status === 'sending'}
-          className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-indigo-500 px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-indigo-400 disabled:opacity-50"
+          className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-black px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-gray-800 disabled:opacity-50"
         >
           {status === 'sending' ? 'Sending...' : 'Send Message'}
         </button>
         {status === 'sent' && (
-          <p className="text-center text-sm text-emerald-400">Message sent!</p>
+          <p className="text-center text-sm text-gray-700">Message sent!</p>
         )}
       </motion.form>
     </motion.section>
@@ -927,7 +927,7 @@ function FooterSection({ socials }: { socials: ProfileData['socials'] }) {
   ].filter(Boolean) as { href: string; label: string; icon: ReactNode }[];
 
   return (
-    <footer className="border-t border-slate-800/60 py-12 text-center">
+    <footer className="border-t border-gray-200 py-12 text-center">
       <div className="mb-6 flex items-center justify-center gap-5">
         {socialLinks.map((link) => (
           <motion.a
@@ -937,17 +937,17 @@ function FooterSection({ socials }: { socials: ProfileData['socials'] }) {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.2, rotate: 4 }}
             whileTap={{ scale: 0.9 }}
-            className="text-slate-500 transition-colors hover:text-indigo-400"
+            className="text-gray-400 transition-colors hover:text-gray-900"
             aria-label={link.label}
           >
             <svg className="size-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">{link.icon}</svg>
           </motion.a>
         ))}
       </div>
-      <p className="mx-auto max-w-2xl text-balance text-sm leading-relaxed italic text-slate-400 sm:text-base">
+      <p className="mx-auto max-w-2xl text-balance text-sm leading-relaxed italic text-gray-500 sm:text-base">
         &ldquo;Good design is expensive because it&rsquo;s created with the most valuable resource we have&mdash;time, which is life.&rdquo;
       </p>
-      <p className="mt-2 text-sm text-slate-500 sm:text-base">&mdash; Victor Omolasoye</p>
+      <p className="mt-2 text-sm text-gray-400 sm:text-base">&mdash; Victor Omolasoye</p>
     </footer>
   );
 }

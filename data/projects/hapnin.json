@@ -7,7 +7,7 @@
   "companyUrl": null,
   "period": "Feb 2026",
   "coverImage": "/images/projects/hapnin/cover.png",
-  "color": "#22d3ee",
+  "color": "#1A1A1A",
   "overview": "Hapnin is a centralized event discovery platform that helps people easily find, verify, and plan attendance for nearby events with confidence.",
   "problem": "Across many states, people are genuinely interested in attending social events, festivals, faith-based gatherings, and educational programs. However, discovering these events remains a frustrating experience because there is no single, reliable platform that shows what is happening around them in one place. Event information is often scattered across social media posts, WhatsApp broadcasts, physical posters, word of mouth, and different websites. This fragmentation makes it time-consuming for users to search for events and difficult to verify important details. As a result, users frequently miss events they would have loved to attend or arrive with incomplete information.",
   "solution": "A location-based event discovery app that helps users easily find upcoming events and programs within their state. The app centralizes event information into a single, organized platform, providing clear and complete details including event description, date and time, venue, pricing, attendance requirements, and organizer information. By simplifying how people discover and access events around them, the product seeks to reduce missed opportunities, improve trust in event information, and encourage greater social engagement, community participation, and attendance at cultural, festive, and educational programs.",

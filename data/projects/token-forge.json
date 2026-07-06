@@ -7,7 +7,7 @@
   "companyUrl": null,
   "period": "Product Design Bootcamp Project",
   "coverImage": "/images/projects/token-forge/cover.png",
-  "color": "#6366f1",
+  "color": "#1A1A1A",
   "overview": "TokenForge is an AI-powered platform that transforms natural language into production-ready design tokens within seconds. Instead of manually creating a design system, users simply describe their brand, and TokenForge generates an accessible, scalable, and developer-ready foundation for digital products.",
   "problem": "Most design systems begin with repetitive manual work—deciding on colors, typography, spacing, shadows, border radii, and naming conventions. These decisions consume valuable time before actual product design begins. Four major challenges emerged: creating design systems is repetitive and time-consuming, manual decisions lead to inconsistent products, accessibility is frequently overlooked, and existing tools cannot interpret a brand's personality.",
   "solution": "A platform where users describe their brand in natural language and receive a complete, accessible design system in under 60 seconds. TokenForge generates semantic color palettes, typography scales, spacing systems, border radius values, and shadow systems—all with WCAG compliance built in. Users retain full editing control, and tokens export as CSS Variables, Tailwind Configuration, or JSON.",

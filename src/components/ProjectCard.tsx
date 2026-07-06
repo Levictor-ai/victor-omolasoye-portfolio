@@ -24,10 +24,10 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
     >
       <Link
         href={`/projects/${project.slug}`}
-        className="group relative block overflow-hidden rounded-xl border border-slate-700/30 bg-slate-800/10 transition-all duration-300 hover:border-indigo-500/40 hover:bg-slate-800/30 hover:shadow-[0_0_30px_-5px] hover:shadow-indigo-500/10"
+        className="group relative block overflow-hidden rounded-xl border border-gray-200 bg-white transition-all duration-300 hover:border-black/30 hover:bg-gray-50 hover:shadow-[0_0_30px_-5px] hover:shadow-black/5"
       >
         {/* Cover Image */}
-        <div className="relative aspect-video overflow-hidden bg-slate-800">
+        <div className="relative aspect-video overflow-hidden bg-white">
           {project.coverImage && !imgError ? (
             <Image
               src={project.coverImage}
@@ -38,11 +38,11 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
               onError={() => setImgError(true)}
             />
           ) : null}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F19] via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
           <div
             className="absolute inset-0 opacity-20 transition-opacity duration-300 group-hover:opacity-30"
             style={{
-              background: `radial-gradient(ellipse at center, ${project.color ?? '#6366f1'}33 0%, transparent 70%)`,
+              background: `radial-gradient(ellipse at center, ${project.color ?? '#1A1A1A'}33 0%, transparent 70%)`,
             }}
           />
         </div>
@@ -50,7 +50,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
         {/* Content */}
         <div className="p-5">
           {/* Meta */}
-          <div className="mb-3 flex flex-wrap items-center gap-3 text-xs text-slate-500">
+          <div className="mb-3 flex flex-wrap items-center gap-3 text-xs text-gray-400">
             <span className="flex items-center gap-1">
               <Clock className="size-3" />
               {project.period}
@@ -63,15 +63,15 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
           </div>
 
           {/* Title */}
-          <h3 className="mb-1 text-lg font-semibold text-white transition-colors group-hover:text-indigo-300">
+          <h3 className="mb-1 text-lg font-semibold text-gray-900 transition-colors group-hover:text-black">
             {project.title}
           </h3>
 
           {/* Subtitle */}
-          <p className="mb-3 text-sm text-slate-400">{project.subtitle}</p>
+          <p className="mb-3 text-sm text-gray-500">{project.subtitle}</p>
 
           {/* Role */}
-          <p className="mb-3 text-xs text-slate-500">
+          <p className="mb-3 text-xs text-gray-400">
             {project.role} @ {project.company}
           </p>
 
@@ -80,20 +80,20 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
             {project.techStack.slice(0, 4).map((tech) => (
               <span
                 key={tech.name}
-                className="rounded-full bg-slate-800/60 px-2.5 py-0.5 text-[11px] font-medium text-slate-400"
+                className="rounded-full bg-gray-50 px-2.5 py-0.5 text-[11px] font-medium text-gray-500"
               >
                 {tech.name}
               </span>
             ))}
             {project.techStack.length > 4 && (
-              <span className="rounded-full bg-slate-800/60 px-2.5 py-0.5 text-[11px] font-medium text-slate-500">
+              <span className="rounded-full bg-gray-50 px-2.5 py-0.5 text-[11px] font-medium text-gray-400">
                 +{project.techStack.length - 4}
               </span>
             )}
           </div>
 
           {/* CTA */}
-          <span className="inline-flex items-center gap-1.5 text-sm font-medium text-indigo-400 transition-colors group-hover:text-indigo-300">
+          <span className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-900 transition-colors group-hover:text-black">
             View Case Study
             <ArrowUpRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </span>

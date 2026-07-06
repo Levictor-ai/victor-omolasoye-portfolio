@@ -26,9 +26,9 @@ const config: Config = {
       },
       colors: {
         surface: {
-          DEFAULT: '#0B0F19',
-          light: '#111827',
-          lighter: '#1E293B',
+          DEFAULT: '#F8F9FA',
+          light: '#FFFFFF',
+          lighter: '#F1F3F5',
         },
       },
       borderRadius: {
@@ -43,10 +43,10 @@ const config: Config = {
         '22': '5.5rem',
       },
       boxShadow: {
-        'elevation-1': '0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2)',
-        'elevation-2': '0 4px 6px rgba(0,0,0,0.3), 0 2px 4px rgba(0,0,0,0.2)',
-        'elevation-3': '0 10px 20px rgba(0,0,0,0.3), 0 3px 6px rgba(0,0,0,0.2)',
-        'elevation-4': '0 16px 32px rgba(0,0,0,0.4), 0 6px 12px rgba(0,0,0,0.2)',
+        'elevation-1': '0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06)',
+        'elevation-2': '0 4px 6px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.06)',
+        'elevation-3': '0 10px 20px rgba(0,0,0,0.08), 0 3px 6px rgba(0,0,0,0.06)',
+        'elevation-4': '0 16px 32px rgba(0,0,0,0.10), 0 6px 12px rgba(0,0,0,0.08)',
       },
     },
   },

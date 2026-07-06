@@ -7,7 +7,7 @@
   "companyUrl": null,
   "period": "2–4 Weeks",
   "coverImage": "/images/projects/linkbucket/cover.png",
-  "color": "#2563eb",
+  "color": "#1A1A1A",
   "overview": "A productivity platform that helps users reduce browser tab overload by saving, organizing, and managing links with a web app and browser extension.",
   "problem": "People keep dozens of browser tabs open because they plan to 'come back later'—but later rarely comes. The result is browser slowdown, mental clutter, lost resources, and reduced productivity. The problem wasn't remembering to read later—it was the friction involved in saving content quickly.",
   "solution": "LinkBucket, a lightweight productivity platform focused on a simple workflow: Capture → Organize → Complete. Instead of keeping tabs open, users save links instantly and revisit them when ready. A browser extension removes the friction of even opening another app to save.",

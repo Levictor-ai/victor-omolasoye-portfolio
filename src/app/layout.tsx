@@ -29,7 +29,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${manrope.variable} ${bebasNeue.variable} antialiased`}>
-      <body className="min-h-screen bg-[#0B0F19] font-sans text-slate-200">
+      <body className="min-h-screen bg-[#F8F9FA] font-sans text-gray-900">
         <PortfolioProvider>{children}</PortfolioProvider>
       </body>
     </html>

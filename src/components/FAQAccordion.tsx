@@ -18,7 +18,7 @@ export function FAQAccordion({ items }: Props) {
   if (items.length === 0) return null;
 
   return (
-    <div className="divide-y divide-slate-700/30 rounded-xl border border-slate-700/20">
+    <div className="divide-y divide-gray-200 rounded-xl border border-gray-200">
       {items.map((item, index) => {
         const isOpen = openIndex === index;
         const panelId = `faq-panel-${index}`;
@@ -32,11 +32,11 @@ export function FAQAccordion({ items }: Props) {
                 onClick={() => toggle(index)}
                 aria-expanded={isOpen}
                 aria-controls={panelId}
-                className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-sm font-medium text-slate-200 transition-colors hover:text-indigo-300 sm:px-6 sm:text-base"
+                className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-sm font-medium text-gray-900 transition-colors hover:text-black sm:px-6 sm:text-base"
               >
                 <span>{item.question}</span>
                 <ChevronDown
-                  className={`size-4 shrink-0 text-slate-400 transition-transform duration-200 ${
+                  className={`size-4 shrink-0 text-gray-500 transition-transform duration-200 ${
                     isOpen ? 'rotate-180' : ''
                   }`}
                 />
@@ -50,7 +50,7 @@ export function FAQAccordion({ items }: Props) {
                 isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
               }`}
             >
-              <div className="px-5 pb-4 text-sm leading-relaxed text-slate-400 sm:px-6">
+              <div className="px-5 pb-4 text-sm leading-relaxed text-gray-500 sm:px-6">
                 {item.answer}
               </div>
             </div>

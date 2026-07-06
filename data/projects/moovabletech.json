@@ -7,7 +7,7 @@
   "companyUrl": null,
   "period": "Jan 2026 — Present",
   "coverImage": "/images/projects/moovabletech/cover.png",
-  "color": "#f59e0b",
+  "color": "#1A1A1A",
   "overview": "Moovabletech is a mobility and logistics platform designed to streamline urban transportation and delivery services across African cities. The product focuses on reliability, real-time tracking, and seamless payment integration.",
   "problem": "Urban mobility in African cities faced challenges with unreliable tracking, inconsistent pricing, fragmented payment options, and poor user experience across existing platforms.",
   "solution": "A unified mobility platform with real-time GPS tracking, transparent fare calculation, multi-payment support (card, mobile money, cash), and an intuitive interface optimized for low-bandwidth environments.",

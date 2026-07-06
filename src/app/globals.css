@@ -4,21 +4,21 @@
 
 @layer base {
   :root {
-    --color-bg-primary: #0B0F19;
-    --color-bg-surface: #111827;
-    --color-bg-elevated: #1E293B;
-    --color-text-primary: #F1F5F9;
-    --color-text-secondary: #CBD5E1;
-    --color-text-tertiary: #94A3B8;
-    --color-accent: #818CF8;
-    --color-accent-hover: #6366F1;
-    --color-success: #34D399;
-    --color-border: rgba(148, 163, 184, 0.12);
-    --color-border-hover: rgba(148, 163, 184, 0.24);
-    --elevation-1: 0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2);
-    --elevation-2: 0 4px 6px rgba(0,0,0,0.3), 0 2px 4px rgba(0,0,0,0.2);
-    --elevation-3: 0 10px 20px rgba(0,0,0,0.3), 0 3px 6px rgba(0,0,0,0.2);
-    --focus-ring: 0 0 0 3px rgba(129, 140, 248, 0.4);
+    --color-bg-primary: #F8F9FA;
+    --color-bg-surface: #FFFFFF;
+    --color-bg-elevated: #F1F3F5;
+    --color-text-primary: #1A1A1A;
+    --color-text-secondary: #495057;
+    --color-text-tertiary: #868E96;
+    --color-accent: #1A1A1A;
+    --color-accent-hover: #333333;
+    --color-success: #1A1A1A;
+    --color-border: rgba(0, 0, 0, 0.08);
+    --color-border-hover: rgba(0, 0, 0, 0.15);
+    --elevation-1: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+    --elevation-2: 0 4px 6px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.06);
+    --elevation-3: 0 10px 20px rgba(0,0,0,0.08), 0 3px 6px rgba(0,0,0,0.06);
+    --focus-ring: 0 0 0 3px rgba(0, 0, 0, 0.15);
   }
 
   html {
@@ -38,8 +38,8 @@
   }
 
   ::selection {
-    background-color: rgba(129, 140, 248, 0.3);
-    color: #F1F5F9;
+    background-color: rgba(0, 0, 0, 0.15);
+    color: #FFFFFF;
   }
 }
 
@@ -66,9 +66,9 @@
     font-weight: 500;
     line-height: 1.5;
     letter-spacing: 0.02em;
-    background-color: rgba(148, 163, 184, 0.08);
+    background-color: rgba(0, 0, 0, 0.05);
     color: var(--color-text-secondary);
-    border: 1px solid rgba(148, 163, 184, 0.12);
+    border: 1px solid rgba(0, 0, 0, 0.08);
   }
 }
 

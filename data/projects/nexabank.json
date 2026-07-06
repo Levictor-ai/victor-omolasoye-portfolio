@@ -7,7 +7,7 @@
   "companyUrl": null,
   "period": "Jun 2025 — Aug 2025",
   "coverImage": "/images/projects/nexabank/Home.png",
-  "color": "#7c3aed",
+  "color": "#1A1A1A",
   "overview": "NexaBank is a comprehensive digital banking solution designed to streamline daily financial transactions, card management, and wealth tracking for modern users. The goal was to build a secure, unified financial ecosystem that feels intuitive, quick, and engaging.",
   "problem": "Traditional banking apps often overwhelm users with cluttered dashboards, complex verification hoops, and fragmented transfer processes. Onboarding friction causes user drop-off during multi-step KYC, dashboard anxiety makes financial data difficult to parse, and transaction navigation requires too many taps for common tasks.",
   "solution": "A modern digital banking app with minimalist onboarding flows, a modular dashboard prioritizing account balances and quick-action shortcuts, interactive card carousels for virtual card management, and integrated geolocation features for finding nearby ATMs and banking agents. Every flow was designed to reduce cognitive load and tap count.",
