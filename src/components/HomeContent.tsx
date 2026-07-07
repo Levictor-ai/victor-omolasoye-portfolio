@@ -637,7 +637,7 @@ function ProjectsSection({ projects, behanceUrl }: { projects: ProjectData[]; be
           href={behanceUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="group mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-5 py-3 text-sm font-medium text-white transition-all hover:from-blue-500 hover:to-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
+          className="group mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-5 py-4 text-sm font-medium text-white transition-all hover:from-blue-500 hover:to-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
         >
           View all projects on Behance
           <svg className="size-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -870,7 +870,7 @@ function ContactForm() {
         <button
           type="submit"
           disabled={status === 'sending'}
-          className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-5 py-2.5 text-sm font-medium text-white transition-all hover:from-blue-500 hover:to-blue-700 disabled:opacity-50"
+          className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-5 py-4 text-sm font-medium text-white transition-all hover:from-blue-500 hover:to-blue-700 disabled:opacity-50"
         >
           {status === 'sending' ? 'Sending...' : 'Send Message'}
         </button>
