@@ -60,7 +60,8 @@
   "images": [
     { "src": "/images/projects/frentoken-social/SM_NewWeek_BuildWithoutLimits_01.jpg.png", "alt": "FrenToken Post 1 — Scalability" },
     { "src": "/images/projects/frentoken-social/SM_PayAsYouGo_WeekStart_01.jpg.png", "alt": "FrenToken Post 4 — Cost Savings" },
-    { "src": "/images/projects/frentoken-social/forgelayer-start-building.jpg.png", "alt": "FrenToken — Start Building" }
+    { "src": "/images/projects/frentoken-social/forgelayer-start-building.jpg.png", "alt": "FrenToken — Start Building" },
+    { "src": "/images/projects/frentoken-social/new-week-campaign.jpg.png", "alt": "FrenToken Post 2 — ROI & Pricing" }
   ],
   "sections": [
     {
