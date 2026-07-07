@@ -377,6 +377,31 @@ function CaseStudyView({ project }: { project: ProjectData }) {
                   </ul>
                 );
               }
+              if (lines.every(l => l.trimStart().startsWith('|')) && lines.length >= 3) {
+                const rows = lines.filter(l => !/^[\s|]*[-:]+\s*[-:|]+\s*[-:| ]*$/.test(l));
+                return (
+                  <div key={i} className="overflow-x-auto">
+                    <table className="w-full text-left text-sm">
+                      <thead>
+                        <tr className="border-b border-gray-300">
+                          {rows[0].split('|').filter(c => c.trim()).map((cell, ci) => (
+                            <th key={ci} className="px-3 py-2 font-semibold text-gray-900">{cell.trim()}</th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {rows.slice(1).map((row, ri) => (
+                          <tr key={ri} className="border-b border-gray-100">
+                            {row.split('|').filter(c => c.trim()).map((cell, ci) => (
+                              <td key={ci} className="px-3 py-2 text-gray-700">{cell.trim()}</td>
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                );
+              }
               return <p key={i} className="leading-relaxed text-gray-700">{paragraph}</p>;
             })}
           </div>

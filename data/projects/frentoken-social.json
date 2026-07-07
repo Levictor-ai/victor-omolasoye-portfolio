@@ -1,0 +1,90 @@
+{
+  "slug": "frentoken-social",
+  "title": "FrenToken Social",
+  "subtitle": "Social Media Campaign — Optimizing B2B Web3 Payment Infrastructure Marketing",
+  "role": "Visual Designer / Brand Designer",
+  "company": "FrenToken",
+  "companyUrl": null,
+  "period": "1 Week",
+  "coverImage": "/images/projects/frentoken-social/cover.png",
+  "color": "#7C3AED",
+  "overview": "FrenToken is a modern, multi-chain payment infrastructure built for modern businesses. The goal of this campaign was to create a cohesive set of social media visuals targeted at business owners and developers at the start of a new work week. The campaign highlights key value propositions: scalability, cost efficiency through pay-as-you-go pricing, automated workflows, and transparent infrastructure.",
+  "problem": "Web3 and crypto payment solutions often suffer from marketing that is either overly technical or visually cluttered with chaotic 'cyberpunk' tropes. The challenge was to position FrenToken as a trustworthy, premium, and seamless B2B SaaS product rather than just another volatile crypto token. The designs needed to look clean, modern, and high-converting while establishing a strong, repetitive visual identity across a multi-post campaign.",
+  "solution": "A monochromatic purple palette was used to represent luxury, wisdom, and future-forward technology. High-contrast light-purple gradient backgrounds keep the graphics feeling airy and professional, while deep purple waves at the bottom anchor the canvas and draw the eye toward the CTA. Bold geometric sans-serif typography for primary hooks, with lighter italicized sans-serif for supporting copy. A faint technical grid pattern embedded in the background subtly communicates infrastructure and data without visual noise. Asymmetrical organic wave shapes break the rigidity of the grid, with clean white pill buttons centered within them for high-contrast CTA targets.",
+  "targetAudience": ["Business Owners", "Developers", "Web3 Professionals", "B2B Decision Makers"],
+  "regions": ["Global"],
+  "timeline": "1 Week",
+  "features": [
+    {
+      "title": "Color Psychology & Brand Consistency",
+      "description": "Monochromatic purple palette leveraging shades of violet, plum, and lavender to build an immediately recognizable brand block in a user's feed. Purple traditionally represents luxury, wisdom, and future-forward technology."
+    },
+    {
+      "title": "Typography Hierarchy",
+      "description": "Bold geometric sans-serif for primary hooks with tight tracking and prominent sizing for readability on mobile. Lighter italicized sans-serif for supporting copy acts as a conversational bridge between the headline and CTA."
+    },
+    {
+      "title": "Clean Layout & Spatial Grid",
+      "description": "Faint technical grid pattern embedded in the background gradient subtly communicates infrastructure and data. Asymmetrical organic wave shapes at the bottom break the rigidity of the grid, with centered white pill CTAs for high-contrast interaction targets."
+    },
+    {
+      "title": "Component-Driven Efficiency",
+      "description": "A strict template framework with top-aligned branding, mid-tier custom 3D art, and bottom-anchored wave CTAs allows campaign assets to remain completely unified while swapping out messages flawlessly."
+    }
+  ],
+  "techStack": [
+    { "name": "Figma", "category": "design" },
+    { "name": "Adobe Photoshop", "category": "design" },
+    { "name": "3D Render Engines", "category": "design" },
+    { "name": "Social Media Design", "category": "design" },
+    { "name": "Brand Identity", "category": "design" }
+  ],
+  "architecture": {
+    "title": "",
+    "description": "",
+    "highlights": []
+  },
+  "results": [
+    {
+      "metric": "Deliverables",
+      "value": "4",
+      "description": "Social media graphics for LinkedIn, X, and Instagram"
+    },
+    {
+      "metric": "Campaign Theme",
+      "value": "New Work Week",
+      "description": "Targeted at business owners and developers at the start of the week"
+    },
+    {
+      "metric": "Visual System",
+      "value": "Template-Driven",
+      "description": "Top branding, mid-tier 3D art, bottom wave CTAs"
+    }
+  ],
+  "links": [],
+  "images": [
+    { "src": "/images/projects/frentoken-social/cover.png", "alt": "FrenToken Social Campaign Preview" },
+    { "src": "/images/projects/frentoken-social/SM_NewWeek_BuildWithoutLimits_01.jpg.png", "alt": "FrenToken Post 1 — Build Without Limits" },
+    { "src": "/images/projects/frentoken-social/SM_PayAsYouGo_WeekStart_01.jpg.png", "alt": "FrenToken Post 4 — Pay As You Go" },
+    { "src": "/images/projects/frentoken-social/forgelayer-start-building.jpg.png", "alt": "FrenToken — Start Building" },
+    { "src": "/images/projects/frentoken-social/new-week-campaign.jpg.png", "alt": "FrenToken New Week Campaign Overview" }
+  ],
+  "sections": [
+    {
+      "title": "The Challenge",
+      "content": "Web3 and crypto payment solutions often suffer from marketing that is either overly technical or visually cluttered with chaotic 'cyberpunk' tropes. The challenge was to position FrenToken as a trustworthy, premium, and seamless B2B SaaS product rather than just another volatile crypto token. The designs needed to look clean, modern, and high-converting while establishing a strong, repetitive visual identity across a multi-post campaign."
+    },
+    {
+      "title": "Visual Design Strategy & Decisions",
+      "content": "- Color Psychology & Brand Consistency: Monochromatic Purple Palette — Purple traditionally represents luxury, wisdom, and future-forward technology. By leaning heavily into shades of violet, plum, and lavender, the campaign builds an immediately recognizable brand block in a user's feed.\n- High-Contrast Backgrounds: The clean, light-purple gradient background keeps the graphics feeling airy and professional, while the deep purple waves at the bottom anchor the canvas and draw the eye toward the call-to-action (CTA).\n- Typography Hierarchy: A bold, geometric sans-serif typeface was used for the primary hooks (e.g., 'More Transactions. Less Overhead.'). Tight tracking and prominent sizing ensure readability even on small mobile screens. Body copy uses an elegant, lighter-weight italicized sans-serif for a modern, conversational feel.\n- Clean Layout & Spatial Grid: A faint, technical grid pattern is embedded into the background gradient. This subtly communicates 'infrastructure,' 'data,' and 'building' without adding distracting visual noise. The asymmetrical, organic wave shapes at the bottom break the rigidity of the grid. Centered perfectly within these dark waves are clean, white pills for the CTAs, creating a high-contrast target for user interaction."
+    },
+    {
+      "title": "Creative Breakdown per Asset",
+      "content": "| Post | Theme | Copy Headline | Visual Metaphor & Asset Choice | CTA Intent |\n|---|---|---|---|---|\n| 01. Brand & Scale | A New Week Deserves Better Payment Infrastructure | 3D Crypto Coins: Large, bold purple coins emerging from the horizon represent solid, secure, multi-chain financial foundations | Build With FrenToken (Developer/Partner acquisition) |\n| 02. ROI & Pricing | More Transactions. Less Overhead. | Glass Growth Chart: A transparent, rising bar chart with glossy upward arrows flawlessly visualizes growth, flexibility, and scalability | See How It Works (Exploratory / Middle-of-funnel) |\n| 03. Workflow Efficiency | Your Best Sales Week Starts Here. | Digital Wallet & Growth: A sleek purple wallet swallowing currency symbols and percentage icons visualizes automated workflows and direct revenue intake | Get Started (Direct conversion) |\n| 04. Cost Savings | Don't Let Another Week Cost You More Than It Should. | Paper Airplane & Floating Tokens: A minimalist metallic paper airplane lifting off next to weightless coins represents frictionless, fast, and light pay-as-you-go financial movement | Start Saving Today! (Urgency / Problem-solving) |"
+    },
+    {
+      "title": "Key Takeaways & Impact",
+      "content": "- Component-Driven Efficiency: By creating a strict template framework (Top-aligned branding, mid-tier custom 3D art, bottom-anchored wave CTAs), the campaign assets remain completely unified while swapping out messages flawlessly.\n- B2B Credibility: Moving away from traditional dark-mode crypto aesthetics to a light, premium corporate tech aesthetic elevates FrenToken's market positioning to a professional audience."
+    }
+  ]
+}
