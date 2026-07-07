@@ -2,8 +2,39 @@ import Image from 'next/image';
 import fs from 'fs';
 import path from 'path';
 import { notFound } from 'next/navigation';
+import type { Metadata } from 'next';
 import type { ProjectData } from '@/types/project';
 import { BackToTop } from '@/components/BackToTop';
+
+export async function generateStaticParams() {
+  const dir = path.join(process.cwd(), 'data', 'projects');
+  const files = fs.readdirSync(dir).filter((f) => f.endsWith('.json'));
+  return files.map((f) => ({ slug: f.replace(/\.json$/, '') }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  try {
+    const filePath = path.join(process.cwd(), 'data', 'projects', `${slug}.json`);
+    const raw = fs.readFileSync(filePath, 'utf-8');
+    const project = JSON.parse(raw) as ProjectData;
+    return {
+      title: project.title,
+      description: project.overview || `${project.title} — project by Victor Omolasoye`,
+      openGraph: {
+        title: project.title,
+        description: project.overview || `${project.title} — project by Victor Omolasoye`,
+        images: project.coverImage ? [{ url: project.coverImage }] : [],
+      },
+    };
+  } catch {
+    return { title: 'Project' };
+  }
+}
 import {
   ExternalLink,
   Users,
@@ -152,9 +183,9 @@ function CaseStudyView({ project }: { project: ProjectData }) {
                 href={link.url}
                 target={link.type !== 'case-study' ? '_blank' : undefined}
                 rel={link.type !== 'case-study' ? 'noopener noreferrer' : undefined}
-                className="inline-flex items-center gap-2 rounded-lg bg-gray-900 px-4 py-2 text-sm font-medium text-white transition-all hover:bg-black"
+                className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-4 py-2 text-sm font-medium text-white transition-all hover:from-blue-500 hover:to-blue-700"
               >
-                {linkIcon(link.type)}
+                <span className="transition-transform group-hover:translate-x-0.5">{linkIcon(link.type)}</span>
                 {link.label}
               </a>
             ))}
@@ -222,7 +253,7 @@ function CaseStudyView({ project }: { project: ProjectData }) {
           {project.features.map((feature) => (
             <div
               key={feature.title}
-              className="rounded-lg border border-gray-200 bg-gray-50 p-5 transition-colors hover:border-gray-300"
+              className="rounded-xl border border-gray-200 bg-gray-50 p-5 transition-colors hover:border-gray-300"
             >
               <h3 className="mb-2 font-medium text-gray-900">{feature.title}</h3>
               <p className="text-sm leading-relaxed text-gray-500">{feature.description}</p>
@@ -277,7 +308,7 @@ function CaseStudyView({ project }: { project: ProjectData }) {
           {project.results.map((result) => (
             <div
               key={result.metric}
-              className="rounded-lg border border-gray-200 bg-gray-50 p-5 text-center"
+              className="rounded-xl border border-gray-200 bg-gray-50 p-5 text-center"
             >
               <p className="text-3xl font-bold text-gray-700">{result.value}</p>
               <p className="mt-1 text-sm font-medium text-gray-900">{result.metric}</p>
@@ -353,7 +384,7 @@ function CaseStudyView({ project }: { project: ProjectData }) {
             <div className="mt-4 grid gap-4 sm:grid-cols-2">
               {section.images.map((img) => (
                 <figure key={img.src}>
-                  <div className="aspect-video rounded-lg bg-white" />
+                  <div className="aspect-video rounded-xl bg-white" />
                   {img.caption && (
                     <figcaption className="mt-2 text-xs text-gray-400">{img.caption}</figcaption>
                   )}

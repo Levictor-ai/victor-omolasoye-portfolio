@@ -108,13 +108,13 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
       transition={{ duration: 0.5, delay: index * 0.1 }}
     >
       {isUpcoming ? (
-        <div className="relative block overflow-hidden rounded-xl border border-gray-200 bg-white">
+        <div className="relative block overflow-hidden rounded-xl bg-white">
           {cardContent}
         </div>
       ) : (
         <Link
           href={`/projects/${project.slug}`}
-          className="group relative block overflow-hidden rounded-xl border border-gray-200 bg-white transition-all duration-300 hover:border-black/20 hover:bg-gray-50 hover:shadow-[0_0_20px_-8px] hover:shadow-black/[0.04]"
+          className="group relative block overflow-hidden rounded-xl bg-white transition-all duration-300 hover:bg-gray-50 hover:shadow-[0_0_20px_-8px] hover:shadow-black/[0.04]"
         >
           {cardContent}
         </Link>

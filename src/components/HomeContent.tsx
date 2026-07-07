@@ -81,7 +81,7 @@ function StatsSection() {
               hidden: { opacity: 0, y: 20, scale: 0.95 },
               show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: 'easeOut' } },
             }}
-            className="rounded-lg border border-gray-200 bg-gray-50 p-2 text-center sm:p-4"
+            className="rounded-xl border border-gray-200 bg-gray-50 p-2 text-center sm:p-4"
           >
             <AnimatedCounter end={stat.end} suffix={stat.suffix ?? ''} />
             <p className="mt-1 text-xs text-gray-500 sm:text-sm">{stat.label}</p>
@@ -181,13 +181,15 @@ function HeroSection({ profile }: { profile: ProfileData }) {
           whileHover={{ scale: 1.04 }}
           whileTap={{ scale: 0.97 }}
           href={`mailto:${profile.email}`}
-          className="inline-flex items-center gap-2 rounded-lg bg-black px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20"
+          className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-5 py-2.5 text-sm font-medium text-white transition-all hover:from-blue-500 hover:to-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
         >
           Hire Me
-          <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <path d="M22 2L11 13" />
-            <path d="M22 2l-7 20-4-9-9-4 20-7z" />
-          </svg>
+          <span className="flex size-9 items-center justify-center rounded-full bg-white -my-1 transition-transform group-hover:translate-x-0.5">
+            <svg className="size-4 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M22 2L11 13" />
+              <path d="M22 2l-7 20-4-9-9-4 20-7z" />
+            </svg>
+          </span>
         </motion.a>
         <motion.a
           whileHover={{ scale: 1.04 }}
@@ -195,7 +197,7 @@ function HeroSection({ profile }: { profile: ProfileData }) {
           href={profile.resumeUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 rounded-lg border border-gray-300 bg-transparent px-5 py-2.5 text-sm font-medium text-gray-900 transition-colors hover:border-black/30 hover:bg-black/10 hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20"
+          className="inline-flex items-center gap-2 rounded-full border border-gray-300 bg-transparent px-5 py-2.5 text-sm font-medium text-gray-900 transition-colors hover:border-black/30 hover:bg-black/10 hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
         >
           <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
@@ -214,11 +216,11 @@ function AvailableBanner() {
   return (
     <div className="mb-6 flex items-center gap-2.5">
       <span className="relative flex size-3">
-        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gray-900 opacity-75" />
-        <span className="relative inline-flex size-3 rounded-full bg-gray-900" />
+        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75" />
+        <span className="relative inline-flex size-3 rounded-full bg-green-500" />
       </span>
       <span className="text-sm font-medium text-gray-900">
-        Available for work
+        Open to work
       </span>
     </div>
   );
@@ -297,7 +299,7 @@ function ArticlesSection() {
             whileHover={{ scale: 1.01, x: 4 }}
             className="card flex items-center gap-3 p-4 shadow-none transition-colors hover:border-black/20 hover:bg-gray-50 sm:p-5"
           >
-            <span className="flex size-7 shrink-0 items-center justify-center rounded-md bg-black/5 text-xs font-bold text-gray-900">
+            <span className="flex size-7 shrink-0 items-center justify-center rounded-lg bg-black/5 text-xs font-bold text-gray-900">
               {String(i + 1).padStart(2, '0')}
             </span>
             <span className="flex-1 text-sm font-medium text-gray-900 transition-colors group-hover:text-black sm:text-base">
@@ -442,13 +444,15 @@ function AboutSection({ profile }: { profile: ProfileData }) {
           <div className="mt-6">
             <a
               href={`mailto:${profile.email}`}
-              className="inline-flex items-center gap-2 rounded-lg bg-black px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20"
+              className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-5 py-2.5 text-sm font-medium text-white transition-all hover:from-blue-500 hover:to-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
             >
               Hire Me
-              <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M22 2L11 13" />
-                <path d="M22 2l-7 20-4-9-9-4 20-7z" />
-              </svg>
+              <span className="flex size-9 items-center justify-center rounded-full bg-white -my-1 transition-transform group-hover:translate-x-0.5">
+                <svg className="size-4 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M22 2L11 13" />
+                  <path d="M22 2l-7 20-4-9-9-4 20-7z" />
+                </svg>
+              </span>
             </a>
           </div>
         </div>
@@ -618,7 +622,9 @@ function ProjectsSection({ projects, behanceUrl }: { projects: ProjectData[]; be
       {projects.length > 0 ? (
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, i) => (
-            <ProjectCard key={project.slug} project={project} index={i} />
+            <div key={project.slug} className="rounded-2xl border border-gray-200 bg-white p-4 shadow-sm transition-shadow hover:shadow-md">
+              <ProjectCard project={project} index={i} />
+            </div>
           ))}
         </div>
       ) : (
@@ -631,10 +637,10 @@ function ProjectsSection({ projects, behanceUrl }: { projects: ProjectData[]; be
           href={behanceUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-6 flex w-full items-center justify-center gap-2 rounded-lg bg-black px-5 py-3 text-sm font-medium text-white transition-all hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20"
+          className="group mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-5 py-3 text-sm font-medium text-white transition-all hover:from-blue-500 hover:to-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
         >
           View all projects on Behance
-          <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <svg className="size-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
             <polyline points="15 3 21 3 21 9" />
             <line x1="10" y1="14" x2="21" y2="3" />
@@ -740,7 +746,7 @@ function Nav({ avatar }: { avatar: string }) {
         )}
         <button
           onClick={() => setOpen(!open)}
-          className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm text-gray-500 transition-colors hover:bg-gray-100/60 hover:text-gray-900"
+          className="flex items-center gap-1.5 rounded-xl px-2.5 py-1.5 text-sm text-gray-500 transition-colors hover:bg-gray-100/60 hover:text-gray-900"
           aria-label="Toggle navigation"
         >
           <svg className="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -768,7 +774,7 @@ function Nav({ avatar }: { avatar: string }) {
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="flex items-center gap-2 shrink-0 rounded-lg px-3 py-2 text-sm text-gray-500 transition-colors hover:bg-gray-100/60 hover:text-gray-900"
+                className="flex items-center gap-2 shrink-0 rounded-xl px-3 py-2 text-sm text-gray-500 transition-colors hover:bg-gray-100/60 hover:text-gray-900"
               >
                 <svg className="size-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d={link.icon} />
@@ -840,7 +846,7 @@ function ContactForm() {
             name="name"
             placeholder="Your Name"
             required
-            className="w-full rounded-lg border border-gray-200 bg-transparent px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 shadow-none outline-none transition-colors focus:border-black focus-visible:shadow-none focus-visible:ring-0"
+            className="w-full rounded-xl border border-gray-200 bg-transparent px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 shadow-none outline-none transition-colors focus:border-blue-500 focus-visible:shadow-none focus-visible:ring-0"
           />
         </div>
         <div>
@@ -849,7 +855,7 @@ function ContactForm() {
             name="email"
             placeholder="Your Email"
             required
-            className="w-full rounded-lg border border-gray-200 bg-transparent px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 shadow-none outline-none transition-colors focus:border-black focus-visible:shadow-none focus-visible:ring-0"
+            className="w-full rounded-xl border border-gray-200 bg-transparent px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 shadow-none outline-none transition-colors focus:border-blue-500 focus-visible:shadow-none focus-visible:ring-0"
           />
         </div>
         <div>
@@ -858,18 +864,18 @@ function ContactForm() {
             placeholder="Your Message"
             rows={4}
             required
-            className="w-full rounded-lg border border-gray-200 bg-transparent px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 shadow-none outline-none transition-colors focus:border-black focus-visible:shadow-none focus-visible:ring-0"
+            className="w-full rounded-xl border border-gray-200 bg-transparent px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 shadow-none outline-none transition-colors focus:border-blue-500 focus-visible:shadow-none focus-visible:ring-0"
           />
         </div>
         <button
           type="submit"
           disabled={status === 'sending'}
-          className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-black px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-gray-800 disabled:opacity-50"
+          className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-5 py-2.5 text-sm font-medium text-white transition-all hover:from-blue-500 hover:to-blue-700 disabled:opacity-50"
         >
           {status === 'sending' ? 'Sending...' : 'Send Message'}
         </button>
         {status === 'sent' && (
-          <p className="text-center text-sm text-gray-700">Message sent!</p>
+          <p className="text-center text-sm text-blue-600">Message sent!</p>
         )}
       </motion.form>
     </motion.section>
@@ -937,6 +943,7 @@ function FooterSection({ socials }: { socials: ProfileData['socials'] }) {
         &ldquo;Good design is expensive because it&rsquo;s created with the most valuable resource we have&mdash;time, which is life.&rdquo;
       </p>
       <p className="mt-2 text-sm text-gray-400 sm:text-base">&mdash; Victor Omolasoye</p>
+      <p className="mt-6 text-xs text-gray-400">&copy; {new Date().getFullYear()} Victor Omolasoye. All rights reserved.</p>
     </footer>
   );
 }
