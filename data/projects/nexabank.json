@@ -85,7 +85,6 @@
     { "label": "Case Study", "url": "/projects/nexabank", "type": "case-study" }
   ],
   "images": [
-    { "src": "/images/projects/nexabank/Home.png", "alt": "NexaBank Home Dashboard" },
     { "src": "/images/projects/nexabank/Sign in.png", "alt": "Sign In Screen" },
     { "src": "/images/projects/nexabank/Sign up %231.png", "alt": "Sign Up Step 1" },
     { "src": "/images/projects/nexabank/Sign up %232.png", "alt": "Sign Up Step 2" },

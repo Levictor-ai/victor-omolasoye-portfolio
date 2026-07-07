@@ -54,7 +54,6 @@
   "layout": "gallery",
   "links": [],
   "images": [
-    { "src": "/images/projects/carthena/cover.png", "alt": "Carthena Ledgers Cover" },
     { "src": "/images/projects/carthena/carthena ad.png", "alt": "Carthena Ledgers Ad 1" },
     { "src": "/images/projects/carthena/carthena ad2.png", "alt": "Carthena Ledgers Ad 2" },
     { "src": "/images/projects/carthena/carthena ad3.png", "alt": "Carthena Ledgers Ad 3" },
