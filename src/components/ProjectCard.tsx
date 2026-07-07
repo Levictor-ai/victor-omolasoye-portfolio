@@ -90,10 +90,10 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
         )}
 
         {/* CTA */}
-        <span className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-400">
+        <span className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-600">
           {isUpcoming ? 'Coming Soon' : 'View Case Study'}
           {!isUpcoming && (
-            <ArrowUpRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            <ArrowUpRight className="size-4 text-blue-600 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           )}
         </span>
       </div>
