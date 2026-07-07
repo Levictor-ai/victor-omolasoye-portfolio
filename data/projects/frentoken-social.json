@@ -31,7 +31,6 @@
   "techStack": [
     { "name": "Figma", "category": "design" },
     { "name": "Adobe Photoshop", "category": "design" },
-    { "name": "3D Render Engines", "category": "design" },
     { "name": "Social Media Design", "category": "design" },
     { "name": "Brand Identity", "category": "design" }
   ],
@@ -62,7 +61,6 @@
     { "src": "/images/projects/frentoken-social/SM_NewWeek_BuildWithoutLimits_01.jpg.png", "alt": "FrenToken Post 1 — Scalability" },
     { "src": "/images/projects/frentoken-social/SM_PayAsYouGo_WeekStart_01.jpg.png", "alt": "FrenToken Post 4 — Cost Savings" },
     { "src": "/images/projects/frentoken-social/forgelayer-start-building.jpg.png", "alt": "FrenToken — Start Building" },
-    { "src": "/images/projects/frentoken-social/new-week-campaign.jpg.png", "alt": "FrenToken New Week Campaign Overview" }
   ],
   "sections": [
     {
