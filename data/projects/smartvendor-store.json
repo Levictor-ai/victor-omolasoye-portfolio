@@ -1,0 +1,91 @@
+{
+  "slug": "smartvendor-store",
+  "title": "Smartvendor Store",
+  "subtitle": "WhatsApp-First Commerce Brand Campaign",
+  "role": "Visual & Brand Designer",
+  "company": "Smartvendor",
+  "companyUrl": null,
+  "period": "Jul 2026",
+  "coverImage": "/images/projects/smartvendor-store/cover.png",
+  "color": "#25D366",
+  "overview": "A cohesive social media brand campaign for Smartvendor, a WhatsApp-native commerce platform that helps small businesses turn everyday conversations into closed sales. The campaign positions WhatsApp as the only storefront a vendor needs — no website, no manual payment verification, just one chat, one sale.",
+  "problem": "Small businesses, especially across Africa, sell the majority of their products through WhatsApp. Yet most still run their store manually — juggling product photos, taking orders by chat, and chasing customers to verify payment screenshots. The result is slow, error-prone sales and revenue lost to friction. The challenge was to make 'selling on WhatsApp' feel fast, trusted, and effortless in a single, memorable campaign.",
+  "solution": "A conversion-focused visual campaign built around the hero message 'One Chat, One Sale.' Each asset tackles a distinct selling friction — proving customers don't need a website, stopping the tedious task of verifying payment screenshots, and waking up to orders already sold overnight. A strict WhatsApp-green visual system, chat-first layouts, and bold, scannable headlines keep the series cohesive while speaking directly to the everyday vendor.",
+  "targetAudience": ["Small Business Owners", "Vendors & Retailers", "WhatsApp Sellers", "Social Commerce Merchants"],
+  "regions": ["Nigeria", "Global"],
+  "timeline": "1 Month",
+  "features": [
+    {
+      "title": "One Chat, One Sale",
+      "description": "The campaign's central message — converting everyday WhatsApp conversations into completed sales and turning messaging into the most direct revenue channel a vendor has."
+    },
+    {
+      "title": "Stop Verifying Screenshots",
+      "description": "A dedicated asset that addresses the biggest operational pain point for WhatsApp vendors: eliminating the slow, manual job of checking payment screenshots."
+    },
+    {
+      "title": "No Website Needed",
+      "description": "Reframes the 'do I need a website?' question by positioning the chat itself as the storefront — removing a common barrier and objection for non-technical sellers."
+    },
+    {
+      "title": "Wake Up to Sales",
+      "description": "Sells the always-on, 24/7 nature of a chat-based store so vendors see their WhatsApp store as an asset that generates orders even while they sleep."
+    }
+  ],
+  "techStack": [
+    { "name": "Figma", "category": "design" },
+    { "name": "Adobe Photoshop", "category": "design" },
+    { "name": "Social Media Design", "category": "design" },
+    { "name": "Brand Identity", "category": "design" }
+  ],
+  "architecture": {
+    "title": "",
+    "description": "",
+    "highlights": []
+  },
+  "results": [
+    {
+      "metric": "Deliverables",
+      "value": "7",
+      "description": "Campaign assets across the full sales-friction spectrum"
+    },
+    {
+      "metric": "Core Message",
+      "value": "One Chat, One Sale",
+      "description": "Memorable, repeatable value proposition for WhatsApp sellers"
+    },
+    {
+      "metric": "Visual System",
+      "value": "Chat-First",
+      "description": "WhatsApp-green palette with bold, scannable headlines"
+    }
+  ],
+  "links": [],
+  "images": [
+    { "src": "/images/projects/smartvendor-store/2 smartvendoe-Recovered.png", "alt": "Smartvendor — One Chat, One Sale Hero" },
+    { "src": "/images/projects/smartvendor-store/July_Day12_Stop_Verifying_Screenshots.png", "alt": "Smartvendor — Stop Verifying Screenshots" },
+    { "src": "/images/projects/smartvendor-store/smartvendor-do-i-need-a-website.png", "alt": "Smartvendor — Do I Need a Website?" },
+    { "src": "/images/projects/smartvendor-store/smartvendor-one-chat-one-sale_02.png", "alt": "Smartvendor — One Chat, One Sale Post 2" },
+    { "src": "/images/projects/smartvendor-store/smartvendor-one-chat-one-sale_05.png", "alt": "Smartvendor — One Chat, One Sale Post 5" },
+    { "src": "/images/projects/smartvendor-store/smartvendor-wake-up-to-sales-v01.png", "alt": "Smartvendor — Wake Up to Sales" },
+    { "src": "/images/projects/smartvendor-store/smartvendor-whatsapp-better-way-to-sell.png", "alt": "Smartvendor — WhatsApp Is the Better Way to Sell" }
+  ],
+  "sections": [
+    {
+      "title": "Campaign Overview",
+      "content": "Smartvendor is a WhatsApp-native commerce platform built for the millions of small businesses that already run their stores inside chat. The campaign's job was to take a complex value proposition — automated order-taking, catalog management, and instant payment confirmation inside WhatsApp — and compress it into honest, single-idea visuals that an everyday vendor instantly relates to.\n\nEvery asset leads with a plain-language claim rather than a product feature: 'One Chat, One Sale.' 'Wake Up to Sales.' 'Stop Verifying Screenshots.' This turns the product into a feeling — a store that sells while you sleep and money that arrives without manual checking — instead of a feature list."
+    },
+    {
+      "title": "Visual Direction",
+      "content": "The system leans into the platform's native environment. A WhatsApp-green primary palette grounds every asset in the chat context customers already trust, while clean whites and deep neutral text keep the series readable in a busy feed.\n\n- Chat-First Compositions: Conversation bubbles, phone mockups, and message UI act as the visual hook so the audience immediately recognizes 'this is for my WhatsApp store'\n- Bold, Scannable Headlines: Short, statement-driven typography carries the single idea per post so the message survives thumb-scrolling\n- Consistent Templates: Fixed grid, headline zone, and product/phone placement let the series stay visually cohesive while each angle swaps in cleanly\n- High-Contrast CTAs: Green-on-dark and dark-on-light treatments create instant focal points that funnel the eye to the call to action"
+    },
+    {
+      "title": "Asset Breakdown",
+      "content": "- 01. One Chat, One Sale (Hero): The campaign anchor. Pairs the headline with a lively chat thread to show a conversation becoming a completed order.\n- 02. Stop Verifying Screenshots: Speaks directly to the vendor's most tedious daily task — chasing payment proofs — and frames automation as time and money saved.\n- 03. Do I Need a Website?: Flips a common objection into an advantage; the answer is a store that already lives where customers chat.\n- 04/05. One Chat, One Sale (Variants): Re-states the hero claim in fresh layouts to reinforce memorability across the feed.\n- 06. Wake Up to Sales: An overnight-sales angle that sells the always-on storefront and the delight of a phone full of orders.\n- 07. WhatsApp — The Better Way to Sell: The closer, contrasting WhatsApp commerce against clunky websites and offline processes."
+    },
+    {
+      "title": "The Takeaway",
+      "content": "By anchoring every asset in the WhatsApp chat experience and leading with one plain-language claim per post, the campaign makes a technical commerce platform feel like a simple, human upgrade to the way vendors already sell — proof that the strongest marketing for a chat-first product is the chat itself."
+    }
+  ]
+}
