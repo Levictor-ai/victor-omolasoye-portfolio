@@ -642,11 +642,6 @@ function ProjectsSection({ projects, behanceUrl }: { projects: ProjectData[]; be
       ? projects
       : projects.filter((project) => project.category === activeCategory);
 
-  const countFor = (value: string) =>
-    value === 'all'
-      ? projects.length
-      : projects.filter((project) => project.category === value).length;
-
   const activeLabel =
     projectCategories.find((category) => category.value === activeCategory)?.label ?? 'All';
 
@@ -693,13 +688,6 @@ function ProjectsSection({ projects, behanceUrl }: { projects: ProjectData[]; be
                 }`}
               >
                 {category.label}
-                <span
-                  className={`inline-flex h-5 min-w-5 items-center justify-center rounded-full px-1.5 text-[11px] font-semibold ${
-                    isActive ? 'bg-white/20 text-white' : 'bg-black/5 text-gray-500'
-                  }`}
-                >
-                  {countFor(category.value)}
-                </span>
               </button>
             );
           })}

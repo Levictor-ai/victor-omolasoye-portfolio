@@ -151,7 +151,7 @@ const defaultProfile: ProfileData = {
     {
       company: 'Forgelayers',
       role: 'Graphic Designer',
-      period: 'Mar. 2026 — Present',
+      period: 'Mar. 2026 — July 2026',
       description: '',
     },
     {
