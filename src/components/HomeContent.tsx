@@ -607,10 +607,48 @@ const projectCategories = [
 function ProjectsSection({ projects, behanceUrl }: { projects: ProjectData[]; behanceUrl?: string }) {
   const [activeCategory, setActiveCategory] = useState<'all' | ProjectCategory>('all');
 
+  useEffect(() => {
+    const param = new URLSearchParams(window.location.search).get('category');
+    if (param === 'brand' || param === 'product' || param === 'engineering') {
+      setActiveCategory(param);
+    }
+  }, []);
+
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    if (activeCategory === 'all') {
+      url.searchParams.delete('category');
+    } else {
+      url.searchParams.set('category', activeCategory);
+    }
+    window.history.replaceState({}, '', url.toString());
+  }, [activeCategory]);
+
+  useEffect(() => {
+    const onPopState = () => {
+      const param = new URLSearchParams(window.location.search).get('category');
+      if (param === 'brand' || param === 'product' || param === 'engineering') {
+        setActiveCategory(param);
+      } else {
+        setActiveCategory('all');
+      }
+    };
+    window.addEventListener('popstate', onPopState);
+    return () => window.removeEventListener('popstate', onPopState);
+  }, []);
+
   const filteredProjects =
     activeCategory === 'all'
       ? projects
       : projects.filter((project) => project.category === activeCategory);
+
+  const countFor = (value: string) =>
+    value === 'all'
+      ? projects.length
+      : projects.filter((project) => project.category === value).length;
+
+  const activeLabel =
+    projectCategories.find((category) => category.value === activeCategory)?.label ?? 'All';
 
   return (
     <motion.section
@@ -638,25 +676,44 @@ function ProjectsSection({ projects, behanceUrl }: { projects: ProjectData[]; be
           hidden: { opacity: 0, y: 20 },
           show: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 } },
         }}
-        className="mb-8 flex flex-wrap items-center gap-2"
+        className="mb-6"
       >
-        {projectCategories.map((category) => {
-          const isActive = activeCategory === category.value;
-          return (
-            <button
-              key={category.value}
-              onClick={() => setActiveCategory(category.value)}
-              className={`rounded-full px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 ${
-                isActive
-                  ? 'bg-gray-900 text-white'
-                  : 'border border-gray-300 bg-transparent text-gray-600 hover:border-black/30 hover:bg-black/5 hover:text-gray-900'
-              }`}
-            >
-              {category.label}
-            </button>
-          );
-        })}
+        <div className="inline-flex max-w-full flex-wrap gap-1 rounded-full border border-gray-200 bg-gray-100 p-1">
+          {projectCategories.map((category) => {
+            const isActive = activeCategory === category.value;
+            return (
+              <button
+                key={category.value}
+                onClick={() => setActiveCategory(category.value)}
+                aria-pressed={isActive}
+                className={`inline-flex items-center gap-1.5 rounded-full px-4 py-1.5 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 ${
+                  isActive
+                    ? 'bg-gray-900 text-white shadow-sm'
+                    : 'text-gray-600 hover:bg-white/60 hover:text-gray-900'
+                }`}
+              >
+                {category.label}
+                <span
+                  className={`inline-flex h-5 min-w-5 items-center justify-center rounded-full px-1.5 text-[11px] font-semibold ${
+                    isActive ? 'bg-white/20 text-white' : 'bg-black/5 text-gray-500'
+                  }`}
+                >
+                  {countFor(category.value)}
+                </span>
+              </button>
+            );
+          })}
+        </div>
       </motion.div>
+      {activeCategory !== 'all' && (
+        <motion.p
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mb-4 text-sm text-gray-500"
+        >
+          Showing {filteredProjects.length} {activeLabel} {filteredProjects.length === 1 ? 'project' : 'projects'}
+        </motion.p>
+      )}
       {filteredProjects.length > 0 ? (
         <motion.div layout className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filteredProjects.map((project, i) => (
