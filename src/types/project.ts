@@ -47,8 +47,11 @@ export interface ProjectSection {
   images?: ProjectImage[];
 }
 
+export type ProjectCategory = 'brand' | 'product' | 'engineering';
+
 export interface ProjectData {
   slug: string;
+  category: ProjectCategory;
   title: string;
   subtitle: string;
   role: string;

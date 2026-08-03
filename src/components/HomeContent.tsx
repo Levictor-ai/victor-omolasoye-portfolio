@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { usePortfolio } from '@/context/PortfolioContext';
 import type { ProfileData } from '@/context/PortfolioContext';
-import type { ProjectData } from '@/types/project';
+import type { ProjectData, ProjectCategory } from '@/types/project';
 import { ProjectCard } from '@/components/ProjectCard';
 import { FAQAccordion } from '@/components/FAQAccordion';
 import { BackToTop } from '@/components/BackToTop';
@@ -597,7 +597,21 @@ function TestimonialsCarousel({ profile }: { profile: ProfileData }) {
   );
 }
 
+const projectCategories = [
+  { value: 'all', label: 'All' },
+  { value: 'brand', label: 'Brand Design' },
+  { value: 'product', label: 'Product Design' },
+  { value: 'engineering', label: 'Engineering' },
+] as const;
+
 function ProjectsSection({ projects, behanceUrl }: { projects: ProjectData[]; behanceUrl?: string }) {
+  const [activeCategory, setActiveCategory] = useState<'all' | ProjectCategory>('all');
+
+  const filteredProjects =
+    activeCategory === 'all'
+      ? projects
+      : projects.filter((project) => project.category === activeCategory);
+
   return (
     <motion.section
       id="projects"
@@ -619,17 +633,48 @@ function ProjectsSection({ projects, behanceUrl }: { projects: ProjectData[]; be
       >
         Featured Projects
       </motion.h2>
-      {projects.length > 0 ? (
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, i) => (
-            <div key={project.slug} className="rounded-2xl border border-gray-200 bg-white p-4 shadow-sm transition-shadow hover:shadow-md">
+      <motion.div
+        variants={{
+          hidden: { opacity: 0, y: 20 },
+          show: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 } },
+        }}
+        className="mb-8 flex flex-wrap items-center gap-2"
+      >
+        {projectCategories.map((category) => {
+          const isActive = activeCategory === category.value;
+          return (
+            <button
+              key={category.value}
+              onClick={() => setActiveCategory(category.value)}
+              className={`rounded-full px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 ${
+                isActive
+                  ? 'bg-gray-900 text-white'
+                  : 'border border-gray-300 bg-transparent text-gray-600 hover:border-black/30 hover:bg-black/5 hover:text-gray-900'
+              }`}
+            >
+              {category.label}
+            </button>
+          );
+        })}
+      </motion.div>
+      {filteredProjects.length > 0 ? (
+        <motion.div layout className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {filteredProjects.map((project, i) => (
+            <motion.div
+              key={project.slug}
+              layout
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3 }}
+              className="rounded-2xl border border-gray-200 bg-white p-4 shadow-sm transition-shadow hover:shadow-md"
+            >
               <ProjectCard project={project} index={i} />
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       ) : (
         <p className="text-body-md text-gray-400">
-          No projects published yet.
+          No projects in this category yet.
         </p>
       )}
       {behanceUrl && (
