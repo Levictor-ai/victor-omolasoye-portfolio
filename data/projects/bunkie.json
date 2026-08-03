@@ -22,5 +22,19 @@
   },
   "results": [],
   "links": [],
-  "images": []
+  "images": [
+    { "src": "/images/projects/bunkie/1.png", "alt": "Bunkie Design 1" },
+    { "src": "/images/projects/bunkie/2.png", "alt": "Bunkie Design 2" },
+    { "src": "/images/projects/bunkie/3.png", "alt": "Bunkie Design 3" },
+    { "src": "/images/projects/bunkie/4.png", "alt": "Bunkie Design 4" },
+    { "src": "/images/projects/bunkie/5.png", "alt": "Bunkie Design 5" },
+    { "src": "/images/projects/bunkie/6.png", "alt": "Bunkie Design 6" },
+    { "src": "/images/projects/bunkie/7.png", "alt": "Bunkie Design 7" },
+    { "src": "/images/projects/bunkie/8.png", "alt": "Bunkie Design 8" },
+    { "src": "/images/projects/bunkie/9.png", "alt": "Bunkie Design 9" },
+    { "src": "/images/projects/bunkie/10.png", "alt": "Bunkie Design 10" },
+    { "src": "/images/projects/bunkie/11.png", "alt": "Bunkie Design 11" },
+    { "src": "/images/projects/bunkie/12.png", "alt": "Bunkie Design 12" },
+    { "src": "/images/projects/bunkie/13.png", "alt": "Bunkie Design 13" }
+  ]
 }
