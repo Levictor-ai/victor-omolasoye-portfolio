@@ -87,7 +87,7 @@ function StatsSection() {
             </motion.span>
           </div>
           <p className="mt-2 text-xs text-gray-500 sm:text-sm">Satisfied Clients</p>
-          <div className="mx-auto mt-5 max-w-md">
+          <div className="mt-5">
             <div
               role="progressbar"
               aria-label="Client satisfaction rate out of 100"
@@ -1089,10 +1089,10 @@ export function HomeContent({ projects }: { projects: ProjectData[] }) {
       <Nav avatar={profile.avatar} />
       <main className="mx-auto min-h-screen max-w-7xl px-6 py-6 sm:py-8 sm:px-8 lg:px-12">
         <HeroSection profile={profile} />
-        <StatsSection />
         <SkillsSection profile={profile} />
         <ProjectsSection projects={projects} behanceUrl={profile.socials.behance} />
         <AboutSection profile={profile} />
+        <StatsSection />
         <ExperienceSection profile={profile} />
         <ArticlesSection />
         <TestimonialsCarousel profile={profile} />
