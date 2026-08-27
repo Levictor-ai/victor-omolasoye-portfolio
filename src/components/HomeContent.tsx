@@ -799,19 +799,29 @@ function Nav({ avatar }: { avatar: string }) {
             Victor Omolasoye
           </a>
           <div className="hidden items-center gap-0.5 md:flex">
-            {links.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className={`shrink-0 rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors ${
-                  active === link.href.slice(1)
-                    ? 'bg-gray-100 text-gray-900'
-                    : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
-                }`}
-              >
-                {link.label}
-              </a>
-            ))}
+            {links.map((link) =>
+              link.label === 'Contact' ? (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="shrink-0 rounded-full bg-gray-900 px-4 py-1.5 text-sm font-medium text-white transition-colors hover:bg-black"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className={`shrink-0 rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors ${
+                    active === link.href.slice(1)
+                      ? 'bg-gray-100 text-gray-900'
+                      : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
+                  }`}
+                >
+                  {link.label}
+                </a>
+              ),
+            )}
           </div>
           <button
             onClick={() => setOpen(!open)}
@@ -900,7 +910,7 @@ function ContactForm() {
       variants={stagger}
       className="mb-20"
     >
-      <div className="rounded-3xl border border-gray-800 bg-gray-950 p-6 shadow-xl shadow-gray-900/10 sm:p-10">
+      <div className="rounded-3xl bg-gradient-to-br from-blue-600 to-blue-700 p-6 shadow-xl shadow-blue-900/20 sm:p-10">
         <motion.h2
           variants={fadeUp}
           className="mb-1 text-heading-lg font-bold tracking-tight text-white"
@@ -909,7 +919,7 @@ function ContactForm() {
         </motion.h2>
         <motion.p
           variants={fadeUp}
-          className="mb-8 text-label-sm uppercase tracking-wider text-gray-400"
+          className="mb-8 text-label-sm uppercase tracking-wider text-blue-100"
         >
           Let&apos;s build something
         </motion.p>
@@ -920,7 +930,7 @@ function ContactForm() {
               name="name"
               placeholder="Your Name"
               required
-              className="w-full rounded-xl border border-gray-700 bg-transparent px-4 py-3 text-sm text-white placeholder-gray-500 shadow-none outline-none transition-colors focus:border-blue-500 focus-visible:shadow-none focus-visible:ring-0"
+              className="w-full rounded-xl border border-white/25 bg-white/10 px-4 py-3 text-sm text-white placeholder-blue-100 shadow-none outline-none transition-colors focus:border-white focus-visible:shadow-none focus-visible:ring-0"
             />
           </div>
           <div>
@@ -929,7 +939,7 @@ function ContactForm() {
               name="email"
               placeholder="Your Email"
               required
-              className="w-full rounded-xl border border-gray-700 bg-transparent px-4 py-3 text-sm text-white placeholder-gray-500 shadow-none outline-none transition-colors focus:border-blue-500 focus-visible:shadow-none focus-visible:ring-0"
+              className="w-full rounded-xl border border-white/25 bg-white/10 px-4 py-3 text-sm text-white placeholder-blue-100 shadow-none outline-none transition-colors focus:border-white focus-visible:shadow-none focus-visible:ring-0"
             />
           </div>
           <div>
@@ -938,18 +948,18 @@ function ContactForm() {
               placeholder="Your Message"
               rows={4}
               required
-              className="w-full rounded-xl border border-gray-700 bg-transparent px-4 py-3 text-sm text-white placeholder-gray-500 shadow-none outline-none transition-colors focus:border-blue-500 focus-visible:shadow-none focus-visible:ring-0"
+              className="w-full rounded-xl border border-white/25 bg-white/10 px-4 py-3 text-sm text-white placeholder-blue-100 shadow-none outline-none transition-colors focus:border-white focus-visible:shadow-none focus-visible:ring-0"
             />
           </div>
           <button
             type="submit"
             disabled={status === 'sending'}
-            className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-5 py-4 text-sm font-medium text-gray-900 transition-all hover:bg-gray-200 disabled:opacity-50"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-5 py-4 text-sm font-medium text-blue-700 transition-all hover:bg-blue-50 disabled:opacity-50"
           >
             {status === 'sending' ? 'Sending...' : 'Send Message'}
           </button>
           {status === 'sent' && (
-            <p className="text-center text-sm text-blue-300">Message sent!</p>
+            <p className="text-center text-sm text-blue-50">Message sent!</p>
           )}
         </motion.form>
       </div>
