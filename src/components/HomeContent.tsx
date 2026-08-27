@@ -16,6 +16,18 @@ const levelColors: Record<string, { bg: string; text: string; dot: string }> = {
   Familiar: { bg: 'bg-gray-50', text: 'text-gray-400', dot: 'bg-gray-400' },
 };
 
+function renderInline(text: string, className = 'font-semibold text-gray-900'): ReactNode[] {
+  return text.split(/\*\*(.+?)\*\*/g).map((part, i) =>
+    i % 2 === 1 ? (
+      <strong key={i} className={className}>
+        {part}
+      </strong>
+    ) : (
+      part
+    ),
+  );
+}
+
 function StatsSection() {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
@@ -477,9 +489,9 @@ function AboutSection({ profile }: { profile: ProfileData }) {
             {profile.about.split('\n\n').map((paragraph, i) => (
               <p
                 key={i}
-                className="mb-4 last:mb-0 text-body-md leading-relaxed text-gray-700"
+                className="mb-5 last:mb-0 text-body-lg leading-relaxed text-gray-700"
               >
-                {paragraph}
+                {renderInline(paragraph)}
               </p>
             ))}
           </div>
@@ -546,11 +558,11 @@ function ExperienceSection({ profile }: { profile: ProfileData }) {
               show: { opacity: 1, x: 0, transition: { duration: 0.4 } },
             }}
           >
-            <div className="grid gap-1.5 py-5 first:pt-0 last:pb-0 sm:py-6 md:grid-cols-[170px_1fr] md:gap-8">
+            <div className="grid gap-1.5 py-8 first:pt-0 last:pb-0 sm:py-9 md:grid-cols-[170px_1fr] md:gap-8">
               <p className="text-sm font-medium text-gray-400">{exp.period}</p>
               <div>
                 <p className="text-sm font-bold text-gray-900 sm:text-base">{exp.role}</p>
-                <p className="mt-0.5 text-xs font-medium uppercase tracking-wider text-gray-500">
+                <p className="mt-0.5 text-xs font-medium uppercase tracking-wider text-blue-600">
                   {exp.company}
                 </p>
                 {exp.description && (
@@ -1087,6 +1099,13 @@ function FooterSection({ socials }: { socials: ProfileData['socials'] }) {
       label: 'X',
       icon: (
         <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+      ),
+    },
+    socials.medium && {
+      href: socials.medium,
+      label: 'Medium',
+      icon: (
+        <path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75s-1.19-2.58-1.19-5.75.53-5.75 1.19-5.75S24 8.83 24 12z" />
       ),
     },
     socials.github && {

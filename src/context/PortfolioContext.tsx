@@ -37,6 +37,7 @@ export interface ProfileData {
     website?: string;
     contra?: string;
     behance?: string;
+    medium?: string;
   };
   coreDisciplines: Skill[];
   tools: Skill[];
@@ -58,7 +59,7 @@ const defaultProfile: ProfileData = {
   tagline: 'Bridging the gap between brand identity and user experience to drive business growth.',
   bio: 'Product engineer with a passion for crafting scalable digital experiences.',
   about:
-    'Victor Omolasoye is a user experience expert who puts users at the centre of every solution. From brand identity to digital products, he combines research, strategy, and design to bridge the gap between brand design and product development.\n\nHe has worked with founders across sectors to build meaningful, lasting brands and products for audiences in the UK, US, Canada, China, and across Africa. Victor has also partnered with Cowrywise as a Graduate Product Owner, collaborating on Bunkie, a home-services application.\n\nHis work is driven by a focus on clarity, usability, and creating experiences that serve both business goals and real user needs.',
+    'Victor Omolasoye is a multidisciplinary designer with **4+ years of experience** working across **brand identity, UX/UI, and digital products**. He combines research, strategy, and visual thinking to create brands and products that are clear, purposeful, and built around real user needs.\n\nHe has worked with founders and teams across the **UK, US, Canada, China, and Africa**, helping turn ideas into meaningful brands and digital experiences. He has also worked as a **Graduate Product Owner at Cowrywise**, contributing to Bunkie, a home-services application.\n\nHis approach sits at the intersection of **design, product, and strategy**—bringing together business goals and user needs to create experiences that are not only visually strong, but useful, intuitive, and lasting.',
   avatar: '/images/victor-profile.jpg',
   email: 'omolasoyevictorakinyemi@gmail.com',
   location: 'Lagos, Nigeria',
@@ -68,6 +69,7 @@ const defaultProfile: ProfileData = {
     github: 'https://github.com/Levictor-ai',
     behance: 'https://www.behance.net/victoromo',
     twitter: 'https://x.com/mlevictor21',
+    medium: 'https://medium.com/@omolasoyevictorakinyemi',
   },
   coreDisciplines: [
     { name: 'Brand Identity', level: 'Expert' },
