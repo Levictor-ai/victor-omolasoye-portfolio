@@ -558,7 +558,7 @@ function ExperienceSection({ profile }: { profile: ProfileData }) {
               show: { opacity: 1, x: 0, transition: { duration: 0.4 } },
             }}
           >
-            <div className="grid gap-1.5 py-8 first:pt-0 last:pb-0 sm:py-9 md:grid-cols-[170px_1fr] md:gap-8">
+            <div className="grid gap-1.5 py-11 first:pt-0 last:pb-0 sm:py-14 md:grid-cols-[170px_1fr] md:gap-8">
               <p className="text-sm font-medium text-gray-400">{exp.period}</p>
               <div>
                 <p className="text-sm font-bold text-gray-900 sm:text-base">{exp.role}</p>
