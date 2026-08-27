@@ -566,9 +566,11 @@ function ExperienceSection({ profile }: { profile: ProfileData }) {
                   {exp.company}
                 </p>
                 {exp.description && (
-                  <p className="mt-2.5 text-body-sm leading-relaxed text-gray-600">
-                    {exp.description}
-                  </p>
+                  <div className="mt-3 space-y-3 text-body-sm leading-relaxed text-gray-600">
+                    {exp.description.split('\n\n').map((paragraph, pi) => (
+                      <p key={pi}>{renderInline(paragraph)}</p>
+                    ))}
+                  </div>
                 )}
               </div>
             </div>

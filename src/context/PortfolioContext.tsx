@@ -160,9 +160,9 @@ const defaultProfile: ProfileData = {
     {
       company: 'Moovable Technology Limited',
       role: 'UI/UX Product Designer',
-      period: 'Jan. 2026 — June 2026',
+      period: 'Jan. 2026 — Jun. 2026',
       description:
-        'Owned the end-to-end product design process for a home-services platform — user research, wireframes, high-fidelity interfaces, prototyping, and design handoff to engineering.',
+        'Worked as a key member of the product team designing the **MVP for a logistics platform**, helping translate the company\u2019s operational and business requirements into a functional digital product. I contributed to the product experience across key user journeys, turning complex logistics workflows into clear, intuitive interfaces.\n\nMy work covered the design of the **MVP and the complete administrative experience**, including the platform\u2019s admin pages, operational workflows, and supporting interfaces. I worked across user flows, wireframes, high-fidelity UI, prototyping, and responsive interface design, collaborating closely with the team to ensure the product was structured for real-world use.\n\nI also worked alongside developers during design handoff and implementation, refining interfaces and resolving design considerations throughout the process. This allowed me to contribute not just to individual screens, but to the **overall product structure and experience of the logistics platform**.',
     },
     {
       company: 'Jasper Creatives',
