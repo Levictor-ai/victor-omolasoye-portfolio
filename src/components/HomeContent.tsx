@@ -785,7 +785,7 @@ function Nav({ avatar }: { avatar: string }) {
         <div className="relative flex w-auto items-center justify-between gap-3 rounded-full border border-gray-200 bg-white px-3 py-2 shadow-lg shadow-gray-900/5 sm:px-4 sm:py-2">
           <a
             href="#home"
-            className="hidden shrink-0 items-center gap-2 text-sm font-bold tracking-tight text-gray-900 md:flex"
+            className="flex shrink-0 items-center gap-2 text-sm font-bold tracking-tight text-gray-900"
           >
             <Image
               src={avatar}
@@ -795,7 +795,7 @@ function Nav({ avatar }: { avatar: string }) {
               className="size-7 rounded-full object-cover"
               style={{ objectPosition: 'top' }}
             />
-            Victor Omolasoye
+            <span className="hidden md:inline">Victor Omolasoye</span>
           </a>
           <div className="flex items-center gap-0.5">
             {links.map((link) => {
