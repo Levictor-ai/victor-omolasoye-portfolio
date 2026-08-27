@@ -373,10 +373,19 @@ function SkillsSection({ profile }: { profile: ProfileData }) {
           hidden: { opacity: 0, y: 20 },
           show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
         }}
-        className="mb-5 text-heading-lg font-bold tracking-tight text-gray-900"
+        className="mb-1 text-heading-lg font-bold tracking-tight text-gray-900"
       >
-        Skills &amp; Expertise
+        Skills &amp; Tools
       </motion.h2>
+      <motion.p
+        variants={{
+          hidden: { opacity: 0, y: 20 },
+          show: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.05 } },
+        }}
+        className="mb-3 text-label-sm uppercase tracking-wider text-gray-400"
+      >
+        What I work with
+      </motion.p>
       <motion.p
         variants={{
           hidden: { opacity: 0, y: 20 },
@@ -515,11 +524,20 @@ function ExperienceSection({ profile }: { profile: ProfileData }) {
           hidden: { opacity: 0, y: 20 },
           show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
         }}
-        className="mb-6 text-heading-lg font-bold tracking-tight text-gray-900"
+        className="mb-1 text-heading-lg font-bold tracking-tight text-gray-900"
       >
         Experience
       </motion.h2>
-      <div className="space-y-3">
+      <motion.p
+        variants={{
+          hidden: { opacity: 0, y: 20 },
+          show: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.05 } },
+        }}
+        className="mb-8 text-label-sm uppercase tracking-wider text-gray-400"
+      >
+        Where I&rsquo;ve worked
+      </motion.p>
+      <div className="divide-y divide-gray-200/70">
         {profile.experience.map((exp, i) => (
           <motion.div
             key={i}
@@ -528,16 +546,20 @@ function ExperienceSection({ profile }: { profile: ProfileData }) {
               show: { opacity: 1, x: 0, transition: { duration: 0.4 } },
             }}
           >
-            <div className="flex flex-wrap items-baseline justify-between gap-2">
-              <p className="text-sm font-semibold text-gray-900 sm:text-base">{exp.role}</p>
-              <p className="text-xs font-medium uppercase tracking-wider text-gray-900">{exp.company}</p>
+            <div className="grid gap-1.5 py-5 first:pt-0 last:pb-0 sm:py-6 md:grid-cols-[170px_1fr] md:gap-8">
+              <p className="text-sm font-medium text-gray-400">{exp.period}</p>
+              <div>
+                <p className="text-sm font-bold text-gray-900 sm:text-base">{exp.role}</p>
+                <p className="mt-0.5 text-xs font-medium uppercase tracking-wider text-gray-500">
+                  {exp.company}
+                </p>
+                {exp.description && (
+                  <p className="mt-2.5 text-body-sm leading-relaxed text-gray-600">
+                    {exp.description}
+                  </p>
+                )}
+              </div>
             </div>
-            <p className="mt-0.5 text-xs text-gray-400">{exp.period}</p>
-            {exp.description && (
-              <p className="mt-3 text-body-sm leading-relaxed text-gray-600">
-                {exp.description}
-              </p>
-            )}
           </motion.div>
         ))}
       </div>
@@ -701,10 +723,19 @@ function ProjectsSection({ projects, behanceUrl }: { projects: ProjectData[]; be
           hidden: { opacity: 0, y: 20 },
           show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
         }}
-        className="mb-6 text-heading-lg font-bold tracking-tight text-gray-900"
+        className="mb-1 text-heading-lg font-bold tracking-tight text-gray-900"
+      >
+        Selected Work
+      </motion.h2>
+      <motion.p
+        variants={{
+          hidden: { opacity: 0, y: 20 },
+          show: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.05 } },
+        }}
+        className="mb-6 text-label-sm uppercase tracking-wider text-gray-400"
       >
         Featured Projects
-      </motion.h2>
+      </motion.p>
       <motion.div
         variants={{
           hidden: { opacity: 0, y: 20 },
@@ -975,10 +1006,16 @@ function ContactForm() {
     >
       <motion.h2
         variants={fadeUp}
-        className="mb-6 text-heading-lg font-bold tracking-tight text-gray-900"
+        className="mb-1 text-heading-lg font-bold tracking-tight text-gray-900"
       >
-        Get In Touch
+        Get in touch
       </motion.h2>
+      <motion.p
+        variants={fadeUp}
+        className="mb-8 text-label-sm uppercase tracking-wider text-gray-400"
+      >
+        Let&apos;s build something
+      </motion.p>
       <motion.form variants={fadeUp} onSubmit={handleSubmit} className="space-y-4">
         <div>
           <input
