@@ -362,10 +362,9 @@ function AboutSection({ profile }: { profile: ProfileData }) {
           hidden: { opacity: 0, y: 24 },
           show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
         }}
-        className="card overflow-hidden p-0 sm:p-0"
       >
-        <div className="grid lg:grid-cols-2 lg:items-stretch">
-          <div className="relative aspect-[4/5] w-full sm:aspect-[3/2] lg:aspect-auto lg:h-full lg:min-h-[420px]">
+        <div className="grid gap-6 lg:grid-cols-2 lg:items-stretch lg:gap-10">
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl sm:aspect-[3/2] lg:aspect-auto lg:h-full lg:min-h-[420px]">
             <Image
               src={profile.avatar}
               alt={profile.name}
@@ -376,7 +375,7 @@ function AboutSection({ profile }: { profile: ProfileData }) {
               priority
             />
           </div>
-        <div className="flex flex-col justify-center p-5 sm:p-6 lg:p-8">
+        <div className="flex flex-col justify-center">
           <div className="prose prose-invert max-w-none">
             {profile.about.split('\n\n').map((paragraph, i) => (
               <p
@@ -441,7 +440,7 @@ function ExperienceSection({ profile }: { profile: ProfileData }) {
       >
         Where I&rsquo;ve worked
       </motion.p>
-      <div className="divide-y divide-gray-200/70">
+      <div>
         {profile.experience.map((exp, i) => (
           <motion.div
             key={i}
@@ -449,22 +448,23 @@ function ExperienceSection({ profile }: { profile: ProfileData }) {
               hidden: { opacity: 0, x: -16 },
               show: { opacity: 1, x: 0, transition: { duration: 0.4 } },
             }}
+            className={i === 0 ? '' : 'mt-12 border-t border-gray-200/70 pt-12 sm:mt-14 sm:pt-14'}
           >
-            <div className="grid gap-1.5 py-11 first:pt-0 last:pb-0 sm:py-14 md:grid-cols-[170px_1fr] md:gap-8">
+            <div className="grid gap-2 md:grid-cols-[160px_1fr_1.4fr] md:gap-8">
               <p className="text-sm font-medium text-gray-400">{exp.period}</p>
               <div>
                 <p className="text-sm font-bold text-gray-900 sm:text-base">{exp.role}</p>
-                <p className="mt-0.5 text-xs font-medium uppercase tracking-wider text-blue-600">
+                <p className="mt-1 text-xs font-medium uppercase tracking-wider text-blue-600">
                   {exp.company}
                 </p>
-                {exp.description && (
-                  <div className="mt-3 space-y-3 text-body-sm leading-relaxed text-gray-600">
-                    {exp.description.split('\n\n').map((paragraph, pi) => (
-                      <p key={pi}>{renderInline(paragraph)}</p>
-                    ))}
-                  </div>
-                )}
               </div>
+              {exp.description && (
+                <div className="space-y-3 text-body-sm leading-relaxed text-gray-600">
+                  {exp.description.split('\n\n').map((paragraph, pi) => (
+                    <p key={pi}>{renderInline(paragraph)}</p>
+                  ))}
+                </div>
+              )}
             </div>
           </motion.div>
         ))}
