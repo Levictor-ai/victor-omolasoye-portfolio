@@ -756,6 +756,7 @@ function FAQSection({ profile }: { profile: ProfileData }) {
 
 function Nav({ avatar }: { avatar: string }) {
   const [open, setOpen] = useState(false);
+  const [active, setActive] = useState('home');
   const links = [
     { label: 'Home', href: '#home' },
     { label: 'About', href: '#about' },
@@ -763,10 +764,26 @@ function Nav({ avatar }: { avatar: string }) {
     { label: 'Contact', href: '#contact' },
   ];
 
+  useEffect(() => {
+    const sections = links
+      .map((link) => document.getElementById(link.href.slice(1)))
+      .filter((el): el is HTMLElement => Boolean(el));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        });
+      },
+      { rootMargin: '-50% 0px -50% 0px', threshold: 0 },
+    );
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, [links]);
+
   return (
     <nav className="sticky top-0 z-50 border-b border-gray-200 bg-white/80 backdrop-blur-lg">
       <div className="mx-auto flex max-w-7xl items-center justify-center px-6 py-2.5 sm:px-8">
-        <div className="relative flex w-auto items-center justify-between gap-5 rounded-full border border-black/15 bg-white px-4 py-2 shadow-sm sm:gap-6 sm:px-5">
+        <div className="relative flex w-auto items-center justify-between gap-5 rounded-full border border-gray-200 bg-white px-4 py-2 shadow-lg shadow-gray-900/5 sm:gap-6 sm:px-5">
           <a
             href="#home"
             className="flex shrink-0 items-center gap-2 text-sm font-bold tracking-tight text-gray-900"
@@ -786,7 +803,11 @@ function Nav({ avatar }: { avatar: string }) {
               <a
                 key={link.href}
                 href={link.href}
-                className="shrink-0 rounded-full px-3.5 py-1.5 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-100 hover:text-gray-900"
+                className={`shrink-0 rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors ${
+                  active === link.href.slice(1)
+                    ? 'bg-gray-100 text-gray-900'
+                    : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
+                }`}
               >
                 {link.label}
               </a>
@@ -813,7 +834,7 @@ function Nav({ avatar }: { avatar: string }) {
             </svg>
             <span>{open ? 'Close' : 'Menu'}</span>
           </button>
-          <div className={`absolute left-1/2 top-full z-50 mt-2 min-w-[220px] -translate-x-1/2 flex-col rounded-2xl border border-black/15 bg-white p-3 shadow-xl md:hidden ${
+          <div className={`absolute left-1/2 top-full z-50 mt-2 min-w-[220px] -translate-x-1/2 flex-col rounded-2xl border border-gray-200 bg-white p-3 shadow-xl md:hidden ${
             open ? 'flex' : 'hidden'
           }`}>
             <div className="flex flex-col gap-1">
@@ -879,57 +900,59 @@ function ContactForm() {
       variants={stagger}
       className="mb-20"
     >
-      <motion.h2
-        variants={fadeUp}
-        className="mb-1 text-heading-lg font-bold tracking-tight text-gray-900"
-      >
-        Get in touch
-      </motion.h2>
-      <motion.p
-        variants={fadeUp}
-        className="mb-8 text-label-sm uppercase tracking-wider text-gray-400"
-      >
-        Let&apos;s build something
-      </motion.p>
-      <motion.form variants={fadeUp} onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            required
-            className="w-full rounded-xl border border-gray-200 bg-transparent px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 shadow-none outline-none transition-colors focus:border-blue-500 focus-visible:shadow-none focus-visible:ring-0"
-          />
-        </div>
-        <div>
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            required
-            className="w-full rounded-xl border border-gray-200 bg-transparent px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 shadow-none outline-none transition-colors focus:border-blue-500 focus-visible:shadow-none focus-visible:ring-0"
-          />
-        </div>
-        <div>
-          <textarea
-            name="message"
-            placeholder="Your Message"
-            rows={4}
-            required
-            className="w-full rounded-xl border border-gray-200 bg-transparent px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 shadow-none outline-none transition-colors focus:border-blue-500 focus-visible:shadow-none focus-visible:ring-0"
-          />
-        </div>
-        <button
-          type="submit"
-          disabled={status === 'sending'}
-          className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-5 py-4 text-sm font-medium text-white transition-all hover:from-blue-500 hover:to-blue-700 disabled:opacity-50"
+      <div className="rounded-3xl border border-gray-800 bg-gray-950 p-6 shadow-xl shadow-gray-900/10 sm:p-10">
+        <motion.h2
+          variants={fadeUp}
+          className="mb-1 text-heading-lg font-bold tracking-tight text-white"
         >
-          {status === 'sending' ? 'Sending...' : 'Send Message'}
-        </button>
-        {status === 'sent' && (
-          <p className="text-center text-sm text-blue-600">Message sent!</p>
-        )}
-      </motion.form>
+          Get in touch
+        </motion.h2>
+        <motion.p
+          variants={fadeUp}
+          className="mb-8 text-label-sm uppercase tracking-wider text-gray-400"
+        >
+          Let&apos;s build something
+        </motion.p>
+        <motion.form variants={fadeUp} onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              required
+              className="w-full rounded-xl border border-gray-700 bg-transparent px-4 py-3 text-sm text-white placeholder-gray-500 shadow-none outline-none transition-colors focus:border-blue-500 focus-visible:shadow-none focus-visible:ring-0"
+            />
+          </div>
+          <div>
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              required
+              className="w-full rounded-xl border border-gray-700 bg-transparent px-4 py-3 text-sm text-white placeholder-gray-500 shadow-none outline-none transition-colors focus:border-blue-500 focus-visible:shadow-none focus-visible:ring-0"
+            />
+          </div>
+          <div>
+            <textarea
+              name="message"
+              placeholder="Your Message"
+              rows={4}
+              required
+              className="w-full rounded-xl border border-gray-700 bg-transparent px-4 py-3 text-sm text-white placeholder-gray-500 shadow-none outline-none transition-colors focus:border-blue-500 focus-visible:shadow-none focus-visible:ring-0"
+            />
+          </div>
+          <button
+            type="submit"
+            disabled={status === 'sending'}
+            className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-5 py-4 text-sm font-medium text-gray-900 transition-all hover:bg-gray-200 disabled:opacity-50"
+          >
+            {status === 'sending' ? 'Sending...' : 'Send Message'}
+          </button>
+          {status === 'sent' && (
+            <p className="text-center text-sm text-blue-300">Message sent!</p>
+          )}
+        </motion.form>
+      </div>
     </motion.section>
   );
 }
