@@ -755,7 +755,6 @@ function FAQSection({ profile }: { profile: ProfileData }) {
 }
 
 function Nav({ avatar }: { avatar: string }) {
-  const [open, setOpen] = useState(false);
   const [active, setActive] = useState('home');
   const links = [
     { label: 'Home', href: '#home' },
@@ -783,10 +782,10 @@ function Nav({ avatar }: { avatar: string }) {
   return (
     <nav className="sticky top-0 z-50 border-b border-gray-200 bg-white/80 backdrop-blur-lg">
       <div className="mx-auto flex max-w-7xl items-center justify-center px-6 py-2.5 sm:px-8">
-        <div className="relative flex w-auto items-center justify-between gap-5 rounded-full border border-gray-200 bg-white px-4 py-2 shadow-lg shadow-gray-900/5 sm:gap-6 sm:px-5">
+        <div className="relative flex w-auto items-center justify-between gap-3 rounded-full border border-gray-200 bg-white px-3 py-2 shadow-lg shadow-gray-900/5 sm:px-4 sm:py-2">
           <a
             href="#home"
-            className="flex shrink-0 items-center gap-2 text-sm font-bold tracking-tight text-gray-900"
+            className="hidden shrink-0 items-center gap-2 text-sm font-bold tracking-tight text-gray-900 md:flex"
           >
             <Image
               src={avatar}
@@ -798,13 +797,15 @@ function Nav({ avatar }: { avatar: string }) {
             />
             Victor Omolasoye
           </a>
-          <div className="hidden items-center gap-0.5 md:flex">
-            {links.map((link) =>
-              link.label === 'Contact' ? (
+          <div className="flex items-center gap-0.5">
+            {links.map((link) => {
+              const isHome = link.href === '#home';
+              const base = `shrink-0 rounded-full px-3 py-1.5 text-sm font-medium transition-colors ${isHome ? 'hidden md:block' : ''}`;
+              return link.label === 'Contact' ? (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="shrink-0 rounded-full bg-gray-900 px-4 py-1.5 text-sm font-medium text-white transition-colors hover:bg-black"
+                  className={`${base} bg-gray-900 text-white hover:bg-black`}
                 >
                   {link.label}
                 </a>
@@ -812,7 +813,7 @@ function Nav({ avatar }: { avatar: string }) {
                 <a
                   key={link.href}
                   href={link.href}
-                  className={`shrink-0 rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors ${
+                  className={`${base} ${
                     active === link.href.slice(1)
                       ? 'bg-gray-100 text-gray-900'
                       : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
@@ -820,45 +821,8 @@ function Nav({ avatar }: { avatar: string }) {
                 >
                   {link.label}
                 </a>
-              ),
-            )}
-          </div>
-          <button
-            onClick={() => setOpen(!open)}
-            className="flex items-center gap-1.5 rounded-full px-2 py-1 text-sm text-gray-500 transition-colors hover:bg-gray-100/60 hover:text-gray-900 md:hidden"
-            aria-label="Toggle navigation"
-          >
-            <svg className="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              {open ? (
-                <>
-                  <line x1="18" y1="6" x2="6" y2="18" />
-                  <line x1="6" y1="6" x2="18" y2="18" />
-                </>
-              ) : (
-                <>
-                  <line x1="3" y1="6" x2="21" y2="6" />
-                  <line x1="3" y1="12" x2="21" y2="12" />
-                  <line x1="3" y1="18" x2="21" y2="18" />
-                </>
-              )}
-            </svg>
-            <span>{open ? 'Close' : 'Menu'}</span>
-          </button>
-          <div className={`absolute left-1/2 top-full z-50 mt-2 min-w-[220px] -translate-x-1/2 flex-col rounded-2xl border border-gray-200 bg-white p-3 shadow-xl md:hidden ${
-            open ? 'flex' : 'hidden'
-          }`}>
-            <div className="flex flex-col gap-1">
-              {links.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="shrink-0 rounded-xl px-3 py-2 text-sm text-gray-600 transition-colors hover:bg-gray-100 hover:text-gray-900"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
+              );
+            })}
           </div>
         </div>
       </div>
