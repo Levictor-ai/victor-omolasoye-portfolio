@@ -449,13 +449,13 @@ function ExperienceSection({ profile }: { profile: ProfileData }) {
               hidden: { opacity: 0, x: -16 },
               show: { opacity: 1, x: 0, transition: { duration: 0.4 } },
             }}
-            className={i === 0 ? '' : 'mt-12 border-t border-gray-200/70 pt-12 sm:mt-14 sm:pt-14'}
+            className={i === 0 ? '' : 'mt-7 border-t border-gray-200/70 pt-7 sm:mt-8 sm:pt-8'}
           >
-            <div className="grid gap-2 md:grid-cols-[160px_1fr_1.4fr] md:gap-8">
-              <p className="text-sm font-medium text-gray-400">{exp.period}</p>
+            <div className="grid gap-2 md:grid-cols-[200px_1fr] md:gap-8">
               <div>
-                <p className="text-sm font-bold text-gray-900 sm:text-base">{exp.role}</p>
-                <p className="mt-1 text-xs font-medium uppercase tracking-wider text-blue-600">
+                <p className="text-sm font-medium text-gray-400">{exp.period}</p>
+                <p className="mt-1 text-sm font-bold text-gray-900 sm:text-base">{exp.role}</p>
+                <p className="mt-0.5 text-xs font-medium uppercase tracking-wider text-blue-600">
                   {exp.company}
                 </p>
               </div>
