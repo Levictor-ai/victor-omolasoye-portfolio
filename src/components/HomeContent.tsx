@@ -44,7 +44,12 @@ function AnimatedTitle({ titles }: { titles: string[] }) {
             state === 'exiting' ? 'cubic-bezier(0.4, 0, 1, 1)' : 'cubic-bezier(0, 0, 0.2, 1)',
         }}
       >
-        {titles[index]}
+        {titles[index].split(' ').map((word, i, arr) => (
+          <span key={i} className={i > 0 ? 'block md:inline' : ''}>
+            {i > 0 && <span className="hidden md:inline">&nbsp;</span>}
+            {word}
+          </span>
+        ))}
       </span>
     </div>
   );

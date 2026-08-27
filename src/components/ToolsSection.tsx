@@ -248,7 +248,7 @@ export function ToolsSection() {
           show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
         }}
       >
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5">
           {tools.map((tool) => (
             <div
               key={tool.name}
