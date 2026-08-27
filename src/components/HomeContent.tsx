@@ -1,32 +1,22 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect, type ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
 import { usePortfolio } from '@/context/PortfolioContext';
 import type { ProfileData } from '@/context/PortfolioContext';
 import type { ProjectData, ProjectCategory } from '@/types/project';
 import { ProjectCard } from '@/components/ProjectCard';
 import { FAQAccordion } from '@/components/FAQAccordion';
 import { BackToTop } from '@/components/BackToTop';
+import { Nav } from '@/components/Nav';
+import { AboutSection } from '@/components/AboutSection';
+import { ExperienceSection } from '@/components/ExperienceSection';
 
 const levelColors: Record<string, { bg: string; text: string; dot: string }> = {
   Expert: { bg: 'bg-black/5', text: 'text-black', dot: 'bg-gray-900' },
   Proficient: { bg: 'bg-gray-100', text: 'text-gray-700', dot: 'bg-gray-500' },
   Familiar: { bg: 'bg-gray-50', text: 'text-gray-400', dot: 'bg-gray-400' },
 };
-
-function renderInline(text: string, className = 'font-semibold text-gray-900'): ReactNode[] {
-  return text.split(/\*\*(.+?)\*\*/g).map((part, i) =>
-    i % 2 === 1 ? (
-      <strong key={i} className={className}>
-        {part}
-      </strong>
-    ) : (
-      part
-    ),
-  );
-}
 
 function SkillBar({ label, level }: { label: string; level: string }) {
   const colors = levelColors[level] ?? levelColors.Familiar;
@@ -336,144 +326,6 @@ function SkillsSection({ profile }: { profile: ProfileData }) {
   );
 }
 
-function AboutSection({ profile }: { profile: ProfileData }) {
-  return (
-    <motion.section
-      id="about"
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, margin: '-50px' }}
-      variants={{
-        hidden: {},
-        show: { transition: { staggerChildren: 0.1 } },
-      }}
-      className="mb-20"
-    >
-      <motion.h2
-        variants={{
-          hidden: { opacity: 0, y: 20 },
-          show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-        }}
-        className="mb-6 text-heading-lg font-bold tracking-tight text-gray-900"
-      >
-        About Me
-      </motion.h2>
-      <motion.div
-        variants={{
-          hidden: { opacity: 0, y: 24 },
-          show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-        }}
-      >
-        <div className="grid gap-6 lg:grid-cols-2 lg:items-stretch lg:gap-10">
-          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl sm:aspect-[3/2] lg:aspect-auto lg:h-full lg:min-h-[420px]">
-            <Image
-              src={profile.avatar}
-              alt={profile.name}
-              fill
-              className="object-cover"
-              style={{ objectPosition: 'top' }}
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              priority
-            />
-          </div>
-        <div className="flex flex-col justify-center">
-          <div className="prose prose-invert max-w-none">
-            {profile.about.split('\n\n').map((paragraph, i) => (
-              <p
-                key={i}
-                className="mb-5 last:mb-0 text-body-lg leading-relaxed text-gray-700"
-              >
-                {renderInline(paragraph)}
-              </p>
-            ))}
-          </div>
-          <div className="mt-6">
-            <a
-              href={`mailto:${profile.email}`}
-              className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-5 py-2.5 text-sm font-medium text-white transition-all hover:from-blue-500 hover:to-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
-            >
-              Hire Me
-              <span className="flex size-9 items-center justify-center rounded-full bg-white -my-1 transition-transform group-hover:translate-x-0.5">
-                <svg className="size-4 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M22 2L11 13" />
-                  <path d="M22 2l-7 20-4-9-9-4 20-7z" />
-                </svg>
-              </span>
-            </a>
-          </div>
-        </div>
-        </div>
-      </motion.div>
-    </motion.section>
-  );
-}
-
-function ExperienceSection({ profile }: { profile: ProfileData }) {
-  if (profile.experience.length === 0) return null;
-
-  return (
-    <motion.section
-      id="experience"
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, margin: '-50px' }}
-      variants={{
-        hidden: {},
-        show: { transition: { staggerChildren: 0.1 } },
-      }}
-      className="mb-20"
-    >
-      <motion.h2
-        variants={{
-          hidden: { opacity: 0, y: 20 },
-          show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-        }}
-        className="mb-1 text-heading-lg font-bold tracking-tight text-gray-900"
-      >
-        Experience
-      </motion.h2>
-      <motion.p
-        variants={{
-          hidden: { opacity: 0, y: 20 },
-          show: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.05 } },
-        }}
-        className="mb-8 text-label-sm uppercase tracking-wider text-gray-400"
-      >
-        Where I&rsquo;ve worked
-      </motion.p>
-      <div>
-        {profile.experience.map((exp, i) => (
-          <motion.div
-            key={i}
-            variants={{
-              hidden: { opacity: 0, x: -16 },
-              show: { opacity: 1, x: 0, transition: { duration: 0.4 } },
-            }}
-            className={i === 0 ? '' : 'mt-7 border-t border-gray-200/70 pt-7 sm:mt-8 sm:pt-8'}
-          >
-            <div className="grid gap-2 md:grid-cols-[200px_1fr] md:gap-8">
-              <div>
-                <p className="text-sm font-medium text-gray-400">{exp.period}</p>
-                <p className="mt-1 text-sm font-bold text-gray-900 sm:text-base">{exp.role}</p>
-                <p className="mt-0.5 text-xs font-medium uppercase tracking-wider text-blue-600">
-                  {exp.company}
-                </p>
-              </div>
-              {exp.description && (
-                <div className="space-y-3 text-body-sm leading-relaxed text-gray-600">
-                  {exp.description.split('\n\n').map((paragraph, pi) => (
-                    <p key={pi}>{renderInline(paragraph)}</p>
-                  ))}
-                </div>
-              )}
-            </div>
-          </motion.div>
-        ))}
-      </div>
-    </motion.section>
-  );
-}
-
 function TestimonialsCarousel({ profile }: { profile: ProfileData }) {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(1);
@@ -751,82 +603,6 @@ function FAQSection({ profile }: { profile: ProfileData }) {
         <FAQAccordion items={profile.faqs} />
       </motion.div>
     </motion.section>
-  );
-}
-
-function Nav({ avatar }: { avatar: string }) {
-  const [active, setActive] = useState('home');
-  const links = [
-    { label: 'Home', href: '#home' },
-    { label: 'About', href: '#about' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Contact', href: '#contact' },
-  ];
-
-  useEffect(() => {
-    const sections = links
-      .map((link) => document.getElementById(link.href.slice(1)))
-      .filter((el): el is HTMLElement => Boolean(el));
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActive(entry.target.id);
-        });
-      },
-      { rootMargin: '-50% 0px -50% 0px', threshold: 0 },
-    );
-    sections.forEach((section) => observer.observe(section));
-    return () => observer.disconnect();
-  }, [links]);
-
-  return (
-    <nav className="sticky top-0 z-50 border-b border-gray-200 bg-white/80 backdrop-blur-lg">
-      <div className="mx-auto flex max-w-7xl items-center justify-center px-6 py-2.5 sm:px-8">
-        <div className="relative flex w-auto items-center justify-between gap-3 rounded-full border border-gray-200 bg-white px-3 py-2 shadow-lg shadow-gray-900/5 sm:px-4 sm:py-2">
-          <a
-            href="#home"
-            className="flex shrink-0 items-center gap-2 text-sm font-bold tracking-tight text-gray-900"
-          >
-            <Image
-              src={avatar}
-              alt="Victor Omolasoye"
-              width={32}
-              height={32}
-              className="size-7 rounded-full object-cover"
-              style={{ objectPosition: 'top' }}
-            />
-            <span className="hidden md:inline">Victor Omolasoye</span>
-          </a>
-          <div className="flex items-center gap-0.5">
-            {links.map((link) => {
-              const isHome = link.href === '#home';
-              const base = `shrink-0 rounded-full px-3 py-1.5 text-sm font-medium transition-colors ${isHome ? 'hidden md:block' : ''}`;
-              return link.label === 'Contact' ? (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className={`${base} bg-gray-900 text-white hover:bg-black`}
-                >
-                  {link.label}
-                </a>
-              ) : (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className={`${base} ${
-                    active === link.href.slice(1)
-                      ? 'bg-gray-100 text-gray-900'
-                      : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
-                  }`}
-                >
-                  {link.label}
-                </a>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-    </nav>
   );
 }
 

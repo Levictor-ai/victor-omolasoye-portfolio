@@ -417,7 +417,7 @@ function MoreProjects({ projects }: { projects: ProjectData[] }) {
           More Projects
         </h2>
         <a
-          href="/#projects"
+          href="/projects"
           className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 transition-colors hover:text-blue-700"
         >
           View all projects
@@ -452,7 +452,7 @@ export default async function ProjectPage({
     <main className="min-h-screen bg-[#F8F9FA] text-gray-900">
       <article className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <a
-          href="/#projects"
+          href="/projects"
           className="mb-12 inline-flex items-center gap-2 text-sm text-gray-500 transition-colors hover:text-gray-900"
         >
           <ArrowUpRight className="size-4 rotate-180" />
