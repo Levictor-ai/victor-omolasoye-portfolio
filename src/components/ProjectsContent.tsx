@@ -21,7 +21,7 @@ export function ProjectsContent({ projects }: { projects: ProjectData[] }) {
         >
           <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
             <div>
-              <h1 className="font-display text-5xl font-normal leading-none tracking-wide text-gray-900 sm:text-6xl">
+              <h1 className="font-display text-6xl font-bold leading-none tracking-wide text-gray-900 sm:text-7xl">
                 Projects
               </h1>
               <p className="mt-2 text-label-sm uppercase tracking-wider text-gray-400">

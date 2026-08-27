@@ -17,13 +17,13 @@ export default function AboutPage() {
       <main className="mx-auto max-w-7xl px-6 py-20 sm:px-8">
         <AboutSection
           profile={profile}
-          headingClassName="mb-6 font-display text-5xl font-normal leading-none tracking-wide text-gray-900 sm:text-6xl"
+          headingClassName="mb-6 font-display text-6xl font-bold leading-none tracking-wide text-gray-900 sm:text-7xl"
         />
         <ToolsSection />
         <HowIWork />
         <ExperienceSection
           profile={profile}
-          headingClassName="mb-1 font-display text-5xl font-normal leading-none tracking-wide text-gray-900 sm:text-6xl"
+          headingClassName="mb-1 font-display text-6xl font-bold leading-none tracking-wide text-gray-900 sm:text-7xl"
         />
       </main>
       <BackToTop />

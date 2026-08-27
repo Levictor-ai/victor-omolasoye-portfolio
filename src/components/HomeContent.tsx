@@ -32,7 +32,7 @@ function AnimatedTitle({ titles }: { titles: string[] }) {
   return (
     <div className="mb-2">
       <span
-        className={`inline-block font-display text-[clamp(2.75rem,9vw,6.5rem)] font-normal leading-[0.9] tracking-tight text-gray-900 transition-all duration-400 ${
+        className={`inline-block font-display text-[clamp(3rem,11vw,7.5rem)] font-bold leading-[0.9] tracking-tight text-gray-900 transition-all duration-400 ${
           state === 'visible'
             ? 'opacity-100 translate-y-0'
             : state === 'exiting'
