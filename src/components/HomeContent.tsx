@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState, useEffect, type ReactNode } from 'react';
+import { useState, useEffect, type ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { usePortfolio } from '@/context/PortfolioContext';
@@ -25,114 +25,6 @@ function renderInline(text: string, className = 'font-semibold text-gray-900'): 
     ) : (
       part
     ),
-  );
-}
-
-function StatsSection() {
-  const [count, setCount] = useState(0);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    let timer: ReturnType<typeof setInterval> | undefined;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          if (timer) return;
-          let start = 0;
-          const duration = 1500;
-          const step = Math.ceil(99 / (duration / 16));
-          timer = setInterval(() => {
-            start += step;
-            if (start >= 99) {
-              setCount(99);
-              clearInterval(timer);
-              timer = undefined;
-            } else {
-              setCount(start);
-            }
-          }, 16);
-        } else {
-          setCount(0);
-          if (timer) {
-            clearInterval(timer);
-            timer = undefined;
-          }
-        }
-      },
-      { threshold: 0.3 },
-    );
-    observer.observe(el);
-    return () => {
-      observer.disconnect();
-      if (timer) clearInterval(timer);
-    };
-  }, []);
-
-  return (
-    <motion.section
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, margin: '-50px' }}
-      variants={{
-        hidden: {},
-        show: { transition: { staggerChildren: 0.15 } },
-      }}
-      className="mb-24"
-    >
-      <motion.div
-        variants={{
-          hidden: { opacity: 0, y: 20, scale: 0.95 },
-          show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: 'easeOut' } },
-        }}
-        className="rounded-xl border border-gray-200 bg-gray-50 p-4 text-center sm:p-6"
-      >
-        <div ref={ref}>
-          <div className="text-center">
-            <motion.span
-              animate={{ scale: [1, 1.08, 1] }}
-              transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
-              className="inline-block bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-3xl font-bold text-transparent sm:text-4xl"
-            >
-              {count}%
-            </motion.span>
-          </div>
-          <p className="mt-2 text-xs text-gray-500 sm:text-sm">Satisfied Clients</p>
-          <div className="mt-5">
-            <div
-              role="progressbar"
-              aria-label="Client satisfaction rate out of 100"
-              aria-valuemin={0}
-              aria-valuemax={100}
-              aria-valuenow={count}
-              className="relative h-2.5 w-full overflow-hidden rounded-full bg-gray-200"
-            >
-              <motion.div
-                className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-blue-600 to-blue-700"
-                initial={{ width: '0%' }}
-                animate={{ width: `${count}%` }}
-                transition={{ duration: 0.12, ease: 'linear' }}
-              />
-              {[25, 50, 75].map((tick) => (
-                <span
-                  key={tick}
-                  className="absolute top-1/2 h-3 w-px -translate-y-1/2 bg-gray-300/80"
-                  style={{ left: `${tick}%` }}
-                />
-              ))}
-            </div>
-            <div className="mt-1.5 flex justify-between text-[11px] font-semibold tabular-nums text-gray-400">
-              <span>0</span>
-              <span>25</span>
-              <span>50</span>
-              <span>75</span>
-              <span>100</span>
-            </div>
-          </div>
-        </div>
-      </motion.div>
-    </motion.section>
   );
 }
 
@@ -1157,7 +1049,6 @@ export function HomeContent({ projects }: { projects: ProjectData[] }) {
         <SkillsSection profile={profile} />
         <ProjectsSection projects={projects} behanceUrl={profile.socials.behance} />
         <AboutSection profile={profile} />
-        <StatsSection />
         <ExperienceSection profile={profile} />
         <ArticlesSection />
         <TestimonialsCarousel profile={profile} />
