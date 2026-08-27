@@ -152,10 +152,10 @@ const defaultProfile: ProfileData = {
   experience: [
     {
       company: 'Forgelayers',
-      role: 'Graphic Designer',
-      period: 'Mar. 2026 — July 2026',
+      role: 'Founding Designer · Graphic Designer',
+      period: 'Mar. 2026 — Jul. 2026',
       description:
-        'Designed visual assets across brand campaigns, social media, and print, maintaining consistent brand direction and supporting the creative team from concept to delivery.',
+        'Joined Forgelayers at an early stage as a founding designer, helping take the product and brand from **0 → 1**. I defined and shaped the design direction across the different stages of the project, establishing the visual language, brand foundations, and creative systems needed to move the product from concept toward execution.\n\nWorked across brand campaigns, digital assets, social media, and print while collaborating with the broader team to translate ideas into clear, consistent visual experiences. I was involved beyond individual design deliverables, contributing to how the product was positioned, communicated, and visually developed from the ground up.',
     },
     {
       company: 'Moovable Technology Limited',
@@ -169,7 +169,7 @@ const defaultProfile: ProfileData = {
       role: 'Graphic Designer',
       period: 'Sep. 2025 — Apr. 2026',
       description:
-        'Produced compelling brand and marketing collateral for diverse clients, from logo systems to campaign graphics, ensuring on-brand, high-quality output under tight deadlines.',
+        'Worked within a design agency environment, contributing to projects for clients across **different industries and sectors**. My role involved translating varied client requirements and brand objectives into compelling visual solutions across identity, marketing, campaigns, and digital communication.\n\nWorked across multiple projects simultaneously, adapting to different visual directions, audiences, and business needs while maintaining a high standard of craft and consistency. Collaborated with the agency team throughout the creative process, from interpreting briefs and developing concepts to refining designs and preparing final deliverables.',
     },
     {
       company: 'Untitled Designer',
@@ -180,24 +180,24 @@ const defaultProfile: ProfileData = {
     },
     {
       company: 'Anyrev',
-      role: 'Brand Designer',
+      role: 'Founding Designer · Brand Designer',
       period: 'Sep. 2025 — Dec. 2025',
       description:
-        'Shaped the brand identity for a review services platform — logo development, visual language, and brand guidelines that established consistent, trustworthy communication.',
+        'Joined Anyrev at an early stage as a founding designer and helped build the brand from **0 → 1**. I was involved in defining the design direction from the beginning, shaping how the product should look, communicate, and present itself to its audience.\n\nDeveloped the core brand identity, including the logo, visual language, typography, colour system, and brand guidelines. Rather than working from an established identity, I helped establish the foundations that would guide the brand across its different stages and future touchpoints.',
     },
     {
       company: 'Dev. and Design',
       role: 'UI/UX Designer',
       period: 'Oct. 2025 — Mar. 2026',
       description:
-        'Designed user flows and interfaces for digital products, collaborating closely with developers to ship pixel-perfect, accessible experiences across web and mobile.',
+        'Designed user flows and digital interfaces for web and mobile products, translating product requirements into intuitive and visually consistent experiences. Worked closely with developers throughout the design process to ensure that interfaces were practical to build and accurately translated from design to implementation.\n\nContributed to interaction design, responsive layouts, component consistency, and design handoff, with a focus on creating polished experiences that balanced usability, accessibility, and visual quality.',
     },
     {
       company: 'Venture Tribe',
       role: 'Graphic Designer',
       period: 'Jul. 2024 — Dec. 2024',
       description:
-        'Created engaging visual content for a venture community — event graphics, branding, and social media creatives that supported growth and community engagement.',
+        'Contributed as part of the design team, supporting the delivery of visual work across the venture community\u2019s branding, events, and social media. My role focused on helping the team maintain a faster and more efficient creative workflow by taking on design tasks and ensuring deliverables were completed on time.\n\nWorked across different types of visual communication while maintaining consistency with the organisation\u2019s existing brand direction. This experience strengthened my ability to collaborate within a team, work efficiently under deadlines, and contribute to a larger creative output without compromising design quality.',
     },
   ],
 };
