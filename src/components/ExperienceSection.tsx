@@ -4,7 +4,13 @@ import { motion } from 'framer-motion';
 import type { ProfileData } from '@/context/PortfolioContext';
 import { renderInline } from '@/lib/inline';
 
-export function ExperienceSection({ profile }: { profile: ProfileData }) {
+export function ExperienceSection({
+  profile,
+  headingClassName,
+}: {
+  profile: ProfileData;
+  headingClassName?: string;
+}) {
   if (profile.experience.length === 0) return null;
 
   return (
@@ -24,7 +30,10 @@ export function ExperienceSection({ profile }: { profile: ProfileData }) {
           hidden: { opacity: 0, y: 20 },
           show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
         }}
-        className="mb-1 text-heading-lg font-bold tracking-tight text-gray-900"
+        className={
+          headingClassName ??
+          'mb-1 text-heading-lg font-bold tracking-tight text-gray-900'
+        }
       >
         Experience
       </motion.h2>

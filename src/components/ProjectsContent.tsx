@@ -19,7 +19,7 @@ export function ProjectsContent({ projects }: { projects: ProjectData[] }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="mb-1 text-heading-lg font-bold tracking-tight text-gray-900">
+          <h1 className="mb-1 font-display text-5xl font-normal leading-none tracking-wide text-gray-900 sm:text-6xl">
             Projects
           </h1>
           <p className="mb-8 text-label-sm uppercase tracking-wider text-gray-400">

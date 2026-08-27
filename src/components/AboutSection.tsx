@@ -5,7 +5,13 @@ import Image from 'next/image';
 import type { ProfileData } from '@/context/PortfolioContext';
 import { renderInline } from '@/lib/inline';
 
-export function AboutSection({ profile }: { profile: ProfileData }) {
+export function AboutSection({
+  profile,
+  headingClassName,
+}: {
+  profile: ProfileData;
+  headingClassName?: string;
+}) {
   return (
     <motion.section
       id="about"
@@ -23,7 +29,10 @@ export function AboutSection({ profile }: { profile: ProfileData }) {
           hidden: { opacity: 0, y: 20 },
           show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
         }}
-        className="mb-6 text-heading-lg font-bold tracking-tight text-gray-900"
+        className={
+          headingClassName ??
+          'mb-6 text-heading-lg font-bold tracking-tight text-gray-900'
+        }
       >
         About Me
       </motion.h2>
