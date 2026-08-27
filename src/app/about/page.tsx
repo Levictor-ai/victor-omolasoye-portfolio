@@ -5,6 +5,7 @@ import { Nav } from '@/components/Nav';
 import { AboutSection } from '@/components/AboutSection';
 import { ExperienceSection } from '@/components/ExperienceSection';
 import { HowIWork } from '@/components/HowIWork';
+import { ToolsSection } from '@/components/ToolsSection';
 import { BackToTop } from '@/components/BackToTop';
 
 export default function AboutPage() {
@@ -18,6 +19,7 @@ export default function AboutPage() {
           profile={profile}
           headingClassName="mb-6 font-display text-5xl font-normal leading-none tracking-wide text-gray-900 sm:text-6xl"
         />
+        <ToolsSection />
         <HowIWork />
         <ExperienceSection
           profile={profile}

@@ -1,15 +1,11 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import type { ReactNode } from 'react';
+import { useId, type ReactNode } from 'react';
 
-interface LogoProps {
-  className?: string;
-}
-
-function FigmaLogo({ className = 'size-7' }: LogoProps) {
+function FigmaLogo() {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <svg className="size-7" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <circle cx="8" cy="4" r="4" fill="#F24E1E" />
       <circle cx="8" cy="12" r="4" fill="#A259FF" />
       <circle cx="8" cy="20" r="4" fill="#0ACF83" />
@@ -19,35 +15,36 @@ function FigmaLogo({ className = 'size-7' }: LogoProps) {
   );
 }
 
-function VercelLogo({ className = 'size-7' }: LogoProps) {
+function VercelLogo() {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <svg className="size-7" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path d="M12 3.5 22 20.5H2Z" fill="#000000" />
     </svg>
   );
 }
 
-function GeminiLogo({ className = 'size-7' }: LogoProps) {
+function GeminiLogo() {
+  const id = useId();
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <svg className="size-8" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <defs>
-        <clipPath id="gemini-sparkle">
-          <path d="M12 3c1.5 5.5 3.5 7.5 9 9-5.5 1.5-7.5 3.5-9 9-1.5-5.5-3.5-7.5-9-9 5.5-1.5 7.5-3.5 9-9Z" />
+        <clipPath id={id}>
+          <path d="M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81" />
         </clipPath>
       </defs>
-      <g clipPath="url(#gemini-sparkle)">
+      <g clipPath={`url(#${id})`}>
         <rect x="0" y="0" width="12" height="12" fill="#4285F4" />
         <rect x="12" y="0" width="12" height="12" fill="#9B72CB" />
-        <rect x="0" y="12" width="12" height="12" fill="#FBBC05" />
-        <rect x="12" y="12" width="12" height="12" fill="#EA4335" />
+        <rect x="0" y="12" width="12" height="12" fill="#F9AB00" />
+        <rect x="12" y="12" width="12" height="12" fill="#D96570" />
       </g>
     </svg>
   );
 }
 
-function GithubLogo({ className = 'size-7' }: LogoProps) {
+function GithubLogo() {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <svg className="size-7" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path
         fill="#181717"
         d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
@@ -56,10 +53,10 @@ function GithubLogo({ className = 'size-7' }: LogoProps) {
   );
 }
 
-function WorkspaceLogo({ className = 'size-7' }: LogoProps) {
+function WorkspaceLogo() {
   return (
     <svg
-      className={className}
+      className="size-7"
       viewBox="0 0 24 24"
       fill="none"
       strokeLinecap="round"
@@ -74,74 +71,105 @@ function WorkspaceLogo({ className = 'size-7' }: LogoProps) {
   );
 }
 
+function ChatGPTLogo() {
+  return (
+    <svg className="size-8" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        fill="#10A37F"
+        d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"
+      />
+    </svg>
+  );
+}
+
+function NotionLogo() {
+  return (
+    <svg className="size-8" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        fill="#000000"
+        d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.139c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-1.96V2.667c0-.839.374-1.54 1.447-1.632z"
+      />
+    </svg>
+  );
+}
+
+function SlackLogo() {
+  return (
+    <svg className="size-8" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        fill="#4A154B"
+        d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"
+      />
+    </svg>
+  );
+}
+
+function TeamsLogo() {
+  return (
+    <svg className="size-8" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        fill="#6264A7"
+        d="M20.625 8.127q-.55 0-1.025-.205-.475-.205-.832-.563-.358-.357-.563-.832Q18 6.053 18 5.502q0-.54.205-1.02t.563-.837q.357-.358.832-.563.474-.205 1.025-.205.54 0 1.02.205t.837.563q.358.357.563.837.205.48.205 1.02 0 .55-.205 1.025-.205.475-.563.832-.357.358-.837.563-.48.205-1.02.205zm0-3.75q-.469 0-.797.328-.328.328-.328.797 0 .469.328.797.328.328.797.328.469 0 .797-.328.328-.328.328-.797 0-.469-.328-.797-.328-.328-.797-.328zM24 10.002v5.578q0 .774-.293 1.46-.293.685-.803 1.194-.51.51-1.195.803-.686.293-1.459.293-.445 0-.908-.105-.463-.106-.85-.329-.293.95-.855 1.729-.563.78-1.319 1.336-.756.557-1.67.861-.914.305-1.898.305-1.148 0-2.162-.398-1.014-.399-1.805-1.102-.79-.703-1.312-1.664t-.674-2.086h-5.8q-.411 0-.704-.293T0 16.881V6.873q0-.41.293-.703t.703-.293h8.59q-.34-.715-.34-1.5 0-.727.275-1.365.276-.639.75-1.114.475-.474 1.114-.75.638-.275 1.365-.275t1.365.275q.639.276 1.114.75.474.475.75 1.114.275.638.275 1.365t-.275 1.365q-.276.639-.75 1.113-.475.475-1.114.75-.638.276-1.365.276-.188 0-.375-.024-.188-.023-.375-.058v1.078h10.875q.469 0 .797.328.328.328.328.797zM12.75 2.373q-.41 0-.78.158-.368.158-.638.434-.27.275-.428.639-.158.363-.158.773 0 .41.158.78.159.368.428.638.27.27.639.428.369.158.779.158.41 0 .773-.158.364-.159.64-.428.274-.27.433-.639.158-.369.158-.779 0-.41-.158-.773-.159-.364-.434-.64-.275-.275-.639-.433-.363-.158-.773-.158zM6.937 9.814h2.25V7.94H2.814v1.875h2.25v6h1.875zm10.313 7.313v-6.75H12v6.504q0 .41-.293.703t-.703.293H8.309q.152.809.556 1.5.405.691.985 1.19.58.497 1.318.779.738.281 1.582.281.926 0 1.746-.352.82-.351 1.436-.966.615-.616.966-1.43.352-.815.352-1.752zm5.25-1.547v-5.203h-3.75v6.855q.305.305.691.452.387.146.809.146.469 0 .879-.176.41-.175.715-.48.304-.305.48-.715t.176-.879Z"
+      />
+    </svg>
+  );
+}
+
 const tools: {
   name: string;
   tileClass: string;
-  svgClass: string;
   logo: ReactNode;
 }[] = [
-  {
-    name: 'Figma',
-    tileClass: 'bg-gray-50',
-    svgClass: 'size-7',
-    logo: <FigmaLogo />,
-  },
+  { name: 'Figma', tileClass: 'bg-gray-50', logo: <FigmaLogo /> },
   {
     name: 'Photoshop',
     tileClass: 'bg-transparent',
-    svgClass: 'h-full w-full',
     logo: (
       <svg className="h-full w-full" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <rect x="1.5" y="1.5" width="21" height="21" rx="5.5" fill="#31A8FF" />
-        <text x="12" y="16.5" textAnchor="middle" fontSize="11" fontWeight="700" fontFamily="inherit" fill="#FFFFFF">
-          Ps
-        </text>
+        <path
+          fill="#31A8FF"
+          d="M9.85 8.42c-.37-.15-.77-.21-1.18-.2-.26 0-.49 0-.68.01-.2-.01-.34 0-.41.01v3.36c.14.01.27.02.39.02h.53c.39 0 .78-.06 1.15-.18.32-.09.6-.28.82-.53.21-.25.31-.59.31-1.03.01-.31-.07-.62-.23-.89-.17-.26-.41-.46-.7-.57zM19.75.3H4.25C1.9.3 0 2.2 0 4.55v14.899c0 2.35 1.9 4.25 4.25 4.25h15.5c2.35 0 4.25-1.9 4.25-4.25V4.55C24 2.2 22.1.3 19.75.3zm-7.391 11.65c-.399.56-.959.98-1.609 1.22-.68.25-1.43.34-2.25.34-.24 0-.4 0-.5-.01s-.24-.01-.43-.01v3.209c.01.07-.04.131-.11.141H5.52c-.08 0-.12-.041-.12-.131V6.42c0-.07.03-.11.1-.11.17 0 .33 0 .56-.01.24-.01.49-.01.76-.02s.56-.01.87-.02c.31-.01.61-.01.91-.01.82 0 1.5.1 2.06.31.5.17.96.45 1.34.82.32.32.57.71.73 1.14.149.42.229.85.229 1.3.001.86-.199 1.57-.6 2.13zm7.091 3.89c-.28.4-.671.709-1.12.891-.49.209-1.09.318-1.811.318-.459 0-.91-.039-1.359-.129-.35-.061-.7-.17-1.02-.32-.07-.039-.121-.109-.111-.189v-1.74c0-.029.011-.07.041-.09.029-.02.06-.01.09.01.39.23.8.391 1.24.49.379.1.779.15 1.18.15.38 0 .65-.051.83-.141.16-.07.27-.24.27-.42 0-.141-.08-.27-.24-.4-.16-.129-.489-.279-.979-.471-.51-.18-.979-.42-1.42-.719-.31-.221-.569-.51-.761-.85-.159-.32-.239-.67-.229-1.021 0-.43.12-.84.341-1.21.25-.4.619-.72 1.049-.92.469-.239 1.059-.349 1.769-.349.41 0 .83.03 1.24.09.3.04.59.12.86.23.039.01.08.05.1.09.01.04.02.08.02.12v1.63c0 .04-.02.08-.05.1-.09.02-.14.02-.18 0-.3-.16-.62-.27-.96-.34-.37-.08-.74-.13-1.12-.13-.2-.01-.41.02-.601.07-.129.03-.24.1-.31.2-.05.08-.08.18-.08.27s.04.18.101.26c.09.11.209.2.34.27.229.12.47.23.709.33.541.18 1.061.43 1.541.73.33.209.6.49.789.83.16.318.24.67.23 1.029.011.471-.129.94-.389 1.331z"
+        />
       </svg>
     ),
   },
   {
     name: 'Illustrator',
     tileClass: 'bg-transparent',
-    svgClass: 'h-full w-full',
     logo: (
       <svg className="h-full w-full" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <rect x="1.5" y="1.5" width="21" height="21" rx="5.5" fill="#FF9A00" />
-        <text x="12" y="16.5" textAnchor="middle" fontSize="11" fontWeight="700" fontFamily="inherit" fill="#FFFFFF">
-          Ai
-        </text>
+        <path
+          fill="#FF9A00"
+          d="M10.53 10.73c-.1-.31-.19-.61-.29-.92-.1-.31-.19-.6-.27-.89-.08-.28-.15-.54-.22-.78h-.02c-.09.43-.2.86-.34 1.29-.15.48-.3.98-.46 1.48-.14.51-.29.98-.44 1.4h2.54c-.06-.211-.14-.46-.23-.721-.09-.269-.18-.559-.27-.859zM19.75.3H4.25C1.9.3 0 2.2 0 4.55v14.9c0 2.35 1.9 4.25 4.25 4.25h15.5c2.35 0 4.25-1.9 4.25-4.25V4.55C24 2.2 22.1.3 19.75.3zM14.7 16.83h-2.091c-.069.01-.139-.04-.159-.11l-.82-2.38H7.91l-.76 2.35c-.02.09-.1.15-.19.141H5.08c-.11 0-.14-.061-.11-.18L8.19 7.38c.03-.1.06-.21.1-.33.04-.21.06-.43.06-.65-.01-.05.03-.1.08-.11h2.59c.08 0 .12.03.13.08l3.65 10.3c.03.109 0 .16-.1.16zm3.4-.15c0 .11-.039.16-.129.16H16.01c-.1 0-.15-.061-.15-.16v-7.7c0-.1.041-.14.131-.14h1.98c.09 0 .129.05.129.14v7.7zm-.209-9.03c-.231.24-.571.37-.911.35-.33.01-.65-.12-.891-.35-.23-.25-.35-.58-.34-.92-.01-.34.12-.66.359-.89.242-.23.562-.35.892-.35.391 0 .689.12.91.35.22.24.34.56.33.89.01.34-.11.67-.349.92z"
+        />
       </svg>
     ),
   },
   {
     name: 'InDesign',
     tileClass: 'bg-transparent',
-    svgClass: 'h-full w-full',
     logo: (
       <svg className="h-full w-full" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <rect x="1.5" y="1.5" width="21" height="21" rx="5.5" fill="#FF3366" />
-        <text x="12" y="16.5" textAnchor="middle" fontSize="11" fontWeight="700" fontFamily="inherit" fill="#FFFFFF">
-          Id
-        </text>
+        <path
+          fill="#FF3366"
+          d="M4.25.3C1.9.3 0 2.2 0 4.55v14.9c0 2.35 1.9 4.25 4.25 4.25h15.5c2.35 0 4.25-1.9 4.25-4.25V4.55C24 2.2 22.1.3 19.75.3zm11.31 5.13h2.03c.05-.01.09.03.1.07v9.54c0 .18.01.38.02.6.02.21.03.41.04.58 0 .07-.03.13-.1.16-.52.22-1.07.38-1.63.48-.5.09-1.02.14-1.54.14-.74.01-1.48-.14-2.15-.45-.63-.29-1.15-.77-1.51-1.36-.37-.61-.55-1.37-.55-2.28-.01-.74.18-1.47.55-2.11.38-.65.93-1.19 1.59-1.55.7-.39 1.54-.58 2.53-.58.05 0 .12 0 .21.01s.19.01.31.02V5.54c0-.07.03-.11.1-.11zm-8.93.86h1.95c.06-.01.12.03.13.1.01.01.01.02.01.03v10.26c0 .11-.05.16-.14.16H6.62c-.09 0-.13-.05-.13-.16V6.42c0-.09.05-.13.14-.13zm8.23 4.24c-.39 0-.78.08-1.13.26-.34.17-.63.42-.85.74-.22.32-.33.75-.33 1.27-.01.35.05.7.17 1.03.1.27.25.51.45.71.19.18.42.32.68.4.27.09.55.13.83.13.15 0 .29-.01.42-.02.13.01.25-.01.36-.05v-4.4c-.09-.02-.18-.04-.27-.05-.11-.01-.22-.02-.33-.02z"
+        />
       </svg>
     ),
   },
   {
     name: 'Framer',
     tileClass: 'bg-transparent',
-    svgClass: 'h-full w-full',
     logo: (
       <svg className="h-full w-full" viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <rect x="1.5" y="1.5" width="21" height="21" rx="5.5" fill="#0055FF" />
-        <text x="12" y="16.5" textAnchor="middle" fontSize="11" fontWeight="700" fontFamily="inherit" fill="#FFFFFF">
-          F
-        </text>
+        <path fill="#FFFFFF" d="M4 0h16v8h-8zM4 8h8l8 8H4zM4 16h8v8z" transform="translate(1.5 1.5) scale(0.875)" />
       </svg>
     ),
   },
   {
     name: 'Google Antigravity',
     tileClass: 'bg-transparent',
-    svgClass: 'h-full w-full',
     logo: (
       <svg className="h-full w-full" viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <rect x="1.5" y="1.5" width="21" height="21" rx="5.5" fill="#4285F4" />
@@ -152,103 +180,35 @@ const tools: {
       </svg>
     ),
   },
-  {
-    name: 'Vercel',
-    tileClass: 'bg-gray-50',
-    svgClass: 'size-7',
-    logo: <VercelLogo />,
-  },
-  {
-    name: 'ChatGPT',
-    tileClass: 'bg-transparent',
-    svgClass: 'h-full w-full',
-    logo: (
-      <svg className="h-full w-full" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <rect x="1.5" y="1.5" width="21" height="21" rx="5.5" fill="#10A37F" />
-        <g fill="#FFFFFF">
-          <rect x="11" y="4.5" width="2" height="9" rx="1" />
-          <rect x="11" y="4.5" width="2" height="9" rx="1" transform="rotate(60 12 12)" />
-          <rect x="11" y="4.5" width="2" height="9" rx="1" transform="rotate(120 12 12)" />
-        </g>
-      </svg>
-    ),
-  },
-  {
-    name: 'Gemini',
-    tileClass: 'bg-gray-50',
-    svgClass: 'size-7',
-    logo: <GeminiLogo />,
-  },
+  { name: 'Vercel', tileClass: 'bg-gray-50', logo: <VercelLogo /> },
+  { name: 'ChatGPT', tileClass: 'bg-gray-50', logo: <ChatGPTLogo /> },
+  { name: 'Gemini', tileClass: 'bg-gray-50', logo: <GeminiLogo /> },
   {
     name: 'Flow',
     tileClass: 'bg-transparent',
-    svgClass: 'h-full w-full',
     logo: (
       <svg className="h-full w-full" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <rect x="1.5" y="1.5" width="21" height="21" rx="5.5" fill="#7E6AF6" />
-        <text x="12" y="16.5" textAnchor="middle" fontSize="11" fontWeight="700" fontFamily="inherit" fill="#FFFFFF">
-          F
+        <rect x="1.5" y="1.5" width="21" height="21" rx="5.5" fill="#6125FF" />
+        <text
+          x="12"
+          y="17"
+          textAnchor="middle"
+          fontSize="15"
+          fontWeight="800"
+          fontStyle="italic"
+          fontFamily="inherit"
+          fill="#FFFFFF"
+        >
+          f
         </text>
       </svg>
     ),
   },
-  {
-    name: 'Notion',
-    tileClass: 'bg-transparent',
-    svgClass: 'h-full w-full',
-    logo: (
-      <svg className="h-full w-full" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <rect x="1.5" y="1.5" width="21" height="21" rx="5.5" fill="#111111" />
-        <g fill="#FFFFFF">
-          <rect x="7.5" y="5.5" width="3" height="13" rx="1" />
-          <rect x="13.5" y="5.5" width="3" height="13" rx="1" />
-          <path d="M10.8 5.5h3.4l-.4 13h-3.4z" />
-        </g>
-      </svg>
-    ),
-  },
-  {
-    name: 'Slack',
-    tileClass: 'bg-transparent',
-    svgClass: 'h-full w-full',
-    logo: (
-      <svg className="h-full w-full" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <rect x="1.5" y="1.5" width="21" height="21" rx="5.5" fill="#611F69" />
-        <g fill="#FFFFFF">
-          <rect x="4.5" y="9" width="15" height="2.5" rx="1.25" />
-          <rect x="4.5" y="13" width="15" height="2.5" rx="1.25" />
-          <rect x="9" y="4.5" width="2.5" height="15" rx="1.25" />
-          <rect x="13" y="4.5" width="2.5" height="15" rx="1.25" />
-        </g>
-      </svg>
-    ),
-  },
-  {
-    name: 'Google Workspace',
-    tileClass: 'bg-gray-50',
-    svgClass: 'size-7',
-    logo: <WorkspaceLogo />,
-  },
-  {
-    name: 'Microsoft Teams',
-    tileClass: 'bg-transparent',
-    svgClass: 'h-full w-full',
-    logo: (
-      <svg className="h-full w-full" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <rect x="1.5" y="1.5" width="21" height="21" rx="5.5" fill="#6264A7" />
-        <g fill="#FFFFFF">
-          <rect x="4" y="11" width="16" height="3" rx="1.5" />
-          <rect x="10.5" y="4.5" width="3" height="15" rx="1.5" />
-        </g>
-      </svg>
-    ),
-  },
-  {
-    name: 'GitHub',
-    tileClass: 'bg-gray-50',
-    svgClass: 'size-7',
-    logo: <GithubLogo />,
-  },
+  { name: 'Notion', tileClass: 'bg-gray-50', logo: <NotionLogo /> },
+  { name: 'Slack', tileClass: 'bg-gray-50', logo: <SlackLogo /> },
+  { name: 'Google Workspace', tileClass: 'bg-gray-50', logo: <WorkspaceLogo /> },
+  { name: 'Microsoft Teams', tileClass: 'bg-gray-50', logo: <TeamsLogo /> },
+  { name: 'GitHub', tileClass: 'bg-gray-50', logo: <GithubLogo /> },
 ];
 
 export function ToolsSection() {
@@ -260,7 +220,7 @@ export function ToolsSection() {
       viewport={{ once: true, margin: '-50px' }}
       variants={{
         hidden: {},
-        show: { transition: { staggerChildren: 0.08 } },
+        show: { transition: { staggerChildren: 0.05 } },
       }}
       className="mb-20"
     >
@@ -288,14 +248,14 @@ export function ToolsSection() {
           show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
         }}
       >
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
           {tools.map((tool) => (
             <div
               key={tool.name}
-              className="flex flex-col items-center gap-3 rounded-2xl border border-gray-200 bg-white p-4 text-center shadow-sm transition-shadow hover:shadow-md"
+              className="flex items-center gap-3 rounded-2xl border border-gray-200 bg-white p-3 shadow-sm transition-shadow hover:shadow-md"
             >
               <div
-                className={`flex size-12 items-center justify-center overflow-hidden rounded-xl ${tool.tileClass}`}
+                className={`flex size-11 shrink-0 items-center justify-center overflow-hidden rounded-xl ${tool.tileClass}`}
               >
                 {tool.logo}
               </div>

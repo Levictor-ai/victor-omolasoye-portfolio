@@ -32,7 +32,7 @@ function AnimatedTitle({ titles }: { titles: string[] }) {
   return (
     <div className="mb-2">
       <span
-        className={`inline-block text-2xl font-bold text-black transition-all duration-400 sm:text-3xl ${
+        className={`inline-block font-display text-[clamp(2.75rem,9vw,6.5rem)] font-normal leading-[0.9] tracking-tight text-gray-900 transition-all duration-400 ${
           state === 'visible'
             ? 'opacity-100 translate-y-0'
             : state === 'exiting'
@@ -73,9 +73,8 @@ function HeroSection({ profile }: { profile: ProfileData }) {
     >
       <motion.div variants={item}><AvailableBanner /></motion.div>
       <motion.div variants={item}>
-          <h1 className="mb-4 text-[clamp(3rem,15vw,10rem)] font-display leading-[0.85] tracking-tight text-gray-900">
-          <span className="block">VICTOR</span>
-          <span className="block">OMOLASOYE</span>
+          <h1 className="mb-4 text-2xl font-normal tracking-tight text-gray-900 sm:text-3xl">
+          Victor Omolasoye
         </h1>
       </motion.div>
       <motion.div variants={item}><AnimatedTitle titles={profile.titles} /></motion.div>
