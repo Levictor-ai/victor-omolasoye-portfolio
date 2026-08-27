@@ -754,7 +754,7 @@ function FAQSection({ profile }: { profile: ProfileData }) {
   );
 }
 
-function Nav() {
+function Nav({ avatar }: { avatar: string }) {
   const [open, setOpen] = useState(false);
   const links = [
     { label: 'Home', href: '#home' },
@@ -768,8 +768,16 @@ function Nav() {
       <div className="relative mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-3 sm:px-8 lg:px-12">
         <a
           href="#home"
-          className="shrink-0 text-sm font-bold tracking-tight text-gray-900 sm:text-base"
+          className="flex shrink-0 items-center gap-2.5 text-sm font-bold tracking-tight text-gray-900 sm:text-base"
         >
+          <Image
+            src={avatar}
+            alt="Victor Omolasoye"
+            width={32}
+            height={32}
+            className="size-8 rounded-full object-cover"
+            style={{ objectPosition: 'top' }}
+          />
           Victor Omolasoye
         </a>
         <div className="hidden items-center gap-1 rounded-full border border-gray-200 bg-gray-50 p-1 md:flex">
@@ -1002,7 +1010,7 @@ export function HomeContent({ projects }: { projects: ProjectData[] }) {
 
   return (
     <>
-      <Nav />
+      <Nav avatar={profile.avatar} />
       <main className="mx-auto min-h-screen max-w-7xl px-6 py-6 sm:py-8 sm:px-8 lg:px-12">
         <HeroSection profile={profile} />
         <SkillsSection profile={profile} />
