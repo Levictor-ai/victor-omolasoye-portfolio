@@ -152,43 +152,50 @@ const defaultProfile: ProfileData = {
       company: 'Forgelayers',
       role: 'Graphic Designer',
       period: 'Mar. 2026 — July 2026',
-      description: '',
+      description:
+        'Designed visual assets across brand campaigns, social media, and print, maintaining consistent brand direction and supporting the creative team from concept to delivery.',
     },
     {
       company: 'Moovable Technology Limited',
       role: 'UI/UX Product Designer',
       period: 'Jan. 2026 — June 2026',
-      description: '',
+      description:
+        'Owned the end-to-end product design process for a home-services platform — user research, wireframes, high-fidelity interfaces, prototyping, and design handoff to engineering.',
     },
     {
       company: 'Jasper Creatives',
       role: 'Graphic Designer',
       period: 'Sep. 2025 — Apr. 2026',
-      description: '',
+      description:
+        'Produced compelling brand and marketing collateral for diverse clients, from logo systems to campaign graphics, ensuring on-brand, high-quality output under tight deadlines.',
     },
     {
       company: 'Untitled Designer',
       role: 'Brand and Product Designer',
       period: 'Feb. 2025 — Feb. 2026',
-      description: '',
+      description:
+        'Delivered brand identities and product UI across sectors, translating business goals into clear visual systems and user-centred interfaces that shaped the full product experience.',
     },
     {
       company: 'Anyrev',
       role: 'Brand Designer',
       period: 'Sep. 2025 — Dec. 2025',
-      description: '',
+      description:
+        'Shaped the brand identity for a review services platform — logo development, visual language, and brand guidelines that established consistent, trustworthy communication.',
     },
     {
       company: 'Dev. and Design',
       role: 'UI/UX Designer',
       period: 'Oct. 2025 — Mar. 2026',
-      description: '',
+      description:
+        'Designed user flows and interfaces for digital products, collaborating closely with developers to ship pixel-perfect, accessible experiences across web and mobile.',
     },
     {
       company: 'Venture Tribe',
       role: 'Graphic Designer',
       period: 'Jul. 2024 — Dec. 2024',
-      description: '',
+      description:
+        'Created engaging visual content for a venture community — event graphics, branding, and social media creatives that supported growth and community engagement.',
     },
   ],
 };

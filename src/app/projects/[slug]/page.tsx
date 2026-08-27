@@ -1,15 +1,14 @@
 import Image from 'next/image';
-import fs from 'fs';
-import path from 'path';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import type { ProjectData } from '@/types/project';
+import { getProject, getSuggestedProjects } from '@/lib/projects';
+import { ProjectCard } from '@/components/ProjectCard';
 import { BackToTop } from '@/components/BackToTop';
 
 export async function generateStaticParams() {
-  const dir = path.join(process.cwd(), 'data', 'projects');
-  const files = fs.readdirSync(dir).filter((f) => f.endsWith('.json'));
-  return files.map((f) => ({ slug: f.replace(/\.json$/, '') }));
+  const { getAllProjects } = await import('@/lib/projects');
+  return getAllProjects().map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({
@@ -18,22 +17,17 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  try {
-    const filePath = path.join(process.cwd(), 'data', 'projects', `${slug}.json`);
-    const raw = fs.readFileSync(filePath, 'utf-8');
-    const project = JSON.parse(raw) as ProjectData;
-    return {
+  const project = getProject(slug);
+  if (!project) return { title: 'Project' };
+  return {
+    title: project.title,
+    description: project.overview || `${project.title} — project by Victor Omolasoye`,
+    openGraph: {
       title: project.title,
       description: project.overview || `${project.title} — project by Victor Omolasoye`,
-      openGraph: {
-        title: project.title,
-        description: project.overview || `${project.title} — project by Victor Omolasoye`,
-        images: project.coverImage ? [{ url: project.coverImage }] : [],
-      },
-    };
-  } catch {
-    return { title: 'Project' };
-  }
+      images: project.coverImage ? [{ url: project.coverImage }] : [],
+    },
+  };
 }
 import {
   ExternalLink,
@@ -48,16 +42,6 @@ import {
   Palette,
   Wrench,
 } from 'lucide-react';
-
-async function getProject(slug: string): Promise<ProjectData | null> {
-  try {
-    const filePath = path.join(process.cwd(), 'data', 'projects', `${slug}.json`);
-    const raw = await fs.promises.readFile(filePath, 'utf-8');
-    return JSON.parse(raw) as ProjectData;
-  } catch {
-    return null;
-  }
-}
 
 function techIcon(category: ProjectData['techStack'][number]['category']) {
   switch (category) {
@@ -423,19 +407,46 @@ function CaseStudyView({ project }: { project: ProjectData }) {
   );
 }
 
+function MoreProjects({ projects }: { projects: ProjectData[] }) {
+  if (projects.length === 0) return null;
+
+  return (
+    <section className="mt-20 border-t border-gray-200 pt-12">
+      <div className="mb-6 flex flex-wrap items-baseline justify-between gap-2">
+        <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
+          More Projects
+        </h2>
+        <a
+          href="/#projects"
+          className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 transition-colors hover:text-blue-700"
+        >
+          View all projects
+          <ArrowUpRight className="size-4" />
+        </a>
+      </div>
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {projects.map((project, i) => (
+          <ProjectCard key={project.slug} project={project} index={i} />
+        ))}
+      </div>
+    </section>
+  );
+}
+
 export default async function ProjectPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const project = await getProject(slug);
+  const project = getProject(slug);
 
   if (!project) {
     notFound();
   }
 
   const isGallery = project.layout === 'gallery';
+  const suggestedProjects = getSuggestedProjects(slug, 3);
 
   return (
     <main className="min-h-screen bg-[#F8F9FA] text-gray-900">
@@ -449,6 +460,7 @@ export default async function ProjectPage({
         </a>
 
         {isGallery ? <GalleryView project={project} /> : <CaseStudyView project={project} />}
+        <MoreProjects projects={suggestedProjects} />
       </article>
       <BackToTop />
     </main>

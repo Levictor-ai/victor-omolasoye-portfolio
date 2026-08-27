@@ -451,18 +451,19 @@ function AboutSection({ profile }: { profile: ProfileData }) {
         }}
         className="card overflow-hidden p-0 sm:p-0"
       >
-        <div className="relative aspect-[4/5] w-full sm:aspect-[3/2]">
-          <Image
-            src={profile.avatar}
-            alt={profile.name}
-            fill
-            className="object-cover"
-            style={{ objectPosition: 'top' }}
-            sizes="100vw"
-            priority
-          />
-        </div>
-        <div className="p-5 sm:p-6">
+        <div className="grid lg:grid-cols-2 lg:items-stretch">
+          <div className="relative aspect-[4/5] w-full sm:aspect-[3/2] lg:aspect-auto lg:h-full lg:min-h-[420px]">
+            <Image
+              src={profile.avatar}
+              alt={profile.name}
+              fill
+              className="object-cover"
+              style={{ objectPosition: 'top' }}
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              priority
+            />
+          </div>
+        <div className="flex flex-col justify-center p-5 sm:p-6 lg:p-8">
           <div className="prose prose-invert max-w-none">
             {profile.about.split('\n\n').map((paragraph, i) => (
               <p
@@ -487,6 +488,7 @@ function AboutSection({ profile }: { profile: ProfileData }) {
               </span>
             </a>
           </div>
+        </div>
         </div>
       </motion.div>
     </motion.section>
@@ -517,7 +519,7 @@ function ExperienceSection({ profile }: { profile: ProfileData }) {
       >
         Experience
       </motion.h2>
-      <div className="space-y-2">
+      <div className="space-y-3">
         {profile.experience.map((exp, i) => (
           <motion.div
             key={i}
@@ -526,11 +528,16 @@ function ExperienceSection({ profile }: { profile: ProfileData }) {
               show: { opacity: 1, x: 0, transition: { duration: 0.4 } },
             }}
           >
-            <div className="flex items-baseline justify-between gap-2">
-              <p className="text-right text-sm text-gray-900">{exp.role}</p>
+            <div className="flex flex-wrap items-baseline justify-between gap-2">
+              <p className="text-sm font-semibold text-gray-900 sm:text-base">{exp.role}</p>
               <p className="text-xs font-medium uppercase tracking-wider text-gray-900">{exp.company}</p>
             </div>
-            <p className="text-xs text-gray-400">{exp.period}</p>
+            <p className="mt-0.5 text-xs text-gray-400">{exp.period}</p>
+            {exp.description && (
+              <p className="mt-3 text-body-sm leading-relaxed text-gray-600">
+                {exp.description}
+              </p>
+            )}
           </motion.div>
         ))}
       </div>
