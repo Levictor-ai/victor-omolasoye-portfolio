@@ -11,26 +11,7 @@ import { BackToTop } from '@/components/BackToTop';
 import { Nav } from '@/components/Nav';
 import { AboutSection } from '@/components/AboutSection';
 import { ExperienceSection } from '@/components/ExperienceSection';
-
-const levelColors: Record<string, { bg: string; text: string; dot: string }> = {
-  Expert: { bg: 'bg-black/5', text: 'text-black', dot: 'bg-gray-900' },
-  Proficient: { bg: 'bg-gray-100', text: 'text-gray-700', dot: 'bg-gray-500' },
-  Familiar: { bg: 'bg-gray-50', text: 'text-gray-400', dot: 'bg-gray-400' },
-};
-
-function SkillBar({ label, level }: { label: string; level: string }) {
-  const colors = levelColors[level] ?? levelColors.Familiar;
-
-  return (
-    <div className="flex items-center justify-between">
-      <span className="text-xs font-medium text-gray-900">{label}</span>
-      <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wider ${colors.bg} ${colors.text}`}>
-        <span className={`size-1.5 rounded-full ${colors.dot}`} />
-        {level}
-      </span>
-    </div>
-  );
-}
+import { ToolsSection } from '@/components/ToolsSection';
 
 function AnimatedTitle({ titles }: { titles: string[] }) {
   const [index, setIndex] = useState(0);
@@ -244,82 +225,6 @@ function ArticlesSection() {
               <path d="M7 17l9.2-9.2M17 17V7H7" />
             </svg>
           </motion.a>
-        ))}
-      </div>
-    </motion.section>
-  );
-}
-
-function SkillsSection({ profile }: { profile: ProfileData }) {
-  return (
-    <motion.section
-      id="skills"
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, margin: '-50px' }}
-      variants={{
-        hidden: {},
-        show: { transition: { staggerChildren: 0.12 } },
-      }}
-      className="mb-20"
-    >
-      <motion.h2
-        variants={{
-          hidden: { opacity: 0, y: 20 },
-          show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-        }}
-        className="mb-1 text-heading-lg font-bold tracking-tight text-gray-900"
-      >
-        Skills &amp; Tools
-      </motion.h2>
-      <motion.p
-        variants={{
-          hidden: { opacity: 0, y: 20 },
-          show: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.05 } },
-        }}
-        className="mb-3 text-label-sm uppercase tracking-wider text-gray-400"
-      >
-        What I work with
-      </motion.p>
-      <motion.p
-        variants={{
-          hidden: { opacity: 0, y: 20 },
-          show: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 } },
-        }}
-        className="mb-8 max-w-2xl text-body-md leading-relaxed text-gray-500"
-      >
-        From discovery and strategy to visual execution and developer handoff, I bridge every phase of the product design lifecycle.
-      </motion.p>
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {[
-          { title: 'Core Disciplines', color: 'text-gray-900', skills: profile.coreDisciplines },
-          { title: 'Tools & Software', color: 'text-gray-700', skills: profile.tools },
-          { title: 'Technical & Handoff', color: 'text-gray-700', skills: profile.technicalHandoff },
-        ].map((group, gi) => (
-          <motion.div
-            key={gi}
-            variants={{
-              hidden: { opacity: 0, y: 24 },
-              show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-            }}
-          >
-            <h3 className={`mb-4 text-label-sm uppercase tracking-wider ${group.color}`}>
-              {group.title}
-            </h3>
-            <div className="space-y-3">
-              {group.skills.map((skill, si) => (
-                <motion.div
-                  key={skill.name}
-                  initial={{ opacity: 0, x: -12 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: si * 0.05 }}
-                >
-                  <SkillBar label={skill.name} level={skill.level} />
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
         ))}
       </div>
     </motion.section>
@@ -788,7 +693,7 @@ export function HomeContent({ projects }: { projects: ProjectData[] }) {
       <Nav avatar={profile.avatar} />
       <main className="mx-auto min-h-screen max-w-7xl px-6 py-6 sm:py-8 sm:px-8 lg:px-12">
         <HeroSection profile={profile} />
-        <SkillsSection profile={profile} />
+        <ToolsSection />
         <ProjectsSection projects={projects} behanceUrl={profile.socials.behance} />
         <AboutSection profile={profile} />
         <ExperienceSection profile={profile} />
