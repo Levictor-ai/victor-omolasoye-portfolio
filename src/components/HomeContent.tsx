@@ -68,14 +68,12 @@ function HeroSection({ profile }: { profile: ProfileData }) {
           </h1>
       </motion.div>
       <motion.div variants={item}>
-        <span className="mb-4 block w-full font-display font-bold leading-[0.86] tracking-tight text-gray-900">
-          <span aria-hidden="true" className="block w-full whitespace-nowrap text-[clamp(2.5rem,19vw,8rem)] sm:hidden">Designing</span>
-          <span aria-hidden="true" className="block w-full whitespace-nowrap text-[clamp(2.5rem,19vw,8rem)] sm:hidden">ideas into</span>
-          <span aria-hidden="true" className="block w-full whitespace-nowrap text-[clamp(2.5rem,19vw,8rem)] sm:hidden">identities,</span>
-          <span aria-hidden="true" className="block w-full whitespace-nowrap text-[clamp(2.5rem,19vw,8rem)] sm:hidden">products, and</span>
-          <span aria-hidden="true" className="block w-full whitespace-nowrap text-[clamp(2.5rem,19vw,8rem)] sm:hidden">experiences.</span>
-          <span className="hidden w-full whitespace-nowrap text-[clamp(2.75rem,8.2vw,6.5rem)] sm:block">Designing ideas into identities,</span>
-          <span className="hidden w-full whitespace-nowrap text-[clamp(3rem,10.4vw,8.5rem)] sm:block">products, and experiences.</span>
+        <span className="mb-4 block w-full font-display font-bold leading-[0.9] tracking-tight text-gray-900">
+          <span aria-hidden="true" className="block w-full whitespace-nowrap text-[clamp(2.75rem,27vw,8rem)] sm:hidden">Designing</span>
+          <span aria-hidden="true" className="block w-full whitespace-nowrap text-[clamp(2.75rem,27vw,8rem)] sm:hidden">what ideas</span>
+          <span aria-hidden="true" className="block w-full whitespace-nowrap bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent text-[clamp(3rem,31vw,9.5rem)] sm:hidden">become.</span>
+          <span className="hidden w-full whitespace-nowrap text-[clamp(4rem,13vw,10rem)] sm:block">Designing what</span>
+          <span className="hidden w-full whitespace-nowrap text-[clamp(4.5rem,15vw,12rem)] sm:block">ideas <span className="bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">become.</span></span>
         </span>
       </motion.div>
       <motion.div variants={item}>
