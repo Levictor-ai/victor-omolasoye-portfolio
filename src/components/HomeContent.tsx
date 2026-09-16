@@ -69,15 +69,14 @@ function HeroSection({ profile }: { profile: ProfileData }) {
       </motion.div>
       <motion.div variants={item}>
         <span className="mb-4 block w-full font-display font-bold leading-[0.9] tracking-tight text-gray-900">
-          <span aria-hidden="true" className="block w-full whitespace-nowrap text-[clamp(2.75rem,27vw,8rem)] sm:hidden">Designing</span>
-          <span aria-hidden="true" className="block w-full whitespace-nowrap text-[clamp(2.75rem,27vw,8rem)] sm:hidden">what ideas</span>
-          <span aria-hidden="true" className="block w-full whitespace-nowrap bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent text-[clamp(3rem,31vw,9.5rem)] sm:hidden">become.</span>
-          <span className="hidden w-full whitespace-nowrap text-[clamp(4rem,13vw,10rem)] sm:block">Designing what</span>
-          <span className="hidden w-full whitespace-nowrap text-[clamp(4.5rem,15vw,12rem)] sm:block">ideas <span className="bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">become.</span></span>
+          <span aria-hidden="true" className="block w-full whitespace-nowrap text-[clamp(2rem,12vw,5rem)] sm:hidden">Designing what</span>
+          <span aria-hidden="true" className="block w-full whitespace-nowrap bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent text-[clamp(2rem,12vw,5rem)] sm:hidden">ideas become.</span>
+          <span className="hidden w-full whitespace-nowrap text-[clamp(3rem,9vw,6.5rem)] sm:block">Designing what</span>
+          <span className="hidden w-full whitespace-nowrap text-[clamp(3.25rem,10vw,7rem)] sm:block">ideas <span className="bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">become.</span></span>
         </span>
       </motion.div>
       <motion.div variants={item}>
-        <p className="mb-6 w-full text-2xl font-bold leading-snug tracking-tight text-gray-900 sm:text-3xl">
+        <p className="mb-6 w-full text-xl font-bold leading-snug tracking-tight text-gray-900 sm:text-2xl">
           Five years in, I&rsquo;m still fascinated by the same thing: taking something
           that exists only as an idea and figuring out what it could become.
         </p>
