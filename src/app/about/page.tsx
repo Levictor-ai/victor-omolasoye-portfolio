@@ -23,6 +23,7 @@ export default function AboutPage() {
         <ServicesSection />
         <HowIWork />
         <ToolsSection />
+        <div className="mt-12" />
         <ExperienceSection
           profile={profile}
           headingClassName="mb-1 font-display text-6xl font-bold leading-none tracking-wide text-gray-900 sm:text-7xl"

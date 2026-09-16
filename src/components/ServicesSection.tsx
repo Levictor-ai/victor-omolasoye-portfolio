@@ -7,9 +7,9 @@ function BrandIcon() {
     <motion.div
       animate={{ rotate: [0, 12, -8, 0] }}
       transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-      className="flex size-12 items-center justify-center rounded-xl bg-pink-50 text-pink-600"
+      className="text-gray-900"
     >
-      <svg className="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <svg className="size-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M12 22a10 10 0 1 1 10-10c0 2.21-1.79 4-4 4h-3a2 2 0 0 0-1.6 3.2c.5.7.1 2.8-1.4 2.8z" />
         <circle cx="7.5" cy="11" r="1" fill="currentColor" />
         <circle cx="10.5" cy="7.5" r="1" fill="currentColor" />
@@ -25,9 +25,9 @@ function ProductIcon() {
     <motion.div
       animate={{ y: [0, -6, 0] }}
       transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
-      className="flex size-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600"
+      className="text-gray-900"
     >
-      <svg className="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <svg className="size-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M12 2 2 7l10 5 10-5-10-5z" />
         <path d="m2 17 10 5 10-5" />
         <path d="m2 12 10 5 10-5" />
@@ -41,9 +41,9 @@ function WebIcon() {
     <motion.div
       animate={{ rotate: 360 }}
       transition={{ duration: 12, repeat: Infinity, ease: 'linear' }}
-      className="flex size-12 items-center justify-center rounded-xl bg-violet-50 text-violet-600"
+      className="text-gray-900"
     >
-      <svg className="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <svg className="size-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <circle cx="12" cy="12" r="10" />
         <path d="M2 12h20" />
         <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
@@ -118,7 +118,7 @@ export function ServicesSection() {
         {services.map((service) => (
           <div
             key={service.title}
-            className="flex flex-col rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
+            className="flex flex-col rounded-2xl border border-gray-200 bg-white p-6"
           >
             {service.icon}
             <h3 className="mb-3 mt-4 text-xl font-bold tracking-tight text-gray-900">

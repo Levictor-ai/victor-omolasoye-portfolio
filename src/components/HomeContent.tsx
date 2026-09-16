@@ -13,48 +13,6 @@ import { AboutSection } from '@/components/AboutSection';
 import { ExperienceSection } from '@/components/ExperienceSection';
 import { renderInline } from '@/lib/inline';
 
-function AnimatedTitle({ titles }: { titles: string[] }) {
-  const [index, setIndex] = useState(0);
-  const [state, setState] = useState<'visible' | 'exiting' | 'entering'>('visible');
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setState('exiting');
-      setTimeout(() => {
-        setIndex((prev) => (prev + 1) % titles.length);
-        setState('entering');
-        setTimeout(() => setState('visible'), 400);
-      }, 400);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [titles.length]);
-
-  return (
-    <div className="mb-2">
-      <span
-        className={`block w-full font-display text-[clamp(3.75rem,19vw,8.5rem)] font-bold leading-[0.82] tracking-tight text-gray-900 transition-all duration-400 ${
-          state === 'visible'
-            ? 'opacity-100 translate-y-0'
-            : state === 'exiting'
-            ? 'opacity-0 -translate-y-2'
-            : 'opacity-0 translate-y-2'
-        }`}
-        style={{
-          transitionTimingFunction:
-            state === 'exiting' ? 'cubic-bezier(0.4, 0, 1, 1)' : 'cubic-bezier(0, 0, 0.2, 1)',
-        }}
-      >
-        {titles[index].split(' ').map((word, i, arr) => (
-          <span key={i} className={i > 0 ? 'block md:inline' : ''}>
-            {i > 0 && <span className="hidden md:inline">&nbsp;</span>}
-            {word}
-          </span>
-        ))}
-      </span>
-    </div>
-  );
-}
-
 function HeroSection({ profile }: { profile: ProfileData }) {
   const container = {
     hidden: {},
@@ -82,10 +40,14 @@ function HeroSection({ profile }: { profile: ProfileData }) {
             Hi, I&rsquo;m Victor Omolasoye
           </h1>
       </motion.div>
-      <motion.div variants={item}><AnimatedTitle titles={profile.titles} /></motion.div>
+      <motion.div variants={item}>
+          <span className="mb-2 block w-full font-display text-[clamp(3.75rem,19vw,8.5rem)] font-bold leading-[0.82] tracking-tight text-gray-900">
+            Brand Designer
+          </span>
+      </motion.div>
       <motion.div variants={item}>
         <p className="mb-6 max-w-2xl text-body-lg text-gray-700">
-          {profile.tagline}
+          Designing ideas into identities, products, and experiences.
         </p>
       </motion.div>
       <motion.div variants={item} className="flex flex-wrap gap-3">

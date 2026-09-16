@@ -95,7 +95,7 @@ export function ExperienceSection({
               hidden: { opacity: 0, x: -16 },
               show: { opacity: 1, x: 0, transition: { duration: 0.4 } },
             }}
-            className={i === 0 ? '' : 'mt-7 border-t border-gray-200/70 pt-7 sm:mt-8 sm:pt-8'}
+            className={i === 0 ? '' : 'mt-5 border-t border-gray-200/70 pt-5 sm:mt-6 sm:pt-6'}
           >
             <div className="grid gap-2 md:grid-cols-[200px_1fr] md:gap-8">
               <div>
