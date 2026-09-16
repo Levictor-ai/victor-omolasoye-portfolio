@@ -39,8 +39,8 @@ function ProductIcon() {
 function WebIcon() {
   return (
     <motion.div
-      animate={{ rotate: 360 }}
-      transition={{ duration: 12, repeat: Infinity, ease: 'linear' }}
+      animate={{ y: [0, -4, 0], rotate: [0, 5, -5, 0] }}
+      transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
       className="text-gray-900"
     >
       <svg className="size-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

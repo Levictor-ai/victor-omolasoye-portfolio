@@ -19,11 +19,11 @@ export default function AboutPage() {
         profile={profile}
         headingClassName="mb-6 font-display text-6xl font-bold leading-none tracking-wide text-white sm:text-7xl"
       />
-      <main className="mx-auto max-w-7xl px-6 pt-24 pb-20 sm:px-8">
+      <main className="mx-auto max-w-7xl px-6 pt-32 pb-24 sm:px-8">
         <ServicesSection />
         <HowIWork />
         <ToolsSection />
-        <div className="mt-12" />
+        <div className="mt-24" />
         <ExperienceSection
           profile={profile}
           headingClassName="mb-1 font-display text-6xl font-bold leading-none tracking-wide text-gray-900 sm:text-7xl"

@@ -41,13 +41,14 @@ function HeroSection({ profile }: { profile: ProfileData }) {
           </h1>
       </motion.div>
       <motion.div variants={item}>
-          <span className="mb-2 block w-full font-display text-[clamp(3.75rem,19vw,8.5rem)] font-bold leading-[0.82] tracking-tight text-gray-900">
-            Brand Designer
+          <span className="mb-4 block w-full font-display text-[clamp(2.75rem,12vw,6.5rem)] font-bold leading-[0.86] tracking-tight text-gray-900">
+            Designing ideas into identities, products, and experiences.
           </span>
       </motion.div>
       <motion.div variants={item}>
         <p className="mb-6 max-w-2xl text-body-lg text-gray-700">
-          Designing ideas into identities, products, and experiences.
+          Five years in, I&rsquo;m still fascinated by the same thing: taking something
+          that exists only as an idea and figuring out what it could become.
         </p>
       </motion.div>
       <motion.div variants={item} className="flex flex-wrap gap-3">
