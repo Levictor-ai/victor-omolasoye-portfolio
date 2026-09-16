@@ -68,8 +68,8 @@ function HeroSection({ profile }: { profile: ProfileData }) {
           </h1>
       </motion.div>
       <motion.div variants={item}>
-          <span className="mb-4 block w-full font-display text-[clamp(3.5rem,14vw,11rem)] font-bold leading-[0.86] tracking-tight text-gray-900">
-            Designing ideas<br className="sm:hidden" />into identities,<br className="sm:hidden" />products, and<br className="sm:hidden" />experiences.
+          <span className="mb-4 block w-full font-display text-[clamp(3.5rem,15.5vw,5.5rem)] font-bold leading-[0.86] tracking-tight text-gray-900">
+            Designing ideas<br className="sm:hidden" />into identities,<br className="hidden sm:inline" />products, and<br className="sm:hidden" />experiences.
           </span>
       </motion.div>
       <motion.div variants={item}>
