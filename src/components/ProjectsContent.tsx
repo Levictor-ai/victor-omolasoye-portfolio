@@ -4,11 +4,14 @@ import { motion } from 'framer-motion';
 import { usePortfolio } from '@/context/PortfolioContext';
 import { Nav } from '@/components/Nav';
 import { ProjectCard } from '@/components/ProjectCard';
+import { PersonalProjectCard } from '@/components/PersonalProjectCard';
 import { BackToTop } from '@/components/BackToTop';
 import type { ProjectData } from '@/types/project';
 
 export function ProjectsContent({ projects }: { projects: ProjectData[] }) {
   const profile = usePortfolio();
+  const featured = projects.filter((p) => !p.personal);
+  const personal = projects.filter((p) => p.personal);
 
   return (
     <>
@@ -46,9 +49,10 @@ export function ProjectsContent({ projects }: { projects: ProjectData[] }) {
             )}
           </div>
         </motion.div>
-        {projects.length > 0 ? (
+
+        {featured.length > 0 ? (
           <motion.div layout className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {projects.map((project, i) => (
+            {featured.map((project, i) => (
               <motion.div
                 key={project.slug}
                 layout
@@ -62,6 +66,43 @@ export function ProjectsContent({ projects }: { projects: ProjectData[] }) {
           </motion.div>
         ) : (
           <p className="text-gray-500">No projects yet.</p>
+        )}
+
+        {personal.length > 0 && (
+          <section className="mt-20">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.5 }}
+            >
+              <h2 className="mb-1 font-display text-5xl font-bold leading-none tracking-wide text-gray-900 sm:text-6xl">
+                Personal Projects
+              </h2>
+              <p className="mb-8 text-label-sm uppercase tracking-wider text-gray-400">
+                Side projects I&rsquo;ve built for the love of it
+              </p>
+            </motion.div>
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+              }}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: '-50px' }}
+              className="space-y-6"
+            >
+              {personal.map((project, i) => (
+                <motion.div
+                  key={project.slug}
+                  className="rounded-3xl border border-gray-200 bg-gray-50 p-5 shadow-sm sm:p-8"
+                >
+                  <PersonalProjectCard project={project} index={i} />
+                </motion.div>
+              ))}
+            </motion.div>
+          </section>
         )}
       </main>
       <BackToTop />

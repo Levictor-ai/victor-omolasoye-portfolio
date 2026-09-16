@@ -79,7 +79,7 @@ export function HowIWork() {
               }}
               className="grid gap-2 md:grid-cols-[80px_1fr] md:gap-6"
             >
-              <span className="text-sm font-bold tracking-tight text-gray-300">
+              <span className="text-sm font-bold tracking-tight text-blue-600">
                 {String(i + 1).padStart(2, '0')}
               </span>
               <div>

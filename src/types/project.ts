@@ -52,6 +52,7 @@ export type ProjectCategory = 'brand' | 'product' | 'engineering';
 export interface ProjectData {
   slug: string;
   category: ProjectCategory;
+  personal?: boolean;
   title: string;
   subtitle: string;
   role: string;

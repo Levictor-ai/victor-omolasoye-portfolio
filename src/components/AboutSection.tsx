@@ -22,7 +22,7 @@ export function AboutSection({
         hidden: {},
         show: { transition: { staggerChildren: 0.1 } },
       }}
-      className="mb-20"
+      className="mb-20 -mx-6 px-6 sm:-mx-8 sm:px-8 lg:-mx-12 lg:px-12 py-16 bg-black"
     >
       <motion.h2
         variants={{
@@ -31,7 +31,7 @@ export function AboutSection({
         }}
         className={
           headingClassName ??
-          'mb-6 text-heading-lg font-bold tracking-tight text-gray-900'
+          'mb-6 text-heading-lg font-bold tracking-tight text-white'
         }
       >
         About Me
@@ -59,7 +59,7 @@ export function AboutSection({
               {profile.about.split('\n\n').map((paragraph, i) => (
                 <p
                   key={i}
-                  className="mb-5 last:mb-0 text-body-lg leading-relaxed text-gray-700"
+                  className="mb-5 last:mb-0 text-body-lg leading-relaxed text-gray-300"
                 >
                   {renderInline(paragraph)}
                 </p>

@@ -11,7 +11,6 @@ import { BackToTop } from '@/components/BackToTop';
 import { Nav } from '@/components/Nav';
 import { AboutSection } from '@/components/AboutSection';
 import { ExperienceSection } from '@/components/ExperienceSection';
-import { ToolsSection } from '@/components/ToolsSection';
 import { renderInline } from '@/lib/inline';
 
 function AnimatedTitle({ titles }: { titles: string[] }) {
@@ -33,7 +32,7 @@ function AnimatedTitle({ titles }: { titles: string[] }) {
   return (
     <div className="mb-2">
       <span
-        className={`block w-full font-display text-[clamp(3.5rem,17vw,7.5rem)] font-bold leading-[0.9] tracking-tight text-gray-900 transition-all duration-400 ${
+        className={`block w-full font-display text-[clamp(3.75rem,19vw,8.5rem)] font-bold leading-[0.82] tracking-tight text-gray-900 transition-all duration-400 ${
           state === 'visible'
             ? 'opacity-100 translate-y-0'
             : state === 'exiting'
@@ -75,13 +74,13 @@ function HeroSection({ profile }: { profile: ProfileData }) {
       variants={container}
       initial="hidden"
       animate="show"
-      className="flex min-h-0 flex-col justify-center py-12 lg:min-h-[calc(100vh-57px)] lg:py-0"
+      className="flex min-h-[calc(100dvh-57px)] flex-col justify-center py-12 lg:min-h-[calc(100vh-57px)] lg:py-0"
     >
       <motion.div variants={item}><AvailableBanner /></motion.div>
       <motion.div variants={item}>
           <h1 className="mb-4 text-2xl font-normal tracking-tight text-gray-900 sm:text-3xl">
-          Victor Omolasoye
-        </h1>
+            Hi, I&rsquo;m Victor Omolasoye
+          </h1>
       </motion.div>
       <motion.div variants={item}><AnimatedTitle titles={profile.titles} /></motion.div>
       <motion.div variants={item}>
@@ -242,24 +241,24 @@ function TestimonialsCarousel({ profile }: { profile: ProfileData }) {
   const items = profile.testimonials;
   if (items.length === 0) return null;
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setDirection(1);
-      setIndex((prev) => (prev + 1) % items.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [items.length]);
-
   const variants = {
-    initial: (dir: number) => ({ x: dir * 60, opacity: 0 }),
-    animate: { x: 0, opacity: 1 },
-    exit: (dir: number) => ({ x: dir * -60, opacity: 0 }),
+    initial: (dir: number) => ({ x: dir * 90, opacity: 0, rotate: dir * 3 }),
+    animate: { x: 0, opacity: 1, rotate: -1 },
+    exit: (dir: number) => ({ x: dir * -90, opacity: 0, rotate: dir * -3 }),
   };
 
   return (
     <section id="testimonials" className="mb-20">
-      <h2 className="mb-6 text-heading-lg font-bold tracking-tight text-gray-900">Testimonials</h2>
-      <div className="relative mx-auto overflow-hidden">
+      <h2 className="mb-10 text-heading-lg font-bold tracking-tight text-gray-900">Testimonials</h2>
+      <div className="relative mx-auto max-w-2xl lg:sticky lg:top-24">
+        <div
+          className="pointer-events-none absolute -inset-4 -z-10 rotate-2 rounded-md border border-gray-200 bg-white"
+          aria-hidden="true"
+        />
+        <div
+          className="pointer-events-none absolute -inset-4 -z-10 -rotate-1 rounded-md border border-gray-200 bg-gray-50"
+          aria-hidden="true"
+        />
         <AnimatePresence custom={direction} mode="wait">
           <motion.blockquote
             key={index}
@@ -268,12 +267,12 @@ function TestimonialsCarousel({ profile }: { profile: ProfileData }) {
             initial="initial"
             animate="animate"
             exit="exit"
-            transition={{ duration: 0.5, ease: 'easeInOut' }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
             drag="x"
             dragConstraints={{ left: 0, right: 0 }}
-            dragElastic={0.2}
+            dragElastic={0.12}
             onDragEnd={(_, info) => {
-              const threshold = 50;
+              const threshold = 60;
               if (info.offset.x < -threshold) {
                 setDirection(1);
                 setIndex((prev) => (prev + 1) % items.length);
@@ -282,25 +281,29 @@ function TestimonialsCarousel({ profile }: { profile: ProfileData }) {
                 setIndex((prev) => (prev - 1 + items.length) % items.length);
               }
             }}
-            className="flex flex-col rounded-xl border border-gray-200 p-5 sm:p-6"
+            className="relative flex flex-col rounded-sm border border-gray-200 bg-white p-6 shadow-[0_24px_60px_-28px] shadow-black/[0.15] sm:p-8"
           >
+            <div
+              className="absolute -top-3 left-1/2 h-6 w-24 -translate-x-1/2 rotate-3 border border-gray-200/70 bg-gray-100/90 shadow-sm"
+              aria-hidden="true"
+            />
             <svg
-              className="mb-3 size-5 text-black/40"
+              className="mb-3 size-6 text-gray-300"
               viewBox="0 0 24 24"
               fill="currentColor"
               aria-hidden="true"
             >
               <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151C7.563 6.068 6 8.789 6 11h4v10H0z" />
             </svg>
-            <p className="mb-6 text-body-md leading-relaxed text-gray-700">
+            <p className="mb-6 text-lg leading-relaxed text-gray-800 sm:text-xl">
               &ldquo;{items[index].quote}&rdquo;
             </p>
-            <footer>
+            <footer className="mt-auto border-t border-gray-200 pt-5">
               <cite className="not-italic">
-                <span className="block text-sm font-medium text-gray-900">
+                <span className="block text-sm font-semibold text-gray-900">
                   {items[index].author}
                 </span>
-                <span className="text-sm text-gray-400">
+                <span className="text-sm text-gray-500">
                   {items[index].role}
                   {items[index].company ? ` @ ${items[index].company}` : ''}
                 </span>
@@ -313,10 +316,8 @@ function TestimonialsCarousel({ profile }: { profile: ProfileData }) {
             <button
               key={i}
               onClick={() => { setDirection(i > index ? 1 : -1); setIndex(i); }}
-              className={`size-2 rounded-full transition-all duration-300 ${
-                i === index
-                  ? 'w-6 bg-gray-900'
-                  : 'bg-gray-300 hover:bg-gray-400'
+              className={`rounded-full transition-all duration-300 ${
+                i === index ? 'h-2 w-6 bg-gray-900' : 'h-2 w-2 bg-gray-300 hover:bg-gray-400'
               }`}
               aria-label={`Go to testimonial ${i + 1}`}
             />
@@ -331,7 +332,6 @@ const projectCategories = [
   { value: 'all', label: 'All' },
   { value: 'brand', label: 'Brand Design' },
   { value: 'product', label: 'Product Design' },
-  { value: 'engineering', label: 'Engineering' },
 ] as const;
 
 function ProjectsSection({ projects, behanceUrl }: { projects: ProjectData[]; behanceUrl?: string }) {
@@ -339,7 +339,7 @@ function ProjectsSection({ projects, behanceUrl }: { projects: ProjectData[]; be
 
   useEffect(() => {
     const param = new URLSearchParams(window.location.search).get('category');
-    if (param === 'brand' || param === 'product' || param === 'engineering') {
+    if (param === 'brand' || param === 'product') {
       setActiveCategory(param);
     }
   }, []);
@@ -357,7 +357,7 @@ function ProjectsSection({ projects, behanceUrl }: { projects: ProjectData[]; be
   useEffect(() => {
     const onPopState = () => {
       const param = new URLSearchParams(window.location.search).get('category');
-      if (param === 'brand' || param === 'product' || param === 'engineering') {
+      if (param === 'brand' || param === 'product') {
         setActiveCategory(param);
       } else {
         setActiveCategory('all');
@@ -367,10 +367,12 @@ function ProjectsSection({ projects, behanceUrl }: { projects: ProjectData[]; be
     return () => window.removeEventListener('popstate', onPopState);
   }, []);
 
+  const selectedProjects = projects.filter((p) => !p.personal);
+
   const filteredProjects =
     activeCategory === 'all'
-      ? projects
-      : projects.filter((project) => project.category === activeCategory);
+      ? selectedProjects
+      : selectedProjects.filter((project) => project.category === activeCategory);
 
   const activeLabel =
     projectCategories.find((category) => category.value === activeCategory)?.label ?? 'All';
@@ -412,7 +414,7 @@ function ProjectsSection({ projects, behanceUrl }: { projects: ProjectData[]; be
         }}
         className="mb-6"
       >
-        <div className="inline-flex max-w-full flex-wrap gap-1 rounded-full border border-gray-200 bg-gray-100 p-1">
+        <div className="inline-flex max-w-full items-center gap-1 overflow-x-auto rounded-full border border-gray-200 bg-white p-1 shadow-sm">
           {projectCategories.map((category) => {
             const isActive = activeCategory === category.value;
             return (
@@ -420,13 +422,18 @@ function ProjectsSection({ projects, behanceUrl }: { projects: ProjectData[]; be
                 key={category.value}
                 onClick={() => setActiveCategory(category.value)}
                 aria-pressed={isActive}
-                className={`inline-flex items-center gap-1.5 rounded-full px-4 py-1.5 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 ${
-                  isActive
-                    ? 'bg-gray-900 text-white shadow-sm'
-                    : 'text-gray-600 hover:bg-white/60 hover:text-gray-900'
+                className={`relative whitespace-nowrap rounded-full px-5 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 ${
+                  isActive ? 'text-white' : 'text-gray-600 hover:text-gray-900'
                 }`}
               >
-                {category.label}
+                {isActive && (
+                  <motion.span
+                    layoutId="projectsCategoryToggle"
+                    className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 shadow-sm"
+                    transition={{ type: 'spring', stiffness: 400, damping: 32 }}
+                  />
+                )}
+                <span className="relative z-10">{category.label}</span>
               </button>
             );
           })}
@@ -708,7 +715,6 @@ export function HomeContent({ projects }: { projects: ProjectData[] }) {
       <Nav avatar={profile.avatar} />
       <main className="mx-auto min-h-screen max-w-7xl px-6 py-6 sm:py-8 sm:px-8 lg:px-12">
         <HeroSection profile={profile} />
-        <ToolsSection />
         <ProjectsSection projects={projects} behanceUrl={profile.socials.behance} />
         <AboutSection profile={profile} />
         <ExperienceSection profile={profile} />
