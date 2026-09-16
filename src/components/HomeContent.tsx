@@ -76,7 +76,7 @@ function HeroSection({ profile }: { profile: ProfileData }) {
         </span>
       </motion.div>
       <motion.div variants={item}>
-        <p className="mb-6 w-full text-xl font-bold leading-snug tracking-tight text-gray-900 sm:text-2xl">
+        <p className="mb-6 w-full text-xl font-bold leading-snug tracking-tight text-gray-900 sm:text-lg">
           Five years in, I&rsquo;m still fascinated by the same thing: taking something
           that exists only as an idea and figuring out what it could become.
         </p>
