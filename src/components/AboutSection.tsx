@@ -22,7 +22,7 @@ export function AboutSection({
         hidden: {},
         show: { transition: { staggerChildren: 0.1 } },
       }}
-      className="mb-32 bg-neutral-950 py-28 lg:mb-40 lg:py-40"
+      className="mb-32 bg-neutral-100 py-28 lg:mb-40 lg:py-40"
       style={{ width: '100vw', marginLeft: 'calc(50% - 50vw)' }}
     >
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
@@ -33,7 +33,7 @@ export function AboutSection({
           }}
           className={
             headingClassName ??
-            'mb-6 text-heading-lg font-bold tracking-tight text-white'
+            'mb-6 text-heading-lg font-bold tracking-tight text-gray-900'
           }
         >
           About Me
@@ -57,13 +57,13 @@ export function AboutSection({
               />
             </div>
             <div className="flex flex-col justify-center">
-              <div className="prose prose-invert max-w-none">
+              <div className="prose max-w-none">
                 {profile.about.split('\n\n').map((paragraph, i) => (
                   <p
                     key={i}
-                    className="mb-5 last:mb-0 text-body-lg leading-relaxed text-gray-300"
+                    className="mb-5 last:mb-0 text-body-lg leading-relaxed text-gray-700"
                   >
-                    {renderInline(paragraph, 'font-semibold text-white')}
+                    {renderInline(paragraph, 'font-semibold text-gray-900')}
                   </p>
                 ))}
               </div>

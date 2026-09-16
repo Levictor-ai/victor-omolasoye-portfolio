@@ -17,7 +17,7 @@ export default function AboutPage() {
       <Nav avatar={profile.avatar} />
       <AboutSection
         profile={profile}
-        headingClassName="mb-6 font-display text-6xl font-bold leading-none tracking-wide text-white sm:text-7xl"
+        headingClassName="mb-6 font-display text-6xl font-bold leading-none tracking-wide text-gray-900 sm:text-7xl"
       />
       <main className="mx-auto max-w-7xl px-6 pt-32 pb-24 sm:px-8">
         <ServicesSection />

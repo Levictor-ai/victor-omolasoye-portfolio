@@ -69,11 +69,11 @@ function HeroSection({ profile }: { profile: ProfileData }) {
       </motion.div>
       <motion.div variants={item}>
           <span className="mb-4 block w-full font-display text-[clamp(3.5rem,15.5vw,5rem)] font-bold leading-[0.86] tracking-tight text-gray-900">
-            Designing ideas<br className="sm:hidden" />into<br className="hidden sm:inline" />identities,<br className="sm:hidden" />products, and<br className="sm:hidden" />experiences.
+            Designing ideas{' '}<br className="sm:hidden" />into identities,{' '}<br className="sm:hidden" />products, and{' '}<br className="sm:hidden" />experiences.
           </span>
       </motion.div>
       <motion.div variants={item}>
-        <p className="mb-6 max-w-2xl text-body-lg font-semibold text-gray-900">
+        <p className="mb-6 max-w-2xl text-body-lg font-semibold tracking-tight text-gray-900">
           Five years in, I&rsquo;m still fascinated by the same thing: taking something
           that exists only as an idea and figuring out what it could become.
         </p>
