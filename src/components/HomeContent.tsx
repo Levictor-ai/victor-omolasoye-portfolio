@@ -68,12 +68,18 @@ function HeroSection({ profile }: { profile: ProfileData }) {
           </h1>
       </motion.div>
       <motion.div variants={item}>
-          <span className="mb-4 block w-full font-display text-[clamp(3.5rem,15.5vw,5rem)] font-bold leading-[0.86] tracking-tight text-gray-900">
-            Designing ideas{' '}<br className="sm:hidden" />into identities,{' '}<br className="sm:hidden" />products, and{' '}<br className="sm:hidden" />experiences.
-          </span>
+        <span className="mb-4 block w-full font-display font-bold leading-[0.86] tracking-tight text-gray-900">
+          <span aria-hidden="true" className="block w-full whitespace-nowrap text-[clamp(2.5rem,19vw,8rem)] sm:hidden">Designing</span>
+          <span aria-hidden="true" className="block w-full whitespace-nowrap text-[clamp(2.5rem,19vw,8rem)] sm:hidden">ideas into</span>
+          <span aria-hidden="true" className="block w-full whitespace-nowrap text-[clamp(2.5rem,19vw,8rem)] sm:hidden">identities,</span>
+          <span aria-hidden="true" className="block w-full whitespace-nowrap text-[clamp(2.5rem,19vw,8rem)] sm:hidden">products, and</span>
+          <span aria-hidden="true" className="block w-full whitespace-nowrap text-[clamp(2.5rem,19vw,8rem)] sm:hidden">experiences.</span>
+          <span className="hidden w-full whitespace-nowrap text-[clamp(2.75rem,8.2vw,6.5rem)] sm:block">Designing ideas into identities,</span>
+          <span className="hidden w-full whitespace-nowrap text-[clamp(3rem,10.4vw,8.5rem)] sm:block">products, and experiences.</span>
+        </span>
       </motion.div>
       <motion.div variants={item}>
-        <p className="mb-6 max-w-2xl text-body-lg font-semibold tracking-tight text-gray-900">
+        <p className="mb-6 w-full text-2xl font-bold leading-snug tracking-tight text-gray-900 sm:text-3xl">
           Five years in, I&rsquo;m still fascinated by the same thing: taking something
           that exists only as an idea and figuring out what it could become.
         </p>
