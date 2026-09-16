@@ -13,6 +13,33 @@ import { AboutSection } from '@/components/AboutSection';
 import { ExperienceSection } from '@/components/ExperienceSection';
 import { renderInline } from '@/lib/inline';
 
+function TypewriterText({ text, className }: { text: string; className?: string }) {
+  const [displayedText, setDisplayedText] = useState('');
+
+  useEffect(() => {
+    let i = 0;
+    const interval = setInterval(() => {
+      if (i < text.length) {
+        setDisplayedText(text.slice(0, i + 1));
+        i++;
+      } else {
+        clearInterval(interval);
+      }
+    }, 80);
+    return () => clearInterval(interval);
+  }, [text]);
+
+  return (
+    <span className={className}>
+      {displayedText}
+      <span
+        className="ml-[2px] inline-block w-[3px] bg-gray-900"
+        style={{ height: '1em', verticalAlign: 'text-bottom', animation: 'cursor-blink 1s step-end infinite' }}
+      />
+    </span>
+  );
+}
+
 function HeroSection({ profile }: { profile: ProfileData }) {
   const container = {
     hidden: {},
@@ -32,17 +59,17 @@ function HeroSection({ profile }: { profile: ProfileData }) {
       variants={container}
       initial="hidden"
       animate="show"
-      className="flex min-h-[calc(100dvh-57px)] flex-col justify-center py-12 lg:min-h-[calc(100vh-57px)] lg:py-0"
+      className="flex min-h-[calc(100dvh-57px)] flex-col justify-center py-12 pb-16 lg:min-h-[calc(100vh-57px)] lg:py-0 lg:pb-24"
     >
       <motion.div variants={item}><AvailableBanner /></motion.div>
       <motion.div variants={item}>
           <h1 className="mb-4 text-2xl font-normal tracking-tight text-gray-900 sm:text-3xl">
-            Hi, I&rsquo;m Victor Omolasoye
+            Hi, <TypewriterText text="I'm Victor Omolasoye" />
           </h1>
       </motion.div>
       <motion.div variants={item}>
           <span className="mb-4 block w-full font-display text-[clamp(3.5rem,14vw,11rem)] font-bold leading-[0.86] tracking-tight text-gray-900">
-            Designing ideas into identities, products, and experiences.
+            Designing ideas<br className="sm:hidden" />into identities,<br className="sm:hidden" />products, and<br className="sm:hidden" />experiences.
           </span>
       </motion.div>
       <motion.div variants={item}>
