@@ -229,7 +229,7 @@ export function ToolsSection() {
           hidden: { opacity: 0, y: 20 },
           show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
         }}
-        className="mb-1 text-heading-lg font-bold tracking-tight text-gray-900"
+        className="mb-1 font-display text-6xl font-bold leading-none tracking-wide text-gray-900 sm:text-7xl"
       >
         Tools
       </motion.h2>

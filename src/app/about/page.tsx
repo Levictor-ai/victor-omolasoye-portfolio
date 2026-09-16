@@ -19,9 +19,9 @@ export default function AboutPage() {
         profile={profile}
         headingClassName="mb-6 font-display text-6xl font-bold leading-none tracking-wide text-white sm:text-7xl"
       />
-      <main className="mx-auto max-w-7xl px-6 py-20 sm:px-8">
-        <HowIWork />
+      <main className="mx-auto max-w-7xl px-6 pt-24 pb-20 sm:px-8">
         <ServicesSection />
+        <HowIWork />
         <ToolsSection />
         <ExperienceSection
           profile={profile}

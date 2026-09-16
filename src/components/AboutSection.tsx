@@ -22,7 +22,7 @@ export function AboutSection({
         hidden: {},
         show: { transition: { staggerChildren: 0.1 } },
       }}
-      className="bg-black py-16 lg:py-20"
+      className="bg-black py-24 lg:py-32"
       style={{ width: '100vw', marginLeft: 'calc(50% - 50vw)' }}
     >
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
@@ -63,7 +63,7 @@ export function AboutSection({
                     key={i}
                     className="mb-5 last:mb-0 text-body-lg leading-relaxed text-gray-300"
                   >
-                    {renderInline(paragraph)}
+                    {renderInline(paragraph, 'font-semibold text-white')}
                   </p>
                 ))}
               </div>

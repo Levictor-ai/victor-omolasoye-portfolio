@@ -26,7 +26,7 @@ function ExpandableDescription({ text }: { text: string }) {
       <div
         ref={ref}
         className={`space-y-3 text-body-sm leading-relaxed text-gray-600 ${
-          expanded ? '' : 'line-clamp-5'
+          expanded ? '' : 'line-clamp-2'
         }`}
       >
         {text.split('\n\n').map((paragraph, pi) => (
