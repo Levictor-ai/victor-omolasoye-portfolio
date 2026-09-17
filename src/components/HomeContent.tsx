@@ -18,22 +18,42 @@ function TypewriterText({ text, className }: { text: string; className?: string 
 
   useEffect(() => {
     let i = 0;
-    const interval = setInterval(() => {
-      if (i < text.length) {
-        setDisplayedText(text.slice(0, i + 1));
-        i++;
+    let deleting = false;
+    let timeout: ReturnType<typeof setTimeout>;
+
+    const step = () => {
+      if (!deleting) {
+        if (i < text.length) {
+          i++;
+          setDisplayedText(text.slice(0, i));
+          timeout = setTimeout(step, 80);
+        } else {
+          timeout = setTimeout(() => {
+            deleting = true;
+            step();
+          }, 1800);
+        }
       } else {
-        clearInterval(interval);
+        if (i > 0) {
+          i--;
+          setDisplayedText(text.slice(0, i));
+          timeout = setTimeout(step, 40);
+        } else {
+          deleting = false;
+          timeout = setTimeout(step, 500);
+        }
       }
-    }, 80);
-    return () => clearInterval(interval);
+    };
+
+    step();
+    return () => clearTimeout(timeout);
   }, [text]);
 
   return (
     <span className={className}>
       {displayedText}
       <span
-        className="ml-[2px] inline-block w-[3px] bg-gray-900"
+        className="ml-[2px] inline-block w-[1.5px] bg-gray-900"
         style={{ height: '1em', verticalAlign: 'text-bottom', animation: 'cursor-blink 1s step-end infinite' }}
       />
     </span>
