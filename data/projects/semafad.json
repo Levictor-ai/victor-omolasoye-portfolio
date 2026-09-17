@@ -1,0 +1,75 @@
+{
+  "slug": "semafad",
+  "category": "brand",
+  "title": "Semafad",
+  "subtitle": "Brand Identity & Design",
+  "role": "Brand Designer",
+  "company": "Semafad",
+  "period": "2026",
+  "coverImage": "/images/projects/semafad/01.jpg",
+  "color": "#1A1A1A",
+  "overview": "This project involved developing a complete brand identity system for Semafad. The visual identity is built around a bold, refined aesthetic designed to establish a strong and memorable presence across digital and print touchpoints.",
+  "problem": "Without a unified visual language, brand touchpoints can feel disconnected and fail to leave a lasting impression. Semafad needed a distinctive identity that communicates credibility and professionalism while remaining modern and approachable.",
+  "solution": "A complete brand identity system spanning logo design, color palette, typography, and brand assets. The system delivers consistent, recognizable visuals designed to scale across every application.",
+  "targetAudience": ["Brand Teams", "Marketing & Brand Teams", "Design Teams"],
+  "regions": ["Global"],
+  "timeline": "2026",
+  "features": [
+    {
+      "title": "Logo Suite",
+      "description": "Primary logo and supporting marks designed for adaptability across light/dark themes and varying screen sizes."
+    },
+    {
+      "title": "Color Palette",
+      "description": "A curated brand color system supporting visual hierarchy and consistent application across digital and print."
+    },
+    {
+      "title": "Typography System",
+      "description": "Type scale and usage guidelines ensuring clear hierarchy and consistent voice across all communications."
+    },
+    {
+      "title": "Brand Assets",
+      "description": "Comprehensive brand visuals and assets for consistent application across all touchpoints."
+    }
+  ],
+  "techStack": [
+    { "name": "Adobe Photoshop", "category": "design" },
+    { "name": "Adobe Illustrator", "category": "design" },
+    { "name": "Brand Identity", "category": "design" },
+    { "name": "Design Systems", "category": "design" }
+  ],
+  "architecture": {
+    "title": "",
+    "description": "",
+    "highlights": []
+  },
+  "results": [
+    {
+      "metric": "Brand Assets",
+      "value": "12",
+      "description": "Brand identity assets and visuals"
+    },
+    {
+      "metric": "Identity",
+      "value": "Complete",
+      "description": "Logo, color, typography, and brand asset system"
+    }
+  ],
+  "layout": "gallery",
+  "links": [],
+  "images": [
+    { "src": "/images/projects/semafad/01.jpg", "alt": "Semafad Brand Design 1" },
+    { "src": "/images/projects/semafad/02.jpg", "alt": "Semafad Brand Design 2" },
+    { "src": "/images/projects/semafad/03.jpg", "alt": "Semafad Brand Design 3" },
+    { "src": "/images/projects/semafad/04.jpg", "alt": "Semafad Brand Design 4" },
+    { "src": "/images/projects/semafad/05.jpg", "alt": "Semafad Brand Design 5" },
+    { "src": "/images/projects/semafad/06.jpg", "alt": "Semafad Brand Design 6" },
+    { "src": "/images/projects/semafad/07.jpg", "alt": "Semafad Brand Design 7" },
+    { "src": "/images/projects/semafad/08.jpg", "alt": "Semafad Brand Design 8" },
+    { "src": "/images/projects/semafad/11.jpg", "alt": "Semafad Brand Design 9" },
+    { "src": "/images/projects/semafad/14.jpg", "alt": "Semafad Brand Design 10" },
+    { "src": "/images/projects/semafad/15.jpg", "alt": "Semafad Brand Design 11" },
+    { "src": "/images/projects/semafad/18.jpg", "alt": "Semafad Brand Design 12" }
+  ],
+  "sections": []
+}
