@@ -259,7 +259,7 @@ function HeroSection({ profile }: { profile: ProfileData }) {
               </h1>
           </motion.div>
           <motion.div variants={item}>
-            <span className="mb-4 block w-full font-sans font-extrabold leading-[0.95] tracking-[-0.04em] text-gray-900">
+            <span className="mb-4 block w-full font-sans font-extrabold leading-[1.066] tracking-[-0.09em] text-gray-900">
               <span aria-hidden="true" className="block w-full whitespace-nowrap text-[clamp(1.5rem,9.5vw,2.75rem)] sm:hidden">Designing what</span>
               <span aria-hidden="true" className="block w-full whitespace-nowrap bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent text-[clamp(1.5rem,9.5vw,2.75rem)] sm:hidden">ideas become.</span>
               <span className="hidden w-full whitespace-nowrap text-[clamp(2.75rem,9vw,5.5rem)] sm:block lg:text-[clamp(2.5rem,6.5vw,5.5rem)]">Designing what</span>
