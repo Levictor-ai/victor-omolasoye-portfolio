@@ -2,6 +2,7 @@
 
 import { useState, useEffect, type ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 import { usePortfolio } from '@/context/PortfolioContext';
 import type { ProfileData } from '@/context/PortfolioContext';
 import type { ProjectData, ProjectCategory } from '@/types/project';
@@ -60,6 +61,172 @@ function TypewriterText({ text, className }: { text: string; className?: string 
   );
 }
 
+const PIXEL_COLORS: Record<string, string> = {
+  '@': '#1f2937',
+  's': '#f6c79b',
+  'e': '#111827',
+  'b': '#2563eb',
+  'w': '#ffffff',
+};
+
+const PIXEL_MAP = [
+  '..@@@@@@@..',
+  '.@@@@@@@@@.',
+  '@@@@@@@@@@@',
+  '@@sssssss@@',
+  '@@ssessess@',
+  '@@sssssss@@',
+  '@@sssssss@@',
+  '@@@sssss@@@',
+  '@bbbbbbbbb@',
+  '.bbbbbbbbb.',
+  '.bb...bbbb.',
+  '.bb...wwbb.',
+];
+
+function PixelCharacter() {
+  return (
+    <span
+      className="grid select-none"
+      role="img"
+      aria-label="Pixel designer character"
+      style={{
+        gridTemplateColumns: `repeat(${PIXEL_MAP[0].length}, 5px)`,
+        imageRendering: 'pixelated',
+      }}
+    >
+      {PIXEL_MAP.map((row, y) =>
+        Array.from(row).map((cell, x) => (
+          <span
+            key={`${x}-${y}`}
+            style={{
+              width: 5,
+              height: 5,
+              backgroundColor: PIXEL_COLORS[cell] ?? 'transparent',
+            }}
+          />
+        )),
+      )}
+    </span>
+  );
+}
+
+function DesignCursor() {
+  return (
+    <svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        d="M5.5 3.2 19 9.4 12 11.6 9.8 16.6 5.5 3.2Z"
+        fill="#ffffff"
+        stroke="#111111"
+        strokeWidth="1.4"
+        strokeLinejoin="round"
+      />
+      <path d="M12.6 8.6V12.4M10.8 10.5H14.4" stroke="#111111" strokeWidth="1.4" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function HeroFrame({ avatar, name }: { avatar: string; name: string }) {
+  return (
+    <div className="relative mx-auto w-full max-w-sm sm:max-w-md lg:max-w-sm xl:max-w-md">
+      <div
+        className="pointer-events-none absolute -inset-3 rotate-2 rounded-lg border border-gray-200 bg-white"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute -inset-3 -rotate-1 rounded-lg border border-gray-200 bg-gray-50"
+        aria-hidden="true"
+      />
+      <div className="relative rounded-lg border border-gray-200 bg-white p-3 shadow-[0_24px_60px_-28px] shadow-black/[0.15] sm:p-4">
+        <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-neutral-100">
+          <Image
+            src={avatar}
+            alt={name}
+            fill
+            className="object-cover"
+            style={{ objectPosition: 'top' }}
+            sizes="(max-width: 1024px) 50vw, 25vw"
+            priority
+          />
+          <div
+            className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent"
+            aria-hidden="true"
+          />
+          <div
+            className="absolute inset-0 opacity-[0.07]"
+            style={{
+              backgroundImage:
+                'linear-gradient(rgba(0,0,0,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.5) 1px, transparent 1px)',
+              backgroundSize: '22px 22px',
+            }}
+            aria-hidden="true"
+          />
+          <div
+            className="absolute z-10 border-2 border-dashed border-blue-600/80"
+            style={{ animation: 'selection-move 14s ease-in-out infinite' }}
+            aria-hidden="true"
+          >
+            <span className="absolute -left-[3px] -top-[3px] size-1.5 rounded-[1px] border border-blue-700 bg-white" />
+            <span className="absolute -right-[3px] -top-[3px] size-1.5 rounded-[1px] border border-blue-700 bg-white" />
+            <span className="absolute -bottom-[3px] -left-[3px] size-1.5 rounded-[1px] border border-blue-700 bg-white" />
+            <span className="absolute -right-[3px] -bottom-[3px] size-1.5 rounded-[1px] border border-blue-700 bg-white" />
+          </div>
+          <div
+            className="absolute z-10"
+            style={{ animation: 'pixel-walk 14s ease-in-out infinite' }}
+            aria-hidden="true"
+          >
+            <div style={{ animation: 'pixel-bob 0.9s ease-in-out infinite' }}>
+              <PixelCharacter />
+            </div>
+          </div>
+          <div
+            className="absolute z-20"
+            style={{ animation: 'cursor-move 11s ease-in-out infinite' }}
+            aria-hidden="true"
+          >
+            <div style={{ animation: 'cursor-click 3.4s ease-in-out infinite' }}>
+              <DesignCursor />
+            </div>
+          </div>
+        </div>
+        <div className="flex items-center justify-between px-1 pb-0.5 pt-3">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-widest text-gray-900">{name}</p>
+            <p className="text-[11px] font-medium text-gray-500">Product Designer</p>
+          </div>
+          <span className="hidden select-none rounded-sm border border-gray-200 bg-gray-50 px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-gray-400 sm:block">
+            4:5
+          </span>
+        </div>
+      </div>
+      <div
+        className="absolute -right-4 -top-5 z-20 flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-2 shadow-md"
+        style={{ animation: 'float-y 5s ease-in-out infinite' }}
+        aria-hidden="true"
+      >
+        <span className="grid grid-cols-2 gap-px" aria-hidden="true">
+          <span className="size-1.5 bg-blue-600" />
+          <span className="size-1.5 bg-blue-600" />
+          <span className="size-1.5 bg-blue-600" />
+          <span className="size-1.5 bg-blue-600" />
+        </span>
+        <span className="text-xs font-semibold text-gray-900">Figma</span>
+      </div>
+      <div
+        className="absolute -bottom-5 -left-4 z-20 flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-2 shadow-md"
+        style={{ animation: 'float-y 6s ease-in-out 0.5s infinite' }}
+        aria-hidden="true"
+      >
+        <svg className="size-3 text-blue-600" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z" />
+        </svg>
+        <span className="text-xs font-semibold text-gray-900">Design · Code</span>
+      </div>
+    </div>
+  );
+}
+
 function HeroSection({ profile }: { profile: ProfileData }) {
   const container = {
     hidden: {},
@@ -81,58 +248,65 @@ function HeroSection({ profile }: { profile: ProfileData }) {
       animate="show"
       className="flex min-h-[calc(100dvh-57px)] flex-col justify-center py-12 pb-16 lg:min-h-[calc(100vh-57px)] lg:py-0 lg:pb-24"
     >
-      <motion.div variants={item}><AvailableBanner /></motion.div>
-      <motion.div variants={item}>
-          <h1 className="mb-4 text-2xl font-normal tracking-tight text-gray-900 sm:text-3xl">
-            Hi, <TypewriterText text="I'm Victor Omolasoye" />
-          </h1>
-      </motion.div>
-      <motion.div variants={item}>
-        <span className="mb-4 block w-full font-display font-bold leading-[0.9] tracking-tight text-gray-900">
-          <span aria-hidden="true" className="block w-full whitespace-nowrap text-[clamp(2rem,12vw,5rem)] sm:hidden">Designing what</span>
-          <span aria-hidden="true" className="block w-full whitespace-nowrap bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent text-[clamp(2rem,12vw,5rem)] sm:hidden">ideas become.</span>
-          <span className="hidden w-full whitespace-nowrap text-[clamp(3rem,9vw,6.5rem)] sm:block">Designing what</span>
-          <span className="hidden w-full whitespace-nowrap text-[clamp(3.25rem,10vw,7rem)] sm:block">ideas <span className="bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">become.</span></span>
-        </span>
-      </motion.div>
-      <motion.div variants={item}>
-        <p className="mb-6 w-full text-xl font-bold leading-snug tracking-tight text-gray-900 sm:text-lg">
-          Five years in, I&rsquo;m still fascinated by the same thing: taking something
-          that exists only as an idea and figuring out what it could become.
-        </p>
-      </motion.div>
-      <motion.div variants={item} className="flex flex-wrap gap-3">
-        <motion.a
-          whileHover={{ scale: 1.04 }}
-          whileTap={{ scale: 0.97 }}
-          href={`mailto:${profile.email}`}
-          className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-5 py-2.5 text-sm font-medium text-white transition-all hover:from-blue-500 hover:to-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
-        >
-          Hire Me
-          <span className="flex size-9 items-center justify-center rounded-full bg-white -my-1 transition-transform group-hover:translate-x-0.5">
-            <svg className="size-4 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M22 2L11 13" />
-              <path d="M22 2l-7 20-4-9-9-4 20-7z" />
-            </svg>
-          </span>
-        </motion.a>
-        <motion.a
-          whileHover={{ scale: 1.04 }}
-          whileTap={{ scale: 0.97 }}
-          href={profile.resumeUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 rounded-full border border-gray-300 bg-transparent px-5 py-2.5 text-sm font-medium text-gray-900 transition-colors hover:border-black/30 hover:bg-black/10 hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
-        >
-          <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-            <polyline points="14 2 14 8 20 8" />
-            <line x1="16" y1="13" x2="8" y2="13" />
-            <line x1="16" y1="17" x2="8" y2="17" />
-          </svg>
-          Resume
-        </motion.a>
-      </motion.div>
+      <div className="grid w-full items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+        <div>
+          <motion.div variants={item}><AvailableBanner /></motion.div>
+          <motion.div variants={item}>
+              <h1 className="mb-4 text-2xl font-normal tracking-tight text-gray-900 sm:text-3xl">
+                Hi, <TypewriterText text="I'm Victor Omolasoye" />
+              </h1>
+          </motion.div>
+          <motion.div variants={item}>
+            <span className="mb-4 block w-full font-display font-bold leading-[0.9] tracking-tight text-gray-900">
+              <span aria-hidden="true" className="block w-full whitespace-nowrap text-[clamp(2rem,12vw,5rem)] sm:hidden">Designing what</span>
+              <span aria-hidden="true" className="block w-full whitespace-nowrap bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent text-[clamp(2rem,12vw,5rem)] sm:hidden">ideas become.</span>
+              <span className="hidden w-full whitespace-nowrap text-[clamp(3rem,9vw,6.5rem)] sm:block lg:text-[clamp(2.5rem,4.6vw,5rem)]">Designing what</span>
+              <span className="hidden w-full whitespace-nowrap text-[clamp(3.25rem,10vw,7rem)] sm:block lg:text-[clamp(2.6rem,4.9vw,5.25rem)]">ideas <span className="bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">become.</span></span>
+            </span>
+          </motion.div>
+          <motion.div variants={item}>
+            <p className="mb-6 w-full text-xl font-bold leading-snug tracking-tight text-gray-900 sm:text-lg">
+              Five years in, I&rsquo;m still fascinated by the same thing: taking something
+              that exists only as an idea and figuring out what it could become.
+            </p>
+          </motion.div>
+          <motion.div variants={item} className="flex flex-wrap gap-3">
+            <motion.a
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
+              href={`mailto:${profile.email}`}
+              className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-5 py-2.5 text-sm font-medium text-white transition-all hover:from-blue-500 hover:to-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
+            >
+              Hire Me
+              <span className="flex size-9 items-center justify-center rounded-full bg-white -my-1 transition-transform group-hover:translate-x-0.5">
+                <svg className="size-4 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M22 2L11 13" />
+                  <path d="M22 2l-7 20-4-9-9-4 20-7z" />
+                </svg>
+              </span>
+            </motion.a>
+            <motion.a
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
+              href={profile.resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-gray-300 bg-transparent px-5 py-2.5 text-sm font-medium text-gray-900 transition-colors hover:border-black/30 hover:bg-black/10 hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
+            >
+              <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+                <line x1="16" y1="17" x2="8" y2="17" />
+              </svg>
+              Resume
+            </motion.a>
+          </motion.div>
+        </div>
+        <motion.div variants={item} className="w-full">
+          <HeroFrame avatar={profile.avatar} name={profile.name} />
+        </motion.div>
+      </div>
     </motion.section>
   );
 }
