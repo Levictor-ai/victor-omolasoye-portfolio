@@ -263,17 +263,16 @@ function HeroSection({ profile }: { profile: ProfileData }) {
           </motion.div>
           <motion.div variants={item}>
             <span
-              className="mb-4 block w-full font-semibold leading-[0.95] tracking-[-0.06em] text-gray-900"
+              className="mb-4 block w-full leading-[0.95] tracking-[-0.02em] text-gray-900"
               style={{
-                fontFamily:
-                  "var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+                fontFamily: 'var(--font-bebas-neue), sans-serif',
                 color: '#11131A',
               }}
             >
-              <span aria-hidden="true" className="block w-full whitespace-nowrap text-[clamp(1.4rem,7vw,2.25rem)] sm:hidden">Designing what</span>
-              <span aria-hidden="true" className="block w-full whitespace-nowrap text-[clamp(1.4rem,7vw,2.25rem)] sm:hidden">ideas become.</span>
-              <span className="hidden w-full whitespace-nowrap text-[clamp(2.75rem,7vw,5.5rem)] sm:block lg:text-[clamp(3rem,6vw,5.5rem)]">Designing what</span>
-              <span className="hidden w-full whitespace-nowrap text-[clamp(2.75rem,7vw,5.5rem)] sm:block lg:text-[clamp(3rem,6vw,5.5rem)]">ideas become.</span>
+              <span aria-hidden="true" className="block w-full whitespace-nowrap text-[clamp(2.5rem,13vw,4.5rem)] sm:hidden">Designing what</span>
+              <span aria-hidden="true" className="block w-full whitespace-nowrap text-[clamp(2.5rem,13vw,4.5rem)] sm:hidden">ideas become.</span>
+              <span className="hidden w-full whitespace-nowrap text-[clamp(3.5rem,9vw,6.25rem)] sm:block lg:text-[clamp(3.75rem,7.5vw,6.25rem)]">Designing what</span>
+              <span className="hidden w-full whitespace-nowrap text-[clamp(3.5rem,9vw,6.25rem)] sm:block lg:text-[clamp(3.75rem,7.5vw,6.25rem)]">ideas become.</span>
             </span>
           </motion.div>
           <motion.div variants={item}>
