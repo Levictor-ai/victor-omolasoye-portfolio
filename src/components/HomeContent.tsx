@@ -208,13 +208,11 @@ function HeroFrame({ avatar, name, priority = false }: { avatar: string; name: s
         style={{ animation: 'chip-sway 5s ease-in-out infinite' }}
         aria-hidden="true"
       >
-        <span className="grid grid-cols-2 gap-px" aria-hidden="true">
-          <span className="size-1.5 bg-blue-600" />
-          <span className="size-1.5 bg-blue-600" />
-          <span className="size-1.5 bg-blue-600" />
-          <span className="size-1.5 bg-blue-600" />
-        </span>
-        <span className="text-xs font-semibold text-gray-900">Figma</span>
+        <svg className="size-3.5 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+          <path d="m15 5 4 4" />
+        </svg>
+        <span className="text-xs font-semibold text-gray-900">Creative</span>
       </div>
       <div
         className="absolute -bottom-2 -left-3 z-30 flex items-center gap-1.5 rounded-full border border-gray-200 bg-white px-3 py-1.5 shadow-md"
