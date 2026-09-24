@@ -306,7 +306,7 @@ function HeroSection({ profile }: { profile: ProfileData }) {
           </motion.div>
         </div>
         <motion.div variants={item} className="w-full">
-          <HeroFrame avatar={profile.avatar} name={profile.name} />
+          <HeroFrame avatar="/images/hero-portrait.jpg" name={profile.name} />
         </motion.div>
       </div>
     </motion.section>
