@@ -247,7 +247,7 @@ function HeroSection({ profile }: { profile: ProfileData }) {
       variants={container}
       initial="hidden"
       animate="show"
-      className="flex min-h-[calc(100dvh-57px)] flex-col justify-center py-8 pb-16 lg:min-h-[calc(100vh-57px)] lg:py-0 lg:pb-24"
+      className="flex min-h-[calc(100dvh-57px)] flex-col justify-center pb-16 lg:min-h-[calc(100vh-57px)] lg:py-0 lg:pb-24"
     >
       <div className="grid w-full items-center gap-14 lg:grid-cols-[1.45fr_0.55fr] lg:gap-10 xl:gap-16">
         <div>
@@ -617,7 +617,7 @@ function ProjectsSection({ projects, behanceUrl }: { projects: ProjectData[]; be
         }}
         className="mb-6"
       >
-        <div className="inline-flex max-w-full items-center gap-1 overflow-x-auto rounded-xl border border-gray-200 bg-white p-1.5 shadow-sm">
+        <div className="flex w-full items-center gap-1 overflow-x-auto rounded-xl border border-gray-200 bg-white p-1.5 shadow-sm sm:inline-flex sm:max-w-full sm:w-auto">
           {projectCategories.map((category) => {
             const isActive = activeCategory === category.value;
             const CategoryIcon = category.icon;
@@ -626,7 +626,7 @@ function ProjectsSection({ projects, behanceUrl }: { projects: ProjectData[]; be
                 key={category.value}
                 onClick={() => setActiveCategory(category.value)}
                 aria-pressed={isActive}
-                className={`relative flex items-center gap-2 whitespace-nowrap rounded-lg px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 ${
+                className={`relative flex flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-lg px-2 py-2 text-xs font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:flex-none sm:gap-2 sm:px-4 sm:py-2 sm:text-sm ${
                   isActive ? 'text-white' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                 }`}
               >
@@ -637,8 +637,8 @@ function ProjectsSection({ projects, behanceUrl }: { projects: ProjectData[]; be
                     transition={{ type: 'spring', stiffness: 400, damping: 32 }}
                   />
                 )}
-                <span className="relative z-10 flex items-center gap-2">
-                  <CategoryIcon className="size-4" strokeWidth={2.2} />
+                <span className="relative z-10 flex items-center gap-1.5 sm:gap-2">
+                  <CategoryIcon className="hidden size-4 shrink-0 sm:block" strokeWidth={2.2} />
                   {category.label}
                   <span
                     className={`rounded-full px-1.5 py-0.5 text-[10px] font-semibold leading-none ${
