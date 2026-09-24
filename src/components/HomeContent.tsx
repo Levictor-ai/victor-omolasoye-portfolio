@@ -262,7 +262,7 @@ function HeroSection({ profile }: { profile: ProfileData }) {
             <HeroFrame avatar="/images/hero-portrait.jpg" name={profile.name} />
           </motion.div>
           <motion.div variants={item}>
-            <span className="mb-4 block w-full font-extrabold leading-[1.0] tracking-[-0.06em] text-gray-900" style={{ fontFamily: 'var(--font-inter)' }}>
+            <span className="mb-4 block w-full font-extrabold leading-[1.0] tracking-[-0.06em] text-gray-900" style={{ fontFamily: 'var(--font-bebas-neue)' }}>
               <span aria-hidden="true" className="block w-full whitespace-nowrap text-[clamp(1.4rem,7vw,2.25rem)] sm:hidden">Designing ideas into</span>
               <span aria-hidden="true" className="block w-full whitespace-nowrap bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent text-[clamp(1.4rem,7vw,2.25rem)] sm:hidden">identities, products,</span>
               <span aria-hidden="true" className="block w-full whitespace-nowrap bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent text-[clamp(1.4rem,7vw,2.25rem)] sm:hidden">and experiences.</span>
