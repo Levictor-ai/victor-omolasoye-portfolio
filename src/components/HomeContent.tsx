@@ -128,81 +128,73 @@ function DesignCursor() {
 
 function HeroFrame({ avatar, name }: { avatar: string; name: string }) {
   return (
-    <div className="relative mx-auto w-full max-w-sm sm:max-w-md lg:max-w-sm xl:max-w-md">
+    <div className="relative mx-auto aspect-square w-full max-w-[15rem] sm:max-w-[16rem] xl:max-w-[17.5rem]">
       <div
-        className="pointer-events-none absolute -inset-3 rotate-2 rounded-lg border border-gray-200 bg-white"
+        className="pointer-events-none absolute -inset-8 rounded-full border border-gray-100"
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute -inset-3 -rotate-1 rounded-lg border border-gray-200 bg-gray-50"
+        className="pointer-events-none absolute -inset-5 rounded-full border border-dashed border-gray-200/90"
+        style={{ animation: 'spin-clock 40s linear infinite' }}
         aria-hidden="true"
       />
-      <div className="relative rounded-lg border border-gray-200 bg-white p-3 shadow-[0_24px_60px_-28px] shadow-black/[0.15] sm:p-4">
-        <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-neutral-100">
-          <Image
-            src={avatar}
-            alt={name}
-            fill
-            className="object-cover"
-            style={{ objectPosition: 'top' }}
-            sizes="(max-width: 1024px) 50vw, 25vw"
-            priority
-          />
-          <div
-            className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent"
-            aria-hidden="true"
-          />
-          <div
-            className="absolute inset-0 opacity-[0.07]"
-            style={{
-              backgroundImage:
-                'linear-gradient(rgba(0,0,0,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.5) 1px, transparent 1px)',
-              backgroundSize: '22px 22px',
-            }}
-            aria-hidden="true"
-          />
-          <div
-            className="absolute z-10 border-2 border-dashed border-blue-600/80"
-            style={{ animation: 'selection-move 14s ease-in-out infinite' }}
-            aria-hidden="true"
-          >
-            <span className="absolute -left-[3px] -top-[3px] size-1.5 rounded-[1px] border border-blue-700 bg-white" />
-            <span className="absolute -right-[3px] -top-[3px] size-1.5 rounded-[1px] border border-blue-700 bg-white" />
-            <span className="absolute -bottom-[3px] -left-[3px] size-1.5 rounded-[1px] border border-blue-700 bg-white" />
-            <span className="absolute -right-[3px] -bottom-[3px] size-1.5 rounded-[1px] border border-blue-700 bg-white" />
-          </div>
-          <div
-            className="absolute z-10"
-            style={{ animation: 'pixel-walk 14s ease-in-out infinite' }}
-            aria-hidden="true"
-          >
-            <div style={{ animation: 'pixel-bob 0.9s ease-in-out infinite' }}>
-              <PixelCharacter />
-            </div>
-          </div>
-          <div
-            className="absolute z-20"
-            style={{ animation: 'cursor-move 11s ease-in-out infinite' }}
-            aria-hidden="true"
-          >
-            <div style={{ animation: 'cursor-click 3.4s ease-in-out infinite' }}>
+      <div
+        className="pointer-events-none absolute -inset-3 rounded-full border border-gray-200/80 bg-white/50"
+        aria-hidden="true"
+      />
+
+      <div className="relative aspect-square w-full overflow-hidden rounded-full border-4 border-white bg-neutral-100 shadow-[0_24px_60px_-28px] shadow-black/[0.25]">
+        <Image
+          src={avatar}
+          alt={name}
+          fill
+          className="object-cover"
+          style={{ objectPosition: 'top' }}
+          sizes="(max-width: 768px) 40vw, 20vw"
+          priority
+        />
+        <div
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"
+          aria-hidden="true"
+        />
+        <div
+          className="pointer-events-none absolute -inset-6 z-10 rounded-full border-2 border-dashed border-blue-600/50"
+          style={{ animation: 'spin-counter 28s linear infinite' }}
+          aria-hidden="true"
+        />
+      </div>
+
+      <div
+        className="absolute inset-0 z-20"
+        style={{ animation: 'spin-clock 14s linear infinite' }}
+        aria-hidden="true"
+      >
+        <div className="absolute left-1/2 top-0 -translate-x-1/2">
+          <div style={{ animation: 'spin-counter 14s linear infinite' }}>
+            <div style={{ animation: 'cursor-bob 3.2s ease-in-out infinite' }}>
               <DesignCursor />
             </div>
           </div>
         </div>
-        <div className="flex items-center justify-between px-1 pb-0.5 pt-3">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-gray-900">{name}</p>
-            <p className="text-[11px] font-medium text-gray-500">Product Designer</p>
+      </div>
+
+      <div
+        className="absolute -inset-4 z-10"
+        style={{ animation: 'spin-counter 34s linear infinite' }}
+        aria-hidden="true"
+      >
+        <div className="absolute left-1/2 top-0 -translate-x-1/2">
+          <div style={{ animation: 'spin-clock 34s linear infinite' }}>
+            <div style={{ animation: 'pixel-hop 1.1s ease-in-out infinite' }}>
+              <PixelCharacter />
+            </div>
           </div>
-          <span className="hidden select-none rounded-sm border border-gray-200 bg-gray-50 px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-gray-400 sm:block">
-            4:5
-          </span>
         </div>
       </div>
+
       <div
-        className="absolute -right-4 -top-5 z-20 flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-2 shadow-md"
-        style={{ animation: 'float-y 5s ease-in-out infinite' }}
+        className="absolute -right-3 -top-2 z-30 flex items-center gap-1.5 rounded-full border border-gray-200 bg-white px-3 py-1.5 shadow-md"
+        style={{ animation: 'chip-sway 5s ease-in-out infinite' }}
         aria-hidden="true"
       >
         <span className="grid grid-cols-2 gap-px" aria-hidden="true">
@@ -214,8 +206,8 @@ function HeroFrame({ avatar, name }: { avatar: string; name: string }) {
         <span className="text-xs font-semibold text-gray-900">Figma</span>
       </div>
       <div
-        className="absolute -bottom-5 -left-4 z-20 flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-2 shadow-md"
-        style={{ animation: 'float-y 6s ease-in-out 0.5s infinite' }}
+        className="absolute -bottom-2 -left-3 z-30 flex items-center gap-1.5 rounded-full border border-gray-200 bg-white px-3 py-1.5 shadow-md"
+        style={{ animation: 'chip-sway 6s ease-in-out 0.6s infinite' }}
         aria-hidden="true"
       >
         <svg className="size-3 text-blue-600" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
