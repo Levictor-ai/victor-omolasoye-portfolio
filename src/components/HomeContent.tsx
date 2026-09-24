@@ -269,10 +269,10 @@ function HeroSection({ profile }: { profile: ProfileData }) {
                 color: '#11131A',
               }}
             >
-              <span aria-hidden="true" className="block w-full whitespace-nowrap text-[clamp(2.5rem,13vw,4.5rem)] sm:hidden">Designing what</span>
-              <span aria-hidden="true" className="block w-full whitespace-nowrap text-[clamp(2.5rem,13vw,4.5rem)] sm:hidden">ideas become.</span>
-              <span className="hidden w-full whitespace-nowrap text-[clamp(3.5rem,9vw,6.25rem)] sm:block lg:text-[clamp(3.75rem,7.5vw,6.25rem)]">Designing what</span>
-              <span className="hidden w-full whitespace-nowrap text-[clamp(3.5rem,9vw,6.25rem)] sm:block lg:text-[clamp(3.75rem,7.5vw,6.25rem)]">ideas become.</span>
+              <span aria-hidden="true" className="block w-full whitespace-nowrap text-[clamp(2.75rem,14vw,5rem)] sm:hidden">Designing what</span>
+              <span aria-hidden="true" className="block w-full whitespace-nowrap text-[clamp(2.75rem,14vw,5rem)] sm:hidden">ideas become.</span>
+              <span className="hidden w-full whitespace-nowrap text-[clamp(4rem,10vw,7.5rem)] sm:block lg:text-[clamp(4.25rem,8.5vw,7.5rem)]">Designing what</span>
+              <span className="hidden w-full whitespace-nowrap text-[clamp(4rem,10vw,7.5rem)] sm:block lg:text-[clamp(4.25rem,8.5vw,7.5rem)]">ideas become.</span>
             </span>
           </motion.div>
           <motion.div variants={item}>
