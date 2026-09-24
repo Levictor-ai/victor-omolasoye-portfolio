@@ -250,7 +250,7 @@ function HeroSection({ profile }: { profile: ProfileData }) {
       animate="show"
       className="flex min-h-[calc(100dvh-57px)] flex-col justify-center py-12 pb-16 lg:min-h-[calc(100vh-57px)] lg:py-0 lg:pb-24"
     >
-      <div className="grid w-full items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+      <div className="grid w-full items-center gap-14 lg:grid-cols-[1.35fr_0.65fr] lg:gap-10 xl:gap-16">
         <div>
           <motion.div variants={item}><AvailableBanner /></motion.div>
           <motion.div variants={item}>
@@ -259,11 +259,11 @@ function HeroSection({ profile }: { profile: ProfileData }) {
               </h1>
           </motion.div>
           <motion.div variants={item}>
-            <span className="mb-4 block w-full font-sans font-bold leading-[1.05] tracking-tight text-gray-900">
+            <span className="mb-4 block w-full font-sans font-semibold leading-[0.95] tracking-tight text-gray-900">
               <span aria-hidden="true" className="block w-full whitespace-nowrap text-[clamp(1.5rem,9.5vw,2.75rem)] sm:hidden">Designing what</span>
               <span aria-hidden="true" className="block w-full whitespace-nowrap bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent text-[clamp(1.5rem,9.5vw,2.75rem)] sm:hidden">ideas become.</span>
-              <span className="hidden w-full whitespace-nowrap text-[clamp(2.25rem,5.5vw,4rem)] sm:block lg:text-[clamp(1.75rem,3.4vw,3.6rem)]">Designing what</span>
-              <span className="hidden w-full whitespace-nowrap text-[clamp(2.4rem,5.8vw,4.25rem)] sm:block lg:text-[clamp(1.85rem,3.6vw,3.8rem)]">ideas <span className="bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">become.</span></span>
+              <span className="hidden w-full whitespace-nowrap text-[clamp(2.75rem,9vw,5.5rem)] sm:block lg:text-[clamp(2.5rem,6.5vw,5.5rem)]">Designing what</span>
+              <span className="hidden w-full whitespace-nowrap text-[clamp(2.75rem,9vw,5.5rem)] sm:block lg:text-[clamp(2.5rem,6.5vw,5.5rem)]">ideas <span className="bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">become.</span></span>
             </span>
           </motion.div>
           <motion.div variants={item}>
