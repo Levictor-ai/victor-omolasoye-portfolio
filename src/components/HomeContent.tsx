@@ -250,7 +250,7 @@ function HeroSection({ profile }: { profile: ProfileData }) {
       animate="show"
       className="flex min-h-[calc(100dvh-57px)] flex-col justify-center py-8 pb-16 lg:min-h-[calc(100vh-57px)] lg:py-0 lg:pb-24"
     >
-      <div className="grid w-full items-center gap-14 lg:grid-cols-[1.35fr_0.65fr] lg:gap-10 xl:gap-16">
+      <div className="grid w-full items-center gap-14 lg:grid-cols-[1.45fr_0.55fr] lg:gap-10 xl:gap-16">
         <div>
           <motion.div variants={item}><AvailableBanner /></motion.div>
           <motion.div variants={item}>
@@ -262,13 +262,20 @@ function HeroSection({ profile }: { profile: ProfileData }) {
             <HeroFrame avatar="/images/hero-portrait.jpg" name={profile.name} />
           </motion.div>
           <motion.div variants={item}>
-            <span className="mb-4 block w-full font-extrabold leading-[1.0] tracking-[-0.06em] text-gray-900" style={{ fontFamily: 'var(--font-bebas-neue)' }}>
+            <span
+              className="mb-4 block w-full font-semibold leading-[0.95] tracking-[-0.06em] text-gray-900"
+              style={{
+                fontFamily:
+                  "var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+                color: '#11131A',
+              }}
+            >
               <span aria-hidden="true" className="block w-full whitespace-nowrap text-[clamp(1.4rem,7vw,2.25rem)] sm:hidden">Designing ideas into</span>
               <span aria-hidden="true" className="block w-full whitespace-nowrap bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent text-[clamp(1.4rem,7vw,2.25rem)] sm:hidden">identities, products,</span>
               <span aria-hidden="true" className="block w-full whitespace-nowrap bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent text-[clamp(1.4rem,7vw,2.25rem)] sm:hidden">and experiences.</span>
-              <span className="hidden w-full whitespace-nowrap text-[clamp(2.75rem,7vw,4.75rem)] sm:block lg:text-[clamp(2.5rem,5vw,4.5rem)]">Designing ideas into</span>
-              <span className="hidden w-full whitespace-nowrap bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent text-[clamp(2.75rem,7vw,4.75rem)] sm:block lg:text-[clamp(2.5rem,5vw,4.5rem)]">identities, products,</span>
-              <span className="hidden w-full whitespace-nowrap bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent text-[clamp(2.75rem,7vw,4.75rem)] sm:block lg:text-[clamp(2.5rem,5vw,4.5rem)]">and experiences.</span>
+              <span className="hidden w-full whitespace-nowrap text-[clamp(2.75rem,7vw,4.75rem)] sm:block lg:text-[clamp(2.9rem,5.8vw,5.5rem)]">Designing ideas into</span>
+              <span className="hidden w-full whitespace-nowrap bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent text-[clamp(2.75rem,7vw,4.75rem)] sm:block lg:text-[clamp(2.9rem,5.8vw,5.5rem)]">identities, products,</span>
+              <span className="hidden w-full whitespace-nowrap bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent text-[clamp(2.75rem,7vw,4.75rem)] sm:block lg:text-[clamp(2.9rem,5.8vw,5.5rem)]">and experiences.</span>
             </span>
           </motion.div>
           <motion.div variants={item}>
