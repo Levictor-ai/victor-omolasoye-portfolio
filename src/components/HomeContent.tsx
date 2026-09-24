@@ -3,6 +3,7 @@
 import { useState, useEffect, type ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import { LayoutGrid, PenTool, Smartphone, type Icon } from 'lucide-react';
 import { usePortfolio } from '@/context/PortfolioContext';
 import type { ProfileData } from '@/context/PortfolioContext';
 import type { ProjectData, ProjectCategory } from '@/types/project';
@@ -527,9 +528,9 @@ function TestimonialsCarousel({ profile }: { profile: ProfileData }) {
 }
 
 const projectCategories = [
-  { value: 'all', label: 'All' },
-  { value: 'brand', label: 'Brand Design' },
-  { value: 'product', label: 'Product Design' },
+  { value: 'all', label: 'All', icon: LayoutGrid },
+  { value: 'brand', label: 'Brand Design', icon: PenTool },
+  { value: 'product', label: 'Product Design', icon: Smartphone },
 ] as const;
 
 function ProjectsSection({ projects, behanceUrl }: { projects: ProjectData[]; behanceUrl?: string }) {
@@ -575,6 +576,12 @@ function ProjectsSection({ projects, behanceUrl }: { projects: ProjectData[]; be
   const activeLabel =
     projectCategories.find((category) => category.value === activeCategory)?.label ?? 'All';
 
+  const categoryCounts = {
+    all: selectedProjects.length,
+    brand: selectedProjects.filter((p) => p.category === 'brand').length,
+    product: selectedProjects.filter((p) => p.category === 'product').length,
+  };
+
   return (
     <motion.section
       id="projects"
@@ -612,26 +619,37 @@ function ProjectsSection({ projects, behanceUrl }: { projects: ProjectData[]; be
         }}
         className="mb-6"
       >
-        <div className="inline-flex max-w-full items-center gap-1 overflow-x-auto rounded-full border border-gray-200 bg-white p-1 shadow-sm">
+        <div className="inline-flex max-w-full items-center gap-1 overflow-x-auto rounded-xl border border-gray-200 bg-white p-1.5 shadow-sm">
           {projectCategories.map((category) => {
             const isActive = activeCategory === category.value;
+            const CategoryIcon = category.icon;
             return (
               <button
                 key={category.value}
                 onClick={() => setActiveCategory(category.value)}
                 aria-pressed={isActive}
-                className={`relative whitespace-nowrap rounded-full px-5 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 ${
-                  isActive ? 'text-white' : 'text-gray-600 hover:text-gray-900'
+                className={`relative flex items-center gap-2 whitespace-nowrap rounded-lg px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 ${
+                  isActive ? 'text-white' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                 }`}
               >
                 {isActive && (
                   <motion.span
                     layoutId="projectsCategoryToggle"
-                    className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 shadow-sm"
+                    className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 shadow-sm"
                     transition={{ type: 'spring', stiffness: 400, damping: 32 }}
                   />
                 )}
-                <span className="relative z-10">{category.label}</span>
+                <span className="relative z-10 flex items-center gap-2">
+                  <CategoryIcon className="size-4" strokeWidth={2.2} />
+                  {category.label}
+                  <span
+                    className={`rounded-full px-1.5 py-0.5 text-[10px] font-semibold leading-none ${
+                      isActive ? 'bg-white/25 text-white' : 'bg-gray-100 text-gray-500'
+                    }`}
+                  >
+                    {categoryCounts[category.value]}
+                  </span>
+                </span>
               </button>
             );
           })}

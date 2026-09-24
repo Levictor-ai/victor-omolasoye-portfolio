@@ -21,4 +21,7 @@ declare module 'lucide-react' {
   export const Wrench: Icon;
   export const Clock: Icon;
   export const ChevronDown: Icon;
+  export const LayoutGrid: Icon;
+  export const PenTool: Icon;
+  export const Smartphone: Icon;
 }

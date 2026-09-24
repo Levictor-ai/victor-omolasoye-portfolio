@@ -27,6 +27,8 @@
 
   body {
     background-color: var(--color-bg-primary);
+    background-image: radial-gradient(circle at 1px 1px, rgba(17, 19, 26, 0.05) 1px, transparent 0);
+    background-size: 22px 22px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
