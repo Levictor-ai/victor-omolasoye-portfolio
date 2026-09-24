@@ -258,7 +258,7 @@ function HeroSection({ profile }: { profile: ProfileData }) {
                 Hi, <TypewriterText text="I'm Victor Omolasoye" />
               </h1>
           </motion.div>
-          <motion.div variants={item} className="w-full lg:hidden">
+          <motion.div variants={item} className="my-8 w-full lg:hidden">
             <HeroFrame avatar="/images/hero-portrait.jpg" name={profile.name} />
           </motion.div>
           <motion.div variants={item}>
