@@ -270,12 +270,10 @@ function HeroSection({ profile }: { profile: ProfileData }) {
                 color: '#11131A',
               }}
             >
-              <span aria-hidden="true" className="block w-full whitespace-nowrap text-[clamp(1.4rem,7vw,2.25rem)] sm:hidden">Designing ideas into</span>
-              <span aria-hidden="true" className="block w-full whitespace-nowrap bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent text-[clamp(1.4rem,7vw,2.25rem)] sm:hidden">identities, products,</span>
-              <span aria-hidden="true" className="block w-full whitespace-nowrap bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent text-[clamp(1.4rem,7vw,2.25rem)] sm:hidden">and experiences.</span>
-              <span className="hidden w-full whitespace-nowrap text-[clamp(2.75rem,7vw,4.75rem)] sm:block lg:text-[clamp(2.9rem,5.8vw,5.5rem)]">Designing ideas into</span>
-              <span className="hidden w-full whitespace-nowrap bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent text-[clamp(2.75rem,7vw,4.75rem)] sm:block lg:text-[clamp(2.9rem,5.8vw,5.5rem)]">identities, products,</span>
-              <span className="hidden w-full whitespace-nowrap bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent text-[clamp(2.75rem,7vw,4.75rem)] sm:block lg:text-[clamp(2.9rem,5.8vw,5.5rem)]">and experiences.</span>
+              <span aria-hidden="true" className="block w-full whitespace-nowrap text-[clamp(1.4rem,7vw,2.25rem)] sm:hidden">Designing what</span>
+              <span aria-hidden="true" className="block w-full whitespace-nowrap text-[clamp(1.4rem,7vw,2.25rem)] sm:hidden">ideas become.</span>
+              <span className="hidden w-full whitespace-nowrap text-[clamp(2.75rem,7vw,5.5rem)] sm:block lg:text-[clamp(3rem,6vw,5.5rem)]">Designing what</span>
+              <span className="hidden w-full whitespace-nowrap text-[clamp(2.75rem,7vw,5.5rem)] sm:block lg:text-[clamp(3rem,6vw,5.5rem)]">ideas become.</span>
             </span>
           </motion.div>
           <motion.div variants={item}>
