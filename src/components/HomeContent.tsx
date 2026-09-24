@@ -126,7 +126,7 @@ function DesignCursor() {
   );
 }
 
-function HeroFrame({ avatar, name }: { avatar: string; name: string }) {
+function HeroFrame({ avatar, name, priority = false }: { avatar: string; name: string; priority?: boolean }) {
   return (
     <div className="relative mx-auto aspect-square w-full max-w-[15rem] sm:max-w-[16rem] xl:max-w-[17.5rem]">
       <div
@@ -161,7 +161,7 @@ function HeroFrame({ avatar, name }: { avatar: string; name: string }) {
           className="object-cover"
           style={{ objectPosition: 'top' }}
           sizes="(max-width: 768px) 40vw, 20vw"
-          priority
+          priority={priority}
         />
         <div
           className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"
@@ -258,6 +258,9 @@ function HeroSection({ profile }: { profile: ProfileData }) {
                 Hi, <TypewriterText text="I'm Victor Omolasoye" />
               </h1>
           </motion.div>
+          <motion.div variants={item} className="w-full lg:hidden">
+            <HeroFrame avatar="/images/hero-portrait.jpg" name={profile.name} />
+          </motion.div>
           <motion.div variants={item}>
             <span className="mb-4 block w-full font-sans font-extrabold leading-[1.066] tracking-[-0.09em] text-gray-900">
               <span aria-hidden="true" className="block w-full whitespace-nowrap text-[clamp(1.5rem,9.5vw,2.75rem)] sm:hidden">Designing what</span>
@@ -305,8 +308,8 @@ function HeroSection({ profile }: { profile: ProfileData }) {
             </motion.a>
           </motion.div>
         </div>
-        <motion.div variants={item} className="w-full">
-          <HeroFrame avatar="/images/hero-portrait.jpg" name={profile.name} />
+        <motion.div variants={item} className="hidden w-full lg:block">
+          <HeroFrame avatar="/images/hero-portrait.jpg" name={profile.name} priority />
         </motion.div>
       </div>
     </motion.section>
