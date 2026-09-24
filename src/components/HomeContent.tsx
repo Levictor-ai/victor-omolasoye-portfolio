@@ -208,10 +208,7 @@ function HeroFrame({ avatar, name, priority = false }: { avatar: string; name: s
         style={{ animation: 'chip-sway 5s ease-in-out infinite' }}
         aria-hidden="true"
       >
-        <svg className="size-3.5 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-          <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
-          <path d="m15 5 4 4" />
-        </svg>
+        <PenTool className="size-3.5 text-blue-600" strokeWidth={2.2} />
         <span className="text-xs font-semibold text-gray-900">Creative</span>
       </div>
       <div
@@ -252,13 +249,13 @@ function HeroSection({ profile }: { profile: ProfileData }) {
       <div className="grid w-full items-center gap-14 lg:grid-cols-[1.45fr_0.55fr] lg:gap-10 xl:gap-16">
         <div>
           <motion.div variants={item}><AvailableBanner /></motion.div>
+          <motion.div variants={item} className="my-14 w-full lg:hidden">
+            <HeroFrame avatar="/images/hero-portrait.jpg" name={profile.name} />
+          </motion.div>
           <motion.div variants={item}>
               <h1 className="mb-4 text-2xl font-normal tracking-tight text-gray-900 sm:text-3xl">
                 Hi, <TypewriterText text="I'm Victor Omolasoye" />
               </h1>
-          </motion.div>
-          <motion.div variants={item} className="my-14 w-full lg:hidden">
-            <HeroFrame avatar="/images/hero-portrait.jpg" name={profile.name} />
           </motion.div>
           <motion.div variants={item}>
             <span
