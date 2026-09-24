@@ -167,7 +167,7 @@ function CaseStudyView({ project }: { project: ProjectData }) {
                 href={link.url}
                 target={link.type !== 'case-study' ? '_blank' : undefined}
                 rel={link.type !== 'case-study' ? 'noopener noreferrer' : undefined}
-                className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-4 py-2 text-sm font-medium text-white transition-all hover:from-blue-500 hover:to-blue-700"
+                className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-5 py-3 text-sm font-medium text-white transition-all hover:from-blue-500 hover:to-blue-700"
               >
                 <span className="transition-transform group-hover:translate-x-0.5">{linkIcon(link.type)}</span>
                 {link.label}

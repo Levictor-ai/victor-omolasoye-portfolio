@@ -281,7 +281,7 @@ function HeroSection({ profile }: { profile: ProfileData }) {
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
               href={`mailto:${profile.email}`}
-              className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-8 py-4 text-sm font-medium text-white transition-all hover:from-blue-500 hover:to-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto sm:px-10 sm:py-3"
+              className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-8 py-3 text-sm font-medium text-white transition-all hover:from-blue-500 hover:to-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto sm:px-10"
             >
               Hire Me
               <span className="flex size-9 items-center justify-center rounded-full bg-white -my-1 transition-transform group-hover:translate-x-0.5">
@@ -297,7 +297,7 @@ function HeroSection({ profile }: { profile: ProfileData }) {
               href={profile.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-transparent px-8 py-4 text-sm font-medium text-gray-900 transition-colors hover:border-black/30 hover:bg-black/10 hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto sm:px-10 sm:py-3"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-transparent px-8 py-3 text-sm font-medium text-gray-900 transition-colors hover:border-black/30 hover:bg-black/10 hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto sm:px-10"
             >
               <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
@@ -683,7 +683,7 @@ function ProjectsSection({ projects, behanceUrl }: { projects: ProjectData[]; be
           href={behanceUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="group mt-6 flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-transparent px-5 py-4 text-sm font-medium text-gray-900 transition-colors hover:border-black/30 hover:bg-black/10 hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
+          className="group mt-6 flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-transparent px-5 py-3 text-sm font-medium text-gray-900 transition-colors hover:border-black/30 hover:bg-black/10 hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
         >
           View all projects on Behance
           <svg className="size-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -830,7 +830,7 @@ function ContactForm() {
             <button
               type="submit"
               disabled={status === 'sending'}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-5 py-4 text-sm font-medium text-blue-700 transition-all hover:bg-blue-50 disabled:opacity-50"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-medium text-blue-700 transition-all hover:bg-blue-50 disabled:opacity-50"
             >
               {status === 'sending' ? 'Sending...' : 'Send Message'}
             </button>

@@ -36,7 +36,7 @@ export function ProjectsContent({ projects }: { projects: ProjectData[] }) {
                 href={profile.socials.behance}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-gray-300 bg-transparent px-5 py-2.5 text-sm font-medium text-gray-900 transition-colors hover:border-black/30 hover:bg-black/10 hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
+                className="inline-flex items-center gap-2 rounded-full border border-gray-300 bg-transparent px-5 py-3 text-sm font-medium text-gray-900 transition-colors hover:border-black/30 hover:bg-black/10 hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
               >
                 <svg className="size-4 text-blue-600" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path
