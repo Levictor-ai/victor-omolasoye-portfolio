@@ -248,7 +248,7 @@ function HeroSection({ profile }: { profile: ProfileData }) {
       variants={container}
       initial="hidden"
       animate="show"
-      className="flex min-h-[calc(100dvh-57px)] flex-col justify-center py-12 pb-16 lg:min-h-[calc(100vh-57px)] lg:py-0 lg:pb-24"
+      className="flex min-h-[calc(100dvh-57px)] flex-col justify-center py-8 pb-16 lg:min-h-[calc(100vh-57px)] lg:py-0 lg:pb-24"
     >
       <div className="grid w-full items-center gap-14 lg:grid-cols-[1.35fr_0.65fr] lg:gap-10 xl:gap-16">
         <div>
