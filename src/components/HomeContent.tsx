@@ -262,13 +262,13 @@ function HeroSection({ profile }: { profile: ProfileData }) {
             <HeroFrame avatar="/images/hero-portrait.jpg" name={profile.name} />
           </motion.div>
           <motion.div variants={item}>
-            <span className="mb-4 block w-full font-sans font-extrabold leading-[1.066] tracking-[-0.05em] text-gray-900">
-              <span aria-hidden="true" className="block w-full whitespace-nowrap text-[clamp(1.35rem,7vw,2rem)] sm:hidden">Designing ideas into</span>
-              <span aria-hidden="true" className="block w-full whitespace-nowrap bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent text-[clamp(1.35rem,7vw,2rem)] sm:hidden">identities, products,</span>
-              <span aria-hidden="true" className="block w-full whitespace-nowrap bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent text-[clamp(1.35rem,7vw,2rem)] sm:hidden">and experiences.</span>
-              <span className="hidden w-full whitespace-nowrap text-[clamp(2.25rem,6vw,4rem)] sm:block lg:text-[clamp(2rem,4.5vw,4rem)]">Designing ideas into</span>
-              <span className="hidden w-full whitespace-nowrap bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent text-[clamp(2.25rem,6vw,4rem)] sm:block lg:text-[clamp(2rem,4.5vw,4rem)]">identities, products,</span>
-              <span className="hidden w-full whitespace-nowrap bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent text-[clamp(2.25rem,6vw,4rem)] sm:block lg:text-[clamp(2rem,4.5vw,4rem)]">and experiences.</span>
+            <span className="mb-4 block w-full font-sans font-extrabold leading-[1.0] tracking-[-0.06em] text-gray-900">
+              <span aria-hidden="true" className="block w-full whitespace-nowrap text-[clamp(1.4rem,7vw,2.25rem)] sm:hidden">Designing ideas into</span>
+              <span aria-hidden="true" className="block w-full whitespace-nowrap bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent text-[clamp(1.4rem,7vw,2.25rem)] sm:hidden">identities, products,</span>
+              <span aria-hidden="true" className="block w-full whitespace-nowrap bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent text-[clamp(1.4rem,7vw,2.25rem)] sm:hidden">and experiences.</span>
+              <span className="hidden w-full whitespace-nowrap text-[clamp(2.75rem,7vw,4.75rem)] sm:block lg:text-[clamp(2.5rem,5vw,4.5rem)]">Designing ideas into</span>
+              <span className="hidden w-full whitespace-nowrap bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent text-[clamp(2.75rem,7vw,4.75rem)] sm:block lg:text-[clamp(2.5rem,5vw,4.5rem)]">identities, products,</span>
+              <span className="hidden w-full whitespace-nowrap bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent text-[clamp(2.75rem,7vw,4.75rem)] sm:block lg:text-[clamp(2.5rem,5vw,4.5rem)]">and experiences.</span>
             </span>
           </motion.div>
           <motion.div variants={item}>
