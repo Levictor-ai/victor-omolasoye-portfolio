@@ -108,6 +108,11 @@
   50% { transform: translateY(-6px) rotate(2deg); }
 }
 
+@keyframes stroke-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.22); opacity: 0; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-ping,
   *[style*='animation'] {

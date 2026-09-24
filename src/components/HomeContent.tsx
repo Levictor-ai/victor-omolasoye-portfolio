@@ -130,6 +130,16 @@ function HeroFrame({ avatar, name }: { avatar: string; name: string }) {
   return (
     <div className="relative mx-auto aspect-square w-full max-w-[15rem] sm:max-w-[16rem] xl:max-w-[17.5rem]">
       <div
+        className="pointer-events-none absolute inset-0 rounded-full border-2 border-blue-600/70"
+        style={{ animation: 'stroke-pulse 3s ease-in-out infinite' }}
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute inset-0 rounded-full border-2 border-blue-600/70"
+        style={{ animation: 'stroke-pulse 3s ease-in-out 1.5s infinite' }}
+        aria-hidden="true"
+      />
+      <div
         className="pointer-events-none absolute -inset-8 rounded-full border border-gray-100"
         aria-hidden="true"
       />
