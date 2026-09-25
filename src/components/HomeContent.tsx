@@ -258,7 +258,7 @@ function HeroSection({ profile }: { profile: ProfileData }) {
               </h1>
           </motion.div>
           <motion.div variants={item}>
-            <p className="mb-4 text-base font-medium tracking-wide text-gray-600 sm:text-lg">
+            <p className="mb-4 text-base font-bold tracking-wide text-gray-600 sm:text-lg">
               Brand Designer <span className="text-gray-400">·</span> Product Designer <span className="text-gray-400">·</span> Web Designer
             </p>
           </motion.div>
