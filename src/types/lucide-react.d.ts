@@ -24,4 +24,5 @@ declare module 'lucide-react' {
   export const LayoutGrid: Icon;
   export const PenTool: Icon;
   export const Smartphone: Icon;
+  export const Mail: Icon;
 }

@@ -3,7 +3,7 @@
 import { useState, useEffect, type ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import { LayoutGrid, PenTool, Smartphone, type Icon } from 'lucide-react';
+import { LayoutGrid, PenTool, Smartphone, Mail, type Icon } from 'lucide-react';
 import { usePortfolio } from '@/context/PortfolioContext';
 import type { ProfileData } from '@/context/PortfolioContext';
 import type { ProjectData, ProjectCategory } from '@/types/project';
@@ -253,9 +253,14 @@ function HeroSection({ profile }: { profile: ProfileData }) {
             <HeroFrame avatar="/images/hero-portrait.jpg" name={profile.name} />
           </motion.div>
           <motion.div variants={item}>
-              <h1 className="mb-4 text-2xl font-normal tracking-tight text-gray-900 sm:text-3xl">
+              <h1 className="mb-3 text-2xl font-normal tracking-tight text-gray-900 sm:text-3xl">
                 Hi, <TypewriterText text="I'm Victor Omolasoye" />
               </h1>
+          </motion.div>
+          <motion.div variants={item}>
+            <p className="mb-4 text-base font-medium tracking-wide text-gray-600 sm:text-lg">
+              Brand Designer <span className="text-gray-400">·</span> Product Designer <span className="text-gray-400">·</span> Web Designer
+            </p>
           </motion.div>
           <motion.div variants={item}>
             <span
@@ -272,8 +277,8 @@ function HeroSection({ profile }: { profile: ProfileData }) {
           </motion.div>
           <motion.div variants={item}>
             <p className="mb-6 w-full text-xl font-normal leading-snug tracking-tight text-gray-900 sm:text-lg">
-              Five years in, I&rsquo;m still fascinated by the same thing: taking something
-              that exists only as an idea and figuring out what it could become.
+              I design brands, digital products, and web experiences that turn ideas into
+              clear, useful, and memorable experiences.
             </p>
           </motion.div>
           <motion.div variants={item} className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
@@ -283,12 +288,9 @@ function HeroSection({ profile }: { profile: ProfileData }) {
               href={`mailto:${profile.email}`}
               className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-8 py-3 text-sm font-medium text-white transition-all hover:from-blue-500 hover:to-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto sm:px-10"
             >
-              Hire Me
+              Get in touch
               <span className="flex size-9 items-center justify-center rounded-full bg-white -my-1 transition-transform group-hover:translate-x-0.5">
-                <svg className="size-4 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M22 2L11 13" />
-                  <path d="M22 2l-7 20-4-9-9-4 20-7z" />
-                </svg>
+                <Mail className="size-4 text-blue-600" strokeWidth={2.5} />
               </span>
             </motion.a>
             <motion.a
