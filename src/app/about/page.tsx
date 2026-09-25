@@ -21,7 +21,7 @@ export default function AboutPage() {
         profile={profile}
         headingClassName="mb-6 font-display text-6xl font-bold leading-none tracking-wide text-white sm:text-7xl"
       />
-      <main className="mx-auto max-w-7xl px-6 pt-32 pb-24 sm:px-8">
+      <main className="mx-auto max-w-7xl px-6 pt-20 pb-24 sm:px-8">
         <ServicesSection />
         <HowIWork />
         <ResultsSection />

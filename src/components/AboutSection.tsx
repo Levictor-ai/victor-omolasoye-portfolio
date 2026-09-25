@@ -23,7 +23,7 @@ export function AboutSection({
         hidden: {},
         show: { transition: { staggerChildren: 0.1 } },
       }}
-      className="mb-32 bg-black py-28 lg:mb-40 lg:py-40"
+      className="mb-8 bg-black py-28 lg:mb-16 lg:py-40"
       style={{ width: '100vw', marginLeft: 'calc(50% - 50vw)' }}
     >
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
