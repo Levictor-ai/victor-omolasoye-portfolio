@@ -258,11 +258,6 @@ function HeroSection({ profile }: { profile: ProfileData }) {
               </h1>
           </motion.div>
           <motion.div variants={item}>
-            <p className="mb-4 text-base font-bold tracking-wide text-gray-600 sm:text-lg">
-              Brand Designer <span className="text-gray-400">·</span> Product Designer <span className="text-gray-400">·</span> Web Designer
-            </p>
-          </motion.div>
-          <motion.div variants={item}>
             <span
               className="mb-4 block w-full leading-[0.95] tracking-[-0.02em] text-gray-900"
               style={{
@@ -271,7 +266,7 @@ function HeroSection({ profile }: { profile: ProfileData }) {
               }}
             >
               <span className="block w-full text-[clamp(2.5rem,13vw,4.5rem)] sm:text-[clamp(4rem,10vw,7.5rem)] lg:text-[clamp(4.25rem,8.5vw,7.5rem)]">
-                Designing what ideas become.
+                Brand Designer <span className="text-gray-500">·</span> Product Designer <span className="text-gray-500">·</span> Web Designer
               </span>
             </span>
           </motion.div>
