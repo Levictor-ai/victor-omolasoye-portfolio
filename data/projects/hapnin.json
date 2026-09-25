@@ -67,7 +67,23 @@
   "links": [
     { "label": "Case Study", "url": "https://www.behance.net/gallery/247623901/Hapnin-Event-Booking-App", "type": "case-study" }
   ],
-  "images": [],
+  "images": [
+    { "src": "/images/projects/hapnin/onboarding.png", "alt": "Onboarding Screen" },
+    { "src": "/images/projects/hapnin/sign-in.png", "alt": "Sign In Screen" },
+    { "src": "/images/projects/hapnin/sign-up-1.png", "alt": "Sign Up Step 1" },
+    { "src": "/images/projects/hapnin/sign-up-2.png", "alt": "Sign Up Step 2" },
+    { "src": "/images/projects/hapnin/forgot-password-1.png", "alt": "Forgot Password Step 1" },
+    { "src": "/images/projects/hapnin/forgot-password-2.png", "alt": "Forgot Password Step 2" },
+    { "src": "/images/projects/hapnin/home.png", "alt": "Home Screen" },
+    { "src": "/images/projects/hapnin/trending.png", "alt": "Trending Events Screen" },
+    { "src": "/images/projects/hapnin/event-details-1.png", "alt": "Event Details 1" },
+    { "src": "/images/projects/hapnin/event-details-2.png", "alt": "Event Details 2" },
+    { "src": "/images/projects/hapnin/saved-events.png", "alt": "Saved Events Screen" },
+    { "src": "/images/projects/hapnin/ticket.png", "alt": "Ticket Screen" },
+    { "src": "/images/projects/hapnin/payment-method-1.png", "alt": "Payment Method 1" },
+    { "src": "/images/projects/hapnin/payment-method-2.png", "alt": "Payment Method 2" },
+    { "src": "/images/projects/hapnin/notifications.png", "alt": "Notifications Screen" }
+  ],
   "sections": [
     {
       "title": "Product Overview",
