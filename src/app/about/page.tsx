@@ -5,6 +5,7 @@ import { Nav } from '@/components/Nav';
 import { AboutSection } from '@/components/AboutSection';
 import { ExperienceSection } from '@/components/ExperienceSection';
 import { HowIWork } from '@/components/HowIWork';
+import { ResultsSection } from '@/components/ResultsSection';
 import { ServicesSection } from '@/components/ServicesSection';
 import { ToolsSection } from '@/components/ToolsSection';
 import { BackToTop } from '@/components/BackToTop';
@@ -23,6 +24,7 @@ export default function AboutPage() {
       <main className="mx-auto max-w-7xl px-6 pt-32 pb-24 sm:px-8">
         <ServicesSection />
         <HowIWork />
+        <ResultsSection />
         <ToolsSection />
         <div className="mt-32" />
         <ExperienceSection
