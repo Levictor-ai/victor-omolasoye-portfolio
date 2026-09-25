@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Manrope, Bebas_Neue, Inter } from 'next/font/google';
 import { PortfolioProvider } from '@/context/PortfolioContext';
+import { PageScrollReset } from '@/components/PageScrollReset';
 import './globals.css';
 
 export const viewport: Viewport = {
@@ -74,6 +75,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${manrope.variable} ${bebasNeue.variable} ${inter.variable} antialiased`}>
       <body className="min-h-screen bg-[#F8F9FA] font-sans text-gray-900">
+        <PageScrollReset />
         <PortfolioProvider>{children}</PortfolioProvider>
       </body>
     </html>
