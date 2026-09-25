@@ -5,8 +5,11 @@ import { getAllProjects } from '@/lib/projects';
 export default function HomePage() {
   const projects = getAllProjects();
   return (
-    <PortfolioProvider>
-      <HomeContent projects={projects} />
-    </PortfolioProvider>
+    <>
+      <link rel="canonical" href="https://omolasoyevictor.com/" />
+      <PortfolioProvider>
+        <HomeContent projects={projects} />
+      </PortfolioProvider>
+    </>
   );
 }

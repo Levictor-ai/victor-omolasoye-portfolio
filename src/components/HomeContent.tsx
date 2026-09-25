@@ -734,27 +734,31 @@ function FAQSection({ profile }: { profile: ProfileData }) {
 }
 
 function ContactForm() {
-  const [status, setStatus] = useState<'idle' | 'sending' | 'sent'>('idle');
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus('sending');
     const form = e.currentTarget;
     const formData = new FormData(form);
-    const res = await fetch('/api/contact', {
-      method: 'POST',
-      body: JSON.stringify({
-        name: formData.get('name'),
-        email: formData.get('email'),
-        message: formData.get('message'),
-      }),
-      headers: { 'Content-Type': 'application/json' },
-    });
-    if (res.ok) {
-      setStatus('sent');
-      form.reset();
-    } else {
-      setStatus('idle');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        body: JSON.stringify({
+          name: formData.get('name'),
+          email: formData.get('email'),
+          message: formData.get('message'),
+        }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+      if (res.ok) {
+        setStatus('sent');
+        form.reset();
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
     }
   };
 
@@ -836,6 +840,11 @@ function ContactForm() {
             </button>
             {status === 'sent' && (
               <p className="text-center text-sm text-blue-50">Message sent!</p>
+            )}
+            {status === 'error' && (
+              <p className="text-center text-sm text-white/90">
+                Something went wrong — please email me directly at omolasoyevictorakinyemi@gmail.com.
+              </p>
             )}
           </motion.form>
         </div>

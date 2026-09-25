@@ -14,6 +14,7 @@ export default function AboutPage() {
 
   return (
     <>
+      <link rel="canonical" href="https://omolasoyevictor.com/about" />
       <Nav avatar={profile.avatar} />
       <AboutSection
         profile={profile}

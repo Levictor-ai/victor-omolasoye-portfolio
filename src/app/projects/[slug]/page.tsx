@@ -449,7 +449,9 @@ export default async function ProjectPage({
   const suggestedProjects = getSuggestedProjects(slug, 3);
 
   return (
-    <main className="min-h-screen bg-[#F8F9FA] text-gray-900">
+    <>
+      <link rel="canonical" href={`https://omolasoyevictor.com/projects/${slug}`} />
+      <main className="min-h-screen bg-[#F8F9FA] text-gray-900">
       <article className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <a
           href="/projects"
@@ -464,5 +466,6 @@ export default async function ProjectPage({
       </article>
       <BackToTop />
     </main>
+    </>
   );
 }

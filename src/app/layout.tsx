@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     siteName: 'Victor Omolasoye Portfolio',
     locale: 'en_US',
     type: 'website',
-    images: [{ url: '/images/victor-profile.jpg', width: 1200, height: 1200 }],
+    images: [{ url: '/images/victor-profile.jpg', width: 1200, height: 1547 }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -52,6 +52,13 @@ export const metadata: Metadata = {
     description:
       'Portfolio of Victor Omolasoye — Product designer, engineer, and brand designer crafting user-centred digital experiences.',
     images: ['/images/victor-profile.jpg'],
+  },
+  icons: {
+    icon: [
+      { url: '/favicon-192.png', type: 'image/png', sizes: '192x192' },
+      { url: '/favicon-512.png', type: 'image/png', sizes: '512x512' },
+    ],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
   },
   robots: {
     index: true,
