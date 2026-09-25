@@ -70,7 +70,7 @@ export function Nav({ avatar }: { avatar: string }) {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`${base} bg-gray-900 text-white hover:bg-black`}
+                  className={`${base} bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:from-blue-500 hover:to-blue-700`}
                 >
                   {link.label}
                 </Link>
