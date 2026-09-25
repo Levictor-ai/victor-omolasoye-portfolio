@@ -1,21 +1,29 @@
 'use client';
 
 import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 export function PageScrollReset() {
+  const pathname = usePathname();
+
   useEffect(() => {
     if (window.location.hash) {
       return;
     }
 
-    const scrollRestoration = window.history.scrollRestoration;
     window.history.scrollRestoration = 'manual';
-    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+
+    const scrollToTop = () => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    };
+
+    scrollToTop();
+    const frame = window.requestAnimationFrame(scrollToTop);
 
     return () => {
-      window.history.scrollRestoration = scrollRestoration;
+      window.cancelAnimationFrame(frame);
     };
-  }, []);
+  }, [pathname]);
 
   return null;
 }
