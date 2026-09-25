@@ -263,10 +263,13 @@ function HeroSection({ profile }: { profile: ProfileData }) {
               style={{
                 fontFamily: 'var(--font-bebas-neue), sans-serif',
                 color: '#11131A',
+                fontWeight: 700,
               }}
             >
               <span className="block w-full text-[clamp(2.5rem,13vw,4.5rem)] sm:text-[clamp(4rem,10vw,7.5rem)] lg:text-[clamp(4.25rem,8.5vw,7.5rem)]">
-                Brand Designer <span className="text-gray-500">·</span> Product Designer <span className="text-gray-500">·</span> Web Designer
+                Brand Designer<br />
+                Product Designer<br />
+                Web Designer
               </span>
             </span>
           </motion.div>
