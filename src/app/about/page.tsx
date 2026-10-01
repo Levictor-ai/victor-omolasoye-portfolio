@@ -1,38 +1,44 @@
-'use client';
+import type { Metadata } from 'next';
+import { AboutClient } from './AboutClient';
+import { JsonLd } from '@/components/JsonLd';
+import { breadcrumbSchema, faqSchema } from '@/lib/schema';
+import { pageMetadata, site } from '@/lib/seo';
+import { defaultProfile } from '@/data/profile';
 
-import { usePortfolio } from '@/context/PortfolioContext';
-import { Nav } from '@/components/Nav';
-import { AboutSection } from '@/components/AboutSection';
-import { ExperienceSection } from '@/components/ExperienceSection';
-import { HowIWork } from '@/components/HowIWork';
-import { ResultsSection } from '@/components/ResultsSection';
-import { ServicesSection } from '@/components/ServicesSection';
-import { ToolsSection } from '@/components/ToolsSection';
-import { BackToTop } from '@/components/BackToTop';
+const title = `About ${site.name} | Product, Brand & UI/UX Designer in Lagos`;
+
+const description =
+  'About Victor Omolasoye — a multidisciplinary product designer, brand designer and UI/UX designer in Lagos, Nigeria with 4+ years of experience across UX research, design systems, brand identity and product design.';
+
+export const metadata: Metadata = pageMetadata({
+  title,
+  description,
+  path: '/about',
+  keywords: [
+    'about victor omolasoye',
+    'product designer cv',
+    'brand designer cv',
+    'ui ux designer resume',
+    'product designer work experience',
+  ],
+});
 
 export default function AboutPage() {
-  const profile = usePortfolio();
-
   return (
     <>
-      <link rel="canonical" href="https://omolasoyevictor.com/about" />
-      <Nav avatar={profile.avatar} />
-      <AboutSection
-        profile={profile}
-        headingClassName="mb-6 font-display text-6xl font-bold leading-none tracking-wide text-white sm:text-7xl"
+      <JsonLd
+        data={[
+          breadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'About', path: '/about' },
+          ]),
+          faqSchema(defaultProfile.faqs),
+        ]}
       />
-      <main className="mx-auto max-w-7xl px-6 pt-20 pb-24 sm:px-8">
-        <ServicesSection />
-        <HowIWork />
-        <ResultsSection />
-        <ToolsSection />
-        <div className="mt-32" />
-        <ExperienceSection
-          profile={profile}
-          headingClassName="mb-1 font-display text-6xl font-bold leading-none tracking-wide text-gray-900 sm:text-7xl"
-        />
-      </main>
-      <BackToTop />
+      <h1 className="sr-only">
+        About {site.name} — Product Designer, Brand Designer and UI/UX Designer in Lagos, Nigeria
+      </h1>
+      <AboutClient />
     </>
   );
 }

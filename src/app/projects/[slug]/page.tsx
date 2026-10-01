@@ -3,6 +3,9 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import type { ProjectData } from '@/types/project';
 import { getProject, getSuggestedProjects } from '@/lib/projects';
+import { JsonLd } from '@/components/JsonLd';
+import { breadcrumbSchema, projectSchema } from '@/lib/schema';
+import { pageMetadata } from '@/lib/seo';
 import { ProjectCard } from '@/components/ProjectCard';
 import { BackToTop } from '@/components/BackToTop';
 
@@ -19,15 +22,35 @@ export async function generateMetadata({
   const { slug } = await params;
   const project = getProject(slug);
   if (!project) return { title: 'Project' };
-  return {
-    title: project.title,
-    description: project.overview || `${project.title} — project by Victor Omolasoye`,
-    openGraph: {
-      title: project.title,
-      description: project.overview || `${project.title} — project by Victor Omolasoye`,
-      images: project.coverImage ? [{ url: project.coverImage }] : [],
-    },
-  };
+
+  const description =
+    project.overview ||
+    `${project.title} — ${project.subtitle}. A ${project.role.toLowerCase()} project by Victor Omolasoye covering ${project.techStack
+      .slice(0, 4)
+      .map((t) => t.name)
+      .join(', ')}.`;
+
+  const categoryLabel =
+    project.category === 'product'
+      ? 'Product Design'
+      : project.category === 'brand'
+        ? 'Brand Design'
+        : 'Engineering';
+
+  return pageMetadata({
+    title: `${project.title} — ${project.subtitle} | ${categoryLabel} Case Study`,
+    description,
+    path: `/projects/${slug}`,
+    image: project.coverImage,
+    imageAlt: `${project.title} — ${project.subtitle} by Victor Omolasoye`,
+    keywords: [
+      project.title,
+      project.subtitle,
+      categoryLabel.toLowerCase(),
+      `${project.title} case study`,
+      ...project.techStack.map((t) => t.name.toLowerCase()),
+    ],
+  });
 }
 import {
   ExternalLink,
@@ -77,7 +100,10 @@ function GalleryHeader({ project }: { project: ProjectData }) {
       </div>
 
       <h1 className="mb-3 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
-        {project.title}
+        <span className="sr-only">
+          {project.title} case study by Victor Omolasoye, {project.role} —{' '}
+        </span>
+        <span aria-hidden="true">{project.title}</span>
       </h1>
 
       <p className="mb-6 text-xl text-gray-500">{project.subtitle}</p>
@@ -139,7 +165,10 @@ function CaseStudyView({ project }: { project: ProjectData }) {
         </div>
 
         <h1 className="mb-3 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
-          {project.title}
+          <span className="sr-only">
+            {project.title} design case study by Victor Omolasoye, {project.role} —{' '}
+          </span>
+          <span aria-hidden="true">{project.title}</span>
         </h1>
 
         <p className="mb-6 text-xl text-gray-500">{project.subtitle}</p>
@@ -450,7 +479,27 @@ export default async function ProjectPage({
 
   return (
     <>
-      <link rel="canonical" href={`https://omolasoyevictor.com/projects/${slug}`} />
+      <JsonLd
+        data={[
+          breadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'Projects', path: '/projects' },
+            { name: project.title, path: `/projects/${slug}` },
+          ]),
+          projectSchema({
+            title: project.title,
+            subtitle: project.subtitle,
+            overview: project.overview,
+            coverImage: project.coverImage,
+            slug,
+            role: project.role,
+            company: project.company,
+            period: project.period,
+            techStack: project.techStack,
+            links: project.links,
+          }),
+        ]}
+      />
       <main className="min-h-screen bg-[#F8F9FA] text-gray-900">
       <article className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <a

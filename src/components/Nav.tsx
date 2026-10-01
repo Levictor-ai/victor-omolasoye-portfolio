@@ -9,6 +9,7 @@ const links = [
   { label: 'Home', href: '/#home', id: 'home', hiddenMobile: true },
   { label: 'Projects', href: '/projects', id: 'projects', hiddenMobile: false },
   { label: 'About', href: '/about', id: 'about', hiddenMobile: false },
+  { label: 'Blog', href: '/blog', id: 'blog', hiddenMobile: false },
   { label: 'Contact', href: '/#contact', id: 'contact', hiddenMobile: false },
 ];
 
@@ -23,6 +24,10 @@ export function Nav({ avatar }: { avatar: string }) {
     }
     if (pathname === '/projects') {
       setActive('projects');
+      return;
+    }
+    if (pathname === '/blog' || pathname.startsWith('/blog/')) {
+      setActive('blog');
       return;
     }
     setActive('home');

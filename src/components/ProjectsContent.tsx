@@ -25,7 +25,11 @@ export function ProjectsContent({ projects }: { projects: ProjectData[] }) {
           <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
             <div>
               <h1 className="font-display text-6xl font-bold leading-none tracking-wide text-gray-900 sm:text-7xl">
-                Projects
+                <span className="sr-only">
+                  Design portfolio — product design, brand design and UI/UX case studies by Victor
+                  Omolasoye
+                </span>
+                <span aria-hidden="true">Projects</span>
               </h1>
               <p className="mt-2 text-label-sm uppercase tracking-wider text-gray-400">
                 A selection of work I&rsquo;m proud of

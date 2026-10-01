@@ -3,6 +3,7 @@
 import { useState, useEffect, type ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import { LayoutGrid, PenTool, Smartphone, Mail, type Icon } from 'lucide-react';
 import { usePortfolio } from '@/context/PortfolioContext';
 import type { ProfileData } from '@/context/PortfolioContext';
@@ -253,12 +254,12 @@ function HeroSection({ profile }: { profile: ProfileData }) {
             <HeroFrame avatar="/images/hero-portrait.jpg" name={profile.name} />
           </motion.div>
           <motion.div variants={item}>
-              <h1 className="mb-3 text-2xl font-normal tracking-tight text-gray-900 sm:text-3xl">
+              <p className="mb-3 text-2xl font-normal tracking-tight text-gray-900 sm:text-3xl">
                 Hi, <TypewriterText text="I'm Victor Omolasoye" />
-              </h1>
+              </p>
           </motion.div>
           <motion.div variants={item}>
-            <span
+            <h1
               className="mb-4 block w-full leading-[0.95] tracking-[-0.02em] text-gray-900"
               style={{
                 fontFamily: 'var(--font-bebas-neue), sans-serif',
@@ -266,12 +267,18 @@ function HeroSection({ profile }: { profile: ProfileData }) {
                 fontWeight: 700,
               }}
             >
-              <span className="block w-full text-[clamp(2.5rem,13vw,4.5rem)] sm:text-[clamp(4rem,10vw,7.5rem)] lg:text-[clamp(4.25rem,8.5vw,7.5rem)]">
+              <span className="sr-only">
+                Victor Omolasoye — Product Designer, Brand Designer and UI/UX Designer in Lagos, Nigeria
+              </span>
+              <span
+                aria-hidden="true"
+                className="block w-full text-[clamp(2.5rem,13vw,4.5rem)] sm:text-[clamp(4rem,10vw,7.5rem)] lg:text-[clamp(4.25rem,8.5vw,7.5rem)]"
+              >
                 Brand Designer<br />
                 Product Designer<br />
                 Web Designer
               </span>
-            </span>
+            </h1>
           </motion.div>
           <motion.div variants={item}>
             <p className="mb-6 w-full text-xl font-normal leading-snug tracking-tight text-gray-900 sm:text-lg">
@@ -335,36 +342,36 @@ const articles = [
   {
     title:
       'Vibe Coding Has Changed How Software Gets Built',
-    url: 'https://medium.com/@omolasoyevictorakinyemi/the-prd-in-vibe-coding-840594221458',
+    url: '/blog/vibe-coding-and-how-software-gets-built',
   },
   {
     title:
       'Design System Fundamentals: What They Really Are and Why They Matter',
-    url: 'https://medium.com/@omolasoyevictorakinyemi/design-system-fundamentals-what-they-really-are-and-why-they-matter-08df08a9f2d3',
+    url: '/blog/design-system-fundamentals',
   },
   {
     title:
       'The Quiet Power of UX Writing: Why Microcopy Decides Whether Your Design Works',
-    url: 'https://medium.com/@omolasoyevictorakinyemi/the-quiet-power-of-ux-writing-why-microcopy-decides-whether-your-design-works-0eb44fc72b55',
+    url: '/blog/the-quiet-power-of-ux-writing',
   },
   {
     title:
       'WCAG 2.1 Explained: What Every Product Designer Should Know About Accessibility',
-    url: 'https://medium.com/@omolasoyevictorakinyemi/wcag-2-1-explained-what-every-product-designer-should-know-about-accessibility-534cc6fa665a',
+    url: '/blog/wcag-2-1-explained',
   },
   {
     title:
       'Why Most Designers Fail at the Ideate Stage (A Product Designer\u2019s Perspective)',
-    url: 'https://medium.com/@omolasoyevictorakinyemi/why-most-designers-fail-at-the-ideate-stage-a-product-designers-perspective-78f9ee120aad',
+    url: '/blog/why-designers-fail-at-ideate',
   },
   {
     title:
       'Scalability Starts on Paper: The Hidden Power of a PRD',
-    url: 'https://medium.com/@omolasoyevictorakinyemi/scalability-starts-on-paper-the-hidden-power-of-a-prd-99720508a680',
+    url: '/blog/the-hidden-power-of-a-prd',
   },
   {
     title: 'Typography Hierarchy',
-    url: 'https://medium.com/@omolasoyevictorakinyemi/typography-hierarchy-cf2d6b619556',
+    url: '/blog/typography-hierarchy',
   },
 ];
 
@@ -392,38 +399,65 @@ function ArticlesSection() {
       </motion.h2>
       <div className="space-y-3">
         {articles.map((article, i) => (
-          <motion.a
+          <motion.div
             key={i}
-            href={article.url}
-            target="_blank"
-            rel="noopener noreferrer"
             variants={{
               hidden: { opacity: 0, y: 16 },
               show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
             }}
-            whileHover={{ scale: 1.01, x: 4 }}
-            className="card flex items-center gap-3 p-4 shadow-none transition-colors hover:border-black/20 hover:bg-gray-50 sm:p-5"
           >
-            <span className="flex size-7 shrink-0 items-center justify-center rounded-lg bg-black/5 text-xs font-bold text-gray-900">
-              {String(i + 1).padStart(2, '0')}
-            </span>
-            <span className="flex-1 text-sm font-medium text-gray-900 transition-colors group-hover:text-black sm:text-base">
-              {article.title}
-            </span>
-            <svg
-              className="size-4 shrink-0 text-gray-400"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+            <Link
+              href={article.url}
+              className="card flex items-center gap-3 p-4 shadow-none transition-colors hover:border-black/20 hover:bg-gray-50 sm:p-5"
             >
-              <path d="M7 17l9.2-9.2M17 17V7H7" />
-            </svg>
-          </motion.a>
+              <span className="flex size-7 shrink-0 items-center justify-center rounded-lg bg-black/5 text-xs font-bold text-gray-900">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <span className="flex-1 text-sm font-medium text-gray-900 sm:text-base">
+                {article.title}
+              </span>
+              <svg
+                className="size-4 shrink-0 text-gray-400"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M7 17l9.2-9.2M17 17V7H7" />
+              </svg>
+            </Link>
+          </motion.div>
         ))}
       </div>
+      <motion.div
+        variants={{
+          hidden: { opacity: 0, y: 16 },
+          show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+        }}
+        className="mt-6"
+      >
+        <Link
+          href="/blog"
+          className="inline-flex items-center gap-2 text-sm font-medium text-blue-600 transition-colors hover:text-blue-700"
+        >
+          Read all articles on product design and UI/UX
+          <svg
+            className="size-4"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </Link>
+      </motion.div>
     </motion.section>
   );
 }
