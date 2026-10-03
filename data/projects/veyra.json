@@ -1,0 +1,148 @@
+{
+  "slug": "veyra",
+  "category": "product",
+  "title": "Veyra",
+  "subtitle": "Agency Landing Page — Build Better. Move Faster. Grow Smarter.",
+  "role": "Product Designer / UI Designer / Frontend Developer",
+  "company": "Veyra",
+  "companyUrl": null,
+  "period": "Aug 2026 — Sep 2026",
+  "coverImage": "/images/projects/veyra/cover.png",
+  "color": "#2563EB",
+  "overview": "Veyra is a digital design, development, and growth agency that supplies skilled remote teams to businesses and startups. The landing page is engineered around a modern B2B agency layout — strong typographic hierarchy, high-contrast CTA accents, and visual social proof — engineered to move visitors from headline to project inquiry without a single scroll of doubt.",
+  "problem": "Remote-team agencies all sell the same abstract promise: talented people, on demand. Landing pages in this category tend to fail in one of two ways. They either lead with a wall of capability copy that reads like a job description, or they lead with a portfolio grid that says nothing about how the agency actually works. Either way the visitor is left asking the same three questions: who exactly will I be working with, what does working together look like day to day, and how do I start without a complicated commitment? Veyra needed a single page that answers all three in order, and turns a browsing visit into a project inquiry.",
+  "solution": "A structured single-page narrative that moves from promise to proof to action. The hero leads with a three-beat headline — Build Better. Move Faster. Grow Smarter. — followed by a plain-language subheadline and a dual-action CTA pairing a high-contrast primary button with a low-commitment secondary link. A dashboard-style hero visual anchors the agency in product and software design rather than abstract marketing. Below it, three service pillars (Design, Development, Growth) state the offering in one line each, a collaged headshot wall proves the team is real, a 2x2 grid of operational promises removes buying risk, a dark-background FAQ section handles the remaining objections, and social proof closes the loop with a flexible-terms banner and three client testimonials before the final conversion block.",
+  "targetAudience": ["Startups & Founders", "SMB Owners", "Marketing Leads", "Product Teams"],
+  "regions": ["Nigeria", "Global"],
+  "timeline": "6 Weeks",
+  "features": [
+    {
+      "title": "Hero & Value Proposition",
+      "description": "A three-beat headline hierarchy — Build Better. Move Faster. Grow Smarter. — paired with a plain-language subheadline, a dual-action CTA group, and a persistent primary button in the header."
+    },
+    {
+      "title": "Dashboard Hero Visual",
+      "description": "An interactive web dashboard preview showing sessions, user activity, team members, and metrics — positioning the agency in software and product design rather than abstract marketing."
+    },
+    {
+      "title": "Three Service Pillars",
+      "description": "Design, Development, and Growth surfaced directly beneath the hero visual with minimal line icons and one-line descriptions of the work each discipline covers."
+    },
+    {
+      "title": "Team Showcase",
+      "description": "A collaged wall of real headshots arranged around a central focus image under the headline A Team That Works With You, humanising the remote delivery model."
+    },
+    {
+      "title": "Why Work With Us",
+      "description": "A 2x2 grid built on soft pastel icon containers covering Experienced Team, Flexible Approach, Clear Communication, and Reliable Delivery."
+    },
+    {
+      "title": "Support & FAQ",
+      "description": "A high-contrast dark section that breaks the page's rhythm, pairing a left-hand value checklist with a right-hand accordion that answers buying objections in place."
+    },
+    {
+      "title": "Client Social Proof",
+      "description": "A bright accent-blue banner declaring FLEXIBLE — No complicated setup, followed by a 3-column card grid of testimonials with avatars and roles."
+    },
+    {
+      "title": "Conversion Banner & Footer",
+      "description": "A minimal closing CTA block — Ready to Build Something Great? paired with a Start Your Project button — and a dark footer organising Company, Services, and Legal links alongside social icons."
+    }
+  ],
+  "techStack": [
+    { "name": "Figma", "category": "design" },
+    { "name": "Design Systems", "category": "design" },
+    { "name": "Wireframing", "category": "design" },
+    { "name": "Prototyping", "category": "design" },
+    { "name": "React", "category": "frontend" },
+    { "name": "Tailwind CSS", "category": "frontend" },
+    { "name": "Framer Motion", "category": "frontend" },
+    { "name": "Next.js", "category": "frontend" }
+  ],
+  "architecture": {
+    "title": "Scroll-Driven Section Narrative",
+    "description": "The page is structured as a single scrolling narrative rather than a set of independent blocks. Each section answers the next question a visitor is asking, so a cold reader is carried from headline to inquiry without needing a separate nav route. Background tone is used as the primary pacing tool — light gray for content sections, deep navy for the FAQ, and bright accent blue for the social proof banner — to create visual rhythm and mark section transitions without extra dividers.",
+    "highlights": [
+      "Three-beat headline hierarchy that compresses the value proposition into one scannable line",
+      "Dual-action CTA pairing a high-contrast primary button with a low-commitment secondary link",
+      "Alternating background tones — light gray, deep navy, and bright blue — to pace a long single page",
+      "Bold lead-ins inside body copy so key values can be skimmed without reading paragraphs",
+      "Real face imagery throughout to humanise an otherwise abstract remote service"
+    ]
+  },
+  "results": [
+    {
+      "metric": "Conversion Focus",
+      "value": "4 CTAs",
+      "description": "Header, hero, mid-page, and closing conversion points"
+    },
+    {
+      "metric": "Page Sections",
+      "value": "8",
+      "description": "Hero through footer, each answering one visitor question"
+    },
+    {
+      "metric": "Above-Fold Proof",
+      "value": "Dashboard UI",
+      "description": "Product-led visual instead of stock agency imagery"
+    },
+    {
+      "metric": "Objection Handling",
+      "value": "Dedicated FAQ",
+      "description": "Dark rhythm-break section with accordion answers"
+    }
+  ],
+  "links": [
+    { "label": "View Live Prototype", "url": "https://veyra-two-tau.vercel.app/", "type": "live" }
+  ],
+  "images": [
+    { "src": "/images/projects/veyra/hero.png", "alt": "Veyra landing page — hero section with headline, subheadline, dual CTAs and dashboard preview" },
+    { "src": "/images/projects/veyra/service-pillars.png", "alt": "Veyra landing page — Design, Development and Growth service pillars" },
+    { "src": "/images/projects/veyra/team-showcase.png", "alt": "Veyra landing page — collaged team headshots under A Team That Works With You" },
+    { "src": "/images/projects/veyra/why-work-with-us.png", "alt": "Veyra landing page — 2x2 Why Work With Us grid with pastel icon containers" },
+    { "src": "/images/projects/veyra/support-faq.png", "alt": "Veyra landing page — dark Support and FAQ section with value checklist and accordion" },
+    { "src": "/images/projects/veyra/client-social-proof.png", "alt": "Veyra landing page — FLEXIBLE banner above three client testimonial cards" }
+  ],
+  "sections": [
+    {
+      "title": "Executive Summary",
+      "content": "Veyra is a digital design, development, and growth agency providing skilled remote teams for businesses and startups. The landing page is engineered around a modern B2B agency layout, using strong typography, high-contrast CTA accents, and visual social proof to drive project inquiries.\n\nThe organising principle was sequence. Every section was mapped to a question the visitor is asking at that exact scroll depth — what can you do, who will I be working with, what does working together look like, what if it goes wrong, and who else has done this — so the page closes objections in the order they surface instead of dumping proof at random."
+    },
+    {
+      "title": "Hero & Value Proposition",
+      "content": "The header stays deliberately uncluttered: top-level links for Demos, Pages, Support, and Contact, paired with a persistent Get started free button that remains available at every scroll depth.\n\nThe headline hierarchy does the heavy lifting. Build Better. Move Faster. Grow Smarter. is three beats of three words, which means it survives a one-second glance and still reads as a complete promise on a second read. The subheadline immediately translates it into plain language: access to a skilled remote team for design, development, content, and digital support, all working together to bring ideas to life.\n\nThe CTA group is a deliberate pairing — a high-contrast Start a Project button for ready visitors next to an Explore Services link for visitors still orienting. Neither option is a dead end.\n\nThe hero visual is an interactive web dashboard preview showing sessions, user activity, team members, and metrics. This is the highest-leverage decision on the page: instead of stock agency photography, the anchor visual is a piece of software, which anchors the agency's capabilities in product and software design before a single word of body copy is read."
+    },
+    {
+      "title": "Core Service Pillars",
+      "content": "Positioned directly beneath the hero visual, three core competencies are highlighted with minimalistic icons and no elaboration:\n\n- Design: Visual experiences, product interfaces, and brand identity\n- Development: Modern web solutions, digital products, and custom code architecture\n- Growth: Creative content strategies and digital audience engagement\n\nPlacing these immediately under the dashboard keeps the offer adjacent to the proof. The visitor sees the work, then immediately sees what disciplines produced it — no scrolling required to connect the two."
+    },
+    {
+      "title": "A Team That Works With You",
+      "content": "The team showcase exists to build human trust and warmth. Real headshots are collaged around a central focus image, with the copy A Team That Works With You leading the section. Highlights underneath reinforce dedicated expertise, flexible collaboration, and unified skill sets.\n\nThis is the section that de-risks the whole page. Remote agency services carry an invisible objection — who am I actually talking to — and a wall of real faces answers it faster than any testimonial can."
+    },
+    {
+      "title": "Why Work With Us",
+      "content": "A 2x2 grid layout using soft pastel icon containers establishes operational clarity. Four focus points carry the section:\n\n- Experienced Team\n- Flexible Approach\n- Clear Communication\n- Reliable Delivery\n\nThe pastel containers are a deliberate contrast to the high-contrast CTAs elsewhere — this section should read as calm reassurance, not as a second conversion push."
+    },
+    {
+      "title": "Support & FAQ",
+      "content": "A high-contrast dark background introduces visual rhythm change at the exact point the page would otherwise start to feel long. The left-hand value checklist answers why contact support, while the right-hand accordion handles the specific buying objections in place — so a hesitant visitor can resolve a doubt without scrolling back up or leaving the page.\n\nHandling objections where they appear is more effective than a single FAQ block at the foot of the page, because the question is still top of mind."
+    },
+    {
+      "title": "Client Social Proof",
+      "content": "The section opens with a top blue banner highlight — FLEXIBLE: No complicated setup. — which attacks the single biggest barrier to buying a remote team: the perceived commitment and setup overhead. The accent blue is the brightest element on the page and is spent deliberately on the one message that unblocks the decision.\n\nBelow it, a 3-column card design presents client testimonials with avatars and roles, borrowing authority from recognisable job titles — Graphic Designer, Digital Marketer, Co Founder — rather than abstract praise."
+    },
+    {
+      "title": "Conversion & Footer",
+      "content": "The page closes with a minimal CTA block built around one clear conversion hook: Ready to Build Something Great? paired with the Start Your Project action.\n\nThe footer returns to dark mode and organises navigation into logical columns — Company, Services, Legal — alongside social icons for Twitter, Facebook, Instagram, and LinkedIn, plus a short mission tagline that closes on the agency's reason for existing rather than another sales pitch."
+    },
+    {
+      "title": "Design Strengths",
+      "content": "- Clear Visual Rhythm: Alternating background tones — light gray, deep dark navy, and bright accent blue — keep scrolling engaging across long page sections\n- Scannable Information Hierarchy: Bold lead-ins for key points let visitors digest core values quickly without reading heavy blocks of body copy\n- Humanized Agency Angle: Real face imagery humanises the service delivery model, reassuring clients about who they will be collaborating with"
+    },
+    {
+      "title": "Growth Opportunities",
+      "content": "- Differentiate Hero CTAs: The header button reads Get started free while the hero CTA reads Start a Project — aligning these terms would reduce cognitive load and reinforce one consistent action\n- Enhance Testimonial Content: Adding company logos alongside client titles would further strengthen business authority, giving each testimonial an organisational stamp rather than a personal one only\n\nBoth recommendations target the same underlying principle as the rest of the page: every element should reduce the number of decisions a visitor has to make before reaching out."
+    }
+  ]
+}
