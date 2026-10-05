@@ -107,7 +107,7 @@ export function ServicesSection() {
       </motion.h2>
       <motion.p
         variants={fadeUp}
-        className="mb-8 text-label-sm uppercase tracking-wider text-gray-400"
+        className="mb-8 text-label-sm uppercase tracking-wider text-blue-600"
       >
         What I can do for you
       </motion.p>

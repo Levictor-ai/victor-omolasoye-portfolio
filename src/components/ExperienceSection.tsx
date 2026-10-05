@@ -83,7 +83,7 @@ export function ExperienceSection({
           hidden: { opacity: 0, y: 20 },
           show: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.05 } },
         }}
-        className="mb-8 text-label-sm uppercase tracking-wider text-gray-400"
+        className="mb-8 text-label-sm uppercase tracking-wider text-blue-600"
       >
         Where I&rsquo;ve worked
       </motion.p>

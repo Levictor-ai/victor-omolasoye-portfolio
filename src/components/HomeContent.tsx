@@ -1,10 +1,10 @@
-﻿'use client';
+'use client';
 
 import { useState, useEffect, type ReactNode } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { LayoutGrid, PenTool, Smartphone, Mail, type Icon } from 'lucide-react';
+import { LayoutGrid, PenTool, Smartphone, ArrowUpRight, type Icon } from 'lucide-react';
 import { usePortfolio } from '@/context/PortfolioContext';
 import type { ProfileData } from '@/context/PortfolioContext';
 import type { ProjectData, ProjectCategory } from '@/types/project';
@@ -295,7 +295,7 @@ function HeroSection({ profile }: { profile: ProfileData }) {
             >
               Get in touch
               <span className="flex size-9 items-center justify-center rounded-full bg-white -my-1 transition-transform group-hover:translate-x-0.5">
-                <Mail className="size-4 text-blue-600" strokeWidth={2.5} />
+                <ArrowUpRight className="size-4 text-blue-600" strokeWidth={2.5} />
               </span>
             </motion.a>
             <motion.a
@@ -338,216 +338,46 @@ function AvailableBanner() {
   );
 }
 
-const articles = [
-  {
-    title:
-      'Vibe Coding Has Changed How Software Gets Built',
-    url: '/blog/vibe-coding-and-how-software-gets-built',
-  },
-  {
-    title:
-      'Design System Fundamentals: What They Really Are and Why They Matter',
-    url: '/blog/design-system-fundamentals',
-  },
-  {
-    title:
-      'The Quiet Power of UX Writing: Why Microcopy Decides Whether Your Design Works',
-    url: '/blog/the-quiet-power-of-ux-writing',
-  },
-  {
-    title:
-      'WCAG 2.1 Explained: What Every Product Designer Should Know About Accessibility',
-    url: '/blog/wcag-2-1-explained',
-  },
-  {
-    title:
-      'Why Most Designers Fail at the Ideate Stage (A Product Designer\u2019s Perspective)',
-    url: '/blog/why-designers-fail-at-ideate',
-  },
-  {
-    title:
-      'Scalability Starts on Paper: The Hidden Power of a PRD',
-    url: '/blog/the-hidden-power-of-a-prd',
-  },
-  {
-    title: 'Typography Hierarchy',
-    url: '/blog/typography-hierarchy',
-  },
-];
-
-function ArticlesSection() {
-  return (
-    <motion.section
-      id="articles"
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, margin: '-50px' }}
-      variants={{
-        hidden: {},
-        show: { transition: { staggerChildren: 0.08 } },
-      }}
-      className="mb-20"
-    >
-      <motion.h2
-        variants={{
-          hidden: { opacity: 0, y: 20 },
-          show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-        }}
-        className="mb-6 text-heading-lg font-bold tracking-tight text-gray-900"
-      >
-        Articles
-      </motion.h2>
-      <div className="space-y-3">
-        {articles.map((article, i) => (
-          <motion.div
-            key={i}
-            variants={{
-              hidden: { opacity: 0, y: 16 },
-              show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
-            }}
-          >
-            <Link
-              href={article.url}
-              className="card flex items-center gap-3 p-4 shadow-none transition-colors hover:border-black/20 hover:bg-gray-50 sm:p-5"
-            >
-              <span className="flex size-7 shrink-0 items-center justify-center rounded-lg bg-black/5 text-xs font-bold text-gray-900">
-                {String(i + 1).padStart(2, '0')}
-              </span>
-              <span className="flex-1 text-sm font-medium text-gray-900 sm:text-base">
-                {article.title}
-              </span>
-              <svg
-                className="size-4 shrink-0 text-gray-400"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M7 17l9.2-9.2M17 17V7H7" />
-              </svg>
-            </Link>
-          </motion.div>
-        ))}
-      </div>
-      <motion.div
-        variants={{
-          hidden: { opacity: 0, y: 16 },
-          show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
-        }}
-        className="mt-6"
-      >
-        <Link
-          href="/blog"
-          className="inline-flex items-center gap-2 text-sm font-medium text-blue-600 transition-colors hover:text-blue-700"
-        >
-          Read all articles on product design and UI/UX
-          <svg
-            className="size-4"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
-          >
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg>
-        </Link>
-      </motion.div>
-    </motion.section>
-  );
-}
-
 function TestimonialsCarousel({ profile }: { profile: ProfileData }) {
-  const [index, setIndex] = useState(0);
-  const [direction, setDirection] = useState(1);
   const items = profile.testimonials;
   if (items.length === 0) return null;
 
-  const variants = {
-    initial: (dir: number) => ({ x: dir * 90, opacity: 0, rotate: dir * 3 }),
-    animate: { x: 0, opacity: 1, rotate: -1 },
-    exit: (dir: number) => ({ x: dir * -90, opacity: 0, rotate: dir * -3 }),
-  };
+  const loop = [...items, ...items];
 
   return (
     <section id="testimonials" className="mb-20">
       <h2 className="mb-10 text-heading-lg font-bold tracking-tight text-gray-900">Testimonials</h2>
-      <div className="relative mx-auto max-w-2xl lg:sticky lg:top-24">
-        <div
-          className="pointer-events-none absolute -inset-4 -z-10 rotate-2 rounded-md border border-gray-200 bg-white"
-          aria-hidden="true"
-        />
-        <div
-          className="pointer-events-none absolute -inset-4 -z-10 -rotate-1 rounded-md border border-gray-200 bg-gray-50"
-          aria-hidden="true"
-        />
-        <AnimatePresence custom={direction} mode="wait">
-          <motion.blockquote
-            key={index}
-            custom={direction}
-            variants={variants}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            transition={{ duration: 0.3, ease: 'easeOut' }}
-            drag="x"
-            dragConstraints={{ left: 0, right: 0 }}
-            dragElastic={0.12}
-            onDragEnd={(_, info) => {
-              const threshold = 60;
-              if (info.offset.x < -threshold) {
-                setDirection(1);
-                setIndex((prev) => (prev + 1) % items.length);
-              } else if (info.offset.x > threshold) {
-                setDirection(-1);
-                setIndex((prev) => (prev - 1 + items.length) % items.length);
-              }
-            }}
-            className="relative flex flex-col rounded-sm border border-gray-200 bg-white p-6 shadow-[0_24px_60px_-28px] shadow-black/[0.15] sm:p-8"
-          >
-            <div
-              className="absolute -top-3 left-1/2 h-6 w-24 -translate-x-1/2 rotate-3 border border-gray-200/70 bg-gray-100/90 shadow-sm"
-              aria-hidden="true"
-            />
-            <svg
-              className="mb-3 size-6 text-gray-300"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              aria-hidden="true"
+      <div className="marquee-fade-x overflow-hidden">
+        <div className="marquee-track flex w-max gap-5 py-2">
+          {loop.map((item, i) => (
+            <blockquote
+              key={`${item.author}-${i}`}
+              aria-hidden={i >= items.length || undefined}
+              className="flex h-[320px] w-[86vw] max-w-[400px] shrink-0 flex-col rounded-sm border border-gray-200 bg-white p-6 shadow-[0_24px_60px_-28px] shadow-black/[0.15] sm:h-[360px] sm:p-8"
             >
-              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151C7.563 6.068 6 8.789 6 11h4v10H0z" />
-            </svg>
-            <p className="mb-6 text-lg leading-relaxed text-gray-800 sm:text-xl">
-              &ldquo;{items[index].quote}&rdquo;
-            </p>
-            <footer className="mt-auto border-t border-gray-200 pt-5">
-              <cite className="not-italic">
-                <span className="block text-sm font-semibold text-gray-900">
-                  {items[index].author}
-                </span>
-                <span className="text-sm text-gray-500">
-                  {items[index].role}
-                  {items[index].company ? ` @ ${items[index].company}` : ''}
-                </span>
-              </cite>
-            </footer>
-          </motion.blockquote>
-        </AnimatePresence>
-        <div className="mt-6 flex justify-center gap-2">
-          {items.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => { setDirection(i > index ? 1 : -1); setIndex(i); }}
-              className={`rounded-full transition-all duration-300 ${
-                i === index ? 'h-2 w-6 bg-gray-900' : 'h-2 w-2 bg-gray-300 hover:bg-gray-400'
-              }`}
-              aria-label={`Go to testimonial ${i + 1}`}
-            />
+              <svg
+                className="mb-3 size-6 shrink-0 text-gray-300"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151C7.563 6.068 6 8.789 6 11h4v10H0z" />
+              </svg>
+              <p className="mb-6 line-clamp-4 flex-1 text-lg leading-relaxed text-gray-800 sm:text-xl">
+                &ldquo;{item.quote}&rdquo;
+              </p>
+              <footer className="shrink-0 border-t border-gray-200 pt-5">
+                <cite className="not-italic">
+                  <span className="block text-sm font-semibold text-gray-900">
+                    {item.author}
+                  </span>
+                  <span className="text-sm text-gray-500">
+                    {item.role}
+                    {item.company ? ` @ ${item.company}` : ''}
+                  </span>
+                </cite>
+              </footer>
+            </blockquote>
           ))}
         </div>
       </div>
@@ -971,7 +801,6 @@ export function HomeContent({ projects }: { projects: ProjectData[] }) {
         <ProjectsSection projects={projects} behanceUrl={profile.socials.behance} />
         <AboutSection profile={profile} />
         <ExperienceSection profile={profile} />
-        <ArticlesSection />
         <TestimonialsCarousel profile={profile} />
         <FAQSection profile={profile} />
         <ContactForm />

@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { Mail } from 'lucide-react';
+import { ArrowUpRight, BadgeCheck, FileText } from 'lucide-react';
 import type { ProfileData } from '@/context/PortfolioContext';
 import { renderInline } from '@/lib/inline';
 
@@ -45,40 +45,79 @@ export function AboutSection({
             show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
           }}
         >
-          <div className="grid gap-6 lg:grid-cols-2 lg:items-stretch lg:gap-10">
-            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl sm:aspect-[3/2] lg:aspect-auto lg:h-full lg:min-h-[420px]">
+          <div className="grid grid-cols-2 gap-4 sm:gap-6">
+            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl">
               <Image
                 src={profile.avatar}
                 alt={profile.name}
                 fill
                 className="object-cover"
                 style={{ objectPosition: 'top' }}
-                sizes="(max-width: 1024px) 100vw, 50vw"
+                sizes="(max-width: 1024px) 50vw, 40vw"
                 priority
               />
             </div>
-            <div className="flex flex-col justify-center">
-              <div className="prose max-w-none">
-                {profile.about.split('\n\n').map((paragraph, i) => (
-                  <p
-                    key={i}
-                    className="mb-5 last:mb-0 text-body-lg leading-relaxed text-gray-300"
-                  >
-                    {renderInline(paragraph, 'font-semibold text-white')}
-                  </p>
-                ))}
+            {profile.avatarAlt ? (
+              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl">
+                <Image
+                  src={profile.avatarAlt}
+                  alt={`${profile.name} working`}
+                  fill
+                  className="object-cover"
+                  style={{ objectPosition: 'top' }}
+                  sizes="(max-width: 1024px) 50vw, 40vw"
+                  priority
+                />
               </div>
-              <div className="mt-6 w-full sm:w-auto">
-                <a
-                  href={`mailto:${profile.email}`}
-                  className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-5 py-3 text-sm font-medium text-white transition-all hover:from-blue-500 hover:to-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto"
+            ) : (
+              <div className="flex aspect-[4/5] w-full items-center justify-center rounded-2xl border border-dashed border-white/20 bg-white/5">
+                <span className="text-label-sm uppercase tracking-wider text-gray-400">
+                  Photo coming soon
+                </span>
+              </div>
+            )}
+          </div>
+          <div className="mt-10 max-w-3xl lg:mt-12">
+            <div className="prose max-w-none">
+              {profile.about.split('\n\n').map((paragraph, i) => (
+                <p
+                  key={i}
+                  className="mb-5 last:mb-0 text-body-lg leading-relaxed text-gray-300"
                 >
-                  Get in touch
-                  <span className="flex size-9 items-center justify-center rounded-full bg-white -my-1 transition-transform group-hover:translate-x-0.5">
-                    <Mail className="size-4 text-blue-600" strokeWidth={2.5} />
-                  </span>
+                  {renderInline(paragraph, 'font-semibold text-white')}
+                </p>
+              ))}
+            </div>
+            <div className="mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">
+              {profile.socials.contra && (
+                <a
+                  href={profile.socials.contra}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/25 px-5 py-3 text-sm font-medium text-white transition-colors hover:border-white hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto"
+                >
+                  <BadgeCheck className="size-4 text-blue-600" strokeWidth={2.2} />
+                  Hire me on Contra
                 </a>
-              </div>
+              )}
+              <a
+                href={profile.resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/25 px-5 py-3 text-sm font-medium text-white transition-colors hover:border-white hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto"
+              >
+                <FileText className="size-4 text-blue-600" strokeWidth={2.2} />
+                Resume
+              </a>
+              <a
+                href={`mailto:${profile.email}`}
+                className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-5 py-3 text-sm font-medium text-white transition-all hover:from-blue-500 hover:to-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto"
+              >
+                Get in touch
+                <span className="flex size-9 items-center justify-center rounded-full bg-white -my-1 transition-transform group-hover:translate-x-0.5">
+                  <ArrowUpRight className="size-4 text-blue-600" strokeWidth={2.5} />
+                </span>
+              </a>
             </div>
           </div>
         </motion.div>

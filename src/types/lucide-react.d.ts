@@ -25,4 +25,6 @@ declare module 'lucide-react' {
   export const PenTool: Icon;
   export const Smartphone: Icon;
   export const Mail: Icon;
+  export const BadgeCheck: Icon;
+  export const FileText: Icon;
 }

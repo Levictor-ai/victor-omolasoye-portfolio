@@ -24,6 +24,7 @@ export interface ProfileData {
   bio: string;
   about: string;
   avatar: string;
+  avatarAlt?: string;
   email: string;
   location: string;
   socials: {
@@ -57,6 +58,8 @@ export const defaultProfile: ProfileData = {
   about:
     'Victor Omolasoye is a multidisciplinary designer with **4+ years of experience** working across **brand identity, UX/UI, and digital products**. He combines research, strategy, and visual thinking to create brands and products that are clear, purposeful, and built around real user needs.\n\nHe has worked with founders and teams across the **UK, US, Canada, China, and Africa**, helping turn ideas into meaningful brands and digital experiences. He was also a **Graduate Product Owner at Cowrywise**, contributed to Bunkie, a home-services application.\n\nHis approach sits at the intersection of **design, product, and strategy**—bringing together business goals and user needs to create experiences that are not only visually strong, but useful, intuitive, and lasting.',
   avatar: '/images/victor-profile.jpg',
+  // Second About photo. Drop the file in /public/images and set the path here.
+  // avatarAlt: '/images/victor-profile-2.jpg',
   email: 'omolasoyevictorakinyemi@gmail.com',
   location: 'Lagos, Nigeria',
   socials: {

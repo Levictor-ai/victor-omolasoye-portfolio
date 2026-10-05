@@ -6,7 +6,6 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 const links = [
-  { label: 'Home', href: '/#home', id: 'home', hiddenMobile: true },
   { label: 'Projects', href: '/projects', id: 'projects', hiddenMobile: false },
   { label: 'About', href: '/about', id: 'about', hiddenMobile: false },
   { label: 'Blog', href: '/blog', id: 'blog', hiddenMobile: false },
@@ -54,17 +53,19 @@ export function Nav({ avatar }: { avatar: string }) {
         <div className="relative flex w-auto items-center justify-between gap-3 rounded-full border border-gray-200 bg-white px-3 py-2 shadow-lg shadow-gray-900/5 sm:px-4 sm:py-2">
           <Link
             href="/#home"
-            className="flex shrink-0 items-center gap-2 text-sm font-bold tracking-tight text-gray-900"
+            aria-label="Home"
+            title="Home"
+            className="flex shrink-0 items-center"
           >
             <Image
               src={avatar}
               alt="Victor Omolasoye"
-              width={32}
-              height={32}
-              className="size-7 rounded-full object-cover"
+              width={36}
+              height={36}
+              className="size-8 rounded-full object-cover ring-1 ring-black/10"
               style={{ objectPosition: 'top' }}
+              priority
             />
-            <span className="hidden md:inline">Victor Omolasoye</span>
           </Link>
           <div className="flex items-center gap-0.5">
             {links.map((link) => {
