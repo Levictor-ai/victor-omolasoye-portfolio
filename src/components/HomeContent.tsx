@@ -353,12 +353,12 @@ function TestimonialsCarousel({ profile }: { profile: ProfileData }) {
     <section id="testimonials" className="mb-20">
       <h2 className="mb-10 text-heading-lg font-bold tracking-tight text-gray-900">Testimonials</h2>
       <div className="marquee-fade-x overflow-hidden">
-        <div className="marquee-track flex w-max gap-5 py-2">
+        <div className="marquee-track flex w-max items-stretch gap-5 py-2">
           {loop.map((item, i) => (
             <blockquote
               key={`${item.author}-${i}`}
               aria-hidden={i >= items.length || undefined}
-              className="flex h-[480px] w-[86vw] max-w-[520px] shrink-0 flex-col rounded-sm border border-gray-200 bg-white p-6 shadow-[0_24px_60px_-28px] shadow-black/[0.15] sm:h-[600px] sm:p-8"
+              className="flex w-[86vw] max-w-[520px] shrink-0 flex-col rounded-sm border border-gray-200 bg-white p-6 shadow-[0_24px_60px_-28px] shadow-black/[0.15] sm:p-8"
             >
               <svg
                 className="mb-3 size-6 shrink-0 text-blue-600"
@@ -368,10 +368,10 @@ function TestimonialsCarousel({ profile }: { profile: ProfileData }) {
               >
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151C7.563 6.068 6 8.789 6 11h4v10H0z" />
               </svg>
-              <p className="mb-6 line-clamp-[14] flex-1 text-lg leading-relaxed text-gray-800">
+              <p className="mb-6 text-base leading-relaxed text-gray-800 sm:text-lg">
                 &ldquo;{item.quote}&rdquo;
               </p>
-              <footer className="shrink-0 border-t border-gray-200 pt-5">
+              <footer className="mt-auto shrink-0 border-t border-gray-200 pt-5">
                 <cite className="not-italic">
                   <span className="block text-sm font-semibold text-gray-900">
                     {item.author}
