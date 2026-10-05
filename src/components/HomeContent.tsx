@@ -353,12 +353,12 @@ function TestimonialsCarousel({ profile }: { profile: ProfileData }) {
     <section id="testimonials" className="mb-20">
       <h2 className="mb-10 text-heading-lg font-bold tracking-tight text-gray-900">Testimonials</h2>
       <div className="marquee-fade-x overflow-hidden">
-        <div className="marquee-track flex w-max items-stretch gap-5 py-2">
+        <div className="marquee-track flex w-max items-stretch gap-4 py-2 sm:gap-5">
           {loop.map((item, i) => (
             <blockquote
               key={`${item.author}-${i}`}
               aria-hidden={i >= items.length || undefined}
-              className="flex w-[86vw] max-w-[520px] shrink-0 flex-col rounded-sm border border-gray-200 bg-white p-6 shadow-[0_24px_60px_-28px] shadow-black/[0.15] sm:p-8"
+              className="flex w-[82vw] max-w-[470px] shrink-0 flex-col rounded-sm border border-gray-200 bg-white p-6 shadow-[0_24px_60px_-28px] shadow-black/[0.15] sm:p-7"
             >
               <svg
                 className="mb-3 size-6 shrink-0 text-blue-600"

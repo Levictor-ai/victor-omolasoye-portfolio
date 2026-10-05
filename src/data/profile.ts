@@ -93,7 +93,7 @@ export const defaultProfile: ProfileData = {
   testimonials: [
     {
       quote:
-        "Victor's creativity is truly exceptional. He took my vision and transformed it into reality with remarkable precision and creativity. What impressed me most was his openness to feedback, professionalism, and ability to understand exactly what I had in mind. He not only welcomed corrections but also contributed valuable suggestions that made the final result even better than I imagined. Working with Victor has been an outstanding experience. His commitment to excellence, attention to detail, and creative insight have earned my complete trust. I look forward to working with him on many more projects and confidently recommend him to anyone seeking a talented, reliable, and highly professional designer.",
+        "Victor is an exceptional designer who brought my vision to life with creativity and precision. He understood my ideas, welcomed feedback, and contributed thoughtful suggestions that elevated the final result. His professionalism, attention to detail, and commitment to excellence made the experience outstanding. I highly recommend Victor for any design project.",
       author: 'CEO',
       role: 'CEO',
       company: 'Hevaura',
@@ -106,7 +106,7 @@ export const defaultProfile: ProfileData = {
     },
     {
       quote:
-        "Working with Victor has been an outstanding experience. From our very first project, he demonstrated exceptional commitment, professionalism, and attention to detail. He consistently delivers high-quality designs on time, even under tight deadlines. His creativity, reliability, and strong work ethic make every collaboration seamless and enjoyable. Having worked with several designers, I can confidently say Victor stands out. His discipline, design expertise, and ability to exceed expectations have made him my preferred graphic designer. I highly recommend Victor to anyone looking for a skilled, dependable, and professional designer. He consistently delivers work of exceptional quality and always goes the extra mile.",
+        "Victor is an exceptional designer who transformed my vision into reality with precision and creativity. He was highly professional, receptive to feedback, and added valuable ideas that made the final result even better. His attention to detail, creativity, and commitment to excellence made working with him an outstanding experience. I highly recommend Victor to anyone looking for a talented and reliable designer.",
       author: 'Barrister Seyifunmi',
       role: 'Co-founder',
       company: 'Luminous Attorney',

@@ -23,7 +23,7 @@ export function AboutSection({
         hidden: {},
         show: { transition: { staggerChildren: 0.1 } },
       }}
-      className="mb-8 bg-neutral-800 py-28 lg:mb-16 lg:py-40"
+      className="mb-8 bg-[#E9EBEF] py-28 lg:mb-16 lg:py-40"
       style={{ width: '100vw', marginLeft: 'calc(50% - 50vw)' }}
     >
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
@@ -34,7 +34,7 @@ export function AboutSection({
           }}
           className={
             headingClassName ??
-            'mb-6 text-heading-lg font-bold tracking-tight text-white'
+            'mb-6 text-heading-lg font-bold tracking-tight text-gray-900'
           }
         >
           About Me
@@ -51,7 +51,7 @@ export function AboutSection({
                 href={profile.socials.contra}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/25 px-5 py-3 text-sm font-medium text-white transition-colors hover:border-white hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 px-5 py-3 text-sm font-medium text-gray-900 transition-colors hover:border-gray-900 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto"
               >
                 <BadgeCheck className="size-4 text-blue-600" strokeWidth={2.2} />
                 Hire me on Contra
@@ -61,7 +61,7 @@ export function AboutSection({
               href={profile.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/25 px-5 py-3 text-sm font-medium text-white transition-colors hover:border-white hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 px-5 py-3 text-sm font-medium text-gray-900 transition-colors hover:border-gray-900 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto"
             >
               <FileText className="size-4 text-blue-600" strokeWidth={2.2} />
               Resume
@@ -92,8 +92,8 @@ export function AboutSection({
                 />
               </div>
             ) : (
-              <div className="flex aspect-[4/5] w-full items-center justify-center rounded-2xl border border-dashed border-white/20 bg-white/5">
-                <span className="text-label-sm uppercase tracking-wider text-gray-400">
+              <div className="flex aspect-[4/5] w-full items-center justify-center rounded-2xl border border-dashed border-gray-300 bg-white/50">
+                <span className="text-label-sm uppercase tracking-wider text-gray-500">
                   Photo coming soon
                 </span>
               </div>
@@ -105,16 +105,16 @@ export function AboutSection({
                 paragraph.startsWith('### ') ? (
                   <h3
                     key={i}
-                    className="mb-5 text-heading-md font-bold tracking-tight text-white"
+                    className="mb-5 text-heading-md font-bold tracking-tight text-gray-900"
                   >
                     {renderInline(paragraph.slice(4))}
                   </h3>
                 ) : (
                   <p
                     key={i}
-                    className="mb-5 last:mb-0 text-body-lg leading-relaxed text-gray-300"
+                    className="mb-5 last:mb-0 text-body-lg leading-relaxed text-gray-600"
                   >
-                    {renderInline(paragraph, 'font-semibold text-white')}
+                    {renderInline(paragraph, 'font-semibold text-gray-900')}
                   </p>
                 ),
               )}
