@@ -58,7 +58,7 @@ export default function BlogPage() {
       <Nav avatar={defaultProfile.avatar} />
       <main className="mx-auto min-h-screen max-w-4xl px-6 py-12 sm:px-8 sm:py-16">
         <header className="mb-12">
-          <p className="mb-3 text-sm font-medium uppercase tracking-widest text-brand">
+          <p className="mb-3 text-sm font-medium uppercase tracking-widest text-blue-600">
             Writing
           </p>
           <h1 className="mb-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
@@ -89,7 +89,7 @@ export default function BlogPage() {
                 <span>{post.readingTime}</span>
               </div>
               <h2 className="mb-2 text-xl font-bold tracking-tight text-gray-900">
-                <Link href={`/blog/${post.slug}`} className="hover:text-brand-dark">
+                <Link href={`/blog/${post.slug}`} className="hover:text-blue-700">
                   {post.title}
                 </Link>
               </h2>
@@ -114,7 +114,7 @@ export default function BlogPage() {
             href={site.socials.medium}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-medium text-brand hover:text-brand-dark"
+            className="font-medium text-blue-600 hover:text-blue-700"
           >
             Medium
           </a>

@@ -49,9 +49,9 @@ export function Nav({ avatar }: { avatar: string }) {
   }, [pathname]);
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-navy/10 bg-white/80 backdrop-blur-lg">
+    <nav className="sticky top-0 z-50 border-b border-gray-200 bg-white/80 backdrop-blur-lg">
       <div className="mx-auto flex max-w-7xl items-center justify-center px-6 py-2.5 sm:px-8">
-        <div className="relative flex w-auto items-center justify-between gap-3 rounded-full border border-navy/10 bg-white px-3 py-2 shadow-lg shadow-navy/5 sm:px-4 sm:py-2">
+        <div className="relative flex w-auto items-center justify-between gap-3 rounded-full border border-gray-200 bg-white px-3 py-2 shadow-lg shadow-gray-900/5 sm:px-4 sm:py-2">
           <Link
             href="/#home"
             className="flex shrink-0 items-center gap-2 text-sm font-bold tracking-tight text-gray-900"
@@ -75,7 +75,7 @@ export function Nav({ avatar }: { avatar: string }) {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`${base} bg-gradient-to-r from-brand to-brand-dark text-white hover:from-brand-light hover:to-brand-dark`}
+                  className={`${base} bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:from-blue-500 hover:to-blue-700`}
                 >
                   {link.label}
                 </Link>

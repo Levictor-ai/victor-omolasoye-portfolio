@@ -92,7 +92,7 @@ export function PersonalProjectCard({ project, index = 0 }: PersonalProjectCardP
           )}
 
           {/* CTA */}
-          <span className="mt-auto inline-flex items-center gap-1.5 text-sm font-medium text-brand">
+          <span className="mt-auto inline-flex items-center gap-1.5 text-sm font-medium text-blue-600">
             {isUpcoming ? 'Coming Soon' : 'View Case Study'}
             {!isUpcoming && (
               <ArrowUpRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

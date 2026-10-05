@@ -196,7 +196,7 @@ function CaseStudyView({ project }: { project: ProjectData }) {
                 href={link.url}
                 target={link.type !== 'case-study' ? '_blank' : undefined}
                 rel={link.type !== 'case-study' ? 'noopener noreferrer' : undefined}
-                className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand to-brand-dark px-5 py-3 text-sm font-medium text-white transition-all hover:from-brand-light hover:to-brand-dark"
+                className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-5 py-3 text-sm font-medium text-white transition-all hover:from-blue-500 hover:to-blue-700"
               >
                 <span className="transition-transform group-hover:translate-x-0.5">{linkIcon(link.type)}</span>
                 {link.label}
@@ -447,7 +447,7 @@ function MoreProjects({ projects }: { projects: ProjectData[] }) {
         </h2>
         <a
           href="/projects"
-          className="inline-flex items-center gap-1.5 text-sm font-medium text-brand transition-colors hover:text-brand-dark"
+          className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 transition-colors hover:text-blue-700"
         >
           View all projects
           <ArrowUpRight className="size-4" />

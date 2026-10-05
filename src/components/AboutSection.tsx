@@ -23,7 +23,7 @@ export function AboutSection({
         hidden: {},
         show: { transition: { staggerChildren: 0.1 } },
       }}
-      className="section-navy mb-8 py-28 lg:mb-16 lg:py-40"
+      className="mb-8 bg-black py-28 lg:mb-16 lg:py-40"
       style={{ width: '100vw', marginLeft: 'calc(50% - 50vw)' }}
     >
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
@@ -46,7 +46,7 @@ export function AboutSection({
           }}
         >
           <div className="grid gap-6 lg:grid-cols-2 lg:items-stretch lg:gap-10">
-            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl ring-1 ring-white/10 sm:aspect-[3/2] lg:aspect-auto lg:h-full lg:min-h-[420px]">
+            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl sm:aspect-[3/2] lg:aspect-auto lg:h-full lg:min-h-[420px]">
               <Image
                 src={profile.avatar}
                 alt={profile.name}
@@ -62,7 +62,7 @@ export function AboutSection({
                 {profile.about.split('\n\n').map((paragraph, i) => (
                   <p
                     key={i}
-                    className="mb-5 last:mb-0 text-body-lg leading-relaxed text-navy-muted"
+                    className="mb-5 last:mb-0 text-body-lg leading-relaxed text-gray-300"
                   >
                     {renderInline(paragraph, 'font-semibold text-white')}
                   </p>
@@ -71,11 +71,11 @@ export function AboutSection({
               <div className="mt-6 w-full sm:w-auto">
                 <a
                   href={`mailto:${profile.email}`}
-                  className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-brand to-brand-dark px-5 py-3 text-sm font-medium text-white transition-all hover:from-brand-light hover:to-brand-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 sm:w-auto"
+                  className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-5 py-3 text-sm font-medium text-white transition-all hover:from-blue-500 hover:to-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto"
                 >
                   Get in touch
                   <span className="flex size-9 items-center justify-center rounded-full bg-white -my-1 transition-transform group-hover:translate-x-0.5">
-                    <Mail className="size-4 text-brand" strokeWidth={2.5} />
+                    <Mail className="size-4 text-blue-600" strokeWidth={2.5} />
                   </span>
                 </a>
               </div>

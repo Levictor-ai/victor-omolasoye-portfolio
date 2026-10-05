@@ -153,7 +153,7 @@ export default async function BlogPostPage({
               href={post.mediumUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium text-brand hover:text-brand-dark"
+              className="text-sm font-medium text-blue-600 hover:text-blue-700"
             >
               Read the full article on Medium &rarr;
             </a>
@@ -165,7 +165,7 @@ export default async function BlogPostPage({
             <p className="mb-2 text-sm text-gray-500">Next article</p>
             <Link
               href={`/blog/${next.slug}`}
-              className="text-lg font-bold tracking-tight text-gray-900 hover:text-brand-dark"
+              className="text-lg font-bold tracking-tight text-gray-900 hover:text-blue-700"
             >
               {next.title}
             </Link>

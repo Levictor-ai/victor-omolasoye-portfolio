@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect, type ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -64,10 +64,10 @@ function TypewriterText({ text, className }: { text: string; className?: string 
 }
 
 const PIXEL_COLORS: Record<string, string> = {
-  '@': '#161824',
+  '@': '#1f2937',
   's': '#f6c79b',
-  'e': '#272C40',
-  'b': '#004FFF',
+  'e': '#111827',
+  'b': '#2563eb',
   'w': '#ffffff',
 };
 
@@ -132,12 +132,12 @@ function HeroFrame({ avatar, name, priority = false }: { avatar: string; name: s
   return (
     <div className="group relative mx-auto aspect-square w-full max-w-[15rem] cursor-pointer sm:max-w-[16rem] xl:max-w-[17.5rem]">
       <div
-        className="pointer-events-none absolute inset-0 rounded-full border-2 border-brand/70"
+        className="pointer-events-none absolute inset-0 rounded-full border-2 border-blue-600/70"
         style={{ animation: 'stroke-pulse 3s ease-in-out infinite' }}
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute inset-0 rounded-full border-2 border-brand/70"
+        className="pointer-events-none absolute inset-0 rounded-full border-2 border-blue-600/70"
         style={{ animation: 'stroke-pulse 3s ease-in-out 1.5s infinite' }}
         aria-hidden="true"
       />
@@ -170,7 +170,7 @@ function HeroFrame({ avatar, name, priority = false }: { avatar: string; name: s
           aria-hidden="true"
         />
         <div
-          className="pointer-events-none absolute -inset-6 z-10 rounded-full border-2 border-dashed border-brand/50"
+          className="pointer-events-none absolute -inset-6 z-10 rounded-full border-2 border-dashed border-blue-600/50"
           style={{ animation: 'spin-counter 28s linear infinite' }}
           aria-hidden="true"
         />
@@ -209,7 +209,7 @@ function HeroFrame({ avatar, name, priority = false }: { avatar: string; name: s
         style={{ animation: 'chip-sway 5s ease-in-out infinite' }}
         aria-hidden="true"
       >
-        <PenTool className="size-3.5 text-brand" strokeWidth={2.2} />
+        <PenTool className="size-3.5 text-blue-600" strokeWidth={2.2} />
         <span className="text-xs font-semibold text-gray-900">Creative</span>
       </div>
       <div
@@ -217,7 +217,7 @@ function HeroFrame({ avatar, name, priority = false }: { avatar: string; name: s
         style={{ animation: 'chip-sway 6s ease-in-out 0.6s infinite' }}
         aria-hidden="true"
       >
-        <svg className="size-3 text-brand" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <svg className="size-3 text-blue-600" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z" />
         </svg>
         <span className="text-xs font-semibold text-gray-900">Design · Code</span>
@@ -291,11 +291,11 @@ function HeroSection({ profile }: { profile: ProfileData }) {
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
               href={`mailto:${profile.email}`}
-              className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-brand to-brand-dark px-8 py-3 text-sm font-medium text-white transition-all hover:from-brand-light hover:to-brand-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 sm:w-auto sm:px-10"
+              className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-8 py-3 text-sm font-medium text-white transition-all hover:from-blue-500 hover:to-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto sm:px-10"
             >
               Get in touch
               <span className="flex size-9 items-center justify-center rounded-full bg-white -my-1 transition-transform group-hover:translate-x-0.5">
-                <Mail className="size-4 text-brand" strokeWidth={2.5} />
+                <Mail className="size-4 text-blue-600" strokeWidth={2.5} />
               </span>
             </motion.a>
             <motion.a
@@ -304,7 +304,7 @@ function HeroSection({ profile }: { profile: ProfileData }) {
               href={profile.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-transparent px-8 py-3 text-sm font-medium text-gray-900 transition-colors hover:border-black/30 hover:bg-black/10 hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 sm:w-auto sm:px-10"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-transparent px-8 py-3 text-sm font-medium text-gray-900 transition-colors hover:border-black/30 hover:bg-black/10 hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto sm:px-10"
             >
               <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
@@ -441,7 +441,7 @@ function ArticlesSection() {
       >
         <Link
           href="/blog"
-          className="inline-flex items-center gap-2 text-sm font-medium text-brand transition-colors hover:text-brand-dark"
+          className="inline-flex items-center gap-2 text-sm font-medium text-blue-600 transition-colors hover:text-blue-700"
         >
           Read all articles on product design and UI/UX
           <svg
@@ -656,14 +656,14 @@ function ProjectsSection({ projects, behanceUrl }: { projects: ProjectData[]; be
                 key={category.value}
                 onClick={() => setActiveCategory(category.value)}
                 aria-pressed={isActive}
-                className={`relative flex flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-lg px-2 py-2 text-xs font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 sm:flex-none sm:gap-2 sm:px-4 sm:py-2 sm:text-sm ${
+                className={`relative flex flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-lg px-2 py-2 text-xs font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:flex-none sm:gap-2 sm:px-4 sm:py-2 sm:text-sm ${
                   isActive ? 'text-white' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                 }`}
               >
                 {isActive && (
                   <motion.span
                     layoutId="projectsCategoryToggle"
-                    className="absolute inset-0 rounded-lg bg-gradient-to-r from-brand to-brand-dark shadow-sm"
+                    className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 shadow-sm"
                     transition={{ type: 'spring', stiffness: 400, damping: 32 }}
                   />
                 )}
@@ -717,7 +717,7 @@ function ProjectsSection({ projects, behanceUrl }: { projects: ProjectData[]; be
           href={behanceUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="group mt-6 flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-transparent px-5 py-3 text-sm font-medium text-gray-900 transition-colors hover:border-black/30 hover:bg-black/10 hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40"
+          className="group mt-6 flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-transparent px-5 py-3 text-sm font-medium text-gray-900 transition-colors hover:border-black/30 hover:bg-black/10 hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
         >
           View all projects on Behance
           <svg className="size-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -815,12 +815,12 @@ function ContactForm() {
       variants={stagger}
       className="mb-20"
     >
-      <div className="navy-brand-gradient rounded-3xl p-6 shadow-xl shadow-navy/30 sm:p-10">
+      <div className="rounded-3xl bg-gradient-to-br from-blue-600 to-blue-700 p-6 shadow-xl shadow-blue-900/20 sm:p-10">
         <div className="grid gap-10 lg:grid-cols-[1fr_1.15fr] lg:items-start lg:gap-14">
           <div>
             <motion.p
               variants={fadeUp}
-              className="mb-3 text-label-sm uppercase tracking-wider text-brand-muted"
+              className="mb-3 text-label-sm uppercase tracking-wider text-blue-100"
             >
               Get in touch
             </motion.p>
@@ -830,7 +830,7 @@ function ContactForm() {
             >
               Let&rsquo;s build something
             </motion.h2>
-            <motion.p variants={fadeUp} className="text-body-lg text-brand-soft">
+            <motion.p variants={fadeUp} className="text-body-lg text-blue-50">
               {renderInline(
                 'Have a project in mind, need a designer to bring an idea from **0 \u2192 1**, or just want to talk through a design or product challenge? **Let\u2019s talk.**',
                 'font-semibold text-white',
@@ -844,7 +844,7 @@ function ContactForm() {
                 name="name"
                 placeholder="Your Name"
                 required
-                className="w-full rounded-xl border border-white/25 bg-white/10 px-4 py-3 text-sm text-white placeholder-brand-muted shadow-none outline-none transition-colors focus:border-white focus-visible:shadow-none focus-visible:ring-0"
+                className="w-full rounded-xl border border-white/25 bg-white/10 px-4 py-3 text-sm text-white placeholder-blue-100 shadow-none outline-none transition-colors focus:border-white focus-visible:shadow-none focus-visible:ring-0"
               />
             </div>
             <div>
@@ -853,7 +853,7 @@ function ContactForm() {
                 name="email"
                 placeholder="Your Email"
                 required
-                className="w-full rounded-xl border border-white/25 bg-white/10 px-4 py-3 text-sm text-white placeholder-brand-muted shadow-none outline-none transition-colors focus:border-white focus-visible:shadow-none focus-visible:ring-0"
+                className="w-full rounded-xl border border-white/25 bg-white/10 px-4 py-3 text-sm text-white placeholder-blue-100 shadow-none outline-none transition-colors focus:border-white focus-visible:shadow-none focus-visible:ring-0"
               />
             </div>
             <div>
@@ -862,18 +862,18 @@ function ContactForm() {
                 placeholder="Your Message"
                 rows={4}
                 required
-                className="w-full rounded-xl border border-white/25 bg-white/10 px-4 py-3 text-sm text-white placeholder-brand-muted shadow-none outline-none transition-colors focus:border-white focus-visible:shadow-none focus-visible:ring-0"
+                className="w-full rounded-xl border border-white/25 bg-white/10 px-4 py-3 text-sm text-white placeholder-blue-100 shadow-none outline-none transition-colors focus:border-white focus-visible:shadow-none focus-visible:ring-0"
               />
             </div>
             <button
               type="submit"
               disabled={status === 'sending'}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-medium text-brand-dark transition-all hover:bg-brand-soft disabled:opacity-50"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-medium text-blue-700 transition-all hover:bg-blue-50 disabled:opacity-50"
             >
               {status === 'sending' ? 'Sending...' : 'Send Message'}
             </button>
             {status === 'sent' && (
-              <p className="text-center text-sm text-brand-soft">Message sent!</p>
+              <p className="text-center text-sm text-blue-50">Message sent!</p>
             )}
             {status === 'error' && (
               <p className="text-center text-sm text-white/90">

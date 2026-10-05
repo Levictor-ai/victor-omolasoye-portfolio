@@ -4,35 +4,21 @@
 
 @layer base {
   :root {
-    /* Brand palette */
-    --color-navy: #161824;
-    --color-navy-soft: #1F2334;
-    --color-navy-lighter: #272C40;
-    --color-brand: #004FFF;
-    --color-brand-light: #3D7BFF;
-    --color-brand-dark: #0038BF;
-    --color-brand-muted: #B3C8FF;
-    --color-brand-soft: #E8EFFF;
-    --color-scarlet: #DF2935;
-    --color-tomato: #CC2936;
-    --color-white: #FFFFFF;
-
-    /* Neutral scale (light mode) */
     --color-bg-primary: #F8F9FA;
     --color-bg-surface: #FFFFFF;
     --color-bg-elevated: #F1F3F5;
     --color-text-primary: #1A1A1A;
     --color-text-secondary: #495057;
     --color-text-tertiary: #868E96;
-    --color-accent: #004FFF;
-    --color-accent-hover: #0038BF;
+    --color-accent: #1A1A1A;
+    --color-accent-hover: #333333;
     --color-success: #1A1A1A;
     --color-border: rgba(0, 0, 0, 0.08);
     --color-border-hover: rgba(0, 0, 0, 0.15);
     --elevation-1: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02);
     --elevation-2: 0 4px 6px rgba(0,0,0,0.05), 0 2px 4px rgba(0,0,0,0.03);
     --elevation-3: 0 10px 20px rgba(0,0,0,0.06), 0 3px 6px rgba(0,0,0,0.03);
-    --focus-ring: 0 0 0 3px rgba(0, 79, 255, 0.28);
+    --focus-ring: 0 0 0 3px rgba(0, 0, 0, 0.12);
   }
 
   html {
@@ -41,7 +27,7 @@
 
   body {
     background-color: var(--color-bg-primary);
-    background-image: radial-gradient(circle at 1px 1px, rgba(22, 24, 36, 0.05) 1px, transparent 0);
+    background-image: radial-gradient(circle at 1px 1px, rgba(17, 19, 26, 0.05) 1px, transparent 0);
     background-size: 22px 22px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -54,7 +40,7 @@
   }
 
   ::selection {
-    background-color: var(--color-navy);
+    background-color: rgba(0, 0, 0, 0.15);
     color: #FFFFFF;
   }
 }
@@ -85,39 +71,6 @@
     background-color: rgba(0, 0, 0, 0.05);
     color: var(--color-text-secondary);
     border: 1px solid rgba(0, 0, 0, 0.08);
-  }
-
-  .section-navy {
-    background-color: var(--color-navy);
-    background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.055) 1px, transparent 0);
-    background-size: 22px 22px;
-    color: #FFFFFF;
-  }
-
-  .section-navy-gradient {
-    background-color: var(--color-navy);
-    background-image: linear-gradient(150deg, #161824 0%, #1F2334 45%, #0038BF 100%);
-    color: #FFFFFF;
-  }
-
-  .card-navy {
-    background-color: rgba(255, 255, 255, 0.045);
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    border-radius: 12px;
-    transition: border-color 0.2s ease, background-color 0.2s ease;
-  }
-
-  .card-navy:hover {
-    background-color: rgba(255, 255, 255, 0.075);
-    border-color: rgba(255, 255, 255, 0.20);
-  }
-
-  .divider-navy {
-    border-color: rgba(255, 255, 255, 0.12);
-  }
-
-  .text-navy-muted {
-    color: rgba(255, 255, 255, 0.62);
   }
 }
 

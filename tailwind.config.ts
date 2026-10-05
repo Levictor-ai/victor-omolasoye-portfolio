@@ -30,27 +30,6 @@ const config: Config = {
           light: '#FFFFFF',
           lighter: '#F1F3F5',
         },
-        navy: {
-          DEFAULT: '#161824',
-          soft: '#1F2334',
-          lighter: '#272C40',
-        },
-        brand: {
-          DEFAULT: '#004FFF',
-          light: '#3D7BFF',
-          dark: '#0038BF',
-          muted: '#B3C8FF',
-          soft: '#E8EFFF',
-        },
-        scarlet: {
-          DEFAULT: '#DF2935',
-          dark: '#CC2936',
-        },
-      },
-      backgroundImage: {
-        'brand-gradient': 'linear-gradient(90deg, #004FFF, #0038BF)',
-        'navy-gradient': 'linear-gradient(160deg, #161824, #232840)',
-        'navy-brand-gradient': 'linear-gradient(150deg, #161824 0%, #1F2334 45%, #0038BF 100%)',
       },
       borderRadius: {
         'sm': '4px',
