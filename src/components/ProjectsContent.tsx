@@ -6,11 +6,17 @@ import { Nav } from '@/components/Nav';
 import { ProjectCard } from '@/components/ProjectCard';
 import { PersonalProjectCard } from '@/components/PersonalProjectCard';
 import { BackToTop } from '@/components/BackToTop';
+import {
+  useProjectFilter,
+  ProjectFilterTabs,
+  ProjectFilterStatus,
+} from '@/components/ProjectFilter';
 import type { ProjectData } from '@/types/project';
 
 export function ProjectsContent({ projects }: { projects: ProjectData[] }) {
   const profile = usePortfolio();
-  const featured = projects.filter((p) => !p.personal);
+  const { activeCategory, setActiveCategory, counts, filtered: featured } =
+    useProjectFilter(projects);
   const personal = projects.filter((p) => p.personal);
 
   return (
@@ -54,6 +60,26 @@ export function ProjectsContent({ projects }: { projects: ProjectData[] }) {
           </div>
         </motion.div>
 
+        <motion.div layout className="mb-6">
+          <ProjectFilterTabs
+            activeCategory={activeCategory}
+            onChange={setActiveCategory}
+            counts={counts}
+          />
+        </motion.div>
+
+        <ProjectFilterStatus
+          activeCategory={activeCategory}
+          activeLabel={
+            activeCategory === 'brand'
+              ? 'Brand Design'
+              : activeCategory === 'product'
+                ? 'Product Design'
+                : 'All'
+          }
+          count={featured.length}
+        />
+
         {featured.length > 0 ? (
           <motion.div layout className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {featured.map((project, i) => (
@@ -72,7 +98,7 @@ export function ProjectsContent({ projects }: { projects: ProjectData[] }) {
           <p className="text-gray-500">No projects yet.</p>
         )}
 
-        {personal.length > 0 && (
+        {activeCategory === 'all' && personal.length > 0 && (
           <section className="mt-20">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

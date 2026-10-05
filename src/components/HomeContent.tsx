@@ -4,16 +4,21 @@ import { useState, useEffect, type ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { LayoutGrid, PenTool, Smartphone, ArrowUpRight, type Icon } from 'lucide-react';
+import { ArrowUpRight, PenTool } from 'lucide-react';
 import { usePortfolio } from '@/context/PortfolioContext';
 import type { ProfileData } from '@/context/PortfolioContext';
-import type { ProjectData, ProjectCategory } from '@/types/project';
+import type { ProjectData } from '@/types/project';
 import { ProjectCard } from '@/components/ProjectCard';
 import { FAQAccordion } from '@/components/FAQAccordion';
 import { BackToTop } from '@/components/BackToTop';
 import { Nav } from '@/components/Nav';
 import { AboutSection } from '@/components/AboutSection';
 import { ExperienceSection } from '@/components/ExperienceSection';
+import {
+  useProjectFilter,
+  ProjectFilterTabs,
+  ProjectFilterStatus,
+} from '@/components/ProjectFilter';
 import { renderInline } from '@/lib/inline';
 
 function TypewriterText({ text, className }: { text: string; className?: string }) {
@@ -385,60 +390,9 @@ function TestimonialsCarousel({ profile }: { profile: ProfileData }) {
   );
 }
 
-const projectCategories = [
-  { value: 'all', label: 'All', icon: LayoutGrid },
-  { value: 'brand', label: 'Brand Design', icon: PenTool },
-  { value: 'product', label: 'Product Design', icon: Smartphone },
-] as const;
-
 function ProjectsSection({ projects, behanceUrl }: { projects: ProjectData[]; behanceUrl?: string }) {
-  const [activeCategory, setActiveCategory] = useState<'all' | ProjectCategory>('all');
-
-  useEffect(() => {
-    const param = new URLSearchParams(window.location.search).get('category');
-    if (param === 'brand' || param === 'product') {
-      setActiveCategory(param);
-    }
-  }, []);
-
-  useEffect(() => {
-    const url = new URL(window.location.href);
-    if (activeCategory === 'all') {
-      url.searchParams.delete('category');
-    } else {
-      url.searchParams.set('category', activeCategory);
-    }
-    window.history.replaceState({}, '', url.toString());
-  }, [activeCategory]);
-
-  useEffect(() => {
-    const onPopState = () => {
-      const param = new URLSearchParams(window.location.search).get('category');
-      if (param === 'brand' || param === 'product') {
-        setActiveCategory(param);
-      } else {
-        setActiveCategory('all');
-      }
-    };
-    window.addEventListener('popstate', onPopState);
-    return () => window.removeEventListener('popstate', onPopState);
-  }, []);
-
-  const selectedProjects = projects.filter((p) => !p.personal);
-
-  const filteredProjects =
-    activeCategory === 'all'
-      ? selectedProjects
-      : selectedProjects.filter((project) => project.category === activeCategory);
-
-  const activeLabel =
-    projectCategories.find((category) => category.value === activeCategory)?.label ?? 'All';
-
-  const categoryCounts = {
-    all: selectedProjects.length,
-    brand: selectedProjects.filter((p) => p.category === 'brand').length,
-    product: selectedProjects.filter((p) => p.category === 'product').length,
-  };
+  const { activeCategory, setActiveCategory, counts, filtered: filteredProjects, activeLabel } =
+    useProjectFilter(projects);
 
   return (
     <motion.section
@@ -477,51 +431,17 @@ function ProjectsSection({ projects, behanceUrl }: { projects: ProjectData[]; be
         }}
         className="mb-6"
       >
-        <div className="flex w-full items-center gap-1 overflow-x-auto rounded-xl border border-gray-200 bg-white p-1.5 shadow-sm sm:inline-flex sm:max-w-full sm:w-auto">
-          {projectCategories.map((category) => {
-            const isActive = activeCategory === category.value;
-            const CategoryIcon = category.icon;
-            return (
-              <button
-                key={category.value}
-                onClick={() => setActiveCategory(category.value)}
-                aria-pressed={isActive}
-                className={`relative flex flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-lg px-2 py-2 text-xs font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:flex-none sm:gap-2 sm:px-4 sm:py-2 sm:text-sm ${
-                  isActive ? 'text-white' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
-                }`}
-              >
-                {isActive && (
-                  <motion.span
-                    layoutId="projectsCategoryToggle"
-                    className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 shadow-sm"
-                    transition={{ type: 'spring', stiffness: 400, damping: 32 }}
-                  />
-                )}
-                <span className="relative z-10 flex items-center gap-1.5 sm:gap-2">
-                  <CategoryIcon className="hidden size-4 shrink-0 sm:block" strokeWidth={2.2} />
-                  {category.label}
-                  <span
-                    className={`rounded-full px-1.5 py-0.5 text-[10px] font-semibold leading-none ${
-                      isActive ? 'bg-white/25 text-white' : 'bg-gray-100 text-gray-500'
-                    }`}
-                  >
-                    {categoryCounts[category.value]}
-                  </span>
-                </span>
-              </button>
-            );
-          })}
-        </div>
+        <ProjectFilterTabs
+          activeCategory={activeCategory}
+          onChange={setActiveCategory}
+          counts={counts}
+        />
       </motion.div>
-      {activeCategory !== 'all' && (
-        <motion.p
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="mb-4 text-sm text-gray-500"
-        >
-          Showing {filteredProjects.length} {activeLabel} {filteredProjects.length === 1 ? 'project' : 'projects'}
-        </motion.p>
-      )}
+      <ProjectFilterStatus
+        activeCategory={activeCategory}
+        activeLabel={activeLabel}
+        count={filteredProjects.length}
+      />
       {filteredProjects.length > 0 ? (
         <motion.div layout className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filteredProjects.map((project, i) => (
