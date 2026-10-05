@@ -36,7 +36,7 @@ function ExpandableDescription({ text }: { text: string }) {
       {overflowing && (
         <button
           onClick={() => setExpanded((prev) => !prev)}
-          className="mt-1.5 inline-flex items-center gap-1 text-sm font-medium text-blue-600 transition-colors hover:text-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
+          className="mt-1.5 inline-flex items-center gap-1 text-sm font-medium text-brand transition-colors hover:text-brand-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40"
         >
           {expanded ? 'Show less' : 'Read more'}
         </button>
