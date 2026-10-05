@@ -353,17 +353,17 @@ function TestimonialsCarousel({ profile }: { profile: ProfileData }) {
             <blockquote
               key={`${item.author}-${i}`}
               aria-hidden={i >= items.length || undefined}
-              className="flex h-[320px] w-[86vw] max-w-[400px] shrink-0 flex-col rounded-sm border border-gray-200 bg-white p-6 shadow-[0_24px_60px_-28px] shadow-black/[0.15] sm:h-[360px] sm:p-8"
+              className="flex h-[480px] w-[86vw] max-w-[520px] shrink-0 flex-col rounded-sm border border-gray-200 bg-white p-6 shadow-[0_24px_60px_-28px] shadow-black/[0.15] sm:h-[600px] sm:p-8"
             >
               <svg
-                className="mb-3 size-6 shrink-0 text-gray-300"
+                className="mb-3 size-6 shrink-0 text-blue-600"
                 viewBox="0 0 24 24"
                 fill="currentColor"
                 aria-hidden="true"
               >
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151C7.563 6.068 6 8.789 6 11h4v10H0z" />
               </svg>
-              <p className="mb-6 line-clamp-4 flex-1 text-lg leading-relaxed text-gray-800 sm:text-xl">
+              <p className="mb-6 line-clamp-[14] flex-1 text-lg leading-relaxed text-gray-800">
                 &ldquo;{item.quote}&rdquo;
               </p>
               <footer className="shrink-0 border-t border-gray-200 pt-5">

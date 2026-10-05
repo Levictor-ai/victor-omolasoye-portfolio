@@ -45,6 +45,28 @@ export function AboutSection({
             show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
           }}
         >
+          <div className="mb-8 flex w-full flex-col gap-3 sm:mb-10 sm:w-auto sm:flex-row sm:flex-wrap">
+            {profile.socials.contra && (
+              <a
+                href={profile.socials.contra}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/25 px-5 py-3 text-sm font-medium text-white transition-colors hover:border-white hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto"
+              >
+                <BadgeCheck className="size-4 text-blue-600" strokeWidth={2.2} />
+                Hire me on Contra
+              </a>
+            )}
+            <a
+              href={profile.resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/25 px-5 py-3 text-sm font-medium text-white transition-colors hover:border-white hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto"
+            >
+              <FileText className="size-4 text-blue-600" strokeWidth={2.2} />
+              Resume
+            </a>
+          </div>
           <div className="grid grid-cols-2 gap-4 sm:gap-6">
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl">
               <Image
@@ -77,38 +99,27 @@ export function AboutSection({
               </div>
             )}
           </div>
-          <div className="mt-10 max-w-3xl lg:mt-12">
+          <div className="mt-10 lg:mt-12">
             <div className="prose max-w-none">
-              {profile.about.split('\n\n').map((paragraph, i) => (
-                <p
-                  key={i}
-                  className="mb-5 last:mb-0 text-body-lg leading-relaxed text-gray-300"
-                >
-                  {renderInline(paragraph, 'font-semibold text-white')}
-                </p>
-              ))}
-            </div>
-            <div className="mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">
-              {profile.socials.contra && (
-                <a
-                  href={profile.socials.contra}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/25 px-5 py-3 text-sm font-medium text-white transition-colors hover:border-white hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto"
-                >
-                  <BadgeCheck className="size-4 text-blue-600" strokeWidth={2.2} />
-                  Hire me on Contra
-                </a>
+              {profile.about.split('\n\n').map((paragraph, i) =>
+                paragraph.startsWith('### ') ? (
+                  <h3
+                    key={i}
+                    className="mb-5 text-heading-md font-bold tracking-tight text-white"
+                  >
+                    {renderInline(paragraph.slice(4))}
+                  </h3>
+                ) : (
+                  <p
+                    key={i}
+                    className="mb-5 last:mb-0 text-body-lg leading-relaxed text-gray-300"
+                  >
+                    {renderInline(paragraph, 'font-semibold text-white')}
+                  </p>
+                ),
               )}
-              <a
-                href={profile.resumeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/25 px-5 py-3 text-sm font-medium text-white transition-colors hover:border-white hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto"
-              >
-                <FileText className="size-4 text-blue-600" strokeWidth={2.2} />
-                Resume
-              </a>
+            </div>
+            <div className="mt-8 w-full sm:w-auto">
               <a
                 href={`mailto:${profile.email}`}
                 className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-5 py-3 text-sm font-medium text-white transition-all hover:from-blue-500 hover:to-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto"
