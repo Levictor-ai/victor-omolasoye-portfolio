@@ -27,25 +27,22 @@ export function AboutSection({
       style={{ width: '100vw', marginLeft: 'calc(50% - 50vw)' }}
     >
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-        <motion.h2
+        <motion.div
           variants={{
             hidden: { opacity: 0, y: 20 },
             show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
           }}
-          className={
-            headingClassName ??
-            'mb-6 text-heading-lg font-bold tracking-tight text-gray-900'
-          }
+          className="mb-8 flex flex-col gap-6 sm:mb-10 sm:flex-row sm:items-center sm:justify-between sm:gap-8"
         >
-          About Me
-        </motion.h2>
-        <motion.div
-          variants={{
-            hidden: { opacity: 0, y: 24 },
-            show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-          }}
-        >
-          <div className="mb-8 flex w-full flex-col gap-3 sm:mb-10 sm:w-auto sm:flex-row sm:flex-wrap">
+          <motion.h2
+            className={
+              headingClassName ??
+              'text-heading-lg font-bold tracking-tight text-gray-900'
+            }
+          >
+            About Me
+          </motion.h2>
+          <div className="flex w-full shrink-0 flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">
             {profile.socials.contra && (
               <a
                 href={profile.socials.contra}
@@ -67,6 +64,13 @@ export function AboutSection({
               Resume
             </a>
           </div>
+        </motion.div>
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, y: 24 },
+            show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+          }}
+        >
           <div className="grid grid-cols-2 gap-4 sm:gap-6">
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl">
               <Image
