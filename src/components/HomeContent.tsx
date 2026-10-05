@@ -565,7 +565,7 @@ function ContactForm() {
       variants={stagger}
       className="mb-20"
     >
-      <div className="rounded-3xl bg-gradient-to-br from-blue-600 to-blue-700 p-6 shadow-xl shadow-blue-900/20 sm:p-10">
+      <div className="rounded-xl bg-gradient-to-br from-blue-600 to-blue-700 p-6 shadow-xl shadow-blue-900/20 sm:p-10">
         <div className="grid gap-10 lg:grid-cols-[1fr_1.15fr] lg:items-start lg:gap-14">
           <div>
             <motion.p
@@ -594,7 +594,7 @@ function ContactForm() {
                 name="name"
                 placeholder="Your Name"
                 required
-                className="w-full rounded-xl border border-white/25 bg-white/10 px-4 py-3 text-sm text-white placeholder-blue-100 shadow-none outline-none transition-colors focus:border-white focus-visible:shadow-none focus-visible:ring-0"
+                className="w-full rounded-lg border border-white/25 bg-white/10 px-4 py-3 text-sm text-white placeholder-blue-100 shadow-none outline-none transition-colors focus:border-white focus-visible:shadow-none focus-visible:ring-0"
               />
             </div>
             <div>
@@ -603,7 +603,7 @@ function ContactForm() {
                 name="email"
                 placeholder="Your Email"
                 required
-                className="w-full rounded-xl border border-white/25 bg-white/10 px-4 py-3 text-sm text-white placeholder-blue-100 shadow-none outline-none transition-colors focus:border-white focus-visible:shadow-none focus-visible:ring-0"
+                className="w-full rounded-lg border border-white/25 bg-white/10 px-4 py-3 text-sm text-white placeholder-blue-100 shadow-none outline-none transition-colors focus:border-white focus-visible:shadow-none focus-visible:ring-0"
               />
             </div>
             <div>
@@ -612,7 +612,7 @@ function ContactForm() {
                 placeholder="Your Message"
                 rows={4}
                 required
-                className="w-full rounded-xl border border-white/25 bg-white/10 px-4 py-3 text-sm text-white placeholder-blue-100 shadow-none outline-none transition-colors focus:border-white focus-visible:shadow-none focus-visible:ring-0"
+                className="w-full rounded-lg border border-white/25 bg-white/10 px-4 py-3 text-sm text-white placeholder-blue-100 shadow-none outline-none transition-colors focus:border-white focus-visible:shadow-none focus-visible:ring-0"
               />
             </div>
             <button
