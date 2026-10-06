@@ -135,32 +135,32 @@ function DesignCursor() {
 
 function HeroFrame({ avatar, name, priority = false }: { avatar: string; name: string; priority?: boolean }) {
   return (
-    <div className="group relative mx-auto aspect-square w-full max-w-[17rem] cursor-pointer sm:max-w-[19rem] xl:max-w-[22rem]">
+    <div className="group relative mx-auto aspect-[4/5] w-full max-w-[15rem] cursor-pointer sm:max-w-[17rem] xl:max-w-[19.5rem]">
       <div
-        className="pointer-events-none absolute inset-0 rounded-full border-2 border-blue-600/70"
+        className="pointer-events-none absolute inset-0 rounded-[2rem] border-2 border-blue-600/70"
         style={{ animation: 'stroke-pulse 3s ease-in-out infinite' }}
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute inset-0 rounded-full border-2 border-blue-600/70"
+        className="pointer-events-none absolute inset-0 rounded-[2rem] border-2 border-blue-600/70"
         style={{ animation: 'stroke-pulse 3s ease-in-out 1.5s infinite' }}
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute -inset-8 rounded-full border border-gray-100"
+        className="pointer-events-none absolute -inset-8 rounded-[2.75rem] border border-gray-100"
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute -inset-5 rounded-full border border-dashed border-gray-200/90"
+        className="pointer-events-none absolute -inset-5 rounded-[2.25rem] border border-dashed border-gray-200/90"
         style={{ animation: 'spin-clock 40s linear infinite' }}
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute -inset-3 rounded-full border border-gray-200/80 bg-white/50"
+        className="pointer-events-none absolute -inset-3 rounded-[1.75rem] border border-gray-200/80 bg-white/50"
         aria-hidden="true"
       />
 
-      <div className="relative aspect-square w-full overflow-hidden rounded-full border-4 border-white bg-neutral-100 shadow-[0_24px_60px_-28px] shadow-black/[0.25] transition-[transform,box-shadow] duration-500 ease-out group-hover:rotate-3 group-hover:scale-[1.06] group-hover:shadow-[0_40px_100px_-24px] group-hover:shadow-black/[0.45]">
+      <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[1.5rem] border-4 border-white bg-neutral-100 shadow-[0_24px_60px_-28px] shadow-black/[0.25] transition-[transform,box-shadow] duration-500 ease-out group-hover:rotate-3 group-hover:scale-[1.06] group-hover:shadow-[0_40px_100px_-24px] group-hover:shadow-black/[0.45]">
         <Image
           src={avatar}
           alt={name}
@@ -175,7 +175,7 @@ function HeroFrame({ avatar, name, priority = false }: { avatar: string; name: s
           aria-hidden="true"
         />
         <div
-          className="pointer-events-none absolute -inset-6 z-10 rounded-full border-2 border-dashed border-blue-600/50"
+          className="pointer-events-none absolute -inset-6 z-10 rounded-[2rem] border-2 border-dashed border-blue-600/50"
           style={{ animation: 'spin-counter 28s linear infinite' }}
           aria-hidden="true"
         />
