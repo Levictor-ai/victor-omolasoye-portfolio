@@ -146,7 +146,7 @@ export const defaultProfile: ProfileData = {
         'You can reach me via email at omolasoyevictorakinyemi@gmail.com or connect with me on LinkedIn. I typically respond within 24 hours.',
     },
   ],
-  resumeUrl: 'https://canva.link/q0yytoacwyx7712',
+  resumeUrl: 'https://drive.google.com/file/d/1W1EwaempCayr0J_pQBPmSojl2s6E8JZR/view?usp=sharing',
   experience: [
     {
       company: 'Forgelayers',
