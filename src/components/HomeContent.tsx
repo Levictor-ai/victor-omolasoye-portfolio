@@ -135,7 +135,7 @@ function DesignCursor() {
 
 function HeroFrame({ avatar, name, priority = false }: { avatar: string; name: string; priority?: boolean }) {
   return (
-    <div className="group relative mx-auto aspect-[4/5] w-full max-w-[15rem] cursor-pointer sm:max-w-[17rem] xl:max-w-[19.5rem]">
+    <div className="group relative mx-auto aspect-[4/5] w-full max-w-[18rem] cursor-pointer sm:max-w-[21rem] xl:max-w-[24.5rem]">
       <div
         className="pointer-events-none absolute inset-0 rounded-[2rem] border-2 border-blue-600/70"
         style={{ animation: 'stroke-pulse 3s ease-in-out infinite' }}
@@ -280,7 +280,7 @@ function HeroSection({ profile }: { profile: ProfileData }) {
       animate="show"
       className="bg-hero flex min-h-[calc(100dvh-57px)] flex-col justify-center pb-16 lg:min-h-[calc(100vh-57px)] lg:py-0 lg:pb-24"
     >
-      <div className="grid w-full items-center gap-14 lg:grid-cols-[1.35fr_0.65fr] lg:gap-10 xl:gap-16">
+      <div className="grid w-full items-center gap-14 lg:grid-cols-[1.35fr_0.65fr] lg:gap-10">
         <div>
           <motion.div variants={item}><AvailableBanner /></motion.div>
           <motion.div variants={item} className="my-14 w-full lg:hidden">
@@ -314,7 +314,7 @@ function HeroSection({ profile }: { profile: ProfileData }) {
           <motion.div variants={item}>
             <p
               className="mb-6 w-full font-normal leading-snug tracking-tight text-gray-900"
-              style={{ fontSize: 'clamp(1.125rem,1.6vw,1.5rem)' }}
+              style={{ fontSize: 'clamp(1.125rem,1.5vw,1.4rem)' }}
             >
               <span className="lg:block">
                 I design brands, digital products, and web experiences that
