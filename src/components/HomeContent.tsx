@@ -298,7 +298,7 @@ function HeroSection({ profile }: { profile: ProfileData }) {
                 fontFamily: 'var(--font-manrope), sans-serif',
                 color: '#11131A',
                 fontWeight: 700,
-                fontSize: 'clamp(3rem,13vw,96px)',
+                fontSize: 'clamp(3.5rem,15vw,128px)',
                 lineHeight: 1,
               }}
             >
