@@ -101,13 +101,15 @@
     background-color: #ffffff;
     background-image:
       linear-gradient(
-        rgba(255, 255, 255, 0.1),
-        rgba(255, 255, 255, 0.28)
+        rgba(255, 255, 255, 0.72),
+        rgba(255, 255, 255, 0.86) 55%,
+        rgba(255, 255, 255, 0.94)
       ),
       url('/images/hero-bg.jpg');
     background-size: cover, cover;
-    background-position: center, center;
+    background-position: center top, center top;
     background-repeat: no-repeat, no-repeat;
+    background-attachment: scroll, scroll;
   }
 }
 
