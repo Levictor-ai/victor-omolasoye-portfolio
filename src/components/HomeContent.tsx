@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, type ReactNode } from 'react';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRight, PenTool } from 'lucide-react';
@@ -231,6 +231,34 @@ function HeroFrame({ avatar, name, priority = false }: { avatar: string; name: s
   );
 }
 
+const ROLE_WORDS = ['Brand', 'Product', 'Web'];
+
+function RotatingRoleWord() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => setIndex((i) => (i + 1) % ROLE_WORDS.length), 2400);
+    return () => clearInterval(id);
+  }, []);
+
+  return (
+    <span className="relative block h-[1em] w-full overflow-hidden">
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.span
+          key={ROLE_WORDS[index]}
+          className="absolute left-0 top-0 block whitespace-nowrap"
+          initial={{ y: '100%', opacity: 0 }}
+          animate={{ y: '0%', opacity: 1 }}
+          exit={{ y: '-100%', opacity: 0 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        >
+          {ROLE_WORDS[index]}
+        </motion.span>
+      </AnimatePresence>
+    </span>
+  );
+}
+
 function HeroSection({ profile }: { profile: ProfileData }) {
   const container = {
     hidden: {},
@@ -265,23 +293,21 @@ function HeroSection({ profile }: { profile: ProfileData }) {
           </motion.div>
           <motion.div variants={item}>
             <h1
-              className="mb-4 block w-full leading-[0.95] tracking-[-0.02em] text-gray-900"
+              className="mb-4 block w-full"
               style={{
-                fontFamily: 'var(--font-bebas-neue), sans-serif',
+                fontFamily: 'var(--font-manrope), sans-serif',
                 color: '#11131A',
                 fontWeight: 700,
+                fontSize: 'clamp(3rem,13vw,96px)',
+                lineHeight: 1,
               }}
             >
               <span className="sr-only">
                 Victor Omolasoye — Product Designer, Brand Designer and UI/UX Designer in Lagos, Nigeria
               </span>
-              <span
-                aria-hidden="true"
-                className="block w-full text-[clamp(2.5rem,13vw,4.5rem)] sm:text-[clamp(4rem,10vw,7.5rem)] lg:text-[clamp(4.25rem,8.5vw,7.5rem)]"
-              >
-                Brand Designer<br />
-                Product Designer<br />
-                Web Designer
+              <span aria-hidden="true" className="block w-full">
+                <RotatingRoleWord />
+                Designer
               </span>
             </h1>
           </motion.div>
