@@ -38,7 +38,7 @@ export function ContactClient() {
 
         <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start lg:gap-10">
           <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-[0_24px_60px_-28px] shadow-black/[0.15]">
-            <div className="relative mb-6 aspect-[4/5] w-full overflow-hidden rounded-xl bg-neutral-100">
+            <div className="relative mb-6 aspect-[4/3] w-full overflow-hidden rounded-xl bg-neutral-100">
               <Image
                 src={profile.avatar}
                 alt={profile.name}

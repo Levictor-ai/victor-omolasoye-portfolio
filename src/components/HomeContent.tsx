@@ -13,14 +13,12 @@ import { FAQAccordion } from '@/components/FAQAccordion';
 import { BackToTop } from '@/components/BackToTop';
 import { Nav } from '@/components/Nav';
 import { AboutSection } from '@/components/AboutSection';
-import { ContactForm } from '@/components/ContactForm';
 import { ExperienceSection } from '@/components/ExperienceSection';
 import {
   useProjectFilter,
   ProjectFilterTabs,
   ProjectFilterStatus,
 } from '@/components/ProjectFilter';
-import { renderInline } from '@/lib/inline';
 
 function TypewriterText({ text, className }: { text: string; className?: string }) {
   const [displayedText, setDisplayedText] = useState('');
@@ -550,12 +548,7 @@ function FAQSection({ profile }: { profile: ProfileData }) {
   );
 }
 
-function HomeContactSection() {
-  const stagger = {
-    hidden: {},
-    show: { transition: { staggerChildren: 0.08 } },
-  };
-
+function HomeCtaSection() {
   const fadeUp = {
     hidden: { opacity: 0, y: 20 },
     show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
@@ -563,45 +556,35 @@ function HomeContactSection() {
 
   return (
     <motion.section
-      id="contact"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: '-50px' }}
-      variants={stagger}
+      variants={{
+        hidden: {},
+        show: { transition: { staggerChildren: 0.08 } },
+      }}
       className="mb-20"
     >
-      <div className="rounded-xl bg-gradient-to-br from-blue-600 to-blue-700 p-6 shadow-xl shadow-blue-900/20 sm:p-10">
-        <div className="grid gap-10 lg:grid-cols-[1fr_1.15fr] lg:items-start lg:gap-14">
-          <div>
-            <motion.p
-              variants={fadeUp}
-              className="mb-3 text-label-sm uppercase tracking-wider text-blue-100"
-            >
-              Get in touch
-            </motion.p>
-            <motion.h2
-              variants={fadeUp}
-              className="mb-6 font-display text-6xl font-bold leading-[0.9] tracking-wide text-white sm:text-7xl"
-            >
-              Let&rsquo;s build something
-            </motion.h2>
-            <motion.p variants={fadeUp} className="text-body-lg text-blue-50">
-              {renderInline(
-                'Have a project in mind, need a designer to bring an idea from **0 \u2192 1**, or just want to talk through a design or product challenge? **Let\u2019s talk.**',
-                'font-semibold text-white',
-              )}
-            </motion.p>
-            <motion.div variants={fadeUp} className="mt-6">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-medium text-blue-700 transition-colors hover:bg-blue-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
-              >
-                Open contact page
-              </Link>
-            </motion.div>
-          </div>
-        <HomeContactSection />
-        </div>
+      <div className="flex flex-col gap-6 rounded-2xl bg-gradient-to-br from-blue-600 to-blue-700 p-6 shadow-xl shadow-blue-900/20 sm:p-8 md:flex-row md:items-center md:justify-between md:gap-10 md:p-10">
+        <motion.div variants={fadeUp} className="max-w-2xl">
+          <p className="mb-2 text-label-sm uppercase tracking-wider text-blue-100">
+            Get in touch
+          </p>
+          <h2 className="text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl">
+            Let&rsquo;s build something
+          </h2>
+          <p className="mt-2 text-body-md text-blue-50">
+            Have an idea? Let&rsquo;s turn it into something people understand, trust, and use.
+          </p>
+        </motion.div>
+        <motion.div variants={fadeUp} className="shrink-0">
+          <Link
+            href="/contact"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-8 py-3 text-sm font-medium text-blue-700 transition-colors hover:bg-blue-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 sm:w-auto"
+          >
+            Get in touch
+          </Link>
+        </motion.div>
       </div>
     </motion.section>
   );
@@ -693,7 +676,7 @@ export function HomeContent({ projects }: { projects: ProjectData[] }) {
         <ExperienceSection profile={profile} />
         <TestimonialsCarousel profile={profile} />
         <FAQSection profile={profile} />
-        <ContactForm />
+        <HomeCtaSection />
         <FooterSection socials={profile.socials} />
       </main>
       <BackToTop />
