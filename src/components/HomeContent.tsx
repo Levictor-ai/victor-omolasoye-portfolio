@@ -195,7 +195,7 @@ function HeroFrame({ avatar, name, priority = false }: { avatar: string; name: s
       </div>
 
       <div
-        className="absolute -inset-4 z-10"
+        className="absolute -inset-2 z-10"
         style={{ animation: 'spin-counter 34s linear infinite' }}
         aria-hidden="true"
       >

@@ -25,7 +25,7 @@ export function AboutSection({
         show: { transition: { staggerChildren: 0.1 } },
       }}
       className="mb-8 bg-[#E9EBEF] py-28 lg:mb-16 lg:py-40"
-      style={{ width: '100vw', marginLeft: 'calc(50% - 50vw)' }}
+      style={{ width: '100vw', marginLeft: 'calc(50% - 50vw)', overflowX: 'clip' }}
     >
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
         <motion.div

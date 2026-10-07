@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 @layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
   :root {
     --color-bg-primary: #F8F9FA;
     --color-bg-surface: #FFFFFF;
@@ -23,14 +29,34 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
   }
 
   body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
     background-color: var(--color-bg-primary);
     background-image: radial-gradient(circle at 1px 1px, rgba(17, 19, 26, 0.05) 1px, transparent 0);
     background-size: 22px 22px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Prefer clip: it clips overflow without creating a scroll container,
+     so position: sticky (nav) keeps working. Fall back to hidden. */
+  @supports (overflow-x: clip) {
+    html,
+    body {
+      overflow-x: clip;
+    }
   }
 
   :focus-visible {
