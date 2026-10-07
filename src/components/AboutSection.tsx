@@ -2,7 +2,8 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { ArrowUpRight, BadgeCheck, FileText } from 'lucide-react';
+import { BadgeCheck, FileText } from 'lucide-react';
+import Link from 'next/link';
 import type { ProfileData } from '@/context/PortfolioContext';
 import { renderInline } from '@/lib/inline';
 
@@ -44,15 +45,13 @@ export function AboutSection({
           </motion.h2>
           <div className="flex w-full shrink-0 flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">
             {profile.socials.contra && (
-              <a
-                href={profile.socials.contra}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/contact"
                 className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-transparent px-5 py-3 text-sm font-medium text-gray-900 transition-colors hover:border-black/30 hover:bg-black/10 hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto"
               >
                 <BadgeCheck className="size-4 text-blue-600" strokeWidth={2.2} />
                 Hire me on Contra
-              </a>
+              </Link>
             )}
             <a
               href={profile.resumeUrl}
@@ -124,15 +123,12 @@ export function AboutSection({
               )}
             </div>
             <div className="mt-8 w-full sm:w-auto">
-              <a
-                href={`mailto:${profile.email}`}
+              <Link
+                href="/contact"
                 className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-5 py-3 text-sm font-medium text-white transition-all hover:from-blue-500 hover:to-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto"
               >
                 Get in touch
-                <span className="flex size-9 items-center justify-center rounded-full bg-white -my-1 transition-transform group-hover:translate-x-0.5">
-                  <ArrowUpRight className="size-4 text-blue-600" strokeWidth={2.5} />
-                </span>
-              </a>
+              </Link>
             </div>
           </div>
         </motion.div>

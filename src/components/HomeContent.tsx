@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect, type ReactNode } from 'react';
 import { motion } from 'framer-motion';
@@ -13,6 +13,7 @@ import { FAQAccordion } from '@/components/FAQAccordion';
 import { BackToTop } from '@/components/BackToTop';
 import { Nav } from '@/components/Nav';
 import { AboutSection } from '@/components/AboutSection';
+import { ContactForm } from '@/components/ContactForm';
 import { ExperienceSection } from '@/components/ExperienceSection';
 import {
   useProjectFilter,
@@ -225,7 +226,7 @@ function HeroFrame({ avatar, name, priority = false }: { avatar: string; name: s
         <svg className="size-3 text-blue-600" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z" />
         </svg>
-        <span className="text-xs font-semibold text-gray-900">Design · Code</span>
+        <span className="text-xs font-semibold text-gray-900">Design Â· Code</span>
       </div>
     </div>
   );
@@ -248,7 +249,7 @@ function HeroHeadline() {
       }}
     >
       <span className="sr-only">
-        I design products people understand, trust, and use. — Victor Omolasoye, Product
+        I design products people understand, trust, and use. â€” Victor Omolasoye, Product
         Designer in Lagos, Nigeria
       </span>
       <span aria-hidden="true" className="block w-full text-balance">
@@ -317,17 +318,18 @@ function HeroSection({ profile }: { profile: ProfileData }) {
             </p>
           </motion.div>
           <motion.div variants={item} className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-            <motion.a
+            <motion.div
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
-              href={`mailto:${profile.email}`}
-              className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-8 py-3 text-sm font-medium text-white transition-all hover:from-blue-500 hover:to-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto sm:px-10"
+              className="w-full sm:w-auto"
             >
-              Get in touch
-              <span className="flex size-9 items-center justify-center rounded-full bg-white -my-1 transition-transform group-hover:translate-x-0.5">
-                <ArrowUpRight className="size-4 text-blue-600" strokeWidth={2.5} />
-              </span>
-            </motion.a>
+              <Link
+                href="/contact"
+                className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-8 py-3 text-sm font-medium text-white transition-all hover:from-blue-500 hover:to-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto sm:px-10"
+              >
+                Get in touch
+              </Link>
+            </motion.div>
             <motion.a
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
@@ -415,9 +417,10 @@ function TestimonialsCarousel({ profile }: { profile: ProfileData }) {
   );
 }
 
-function ProjectsSection({ projects, behanceUrl }: { projects: ProjectData[]; behanceUrl?: string }) {
+function ProjectsSection({ projects }: { projects: ProjectData[] }) {
   const { activeCategory, setActiveCategory, counts, filtered: filteredProjects, activeLabel } =
     useProjectFilter(projects);
+  const visibleProjects = filteredProjects.slice(0, 4);
 
   return (
     <motion.section
@@ -469,7 +472,7 @@ function ProjectsSection({ projects, behanceUrl }: { projects: ProjectData[]; be
       />
       {filteredProjects.length > 0 ? (
         <motion.div layout className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {filteredProjects.map((project, i) => (
+          {visibleProjects.map((project, i) => (
             <motion.div
               key={project.slug}
               layout
@@ -481,26 +484,31 @@ function ProjectsSection({ projects, behanceUrl }: { projects: ProjectData[]; be
               <ProjectCard project={project} index={i} />
             </motion.div>
           ))}
+          <motion.div
+            layout
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.3 }}
+            className="rounded-2xl border border-gray-200 bg-white p-4 shadow-sm transition-shadow hover:shadow-md"
+          >
+            <Link
+              href="/projects"
+              className="group flex h-full min-h-[240px] flex-col items-center justify-center gap-3 rounded-xl border border-dashed border-gray-300 bg-gray-50 p-6 text-center transition-colors hover:border-blue-400 hover:bg-blue-50/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
+            >
+              <span className="flex size-12 items-center justify-center rounded-full border border-gray-200 bg-white text-blue-600 transition-transform group-hover:scale-110">
+                <ArrowUpRight className="size-5" strokeWidth={2.2} />
+              </span>
+              <span className="text-lg font-semibold text-gray-900">View all projects</span>
+              <span className="text-sm text-gray-500">
+                See the full collection of work
+              </span>
+            </Link>
+          </motion.div>
         </motion.div>
       ) : (
         <p className="text-body-md text-gray-400">
           No projects in this category yet.
         </p>
-      )}
-      {behanceUrl && (
-        <a
-          href={behanceUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group mt-6 flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-transparent px-5 py-3 text-sm font-medium text-gray-900 transition-colors hover:border-black/30 hover:bg-black/10 hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
-        >
-          View all projects on Behance
-          <svg className="size-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-            <polyline points="15 3 21 3 21 9" />
-            <line x1="10" y1="14" x2="21" y2="3" />
-          </svg>
-        </a>
       )}
     </motion.section>
   );
@@ -542,35 +550,7 @@ function FAQSection({ profile }: { profile: ProfileData }) {
   );
 }
 
-function ContactForm() {
-  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setStatus('sending');
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        body: JSON.stringify({
-          name: formData.get('name'),
-          email: formData.get('email'),
-          message: formData.get('message'),
-        }),
-        headers: { 'Content-Type': 'application/json' },
-      });
-      if (res.ok) {
-        setStatus('sent');
-        form.reset();
-      } else {
-        setStatus('error');
-      }
-    } catch {
-      setStatus('error');
-    }
-  };
-
+function HomeContactSection() {
   const stagger = {
     hidden: {},
     show: { transition: { staggerChildren: 0.08 } },
@@ -611,51 +591,16 @@ function ContactForm() {
                 'font-semibold text-white',
               )}
             </motion.p>
+            <motion.div variants={fadeUp} className="mt-6">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-medium text-blue-700 transition-colors hover:bg-blue-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+              >
+                Open contact page
+              </Link>
+            </motion.div>
           </div>
-          <motion.form variants={fadeUp} onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                required
-                className="w-full rounded-lg border border-white/25 bg-white/10 px-4 py-3 text-sm text-white placeholder-blue-100 shadow-none outline-none transition-colors focus:border-white focus-visible:shadow-none focus-visible:ring-0"
-              />
-            </div>
-            <div>
-              <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                required
-                className="w-full rounded-lg border border-white/25 bg-white/10 px-4 py-3 text-sm text-white placeholder-blue-100 shadow-none outline-none transition-colors focus:border-white focus-visible:shadow-none focus-visible:ring-0"
-              />
-            </div>
-            <div>
-              <textarea
-                name="message"
-                placeholder="Your Message"
-                rows={4}
-                required
-                className="w-full rounded-lg border border-white/25 bg-white/10 px-4 py-3 text-sm text-white placeholder-blue-100 shadow-none outline-none transition-colors focus:border-white focus-visible:shadow-none focus-visible:ring-0"
-              />
-            </div>
-            <button
-              type="submit"
-              disabled={status === 'sending'}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-medium text-blue-700 transition-all hover:bg-blue-50 disabled:opacity-50"
-            >
-              {status === 'sending' ? 'Sending...' : 'Send Message'}
-            </button>
-            {status === 'sent' && (
-              <p className="text-center text-sm text-blue-50">Message sent!</p>
-            )}
-            {status === 'error' && (
-              <p className="text-center text-sm text-white/90">
-                Something went wrong — please email me directly at omolasoyevictorakinyemi@gmail.com.
-              </p>
-            )}
-          </motion.form>
+        <HomeContactSection />
         </div>
       </div>
     </motion.section>
@@ -743,7 +688,7 @@ export function HomeContent({ projects }: { projects: ProjectData[] }) {
       <Nav avatar={profile.avatar} />
       <main className="mx-auto min-h-screen max-w-7xl px-6 py-6 sm:py-8 sm:px-8 lg:px-12">
         <HeroSection profile={profile} />
-        <ProjectsSection projects={projects} behanceUrl={profile.socials.behance} />
+        <ProjectsSection projects={projects} />
         <AboutSection profile={profile} />
         <ExperienceSection profile={profile} />
         <TestimonialsCarousel profile={profile} />
