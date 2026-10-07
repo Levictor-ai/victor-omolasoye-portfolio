@@ -654,7 +654,7 @@ function FooterSection({ socials }: { socials: ProfileData['socials'] }) {
           </motion.a>
         ))}
       </div>
-      <p className="mx-auto max-w-3xl text-balance text-lg leading-relaxed italic text-gray-500 sm:text-xl lg:text-2xl">
+      <p className="mx-auto max-w-3xl text-balance text-xl leading-relaxed font-medium italic text-gray-500 sm:text-2xl lg:text-4xl">
         &ldquo;The best way to predict the future is to create it.&rdquo;
       </p>
       <p className="mt-3 text-sm text-gray-400 sm:text-base">&mdash; Peter Drucker</p>
