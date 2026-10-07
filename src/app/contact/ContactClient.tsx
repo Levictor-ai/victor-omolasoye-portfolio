@@ -85,7 +85,7 @@ export function ContactClient() {
                   href={profile.socials.contra}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-3 text-sm font-medium text-white transition-all hover:from-blue-500 hover:to-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-4 text-sm font-medium text-white transition-all hover:from-blue-500 hover:to-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
                 >
                   <BadgeCheck className="size-4" strokeWidth={2.2} />
                   Hire me on Contra
@@ -93,7 +93,7 @@ export function ContactClient() {
               )}
               <Link
                 href="/projects"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-transparent px-6 py-3 text-sm font-medium text-gray-900 transition-colors hover:border-black/30 hover:bg-black/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-transparent px-6 py-4 text-sm font-medium text-gray-900 transition-colors hover:border-black/30 hover:bg-black/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
               >
                 View my work
               </Link>

@@ -293,9 +293,6 @@ function HeroSection({ profile }: { profile: ProfileData }) {
       <div className="grid w-full items-center gap-14 lg:grid-cols-[1.35fr_0.65fr] lg:gap-10">
         <div>
           <motion.div variants={item}><AvailableBanner /></motion.div>
-          <motion.div variants={item} className="my-14 w-full lg:hidden">
-            <HeroFrame avatar="/images/hero-portrait.jpg" name={profile.name} />
-          </motion.div>
           <motion.div variants={item}>
               <p className="mb-3 text-2xl font-normal tracking-tight text-gray-900 sm:text-3xl">
                 Hi, <TypewriterText text="I'm Victor Omolasoye" />
@@ -323,7 +320,7 @@ function HeroSection({ profile }: { profile: ProfileData }) {
             >
               <Link
                 href="/contact"
-                className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-8 py-3 text-sm font-medium text-white transition-all hover:from-blue-500 hover:to-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto sm:px-10"
+                className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-8 py-4 text-sm font-medium text-white transition-all hover:from-blue-500 hover:to-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto sm:px-10"
               >
                 Get in touch
               </Link>
@@ -334,7 +331,7 @@ function HeroSection({ profile }: { profile: ProfileData }) {
               href={profile.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-transparent px-8 py-3 text-sm font-medium text-gray-900 transition-colors hover:border-black/30 hover:bg-black/10 hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto sm:px-10"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-transparent px-8 py-4 text-sm font-medium text-gray-900 transition-colors hover:border-black/30 hover:bg-black/10 hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto sm:px-10"
             >
               <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
@@ -344,6 +341,9 @@ function HeroSection({ profile }: { profile: ProfileData }) {
               </svg>
               Resume
             </motion.a>
+          </motion.div>
+          <motion.div variants={item} className="mt-14 w-full lg:hidden">
+            <HeroFrame avatar="/images/hero-portrait.jpg" name={profile.name} />
           </motion.div>
         </div>
         <motion.div variants={item} className="hidden w-full lg:block">
@@ -580,7 +580,7 @@ function HomeCtaSection() {
         <motion.div variants={fadeUp} className="shrink-0">
           <Link
             href="/contact"
-            className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-8 py-3 text-sm font-medium text-blue-700 transition-colors hover:bg-blue-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 sm:w-auto"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-medium text-blue-700 transition-colors hover:bg-blue-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 sm:w-auto"
           >
             Get in touch
           </Link>

@@ -47,7 +47,7 @@ export function AboutSection({
             {profile.socials.contra && (
               <Link
                 href="/contact"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-transparent px-5 py-3 text-sm font-medium text-gray-900 transition-colors hover:border-black/30 hover:bg-black/10 hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-transparent px-5 py-4 text-sm font-medium text-gray-900 transition-colors hover:border-black/30 hover:bg-black/10 hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto"
               >
                 <BadgeCheck className="size-4 text-blue-600" strokeWidth={2.2} />
                 Hire me on Contra
@@ -57,7 +57,7 @@ export function AboutSection({
               href={profile.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-transparent px-5 py-3 text-sm font-medium text-gray-900 transition-colors hover:border-black/30 hover:bg-black/10 hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-transparent px-5 py-4 text-sm font-medium text-gray-900 transition-colors hover:border-black/30 hover:bg-black/10 hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto"
             >
               <FileText className="size-4 text-blue-600" strokeWidth={2.2} />
               Resume
@@ -125,7 +125,7 @@ export function AboutSection({
             <div className="mt-8 w-full sm:w-auto">
               <Link
                 href="/contact"
-                className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-5 py-3 text-sm font-medium text-white transition-all hover:from-blue-500 hover:to-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto"
+                className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-5 py-4 text-sm font-medium text-white transition-all hover:from-blue-500 hover:to-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto"
               >
                 Get in touch
               </Link>
