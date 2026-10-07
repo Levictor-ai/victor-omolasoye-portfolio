@@ -655,9 +655,9 @@ function FooterSection({ socials }: { socials: ProfileData['socials'] }) {
         ))}
       </div>
       <p className="mx-auto max-w-3xl text-balance text-lg leading-relaxed italic text-gray-500 sm:text-xl lg:text-2xl">
-        &ldquo;Good design is expensive because it&rsquo;s created with the most valuable resource we have&mdash;time, which is life.&rdquo;
+        &ldquo;The best way to predict the future is to create it.&rdquo;
       </p>
-      <p className="mt-3 text-sm text-gray-400 sm:text-base">&mdash; Victor Omolasoye</p>
+      <p className="mt-3 text-sm text-gray-400 sm:text-base">&mdash; Peter Drucker</p>
       <p className="mt-6 text-xs text-gray-400">&copy; {new Date().getFullYear()} Victor Omolasoye. All rights reserved.</p>
     </footer>
   );
