@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, type ReactNode } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRight, PenTool } from 'lucide-react';
@@ -231,31 +231,42 @@ function HeroFrame({ avatar, name, priority = false }: { avatar: string; name: s
   );
 }
 
-const ROLE_WORDS = ['Brand', 'Product', 'Web'];
+const HEADLINE = ['I', 'design', 'products', 'people', 'understand,', 'trust,', 'and', 'use.'];
+const HEADLINE_HIGHLIGHT = new Set([4, 5, 7]);
 
-function RotatingRoleWord() {
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const id = setInterval(() => setIndex((i) => (i + 1) % ROLE_WORDS.length), 2400);
-    return () => clearInterval(id);
-  }, []);
-
+function HeroHeadline() {
   return (
-    <span className="relative block h-[1em] w-full overflow-hidden">
-      <AnimatePresence mode="wait" initial={false}>
-        <motion.span
-          key={ROLE_WORDS[index]}
-          className="absolute left-0 top-0 block whitespace-nowrap"
-          initial={{ y: '100%', opacity: 0 }}
-          animate={{ y: '0%', opacity: 1 }}
-          exit={{ y: '-100%', opacity: 0 }}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        >
-          {ROLE_WORDS[index]}
-        </motion.span>
-      </AnimatePresence>
-    </span>
+    <h1
+      className="mb-5 block w-full"
+      style={{
+        fontFamily: 'var(--font-manrope), sans-serif',
+        color: '#11131A',
+        fontWeight: 700,
+        fontSize: 'clamp(2.5rem,6vw,4.75rem)',
+        lineHeight: 1.04,
+        letterSpacing: '-0.02em',
+      }}
+    >
+      <span className="sr-only">
+        I design products people understand, trust, and use. — Victor Omolasoye, Product
+        Designer in Lagos, Nigeria
+      </span>
+      <span aria-hidden="true" className="block w-full text-balance">
+        {HEADLINE.map((word, i) => (
+          <motion.span
+            key={`${word}-${i}`}
+            className={`mr-[0.28em] inline-block ${
+              HEADLINE_HIGHLIGHT.has(i) ? 'text-blue-600' : ''
+            }`}
+            initial={{ opacity: 0, y: '0.4em' }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, delay: 0.35 + i * 0.07, ease: [0.22, 1, 0.36, 1] }}
+          >
+            {word}
+          </motion.span>
+        ))}
+      </span>
+    </h1>
   );
 }
 
@@ -292,36 +303,17 @@ function HeroSection({ profile }: { profile: ProfileData }) {
               </p>
           </motion.div>
           <motion.div variants={item}>
-            <h1
-              className="mb-4 block w-full"
-              style={{
-                fontFamily: 'var(--font-manrope), sans-serif',
-                color: '#11131A',
-                fontWeight: 700,
-                fontSize: 'clamp(3.5rem,15vw,128px)',
-                lineHeight: 1,
-              }}
-            >
-              <span className="sr-only">
-                Victor Omolasoye — Product Designer, Brand Designer and UI/UX Designer in Lagos, Nigeria
-              </span>
-              <span aria-hidden="true" className="block w-full">
-                <RotatingRoleWord />
-                Designer
-              </span>
-            </h1>
+            <HeroHeadline />
           </motion.div>
           <motion.div variants={item}>
             <p
-              className="mb-6 w-full font-normal leading-snug tracking-tight text-gray-900"
-              style={{ fontSize: 'clamp(1.125rem,1.5vw,1.4rem)' }}
+              className="mb-7 w-full leading-snug tracking-tight text-gray-600"
+              style={{ fontSize: 'clamp(1.05rem,1.4vw,1.3rem)' }}
             >
-              <span className="lg:block">
-                I design brands, digital products, and web experiences that
+              <span className="font-semibold text-gray-900">
+                Product Designer + AI-assisted builder
               </span>{' '}
-              <span className="lg:block">
-                turn ideas into clear, useful, and memorable experiences.
-              </span>
+              creating digital products, experiences, and brands.
             </p>
           </motion.div>
           <motion.div variants={item} className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
