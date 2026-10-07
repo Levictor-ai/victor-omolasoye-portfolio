@@ -55,18 +55,11 @@ function GithubLogo() {
 
 function WorkspaceLogo() {
   return (
-    <svg
-      className="size-7"
-      viewBox="0 0 24 24"
-      fill="none"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <path d="M3 4.5 11.5 13" stroke="#4285F4" strokeWidth="3.5" />
-      <path d="M11.5 13 12.5 4.5" stroke="#34A853" strokeWidth="3.5" />
-      <path d="M12.5 4.5 13 13" stroke="#FBBC05" strokeWidth="3.5" />
-      <path d="M13 13 21 4.5" stroke="#EA4335" strokeWidth="3.5" />
+    <svg className="size-7" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <rect x="3" y="6" width="3.4" height="12" rx="1.7" fill="#4285F4" />
+      <rect x="7.2" y="3" width="3.4" height="18" rx="1.7" fill="#34A853" />
+      <rect x="11.4" y="5" width="3.4" height="14" rx="1.7" fill="#FBBC05" />
+      <rect x="15.6" y="8" width="3" height="8" rx="1.5" fill="#EA4335" />
     </svg>
   );
 }
@@ -159,11 +152,10 @@ const tools: {
   },
   {
     name: 'Framer',
-    tileClass: 'bg-transparent',
+    tileClass: 'bg-black',
     logo: (
       <svg className="h-full w-full" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <rect x="1.5" y="1.5" width="21" height="21" rx="5.5" fill="#0055FF" />
-        <path fill="#FFFFFF" d="M4 0h16v8h-8zM4 8h8l8 8H4zM4 16h8v8z" transform="translate(1.5 1.5) scale(0.875)" />
+        <path fill="#FFFFFF" d="M4 0h16v8h-8zM4 8h8l8 8H4zM4 16h8v8z" />
       </svg>
     ),
   },
@@ -189,18 +181,11 @@ const tools: {
     logo: (
       <svg className="h-full w-full" viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <rect x="1.5" y="1.5" width="21" height="21" rx="5.5" fill="#6125FF" />
-        <text
-          x="12"
-          y="17"
-          textAnchor="middle"
-          fontSize="15"
-          fontWeight="800"
-          fontStyle="italic"
-          fontFamily="inherit"
-          fill="#FFFFFF"
-        >
-          f
-        </text>
+        <g transform="rotate(-8 12 13)" fill="#FFFFFF">
+          <rect x="10.3" y="4.5" width="3.4" height="15.5" rx="1.7" />
+          <rect x="7.4" y="9.6" width="9.2" height="3.2" rx="1.6" />
+          <rect x="12.9" y="4.5" width="3" height="4.6" rx="1.5" />
+        </g>
       </svg>
     ),
   },
