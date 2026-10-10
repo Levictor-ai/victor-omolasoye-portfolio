@@ -45,13 +45,15 @@ export function AboutSection({
           </motion.h2>
           <div className="flex w-full shrink-0 flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">
             {profile.socials.contra && (
-              <Link
-                href="/contact"
+              <a
+                href={profile.socials.contra}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-transparent px-5 py-4 text-sm font-medium text-gray-900 transition-colors hover:border-black/30 hover:bg-black/10 hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto"
               >
                 <BadgeCheck className="size-4 text-blue-600" strokeWidth={2.2} />
                 Hire me on Contra
-              </Link>
+              </a>
             )}
             <a
               href={profile.resumeUrl}

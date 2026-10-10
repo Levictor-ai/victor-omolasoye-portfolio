@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowUpRight, MapPin, Clock } from 'lucide-react';
@@ -13,6 +14,7 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
+  const router = useRouter();
   const [imgError, setImgError] = useState(false);
   const isUpcoming = !project.period;
 
@@ -90,12 +92,20 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
         )}
 
         {/* CTA */}
-        <span className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-400">
-          {isUpcoming ? 'Coming Soon' : 'View Case Study'}
-          {!isUpcoming && (
-            <ArrowUpRight className="size-4 text-blue-600 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          )}
-        </span>
+        {isUpcoming ? (
+          <span className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-400">
+            Coming Soon
+          </span>
+        ) : (
+          <button
+            type="button"
+            onClick={() => router.push(`/projects/${project.slug}`)}
+            className="relative z-10 inline-flex items-center gap-1.5 rounded-full bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700"
+          >
+            View Case Study
+            <ArrowUpRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </button>
+        )}
       </div>
     </>
   );
@@ -112,12 +122,14 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
           {cardContent}
         </div>
       ) : (
-        <Link
-          href={`/projects/${project.slug}`}
-          className="group relative block overflow-hidden rounded-xl bg-white transition-all duration-300 hover:bg-gray-50 hover:shadow-[0_0_20px_-8px] hover:shadow-black/[0.04]"
-        >
+        <div className="group relative block overflow-hidden rounded-xl bg-white transition-all duration-300 hover:bg-gray-50 hover:shadow-[0_0_20px_-8px] hover:shadow-black/[0.04]">
+          <Link
+            href={`/projects/${project.slug}`}
+            aria-label={`View ${project.title} case study`}
+            className="absolute inset-0 z-0"
+          />
           {cardContent}
-        </Link>
+        </div>
       )}
     </motion.div>
   );
