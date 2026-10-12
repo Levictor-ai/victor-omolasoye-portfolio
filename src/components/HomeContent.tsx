@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRight, PenTool } from 'lucide-react';
+import { track } from '@/lib/analytics';
 import { usePortfolio } from '@/context/PortfolioContext';
 import type { ProfileData } from '@/context/PortfolioContext';
 import type { ProjectData } from '@/types/project';
@@ -320,6 +321,7 @@ function HeroSection({ profile }: { profile: ProfileData }) {
             >
               <Link
                 href="/contact"
+                onClick={() => track('cta_click', { location: 'hero', label: 'get_in_touch' })}
                 className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-8 py-4 text-sm font-medium text-white transition-all hover:from-blue-500 hover:to-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto sm:px-10"
               >
                 Get in touch
@@ -331,6 +333,7 @@ function HeroSection({ profile }: { profile: ProfileData }) {
               href={profile.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => track('resume_click', { location: 'hero' })}
               className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-transparent px-8 py-4 text-sm font-medium text-gray-900 transition-colors hover:border-black/30 hover:bg-black/10 hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto sm:px-10"
             >
               <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -580,6 +583,7 @@ function HomeCtaSection() {
         <motion.div variants={fadeUp} className="shrink-0">
           <Link
             href="/contact"
+            onClick={() => track('cta_click', { location: 'home_cta', label: 'get_in_touch' })}
             className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-medium text-blue-700 transition-colors hover:bg-blue-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 sm:w-auto"
           >
             Get in touch

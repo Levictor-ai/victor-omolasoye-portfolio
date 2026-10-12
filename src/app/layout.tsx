@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { Manrope, Bebas_Neue, Inter } from 'next/font/google';
 import { PortfolioProvider } from '@/context/PortfolioContext';
 import { PageScrollReset } from '@/components/PageScrollReset';
+import { Analytics } from '@/components/Analytics';
 import { JsonLd } from '@/components/JsonLd';
 import { primaryKeywords, SITE_URL, site } from '@/lib/seo';
 import { personSchema, websiteSchema } from '@/lib/schema';
@@ -47,7 +48,7 @@ export const metadata: Metadata = {
   keywords: primaryKeywords,
   alternates: {
     canonical: SITE_URL,
-    types: { 'application/rss+xml': `${SITE_URL}/blog` },
+    types: { 'application/rss+xml': `${SITE_URL}/blog/rss.xml` },
   },
   formatDetection: { email: true, address: false, telephone: false },
   openGraph: {
@@ -63,6 +64,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: `${site.name} | ${site.role} in Lagos, Nigeria`,
     description: site.description,
+    site: '@mlevictor21',
+    creator: '@mlevictor21',
     images: [site.image],
   },
   icons: {
@@ -96,6 +99,7 @@ export default function RootLayout({
         <JsonLd data={[personSchema(), websiteSchema()]} />
         <PageScrollReset />
         <PortfolioProvider>{children}</PortfolioProvider>
+        <Analytics />
       </body>
     </html>
   );

@@ -422,7 +422,15 @@ function CaseStudyView({ project }: { project: ProjectData }) {
             <div className="mt-4 grid gap-4 sm:grid-cols-2">
               {section.images.map((img) => (
                 <figure key={img.src}>
-                  <div className="aspect-video rounded-xl bg-white" />
+                  <div className="relative aspect-video overflow-hidden rounded-xl border border-gray-200 bg-gray-50">
+                    <Image
+                      src={img.src}
+                      alt={img.alt}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 100vw, 50vw"
+                    />
+                  </div>
                   {img.caption && (
                     <figcaption className="mt-2 text-xs text-gray-400">{img.caption}</figcaption>
                   )}

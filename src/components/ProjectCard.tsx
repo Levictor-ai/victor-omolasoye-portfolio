@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowUpRight, MapPin, Clock } from 'lucide-react';
+import { track } from '@/lib/analytics';
 import type { ProjectData } from '@/types/project';
 
 interface ProjectCardProps {
@@ -99,7 +100,10 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
         ) : (
           <button
             type="button"
-            onClick={() => router.push(`/projects/${project.slug}`)}
+            onClick={() => {
+              track('project_open', { project: project.slug });
+              router.push(`/projects/${project.slug}`);
+            }}
             className="relative z-10 inline-flex items-center gap-1.5 rounded-full bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700"
           >
             View Case Study
