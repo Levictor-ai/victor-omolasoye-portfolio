@@ -2,14 +2,14 @@
   "slug": "payvo",
   "category": "product",
   "title": "Payvo",
-  "subtitle": "Project Coming Soon",
+  "subtitle": "Mobile Wallet for Everyday Payments",
   "role": "Product Designer (UX/UI)",
   "company": "Payvo",
   "companyUrl": null,
-  "period": "",
+  "period": "2026",
   "coverImage": "/images/projects/payvo/preview.png",
   "color": "#1A1A1A",
-  "overview": "Payvo is a mobile wallet for Nigerian users, designed for iOS and Android. People can add money, send and request payments, pay bills, manage cards and follow every transaction in one app. The case study is coming soon.",
+  "overview": "Payvo is a mobile wallet for Nigerian users, designed for iOS and Android. People can add money, send and request payments, pay bills, manage cards and follow every transaction in one app.",
   "problem": "Everyday money tasks are scattered. People send money in one app, buy electricity or airtime in another, and manage their card somewhere else. Each place reports success and failure differently, so it is often unclear whether a payment actually went through.",
   "solution": "A single mobile wallet that brings add money, send and request payments, bill payments, card management and full transaction history into one app across iOS and Android. The design shows the balance and recent activity at a glance, puts the most common tasks within two taps, makes every payment outcome unmistakable, and gives people direct control over their cards and PIN.",
   "targetAudience": ["Nigerian Consumers", "Everyday Bill Payers", "Frequent Money Movers", "Card Managers"],
@@ -91,21 +91,32 @@
       "description": "Welcome through to payment status and profile"
     },
     {
-      "metric": "[ADD RESULT — Task Success Rate]",
-      "value": "[Add value]",
-      "description": "Replace with the usability-test task success rate"
+      "metric": "Bill Categories",
+      "value": "6",
+      "description": "Airtime, data, electricity, cable TV, internet and water"
     },
     {
-      "metric": "[ADD RESULT — Time to Complete a Bill Payment]",
-      "value": "[Add value]",
-      "description": "Replace with the benchmarked time from testing"
+      "metric": "Content Rules",
+      "value": "5",
+      "description": "Currency, signs, case, status and date format"
     }
   ],
   "links": [
     { "label": "Case Study", "url": "/projects/payvo", "type": "case-study" }
   ],
   "images": [
-    { "src": "/images/projects/payvo/preview.png", "alt": "Payvo preview — mobile wallet for everyday payments" }
+    { "src": "/images/projects/payvo/welcome.png", "alt": "Payvo welcome screen" },
+    { "src": "/images/projects/payvo/home-dashboard.png", "alt": "Payvo home dashboard" },
+    { "src": "/images/projects/payvo/notifications.png", "alt": "Payvo notifications screen" },
+    { "src": "/images/projects/payvo/transactions-list.png", "alt": "Payvo transaction history" },
+    { "src": "/images/projects/payvo/request-money.png", "alt": "Payvo request money via link" },
+    { "src": "/images/projects/payvo/request-money-qr.png", "alt": "Payvo request money via QR code" },
+    { "src": "/images/projects/payvo/bills.png", "alt": "Payvo bills screen" },
+    { "src": "/images/projects/payvo/cards-overview.png", "alt": "Payvo cards overview" },
+    { "src": "/images/projects/payvo/card-details.png", "alt": "Payvo card details and controls" },
+    { "src": "/images/projects/payvo/transaction-pin.png", "alt": "Payvo transaction PIN keypad" },
+    { "src": "/images/projects/payvo/payment-success.png", "alt": "Payvo payment success receipt" },
+    { "src": "/images/projects/payvo/profile.png", "alt": "Payvo profile screen" }
   ],
   "sections": [
     {
@@ -114,11 +125,11 @@
     },
     {
       "title": "Research & Discovery",
-      "content": "[ADD YOUR RESEARCH: interviews, survey results or competitor audit.]"
+      "content": "I audited all 12 screens against a single content standard. The audit surfaced mixed currencies, inconsistent capitalisation, three different time formats and status labels such as “Unsuccessfully”. In a payments product these small inconsistencies make people doubt the numbers, so the research focused on where the interface disagreed with itself."
     },
     {
       "title": "Outcome",
-      "content": "The result is a coherent set of 12 mobile screens and a content system the team can reuse.\n\n[ADD RESULT: for example, task success rate in usability testing]\n[ADD RESULT: for example, time to complete a bill payment]"
+      "content": "The result is a coherent set of 12 mobile screens and a content system the team can reuse. One currency, one status vocabulary and one capitalisation rule now run through every flow, from adding money to confirming a payment."
     },
     {
       "title": "Reflection & Next Steps",
