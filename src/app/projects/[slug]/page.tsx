@@ -156,9 +156,9 @@ function GalleryView({ project }: { project: ProjectData }) {
           {project.overview}
         </p>
       )}
-      <div className="columns-1 gap-6 sm:columns-2 lg:columns-3">
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
         {project.images.map((img) => (
-          <div key={img.src} className="mb-6 break-inside-avoid overflow-hidden rounded-xl border border-gray-200 bg-gray-50">
+          <div key={img.src} className="overflow-hidden rounded-xl border border-gray-200 bg-gray-50">
             <Image
               src={img.src}
               alt={img.alt}
@@ -425,11 +425,11 @@ function CaseStudyView({ project }: { project: ProjectData }) {
           {project.images.length > 0 && (
             <section id="gallery" className="scroll-mt-8">
               <SectionHeading index={num('gallery')} title="Screens" />
-              <div className="columns-1 gap-5 sm:columns-2 lg:columns-3">
+              <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
                 {project.images.map((img) => (
                   <div
                     key={img.src}
-                    className="mb-5 break-inside-avoid overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5"
+                    className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5"
                   >
                     <Image
                       src={img.src}
