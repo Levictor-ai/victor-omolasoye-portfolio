@@ -2,10 +2,10 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowUpRight, MapPin, Clock } from 'lucide-react';
+import { track } from '@/lib/analytics';
 import type { ProjectData } from '@/types/project';
 
 interface PersonalProjectCardProps {
@@ -14,7 +14,6 @@ interface PersonalProjectCardProps {
 }
 
 export function PersonalProjectCard({ project, index = 0 }: PersonalProjectCardProps) {
-  const router = useRouter();
   const [imgError, setImgError] = useState(false);
   const isUpcoming = !project.period;
 
@@ -25,12 +24,12 @@ export function PersonalProjectCard({ project, index = 0 }: PersonalProjectCardP
       viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
     >
-      <div className="group relative grid overflow-hidden rounded-2xl border border-gray-200 bg-white transition-all duration-300 hover:border-black/20 hover:shadow-[0_0_30px_-12px] hover:shadow-black/[0.08] md:grid-cols-[2fr_5fr]">
-        <Link
-          href={`/projects/${project.slug}`}
-          aria-label={`View ${project.title} case study`}
-          className="absolute inset-0 z-0"
-        />
+      <Link
+        href={`/projects/${project.slug}`}
+        aria-label={`View ${project.title} case study`}
+        onClick={() => track('project_open', { project: project.slug })}
+        className="group relative grid overflow-hidden rounded-2xl border border-gray-200 bg-white transition-all duration-300 hover:border-black/20 hover:shadow-[0_0_30px_-12px] hover:shadow-black/[0.08] md:grid-cols-[2fr_5fr]"
+      >
         {/* Cover Image */}
         <div className="relative aspect-video overflow-hidden bg-white md:aspect-auto md:min-h-[150px]">
           {project.coverImage && !imgError ? (
@@ -101,17 +100,13 @@ export function PersonalProjectCard({ project, index = 0 }: PersonalProjectCardP
               Coming Soon
             </span>
           ) : (
-            <button
-              type="button"
-              onClick={() => router.push(`/projects/${project.slug}`)}
-              className="relative z-10 mt-auto inline-flex w-fit items-center gap-1.5 rounded-full bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700"
-            >
+            <span className="mt-auto inline-flex w-fit items-center gap-1.5 rounded-full bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors group-hover:bg-blue-700">
               View Case Study
               <ArrowUpRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </button>
+            </span>
           )}
         </div>
-      </div>
+      </Link>
     </motion.div>
   );
 }
