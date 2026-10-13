@@ -419,20 +419,24 @@ function CaseStudyView({ project }: { project: ProjectData }) {
             })}
           </div>
           {section.images && section.images.length > 0 && (
-            <div className="mt-4 grid gap-4 sm:grid-cols-2">
+            <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
               {section.images.map((img) => (
-                <figure key={img.src}>
-                  <div className="relative aspect-video overflow-hidden rounded-xl border border-gray-200 bg-gray-50">
-                    <Image
-                      src={img.src}
-                      alt={img.alt}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 640px) 100vw, 50vw"
-                    />
-                  </div>
+                <figure
+                  key={img.src}
+                  className="overflow-hidden rounded-xl border border-gray-200 bg-gray-50"
+                >
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    width={390}
+                    height={844}
+                    className="h-auto w-full"
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  />
                   {img.caption && (
-                    <figcaption className="mt-2 text-xs text-gray-400">{img.caption}</figcaption>
+                    <figcaption className="px-3 py-2 text-xs text-gray-400">
+                      {img.caption}
+                    </figcaption>
                   )}
                 </figure>
               ))}
