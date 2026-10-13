@@ -2,47 +2,31 @@
   "slug": "fluxo",
   "category": "brand",
   "title": "Fluxo",
-  "subtitle": "Brand & Social Campaign",
+  "subtitle": "Streamlining Dispatch Operations",
   "role": "Brand Designer",
   "company": "Fluxo",
   "companyUrl": null,
   "period": "2025",
   "coverImage": "/images/projects/fluxo/cover.png",
   "color": "#1A1A1A",
-  "overview": "This project involved the creation of a cohesive brand and social media campaign for Fluxo, a dispatch management platform built to run order management, rider management, and daily dispatch operations from one place. The goal was to communicate Fluxo's core promise — simpler, faster dispatch — to dispatch company owners through a consistent, high-impact visual system.",
-  "problem": "Dispatch companies are often run across scattered tools, spreadsheets, and chat threads, making order tracking, rider coordination, and daily operations fragmented and time-consuming for the people running them.",
-  "solution": "A bold, consistent visual campaign built around Fluxo's \"one place\" concept. Clean layouts and a confident typographic system frame the platform's key benefits — order management, rider management, and time saved — while targeted messaging speaks directly to business owners and growing dispatch companies. The campaign closes with a clear waitlist call to action.",
-  "targetAudience": ["Dispatch Company Owners", "Growing Dispatch Businesses", "Logistics Operators"],
+  "overview": "Fluxo is a logistics and dispatch management platform designed for modern dispatch companies and fleet managers. By replacing fragmented communication channels — phone calls, chat apps, and spreadsheets — with a unified centralized dashboard, Fluxo simplifies rider tracking, order creation, and delivery operations.",
+  "problem": "Dispatch and logistics companies face severe operational friction as they scale. Orders are scattered across phone calls, instant messages, and manual spreadsheets, leading to lost data and missed deliveries. Managers spend hours manually calling riders for location updates — \"Where is the rider?\" \"Has the order been picked up?\" — and rapid growth leads to operational breakdown from a lack of central oversight, leaving owners managing chaos instead of focusing on strategic growth.",
+  "solution": "Fluxo provides a single centralized platform — one dashboard — to control every stage of the dispatch workflow: orders are created and organized, tracked with real-time rider locations, through to seamless pickup and delivery. Centralized order management, live rider tracking, and end-to-end operational control replace the multi-tool chaos and give owners back their time.",
+  "targetAudience": ["Dispatch Companies", "Fleet Managers", "Logistics Operators", "Growing Dispatch Businesses"],
   "regions": ["Nigeria"],
   "timeline": "2025",
   "features": [
     {
-      "title": "The Problem",
-      "description": "A scroll-stopping opener that names the pain of running dispatch across scattered tools and manual coordination."
+      "title": "Centralized Order Management",
+      "description": "Easily create, organize, and monitor delivery orders without losing details in chats or spreadsheets."
     },
     {
-      "title": "The One Place Concept",
-      "description": "Positions Fluxo as the single platform for orders, riders, and dispatch operations."
+      "title": "Rider Management & Live Tracking",
+      "description": "Gain real-time visibility into rider locations on map interfaces to eliminate status-update calls."
     },
     {
-      "title": "Business Owner Angle",
-      "description": "Speaks directly to owners about control, visibility, and running operations with confidence."
-    },
-    {
-      "title": "Growing Dispatch Companies",
-      "description": "Frames Fluxo as the system that scales with a dispatch business as it grows."
-    },
-    {
-      "title": "Order & Rider Management",
-      "description": "Showcases the core platform capabilities — tracking orders and coordinating riders in one view."
-    },
-    {
-      "title": "Time Saving",
-      "description": "Highlights the operational time saved by consolidating daily dispatch work into one workflow."
-    },
-    {
-      "title": "Waitlist Flyer",
-      "description": "A conversion-focused end card driving early sign-ups to the Fluxo waitlist."
+      "title": "End-to-End Operational Control",
+      "description": "Assign orders directly to riders and monitor status transitions from pickup to final delivery."
     }
   ],
   "techStack": [
@@ -58,18 +42,28 @@
   },
   "results": [
     {
-      "metric": "Campaign Assets",
-      "value": "8",
-      "description": "Brand and social graphics telling the Fluxo story"
+      "metric": "All-in-One Centralization",
+      "value": "One Dashboard",
+      "description": "Consolidates orders, riders, and deliveries, removing multi-tool complexity and data silos."
     },
     {
-      "metric": "Style",
-      "value": "Bold & Clean",
-      "description": "Confident typography with a focused benefit-led narrative"
+      "metric": "Time & Cost Efficiency",
+      "value": "Less Back & Forth",
+      "description": "Eliminates manual phone check-ins and messaging, freeing operational time for managers and drivers."
+    },
+    {
+      "metric": "Scalability",
+      "value": "Built to Scale",
+      "description": "Designed for growing dispatch operations, preventing growth from turning into operational chaos."
     }
   ],
-  "layout": "gallery",
-  "links": [],
+  "links": [
+    {
+      "label": "Instagram — @shipwithfluxo",
+      "url": "https://instagram.com/shipwithfluxo",
+      "type": "live"
+    }
+  ],
   "images": [
     { "src": "/images/projects/fluxo/the-problem.png", "alt": "Fluxo — The Problem" },
     { "src": "/images/projects/fluxo/one-place-concept.png", "alt": "Fluxo — The One Place Concept" },
@@ -80,5 +74,10 @@
     { "src": "/images/projects/fluxo/time-saving.png", "alt": "Fluxo — Time Saving" },
     { "src": "/images/projects/fluxo/waitlist-flyer.png", "alt": "Fluxo — Waitlist Flyer" }
   ],
-  "sections": []
+  "sections": [
+    {
+      "title": "Brand Direction",
+      "content": "Tagline / Value Hook: \"Built for modern dispatch businesses.\" and \"Less back and forth. More control.\"\n\n- Brand Name: Fluxo\n- Instagram: @shipwithfluxo\n- LinkedIn: Fluxo"
+    }
+  ]
 }
