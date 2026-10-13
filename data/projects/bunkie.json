@@ -8,9 +8,9 @@
   "period": "2024",
   "coverImage": "/images/projects/bunkie/cover.png",
   "color": "#1A1A1A",
-  "overview": "The objective was to create a cohesive, scalable brand identity and design system from the ground up. The goal was to translate brand values into a unified visual language, ensuring consistency across digital and print touchpoints through an accessible set of brand guidelines.",
-  "problem": "Without a unified brand identity, cross-platform assets often suffer from inconsistent typography, mismatched color palettes, and fragmented messaging. The key challenges were:\n\n- Developing a distinct logo and visual mark that communicates the core ethos.\n- Establishing an accessible color hierarchy and robust typography system.\n- Creating clear guidelines to ensure seamless implementation for design and development teams.",
-  "solution": "Delivered a complete brand identity system built on a distinct logo suite, an accessible color palette with WCAG AA contrast compliance, a robust typography hierarchy, and structured brand guidelines. A shared component library and single source of truth for brand assets ensure consistent implementation across digital and print touchpoints.",
+  "overview": "The objective was to create a cohesive, scalable brand identity and design system from the ground up, translating brand values into a unified visual language and ensuring consistency across digital and print through accessible guidelines.",
+  "problem": "Without a unified identity, cross-platform assets suffer from inconsistent typography, mismatched palettes and fragmented messaging. The challenges were a distinct logo and mark, an accessible color and type system, and clear guidelines for design and development teams.",
+  "solution": "A complete brand identity system built on a distinct logo suite, an accessible palette with WCAG AA contrast, a robust typography hierarchy and structured guidelines. A shared component library and single source of truth keep implementation consistent across digital and print.",
   "targetAudience": ["Design Teams", "Development Teams", "Marketing & Brand Teams"],
   "regions": ["Nigeria"],
   "timeline": "2024",
@@ -79,11 +79,11 @@
   "sections": [
     {
       "title": "Executive Summary",
-      "content": "Role: Brand Designer & UI/UX Specialist\n\nDeliverables: Brand Strategy, Visual Identity System, Brand Guidelines Document, Component Library\n\nTools Used: Figma, Adobe Illustrator"
+      "content": "Role: Brand Designer & UI/UX Specialist\n\nDeliverables: Brand Strategy, Visual Identity System, Brand Guidelines Document, Component Library\n\nTools: Figma, Adobe Illustrator"
     },
     {
       "title": "Process & Approach",
-      "content": "Step 1: Research & Discovery\n\nBrand Audit & Strategy: Analyzed market positioning, target audience demographics, and competitor branding to define visual tone and personality keywords.\n\nMoodboarding: Explored visual directions focusing on modern aesthetics, legibility, and geometric balance.\n\nStep 2: Visual Identity Development\n\nLogo & Mark: Iterated on primary logo formats, iconography, and clear-space rules to maintain visual integrity across different screen sizes and print formats.\n\nColor System: Defined primary, secondary, and neutral palettes with strict accessibility contrast ratios (WCAG compliance) for digital applications.\n\nTypography Hierarchy: Selected versatile typeface pairings for headlines, body copy, and UI components to ensure readability across devices.\n\nStep 3: Guidelines & Systems Design\n\nBuilt a structured Brand Guidelines document covering logo usage, color codes (HEX, RGB, CMYK), typography scales, icon sets, and explicit imagery do's and don'ts."
+      "content": "Step 1: Research & Discovery\n\n- Brand audit: Analysed market positioning, audience and competitors to define visual tone and personality.\n- Moodboarding: Explored directions focused on modern aesthetics, legibility and geometric balance.\n\nStep 2: Visual Identity\n\n- Logo & mark: Iterated logo formats, iconography and clear-space rules for screens and print.\n- Color system: Defined primary, secondary and neutral palettes with WCAG contrast.\n- Typography: Selected versatile type pairs for headlines, body and UI.\n\nStep 3: Guidelines & Systems\n\nBuilt a Brand Guidelines document covering logo usage, color codes (HEX, RGB, CMYK), type scales, icon sets and imagery do's and don'ts."
     },
     {
       "title": "Key Deliverables & System Features",
@@ -132,7 +132,7 @@
     },
     {
       "title": "Impact & Results",
-      "content": "- Efficiency: Streamlined the design-to-development workflow by providing a single source of truth for all brand assets.\n- Consistency: Ensured 100% visual alignment across social media assets, digital product UI, and collateral.\n- Scalability: Built a flexible system capable of expanding alongside future product lines and marketing campaigns."
+      "content": "- Efficiency: a single source of truth for all brand assets streamlined the design-to-development workflow.\n- Consistency: 100% visual alignment across social assets, product UI and collateral.\n- Scalability: a flexible system built to expand with future product lines and campaigns."
     }
   ]
 }

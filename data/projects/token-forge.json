@@ -1,37 +1,36 @@
 {
   "slug": "token-forge",
   "category": "engineering",
-  "personal": true,
   "title": "TokenForge",
   "subtitle": "AI-Powered Design System Token Generator",
   "role": "Product Designer",
   "company": "Team 4 — Product Design Bootcamp",
-  "companyUrl": null,
+  "companyUrl": "",
   "period": "Product Design Bootcamp Project",
   "coverImage": "/images/projects/token-forge/cover.png",
   "color": "#1A1A1A",
-  "overview": "TokenForge is an AI-powered platform that transforms natural language into production-ready design tokens within seconds. Instead of manually creating a design system, users simply describe their brand, and TokenForge generates an accessible, scalable, and developer-ready foundation for digital products.",
-  "problem": "Most design systems begin with repetitive manual work—deciding on colors, typography, spacing, shadows, border radii, and naming conventions. These decisions consume valuable time before actual product design begins. Four major challenges emerged: creating design systems is repetitive and time-consuming, manual decisions lead to inconsistent products, accessibility is frequently overlooked, and existing tools cannot interpret a brand's personality.",
-  "solution": "A platform where users describe their brand in natural language and receive a complete, accessible design system in under 60 seconds. TokenForge generates semantic color palettes, typography scales, spacing systems, border radius values, and shadow systems—all with WCAG compliance built in. Users retain full editing control, and tokens export as CSS Variables, Tailwind Configuration, or JSON.",
+  "timeline": "Product Design Bootcamp Project",
+  "overview": "TokenForge turns natural language into production-ready design tokens in seconds. Instead of manually building a design system, users describe their brand and TokenForge generates an accessible, developer-ready foundation.",
+  "problem": "Most design systems begin with repetitive manual work: colors, typography, spacing, shadows, radii and naming. These decisions consume time before product design starts. Four challenges stood out: creation is repetitive, manual decisions cause inconsistency, accessibility is often overlooked, and existing tools can't interpret a brand's personality.",
+  "solution": "A platform where users describe their brand and receive a complete, accessible design system in under 60 seconds. TokenForge generates semantic color palettes, type scales, spacing, radius and shadow systems with WCAG compliance built in. Users keep full editing control, and tokens export as CSS Variables, Tailwind Configuration or JSON.",
   "targetAudience": ["UI/UX Designers", "Front-end Developers", "Agencies & Startup Founders"],
   "regions": ["Global"],
-  "timeline": "Product Design Bootcamp Project",
   "features": [
     {
       "title": "AI Brand Interpretation",
-      "description": "Users describe their product naturally—'A calm, professional fintech platform for West African users'—and the AI converts it into structured design tokens."
+      "description": "Users describe their product naturally — for example 'A calm, professional fintech platform for West African users' — and the AI converts it into structured design tokens."
     },
     {
       "title": "Automated Token Generation",
-      "description": "Creates semantic color palettes, typography scales, spacing systems, border radius values, and shadow systems from a single prompt."
+      "description": "Creates semantic color palettes, typography scales, spacing systems, border radius values and shadow systems from a single prompt."
     },
     {
       "title": "Live Preview",
-      "description": "Generated tokens are immediately applied to sample interfaces including buttons, forms, cards, and navigation—no refresh required."
+      "description": "Generated tokens are immediately applied to sample interfaces including buttons, forms, cards and navigation, with no refresh required."
     },
     {
       "title": "Manual Overrides",
-      "description": "Every generated token remains editable. Changes update the preview instantly without refreshing the page."
+      "description": "Every generated token stays editable, and changes update the preview instantly without refreshing the page."
     },
     {
       "title": "Accessibility Checker",
@@ -39,7 +38,7 @@
     },
     {
       "title": "Export Options",
-      "description": "Export tokens as CSS Variables, Tailwind Configuration, or JSON—bridging the gap between design and development."
+      "description": "Export tokens as CSS Variables, Tailwind Configuration or JSON, bridging the gap between design and development."
     },
     {
       "title": "Remix",
@@ -56,7 +55,7 @@
   ],
   "architecture": {
     "title": "Prompt-to-Token Pipeline",
-    "description": "TokenForge uses a natural language processing pipeline that parses brand descriptions into design decisions. The output is a structured token set that maps to CSS custom properties, Tailwind config keys, and JSON schemas. The live preview layer renders these tokens against real UI components in real time.",
+    "description": "TokenForge uses a natural language pipeline that parses brand descriptions into design decisions. The output is a structured token set that maps to CSS custom properties, Tailwind config keys and JSON schemas. The live preview layer renders these tokens against real UI components in real time.",
     "highlights": [
       "Natural language parsing for brand interpretation",
       "Real-time token-to-UI preview rendering",
@@ -81,6 +80,7 @@
       "description": "CSS Variables, Tailwind Configuration, JSON"
     }
   ],
+  "testimonial": null,
   "links": [
     { "label": "Live Platform", "url": "https://token-forge-three.vercel.app/", "type": "live" }
   ],
@@ -88,23 +88,23 @@
   "sections": [
     {
       "title": "Research",
-      "content": "We explored existing workflows for creating design systems and discovered that most tools focus on editing existing systems rather than generating new ones. This revealed an opportunity to simplify the earliest stage of product design."
+      "content": "We explored existing design-system workflows and found that most tools focus on editing existing systems rather than generating new ones. That revealed an opportunity to simplify the earliest stage of product design."
     },
     {
       "title": "User Flow",
-      "content": "The experience was intentionally designed to require minimal learning: describe the brand, select optional mood and industry, generate design system, preview generated UI, edit tokens if needed, validate accessibility, export design tokens."
+      "content": "The experience was designed to require minimal learning: describe the brand, select optional mood and industry, generate the system, preview the UI, edit tokens if needed, validate accessibility and export."
     },
     {
       "title": "Design Decisions",
-      "content": "We intentionally reduced complexity by replacing dozens of configuration inputs with a conversational prompt—this lowers the learning curve for beginners while increasing speed for experienced designers. Seeing generated tokens applied immediately creates confidence and encourages iteration. Semantic naming improves scalability across teams, and accessibility is integrated into the generation process rather than treated as an afterthought."
+      "content": "We replaced dozens of configuration inputs with a conversational prompt, lowering the learning curve for beginners while speeding up experienced designers. Seeing tokens applied immediately builds confidence, semantic naming scales across teams, and accessibility is built into generation rather than added later."
     },
     {
       "title": "Challenges",
-      "content": "One of our biggest challenges was balancing automation with user control. If the AI generated everything without customization, users might feel restricted. If users had to configure everything manually, the product would lose its speed advantage. We solved this through a hybrid workflow where AI creates the initial system while users retain complete editing control."
+      "content": "The biggest challenge was balancing automation with control. Generating everything without customization feels restrictive; configuring everything manually loses the speed advantage. We solved it with a hybrid workflow: AI creates the initial system and users retain full editing control."
     },
     {
       "title": "What I Learned",
-      "content": "This project expanded my understanding of design beyond interfaces. It challenged me to think about design systems as scalable products, AI-assisted user experiences, accessibility-first workflows, developer handoff, product thinking, and cross-functional collaboration. More importantly, it reinforced that great design isn't just about creating beautiful screens—it's about designing systems that help people work more efficiently."
+      "content": "This project pushed me to think about design systems as products, AI-assisted experiences, accessibility-first workflows, developer handoff and cross-functional collaboration. It reinforced that great design is not just beautiful screens, but systems that help people work more efficiently."
     }
   ]
 }
