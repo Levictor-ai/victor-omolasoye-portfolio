@@ -1,0 +1,84 @@
+{
+  "slug": "fluxo",
+  "category": "brand",
+  "title": "Fluxo",
+  "subtitle": "Brand & Social Campaign",
+  "role": "Brand Designer",
+  "company": "Fluxo",
+  "companyUrl": null,
+  "period": "2025",
+  "coverImage": "/images/projects/fluxo/cover.png",
+  "color": "#1A1A1A",
+  "overview": "This project involved the creation of a cohesive brand and social media campaign for Fluxo, a dispatch management platform built to run order management, rider management, and daily dispatch operations from one place. The goal was to communicate Fluxo's core promise — simpler, faster dispatch — to dispatch company owners through a consistent, high-impact visual system.",
+  "problem": "Dispatch companies are often run across scattered tools, spreadsheets, and chat threads, making order tracking, rider coordination, and daily operations fragmented and time-consuming for the people running them.",
+  "solution": "A bold, consistent visual campaign built around Fluxo's \"one place\" concept. Clean layouts and a confident typographic system frame the platform's key benefits — order management, rider management, and time saved — while targeted messaging speaks directly to business owners and growing dispatch companies. The campaign closes with a clear waitlist call to action.",
+  "targetAudience": ["Dispatch Company Owners", "Growing Dispatch Businesses", "Logistics Operators"],
+  "regions": ["Nigeria"],
+  "timeline": "2025",
+  "features": [
+    {
+      "title": "The Problem",
+      "description": "A scroll-stopping opener that names the pain of running dispatch across scattered tools and manual coordination."
+    },
+    {
+      "title": "The One Place Concept",
+      "description": "Positions Fluxo as the single platform for orders, riders, and dispatch operations."
+    },
+    {
+      "title": "Business Owner Angle",
+      "description": "Speaks directly to owners about control, visibility, and running operations with confidence."
+    },
+    {
+      "title": "Growing Dispatch Companies",
+      "description": "Frames Fluxo as the system that scales with a dispatch business as it grows."
+    },
+    {
+      "title": "Order & Rider Management",
+      "description": "Showcases the core platform capabilities — tracking orders and coordinating riders in one view."
+    },
+    {
+      "title": "Time Saving",
+      "description": "Highlights the operational time saved by consolidating daily dispatch work into one workflow."
+    },
+    {
+      "title": "Waitlist Flyer",
+      "description": "A conversion-focused end card driving early sign-ups to the Fluxo waitlist."
+    }
+  ],
+  "techStack": [
+    { "name": "Adobe Photoshop", "category": "design" },
+    { "name": "Adobe Illustrator", "category": "design" },
+    { "name": "Brand Identity", "category": "design" },
+    { "name": "Social Media Design", "category": "design" }
+  ],
+  "architecture": {
+    "title": "",
+    "description": "",
+    "highlights": []
+  },
+  "results": [
+    {
+      "metric": "Campaign Assets",
+      "value": "8",
+      "description": "Brand and social graphics telling the Fluxo story"
+    },
+    {
+      "metric": "Style",
+      "value": "Bold & Clean",
+      "description": "Confident typography with a focused benefit-led narrative"
+    }
+  ],
+  "layout": "gallery",
+  "links": [],
+  "images": [
+    { "src": "/images/projects/fluxo/the-problem.png", "alt": "Fluxo — The Problem" },
+    { "src": "/images/projects/fluxo/one-place-concept.png", "alt": "Fluxo — The One Place Concept" },
+    { "src": "/images/projects/fluxo/business-owner-angle.png", "alt": "Fluxo — Business Owner Angle" },
+    { "src": "/images/projects/fluxo/growing-dispatch-companies.png", "alt": "Fluxo — Growing Dispatch Companies" },
+    { "src": "/images/projects/fluxo/order-management.png", "alt": "Fluxo — Order Management" },
+    { "src": "/images/projects/fluxo/rider-management.png", "alt": "Fluxo — Rider Management" },
+    { "src": "/images/projects/fluxo/time-saving.png", "alt": "Fluxo — Time Saving" },
+    { "src": "/images/projects/fluxo/waitlist-flyer.png", "alt": "Fluxo — Waitlist Flyer" }
+  ],
+  "sections": []
+}
