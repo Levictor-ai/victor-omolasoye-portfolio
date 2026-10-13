@@ -90,47 +90,6 @@
       "content": "| Asset Category | Components Included | Core Purpose |\n| --- | --- | --- |\n| Logo Suite | Primary logo, secondary mark, app icon, clear-space specifications | Adaptability across light/dark themes and varying screen sizes |\n| Color Palette | Primary brand colors, functional UI colors, background tones | Visual hierarchy and WCAG AA contrast compliance |\n| Typography | Display/Heading scale, body text styles, button/label styles | Consistent vertical rhythm and clear visual hierarchy |\n| Brand Rules | Incorrect usage examples, photographic guidelines, tone of voice | Long-term consistency for internal teams and vendors |"
     },
     {
-      "title": "App Screens",
-      "content": "A curated selection of the Bunkie app screens, covering onboarding and sign in, listing discovery, saved and requested listings, listing creation, identity and selfie verification, and profile management.",
-      "images": [
-        { "src": "/images/projects/bunkie/app/splash.png", "alt": "Bunkie splash screen" },
-        { "src": "/images/projects/bunkie/app/welcome.png", "alt": "Bunkie welcome screen" },
-        { "src": "/images/projects/bunkie/app/intro.png", "alt": "Bunkie intro screen" },
-        { "src": "/images/projects/bunkie/app/sign-up.png", "alt": "Bunkie sign up screen" },
-        { "src": "/images/projects/bunkie/app/sign-in.png", "alt": "Bunkie sign in screen" },
-        { "src": "/images/projects/bunkie/app/discover.png", "alt": "Bunkie discover screen" },
-        { "src": "/images/projects/bunkie/app/my-listings.png", "alt": "Bunkie my listings screen" },
-        { "src": "/images/projects/bunkie/app/my-requests.png", "alt": "Bunkie my requests screen" },
-        { "src": "/images/projects/bunkie/app/saved-listing.png", "alt": "Bunkie saved listing screen" },
-        { "src": "/images/projects/bunkie/app/empty-saved-listing.png", "alt": "Bunkie empty saved listing screen" },
-        { "src": "/images/projects/bunkie/app/create-listing.png", "alt": "Bunkie create listing screen" },
-        { "src": "/images/projects/bunkie/app/create-listing-1.png", "alt": "Bunkie create listing step 1" },
-        { "src": "/images/projects/bunkie/app/create-listing-2.png", "alt": "Bunkie create listing step 2" },
-        { "src": "/images/projects/bunkie/app/create-listing-3.png", "alt": "Bunkie create listing step 3" },
-        { "src": "/images/projects/bunkie/app/create-listing-4.png", "alt": "Bunkie create listing step 4" },
-        { "src": "/images/projects/bunkie/app/create-listing-5.png", "alt": "Bunkie create listing step 5" },
-        { "src": "/images/projects/bunkie/app/create-listing-6.png", "alt": "Bunkie create listing step 6" },
-        { "src": "/images/projects/bunkie/app/create-listing-7.png", "alt": "Bunkie create listing step 7" },
-        { "src": "/images/projects/bunkie/app/create-listing-8.png", "alt": "Bunkie create listing step 8" },
-        { "src": "/images/projects/bunkie/app/create-listing-9.png", "alt": "Bunkie create listing step 9" },
-        { "src": "/images/projects/bunkie/app/create-listing-10.png", "alt": "Bunkie create listing step 10" },
-        { "src": "/images/projects/bunkie/app/create-listing-11.png", "alt": "Bunkie create listing step 11" },
-        { "src": "/images/projects/bunkie/app/verification-gate.png", "alt": "Bunkie verification gate screen" },
-        { "src": "/images/projects/bunkie/app/verification-instructions.png", "alt": "Bunkie verification instructions screen" },
-        { "src": "/images/projects/bunkie/app/id-verification.png", "alt": "Bunkie ID verification screen" },
-        { "src": "/images/projects/bunkie/app/id-verification-captured.png", "alt": "Bunkie ID verification captured screen" },
-        { "src": "/images/projects/bunkie/app/selfie-verification.png", "alt": "Bunkie selfie verification screen" },
-        { "src": "/images/projects/bunkie/app/selfie-verification-review.png", "alt": "Bunkie selfie verification review screen" },
-        { "src": "/images/projects/bunkie/app/behaviour-matrix-intro.png", "alt": "Bunkie behaviour matrix intro screen" },
-        { "src": "/images/projects/bunkie/app/behaviour-matrix-q1.png", "alt": "Bunkie behaviour matrix question screen" },
-        { "src": "/images/projects/bunkie/app/verification-processing.png", "alt": "Bunkie verification processing screen" },
-        { "src": "/images/projects/bunkie/app/verification-result.png", "alt": "Bunkie verification result screen" },
-        { "src": "/images/projects/bunkie/app/profile.png", "alt": "Bunkie profile screen" },
-        { "src": "/images/projects/bunkie/app/personal-information.png", "alt": "Bunkie personal information screen" },
-        { "src": "/images/projects/bunkie/app/settings.png", "alt": "Bunkie settings screen" }
-      ]
-    },
-    {
       "title": "Impact & Results",
       "content": "- Efficiency: a single source of truth for all brand assets streamlined the design-to-development workflow.\n- Consistency: 100% visual alignment across social assets, product UI and collateral.\n- Scalability: a flexible system built to expand with future product lines and campaigns."
     }

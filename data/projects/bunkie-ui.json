@@ -1,0 +1,112 @@
+{
+  "slug": "bunkie-ui",
+  "category": "product",
+  "title": "Bunkie UI",
+  "subtitle": "Mobile Marketplace App Design",
+  "role": "Product Designer (UI/UX)",
+  "company": "Cowrywise",
+  "period": "2024",
+  "coverImage": "/images/projects/bunkie-ui/cover.png",
+  "color": "#1A1A1A",
+  "overview": "The Bunkie mobile app lets people list items, discover what's nearby, send and receive requests, and manage a verified profile. The work covers the full interface across onboarding, discovery, listings, identity verification and settings.",
+  "problem": "Bunkie needed a clear, trustworthy mobile experience for a marketplace built on user-to-user listings. New users had to understand how to browse, list and send requests quickly, while the product also had to verify identity before anyone could transact.",
+  "solution": "A mobile UI spanning splash, onboarding, sign up and sign in, discovery, listings and requests, saved items, a guided create-listing flow, and a multi-step identity verification flow (ID, selfie and a short behaviour matrix) to build trust before transacting.",
+  "targetAudience": ["Everyday Sellers", "Marketplace Buyers", "Window Shoppers"],
+  "regions": ["Nigeria"],
+  "timeline": "2024",
+  "features": [
+    {
+      "title": "Onboarding & Authentication",
+      "description": "Splash, welcome and intro screens lead into clean sign up and sign in flows that get new users into the product quickly."
+    },
+    {
+      "title": "Discovery",
+      "description": "A discover feed for browsing listings with clear imagery, pricing and listing details, plus saved items for later."
+    },
+    {
+      "title": "Listings & Requests",
+      "description": "A guided multi-step create-listing flow, plus screens to track your listings and the requests you send and receive."
+    },
+    {
+      "title": "Identity Verification",
+      "description": "A trust flow with ID capture, a selfie check and a short behaviour matrix, gating transactions until a user is verified."
+    },
+    {
+      "title": "Profile & Settings",
+      "description": "Profile completion, personal information management and app settings for a complete account experience."
+    }
+  ],
+  "techStack": [
+    { "name": "Figma", "category": "design" },
+    { "name": "Prototyping", "category": "design" },
+    { "name": "Design Systems", "category": "design" },
+    { "name": "Mobile UI", "category": "design" }
+  ],
+  "architecture": {
+    "title": "Information Architecture",
+    "description": "The experience is structured around five core areas — onboarding, discovery, listings and requests, identity verification, and profile/settings — linked by a persistent bottom navigation.",
+    "highlights": []
+  },
+  "results": [
+    {
+      "metric": "Screens",
+      "value": "32",
+      "description": "End-to-end mobile UI covering onboarding through verified profile"
+    },
+    {
+      "metric": "Core Flows",
+      "value": "5",
+      "description": "Onboarding, discovery, listing creation, verification and profile management"
+    },
+    {
+      "metric": "Verification Steps",
+      "value": "3",
+      "description": "ID capture, selfie check and behaviour matrix build trust before transacting"
+    }
+  ],
+  "links": [],
+  "images": [
+    { "src": "/images/projects/bunkie-ui/splash.png", "alt": "Bunkie splash screen" },
+    { "src": "/images/projects/bunkie-ui/welcome.png", "alt": "Bunkie welcome screen" },
+    { "src": "/images/projects/bunkie-ui/intro.png", "alt": "Bunkie intro screen" },
+    { "src": "/images/projects/bunkie-ui/sign-up.png", "alt": "Bunkie sign up screen" },
+    { "src": "/images/projects/bunkie-ui/sign-in.png", "alt": "Bunkie sign in screen" },
+    { "src": "/images/projects/bunkie-ui/discover.png", "alt": "Bunkie discover screen" },
+    { "src": "/images/projects/bunkie-ui/my-listings.png", "alt": "Bunkie my listings screen" },
+    { "src": "/images/projects/bunkie-ui/my-requests.png", "alt": "Bunkie my requests screen" },
+    { "src": "/images/projects/bunkie-ui/saved-listing.png", "alt": "Bunkie saved listing screen" },
+    { "src": "/images/projects/bunkie-ui/empty-saved-listing.png", "alt": "Bunkie empty saved listing screen" },
+    { "src": "/images/projects/bunkie-ui/create-listing.png", "alt": "Bunkie create listing screen" },
+    { "src": "/images/projects/bunkie-ui/create-listing-1.png", "alt": "Bunkie create listing step 1" },
+    { "src": "/images/projects/bunkie-ui/create-listing-5.png", "alt": "Bunkie create listing step 2" },
+    { "src": "/images/projects/bunkie-ui/create-listing-6.png", "alt": "Bunkie create listing step 3" },
+    { "src": "/images/projects/bunkie-ui/create-listing-7.png", "alt": "Bunkie create listing step 4" },
+    { "src": "/images/projects/bunkie-ui/create-listing-8.png", "alt": "Bunkie create listing step 5" },
+    { "src": "/images/projects/bunkie-ui/create-listing-9.png", "alt": "Bunkie create listing step 6" },
+    { "src": "/images/projects/bunkie-ui/create-listing-10.png", "alt": "Bunkie create listing step 7" },
+    { "src": "/images/projects/bunkie-ui/create-listing-11.png", "alt": "Bunkie create listing step 8" },
+    { "src": "/images/projects/bunkie-ui/verification-gate.png", "alt": "Bunkie verification gate screen" },
+    { "src": "/images/projects/bunkie-ui/verification-instructions.png", "alt": "Bunkie verification instructions screen" },
+    { "src": "/images/projects/bunkie-ui/id-verification.png", "alt": "Bunkie ID verification screen" },
+    { "src": "/images/projects/bunkie-ui/id-verification-captured.png", "alt": "Bunkie ID verification captured screen" },
+    { "src": "/images/projects/bunkie-ui/selfie-verification.png", "alt": "Bunkie selfie verification screen" },
+    { "src": "/images/projects/bunkie-ui/selfie-verification-review.png", "alt": "Bunkie selfie verification review screen" },
+    { "src": "/images/projects/bunkie-ui/behaviour-matrix-intro.png", "alt": "Bunkie behaviour matrix intro screen" },
+    { "src": "/images/projects/bunkie-ui/behaviour-matrix-q1.png", "alt": "Bunkie behaviour matrix question screen" },
+    { "src": "/images/projects/bunkie-ui/verification-processing.png", "alt": "Bunkie verification processing screen" },
+    { "src": "/images/projects/bunkie-ui/verification-result.png", "alt": "Bunkie verification result screen" },
+    { "src": "/images/projects/bunkie-ui/profile.png", "alt": "Bunkie profile screen" },
+    { "src": "/images/projects/bunkie-ui/personal-information.png", "alt": "Bunkie personal information screen" },
+    { "src": "/images/projects/bunkie-ui/settings.png", "alt": "Bunkie settings screen" }
+  ],
+  "sections": [
+    {
+      "title": "Design Approach",
+      "content": "The UI was designed around the core marketplace loop: browse, list and transact. Each flow was kept short and legible, with a consistent component set and clear empty, loading and success states so users always know what happens next."
+    },
+    {
+      "title": "Flows Covered",
+      "content": "- Onboarding & authentication: splash, welcome, intro, sign up and sign in\n- Discovery: browse listings and save items for later\n- Listings & requests: guided create-listing flow, my listings and my requests\n- Identity verification: ID capture, selfie check and behaviour matrix\n- Profile & settings: profile completion, personal information and settings"
+    }
+  ]
+}
