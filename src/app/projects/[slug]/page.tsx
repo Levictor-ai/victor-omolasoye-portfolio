@@ -194,6 +194,8 @@ function CaseStudyView({ project }: { project: ProjectData }) {
     return i >= 0 ? i + 1 : 0;
   };
 
+  const isStraightLayout = project.category === 'brand' || project.slug === 'veyra';
+
   const meta: CaseStudyMetaRow[] = [
     { label: 'Role', value: project.role },
     { label: 'Company', value: project.company },
@@ -425,23 +427,43 @@ function CaseStudyView({ project }: { project: ProjectData }) {
           {project.images.length > 0 && (
             <section id="gallery" className="scroll-mt-8">
               <SectionHeading index={num('gallery')} title="Screens" />
-              <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-                {project.images.map((img) => (
-                  <div
-                    key={img.src}
-                    className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5"
-                  >
-                    <Image
-                      src={img.src}
-                      alt={img.alt}
-                      width={1200}
-                      height={900}
-                      className="h-auto w-full object-cover"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    />
-                  </div>
-                ))}
-              </div>
+              {isStraightLayout ? (
+                <div className="space-y-6">
+                  {project.images.map((img) => (
+                    <div
+                      key={img.src}
+                      className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5"
+                    >
+                      <Image
+                        src={img.src}
+                        alt={img.alt}
+                        width={1600}
+                        height={2400}
+                        className="h-auto w-full"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw"
+                      />
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+                  {project.images.map((img) => (
+                    <div
+                      key={img.src}
+                      className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5"
+                    >
+                      <Image
+                        src={img.src}
+                        alt={img.alt}
+                        width={1200}
+                        height={900}
+                        className="h-auto w-full object-cover"
+                        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                      />
+                    </div>
+                  ))}
+                </div>
+              )}
             </section>
           )}
 
