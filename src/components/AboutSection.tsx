@@ -73,29 +73,43 @@ export function AboutSection({
           }}
         >
           <div className="grid grid-cols-2 gap-4 sm:gap-6">
-            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl">
+            <motion.div
+              initial={{ opacity: 0, x: -40, rotate: -2 }}
+              whileInView={{ opacity: 1, x: 0, rotate: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              whileHover={{ y: -6, scale: 1.02 }}
+              className="group relative aspect-[4/5] w-full overflow-hidden rounded-2xl shadow-lg shadow-black/5"
+            >
               <Image
                 src={profile.avatar}
                 alt={profile.name}
                 fill
-                className="object-cover"
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 style={{ objectPosition: 'top' }}
                 sizes="(max-width: 1024px) 50vw, 40vw"
                 priority
               />
-            </div>
+            </motion.div>
             {profile.avatarAlt ? (
-              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl">
+              <motion.div
+                initial={{ opacity: 0, x: 40, rotate: 2 }}
+                whileInView={{ opacity: 1, x: 0, rotate: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.6, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+                whileHover={{ y: -6, scale: 1.02 }}
+                className="group relative aspect-[4/5] w-full overflow-hidden rounded-2xl shadow-lg shadow-black/5"
+              >
                 <Image
                   src={profile.avatarAlt}
                   alt={`${profile.name} working`}
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   style={{ objectPosition: 'top' }}
                   sizes="(max-width: 1024px) 50vw, 40vw"
                   priority
                 />
-              </div>
+              </motion.div>
             ) : (
               <div className="flex aspect-[4/5] w-full items-center justify-center rounded-2xl border border-dashed border-gray-300 bg-white/50">
                 <span className="text-label-sm uppercase tracking-wider text-gray-500">
