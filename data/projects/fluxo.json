@@ -74,6 +74,7 @@
     { "src": "/images/projects/fluxo/time-saving.png", "alt": "Fluxo — Time Saving" },
     { "src": "/images/projects/fluxo/waitlist-flyer.png", "alt": "Fluxo — Waitlist Flyer" }
   ],
+  "galleryColumns": 2,
   "sections": [
     {
       "title": "Brand Direction",

@@ -76,4 +76,5 @@ export interface ProjectData {
   sections?: ProjectSection[];
   color?: string;
   layout?: 'case-study' | 'gallery';
+  galleryColumns?: 1 | 2;
 }

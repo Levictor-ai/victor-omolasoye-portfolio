@@ -428,7 +428,13 @@ function CaseStudyView({ project }: { project: ProjectData }) {
             <section id="gallery" className="scroll-mt-8">
               <SectionHeading index={num('gallery')} title="Screens" />
               {isStraightLayout ? (
-                <div className="space-y-6">
+                <div
+                  className={
+                    project.galleryColumns === 2
+                      ? 'grid grid-cols-1 gap-6 sm:grid-cols-2'
+                      : 'space-y-6'
+                  }
+                >
                   {project.images.map((img) => (
                     <div
                       key={img.src}
@@ -440,7 +446,11 @@ function CaseStudyView({ project }: { project: ProjectData }) {
                         width={1600}
                         height={2400}
                         className="h-auto w-full"
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw"
+                        sizes={
+                          project.galleryColumns === 2
+                            ? '(max-width: 640px) 100vw, 50vw'
+                            : '(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw'
+                        }
                       />
                     </div>
                   ))}

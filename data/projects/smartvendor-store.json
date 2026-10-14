@@ -72,6 +72,7 @@
     { "src": "/images/projects/smartvendor-store/smartvendor-wake-up-to-sales-v01.png", "alt": "Smartvendor Wake Up to Sales" },
     { "src": "/images/projects/smartvendor-store/smartvendor-whatsapp-better-way-to-sell.png", "alt": "Smartvendor WhatsApp Is the Better Way to Sell" }
   ],
+  "galleryColumns": 2,
   "sections": [
     {
       "title": "Campaign Overview",
