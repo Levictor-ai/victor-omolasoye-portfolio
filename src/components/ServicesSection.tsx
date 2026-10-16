@@ -118,9 +118,11 @@ export function ServicesSection() {
         {services.map((service) => (
           <div
             key={service.title}
-            className="flex flex-col rounded-2xl border border-gray-200 bg-white p-6"
+            className="group flex flex-col rounded-2xl border border-gray-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-blue-200 hover:shadow-[0_24px_50px_-30px] hover:shadow-blue-900/30"
           >
-            {service.icon}
+            <div className="flex size-14 items-center justify-center rounded-2xl bg-gray-50 transition-colors duration-300 group-hover:bg-blue-50">
+              {service.icon}
+            </div>
             <h3 className="mb-3 mt-4 text-xl font-bold tracking-tight text-gray-900">
               {service.title}
             </h3>

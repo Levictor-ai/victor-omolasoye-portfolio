@@ -10,9 +10,11 @@ import { renderInline } from '@/lib/inline';
 export function AboutSection({
   profile,
   headingClassName,
+  showImages = true,
 }: {
   profile: ProfileData;
   headingClassName?: string;
+  showImages?: boolean;
 }) {
   return (
     <motion.section
@@ -72,7 +74,8 @@ export function AboutSection({
             show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
           }}
         >
-          <div className="grid grid-cols-2 gap-4 sm:gap-6">
+          {showImages && (
+            <div className="grid grid-cols-2 gap-4 sm:gap-6">
             <motion.div
               initial={{ opacity: 0, x: -40, rotate: -2 }}
               whileInView={{ opacity: 1, x: 0, rotate: 0 }}
@@ -118,8 +121,9 @@ export function AboutSection({
               </div>
             )}
           </div>
-          <div className="mt-10 lg:mt-12">
-            <div className="prose max-w-none">
+          )}
+          <div className={showImages ? 'mt-10 lg:mt-12' : ''}>
+            <div className="prose max-w-3xl">
               {profile.about.split('\n\n').map((paragraph, i) =>
                 paragraph.startsWith('### ') ? (
                   <h3

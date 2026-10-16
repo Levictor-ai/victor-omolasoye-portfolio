@@ -51,8 +51,9 @@ export function HowIWork() {
                 hidden: { opacity: 0, y: 16 },
                 show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
               }}
+              className="group"
             >
-              <span className="font-display text-2xl font-bold leading-none tracking-wide text-gray-900">
+              <span className="inline-flex size-11 items-center justify-center rounded-2xl bg-blue-50 font-display text-xl font-bold leading-none tracking-wide text-blue-600 transition-colors duration-300 group-hover:bg-blue-600 group-hover:text-white">
                 {String(i + 1).padStart(2, '0')}
               </span>
               <h3 className="mt-2 text-lg font-bold tracking-tight text-gray-900 sm:text-xl">

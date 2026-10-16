@@ -237,10 +237,10 @@ export function ToolsSection() {
           {tools.map((tool) => (
             <div
               key={tool.name}
-              className="flex items-center gap-3 rounded-2xl border border-gray-200 bg-white p-3"
+              className="group flex items-center gap-3 rounded-2xl border border-gray-200 bg-white p-3 transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-lg"
             >
               <div
-                className={`flex size-11 shrink-0 items-center justify-center overflow-hidden rounded-xl ${tool.tileClass}`}
+                className={`flex size-11 shrink-0 items-center justify-center overflow-hidden rounded-xl transition-transform duration-300 group-hover:scale-110 ${tool.tileClass}`}
               >
                 {tool.logo}
               </div>

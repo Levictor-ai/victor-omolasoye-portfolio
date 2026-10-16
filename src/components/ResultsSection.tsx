@@ -71,8 +71,9 @@ export function ResultsSection() {
         {results.map((result) => (
           <div
             key={result.title}
-            className="flex flex-col rounded-2xl border border-gray-200 bg-white p-6"
+            className="group flex flex-col rounded-2xl border border-gray-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-blue-200 hover:shadow-[0_24px_50px_-30px] hover:shadow-blue-900/30"
           >
+            <span className="mb-4 block h-1 w-8 rounded-full bg-blue-600 transition-all duration-300 group-hover:w-14" />
             <h3 className="mb-3 text-lg font-bold tracking-tight text-gray-900">
               {result.title}
             </h3>
