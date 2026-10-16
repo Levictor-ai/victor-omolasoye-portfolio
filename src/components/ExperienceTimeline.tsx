@@ -4,7 +4,15 @@ import { motion } from 'framer-motion';
 import type { ProfileData } from '@/context/PortfolioContext';
 import { renderInline } from '@/lib/inline';
 
-export function ExperienceTimeline({ profile }: { profile: ProfileData }) {
+export function ExperienceTimeline({
+  profile,
+  headingClassName,
+  eyebrow = 'The journey so far',
+}: {
+  profile: ProfileData;
+  headingClassName?: string;
+  eyebrow?: string;
+}) {
   if (profile.experience.length === 0) return null;
 
   return (
@@ -24,7 +32,10 @@ export function ExperienceTimeline({ profile }: { profile: ProfileData }) {
           hidden: { opacity: 0, y: 20 },
           show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
         }}
-        className="mb-1 font-display text-6xl font-bold leading-none tracking-wide text-gray-900 sm:text-7xl"
+        className={
+          headingClassName ??
+          'mb-1 font-display text-6xl font-bold leading-none tracking-wide text-gray-900 sm:text-7xl'
+        }
       >
         Experience
       </motion.h2>
@@ -35,7 +46,7 @@ export function ExperienceTimeline({ profile }: { profile: ProfileData }) {
         }}
         className="mb-10 text-label-sm uppercase tracking-wider text-blue-600"
       >
-        The journey so far
+        {eyebrow}
       </motion.p>
 
       <div className="relative">

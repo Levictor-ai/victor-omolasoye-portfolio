@@ -14,7 +14,7 @@ import { FAQAccordion } from '@/components/FAQAccordion';
 import { BackToTop } from '@/components/BackToTop';
 import { Nav } from '@/components/Nav';
 import { AboutSection } from '@/components/AboutSection';
-import { ExperienceSection } from '@/components/ExperienceSection';
+import { ExperienceTimeline } from '@/components/ExperienceTimeline';
 import {
   useProjectFilter,
   ProjectFilterTabs,
@@ -677,7 +677,11 @@ export function HomeContent({ projects }: { projects: ProjectData[] }) {
         <HeroSection profile={profile} />
         <ProjectsSection projects={projects} />
         <AboutSection profile={profile} />
-        <ExperienceSection profile={profile} />
+        <ExperienceTimeline
+          profile={profile}
+          eyebrow="Where I’ve worked"
+          headingClassName="mb-1 text-heading-lg font-bold tracking-tight text-gray-900"
+        />
         <TestimonialsCarousel profile={profile} />
         <FAQSection profile={profile} />
         <HomeCtaSection />
