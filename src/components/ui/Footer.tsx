@@ -38,8 +38,8 @@ export function Footer({
 }: FooterProps) {
   return (
     <footer className={cn('border-t border-gray-200 bg-white', className)}>
-      <div className="mx-auto w-full max-w-7xl px-6 py-16 sm:px-8 lg:px-12">
-        <div className="grid gap-12 lg:grid-cols-[1.4fr_repeat(3,1fr)]">
+      <div className="mx-auto w-full max-w-7xl px-6 py-12 sm:px-8 sm:py-16 lg:px-12">
+        <div className="lg:grid lg:grid-cols-[1.4fr_repeat(3,1fr)] lg:gap-12">
           <div className="flex flex-col gap-4">
             <Link href={brand.href ?? '/'} className="flex w-fit items-center gap-3">
               {brand.avatar && (
@@ -73,32 +73,40 @@ export function Footer({
             )}
           </div>
 
-          {columns.map((column) => (
-            <div key={column.title} className="flex flex-col gap-3">
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400">
-                {column.title}
-              </h3>
-              <ul className="flex flex-col gap-2.5">
-                {column.links.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-gray-600 transition-colors hover:text-blue-600"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-8 sm:gap-x-10 lg:mt-0 lg:contents">
+            {columns.map((column, index) => (
+              <div
+                key={column.title}
+                className={cn(
+                  'flex flex-col gap-3',
+                  index === columns.length - 1 && 'col-span-2 sm:col-span-1 lg:col-span-1',
+                )}
+              >
+                <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400">
+                  {column.title}
+                </h3>
+                <ul className="flex flex-col gap-2.5">
+                  {column.links.map((link) => (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        className="text-sm text-gray-600 transition-colors hover:text-blue-600"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-6 border-t border-gray-200 pt-8">
+        <div className="mt-10 flex flex-col gap-6 border-t border-gray-200 pt-8 sm:mt-12">
           {wordmark && (
             <span
               aria-hidden="true"
-              className="select-none font-display text-6xl font-bold leading-none tracking-wide text-gray-200 sm:text-8xl"
+              className="select-none font-display text-4xl font-bold leading-none tracking-wide text-gray-200 break-words sm:text-6xl lg:text-8xl"
             >
               {wordmark}
             </span>
