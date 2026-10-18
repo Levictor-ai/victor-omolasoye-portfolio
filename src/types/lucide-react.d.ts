@@ -14,6 +14,14 @@ declare module 'lucide-react' {
   export const Calendar: Icon;
   export const ArrowUpRight: Icon;
   export const CheckCircle: Icon;
+  export const CheckCircle2: Icon;
+  export const Check: Icon;
+  export const Minus: Icon;
+  export const Plus: Icon;
+  export const Star: Icon;
+  export const Info: Icon;
+  export const XCircle: Icon;
+  export const AlertTriangle: Icon;
   export const Quote: Icon;
   export const Layers: Icon;
   export const Server: Icon;
@@ -21,6 +29,7 @@ declare module 'lucide-react' {
   export const Wrench: Icon;
   export const Clock: Icon;
   export const ChevronDown: Icon;
+  export const ChevronRight: Icon;
   export const LayoutGrid: Icon;
   export const PenTool: Icon;
   export const Smartphone: Icon;
