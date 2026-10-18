@@ -1,6 +1,9 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { Card } from '@/components/ui/Card';
+import { IconTile } from '@/components/ui/IconTile';
+import { Reveal, RevealGroup, RevealItem } from '@/components/ui/Reveal';
+import { SectionHeading } from '@/components/ui/SectionHeading';
 
 const steps = [
   { title: 'Discover', body: 'Understand the idea, the problem, the audience, and the context.' },
@@ -13,57 +16,25 @@ const steps = [
 
 export function HowIWork() {
   return (
-    <motion.section
-      id="how-i-work"
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, margin: '-50px' }}
-      variants={{
-        hidden: {},
-        show: { transition: { staggerChildren: 0.1 } },
-      }}
-      className="mb-20"
-    >
-      <motion.h2
-        variants={{
-          hidden: { opacity: 0, y: 20 },
-          show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-        }}
-        className="mb-1 font-display text-6xl font-bold leading-none tracking-wide text-gray-900 sm:text-7xl"
-      >
-        How I Work
-      </motion.h2>
-      <motion.p
-        variants={{
-          hidden: { opacity: 0, y: 20 },
-          show: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.05 } },
-        }}
-        className="mb-8 text-label-sm uppercase tracking-wider text-blue-600"
-      >
-        Understand. Explore. Build. Refine.
-      </motion.p>
-      <motion.div variants={{ hidden: { opacity: 0 }, show: { opacity: 1, transition: { duration: 0.5 } } }}>
-        <div className="grid gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
-          {steps.map((step, i) => (
-            <motion.div
-              key={i}
-              variants={{
-                hidden: { opacity: 0, y: 16 },
-                show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
-              }}
-              className="group"
-            >
-              <span className="inline-flex size-11 items-center justify-center rounded-2xl bg-blue-50 font-display text-xl font-bold leading-none tracking-wide text-blue-600 transition-colors duration-300 group-hover:bg-blue-600 group-hover:text-white">
+    <section id="how-i-work" className="mb-20">
+      <Reveal className="mb-8">
+        <SectionHeading display title="How I Work" eyebrow="Understand. Explore. Build. Refine." />
+      </Reveal>
+      <RevealGroup className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {steps.map((step, i) => (
+          <RevealItem key={step.title} className="h-full">
+            <Card hover className="h-full">
+              <IconTile variant="soft" size="sm" className="font-display text-xl font-bold">
                 {String(i + 1).padStart(2, '0')}
-              </span>
-              <h3 className="mt-2 text-lg font-bold tracking-tight text-gray-900 sm:text-xl">
+              </IconTile>
+              <h3 className="text-lg font-bold tracking-tight text-gray-900 sm:text-xl">
                 {step.title}
               </h3>
-              <p className="mt-2 text-body-md leading-relaxed text-gray-600">{step.body}</p>
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
-    </motion.section>
+              <p className="text-body-md leading-relaxed text-gray-600">{step.body}</p>
+            </Card>
+          </RevealItem>
+        ))}
+      </RevealGroup>
+    </section>
   );
 }

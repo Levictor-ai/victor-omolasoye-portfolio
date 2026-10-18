@@ -3,6 +3,7 @@ import { Nav } from '@/components/Nav';
 import { JsonLd } from '@/components/JsonLd';
 import { BackToTop } from '@/components/BackToTop';
 import { BlogContent } from '@/components/BlogContent';
+import { SiteFooter } from '@/components/SiteFooter';
 import { getAllBlogPosts, getBlogTags } from '@/data/blog';
 import { breadcrumbSchema, collectionSchema } from '@/lib/schema';
 import { pageMetadata } from '@/lib/seo';
@@ -48,6 +49,7 @@ export default function BlogPage() {
       />
       <Nav avatar={defaultProfile.avatar} />
       <BlogContent posts={posts} tags={tags} description={description} />
+      <SiteFooter profile={defaultProfile} />
       <BackToTop />
     </>
   );

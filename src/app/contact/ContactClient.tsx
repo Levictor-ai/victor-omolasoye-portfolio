@@ -1,12 +1,16 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
 import { BadgeCheck, Mail } from 'lucide-react';
 import { usePortfolio } from '@/context/PortfolioContext';
 import { Nav } from '@/components/Nav';
 import { ContactForm } from '@/components/ContactForm';
 import { BackToTop } from '@/components/BackToTop';
+import { SiteFooter } from '@/components/SiteFooter';
+import { ButtonLink } from '@/components/ui/Button';
+import { Card } from '@/components/ui/Card';
+import { IconTile } from '@/components/ui/IconTile';
+import { SectionHeading } from '@/components/ui/SectionHeading';
 
 function LinkedInIcon() {
   return (
@@ -24,21 +28,25 @@ export function ContactClient() {
       <Nav avatar={profile.avatar} />
       <main className="mx-auto max-w-7xl px-6 py-10 sm:px-8 lg:px-12 lg:py-16">
         <div className="mb-10 max-w-2xl lg:mb-14">
-          <p className="mb-3 text-label-sm uppercase tracking-wider text-gray-400">Contact</p>
-          <h2 className="mb-4 font-display text-5xl font-bold leading-[0.9] tracking-wide text-gray-900 sm:text-6xl lg:text-7xl">
-            Let&rsquo;s build something
-          </h2>
-          <p className="text-body-lg leading-relaxed text-gray-600">
-            Have a project in mind, need a designer to bring an idea from{' '}
-            <span className="font-semibold text-gray-900">0 &rarr; 1</span>, or just want to
-            talk through a design or product challenge?{' '}
-            <span className="font-semibold text-gray-900">Let&rsquo;s talk.</span>
-          </p>
+          <SectionHeading
+            display
+            eyebrow="Contact"
+            title="Let&rsquo;s build something"
+            titleClassName="font-display text-5xl font-bold leading-[0.9] tracking-wide text-gray-900 sm:text-6xl lg:text-7xl"
+            lead={
+              <>
+                Have a project in mind, need a designer to bring an idea from{' '}
+                <span className="font-semibold text-gray-900">0 &rarr; 1</span>, or just want to
+                talk through a design or product challenge?{' '}
+                <span className="font-semibold text-gray-900">Let&rsquo;s talk.</span>
+              </>
+            }
+          />
         </div>
 
         <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start lg:gap-10">
-          <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-[0_24px_60px_-28px] shadow-black/[0.15]">
-            <div className="relative mb-6 aspect-[4/3] w-full overflow-hidden rounded-xl bg-neutral-100">
+          <Card padding="md" className="shadow-[0_24px_60px_-28px] shadow-black/[0.15]">
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-neutral-100">
               <Image
                 src={profile.avatar}
                 alt={profile.name}
@@ -49,19 +57,21 @@ export function ContactClient() {
                 priority
               />
             </div>
-            <h3 className="text-xl font-bold tracking-tight text-gray-900">{profile.name}</h3>
-            <p className="mb-6 mt-1 text-sm text-gray-500">
-              Product Designer + AI-assisted builder
-            </p>
+            <div>
+              <h3 className="text-xl font-bold tracking-tight text-gray-900">{profile.name}</h3>
+              <p className="mt-1 text-sm text-gray-500">
+                Product Designer + AI-assisted builder
+              </p>
+            </div>
 
             <div className="space-y-3 border-t border-gray-200 pt-6">
               <a
                 href={`mailto:${profile.email}`}
                 className="flex items-center gap-3 break-all text-sm text-gray-700 transition-colors hover:text-blue-600"
               >
-                <span className="flex size-9 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-gray-50">
+                <IconTile size="sm" className="size-9 rounded-full">
                   <Mail className="size-4 text-blue-600" strokeWidth={2.2} />
-                </span>
+                </IconTile>
                 {profile.email}
               </a>
               {profile.socials.linkedin && (
@@ -71,34 +81,33 @@ export function ContactClient() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-sm text-gray-700 transition-colors hover:text-blue-600"
                 >
-                  <span className="flex size-9 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-gray-50">
+                  <IconTile size="sm" className="size-9 rounded-full">
                     <LinkedInIcon />
-                  </span>
+                  </IconTile>
                   LinkedIn profile
                 </a>
               )}
             </div>
 
-            <div className="mt-6 flex flex-col gap-3">
+            <div className="flex flex-col gap-3">
               {profile.socials.contra && (
-                <a
+                <ButtonLink
                   href={profile.socials.contra}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-4 text-sm font-medium text-white transition-all hover:from-blue-500 hover:to-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
+                  block
+                  className="py-4"
+                  icon={<BadgeCheck className="size-4" strokeWidth={2.2} />}
+                  iconPosition="left"
                 >
-                  <BadgeCheck className="size-4" strokeWidth={2.2} />
                   Hire me on Contra
-                </a>
+                </ButtonLink>
               )}
-              <Link
-                href="/projects"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-transparent px-6 py-4 text-sm font-medium text-gray-900 transition-colors hover:border-black/30 hover:bg-black/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
-              >
+              <ButtonLink href="/projects" variant="outline" block className="py-4">
                 View my work
-              </Link>
+              </ButtonLink>
             </div>
-          </div>
+          </Card>
 
           <div className="rounded-2xl bg-gradient-to-br from-blue-600 to-blue-700 p-6 shadow-xl shadow-blue-900/20 sm:p-8 lg:p-10">
             <p className="mb-3 text-label-sm uppercase tracking-wider text-blue-100">
@@ -111,6 +120,7 @@ export function ContactClient() {
           </div>
         </div>
       </main>
+      <SiteFooter profile={profile} />
       <BackToTop />
     </>
   );

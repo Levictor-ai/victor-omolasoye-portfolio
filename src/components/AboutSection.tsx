@@ -3,9 +3,10 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { BadgeCheck, FileText } from 'lucide-react';
-import Link from 'next/link';
 import type { ProfileData } from '@/context/PortfolioContext';
 import { renderInline } from '@/lib/inline';
+import { buttonClass, ButtonLink } from '@/components/ui/Button';
+import { SectionHeading } from '@/components/ui/SectionHeading';
 
 export function AboutSection({
   profile,
@@ -35,38 +36,36 @@ export function AboutSection({
             hidden: { opacity: 0, y: 20 },
             show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
           }}
-          className="mb-8 flex flex-col gap-6 sm:mb-10 sm:flex-row sm:items-center sm:justify-between sm:gap-8"
+          className="mb-8 sm:mb-10"
         >
-          <motion.h2
-            className={
-              headingClassName ??
-              'text-heading-lg font-bold tracking-tight text-gray-900'
+          <SectionHeading
+            title="About Me"
+            titleClassName={headingClassName}
+            action={
+              <div className="flex w-full shrink-0 flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">
+                {profile.socials.contra && (
+                  <a
+                    href={profile.socials.contra}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={buttonClass({ variant: 'outline', className: 'w-full sm:w-auto' })}
+                  >
+                    <BadgeCheck className="size-4 text-blue-600" strokeWidth={2.2} />
+                    Hire me on Contra
+                  </a>
+                )}
+                <a
+                  href={profile.resumeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={buttonClass({ variant: 'outline', className: 'w-full sm:w-auto' })}
+                >
+                  <FileText className="size-4 text-blue-600" strokeWidth={2.2} />
+                  Resume
+                </a>
+              </div>
             }
-          >
-            About Me
-          </motion.h2>
-          <div className="flex w-full shrink-0 flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">
-            {profile.socials.contra && (
-              <a
-                href={profile.socials.contra}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-transparent px-5 py-4 text-sm font-medium text-gray-900 transition-colors hover:border-black/30 hover:bg-black/10 hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto"
-              >
-                <BadgeCheck className="size-4 text-blue-600" strokeWidth={2.2} />
-                Hire me on Contra
-              </a>
-            )}
-            <a
-              href={profile.resumeUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-transparent px-5 py-4 text-sm font-medium text-gray-900 transition-colors hover:border-black/30 hover:bg-black/10 hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto"
-            >
-              <FileText className="size-4 text-blue-600" strokeWidth={2.2} />
-              Resume
-            </a>
-          </div>
+          />
         </motion.div>
         <motion.div
           variants={{
@@ -143,12 +142,12 @@ export function AboutSection({
               )}
             </div>
             <div className="mt-8 w-full sm:w-auto">
-              <Link
+              <ButtonLink
                 href="/contact"
-                className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-5 py-4 text-sm font-medium text-white transition-all hover:from-blue-500 hover:to-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto"
+                className="w-full px-5 py-4 sm:w-auto"
               >
                 Get in touch
-              </Link>
+              </ButtonLink>
             </div>
           </div>
         </motion.div>

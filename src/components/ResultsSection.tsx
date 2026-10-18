@@ -1,6 +1,8 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { Card } from '@/components/ui/Card';
+import { Reveal, RevealGroup, RevealItem } from '@/components/ui/Reveal';
+import { SectionHeading } from '@/components/ui/SectionHeading';
 
 const results = [
   {
@@ -36,51 +38,26 @@ const results = [
 ];
 
 export function ResultsSection() {
-  const stagger = {
-    hidden: {},
-    show: { transition: { staggerChildren: 0.1 } },
-  };
-
-  const fadeUp = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  };
-
   return (
-    <motion.section
-      id="results"
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, margin: '-50px' }}
-      variants={stagger}
-      className="mb-20"
-    >
-      <motion.h2
-        variants={fadeUp}
-        className="mb-1 font-display text-6xl font-bold leading-none tracking-wide text-gray-900 sm:text-7xl"
-      >
-        Results I&rsquo;ve delivered
-      </motion.h2>
-      <motion.p
-        variants={fadeUp}
-        className="mb-8 text-label-sm uppercase tracking-wider text-blue-600"
-      >
-        The impact I bring across brand, product &amp; web
-      </motion.p>
-      <motion.div variants={fadeUp} className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <section id="results" className="mb-20">
+      <Reveal className="mb-8">
+        <SectionHeading
+          display
+          title="Results I&rsquo;ve delivered"
+          eyebrow="The impact I bring across brand, product & web"
+        />
+      </Reveal>
+      <RevealGroup className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {results.map((result) => (
-          <div
-            key={result.title}
-            className="group flex flex-col rounded-2xl border border-gray-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-blue-200 hover:shadow-[0_24px_50px_-30px] hover:shadow-blue-900/30"
-          >
-            <span className="mb-4 block h-1 w-8 rounded-full bg-blue-600 transition-all duration-300 group-hover:w-14" />
-            <h3 className="mb-3 text-lg font-bold tracking-tight text-gray-900">
-              {result.title}
-            </h3>
-            <p className="text-body-md leading-relaxed text-gray-600">{result.description}</p>
-          </div>
+          <RevealItem key={result.title} className="h-full">
+            <Card hover className="h-full">
+              <span className="block h-1 w-8 rounded-full bg-blue-600 transition-all duration-300 group-hover:w-14" />
+              <h3 className="text-lg font-bold tracking-tight text-gray-900">{result.title}</h3>
+              <p className="text-body-md leading-relaxed text-gray-600">{result.description}</p>
+            </Card>
+          </RevealItem>
         ))}
-      </motion.div>
-    </motion.section>
+      </RevealGroup>
+    </section>
   );
 }

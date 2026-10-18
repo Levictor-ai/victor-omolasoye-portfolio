@@ -6,7 +6,6 @@ import {
   Calendar,
   ArrowUpRight,
   CheckCircle,
-  Quote,
   Layers,
   Server,
   Palette,
@@ -21,6 +20,10 @@ import { ProjectCard } from '@/components/ProjectCard';
 import { BackToTop } from '@/components/BackToTop';
 import { CaseStudySidebar } from '@/components/CaseStudySidebar';
 import type { CaseStudyNavItem, CaseStudyMetaRow } from '@/components/CaseStudySidebar';
+import { Chip } from '@/components/ui/Badge';
+import { QuoteCard } from '@/components/ui/QuoteCard';
+import { SiteFooter } from '@/components/SiteFooter';
+import { defaultProfile } from '@/data/profile';
 
 export async function generateStaticParams() {
   const { getAllProjects } = await import('@/lib/projects');
@@ -342,13 +345,9 @@ function CaseStudyView({ project }: { project: ProjectData }) {
               <SectionHeading index={num('stack')} title="Technology Stack" />
               <div className="flex flex-wrap gap-2">
                 {project.techStack.map((tech) => (
-                  <span
-                    key={tech.name}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-gray-200 bg-white px-3 py-1.5 text-xs font-medium text-gray-700"
-                  >
-                    {techIcon(tech.category)}
+                  <Chip key={tech.name} icon={techIcon(tech.category)} className="bg-white px-3 py-1.5">
                     {tech.name}
-                  </span>
+                  </Chip>
                 ))}
               </div>
             </section>
@@ -405,21 +404,14 @@ function CaseStudyView({ project }: { project: ProjectData }) {
           {project.testimonial && (
             <section id="testimonial" className="scroll-mt-8">
               <SectionHeading index={num('testimonial')} title="Testimonial" />
-              <figure className="rounded-3xl bg-gray-900 p-8 text-white sm:p-10">
-                <Quote className="mb-5 size-8 text-white/40" />
-                <blockquote className="text-lg leading-relaxed sm:text-xl">
-                  &ldquo;{project.testimonial.quote}&rdquo;
-                </blockquote>
-                <figcaption className="mt-6">
-                  <p className="font-medium">{project.testimonial.author}</p>
-                  <p className="text-sm text-white/60">
-                    {project.testimonial.role}
-                    {project.testimonial.company && (
-                      <> @ {project.testimonial.company}</>
-                    )}
-                  </p>
-                </figcaption>
-              </figure>
+              <QuoteCard
+                variant="dark"
+                quote={<>&ldquo;{project.testimonial.quote}&rdquo;</>}
+                name={project.testimonial.author}
+                role={project.testimonial.role}
+                company={project.testimonial.company}
+                className="rounded-3xl p-8 sm:p-10"
+              />
             </section>
           )}
 
@@ -652,6 +644,7 @@ export default async function ProjectPage({
         {isGallery ? <GalleryView project={project} /> : <CaseStudyView project={project} />}
         <MoreProjects projects={suggestedProjects} />
       </article>
+      <SiteFooter profile={defaultProfile} />
       <BackToTop />
     </main>
     </>

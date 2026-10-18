@@ -6,6 +6,11 @@ import { Nav } from '@/components/Nav';
 import { ProjectCard } from '@/components/ProjectCard';
 import { PersonalProjectCard } from '@/components/PersonalProjectCard';
 import { BackToTop } from '@/components/BackToTop';
+import { SiteFooter } from '@/components/SiteFooter';
+import { buttonClass } from '@/components/ui/Button';
+import { Card } from '@/components/ui/Card';
+import { Eyebrow } from '@/components/ui/Badge';
+import { SectionHeading } from '@/components/ui/SectionHeading';
 import {
   useProjectFilter,
   ProjectFilterTabs,
@@ -37,16 +42,14 @@ export function ProjectsContent({ projects }: { projects: ProjectData[] }) {
                 </span>
                 <span aria-hidden="true">Projects</span>
               </h1>
-              <p className="mt-2 text-label-sm uppercase tracking-wider text-gray-400">
-                A selection of work I&rsquo;m proud of
-              </p>
+              <Eyebrow className="mt-2">A selection of work I&rsquo;m proud of</Eyebrow>
             </div>
             {profile.socials.behance && (
               <a
                 href={profile.socials.behance}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-gray-300 bg-transparent px-5 py-4 text-sm font-medium text-gray-900 transition-colors hover:border-black/30 hover:bg-black/10 hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
+                className={buttonClass({ variant: 'outline' })}
               >
                 <svg className="size-4 text-blue-600" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path
@@ -106,12 +109,12 @@ export function ProjectsContent({ projects }: { projects: ProjectData[] }) {
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.5 }}
             >
-              <h2 className="mb-1 font-display text-5xl font-bold leading-none tracking-wide text-gray-900 sm:text-6xl">
-                Personal Projects
-              </h2>
-              <p className="mb-8 text-label-sm uppercase tracking-wider text-gray-400">
-                Side projects I&rsquo;ve built for the love of it
-              </p>
+              <SectionHeading
+                className="mb-8"
+                title="Personal Projects"
+                titleClassName="font-display text-5xl font-bold leading-none tracking-wide text-gray-900 sm:text-6xl"
+                eyebrow="Side projects I&rsquo;ve built for the love of it"
+              />
             </motion.div>
             <motion.div
               variants={{
@@ -124,17 +127,17 @@ export function ProjectsContent({ projects }: { projects: ProjectData[] }) {
               className="space-y-6"
             >
               {personal.map((project, i) => (
-                <motion.div
-                  key={project.slug}
-                  className="rounded-3xl border border-gray-200 bg-gray-50 p-5 shadow-sm sm:p-8"
-                >
-                  <PersonalProjectCard project={project} index={i} />
+                <motion.div key={project.slug}>
+                  <Card variant="muted" padding="lg">
+                    <PersonalProjectCard project={project} index={i} />
+                  </Card>
                 </motion.div>
               ))}
             </motion.div>
           </section>
         )}
       </main>
+      <SiteFooter profile={profile} />
       <BackToTop />
     </>
   );

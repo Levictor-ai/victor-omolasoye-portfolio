@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { ArrowUpRight, Clock } from 'lucide-react';
 import type { BlogPost } from '@/data/blog';
 import { site } from '@/lib/seo';
+import { Badge, Eyebrow } from '@/components/ui/Badge';
+import { Card } from '@/components/ui/Card';
 
 function formatDate(iso: string): string {
   return new Date(iso).toLocaleDateString('en-GB', {
@@ -50,21 +52,18 @@ export function BlogContent({
           aria-hidden="true"
           className="pointer-events-none absolute -left-24 -top-24 -z-10 h-64 w-64 rounded-full bg-blue-500/10 blur-3xl"
         />
-        <p className="mb-3 inline-flex items-center gap-2 text-sm font-medium uppercase tracking-widest text-blue-600">
+        <div className="mb-3 flex items-center gap-2">
           <span className="inline-block size-1.5 rounded-full bg-blue-600" />
-          Writing
-        </p>
+          <Eyebrow accent>Writing</Eyebrow>
+        </div>
         <h1 className="mb-4 max-w-3xl text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
           Notes on product design, UI/UX and brand design
         </h1>
         <p className="max-w-2xl text-lg leading-relaxed text-gray-700">{description}</p>
         <ul className="mt-6 flex flex-wrap gap-2">
           {tags.map((tag) => (
-            <li
-              key={tag}
-              className="rounded-full border border-gray-200 bg-white px-3 py-1 text-xs font-medium text-gray-600"
-            >
-              {tag}
+            <li key={tag}>
+              <Badge variant="outline">{tag}</Badge>
             </li>
           ))}
         </ul>
@@ -124,11 +123,8 @@ export function BlogContent({
         className="grid gap-5 sm:grid-cols-2"
       >
         {rest.map((post, i) => (
-          <motion.article key={post.slug} variants={gridItem}>
-            <Link
-              href={`/blog/${post.slug}`}
-              className="group flex h-full flex-col rounded-2xl border border-gray-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-lg hover:shadow-gray-900/5"
-            >
+          <motion.article key={post.slug} variants={gridItem} className="h-full">
+            <Card href={`/blog/${post.slug}`} hover className="group h-full">
               <div className="mb-4 flex items-start justify-between gap-4">
                 <div className="flex flex-wrap items-center gap-2 text-xs text-gray-500">
                   <time dateTime={post.datePublished}>{formatDate(post.datePublished)}</time>
@@ -145,18 +141,15 @@ export function BlogContent({
               <p className="mb-5 text-sm leading-relaxed text-gray-600">{post.description}</p>
               <div className="mt-auto flex flex-wrap items-center gap-2">
                 {post.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full bg-gray-100 px-2.5 py-0.5 text-[11px] font-medium text-gray-600"
-                  >
+                  <Badge key={tag} variant="muted" size="sm">
                     {tag}
-                  </span>
+                  </Badge>
                 ))}
                 <span className="ml-auto inline-flex size-7 shrink-0 items-center justify-center rounded-full bg-gray-100 text-gray-500 transition-colors group-hover:bg-blue-600 group-hover:text-white">
                   <ArrowUpRight className="size-4" />
                 </span>
               </div>
-            </Link>
+            </Card>
           </motion.article>
         ))}
       </motion.div>

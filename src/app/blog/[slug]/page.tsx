@@ -4,6 +4,9 @@ import { notFound } from 'next/navigation';
 import { Nav } from '@/components/Nav';
 import { JsonLd } from '@/components/JsonLd';
 import { BackToTop } from '@/components/BackToTop';
+import { SiteFooter } from '@/components/SiteFooter';
+import { Badge } from '@/components/ui/Badge';
+import { Card } from '@/components/ui/Card';
 import { getAllBlogPosts, getBlogPost } from '@/data/blog';
 import { blogPostingSchema, breadcrumbSchema } from '@/lib/schema';
 import { pageMetadata } from '@/lib/seo';
@@ -105,12 +108,9 @@ export default async function BlogPostPage({
             <p className="text-lg leading-relaxed text-gray-600">{post.description}</p>
             <div className="mt-5 flex flex-wrap gap-2">
               {post.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-full bg-gray-100 px-2.5 py-0.5 text-[11px] font-medium text-gray-600"
-                >
+                <Badge key={tag} variant="muted" size="sm">
                   {tag}
-                </span>
+                </Badge>
               ))}
             </div>
           </header>
@@ -142,9 +142,9 @@ export default async function BlogPostPage({
             ))}
           </div>
 
-          <footer className="mt-12 rounded-xl border border-gray-200 bg-gray-50 p-6">
-            <h2 className="mb-2 text-lg font-bold text-gray-900">Written by {defaultProfile.name}</h2>
-            <p className="mb-4 text-sm leading-relaxed text-gray-600">
+          <Card variant="muted" padding="md" className="mt-12">
+            <h2 className="text-lg font-bold text-gray-900">Written by {defaultProfile.name}</h2>
+            <p className="text-sm leading-relaxed text-gray-600">
               {defaultProfile.name} is a product designer, brand designer and UI/UX designer in
               Lagos, Nigeria, working across UX research, design systems, brand identity and
               product design.
@@ -157,7 +157,7 @@ export default async function BlogPostPage({
             >
               Read the full article on Medium &rarr;
             </a>
-          </footer>
+          </Card>
         </article>
 
         {next && next.slug !== post.slug && (
@@ -172,6 +172,7 @@ export default async function BlogPostPage({
           </nav>
         )}
       </main>
+      <SiteFooter profile={defaultProfile} />
       <BackToTop />
     </>
   );

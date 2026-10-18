@@ -10,11 +10,16 @@ import { usePortfolio } from '@/context/PortfolioContext';
 import type { ProfileData } from '@/context/PortfolioContext';
 import type { ProjectData } from '@/types/project';
 import { ProjectCard } from '@/components/ProjectCard';
-import { FAQAccordion } from '@/components/FAQAccordion';
 import { BackToTop } from '@/components/BackToTop';
 import { Nav } from '@/components/Nav';
 import { AboutSection } from '@/components/AboutSection';
 import { ExperienceTimeline } from '@/components/ExperienceTimeline';
+import { Accordion } from '@/components/ui/Accordion';
+import { buttonClass, ButtonLink } from '@/components/ui/Button';
+import { Card } from '@/components/ui/Card';
+import { CtaSection } from '@/components/ui/CtaSection';
+import { QuoteCard } from '@/components/ui/QuoteCard';
+import { SectionHeading } from '@/components/ui/SectionHeading';
 import {
   useProjectFilter,
   ProjectFilterTabs,
@@ -319,13 +324,13 @@ function HeroSection({ profile }: { profile: ProfileData }) {
               whileTap={{ scale: 0.97 }}
               className="w-full sm:w-auto"
             >
-              <Link
+              <ButtonLink
                 href="/contact"
                 onClick={() => track('cta_click', { location: 'hero', label: 'get_in_touch' })}
-                className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-8 py-4 text-sm font-medium text-white transition-all hover:from-blue-500 hover:to-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto sm:px-10"
+                className="w-full px-8 py-4 sm:w-auto sm:px-10"
               >
                 Get in touch
-              </Link>
+              </ButtonLink>
             </motion.div>
             <motion.a
               whileHover={{ scale: 1.04 }}
@@ -334,7 +339,7 @@ function HeroSection({ profile }: { profile: ProfileData }) {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => track('resume_click', { location: 'hero' })}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-transparent px-8 py-4 text-sm font-medium text-gray-900 transition-colors hover:border-black/30 hover:bg-black/10 hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto sm:px-10"
+              className={buttonClass({ variant: 'outline', className: 'w-full px-8 py-4 sm:w-auto sm:px-10' })}
             >
               <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
@@ -379,38 +384,22 @@ function TestimonialsCarousel({ profile }: { profile: ProfileData }) {
 
   return (
     <section id="testimonials" className="mb-20">
-      <h2 className="mb-10 text-heading-lg font-bold tracking-tight text-gray-900">Testimonials</h2>
+      <SectionHeading display title="Testimonials" className="mb-10" />
       <div className="marquee-fade-x overflow-hidden">
         <div className="marquee-track flex w-max items-stretch gap-4 py-2 sm:gap-5">
           {loop.map((item, i) => (
-            <blockquote
+            <div
               key={`${item.author}-${i}`}
               aria-hidden={i >= items.length || undefined}
-              className="flex w-[82vw] max-w-[470px] shrink-0 flex-col rounded-sm border border-gray-200 bg-white p-6 shadow-[0_24px_60px_-28px] shadow-black/[0.15] sm:p-7"
+              className="w-[82vw] max-w-[470px] shrink-0"
             >
-              <svg
-                className="mb-3 size-6 shrink-0 text-blue-600"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151C7.563 6.068 6 8.789 6 11h4v10H0z" />
-              </svg>
-              <p className="mb-6 text-base leading-relaxed text-gray-800 sm:text-lg">
-                &ldquo;{item.quote}&rdquo;
-              </p>
-              <footer className="mt-auto shrink-0 border-t border-gray-200 pt-5">
-                <cite className="not-italic">
-                  <span className="block text-sm font-semibold text-gray-900">
-                    {item.author}
-                  </span>
-                  <span className="text-sm text-gray-500">
-                    {item.role}
-                    {item.company ? ` @ ${item.company}` : ''}
-                  </span>
-                </cite>
-              </footer>
-            </blockquote>
+              <QuoteCard
+                quote={<>&ldquo;{item.quote}&rdquo;</>}
+                name={item.author}
+                role={item.role}
+                company={item.company}
+              />
+            </div>
           ))}
         </div>
       </div>
@@ -435,24 +424,15 @@ function ProjectsSection({ projects }: { projects: ProjectData[] }) {
       }}
       className="mb-20"
     >
-      <motion.h2
+      <motion.div
         variants={{
           hidden: { opacity: 0, y: 20 },
           show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
         }}
-        className="mb-1 text-heading-lg font-bold tracking-tight text-gray-900"
+        className="mb-6"
       >
-        Selected Work
-      </motion.h2>
-      <motion.p
-        variants={{
-          hidden: { opacity: 0, y: 20 },
-          show: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.05 } },
-        }}
-        className="mb-6 text-label-sm uppercase tracking-wider text-gray-400"
-      >
-        Featured Projects
-      </motion.p>
+        <SectionHeading title="Selected Work" eyebrow="Featured Projects" />
+      </motion.div>
       <motion.div
         variants={{
           hidden: { opacity: 0, y: 20 },
@@ -480,9 +460,10 @@ function ProjectsSection({ projects }: { projects: ProjectData[] }) {
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.3 }}
-              className="rounded-2xl border border-gray-200 bg-white p-4 shadow-sm transition-shadow hover:shadow-md"
             >
-              <ProjectCard project={project} index={i} />
+              <Card padding="sm" hover className="h-full">
+                <ProjectCard project={project} index={i} />
+              </Card>
             </motion.div>
           ))}
           <motion.div
@@ -490,20 +471,21 @@ function ProjectsSection({ projects }: { projects: ProjectData[] }) {
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3 }}
-            className="rounded-2xl border border-gray-200 bg-white p-4 shadow-sm transition-shadow hover:shadow-md"
           >
-            <Link
-              href="/projects"
-              className="group flex h-full min-h-[240px] flex-col items-center justify-center gap-3 rounded-xl border border-dashed border-gray-300 bg-gray-50 p-6 text-center transition-colors hover:border-blue-400 hover:bg-blue-50/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
-            >
-              <span className="flex size-12 items-center justify-center rounded-full border border-gray-200 bg-white text-blue-600 transition-transform group-hover:scale-110">
-                <ArrowUpRight className="size-5" strokeWidth={2.2} />
-              </span>
-              <span className="text-lg font-semibold text-gray-900">View all projects</span>
-              <span className="text-sm text-gray-500">
-                See the full collection of work
-              </span>
-            </Link>
+            <Card padding="sm" hover className="h-full">
+              <Link
+                href="/projects"
+                className="group flex h-full min-h-[220px] flex-col items-center justify-center gap-3 rounded-xl border border-dashed border-gray-300 bg-gray-50 p-6 text-center transition-colors hover:border-blue-400 hover:bg-blue-50/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
+              >
+                <span className="flex size-12 items-center justify-center rounded-full border border-gray-200 bg-white text-blue-600 transition-transform group-hover:scale-110">
+                  <ArrowUpRight className="size-5" strokeWidth={2.2} />
+                </span>
+                <span className="text-lg font-semibold text-gray-900">View all projects</span>
+                <span className="text-sm text-gray-500">
+                  See the full collection of work
+                </span>
+              </Link>
+            </Card>
           </motion.div>
         </motion.div>
       ) : (
@@ -530,22 +512,22 @@ function FAQSection({ profile }: { profile: ProfileData }) {
       }}
       className="mb-20"
     >
-      <motion.h2
+      <motion.div
         variants={{
           hidden: { opacity: 0, y: 20 },
           show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
         }}
-        className="mb-6 text-heading-lg font-bold tracking-tight text-gray-900"
+        className="mb-8"
       >
-        Frequently Asked Questions
-      </motion.h2>
+        <SectionHeading title="Frequently Asked Questions" />
+      </motion.div>
       <motion.div
         variants={{
           hidden: { opacity: 0, y: 20 },
           show: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 } },
         }}
       >
-        <FAQAccordion items={profile.faqs} />
+        <Accordion items={profile.faqs} variant="card" />
       </motion.div>
     </motion.section>
   );
@@ -568,28 +550,24 @@ function HomeCtaSection() {
       }}
       className="mb-20"
     >
-      <div className="flex flex-col gap-6 rounded-2xl bg-gradient-to-br from-blue-600 to-blue-700 p-6 shadow-xl shadow-blue-900/20 sm:p-8 md:flex-row md:items-center md:justify-between md:gap-10 md:p-10">
-        <motion.div variants={fadeUp} className="max-w-2xl">
-          <p className="mb-2 text-label-sm uppercase tracking-wider text-blue-100">
-            Get in touch
-          </p>
-          <h2 className="text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl">
-            Let&rsquo;s build something
-          </h2>
-          <p className="mt-2 text-body-md text-blue-50">
-            Have an idea? Let&rsquo;s turn it into something people understand, trust, and use.
-          </p>
-        </motion.div>
-        <motion.div variants={fadeUp} className="shrink-0">
-          <Link
-            href="/contact"
-            onClick={() => track('cta_click', { location: 'home_cta', label: 'get_in_touch' })}
-            className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-medium text-blue-700 transition-colors hover:bg-blue-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 sm:w-auto"
-          >
-            Get in touch
-          </Link>
-        </motion.div>
-      </div>
+      <motion.div variants={fadeUp}>
+        <CtaSection
+          variant="accent"
+          eyebrow="Get in touch"
+          title="Let&rsquo;s build something"
+          lead="Have an idea? Let&rsquo;s turn it into something people understand, trust, and use."
+          actions={
+            <ButtonLink
+              href="/contact"
+              variant="light"
+              onClick={() => track('cta_click', { location: 'home_cta', label: 'get_in_touch' })}
+              className="px-8 py-4"
+            >
+              Get in touch
+            </ButtonLink>
+          }
+        />
+      </motion.div>
     </motion.section>
   );
 }

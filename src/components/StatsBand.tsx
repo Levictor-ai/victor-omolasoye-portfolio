@@ -1,9 +1,12 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { animate, motion, useInView } from 'framer-motion';
+import { animate, useInView } from 'framer-motion';
 import { Layers, Palette, Users, Wrench } from 'lucide-react';
 import type { ProfileData } from '@/context/PortfolioContext';
+import { IconTile } from '@/components/ui/IconTile';
+import { StatBlock } from '@/components/ui/StatBlock';
+import { Reveal } from '@/components/ui/Reveal';
 
 function CountUp({ value, duration = 1.6 }: { value: number; duration?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -52,37 +55,27 @@ export function StatsBand({ profile }: { profile: ProfileData }) {
   ];
 
   return (
-    <motion.section
-      id="stats"
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, margin: '-50px' }}
-      variants={{
-        hidden: {},
-        show: { transition: { staggerChildren: 0.1 } },
-      }}
-      className="mb-20"
-    >
-      <motion.div
-        variants={{
-          hidden: { opacity: 0, y: 24 },
-          show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-        }}
-        className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-gray-200 bg-gray-200 lg:grid-cols-4"
-      >
-        {stats.map((stat) => (
-          <div key={stat.label} className="flex flex-col gap-3 bg-white p-6 sm:p-7">
-            <span className="flex size-10 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
-              {stat.icon}
-            </span>
-            <span className="font-display text-5xl font-bold leading-none tracking-wide text-gray-900 sm:text-6xl">
-              <CountUp value={stat.value} />
-              {stat.suffix}
-            </span>
-            <span className="text-sm font-medium text-gray-500">{stat.label}</span>
-          </div>
-        ))}
-      </motion.div>
-    </motion.section>
+    <section id="stats" className="mb-20">
+      <Reveal>
+        <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-gray-200 bg-gray-200 lg:grid-cols-4">
+          {stats.map((stat) => (
+            <div key={stat.label} className="flex flex-col gap-3 bg-white p-6 sm:p-7">
+              <IconTile variant="soft" size="sm">
+                {stat.icon}
+              </IconTile>
+              <StatBlock
+                value={
+                  <>
+                    <CountUp value={stat.value} />
+                    {stat.suffix}
+                  </>
+                }
+                label={stat.label}
+              />
+            </div>
+          ))}
+        </div>
+      </Reveal>
+    </section>
   );
 }

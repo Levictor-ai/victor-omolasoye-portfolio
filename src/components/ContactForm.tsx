@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { track } from '@/lib/analytics';
+import { Button } from '@/components/ui/Button';
 
 const inputClass =
   'w-full rounded-lg border border-white/25 bg-white/10 px-4 py-3 text-sm text-white placeholder-blue-100 shadow-none outline-none transition-colors focus:border-white focus-visible:shadow-none focus-visible:ring-0';
@@ -95,13 +96,15 @@ export function ContactForm({ className = '' }: { className?: string }) {
           className={inputClass}
         />
       </div>
-      <button
+      <Button
         type="submit"
-        disabled={status === 'sending'}
-        className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-5 py-4 text-sm font-medium text-blue-700 transition-all hover:bg-blue-50 disabled:opacity-50"
+        variant="light"
+        block
+        loading={status === 'sending'}
+        className="py-4"
       >
         {status === 'sending' ? 'Sending...' : 'Send Message'}
-      </button>
+      </Button>
       <p aria-live="polite" className="min-h-[1.25rem] text-center text-sm">
         {status === 'sent' && (
           <span className="text-blue-50">

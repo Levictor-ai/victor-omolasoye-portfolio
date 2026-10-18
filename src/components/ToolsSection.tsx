@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useId, type ReactNode } from 'react';
+import { SectionHeading } from '@/components/ui/SectionHeading';
 
 function FigmaLogo() {
   return (
@@ -209,24 +210,15 @@ export function ToolsSection() {
       }}
       className="mb-20"
     >
-      <motion.h2
+      <motion.div
         variants={{
           hidden: { opacity: 0, y: 20 },
           show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
         }}
-        className="mb-1 font-display text-6xl font-bold leading-none tracking-wide text-gray-900 sm:text-7xl"
+        className="mb-8"
       >
-        Tools
-      </motion.h2>
-      <motion.p
-        variants={{
-          hidden: { opacity: 0, y: 20 },
-          show: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.05 } },
-        }}
-        className="mb-8 text-label-sm uppercase tracking-wider text-blue-600"
-      >
-        What I work with
-      </motion.p>
+        <SectionHeading display title="Tools" eyebrow="What I work with" />
+      </motion.div>
       <motion.div
         variants={{
           hidden: { opacity: 0, y: 24 },
