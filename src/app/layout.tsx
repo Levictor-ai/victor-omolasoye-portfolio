@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Manrope, Bebas_Neue, Inter } from 'next/font/google';
+import { Plus_Jakarta_Sans, Bebas_Neue, Inter } from 'next/font/google';
 import { PortfolioProvider } from '@/context/PortfolioContext';
 import { PageScrollReset } from '@/components/PageScrollReset';
 import { Analytics } from '@/components/Analytics';
@@ -14,9 +14,9 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-const manrope = Manrope({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
-  variable: '--font-manrope',
+  variable: '--font-jakarta',
   display: 'swap',
 });
 
@@ -94,7 +94,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${manrope.variable} ${bebasNeue.variable} ${inter.variable} antialiased`}>
+    <html lang="en" className={`${jakarta.variable} ${bebasNeue.variable} ${inter.variable} antialiased`}>
       <body className="min-h-screen bg-[#F8F9FA] font-sans text-gray-900">
         <JsonLd data={[personSchema(), websiteSchema()]} />
         <PageScrollReset />

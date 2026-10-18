@@ -84,7 +84,7 @@ export function SiteFooter({ profile }: { profile: ProfileData }) {
       }}
       columns={columns}
       socials={socials}
-      wordmark={profile.name.split(' ')[0].toUpperCase()}
+      wordmark={profile.name.toUpperCase()}
       legal={
         <>
           <span>

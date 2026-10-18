@@ -122,7 +122,7 @@ export function AboutSection({
           </div>
           )}
           <div className={showImages ? 'mt-10 lg:mt-12' : ''}>
-            <div className="prose max-w-3xl">
+            <div className="prose max-w-none">
               {profile.about.split('\n\n').map((paragraph, i) =>
                 paragraph.startsWith('### ') ? (
                   <h3
