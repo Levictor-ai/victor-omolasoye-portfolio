@@ -188,7 +188,7 @@ function HeroSection({ profile }: { profile: ProfileData }) {
       variants={container}
       initial="hidden"
       animate="show"
-      className="bg-hero flex min-h-[calc(100dvh-57px)] flex-col justify-center pb-16 lg:min-h-[calc(100vh-57px)] lg:py-0 lg:pb-24"
+      className="bg-hero flex min-h-[calc(100dvh-57px)] w-full flex-col justify-center px-6 pb-16 pt-10 sm:px-8 lg:min-h-[calc(100vh-57px)] lg:px-12 lg:py-0 lg:pb-24"
     >
       <div className="grid w-full items-center gap-14 lg:grid-cols-[1.35fr_0.65fr] lg:gap-10">
         <div>
@@ -468,9 +468,10 @@ export function HomeContent({ projects }: { projects: ProjectData[] }) {
   return (
     <>
       <Nav avatar={profile.avatar} />
-      <main className="mx-auto min-h-screen max-w-7xl px-6 py-6 sm:py-8 sm:px-8 lg:px-12">
+      <main className="min-h-screen">
         <HeroSection profile={profile} />
-        <ProjectsSection projects={projects} />
+        <div className="mx-auto max-w-7xl px-6 py-6 sm:py-8 sm:px-8 lg:px-12">
+          <ProjectsSection projects={projects} />
         <AboutSection profile={profile} />
         <ExperienceTimeline
           profile={profile}
@@ -479,7 +480,8 @@ export function HomeContent({ projects }: { projects: ProjectData[] }) {
         />
         <TestimonialsCarousel profile={profile} />
         <FAQSection profile={profile} />
-        <HomeCtaSection />
+          <HomeCtaSection />
+        </div>
       </main>
       <SiteFooter profile={profile} />
       <BackToTop />

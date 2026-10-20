@@ -109,7 +109,7 @@ export function ContactClient() {
             </div>
           </Card>
 
-          <div className="rounded-ios-2xl bg-gradient-to-br from-[#0A84FF] to-ios-blue p-6 shadow-ios-lg sm:p-8 lg:p-10">
+          <div className="rounded-ios-2xl bg-gradient-to-br from-ios-blue to-ios-bluePressed p-6 shadow-ios-lg sm:p-8 lg:p-10">
             <p className="mb-3 text-label-sm uppercase tracking-tightr text-white/70">
               Send a message
             </p>

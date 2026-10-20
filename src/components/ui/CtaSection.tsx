@@ -7,7 +7,7 @@ export type CtaVariant = 'light' | 'dark' | 'accent';
 const CTA_VARIANT: Record<CtaVariant, string> = {
   light: 'bg-white/80 border border-ios-separator shadow-ios backdrop-blur-xl',
   dark: 'bg-ios-label border border-white/10',
-  accent: 'bg-gradient-to-br from-[#0A84FF] to-ios-blue border border-ios-blue/40 shadow-ios-button',
+    accent: 'bg-gradient-to-br from-ios-blue to-ios-bluePressed border border-ios-blue/40 shadow-ios-button',
 };
 
 export interface CtaSectionProps {
