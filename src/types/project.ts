@@ -1,7 +1,7 @@
 export interface ProjectLink {
   label: string;
   url: string;
-  type: 'live' | 'github' | 'case-study' | 'play-store' | 'app-store';
+  type: 'live' | 'github' | 'case-study' | 'play-store' | 'app-store' | 'figma';
 }
 
 export interface ProjectImage {

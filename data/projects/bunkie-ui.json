@@ -64,7 +64,13 @@
       "description": "ID capture, selfie check and behaviour matrix build trust before transacting"
     }
   ],
-  "links": [],
+  "links": [
+    {
+      "label": "View Figma file",
+      "url": "https://www.figma.com/design/buuBN9Rbnql83P1VuFYbkC/Project-Bunkie?node-id=704-350&t=llGBsolPIUjNrDXM-1",
+      "type": "figma"
+    }
+  ],
   "images": [
     { "src": "/images/projects/bunkie-ui/splash.png", "alt": "Bunkie splash screen" },
     { "src": "/images/projects/bunkie-ui/welcome.png", "alt": "Bunkie welcome screen" },
