@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { TabBar } from '@/components/TabBar';
 
 const links = [
   { label: 'Projects', href: '/projects', id: 'projects', hiddenMobile: false },
@@ -52,7 +53,8 @@ export function Nav({ avatar }: { avatar: string }) {
   }, [pathname]);
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-ios-separator bg-ios-grouped/80 font-ios backdrop-blur-xl">
+    <>
+      <nav className="sticky top-0 z-50 border-b border-ios-separator bg-ios-grouped/80 font-ios backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-center px-6 py-2.5 sm:px-8">
         <div className="relative flex w-auto items-center justify-between gap-3 rounded-full border border-ios-separator bg-white/80 px-3 py-2 shadow-ios backdrop-blur-xl sm:px-4 sm:py-2">
           <Link
@@ -101,6 +103,8 @@ export function Nav({ avatar }: { avatar: string }) {
           </div>
         </div>
       </div>
-    </nav>
+      </nav>
+      <TabBar />
+    </>
   );
 }

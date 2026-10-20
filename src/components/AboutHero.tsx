@@ -120,7 +120,7 @@ export function AboutHero({ profile }: { profile: ProfileData }) {
 
           <motion.h2
             variants={item}
-            className="mb-5 text-balance font-display text-6xl font-bold leading-[0.95] tracking-wide text-ios-label sm:text-7xl lg:text-8xl"
+            className="mb-5 text-balance font-ios text-6xl font-bold leading-[0.95] tracking-tight text-ios-label sm:text-7xl lg:text-8xl"
           >
             {profile.tagline}
           </motion.h2>

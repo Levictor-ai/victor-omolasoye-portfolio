@@ -89,7 +89,7 @@ export function BlogContent({
               className="pointer-events-none absolute inset-0 rounded-ios-2xl ring-1 ring-inset ring-white/10"
             />
             <div className="relative">
-              <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-widest text-white/80 ring-1 ring-inset ring-white/15">
+              <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-tightst text-white/80 ring-1 ring-inset ring-white/15">
                 Latest article
               </span>
               <div className="mt-5 flex flex-wrap items-center gap-3 text-sm text-white/60">

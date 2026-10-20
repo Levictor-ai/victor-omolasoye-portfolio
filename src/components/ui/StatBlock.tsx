@@ -39,7 +39,7 @@ export function StatBlock({
       {icon && <span className="mb-1 text-ios-blue">{icon}</span>}
       <span
         className={cn(
-          'font-display text-5xl font-bold leading-none tracking-wide sm:text-6xl',
+          'font-ios text-5xl font-bold leading-none tracking-tight sm:text-6xl',
           STAT_VARIANT[variant],
         )}
       >

@@ -34,7 +34,7 @@ export function ProjectsContent({ projects }: { projects: ProjectData[] }) {
         >
           <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
             <div>
-              <h1 className="font-display text-6xl font-bold leading-none tracking-wide text-ios-label sm:text-7xl">
+              <h1 className="font-ios text-6xl font-bold leading-none tracking-tight text-ios-label sm:text-7xl">
                 <span className="sr-only">
                   Design portfolio — product design, brand design and UI/UX case studies by Victor
                   Omolasoye
@@ -111,7 +111,7 @@ export function ProjectsContent({ projects }: { projects: ProjectData[] }) {
               <SectionHeading
                 className="mb-8"
                 title="Personal Projects"
-                titleClassName="font-display text-5xl font-bold leading-none tracking-wide text-ios-label sm:text-6xl"
+                titleClassName="font-ios text-5xl font-bold leading-none tracking-tight text-ios-label sm:text-6xl"
                 eyebrow="Side projects I&rsquo;ve built for the love of it"
               />
             </motion.div>

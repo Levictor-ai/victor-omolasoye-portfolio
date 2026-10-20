@@ -53,7 +53,7 @@ export function PricingTier({
 
       <div className="flex flex-col gap-1 border-y border-dashed border-ios-separator py-5">
         <div className="flex items-baseline gap-2">
-          <span className="font-display text-5xl font-bold leading-none tracking-wide text-ios-label">
+          <span className="font-ios text-5xl font-bold leading-none tracking-tight text-ios-label">
             {price}
           </span>
           {period && <span className="text-sm text-ios-secondary">{period}</span>}

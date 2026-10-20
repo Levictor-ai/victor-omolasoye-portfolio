@@ -32,7 +32,7 @@ export function ContactClient() {
             display
             eyebrow="Contact"
             title="Let&rsquo;s build something"
-            titleClassName="font-display text-5xl font-bold leading-[0.9] tracking-wide text-ios-label sm:text-6xl lg:text-7xl"
+            titleClassName="font-ios text-5xl font-bold leading-[0.9] tracking-tight text-ios-label sm:text-6xl lg:text-7xl"
             lead={
               <>
                 Have a project in mind, need a designer to bring an idea from{' '}
@@ -110,7 +110,7 @@ export function ContactClient() {
           </Card>
 
           <div className="rounded-ios-2xl bg-gradient-to-br from-[#0A84FF] to-ios-blue p-6 shadow-ios-lg sm:p-8 lg:p-10">
-            <p className="mb-3 text-label-sm uppercase tracking-wider text-white/70">
+            <p className="mb-3 text-label-sm uppercase tracking-tightr text-white/70">
               Send a message
             </p>
             <h3 className="mb-6 text-3xl font-bold leading-tight text-white sm:text-4xl">

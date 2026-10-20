@@ -24,7 +24,7 @@ export function HowIWork() {
         {steps.map((step, i) => (
           <RevealItem key={step.title} className="h-full">
             <Card hover className="h-full">
-              <IconTile variant="soft" size="sm" className="font-display text-xl font-bold">
+              <IconTile variant="soft" size="sm" className="font-ios text-xl font-bold">
                 {String(i + 1).padStart(2, '0')}
               </IconTile>
               <h3 className="text-lg font-bold tracking-tight text-ios-label sm:text-xl">

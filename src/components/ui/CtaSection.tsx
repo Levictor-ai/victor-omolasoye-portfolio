@@ -46,7 +46,7 @@ export function CtaSection({
       )}
       <h2
         className={cn(
-          'text-balance font-display text-5xl font-bold leading-[0.95] tracking-wide sm:text-6xl',
+          'text-balance font-ios text-5xl font-bold leading-[0.95] tracking-tight sm:text-6xl',
           dark ? 'text-white' : 'text-ios-label',
         )}
       >

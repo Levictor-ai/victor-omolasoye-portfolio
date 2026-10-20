@@ -104,7 +104,7 @@ export function CompareTable({ columns, groups, className }: CompareTableProps) 
                       key={column.name}
                       className="flex items-center justify-between gap-4 border-t border-ios-separator pt-2 first:border-0 first:pt-0"
                     >
-                      <span className="text-xs font-medium uppercase tracking-wide text-ios-tertiary">
+                      <span className="text-xs font-medium uppercase tracking-tight text-ios-tertiary">
                         {column.name}
                       </span>
                       <Cell value={row.values[columnIndex]} />

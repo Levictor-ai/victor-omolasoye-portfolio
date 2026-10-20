@@ -70,7 +70,7 @@ export function QuoteCard({
 
       {metric && (
         <div className="flex items-baseline gap-2 border-t border-dashed border-current/15 pt-4">
-          <span className={cn('font-display text-4xl leading-none', dark ? 'text-white' : 'text-ios-label')}>
+          <span className={cn('font-ios text-4xl leading-none', dark ? 'text-white' : 'text-ios-label')}>
             {metric.value}
           </span>
           <span className={cn('text-sm', dark ? 'text-white/50' : 'text-ios-secondary')}>

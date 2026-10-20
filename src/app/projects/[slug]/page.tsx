@@ -122,7 +122,7 @@ function GalleryHeader({ project }: { project: ProjectData }) {
           className="inline-block size-3 rounded-full"
           style={{ backgroundColor: project.color ?? '#1A1A1A' }}
         />
-        <span className="text-sm font-medium uppercase tracking-widest text-ios-label">
+        <span className="text-sm font-medium uppercase tracking-tightst text-ios-label">
           Design Gallery
         </span>
       </div>
@@ -228,10 +228,10 @@ function CaseStudyView({ project }: { project: ProjectData }) {
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/5" />
           <div className="absolute inset-x-0 bottom-0 p-6 sm:p-10">
-            <span className="inline-flex items-center rounded-full bg-white/15 px-3 py-1 text-xs font-medium uppercase tracking-widest text-white ring-1 ring-inset ring-white/25 backdrop-blur">
+            <span className="inline-flex items-center rounded-full bg-white/15 px-3 py-1 text-xs font-medium uppercase tracking-tightst text-white ring-1 ring-inset ring-white/25 backdrop-blur">
               {categoryLabel(project.category)}
             </span>
-            <h1 className="mt-4 font-display text-5xl leading-none tracking-wide text-white sm:text-6xl lg:text-7xl">
+            <h1 className="mt-4 font-ios text-5xl leading-none tracking-tight text-white sm:text-6xl lg:text-7xl">
               <span className="sr-only">
                 {project.title} case study by Victor Omolasoye, {project.role} —{' '}
               </span>
@@ -265,7 +265,7 @@ function CaseStudyView({ project }: { project: ProjectData }) {
               <div className="grid gap-10 md:grid-cols-2">
                 {project.problem && (
                   <div>
-                    <p className="mb-3 text-xs font-medium uppercase tracking-widest text-ios-tertiary">
+                    <p className="mb-3 text-xs font-medium uppercase tracking-tightst text-ios-tertiary">
                       The Problem
                     </p>
                     <p className="leading-relaxed text-ios-secondary">{project.problem}</p>
@@ -273,7 +273,7 @@ function CaseStudyView({ project }: { project: ProjectData }) {
                 )}
                 {project.solution && (
                   <div>
-                    <p className="mb-3 text-xs font-medium uppercase tracking-widest text-ios-tertiary">
+                    <p className="mb-3 text-xs font-medium uppercase tracking-tightst text-ios-tertiary">
                       The Solution
                     </p>
                     <p className="leading-relaxed text-ios-secondary">{project.solution}</p>
@@ -290,7 +290,7 @@ function CaseStudyView({ project }: { project: ProjectData }) {
               <div className="grid gap-10 sm:grid-cols-2">
                 {project.targetAudience.length > 0 && (
                   <div>
-                    <p className="mb-3 text-xs font-medium uppercase tracking-widest text-ios-tertiary">
+                    <p className="mb-3 text-xs font-medium uppercase tracking-tightst text-ios-tertiary">
                       Audience
                     </p>
                     <ul className="space-y-2">
@@ -305,7 +305,7 @@ function CaseStudyView({ project }: { project: ProjectData }) {
                 )}
                 {project.regions.length > 0 && (
                   <div>
-                    <p className="mb-3 text-xs font-medium uppercase tracking-widest text-ios-tertiary">
+                    <p className="mb-3 text-xs font-medium uppercase tracking-tightst text-ios-tertiary">
                       Regions
                     </p>
                     <ul className="space-y-2">

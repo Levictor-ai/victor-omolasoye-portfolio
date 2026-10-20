@@ -73,164 +73,57 @@ function TypewriterText({ text, className }: { text: string; className?: string 
   );
 }
 
-const PIXEL_COLORS: Record<string, string> = {
-  '@': '#1f2937',
-  's': '#f6c79b',
-  'e': '#111827',
-  'b': '#2563eb',
-  'w': '#ffffff',
-};
-
-const PIXEL_MAP = [
-  '..@@@@@@@..',
-  '.@@@@@@@@@.',
-  '@@@@@@@@@@@',
-  '@@sssssss@@',
-  '@@ssessess@',
-  '@@sssssss@@',
-  '@@sssssss@@',
-  '@@@sssss@@@',
-  '@bbbbbbbbb@',
-  '.bbbbbbbbb.',
-  '.bb...bbbb.',
-  '.bb...wwbb.',
-];
-
-function PixelCharacter() {
-  return (
-    <span
-      className="grid select-none"
-      role="img"
-      aria-label="Pixel designer character"
-      style={{
-        gridTemplateColumns: `repeat(${PIXEL_MAP[0].length}, 5px)`,
-        imageRendering: 'pixelated',
-      }}
-    >
-      {PIXEL_MAP.map((row, y) =>
-        Array.from(row).map((cell, x) => (
-          <span
-            key={`${x}-${y}`}
-            style={{
-              width: 5,
-              height: 5,
-              backgroundColor: PIXEL_COLORS[cell] ?? 'transparent',
-            }}
-          />
-        )),
-      )}
-    </span>
-  );
-}
-
-function DesignCursor() {
-  return (
-    <svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true">
-      <path
-        d="M5.5 3.2 19 9.4 12 11.6 9.8 16.6 5.5 3.2Z"
-        fill="#ffffff"
-        stroke="#111111"
-        strokeWidth="1.4"
-        strokeLinejoin="round"
-      />
-      <path d="M12.6 8.6V12.4M10.8 10.5H14.4" stroke="#111111" strokeWidth="1.4" strokeLinecap="round" />
-    </svg>
-  );
-}
-
 function HeroFrame({ avatar, name, priority = false }: { avatar: string; name: string; priority?: boolean }) {
   return (
-    <div className="group relative mx-auto aspect-[4/5] w-full max-w-[18rem] cursor-pointer sm:max-w-[21rem] xl:max-w-[24.5rem]">
+    <div className="relative mx-auto w-full max-w-[19rem] sm:max-w-[21rem] xl:max-w-[24rem]">
       <div
-        className="pointer-events-none absolute inset-0 rounded-[2rem] border-2 border-ios-blue/70"
-        style={{ animation: 'stroke-pulse 3s ease-in-out infinite' }}
-        aria-hidden="true"
-      />
-      <div
-        className="pointer-events-none absolute inset-0 rounded-[2rem] border-2 border-ios-blue/70"
-        style={{ animation: 'stroke-pulse 3s ease-in-out 1.5s infinite' }}
-        aria-hidden="true"
-      />
-      <div
-        className="pointer-events-none absolute -inset-8 rounded-[2.75rem] border border-ios-separator"
-        aria-hidden="true"
-      />
-      <div
-        className="pointer-events-none absolute -inset-5 rounded-[2.25rem] border border-dashed border-ios-separator-strong"
-        style={{ animation: 'spin-clock 40s linear infinite' }}
-        aria-hidden="true"
-      />
-      <div
-        className="pointer-events-none absolute -inset-3 rounded-[1.75rem] border border-ios-separator bg-white/50"
+        className="pointer-events-none absolute -inset-8 rounded-[3.5rem] bg-gradient-to-br from-ios-blue/25 via-ios-purple/20 to-ios-teal/25 blur-2xl"
         aria-hidden="true"
       />
 
-      <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[1.5rem] border-4 border-white bg-ios-fill shadow-ios-lg transition-transform duration-500 ease-out group-hover:rotate-3 group-hover:scale-[1.06]">
+      <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2.75rem] border-[6px] border-white bg-ios-fill shadow-ios-lg">
         <Image
           src={avatar}
           alt={name}
           fill
           className="object-cover"
           style={{ objectPosition: 'top' }}
-          sizes="(max-width: 768px) 40vw, 20vw"
+          sizes="(max-width: 768px) 60vw, 24vw"
           priority={priority}
         />
         <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-white/10"
           aria-hidden="true"
         />
-        <div
-          className="pointer-events-none absolute -inset-6 z-10 rounded-[2rem] border-2 border-dashed border-ios-blue/50"
-          style={{ animation: 'spin-counter 28s linear infinite' }}
-          aria-hidden="true"
-        />
-      </div>
-
-      <div
-        className="absolute inset-0 z-20"
-        style={{ animation: 'spin-clock 14s linear infinite' }}
-        aria-hidden="true"
-      >
-        <div className="absolute left-1/2 top-0 -translate-x-1/2">
-          <div style={{ animation: 'spin-counter 14s linear infinite' }}>
-            <div style={{ animation: 'cursor-bob 3.2s ease-in-out infinite' }}>
-              <DesignCursor />
-            </div>
-          </div>
+        <div className="absolute inset-x-3 bottom-3 rounded-[1.4rem] border border-white/40 bg-white/25 px-4 py-3 backdrop-blur-2xl">
+          <p className="text-sm font-semibold text-white drop-shadow-sm">{name}</p>
+          <p className="text-xs text-white/80">Product Designer · Lagos, NG</p>
         </div>
       </div>
 
       <div
-        className="absolute -inset-2 z-10"
-        style={{ animation: 'spin-counter 34s linear infinite' }}
+        className="absolute -right-4 top-8 w-[8.5rem] rounded-[1.4rem] border border-white/70 bg-white/75 p-3 font-ios shadow-ios backdrop-blur-2xl"
+        style={{ animation: 'chip-sway 6s ease-in-out infinite' }}
         aria-hidden="true"
       >
-        <div className="absolute left-1/2 top-0 -translate-x-1/2">
-          <div style={{ animation: 'spin-clock 34s linear infinite' }}>
-            <div style={{ animation: 'pixel-hop 1.1s ease-in-out infinite' }}>
-              <PixelCharacter />
-            </div>
-          </div>
+        <span className="text-[10px] font-semibold uppercase tracking-[0.08em] text-ios-tertiary">
+          Status
+        </span>
+        <div className="mt-1 flex items-center gap-1.5">
+          <span className="size-2 rounded-full bg-ios-green" />
+          <span className="text-xs font-semibold text-ios-label">Open to work</span>
         </div>
       </div>
 
       <div
-        className="absolute -right-3 -top-2 z-30 flex items-center gap-1.5 rounded-full border border-ios-separator bg-white px-3 py-1.5 shadow-ios"
-        style={{ animation: 'chip-sway 5s ease-in-out infinite' }}
+        className="absolute -left-5 bottom-20 flex items-center gap-2 rounded-[1.4rem] border border-white/70 bg-white/75 px-3 py-2.5 font-ios shadow-ios backdrop-blur-2xl"
+        style={{ animation: 'chip-sway 7s ease-in-out 0.8s infinite' }}
         aria-hidden="true"
       >
-        <PenTool className="size-3.5 text-ios-blue" strokeWidth={2.2} />
-        <span className="text-xs font-semibold text-ios-label">Creative</span>
-      </div>
-      <div
-        className="absolute -bottom-2 -left-3 z-30 flex items-center gap-1.5 rounded-full border border-ios-separator bg-white px-3 py-1.5 shadow-ios"
-        style={{ animation: 'chip-sway 6s ease-in-out 0.6s infinite' }}
-        aria-hidden="true"
-      >
-        <svg className="size-3 text-ios-blue" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z" />
-        </svg>
-        <span className="text-xs font-semibold text-ios-label">Design Â· Code</span>
+        <span className="flex size-7 items-center justify-center rounded-[0.6rem] bg-ios-blue text-white shadow-ios-button">
+          <PenTool className="size-3.5" strokeWidth={2.2} />
+        </span>
+        <span className="text-xs font-semibold text-ios-label">Design &amp; Code</span>
       </div>
     </div>
   );
@@ -244,12 +137,13 @@ function HeroHeadline() {
     <h1
       className="mb-5 block w-full"
       style={{
-        fontFamily: 'var(--font-jakarta), sans-serif',
+        fontFamily:
+          '-apple-system, BlinkMacSystemFont, "SF Pro Display", var(--font-inter), system-ui, sans-serif',
         color: '#1C1C1E',
         fontWeight: 700,
-        fontSize: 'clamp(2.5rem,6vw,4.75rem)',
-        lineHeight: 1.04,
-        letterSpacing: '-0.02em',
+        fontSize: 'clamp(2.75rem,6.5vw,5.25rem)',
+        lineHeight: 1.02,
+        letterSpacing: '-0.045em',
       }}
     >
       <span className="sr-only">

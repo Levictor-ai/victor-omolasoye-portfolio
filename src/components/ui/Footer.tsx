@@ -106,7 +106,7 @@ export function Footer({
           {wordmark && (
             <span
               aria-hidden="true"
-              className="select-none font-display text-4xl font-bold leading-none tracking-wide text-ios-fill-strong break-words sm:text-6xl lg:text-8xl"
+              className="select-none font-ios text-4xl font-bold leading-none tracking-tight text-ios-fill-strong break-words sm:text-6xl lg:text-8xl"
             >
               {wordmark}
             </span>

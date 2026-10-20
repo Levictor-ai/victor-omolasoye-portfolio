@@ -63,7 +63,7 @@ export function ResultsSection() {
         {results.map((result) => (
           <RevealItem key={result.title} className="h-full">
             <Card href={result.href} hover className="h-full">
-              <span className="text-[11px] font-semibold uppercase tracking-wider text-ios-blue">
+              <span className="text-[11px] font-semibold uppercase tracking-tightr text-ios-blue">
                 {result.project}
               </span>
               <h3 className="text-lg font-bold tracking-tight text-ios-label">{result.title}</h3>

@@ -57,6 +57,12 @@
     }
   }
 
+  @media (max-width: 767px) {
+    body {
+      padding-bottom: calc(4.5rem + env(safe-area-inset-bottom));
+    }
+  }
+
   :focus-visible {
     outline: none;
     box-shadow: var(--focus-ring);
@@ -154,8 +160,9 @@
     isolation: isolate;
     background-color: #ffffff;
     background-image:
-      radial-gradient(120% 85% at 50% -15%, rgba(0, 122, 255, 0.1), transparent 60%),
-      linear-gradient(180deg, #ffffff 0%, #ffffff 70%, #f7f7fb 100%);
+      radial-gradient(80% 60% at 18% 0%, rgba(0, 122, 255, 0.16), transparent 65%),
+      radial-gradient(70% 55% at 85% 5%, rgba(175, 82, 222, 0.12), transparent 70%),
+      linear-gradient(180deg, #ffffff 0%, #ffffff 62%, #f2f2f7 100%);
   }
 
   /* Vertical layout grid lines that fade toward the edges. */

@@ -19,7 +19,7 @@ export function AboutClient() {
       <Nav avatar={profile.avatar} />
       <AboutSection
         profile={profile}
-        headingClassName="font-display text-6xl font-bold leading-none tracking-wide text-ios-label sm:text-7xl"
+        headingClassName="font-ios text-6xl font-bold leading-none tracking-tight text-ios-label sm:text-7xl"
       />
       <main className="mx-auto max-w-7xl px-6 pt-16 pb-24 sm:px-8">
         <ServicesSection />
