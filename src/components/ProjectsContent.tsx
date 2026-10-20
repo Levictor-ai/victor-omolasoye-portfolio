@@ -83,7 +83,7 @@ export function ProjectsContent({ projects }: { projects: ProjectData[] }) {
         />
 
         {featured.length > 0 ? (
-          <motion.div layout className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <motion.div layout className="space-y-5 sm:grid sm:gap-6 sm:space-y-0 sm:grid-cols-2 lg:grid-cols-3">
             {featured.map((project, i) => (
               <motion.div
                 key={project.slug}
@@ -91,6 +91,8 @@ export function ProjectsContent({ projects }: { projects: ProjectData[] }) {
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3 }}
+                className="sticky sm:static"
+                style={{ top: `calc(4.5rem + ${Math.min(i, 3) * 0.5}rem)` }}
               >
                 <ProjectCard project={project} index={i} />
               </motion.div>
@@ -126,7 +128,11 @@ export function ProjectsContent({ projects }: { projects: ProjectData[] }) {
               className="space-y-6"
             >
               {personal.map((project, i) => (
-                <motion.div key={project.slug}>
+                <motion.div
+                  key={project.slug}
+                  className="sticky sm:static"
+                  style={{ top: `calc(4.5rem + ${Math.min(i, 3) * 0.5}rem)` }}
+                >
                   <PersonalProjectCard project={project} index={i} />
                 </motion.div>
               ))}

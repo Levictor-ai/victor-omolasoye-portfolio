@@ -94,7 +94,7 @@ export function ServicesSection() {
           <div
             key={service.title}
             className="sticky sm:static sm:h-full"
-            style={{ top: `calc(1rem + ${i * 0.5}rem)` }}
+            style={{ top: `calc(4.5rem + ${i * 0.5}rem)` }}
           >
             <Card variant="flat" hover className="h-full min-h-[210px] sm:min-h-0">
               <IconTile size="lg">{service.icon}</IconTile>

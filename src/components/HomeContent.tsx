@@ -188,7 +188,7 @@ function HeroSection({ profile }: { profile: ProfileData }) {
       variants={container}
       initial="hidden"
       animate="show"
-      className="bg-hero flex min-h-[calc(100dvh-4.25rem)] w-full flex-col justify-center px-6 pb-24 pt-10 sm:px-8 lg:min-h-[calc(100vh-57px)] lg:px-12 lg:py-0 lg:pb-24"
+      className="bg-hero flex min-h-[calc(100dvh-57px)] w-full flex-col justify-center px-6 pb-16 pt-10 sm:px-8 lg:min-h-[calc(100vh-57px)] lg:px-12 lg:py-0 lg:pb-24"
     >
       <div className="grid w-full items-center gap-14 lg:grid-cols-[1.35fr_0.65fr] lg:gap-10">
         <div>
@@ -346,7 +346,7 @@ function ProjectsSection({ projects }: { projects: ProjectData[] }) {
         count={filteredProjects.length}
       />
       {filteredProjects.length > 0 ? (
-        <motion.div layout className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <motion.div layout className="space-y-5 sm:grid sm:gap-6 sm:space-y-0 sm:grid-cols-2 lg:grid-cols-3">
           {visibleProjects.map((project, i) => (
             <motion.div
               key={project.slug}
@@ -354,6 +354,8 @@ function ProjectsSection({ projects }: { projects: ProjectData[] }) {
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.3 }}
+              className="sticky sm:static"
+              style={{ top: `calc(4.5rem + ${Math.min(i, 3) * 0.5}rem)` }}
             >
               <ProjectCard project={project} index={i} />
             </motion.div>
@@ -363,6 +365,8 @@ function ProjectsSection({ projects }: { projects: ProjectData[] }) {
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3 }}
+            className="sticky sm:static"
+            style={{ top: `calc(4.5rem + ${Math.min(visibleProjects.length, 3) * 0.5}rem)` }}
           >
             <Link
               href="/projects"

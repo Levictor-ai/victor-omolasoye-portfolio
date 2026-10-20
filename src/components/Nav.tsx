@@ -52,65 +52,13 @@ export function Nav({ avatar }: { avatar: string }) {
   }, [pathname]);
 
   return (
-    <>
-      <nav className="sticky top-0 z-50 hidden border-b border-ios-separator bg-ios-grouped/80 font-ios backdrop-blur-xl md:block">
-        <div className="mx-auto flex max-w-7xl items-center justify-center px-6 py-2.5 sm:px-8">
-          <div className="relative flex w-auto items-center justify-between gap-3 rounded-full border border-ios-separator bg-white/80 px-3 py-2 shadow-ios backdrop-blur-xl sm:px-4 sm:py-2">
-            <Link
-              href="/#home"
-              aria-label="Home"
-              title="Home"
-              className="flex shrink-0 items-center"
-            >
-              <Image
-                src={avatar}
-                alt="Victor Omolasoye"
-                width={36}
-                height={36}
-                className="size-8 rounded-full object-cover ring-1 ring-ios-separator"
-                style={{ objectPosition: 'top' }}
-                priority
-              />
-            </Link>
-            <div className="flex items-center gap-0.5">
-              {links.map((link) => {
-                const base = `shrink-0 rounded-full px-3 py-1.5 text-sm font-medium transition-all duration-200 active:scale-95 ${
-                  link.hiddenMobile ? 'hidden md:block' : ''
-                }`;
-                return link.label === 'Contact' ? (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className={`${base} bg-ios-blue text-white shadow-ios-button hover:bg-ios-bluePressed`}
-                  >
-                    {link.label}
-                  </Link>
-                ) : (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className={`${base} ${
-                      active === link.id
-                        ? 'bg-ios-fill text-ios-label'
-                        : 'text-ios-secondary hover:bg-ios-fill hover:text-ios-label'
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </nav>
-
-      <nav className="fixed inset-x-0 bottom-0 z-50 border-t border-ios-separator bg-white/85 font-ios backdrop-blur-2xl md:hidden">
-        <div className="mx-auto flex max-w-lg items-center justify-between gap-1 px-4 pb-[max(0.5rem,env(safe-area-inset-bottom))] pt-2">
+    <nav className="sticky top-0 z-50 border-b border-ios-separator bg-ios-grouped/80 font-ios backdrop-blur-xl">
+      <div className="mx-auto flex max-w-7xl items-center justify-center px-6 py-2.5 sm:px-8">
+        <div className="relative flex w-auto items-center justify-between gap-3 rounded-full border border-ios-separator bg-white/80 px-3 py-2 shadow-ios backdrop-blur-xl sm:px-4 sm:py-2">
           <Link
             href="/#home"
             aria-label="Home"
             title="Home"
-            aria-current={active === 'home' ? 'page' : undefined}
             className="flex shrink-0 items-center"
           >
             <Image
@@ -118,21 +66,21 @@ export function Nav({ avatar }: { avatar: string }) {
               alt="Victor Omolasoye"
               width={36}
               height={36}
-              className={`size-9 rounded-full object-cover ring-2 ${
-                active === 'home' ? 'ring-ios-blue' : 'ring-ios-separator'
-              }`}
+              className="size-8 rounded-full object-cover ring-1 ring-ios-separator"
               style={{ objectPosition: 'top' }}
               priority
             />
           </Link>
           <div className="flex items-center gap-0.5">
-            {links.map((link) =>
-              link.label === 'Contact' ? (
+            {links.map((link) => {
+              const base = `shrink-0 rounded-full px-3 py-1.5 text-sm font-medium transition-all duration-200 active:scale-95 ${
+                link.hiddenMobile ? 'hidden md:block' : ''
+              }`;
+              return link.label === 'Contact' ? (
                 <Link
                   key={link.href}
                   href={link.href}
-                  aria-current={active === link.id ? 'page' : undefined}
-                  className="rounded-full bg-ios-blue px-3.5 py-1.5 text-xs font-semibold text-white shadow-ios-button transition-colors hover:bg-ios-bluePressed active:scale-95"
+                  className={`${base} bg-ios-blue text-white shadow-ios-button hover:bg-ios-bluePressed`}
                 >
                   {link.label}
                 </Link>
@@ -140,20 +88,19 @@ export function Nav({ avatar }: { avatar: string }) {
                 <Link
                   key={link.href}
                   href={link.href}
-                  aria-current={active === link.id ? 'page' : undefined}
-                  className={`rounded-full px-2.5 py-1.5 text-[13px] font-medium transition-colors active:scale-95 ${
+                  className={`${base} ${
                     active === link.id
-                      ? 'bg-ios-blue/10 text-ios-blue'
-                      : 'text-ios-secondary'
+                      ? 'bg-ios-fill text-ios-label'
+                      : 'text-ios-secondary hover:bg-ios-fill hover:text-ios-label'
                   }`}
                 >
                   {link.label}
                 </Link>
-              ),
-            )}
+              );
+            })}
           </div>
         </div>
-      </nav>
-    </>
+      </div>
+    </nav>
   );
 }

@@ -64,7 +64,7 @@ export function ResultsSection() {
           <div
             key={result.title}
             className="sticky sm:static sm:h-full"
-            style={{ top: `calc(1rem + ${i * 0.5}rem)` }}
+            style={{ top: `calc(4.5rem + ${i * 0.5}rem)` }}
           >
             <Card href={result.href} variant="flat" hover className="h-full min-h-[200px] sm:min-h-0">
               <span className="text-[11px] font-semibold uppercase tracking-wider text-ios-blue">

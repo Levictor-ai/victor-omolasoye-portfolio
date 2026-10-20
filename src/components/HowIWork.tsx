@@ -25,7 +25,7 @@ export function HowIWork() {
           <div
             key={step.title}
             className="sticky sm:static sm:h-full"
-            style={{ top: `calc(1rem + ${i * 0.5}rem)` }}
+            style={{ top: `calc(4.5rem + ${i * 0.5}rem)` }}
           >
             <Card variant="flat" hover className="h-full min-h-[180px] sm:min-h-[200px]">
               <IconTile variant="soft" size="sm" className="font-ios text-xl font-bold">
