@@ -8,7 +8,6 @@ import { PersonalProjectCard } from '@/components/PersonalProjectCard';
 import { BackToTop } from '@/components/BackToTop';
 import { SiteFooter } from '@/components/SiteFooter';
 import { buttonClass } from '@/components/ui/Button';
-import { Card } from '@/components/ui/Card';
 import { Eyebrow } from '@/components/ui/Badge';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import {
@@ -128,9 +127,7 @@ export function ProjectsContent({ projects }: { projects: ProjectData[] }) {
             >
               {personal.map((project, i) => (
                 <motion.div key={project.slug}>
-                  <Card variant="muted" padding="lg">
-                    <PersonalProjectCard project={project} index={i} />
-                  </Card>
+                  <PersonalProjectCard project={project} index={i} />
                 </motion.div>
               ))}
             </motion.div>

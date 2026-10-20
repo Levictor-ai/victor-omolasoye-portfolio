@@ -16,8 +16,7 @@ import { AboutSection } from '@/components/AboutSection';
 import { ExperienceTimeline } from '@/components/ExperienceTimeline';
 import { SiteFooter } from '@/components/SiteFooter';
 import { Accordion } from '@/components/ui/Accordion';
-import { buttonClass, ButtonLink } from '@/components/ui/Button';
-import { Card } from '@/components/ui/Card';
+import { ButtonLink, buttonClass } from '@/components/ui/Button';
 import { CtaSection } from '@/components/ui/CtaSection';
 import { QuoteCard } from '@/components/ui/QuoteCard';
 import { SectionHeading } from '@/components/ui/SectionHeading';
@@ -462,9 +461,7 @@ function ProjectsSection({ projects }: { projects: ProjectData[] }) {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.3 }}
             >
-              <Card padding="sm" hover className="h-full">
-                <ProjectCard project={project} index={i} />
-              </Card>
+              <ProjectCard project={project} index={i} />
             </motion.div>
           ))}
           <motion.div
@@ -473,20 +470,18 @@ function ProjectsSection({ projects }: { projects: ProjectData[] }) {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3 }}
           >
-            <Card padding="sm" hover className="h-full">
-              <Link
-                href="/projects"
-                className="group flex h-full min-h-[220px] flex-col items-center justify-center gap-3 rounded-xl border border-dashed border-gray-300 bg-gray-50 p-6 text-center transition-colors hover:border-blue-400 hover:bg-blue-50/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
-              >
-                <span className="flex size-12 items-center justify-center rounded-full border border-gray-200 bg-white text-blue-600 transition-transform group-hover:scale-110">
-                  <ArrowUpRight className="size-5" strokeWidth={2.2} />
-                </span>
-                <span className="text-lg font-semibold text-gray-900">View all projects</span>
-                <span className="text-sm text-gray-500">
-                  See the full collection of work
-                </span>
-              </Link>
-            </Card>
+            <Link
+              href="/projects"
+              className="group flex h-full min-h-[260px] flex-col items-center justify-center gap-3 rounded-[1.75rem] border border-dashed border-black/[0.12] bg-white/60 p-6 text-center backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-blue-300 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
+            >
+              <span className="flex size-12 items-center justify-center rounded-full bg-white text-blue-600 shadow-[0_1px_2px_rgba(0,0,0,0.06),0_8px_20px_-12px_rgba(0,0,0,0.3)] transition-transform duration-300 group-hover:scale-110">
+                <ArrowUpRight className="size-5" strokeWidth={2.2} />
+              </span>
+              <span className="text-lg font-semibold text-gray-900">View all projects</span>
+              <span className="text-sm text-gray-500">
+                See the full collection of work
+              </span>
+            </Link>
           </motion.div>
         </motion.div>
       ) : (

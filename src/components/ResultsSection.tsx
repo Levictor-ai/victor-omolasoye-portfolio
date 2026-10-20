@@ -6,34 +6,46 @@ import { SectionHeading } from '@/components/ui/SectionHeading';
 
 const results = [
   {
-    title: '0\u21921 products',
+    project: 'Forgelayers',
+    title: '0 → 1 brand foundation',
     description:
-      'Helped take digital products from early ideas and requirements into structured, usable interfaces.',
+      'Joined as founding designer and built the brand from scratch — visual language, identity foundations, and campaign systems for product, social, digital, and print.',
+    href: undefined,
   },
   {
-    title: 'Brand foundations',
+    project: 'Moovable Technology',
+    title: 'Logistics MVP + full admin',
     description:
-      'Built visual identities and systems from the ground up for emerging brands and businesses.',
+      'Designed the MVP and complete administrative experience for a logistics platform, turning complex operational workflows into clear, build-ready interfaces.',
+    href: '/projects/moovabletech',
   },
   {
-    title: 'End-to-end product work',
+    project: 'Bunkie UI',
+    title: '32 screens · 5 core flows',
     description:
-      'Designed product experiences across user flows, interfaces, design systems, prototypes, and admin platforms.',
+      'Delivered the end-to-end mobile marketplace UI across onboarding, discovery, listings, identity verification, and profile management.',
+    href: '/projects/bunkie-ui',
   },
   {
-    title: 'Launch-ready experiences',
+    project: 'Bunkie',
+    title: 'WCAG AA brand system',
     description:
-      'Created brand and digital work prepared for real-world launch and implementation.',
+      'Built a scalable identity and design system with an accessible palette, typography hierarchy, and a shared component library used across product and marketing.',
+    href: '/projects/bunkie',
   },
   {
-    title: 'Faster exploration',
+    project: 'Hapnin',
+    title: '32 research participants',
     description:
-      'Used AI-assisted workflows to move from concept to functional prototypes and web experiences faster.',
+      'Ran qualitative and quantitative research with 32 people, synthesising 6 key pain points into the structure for a centralised event discovery product.',
+    href: '/projects/hapnin',
   },
   {
-    title: 'Cross-functional design',
+    project: 'TokenForge',
+    title: 'Accessible tokens in under 60s',
     description:
-      'Worked across brand, product, and web to create more consistent experiences from identity through interface.',
+      'Designed an AI-assisted workflow that generates WCAG-compliant design tokens and exports them as CSS variables, Tailwind config, or JSON.',
+    href: '/projects/token-forge',
   },
 ];
 
@@ -44,14 +56,16 @@ export function ResultsSection() {
         <SectionHeading
           display
           title="Results I&rsquo;ve delivered"
-          eyebrow="The impact I bring across brand, product & web"
+          eyebrow="Concrete outcomes from my projects and experience"
         />
       </Reveal>
       <RevealGroup className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {results.map((result) => (
           <RevealItem key={result.title} className="h-full">
-            <Card hover className="h-full">
-              <span className="block h-1 w-8 rounded-full bg-blue-600 transition-all duration-300 group-hover:w-14" />
+            <Card href={result.href} hover className="h-full">
+              <span className="text-[11px] font-semibold uppercase tracking-wider text-blue-600">
+                {result.project}
+              </span>
               <h3 className="text-lg font-bold tracking-tight text-gray-900">{result.title}</h3>
               <p className="text-body-md leading-relaxed text-gray-600">{result.description}</p>
             </Card>

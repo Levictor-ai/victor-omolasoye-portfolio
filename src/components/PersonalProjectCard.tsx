@@ -28,7 +28,7 @@ export function PersonalProjectCard({ project, index = 0 }: PersonalProjectCardP
         href={`/projects/${project.slug}`}
         aria-label={`View ${project.title} case study`}
         onClick={() => track('project_open', { project: project.slug })}
-        className="group relative grid overflow-hidden rounded-2xl border border-gray-200 bg-white transition-all duration-300 hover:border-black/20 hover:shadow-[0_0_30px_-12px] hover:shadow-black/[0.08] md:grid-cols-[2fr_5fr]"
+        className="group relative grid overflow-hidden rounded-[1.75rem] border border-black/[0.06] bg-white/85 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_16px_40px_-24px_rgba(0,0,0,0.25)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:border-black/[0.08] hover:bg-white md:grid-cols-[2fr_5fr]"
       >
         {/* Cover Image */}
         <div className="relative aspect-video overflow-hidden bg-white md:aspect-auto md:min-h-[150px]">
@@ -80,31 +80,26 @@ export function PersonalProjectCard({ project, index = 0 }: PersonalProjectCardP
             {project.overview}
           </p>
 
-          {/* Tags */}
-          {project.techStack.length > 0 && (
-            <div className="mb-3 flex flex-wrap gap-1.5">
-              {project.techStack.slice(0, 5).map((tech) => (
-                <span
-                  key={tech.name}
-                  className="rounded-full bg-gray-50 px-2.5 py-0.5 text-[11px] font-medium text-gray-500"
-                >
-                  {tech.name}
-                </span>
-              ))}
-            </div>
-          )}
-
-          {/* CTA */}
-          {isUpcoming ? (
-            <span className="mt-auto inline-flex items-center gap-1.5 text-sm font-medium text-gray-400">
-              Coming Soon
-            </span>
-          ) : (
-            <span className="mt-auto inline-flex w-fit items-center gap-1.5 rounded-full bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors group-hover:bg-blue-700">
-              View Case Study
-              <ArrowUpRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </span>
-          )}
+          {/* Tags + action */}
+          <div className="mt-auto flex flex-wrap items-center gap-2 pt-2">
+            {project.techStack.slice(0, 4).map((tech) => (
+              <span
+                key={tech.name}
+                className="rounded-full bg-black/[0.04] px-2.5 py-1 text-[11px] font-medium text-gray-600"
+              >
+                {tech.name}
+              </span>
+            ))}
+            {isUpcoming ? (
+              <span className="ml-auto inline-flex shrink-0 items-center rounded-full bg-black/[0.04] px-3 py-1.5 text-[11px] font-medium text-gray-500">
+                Coming soon
+              </span>
+            ) : (
+              <span className="ml-auto inline-flex size-8 shrink-0 items-center justify-center rounded-full bg-black/[0.05] text-gray-500 transition-all duration-300 group-hover:bg-blue-600 group-hover:text-white group-hover:shadow-[0_4px_12px_rgba(37,99,235,0.35)]">
+                <ArrowUpRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </span>
+            )}
+          </div>
         </div>
       </Link>
     </motion.div>
