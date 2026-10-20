@@ -9,7 +9,7 @@ import { personSchema, websiteSchema } from '@/lib/schema';
 import './globals.css';
 
 export const viewport: Viewport = {
-  themeColor: '#F8F9FA',
+  themeColor: '#F2F2F7',
   width: 'device-width',
   initialScale: 1,
 };
@@ -95,7 +95,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${jakarta.variable} ${bebasNeue.variable} ${inter.variable} antialiased`}>
-      <body className="min-h-screen bg-[#F8F9FA] font-sans text-gray-900">
+      <body className="min-h-screen bg-ios-grouped font-ios text-ios-label">
         <JsonLd data={[personSchema(), websiteSchema()]} />
         <PageScrollReset />
         <PortfolioProvider>{children}</PortfolioProvider>

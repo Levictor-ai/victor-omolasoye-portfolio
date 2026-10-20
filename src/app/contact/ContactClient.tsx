@@ -32,21 +32,21 @@ export function ContactClient() {
             display
             eyebrow="Contact"
             title="Let&rsquo;s build something"
-            titleClassName="font-display text-5xl font-bold leading-[0.9] tracking-wide text-gray-900 sm:text-6xl lg:text-7xl"
+            titleClassName="font-display text-5xl font-bold leading-[0.9] tracking-wide text-ios-label sm:text-6xl lg:text-7xl"
             lead={
               <>
                 Have a project in mind, need a designer to bring an idea from{' '}
-                <span className="font-semibold text-gray-900">0 &rarr; 1</span>, or just want to
+                <span className="font-semibold text-ios-label">0 &rarr; 1</span>, or just want to
                 talk through a design or product challenge?{' '}
-                <span className="font-semibold text-gray-900">Let&rsquo;s talk.</span>
+                <span className="font-semibold text-ios-label">Let&rsquo;s talk.</span>
               </>
             }
           />
         </div>
 
         <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start lg:gap-10">
-          <Card padding="md" className="shadow-[0_24px_60px_-28px] shadow-black/[0.15]">
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-neutral-100">
+          <Card padding="md" className="shadow-ios-lg">
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-ios-lg bg-ios-fill">
               <Image
                 src={profile.avatar}
                 alt={profile.name}
@@ -58,19 +58,19 @@ export function ContactClient() {
               />
             </div>
             <div>
-              <h3 className="text-xl font-bold tracking-tight text-gray-900">{profile.name}</h3>
-              <p className="mt-1 text-sm text-gray-500">
+              <h3 className="text-xl font-bold tracking-tight text-ios-label">{profile.name}</h3>
+              <p className="mt-1 text-sm text-ios-tertiary">
                 Product Designer + AI-assisted builder
               </p>
             </div>
 
-            <div className="space-y-3 border-t border-gray-200 pt-6">
+            <div className="space-y-3 border-t border-ios-separator pt-6">
               <a
                 href={`mailto:${profile.email}`}
-                className="flex items-center gap-3 break-all text-sm text-gray-700 transition-colors hover:text-blue-600"
+                className="flex items-center gap-3 break-all text-sm text-ios-secondary transition-colors hover:text-ios-blue"
               >
                 <IconTile size="sm" className="size-9 rounded-full">
-                  <Mail className="size-4 text-blue-600" strokeWidth={2.2} />
+                  <Mail className="size-4 text-ios-blue" strokeWidth={2.2} />
                 </IconTile>
                 {profile.email}
               </a>
@@ -79,7 +79,7 @@ export function ContactClient() {
                   href={profile.socials.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-sm text-gray-700 transition-colors hover:text-blue-600"
+                  className="flex items-center gap-3 text-sm text-ios-secondary transition-colors hover:text-ios-blue"
                 >
                   <IconTile size="sm" className="size-9 rounded-full">
                     <LinkedInIcon />
@@ -109,8 +109,8 @@ export function ContactClient() {
             </div>
           </Card>
 
-          <div className="rounded-2xl bg-gradient-to-br from-blue-600 to-blue-700 p-6 shadow-xl shadow-blue-900/20 sm:p-8 lg:p-10">
-            <p className="mb-3 text-label-sm uppercase tracking-wider text-blue-100">
+          <div className="rounded-ios-2xl bg-gradient-to-br from-[#0A84FF] to-ios-blue p-6 shadow-ios-lg sm:p-8 lg:p-10">
+            <p className="mb-3 text-label-sm uppercase tracking-wider text-white/70">
               Send a message
             </p>
             <h3 className="mb-6 text-3xl font-bold leading-tight text-white sm:text-4xl">

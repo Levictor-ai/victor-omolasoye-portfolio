@@ -5,16 +5,16 @@ export type IconTileVariant = 'default' | 'soft' | 'accent' | 'ink';
 export type IconTileSize = 'sm' | 'md' | 'lg';
 
 const TILE_VARIANT: Record<IconTileVariant, string> = {
-  default: 'bg-gray-50 text-gray-900 border border-gray-200',
-  soft: 'bg-blue-50 text-blue-600 border border-blue-100',
-  accent: 'bg-blue-600 text-white border border-transparent',
-  ink: 'bg-gray-900 text-white border border-gray-800',
+  default: 'bg-ios-fill text-ios-label border border-ios-separator',
+  soft: 'bg-ios-blue/10 text-ios-blue border border-transparent',
+  accent: 'bg-ios-blue text-white border border-transparent shadow-ios-button',
+  ink: 'bg-ios-label text-white border border-transparent',
 };
 
 const TILE_SIZE: Record<IconTileSize, string> = {
-  sm: 'size-10 rounded-xl',
-  md: 'size-14 rounded-2xl',
-  lg: 'size-16 rounded-2xl',
+  sm: 'size-10 rounded-ios',
+  md: 'size-14 rounded-ios-lg',
+  lg: 'size-16 rounded-ios-lg',
 };
 
 export interface IconTileProps {
@@ -28,7 +28,7 @@ export function IconTile({ children, variant = 'default', size = 'md', className
   return (
     <span
       className={cn(
-        'grid flex-none place-items-center',
+        'grid flex-none place-items-center transition-colors duration-200',
         TILE_VARIANT[variant],
         TILE_SIZE[size],
         className,

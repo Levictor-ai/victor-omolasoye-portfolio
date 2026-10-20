@@ -6,9 +6,9 @@ import { cn } from '@/lib/cn';
 export type QuoteVariant = 'default' | 'accent' | 'dark';
 
 const QUOTE_VARIANT: Record<QuoteVariant, string> = {
-  default: 'bg-white border border-gray-200 shadow-sm',
-  accent: 'bg-blue-50 border border-blue-100',
-  dark: 'bg-gray-900 border border-gray-800 text-gray-100',
+  default: 'bg-white/80 border border-ios-separator shadow-ios backdrop-blur-xl',
+  accent: 'bg-ios-blue/10 border border-ios-blue/15',
+  dark: 'bg-ios-label border border-white/10 text-white/80',
 };
 
 export interface QuoteCardProps {
@@ -41,7 +41,7 @@ export function QuoteCard({
   return (
     <figure
       className={cn(
-        'relative flex h-full flex-col gap-5 rounded-2xl p-6 sm:p-7',
+        'relative flex h-full flex-col gap-5 rounded-ios-xl p-6 font-ios sm:p-7',
         QUOTE_VARIANT[variant],
         className,
       )}
@@ -51,18 +51,18 @@ export function QuoteCard({
           {Array.from({ length: 5 }).map((_, i) => (
             <Star
               key={i}
-              className={cn('size-4', i < rating ? 'fill-blue-600 text-blue-600' : 'text-gray-300')}
+              className={cn('size-4', i < rating ? 'fill-ios-blue text-ios-blue' : 'text-ios-quaternary')}
             />
           ))}
         </div>
       ) : (
-        <Quote className={cn('size-7', dark ? 'text-blue-400' : 'text-blue-600')} />
+        <Quote className={cn('size-7', dark ? 'text-ios-teal' : 'text-ios-blue')} />
       )}
 
       <blockquote
         className={cn(
           'flex-1 text-lg leading-relaxed',
-          dark ? 'text-gray-200' : 'text-gray-700',
+          dark ? 'text-white/70' : 'text-ios-secondary',
         )}
       >
         {quote}
@@ -70,17 +70,17 @@ export function QuoteCard({
 
       {metric && (
         <div className="flex items-baseline gap-2 border-t border-dashed border-current/15 pt-4">
-          <span className={cn('font-display text-4xl leading-none', dark ? 'text-white' : 'text-gray-900')}>
+          <span className={cn('font-display text-4xl leading-none', dark ? 'text-white' : 'text-ios-label')}>
             {metric.value}
           </span>
-          <span className={cn('text-sm', dark ? 'text-gray-400' : 'text-gray-500')}>
+          <span className={cn('text-sm', dark ? 'text-white/50' : 'text-ios-secondary')}>
             {metric.label}
           </span>
         </div>
       )}
 
       <figcaption className="flex items-center gap-3">
-        <span className="relative grid size-11 flex-none place-items-center overflow-hidden rounded-full bg-blue-600 text-sm font-semibold text-white">
+        <span className="relative grid size-11 flex-none place-items-center overflow-hidden rounded-full bg-ios-blue text-sm font-semibold text-white">
           {avatar ? (
             <Image src={avatar.src} alt={avatar.alt ?? name} fill className="object-cover" sizes="44px" />
           ) : (
@@ -88,11 +88,11 @@ export function QuoteCard({
           )}
         </span>
         <span className="flex flex-col">
-          <span className={cn('text-sm font-semibold', dark ? 'text-white' : 'text-gray-900')}>
+          <span className={cn('text-sm font-semibold', dark ? 'text-white' : 'text-ios-label')}>
             {name}
           </span>
           {(role || company) && (
-            <span className={cn('text-xs', dark ? 'text-gray-400' : 'text-gray-500')}>
+            <span className={cn('text-xs', dark ? 'text-white/50' : 'text-ios-secondary')}>
               {[role, company].filter(Boolean).join(' · ')}
             </span>
           )}

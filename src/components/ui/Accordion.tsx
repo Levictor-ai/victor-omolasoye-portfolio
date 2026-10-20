@@ -48,8 +48,8 @@ export function Accordion({
             key={index}
             className={cn(
               variant === 'divided'
-                ? 'border-t border-gray-200 last:border-b'
-                : 'overflow-hidden rounded-2xl border border-gray-200 bg-white',
+                ? 'border-t border-ios-separator last:border-b'
+                : 'overflow-hidden rounded-ios-lg border border-ios-separator bg-white/80 shadow-ios backdrop-blur-xl',
             )}
           >
             <h3>
@@ -60,7 +60,7 @@ export function Accordion({
                 aria-expanded={isOpen}
                 aria-controls={panelId}
                 className={cn(
-                  'flex w-full items-center justify-between gap-6 text-left font-bold tracking-tight text-gray-900 transition-colors hover:text-blue-600',
+                  'flex w-full items-center justify-between gap-6 text-left font-ios font-bold tracking-tight text-ios-label transition-colors hover:text-ios-blue',
                   variant === 'divided'
                     ? 'py-6 text-xl sm:py-7 sm:text-2xl'
                     : 'px-5 py-4 text-base sm:px-6 sm:text-lg',
@@ -69,8 +69,8 @@ export function Accordion({
                 <span>{item.question}</span>
                 <span
                   className={cn(
-                    'grid size-10 flex-none place-items-center rounded-full border border-gray-300 text-gray-900 transition-all duration-200',
-                    isOpen && 'rotate-45 border-transparent bg-blue-600 text-white',
+                    'grid size-10 flex-none place-items-center rounded-full bg-ios-fill text-ios-secondary transition-all duration-200',
+                    isOpen && 'rotate-45 bg-ios-blue text-white shadow-ios-button',
                   )}
                 >
                   <Plus className="size-4" strokeWidth={2.4} />
@@ -89,7 +89,7 @@ export function Accordion({
               >
                 <div
                   className={cn(
-                    'max-w-3xl text-base leading-relaxed text-gray-600',
+                    'max-w-3xl text-base leading-relaxed text-ios-secondary',
                     variant === 'divided' ? 'pb-6 pr-16 sm:pb-7' : 'px-5 pb-5 sm:px-6',
                   )}
                 >

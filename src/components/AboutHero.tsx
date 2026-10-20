@@ -31,10 +31,10 @@ function FloatingChip({
       initial={{ opacity: 0, scale: 0.85 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, delay: 0.5 + delay }}
-      className={`absolute z-30 flex items-center gap-1.5 rounded-full border border-gray-200 bg-white px-3 py-1.5 text-xs font-semibold text-gray-900 shadow-md ${className}`}
+      className={`absolute z-30 flex items-center gap-1.5 rounded-full border border-ios-separator bg-white/80 px-3 py-1.5 font-ios text-xs font-semibold text-ios-label shadow-ios backdrop-blur-xl ${className}`}
       style={{ animation: `chip-sway ${5 + delay}s ease-in-out ${delay}s infinite` }}
     >
-      <span className="size-1.5 rounded-full bg-blue-600" />
+      <span className="size-1.5 rounded-full bg-ios-blue" />
       {label}
     </motion.span>
   );
@@ -43,19 +43,19 @@ function FloatingChip({
 function AboutPortrait({ profile }: { profile: ProfileData }) {
   return (
     <div className="group relative mx-auto aspect-[4/5] w-full max-w-[19rem] sm:max-w-[22rem]">
-      <div className="pointer-events-none absolute -inset-9 rounded-[3rem] border border-gray-100" aria-hidden="true" />
+      <div className="pointer-events-none absolute -inset-9 rounded-[3rem] border border-ios-separator" aria-hidden="true" />
       <div
-        className="pointer-events-none absolute -inset-5 rounded-[2.5rem] border border-dashed border-gray-200/90"
+        className="pointer-events-none absolute -inset-5 rounded-[2.5rem] border border-dashed border-ios-separator-strong"
         style={{ animation: 'spin-clock 60s linear infinite' }}
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute -inset-2 rounded-[2rem] border border-blue-600/40"
+        className="pointer-events-none absolute -inset-2 rounded-[2rem] border border-ios-blue/40"
         style={{ animation: 'stroke-pulse 3.6s ease-in-out infinite' }}
         aria-hidden="true"
       />
 
-      <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[1.75rem] border-4 border-white bg-neutral-100 shadow-[0_30px_70px_-32px] shadow-black/40 transition-transform duration-500 ease-out group-hover:-rotate-2 group-hover:scale-[1.03]">
+      <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[1.75rem] border-4 border-white bg-ios-fill shadow-ios-lg transition-transform duration-500 ease-out group-hover:-rotate-2 group-hover:scale-[1.03]">
         <Image
           src={profile.avatar}
           alt={profile.name}
@@ -69,9 +69,9 @@ function AboutPortrait({ profile }: { profile: ProfileData }) {
           className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"
           aria-hidden="true"
         />
-        <div className="absolute bottom-4 left-4 z-10 flex items-center gap-2 rounded-full bg-white/90 px-3 py-1.5 backdrop-blur">
-          <PenTool className="size-3.5 text-blue-600" strokeWidth={2.2} />
-          <span className="text-xs font-semibold text-gray-900">Designer &amp; Builder</span>
+        <div className="absolute bottom-4 left-4 z-10 flex items-center gap-2 rounded-full bg-white/80 px-3 py-1.5 shadow-ios backdrop-blur-xl">
+          <PenTool className="size-3.5 text-ios-blue" strokeWidth={2.2} />
+          <span className="text-xs font-semibold text-ios-label">Designer &amp; Builder</span>
         </div>
       </div>
 
@@ -97,22 +97,22 @@ export function AboutHero({ profile }: { profile: ProfileData }) {
       variants={container}
       initial="hidden"
       animate="show"
-      className="bg-hero border-b border-gray-100"
+      className="bg-hero border-b border-ios-separator font-ios"
       style={{ width: '100vw', marginLeft: 'calc(50% - 50vw)', overflowX: 'clip' }}
     >
       <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 py-16 sm:px-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-12 lg:px-12 lg:py-24">
         <div>
           <motion.div variants={item} className="mb-6 flex items-center gap-2.5">
             <span className="relative flex size-3">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75" />
-              <span className="relative inline-flex size-3 rounded-full bg-green-500" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ios-green opacity-75" />
+              <span className="relative inline-flex size-3 rounded-full bg-ios-green" />
             </span>
-            <span className="text-sm font-medium text-gray-900">Open to work</span>
+            <span className="text-sm font-medium text-ios-label">Open to work</span>
           </motion.div>
 
           <motion.p
             variants={item}
-            className="mb-4 flex items-center gap-2 text-label-sm font-semibold uppercase tracking-[0.22em] text-blue-600"
+            className="mb-4 flex items-center gap-2 text-label-sm font-semibold uppercase tracking-[0.2em] text-ios-blue"
           >
             <Palette className="size-3.5" strokeWidth={2.4} />
             About me
@@ -120,21 +120,21 @@ export function AboutHero({ profile }: { profile: ProfileData }) {
 
           <motion.h2
             variants={item}
-            className="mb-5 text-balance font-display text-6xl font-bold leading-[0.95] tracking-wide text-gray-900 sm:text-7xl lg:text-8xl"
+            className="mb-5 text-balance font-display text-6xl font-bold leading-[0.95] tracking-wide text-ios-label sm:text-7xl lg:text-8xl"
           >
             {profile.tagline}
           </motion.h2>
 
           <motion.p
             variants={item}
-            className="mb-3 text-lg font-semibold tracking-tight text-gray-900"
+            className="mb-3 text-lg font-semibold tracking-tight text-ios-label"
           >
             {roles}
           </motion.p>
 
           <motion.p
             variants={item}
-            className="mb-8 max-w-xl text-body-lg leading-relaxed text-gray-600"
+            className="mb-8 max-w-xl text-body-lg leading-relaxed text-ios-secondary"
           >
             {profile.bio}
           </motion.p>
@@ -148,7 +148,7 @@ export function AboutHero({ profile }: { profile: ProfileData }) {
               <Link
                 href="/contact"
                 onClick={() => track('cta_click', { location: 'about_hero', label: 'get_in_touch' })}
-                className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 px-8 py-4 text-sm font-medium text-white transition-all hover:from-blue-500 hover:to-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto"
+                className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-ios-blue px-8 py-4 text-sm font-semibold text-white shadow-ios-button transition-all duration-200 hover:bg-ios-bluePressed active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ios-blue/40 sm:w-auto"
               >
                 Get in touch
                 <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" strokeWidth={2.4} />
@@ -161,9 +161,9 @@ export function AboutHero({ profile }: { profile: ProfileData }) {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => track('resume_click', { location: 'about_hero' })}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-transparent px-8 py-4 text-sm font-medium text-gray-900 transition-colors hover:border-black/30 hover:bg-black/10 hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:w-auto"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-ios-fill px-8 py-4 text-sm font-semibold text-ios-blue transition-all duration-200 hover:bg-ios-fill-strong active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ios-blue/40 sm:w-auto"
             >
-              <FileText className="size-4 text-blue-600" strokeWidth={2.2} />
+              <FileText className="size-4 text-ios-blue" strokeWidth={2.2} />
               Resume
             </motion.a>
           </motion.div>
@@ -176,7 +176,7 @@ export function AboutHero({ profile }: { profile: ProfileData }) {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-1 text-sm font-medium text-gray-500 transition-colors hover:text-gray-900"
+                  className="group inline-flex items-center gap-1 text-sm font-medium text-ios-secondary transition-colors hover:text-ios-blue"
                 >
                   {social.label}
                   <ArrowUpRight className="size-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" strokeWidth={2.4} />

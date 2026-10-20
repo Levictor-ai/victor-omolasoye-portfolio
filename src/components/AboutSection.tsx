@@ -27,7 +27,7 @@ export function AboutSection({
         hidden: {},
         show: { transition: { staggerChildren: 0.1 } },
       }}
-      className="mb-8 bg-[#E9EBEF] py-28 lg:mb-16 lg:py-40"
+      className="mb-8 bg-ios-grouped py-28 font-ios lg:mb-16 lg:py-40"
       style={{ width: '100vw', marginLeft: 'calc(50% - 50vw)', overflowX: 'clip' }}
     >
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
@@ -50,7 +50,7 @@ export function AboutSection({
                     rel="noopener noreferrer"
                     className={buttonClass({ variant: 'outline', className: 'w-full sm:w-auto' })}
                   >
-                    <BadgeCheck className="size-4 text-blue-600" strokeWidth={2.2} />
+                    <BadgeCheck className="size-4 text-ios-blue" strokeWidth={2.2} />
                     Hire me on Contra
                   </a>
                 )}
@@ -60,7 +60,7 @@ export function AboutSection({
                   rel="noopener noreferrer"
                   className={buttonClass({ variant: 'outline', className: 'w-full sm:w-auto' })}
                 >
-                  <FileText className="size-4 text-blue-600" strokeWidth={2.2} />
+                  <FileText className="size-4 text-ios-blue" strokeWidth={2.2} />
                   Resume
                 </a>
               </div>
@@ -81,7 +81,7 @@ export function AboutSection({
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               whileHover={{ y: -6, scale: 1.02 }}
-              className="group relative aspect-[4/5] w-full overflow-hidden rounded-2xl shadow-lg shadow-black/5"
+              className="group relative aspect-[4/5] w-full overflow-hidden rounded-ios-xl shadow-ios"
             >
               <Image
                 src={profile.avatar}
@@ -100,7 +100,7 @@ export function AboutSection({
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.6, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
                 whileHover={{ y: -6, scale: 1.02 }}
-                className="group relative aspect-[4/5] w-full overflow-hidden rounded-2xl shadow-lg shadow-black/5"
+                className="group relative aspect-[4/5] w-full overflow-hidden rounded-ios-xl shadow-ios"
               >
                 <Image
                   src={profile.avatarAlt}
@@ -113,8 +113,8 @@ export function AboutSection({
                 />
               </motion.div>
             ) : (
-              <div className="flex aspect-[4/5] w-full items-center justify-center rounded-2xl border border-dashed border-gray-300 bg-white/50">
-                <span className="text-label-sm uppercase tracking-wider text-gray-500">
+              <div className="flex aspect-[4/5] w-full items-center justify-center rounded-ios-xl border border-dashed border-ios-separator-strong bg-white/60">
+                <span className="text-label-sm uppercase tracking-[0.08em] text-ios-tertiary">
                   Photo coming soon
                 </span>
               </div>
@@ -127,16 +127,16 @@ export function AboutSection({
                 paragraph.startsWith('### ') ? (
                   <h3
                     key={i}
-                    className="mb-5 text-heading-md font-bold tracking-tight text-gray-900"
+                    className="mb-5 text-heading-md font-bold tracking-tight text-ios-label"
                   >
                     {renderInline(paragraph.slice(4))}
                   </h3>
                 ) : (
                   <p
                     key={i}
-                    className="mb-5 last:mb-0 text-body-lg leading-relaxed text-gray-600"
+                    className="mb-5 last:mb-0 text-body-lg leading-relaxed text-ios-secondary"
                   >
-                    {renderInline(paragraph, 'font-semibold text-gray-900')}
+                    {renderInline(paragraph, 'font-semibold text-ios-label')}
                   </p>
                 ),
               )}

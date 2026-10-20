@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 
 export function renderInline(
   text: string,
-  className = 'font-semibold text-gray-900',
+  className = 'font-semibold text-ios-label',
 ): ReactNode[] {
   return text.split(/\*\*(.+?)\*\*/g).map((part, i) =>
     i % 2 === 1 ? (

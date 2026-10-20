@@ -29,9 +29,9 @@ export function ExperienceTimeline({
         />
       </Reveal>
 
-      <div className="relative">
+      <div className="relative font-ios">
         <span
-          className="absolute bottom-4 left-[9px] top-4 w-px bg-gradient-to-b from-blue-600 via-gray-200 to-transparent sm:left-[11px]"
+          className="absolute bottom-4 left-[9px] top-4 w-px bg-gradient-to-b from-ios-blue via-ios-separator to-transparent sm:left-[11px]"
           aria-hidden="true"
         />
         <RevealGroup className="space-y-8">
@@ -39,23 +39,23 @@ export function ExperienceTimeline({
             <RevealItem key={`${exp.company}-${i}`}>
               <div className="relative pl-9 sm:pl-14">
                 <span
-                  className="absolute left-0 top-1.5 flex size-5 items-center justify-center rounded-full border-2 border-blue-600 bg-white sm:size-6"
+                  className="absolute left-0 top-1.5 flex size-5 items-center justify-center rounded-full border-2 border-ios-blue bg-white sm:size-6"
                   aria-hidden="true"
                 >
-                  <span className="size-2 rounded-full bg-blue-600" />
+                  <span className="size-2 rounded-full bg-ios-blue" />
                 </span>
-                <Card className="border-gray-200 transition-colors hover:border-blue-200">
+                <Card className="transition-colors hover:border-ios-blue/25">
                   <Badge variant="muted" size="md">
                     {exp.period}
                   </Badge>
-                  <h3 className="mt-3 text-lg font-bold tracking-tight text-gray-900 sm:text-xl">
+                  <h3 className="mt-3 text-lg font-bold tracking-tight text-ios-label sm:text-xl">
                     {exp.role}
                   </h3>
-                  <p className="mt-0.5 text-xs font-bold uppercase tracking-wider text-blue-600">
+                  <p className="mt-0.5 text-xs font-bold uppercase tracking-[0.08em] text-ios-blue">
                     {exp.company}
                   </p>
                   {exp.description && (
-                    <div className="mt-3 space-y-3 text-body-sm leading-relaxed text-gray-600">
+                    <div className="mt-3 space-y-3 text-body-sm leading-relaxed text-ios-secondary">
                       {exp.description.split('\n\n').map((paragraph, pi) => (
                         <p key={pi}>{renderInline(paragraph)}</p>
                       ))}

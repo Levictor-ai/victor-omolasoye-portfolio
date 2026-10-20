@@ -6,7 +6,7 @@ import { track } from '@/lib/analytics';
 import { Button } from '@/components/ui/Button';
 
 const inputClass =
-  'w-full rounded-lg border border-white/25 bg-white/10 px-4 py-3 text-sm text-white placeholder-blue-100 shadow-none outline-none transition-colors focus:border-white focus-visible:shadow-none focus-visible:ring-0';
+  'w-full rounded-ios-sm border border-white/20 bg-white/15 px-4 py-3.5 font-ios text-sm text-white placeholder-white/60 shadow-none outline-none transition-all duration-200 focus:border-white/50 focus:bg-white/20 focus-visible:shadow-none focus-visible:ring-2 focus-visible:ring-white/30';
 
 export function ContactForm({ className = '' }: { className?: string }) {
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
@@ -107,7 +107,7 @@ export function ContactForm({ className = '' }: { className?: string }) {
       </Button>
       <p aria-live="polite" className="min-h-[1.25rem] text-center text-sm">
         {status === 'sent' && (
-          <span className="text-blue-50">
+          <span className="text-white">
             Message sent! I&rsquo;ll get back to you shortly.
           </span>
         )}

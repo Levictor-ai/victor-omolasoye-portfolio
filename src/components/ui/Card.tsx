@@ -6,11 +6,11 @@ export type CardVariant = 'default' | 'flat' | 'muted' | 'accent' | 'dark';
 export type CardPadding = 'none' | 'sm' | 'md' | 'lg';
 
 const CARD_VARIANT: Record<CardVariant, string> = {
-  default: 'bg-white border border-gray-200',
-  flat: 'bg-white border border-gray-200',
-  muted: 'bg-gray-50 border border-gray-200',
-  accent: 'bg-white border border-blue-200',
-  dark: 'bg-gray-900 border border-gray-800 text-gray-100',
+  default: 'bg-white/80 border border-ios-separator backdrop-blur-xl',
+  flat: 'bg-white border border-ios-separator',
+  muted: 'bg-ios-fill border border-transparent',
+  accent: 'bg-white/80 border border-ios-blue/30 backdrop-blur-xl',
+  dark: 'bg-ios-label border border-white/10 text-white',
 };
 
 const CARD_PADDING: Record<CardPadding, string> = {
@@ -38,12 +38,12 @@ export function Card({
   ...rest
 }: CardProps) {
   const classes = cn(
-    'flex flex-col gap-4 rounded-2xl',
+    'flex flex-col gap-4 rounded-ios-xl font-ios',
     CARD_VARIANT[variant],
     CARD_PADDING[padding],
-    variant !== 'dark' && 'shadow-sm',
+    variant !== 'dark' && 'shadow-ios',
     hover &&
-      'transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-[0_24px_50px_-30px] hover:shadow-blue-900/30',
+      'transition-[transform,box-shadow,border-color,background-color] duration-300 ease-out hover:-translate-y-0.5 hover:border-ios-separator-strong hover:bg-white hover:shadow-ios-lg',
     className,
   );
 

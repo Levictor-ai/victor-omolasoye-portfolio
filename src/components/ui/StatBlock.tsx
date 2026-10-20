@@ -4,9 +4,9 @@ import { cn } from '@/lib/cn';
 export type StatVariant = 'default' | 'dark' | 'accent';
 
 const STAT_VARIANT: Record<StatVariant, string> = {
-  default: 'text-gray-900',
+  default: 'text-ios-label',
   dark: 'text-white',
-  accent: 'text-blue-600',
+  accent: 'text-ios-blue',
 };
 
 export interface StatBlockProps {
@@ -31,12 +31,12 @@ export function StatBlock({
   return (
     <div
       className={cn(
-        'flex flex-col gap-2',
+        'flex flex-col gap-2 font-ios',
         align === 'center' && 'items-center text-center',
         className,
       )}
     >
-      {icon && <span className="mb-1 text-blue-600">{icon}</span>}
+      {icon && <span className="mb-1 text-ios-blue">{icon}</span>}
       <span
         className={cn(
           'font-display text-5xl font-bold leading-none tracking-wide sm:text-6xl',
@@ -48,13 +48,13 @@ export function StatBlock({
       <span
         className={cn(
           'text-sm font-semibold',
-          variant === 'dark' ? 'text-gray-200' : 'text-gray-900',
+          variant === 'dark' ? 'text-white/70' : 'text-ios-label',
         )}
       >
         {label}
       </span>
       {sublabel && (
-        <span className={cn('text-sm', variant === 'dark' ? 'text-gray-400' : 'text-gray-500')}>
+        <span className={cn('text-sm', variant === 'dark' ? 'text-white/50' : 'text-ios-secondary')}>
           {sublabel}
         </span>
       )}

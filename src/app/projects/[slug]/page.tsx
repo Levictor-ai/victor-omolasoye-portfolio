@@ -122,21 +122,21 @@ function GalleryHeader({ project }: { project: ProjectData }) {
           className="inline-block size-3 rounded-full"
           style={{ backgroundColor: project.color ?? '#1A1A1A' }}
         />
-        <span className="text-sm font-medium uppercase tracking-widest text-gray-900">
+        <span className="text-sm font-medium uppercase tracking-widest text-ios-label">
           Design Gallery
         </span>
       </div>
 
-      <h1 className="mb-3 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
+      <h1 className="mb-3 text-4xl font-bold tracking-tight text-ios-label sm:text-5xl lg:text-6xl">
         <span className="sr-only">
           {project.title} case study by Victor Omolasoye, {project.role} —{' '}
         </span>
         <span aria-hidden="true">{project.title}</span>
       </h1>
 
-      <p className="mb-6 text-xl text-gray-500">{project.subtitle}</p>
+      <p className="mb-6 text-xl text-ios-tertiary">{project.subtitle}</p>
 
-      <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500">
+      <div className="flex flex-wrap items-center gap-4 text-sm text-ios-tertiary">
         <span className="flex items-center gap-1.5">
           <Users className="size-4" />
           {project.role} @ {project.company}
@@ -155,13 +155,13 @@ function GalleryView({ project }: { project: ProjectData }) {
     <>
       <GalleryHeader project={project} />
       {project.overview && (
-        <p className="mb-12 text-lg leading-relaxed text-gray-700">
+        <p className="mb-12 text-lg leading-relaxed text-ios-secondary">
           {project.overview}
         </p>
       )}
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
         {project.images.map((img) => (
-          <div key={img.src} className="overflow-hidden rounded-xl border border-gray-200 bg-gray-50">
+          <div key={img.src} className="overflow-hidden rounded-xl border border-ios-separator bg-ios-fill">
             <Image
               src={img.src}
               alt={img.alt}
@@ -179,11 +179,11 @@ function GalleryView({ project }: { project: ProjectData }) {
 
 function SectionHeading({ index, title }: { index: number; title: string }) {
   return (
-    <div className="mb-6 flex items-baseline gap-4 border-b border-gray-200 pb-4">
-      <span className="font-mono text-xs text-gray-400">
+    <div className="mb-6 flex items-baseline gap-4 border-b border-ios-separator pb-4">
+      <span className="font-mono text-xs text-ios-tertiary">
         {String(index).padStart(2, '0')}
       </span>
-      <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
+      <h2 className="text-2xl font-bold tracking-tight text-ios-label sm:text-3xl">
         {title}
       </h2>
     </div>
@@ -215,7 +215,7 @@ function CaseStudyView({ project }: { project: ProjectData }) {
     <>
       {/* Hero */}
       <header className="mb-14">
-        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-3xl border border-gray-200 bg-gray-100">
+        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-ios-2xl border border-ios-separator bg-ios-fill">
           {project.coverImage && (
             <Image
               src={project.coverImage}
@@ -252,7 +252,7 @@ function CaseStudyView({ project }: { project: ProjectData }) {
           {project.overview && (
             <section id="overview" className="scroll-mt-8">
               <SectionHeading index={num('overview')} title="Overview" />
-              <p className="max-w-3xl text-xl leading-relaxed text-gray-700">
+              <p className="max-w-3xl text-xl leading-relaxed text-ios-secondary">
                 {project.overview}
               </p>
             </section>
@@ -265,18 +265,18 @@ function CaseStudyView({ project }: { project: ProjectData }) {
               <div className="grid gap-10 md:grid-cols-2">
                 {project.problem && (
                   <div>
-                    <p className="mb-3 text-xs font-medium uppercase tracking-widest text-gray-400">
+                    <p className="mb-3 text-xs font-medium uppercase tracking-widest text-ios-tertiary">
                       The Problem
                     </p>
-                    <p className="leading-relaxed text-gray-700">{project.problem}</p>
+                    <p className="leading-relaxed text-ios-secondary">{project.problem}</p>
                   </div>
                 )}
                 {project.solution && (
                   <div>
-                    <p className="mb-3 text-xs font-medium uppercase tracking-widest text-gray-400">
+                    <p className="mb-3 text-xs font-medium uppercase tracking-widest text-ios-tertiary">
                       The Solution
                     </p>
-                    <p className="leading-relaxed text-gray-700">{project.solution}</p>
+                    <p className="leading-relaxed text-ios-secondary">{project.solution}</p>
                   </div>
                 )}
               </div>
@@ -290,13 +290,13 @@ function CaseStudyView({ project }: { project: ProjectData }) {
               <div className="grid gap-10 sm:grid-cols-2">
                 {project.targetAudience.length > 0 && (
                   <div>
-                    <p className="mb-3 text-xs font-medium uppercase tracking-widest text-gray-400">
+                    <p className="mb-3 text-xs font-medium uppercase tracking-widest text-ios-tertiary">
                       Audience
                     </p>
                     <ul className="space-y-2">
                       {project.targetAudience.map((a) => (
-                        <li key={a} className="flex items-center gap-2 text-gray-700">
-                          <CheckCircle className="size-4 shrink-0 text-gray-400" />
+                        <li key={a} className="flex items-center gap-2 text-ios-secondary">
+                          <CheckCircle className="size-4 shrink-0 text-ios-tertiary" />
                           {a}
                         </li>
                       ))}
@@ -305,13 +305,13 @@ function CaseStudyView({ project }: { project: ProjectData }) {
                 )}
                 {project.regions.length > 0 && (
                   <div>
-                    <p className="mb-3 text-xs font-medium uppercase tracking-widest text-gray-400">
+                    <p className="mb-3 text-xs font-medium uppercase tracking-widest text-ios-tertiary">
                       Regions
                     </p>
                     <ul className="space-y-2">
                       {project.regions.map((r) => (
-                        <li key={r} className="flex items-center gap-2 text-gray-700">
-                          <span className="size-1.5 shrink-0 rounded-full bg-gray-900" />
+                        <li key={r} className="flex items-center gap-2 text-ios-secondary">
+                          <span className="size-1.5 shrink-0 rounded-full bg-ios-label" />
                           {r}
                         </li>
                       ))}
@@ -328,9 +328,9 @@ function CaseStudyView({ project }: { project: ProjectData }) {
               <SectionHeading index={num('features')} title="Key Features" />
               <div className="grid gap-x-10 gap-y-8 sm:grid-cols-2">
                 {project.features.map((feature) => (
-                  <div key={feature.title} className="border-t border-gray-200 pt-5">
-                    <h3 className="font-semibold text-gray-900">{feature.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-gray-500">
+                  <div key={feature.title} className="border-t border-ios-separator pt-5">
+                    <h3 className="font-semibold text-ios-label">{feature.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-ios-tertiary">
                       {feature.description}
                     </p>
                   </div>
@@ -358,20 +358,20 @@ function CaseStudyView({ project }: { project: ProjectData }) {
             <section id="architecture" className="scroll-mt-8">
               <SectionHeading index={num('architecture')} title="Architecture" />
               {project.architecture.title && (
-                <p className="mb-3 text-sm font-semibold text-gray-900">
+                <p className="mb-3 text-sm font-semibold text-ios-label">
                   {project.architecture.title}
                 </p>
               )}
               {project.architecture.description && (
-                <p className="mb-6 max-w-3xl leading-relaxed text-gray-700">
+                <p className="mb-6 max-w-3xl leading-relaxed text-ios-secondary">
                   {project.architecture.description}
                 </p>
               )}
               {project.architecture.highlights.length > 0 && (
                 <ul className="space-y-2">
                   {project.architecture.highlights.map((h, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-gray-500">
-                      <span className="mt-1.5 inline-block size-1.5 shrink-0 rounded-full bg-gray-900" />
+                    <li key={i} className="flex items-start gap-2 text-sm text-ios-tertiary">
+                      <span className="mt-1.5 inline-block size-1.5 shrink-0 rounded-full bg-ios-label" />
                       {h}
                     </li>
                   ))}
@@ -384,13 +384,13 @@ function CaseStudyView({ project }: { project: ProjectData }) {
           {project.results.length > 0 && (
             <section id="results" className="scroll-mt-8">
               <SectionHeading index={num('results')} title="Results" />
-              <div className="grid gap-px overflow-hidden rounded-2xl border border-gray-200 bg-gray-200 sm:grid-cols-3">
+              <div className="grid gap-px overflow-hidden rounded-ios-xl border border-ios-separator bg-ios-separator sm:grid-cols-3">
                 {project.results.map((result) => (
                   <div key={result.metric} className="bg-white p-6">
-                    <p className="text-3xl font-bold text-gray-900">{result.value}</p>
-                    <p className="mt-2 text-sm font-medium text-gray-900">{result.metric}</p>
+                    <p className="text-3xl font-bold text-ios-label">{result.value}</p>
+                    <p className="mt-2 text-sm font-medium text-ios-label">{result.metric}</p>
                     {result.description && (
-                      <p className="mt-1 text-xs leading-relaxed text-gray-400">
+                      <p className="mt-1 text-xs leading-relaxed text-ios-tertiary">
                         {result.description}
                       </p>
                     )}
@@ -410,7 +410,7 @@ function CaseStudyView({ project }: { project: ProjectData }) {
                 name={project.testimonial.author}
                 role={project.testimonial.role}
                 company={project.testimonial.company}
-                className="rounded-3xl p-8 sm:p-10"
+                className="rounded-ios-2xl p-8 sm:p-10"
               />
             </section>
           )}
@@ -430,7 +430,7 @@ function CaseStudyView({ project }: { project: ProjectData }) {
                   {project.images.map((img) => (
                     <div
                       key={img.src}
-                      className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5"
+                      className="overflow-hidden rounded-ios-xl bg-white/80 shadow-ios ring-1 ring-ios-separator"
                     >
                       <Image
                         src={img.src}
@@ -452,7 +452,7 @@ function CaseStudyView({ project }: { project: ProjectData }) {
                   {project.images.map((img) => (
                     <div
                       key={img.src}
-                      className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5"
+                      className="overflow-hidden rounded-ios-xl bg-white/80 shadow-ios ring-1 ring-ios-separator"
                     >
                       <Image
                         src={img.src}
@@ -482,9 +482,9 @@ function CaseStudyView({ project }: { project: ProjectData }) {
                         {lines.map((line, j) => (
                           <li
                             key={j}
-                            className="flex items-start gap-2 leading-relaxed text-gray-700"
+                            className="flex items-start gap-2 leading-relaxed text-ios-secondary"
                           >
-                            <span className="mt-2 block size-1.5 shrink-0 rounded-full bg-gray-400" />
+                            <span className="mt-2 block size-1.5 shrink-0 rounded-full bg-ios-quaternary" />
                             {line.trimStart().replace(/^-\s+/, '')}
                           </li>
                         ))}
@@ -496,15 +496,15 @@ function CaseStudyView({ project }: { project: ProjectData }) {
                       (l) => !/^[\s|]*[-:]+\s*[-:|]+\s*[-:| ]*$/.test(l),
                     );
                     return (
-                      <div key={i} className="overflow-x-auto rounded-xl border border-gray-200 bg-white">
+                      <div key={i} className="overflow-x-auto rounded-xl border border-ios-separator bg-white">
                         <table className="w-full text-left text-sm">
                           <thead>
-                            <tr className="border-b border-gray-200">
+                            <tr className="border-b border-ios-separator">
                               {rows[0]
                                 .split('|')
                                 .filter((c) => c.trim())
                                 .map((cell, ci) => (
-                                  <th key={ci} className="px-4 py-3 font-semibold text-gray-900">
+                                  <th key={ci} className="px-4 py-3 font-semibold text-ios-label">
                                     {cell.trim()}
                                   </th>
                                 ))}
@@ -512,12 +512,12 @@ function CaseStudyView({ project }: { project: ProjectData }) {
                           </thead>
                           <tbody>
                             {rows.slice(1).map((row, ri) => (
-                              <tr key={ri} className="border-b border-gray-100 last:border-0">
+                              <tr key={ri} className="border-b border-ios-separator last:border-0">
                                 {row
                                   .split('|')
                                   .filter((c) => c.trim())
                                   .map((cell, ci) => (
-                                    <td key={ci} className="px-4 py-3 text-gray-700">
+                                    <td key={ci} className="px-4 py-3 text-ios-secondary">
                                       {cell.trim()}
                                     </td>
                                   ))}
@@ -529,7 +529,7 @@ function CaseStudyView({ project }: { project: ProjectData }) {
                     );
                   }
                   return (
-                    <p key={i} className="max-w-3xl leading-relaxed text-gray-700">
+                    <p key={i} className="max-w-3xl leading-relaxed text-ios-secondary">
                       {paragraph}
                     </p>
                   );
@@ -540,7 +540,7 @@ function CaseStudyView({ project }: { project: ProjectData }) {
                   {section.images.map((img) => (
                     <figure
                       key={img.src}
-                      className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5"
+                      className="overflow-hidden rounded-ios-xl bg-white/80 shadow-ios ring-1 ring-ios-separator"
                     >
                       <Image
                         src={img.src}
@@ -551,7 +551,7 @@ function CaseStudyView({ project }: { project: ProjectData }) {
                         sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                       />
                       {img.caption && (
-                        <figcaption className="px-3 py-2 text-xs text-gray-400">
+                        <figcaption className="px-3 py-2 text-xs text-ios-tertiary">
                           {img.caption}
                         </figcaption>
                       )}
@@ -571,14 +571,14 @@ function MoreProjects({ projects }: { projects: ProjectData[] }) {
   if (projects.length === 0) return null;
 
   return (
-    <section className="mt-20 border-t border-gray-200 pt-12">
+    <section className="mt-20 border-t border-ios-separator pt-12">
       <div className="mb-6 flex flex-wrap items-baseline justify-between gap-2">
-        <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
+        <h2 className="text-2xl font-bold tracking-tight text-ios-label sm:text-3xl">
           More Projects
         </h2>
         <a
           href="/projects"
-          className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 transition-colors hover:text-blue-700"
+          className="inline-flex items-center gap-1.5 text-sm font-medium text-ios-blue transition-colors hover:text-ios-blue"
         >
           View all projects
           <ArrowUpRight className="size-4" />
@@ -631,11 +631,11 @@ export default async function ProjectPage({
           }),
         ]}
       />
-      <main className="min-h-screen bg-[#F8F9FA] text-gray-900">
+      <main className="min-h-screen bg-ios-grouped font-ios text-ios-label">
       <article className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <a
           href="/projects"
-          className="mb-10 inline-flex items-center gap-2 text-sm text-gray-500 transition-colors hover:text-gray-900"
+          className="mb-10 inline-flex items-center gap-2 text-sm text-ios-tertiary transition-colors hover:text-ios-label"
         >
           <ArrowUpRight className="size-4 rotate-180" />
           Back to projects

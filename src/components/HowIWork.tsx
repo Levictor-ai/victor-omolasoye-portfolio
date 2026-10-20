@@ -27,10 +27,10 @@ export function HowIWork() {
               <IconTile variant="soft" size="sm" className="font-display text-xl font-bold">
                 {String(i + 1).padStart(2, '0')}
               </IconTile>
-              <h3 className="text-lg font-bold tracking-tight text-gray-900 sm:text-xl">
+              <h3 className="text-lg font-bold tracking-tight text-ios-label sm:text-xl">
                 {step.title}
               </h3>
-              <p className="text-body-md leading-relaxed text-gray-600">{step.body}</p>
+              <p className="text-body-md leading-relaxed text-ios-secondary">{step.body}</p>
             </Card>
           </RevealItem>
         ))}

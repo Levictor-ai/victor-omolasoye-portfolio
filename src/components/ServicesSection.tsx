@@ -11,7 +11,7 @@ function BrandIcon() {
     <motion.div
       animate={{ rotate: [0, 12, -8, 0] }}
       transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-      className="text-gray-900"
+      className="text-ios-label"
     >
       <svg className="size-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M12 22a10 10 0 1 1 10-10c0 2.21-1.79 4-4 4h-3a2 2 0 0 0-1.6 3.2c.5.7.1 2.8-1.4 2.8z" />
@@ -29,7 +29,7 @@ function ProductIcon() {
     <motion.div
       animate={{ y: [0, -6, 0] }}
       transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
-      className="text-gray-900"
+      className="text-ios-label"
     >
       <svg className="size-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M12 2 2 7l10 5 10-5-10-5z" />
@@ -45,7 +45,7 @@ function WebIcon() {
     <motion.div
       animate={{ y: [0, -4, 0], rotate: [0, 5, -5, 0] }}
       transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-      className="text-gray-900"
+      className="text-ios-label"
     >
       <svg className="size-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <circle cx="12" cy="12" r="10" />
@@ -94,9 +94,9 @@ export function ServicesSection() {
           <RevealItem key={service.title} className="h-full">
             <Card hover className="h-full">
               <IconTile size="lg">{service.icon}</IconTile>
-              <h3 className="text-xl font-bold tracking-tight text-gray-900">{service.title}</h3>
-              <p className="text-body-md leading-relaxed text-gray-600">{service.description}</p>
-              <p className="mt-auto text-sm leading-relaxed text-gray-400">{service.skills}</p>
+              <h3 className="text-xl font-bold tracking-tight text-ios-label">{service.title}</h3>
+              <p className="text-body-md leading-relaxed text-ios-secondary">{service.description}</p>
+              <p className="mt-auto text-sm leading-relaxed text-ios-tertiary">{service.skills}</p>
             </Card>
           </RevealItem>
         ))}

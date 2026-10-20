@@ -50,16 +50,16 @@ export function BlogContent({
       >
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -left-24 -top-24 -z-10 h-64 w-64 rounded-full bg-blue-500/10 blur-3xl"
+          className="pointer-events-none absolute -left-24 -top-24 -z-10 h-64 w-64 rounded-full bg-ios-blue/10 blur-3xl"
         />
         <div className="mb-3 flex items-center gap-2">
-          <span className="inline-block size-1.5 rounded-full bg-blue-600" />
+          <span className="inline-block size-1.5 rounded-full bg-ios-blue" />
           <Eyebrow accent>Writing</Eyebrow>
         </div>
-        <h1 className="mb-4 max-w-3xl text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+        <h1 className="mb-4 max-w-3xl text-4xl font-bold tracking-tight text-ios-label sm:text-5xl">
           Notes on product design, UI/UX and brand design
         </h1>
-        <p className="max-w-2xl text-lg leading-relaxed text-gray-700">{description}</p>
+        <p className="max-w-2xl text-lg leading-relaxed text-ios-secondary">{description}</p>
         <ul className="mt-6 flex flex-wrap gap-2">
           {tags.map((tag) => (
             <li key={tag}>
@@ -78,15 +78,15 @@ export function BlogContent({
         >
           <Link
             href={`/blog/${featured.slug}`}
-            className="group relative block overflow-hidden rounded-3xl bg-gray-900 p-8 text-white transition-shadow duration-300 hover:shadow-2xl hover:shadow-gray-900/20 sm:p-12"
+            className="group relative block overflow-hidden rounded-ios-2xl bg-ios-label p-8 font-ios text-white shadow-ios-lg transition-shadow duration-300 hover:shadow-ios-lg sm:p-12"
           >
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute -right-16 -top-16 h-72 w-72 rounded-full bg-blue-600/30 blur-3xl transition-opacity duration-500 group-hover:opacity-80"
+              className="pointer-events-none absolute -right-16 -top-16 h-72 w-72 rounded-full bg-ios-blue/30 blur-3xl transition-opacity duration-500 group-hover:opacity-80"
             />
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/10"
+              className="pointer-events-none absolute inset-0 rounded-ios-2xl ring-1 ring-inset ring-white/10"
             />
             <div className="relative">
               <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-widest text-white/80 ring-1 ring-inset ring-white/15">
@@ -126,26 +126,26 @@ export function BlogContent({
           <motion.article key={post.slug} variants={gridItem} className="h-full">
             <Card href={`/blog/${post.slug}`} hover className="group h-full">
               <div className="mb-4 flex items-start justify-between gap-4">
-                <div className="flex flex-wrap items-center gap-2 text-xs text-gray-500">
+                <div className="flex flex-wrap items-center gap-2 text-xs text-ios-tertiary">
                   <time dateTime={post.datePublished}>{formatDate(post.datePublished)}</time>
                   <span aria-hidden="true">&middot;</span>
                   <span>{post.readingTime}</span>
                 </div>
-                <span className="font-mono text-xs text-gray-300">
+                <span className="font-mono text-xs text-ios-quaternary">
                   {String(i + 2).padStart(2, '0')}
                 </span>
               </div>
-              <h2 className="mb-2 text-xl font-bold tracking-tight text-gray-900 transition-colors group-hover:text-blue-700">
+              <h2 className="mb-2 text-xl font-bold tracking-tight text-ios-label transition-colors group-hover:text-ios-blue">
                 {post.title}
               </h2>
-              <p className="mb-5 text-sm leading-relaxed text-gray-600">{post.description}</p>
+              <p className="mb-5 text-sm leading-relaxed text-ios-secondary">{post.description}</p>
               <div className="mt-auto flex flex-wrap items-center gap-2">
                 {post.tags.map((tag) => (
                   <Badge key={tag} variant="muted" size="sm">
                     {tag}
                   </Badge>
                 ))}
-                <span className="ml-auto inline-flex size-7 shrink-0 items-center justify-center rounded-full bg-gray-100 text-gray-500 transition-colors group-hover:bg-blue-600 group-hover:text-white">
+                <span className="ml-auto inline-flex size-7 shrink-0 items-center justify-center rounded-full bg-ios-fill text-ios-secondary transition-colors group-hover:bg-ios-blue group-hover:text-white">
                   <ArrowUpRight className="size-4" />
                 </span>
               </div>
@@ -154,13 +154,13 @@ export function BlogContent({
         ))}
       </motion.div>
 
-      <p className="mt-12 text-sm text-gray-500">
+      <p className="mt-12 font-ios text-sm text-ios-secondary">
         Full versions of these articles are published on{' '}
         <a
           href={site.socials.medium}
           target="_blank"
           rel="noopener noreferrer"
-          className="font-medium text-blue-600 hover:text-blue-700"
+          className="font-medium text-ios-blue hover:text-ios-bluePressed"
         >
           Medium
         </a>

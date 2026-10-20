@@ -5,10 +5,10 @@ import { cn } from '@/lib/cn';
 export type AlertVariant = 'info' | 'success' | 'warning' | 'error';
 
 const ALERT_VARIANT: Record<AlertVariant, { wrapper: string; icon: string }> = {
-  info: { wrapper: 'bg-blue-50 border-blue-100 text-blue-900', icon: 'text-blue-600' },
-  success: { wrapper: 'bg-emerald-50 border-emerald-100 text-emerald-900', icon: 'text-emerald-600' },
-  warning: { wrapper: 'bg-amber-50 border-amber-100 text-amber-900', icon: 'text-amber-600' },
-  error: { wrapper: 'bg-red-50 border-red-100 text-red-900', icon: 'text-red-600' },
+  info: { wrapper: 'bg-ios-blue/10 border-ios-blue/15 text-ios-label', icon: 'text-ios-blue' },
+  success: { wrapper: 'bg-ios-green/10 border-ios-green/20 text-ios-label', icon: 'text-ios-green' },
+  warning: { wrapper: 'bg-ios-orange/10 border-ios-orange/20 text-ios-label', icon: 'text-ios-orange' },
+  error: { wrapper: 'bg-ios-red/10 border-ios-red/20 text-ios-label', icon: 'text-ios-red' },
 };
 
 const ICONS: Record<AlertVariant, typeof Info> = {
@@ -33,7 +33,7 @@ export function Alert({ children, title, variant = 'info', icon, className }: Al
   return (
     <div
       role="alert"
-      className={cn('flex gap-3 rounded-xl border p-4 text-sm', styles.wrapper, className)}
+      className={cn('flex gap-3 rounded-ios-lg border p-4 font-ios text-sm', styles.wrapper, className)}
     >
       <span className={cn('mt-0.5 flex-none', styles.icon)}>
         {icon ?? <Icon className="size-5" />}

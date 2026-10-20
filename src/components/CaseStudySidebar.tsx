@@ -46,13 +46,13 @@ export function CaseStudySidebar({ meta, links, items }: CaseStudySidebarProps) 
 
   return (
     <aside className="lg:sticky lg:top-8 lg:self-start">
-      <dl className="grid grid-cols-2 gap-x-6 gap-y-5 border-b border-gray-200 pb-6 sm:grid-cols-3 lg:block lg:space-y-5 lg:border-b-0 lg:pb-0">
+      <dl className="grid grid-cols-2 gap-x-6 gap-y-5 border-b border-ios-separator pb-6 sm:grid-cols-3 lg:block lg:space-y-5 lg:border-b-0 lg:pb-0">
         {meta.map((row) => (
           <div key={row.label}>
-            <dt className="text-xs font-medium uppercase tracking-widest text-gray-400">
+            <dt className="text-xs font-semibold uppercase tracking-[0.08em] text-ios-tertiary">
               {row.label}
             </dt>
-            <dd className="mt-1 text-sm text-gray-900">{row.value}</dd>
+            <dd className="mt-1 text-sm text-ios-label">{row.value}</dd>
           </div>
         ))}
       </dl>
@@ -65,7 +65,7 @@ export function CaseStudySidebar({ meta, links, items }: CaseStudySidebarProps) 
               href={link.url}
               target={link.type !== 'case-study' ? '_blank' : undefined}
               rel={link.type !== 'case-study' ? 'noopener noreferrer' : undefined}
-              className="group inline-flex items-center justify-center gap-2 rounded-full bg-gray-900 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-gray-700"
+              className="group inline-flex items-center justify-center gap-2 rounded-full bg-ios-blue px-4 py-2.5 text-sm font-semibold text-white shadow-ios-button transition-all duration-200 hover:bg-ios-bluePressed active:scale-[0.97]"
             >
               <ExternalLink className="size-4 transition-transform group-hover:translate-x-0.5" />
               {link.label}
@@ -76,10 +76,10 @@ export function CaseStudySidebar({ meta, links, items }: CaseStudySidebarProps) 
 
       {items.length > 0 && (
         <nav className="mt-8 hidden lg:block">
-          <p className="mb-3 text-xs font-medium uppercase tracking-widest text-gray-400">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.08em] text-ios-tertiary">
             Contents
           </p>
-          <ul className="border-l border-gray-200">
+          <ul className="border-l border-ios-separator">
             {items.map((item) => (
               <li key={item.id}>
                 <a
@@ -87,8 +87,8 @@ export function CaseStudySidebar({ meta, links, items }: CaseStudySidebarProps) 
                   aria-current={active === item.id ? 'true' : undefined}
                   className={`-ml-px block border-l-2 py-1.5 pl-4 text-sm transition-colors ${
                     active === item.id
-                      ? 'border-gray-900 font-medium text-gray-900'
-                      : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-900'
+                      ? 'border-ios-blue font-semibold text-ios-blue'
+                      : 'border-transparent text-ios-tertiary hover:border-ios-separator-strong hover:text-ios-label'
                   }`}
                 >
                   {item.label}

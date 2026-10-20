@@ -37,7 +37,7 @@ export function Footer({
   className,
 }: FooterProps) {
   return (
-    <footer className={cn('border-t border-gray-200 bg-white', className)}>
+    <footer className={cn('border-t border-ios-separator bg-white/60 font-ios backdrop-blur-xl', className)}>
       <div className="mx-auto w-full max-w-7xl px-6 py-12 sm:px-8 sm:py-16 lg:px-12">
         <div className="lg:grid lg:grid-cols-[1.4fr_repeat(3,1fr)] lg:gap-12">
           <div className="flex flex-col gap-4">
@@ -48,13 +48,13 @@ export function Footer({
                   alt={brand.name}
                   width={40}
                   height={40}
-                  className="size-10 rounded-full object-cover ring-1 ring-black/10"
+                  className="size-10 rounded-full object-cover ring-1 ring-ios-separator"
                 />
               )}
-              <span className="text-lg font-bold tracking-tight text-gray-900">{brand.name}</span>
+              <span className="text-lg font-bold tracking-tight text-ios-label">{brand.name}</span>
             </Link>
             {brand.tagline && (
-              <p className="max-w-xs text-sm leading-relaxed text-gray-500">{brand.tagline}</p>
+              <p className="max-w-xs text-sm leading-relaxed text-ios-secondary">{brand.tagline}</p>
             )}
             {socials.length > 0 && (
               <div className="flex gap-2">
@@ -64,7 +64,7 @@ export function Footer({
                     href={social.href}
                     aria-label={social.label}
                     title={social.label}
-                    className="grid size-10 place-items-center rounded-full border border-gray-200 text-gray-600 transition-colors hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700"
+                    className="grid size-10 place-items-center rounded-full bg-ios-fill text-ios-secondary transition-colors hover:bg-ios-blue/10 hover:text-ios-blue"
                   >
                     {social.icon}
                   </Link>
@@ -82,7 +82,7 @@ export function Footer({
                   index === columns.length - 1 && 'col-span-2 sm:col-span-1 lg:col-span-1',
                 )}
               >
-                <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400">
+                <h3 className="text-xs font-semibold uppercase tracking-[0.08em] text-ios-tertiary">
                   {column.title}
                 </h3>
                 <ul className="flex flex-col gap-2.5">
@@ -90,7 +90,7 @@ export function Footer({
                     <li key={link.href}>
                       <Link
                         href={link.href}
-                        className="text-sm text-gray-600 transition-colors hover:text-blue-600"
+                        className="text-sm text-ios-secondary transition-colors hover:text-ios-blue"
                       >
                         {link.label}
                       </Link>
@@ -102,17 +102,17 @@ export function Footer({
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-6 border-t border-gray-200 pt-8 sm:mt-12">
+        <div className="mt-10 flex flex-col gap-6 border-t border-ios-separator pt-8 sm:mt-12">
           {wordmark && (
             <span
               aria-hidden="true"
-              className="select-none font-display text-4xl font-bold leading-none tracking-wide text-gray-200 break-words sm:text-6xl lg:text-8xl"
+              className="select-none font-display text-4xl font-bold leading-none tracking-wide text-ios-fill-strong break-words sm:text-6xl lg:text-8xl"
             >
               {wordmark}
             </span>
           )}
           {legal && (
-            <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-gray-400">
+            <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-ios-tertiary">
               {legal}
             </div>
           )}

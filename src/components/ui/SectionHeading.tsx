@@ -41,15 +41,15 @@ export function SectionHeading({
           className={cn(
             'text-balance',
             display
-              ? 'font-display text-6xl font-bold leading-none tracking-wide text-gray-900 sm:text-7xl'
-              : 'text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl',
+              ? 'font-display text-6xl font-bold leading-none tracking-wide text-ios-label sm:text-7xl'
+              : 'text-3xl font-bold tracking-tight text-ios-label sm:text-4xl',
             titleClassName,
           )}
         >
           {title}
         </h2>
         {lead && (
-          <p className="max-w-2xl text-lg leading-relaxed text-gray-600">{lead}</p>
+          <p className="max-w-2xl text-lg leading-relaxed text-ios-secondary">{lead}</p>
         )}
       </div>
       {action && <div className={cn('flex-none', centered && 'mt-2')}>{action}</div>}

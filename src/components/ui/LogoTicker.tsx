@@ -28,7 +28,7 @@ export function LogoTicker({ items, speed = 'normal', className }: LogoTickerPro
         {loop.map((item, index) => (
           <span
             key={index}
-            className="flex flex-none items-center gap-2 text-base font-semibold text-gray-400 transition-colors hover:text-gray-600"
+            className="flex flex-none items-center gap-2 font-ios text-base font-semibold text-ios-tertiary transition-colors hover:text-ios-secondary"
           >
             {item.icon}
             {item.label}

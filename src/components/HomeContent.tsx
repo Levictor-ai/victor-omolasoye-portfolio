@@ -66,7 +66,7 @@ function TypewriterText({ text, className }: { text: string; className?: string 
     <span className={className}>
       {displayedText}
       <span
-        className="ml-[2px] inline-block w-[1.5px] bg-gray-900"
+        className="ml-[2px] inline-block w-[1.5px] bg-ios-label"
         style={{ height: '1em', verticalAlign: 'text-bottom', animation: 'cursor-blink 1s step-end infinite' }}
       />
     </span>
@@ -142,30 +142,30 @@ function HeroFrame({ avatar, name, priority = false }: { avatar: string; name: s
   return (
     <div className="group relative mx-auto aspect-[4/5] w-full max-w-[18rem] cursor-pointer sm:max-w-[21rem] xl:max-w-[24.5rem]">
       <div
-        className="pointer-events-none absolute inset-0 rounded-[2rem] border-2 border-blue-600/70"
+        className="pointer-events-none absolute inset-0 rounded-[2rem] border-2 border-ios-blue/70"
         style={{ animation: 'stroke-pulse 3s ease-in-out infinite' }}
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute inset-0 rounded-[2rem] border-2 border-blue-600/70"
+        className="pointer-events-none absolute inset-0 rounded-[2rem] border-2 border-ios-blue/70"
         style={{ animation: 'stroke-pulse 3s ease-in-out 1.5s infinite' }}
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute -inset-8 rounded-[2.75rem] border border-gray-100"
+        className="pointer-events-none absolute -inset-8 rounded-[2.75rem] border border-ios-separator"
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute -inset-5 rounded-[2.25rem] border border-dashed border-gray-200/90"
+        className="pointer-events-none absolute -inset-5 rounded-[2.25rem] border border-dashed border-ios-separator-strong"
         style={{ animation: 'spin-clock 40s linear infinite' }}
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute -inset-3 rounded-[1.75rem] border border-gray-200/80 bg-white/50"
+        className="pointer-events-none absolute -inset-3 rounded-[1.75rem] border border-ios-separator bg-white/50"
         aria-hidden="true"
       />
 
-      <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[1.5rem] border-4 border-white bg-neutral-100 shadow-[0_24px_60px_-28px] shadow-black/[0.25] transition-[transform,box-shadow] duration-500 ease-out group-hover:rotate-3 group-hover:scale-[1.06] group-hover:shadow-[0_40px_100px_-24px] group-hover:shadow-black/[0.45]">
+      <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[1.5rem] border-4 border-white bg-ios-fill shadow-ios-lg transition-transform duration-500 ease-out group-hover:rotate-3 group-hover:scale-[1.06]">
         <Image
           src={avatar}
           alt={name}
@@ -180,7 +180,7 @@ function HeroFrame({ avatar, name, priority = false }: { avatar: string; name: s
           aria-hidden="true"
         />
         <div
-          className="pointer-events-none absolute -inset-6 z-10 rounded-[2rem] border-2 border-dashed border-blue-600/50"
+          className="pointer-events-none absolute -inset-6 z-10 rounded-[2rem] border-2 border-dashed border-ios-blue/50"
           style={{ animation: 'spin-counter 28s linear infinite' }}
           aria-hidden="true"
         />
@@ -215,22 +215,22 @@ function HeroFrame({ avatar, name, priority = false }: { avatar: string; name: s
       </div>
 
       <div
-        className="absolute -right-3 -top-2 z-30 flex items-center gap-1.5 rounded-full border border-gray-200 bg-white px-3 py-1.5 shadow-md"
+        className="absolute -right-3 -top-2 z-30 flex items-center gap-1.5 rounded-full border border-ios-separator bg-white px-3 py-1.5 shadow-ios"
         style={{ animation: 'chip-sway 5s ease-in-out infinite' }}
         aria-hidden="true"
       >
-        <PenTool className="size-3.5 text-blue-600" strokeWidth={2.2} />
-        <span className="text-xs font-semibold text-gray-900">Creative</span>
+        <PenTool className="size-3.5 text-ios-blue" strokeWidth={2.2} />
+        <span className="text-xs font-semibold text-ios-label">Creative</span>
       </div>
       <div
-        className="absolute -bottom-2 -left-3 z-30 flex items-center gap-1.5 rounded-full border border-gray-200 bg-white px-3 py-1.5 shadow-md"
+        className="absolute -bottom-2 -left-3 z-30 flex items-center gap-1.5 rounded-full border border-ios-separator bg-white px-3 py-1.5 shadow-ios"
         style={{ animation: 'chip-sway 6s ease-in-out 0.6s infinite' }}
         aria-hidden="true"
       >
-        <svg className="size-3 text-blue-600" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <svg className="size-3 text-ios-blue" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z" />
         </svg>
-        <span className="text-xs font-semibold text-gray-900">Design Â· Code</span>
+        <span className="text-xs font-semibold text-ios-label">Design Â· Code</span>
       </div>
     </div>
   );
@@ -245,7 +245,7 @@ function HeroHeadline() {
       className="mb-5 block w-full"
       style={{
         fontFamily: 'var(--font-jakarta), sans-serif',
-        color: '#11131A',
+        color: '#1C1C1E',
         fontWeight: 700,
         fontSize: 'clamp(2.5rem,6vw,4.75rem)',
         lineHeight: 1.04,
@@ -261,7 +261,7 @@ function HeroHeadline() {
           <motion.span
             key={`${word}-${i}`}
             className={`mr-[0.28em] inline-block ${
-              HEADLINE_HIGHLIGHT.has(i) ? 'text-blue-600' : ''
+              HEADLINE_HIGHLIGHT.has(i) ? 'text-ios-blue' : ''
             }`}
             initial={{ opacity: 0, y: '0.4em' }}
             animate={{ opacity: 1, y: 0 }}
@@ -300,7 +300,7 @@ function HeroSection({ profile }: { profile: ProfileData }) {
         <div>
           <motion.div variants={item}><AvailableBanner /></motion.div>
           <motion.div variants={item}>
-              <p className="mb-3 text-2xl font-normal tracking-tight text-gray-900 sm:text-3xl">
+              <p className="mb-3 text-2xl font-normal tracking-tight text-ios-label sm:text-3xl">
                 Hi, <TypewriterText text="I'm Victor Omolasoye" />
               </p>
           </motion.div>
@@ -309,10 +309,10 @@ function HeroSection({ profile }: { profile: ProfileData }) {
           </motion.div>
           <motion.div variants={item}>
             <p
-              className="mb-7 w-full leading-snug tracking-tight text-gray-600"
+              className="mb-7 w-full leading-snug tracking-tight text-ios-secondary"
               style={{ fontSize: 'clamp(1.05rem,1.4vw,1.3rem)' }}
             >
-              <span className="font-semibold text-gray-900">
+              <span className="font-semibold text-ios-label">
                 Product Designer + AI-assisted builder
               </span>{' '}
               creating digital products, experiences, and brands.
@@ -366,10 +366,10 @@ function AvailableBanner() {
   return (
     <div className="mb-6 flex items-center gap-2.5">
       <span className="relative flex size-3">
-        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75" />
-        <span className="relative inline-flex size-3 rounded-full bg-green-500" />
+        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ios-green opacity-75" />
+        <span className="relative inline-flex size-3 rounded-full bg-ios-green" />
       </span>
-      <span className="text-sm font-medium text-gray-900">
+      <span className="text-sm font-medium text-ios-label">
         Open to work
       </span>
     </div>
@@ -472,20 +472,20 @@ function ProjectsSection({ projects }: { projects: ProjectData[] }) {
           >
             <Link
               href="/projects"
-              className="group flex h-full min-h-[260px] flex-col items-center justify-center gap-3 rounded-[1.75rem] border border-dashed border-black/[0.12] bg-white/60 p-6 text-center backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-blue-300 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
+              className="group flex h-full min-h-[260px] flex-col items-center justify-center gap-3 rounded-[1.75rem] border border-dashed border-ios-separator-strong bg-white/60 p-6 text-center shadow-ios backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-ios-blue/30 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ios-blue/40"
             >
-              <span className="flex size-12 items-center justify-center rounded-full bg-white text-blue-600 shadow-[0_1px_2px_rgba(0,0,0,0.06),0_8px_20px_-12px_rgba(0,0,0,0.3)] transition-transform duration-300 group-hover:scale-110">
+              <span className="flex size-12 items-center justify-center rounded-full bg-white text-ios-blue shadow-ios transition-transform duration-300 group-hover:scale-110">
                 <ArrowUpRight className="size-5" strokeWidth={2.2} />
               </span>
-              <span className="text-lg font-semibold text-gray-900">View all projects</span>
-              <span className="text-sm text-gray-500">
+              <span className="text-lg font-semibold text-ios-label">View all projects</span>
+              <span className="text-sm text-ios-tertiary">
                 See the full collection of work
               </span>
             </Link>
           </motion.div>
         </motion.div>
       ) : (
-        <p className="text-body-md text-gray-400">
+        <p className="text-body-md text-ios-tertiary">
           No projects in this category yet.
         </p>
       )}
@@ -581,7 +581,7 @@ export function HomeContent({ projects }: { projects: ProjectData[] }) {
         <ExperienceTimeline
           profile={profile}
           eyebrow="Where I’ve worked"
-          headingClassName="mb-1 text-heading-lg font-bold tracking-tight text-gray-900"
+          headingClassName="mb-1 text-heading-lg font-bold tracking-tight text-ios-label"
         />
         <TestimonialsCarousel profile={profile} />
         <FAQSection profile={profile} />

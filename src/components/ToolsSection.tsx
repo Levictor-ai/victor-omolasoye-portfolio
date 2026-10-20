@@ -114,7 +114,7 @@ const tools: {
   tileClass: string;
   logo: ReactNode;
 }[] = [
-  { name: 'Figma', tileClass: 'bg-gray-50', logo: <FigmaLogo /> },
+  { name: 'Figma', tileClass: 'bg-ios-fill', logo: <FigmaLogo /> },
   {
     name: 'Photoshop',
     tileClass: 'bg-transparent',
@@ -173,9 +173,9 @@ const tools: {
       </svg>
     ),
   },
-  { name: 'Vercel', tileClass: 'bg-gray-50', logo: <VercelLogo /> },
-  { name: 'ChatGPT', tileClass: 'bg-gray-50', logo: <ChatGPTLogo /> },
-  { name: 'Gemini', tileClass: 'bg-gray-50', logo: <GeminiLogo /> },
+  { name: 'Vercel', tileClass: 'bg-ios-fill', logo: <VercelLogo /> },
+  { name: 'ChatGPT', tileClass: 'bg-ios-fill', logo: <ChatGPTLogo /> },
+  { name: 'Gemini', tileClass: 'bg-ios-fill', logo: <GeminiLogo /> },
   {
     name: 'Flow',
     tileClass: 'bg-transparent',
@@ -190,11 +190,11 @@ const tools: {
       </svg>
     ),
   },
-  { name: 'Notion', tileClass: 'bg-gray-50', logo: <NotionLogo /> },
-  { name: 'Slack', tileClass: 'bg-gray-50', logo: <SlackLogo /> },
-  { name: 'Google Workspace', tileClass: 'bg-gray-50', logo: <WorkspaceLogo /> },
-  { name: 'Microsoft Teams', tileClass: 'bg-gray-50', logo: <TeamsLogo /> },
-  { name: 'GitHub', tileClass: 'bg-gray-50', logo: <GithubLogo /> },
+  { name: 'Notion', tileClass: 'bg-ios-fill', logo: <NotionLogo /> },
+  { name: 'Slack', tileClass: 'bg-ios-fill', logo: <SlackLogo /> },
+  { name: 'Google Workspace', tileClass: 'bg-ios-fill', logo: <WorkspaceLogo /> },
+  { name: 'Microsoft Teams', tileClass: 'bg-ios-fill', logo: <TeamsLogo /> },
+  { name: 'GitHub', tileClass: 'bg-ios-fill', logo: <GithubLogo /> },
 ];
 
 export function ToolsSection() {
@@ -229,14 +229,14 @@ export function ToolsSection() {
           {tools.map((tool) => (
             <div
               key={tool.name}
-              className="group flex items-center gap-3 rounded-2xl border border-gray-200 bg-white p-3 transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-lg"
+              className="group flex items-center gap-3 rounded-ios-lg border border-ios-separator bg-white/80 p-3 font-ios shadow-ios backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-ios-blue/25 hover:shadow-ios-lg"
             >
               <div
-                className={`flex size-11 shrink-0 items-center justify-center overflow-hidden rounded-xl transition-transform duration-300 group-hover:scale-110 ${tool.tileClass}`}
+                className={`flex size-11 shrink-0 items-center justify-center overflow-hidden rounded-ios-sm transition-transform duration-300 group-hover:scale-110 ${tool.tileClass}`}
               >
                 {tool.logo}
               </div>
-              <span className="text-sm font-medium text-gray-900">{tool.name}</span>
+              <span className="text-sm font-medium text-ios-label">{tool.name}</span>
             </div>
           ))}
         </div>

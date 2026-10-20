@@ -90,22 +90,22 @@ export default async function BlogPostPage({
       <main className="mx-auto min-h-screen max-w-3xl px-6 py-12 sm:px-8 sm:py-16">
         <Link
           href="/blog"
-          className="mb-8 inline-flex items-center gap-2 text-sm text-gray-500 transition-colors hover:text-gray-900"
+          className="mb-8 inline-flex items-center gap-2 text-sm text-ios-tertiary transition-colors hover:text-ios-label"
         >
           &larr; All articles
         </Link>
 
         <article>
           <header className="mb-10">
-            <div className="mb-4 flex flex-wrap items-center gap-2 text-sm text-gray-500">
+            <div className="mb-4 flex flex-wrap items-center gap-2 text-sm text-ios-tertiary">
               <time dateTime={post.datePublished}>{formatDate(post.datePublished)}</time>
               <span aria-hidden="true">&middot;</span>
               <span>{post.readingTime}</span>
             </div>
-            <h1 className="mb-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <h1 className="mb-4 text-3xl font-bold tracking-tight text-ios-label sm:text-4xl">
               {post.title}
             </h1>
-            <p className="text-lg leading-relaxed text-gray-600">{post.description}</p>
+            <p className="text-lg leading-relaxed text-ios-secondary">{post.description}</p>
             <div className="mt-5 flex flex-wrap gap-2">
               {post.tags.map((tag) => (
                 <Badge key={tag} variant="muted" size="sm">
@@ -115,11 +115,11 @@ export default async function BlogPostPage({
             </div>
           </header>
 
-          <div className="space-y-8 text-[15px] leading-relaxed text-gray-700">
+          <div className="space-y-8 text-[15px] leading-relaxed text-ios-secondary">
             {post.sections.map((section, i) => (
               <section key={i}>
                 {section.heading && (
-                  <h2 className="mb-3 text-2xl font-bold tracking-tight text-gray-900">
+                  <h2 className="mb-3 text-2xl font-bold tracking-tight text-ios-label">
                     {section.heading}
                   </h2>
                 )}
@@ -132,7 +132,7 @@ export default async function BlogPostPage({
                   <ul className="my-4 space-y-2">
                     {section.bullets.map((bullet, j) => (
                       <li key={j} className="flex gap-3">
-                        <span className="mt-2 size-1.5 shrink-0 rounded-full bg-gray-400" />
+                        <span className="mt-2 size-1.5 shrink-0 rounded-full bg-ios-quaternary" />
                         <span>{bullet}</span>
                       </li>
                     ))}
@@ -143,8 +143,8 @@ export default async function BlogPostPage({
           </div>
 
           <Card variant="muted" padding="md" className="mt-12">
-            <h2 className="text-lg font-bold text-gray-900">Written by {defaultProfile.name}</h2>
-            <p className="text-sm leading-relaxed text-gray-600">
+            <h2 className="text-lg font-bold text-ios-label">Written by {defaultProfile.name}</h2>
+            <p className="text-sm leading-relaxed text-ios-secondary">
               {defaultProfile.name} is a product designer, brand designer and UI/UX designer in
               Lagos, Nigeria, working across UX research, design systems, brand identity and
               product design.
@@ -153,7 +153,7 @@ export default async function BlogPostPage({
               href={post.mediumUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium text-blue-600 hover:text-blue-700"
+              className="text-sm font-medium text-ios-blue hover:text-ios-bluePressed"
             >
               Read the full article on Medium &rarr;
             </a>
@@ -161,11 +161,11 @@ export default async function BlogPostPage({
         </article>
 
         {next && next.slug !== post.slug && (
-          <nav className="mt-12 border-t border-gray-200 pt-8">
-            <p className="mb-2 text-sm text-gray-500">Next article</p>
+          <nav className="mt-12 border-t border-ios-separator pt-8">
+            <p className="mb-2 text-sm text-ios-tertiary">Next article</p>
             <Link
               href={`/blog/${next.slug}`}
-              className="text-lg font-bold tracking-tight text-gray-900 hover:text-blue-700"
+              className="text-lg font-bold tracking-tight text-ios-label hover:text-ios-bluePressed"
             >
               {next.title}
             </Link>

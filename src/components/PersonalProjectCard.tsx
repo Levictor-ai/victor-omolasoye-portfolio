@@ -28,10 +28,10 @@ export function PersonalProjectCard({ project, index = 0 }: PersonalProjectCardP
         href={`/projects/${project.slug}`}
         aria-label={`View ${project.title} case study`}
         onClick={() => track('project_open', { project: project.slug })}
-        className="group relative grid overflow-hidden rounded-[1.75rem] border border-black/[0.06] bg-white/85 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_16px_40px_-24px_rgba(0,0,0,0.25)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:border-black/[0.08] hover:bg-white md:grid-cols-[2fr_5fr]"
+        className="group relative grid overflow-hidden rounded-ios-xl border border-ios-separator bg-white/80 font-ios shadow-ios backdrop-blur-xl transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-ios-separator-strong hover:bg-white hover:shadow-ios-lg md:grid-cols-[2fr_5fr]"
       >
         {/* Cover Image */}
-        <div className="relative aspect-video overflow-hidden bg-white md:aspect-auto md:min-h-[150px]">
+        <div className="relative aspect-video overflow-hidden bg-ios-fill md:aspect-auto md:min-h-[150px]">
           {project.coverImage && !imgError ? (
             <Image
               src={project.coverImage}
@@ -53,7 +53,7 @@ export function PersonalProjectCard({ project, index = 0 }: PersonalProjectCardP
         {/* Content */}
         <div className="flex flex-col p-5 sm:p-6">
           {/* Meta */}
-          <div className="mb-2 flex flex-wrap items-center gap-3 text-xs text-gray-400">
+          <div className="mb-2 flex flex-wrap items-center gap-3 text-xs text-ios-tertiary">
             <span className="flex items-center gap-1">
               <Clock className="size-3" />
               {project.period}
@@ -68,15 +68,15 @@ export function PersonalProjectCard({ project, index = 0 }: PersonalProjectCardP
           </div>
 
           {/* Title */}
-          <h3 className="mb-1 text-lg font-bold tracking-tight text-gray-900 sm:text-xl">
+          <h3 className="mb-1 text-lg font-bold tracking-tight text-ios-label sm:text-xl">
             {project.title}
           </h3>
 
           {/* Subtitle */}
-          <p className="mb-2 text-sm text-gray-500">{project.subtitle}</p>
+          <p className="mb-2 text-sm text-ios-secondary">{project.subtitle}</p>
 
           {/* Overview */}
-          <p className="mb-3 line-clamp-2 text-body-md leading-relaxed text-gray-600">
+          <p className="mb-3 line-clamp-2 text-body-md leading-relaxed text-ios-secondary">
             {project.overview}
           </p>
 
@@ -85,17 +85,17 @@ export function PersonalProjectCard({ project, index = 0 }: PersonalProjectCardP
             {project.techStack.slice(0, 4).map((tech) => (
               <span
                 key={tech.name}
-                className="rounded-full bg-black/[0.04] px-2.5 py-1 text-[11px] font-medium text-gray-600"
+                className="rounded-full bg-ios-fill px-2.5 py-1 text-[11px] font-medium text-ios-secondary"
               >
                 {tech.name}
               </span>
             ))}
             {isUpcoming ? (
-              <span className="ml-auto inline-flex shrink-0 items-center rounded-full bg-black/[0.04] px-3 py-1.5 text-[11px] font-medium text-gray-500">
+              <span className="ml-auto inline-flex shrink-0 items-center rounded-full bg-ios-fill px-3 py-1.5 text-[11px] font-medium text-ios-secondary">
                 Coming soon
               </span>
             ) : (
-              <span className="ml-auto inline-flex size-8 shrink-0 items-center justify-center rounded-full bg-black/[0.05] text-gray-500 transition-all duration-300 group-hover:bg-blue-600 group-hover:text-white group-hover:shadow-[0_4px_12px_rgba(37,99,235,0.35)]">
+              <span className="ml-auto inline-flex size-8 shrink-0 items-center justify-center rounded-full bg-ios-fill text-ios-secondary transition-all duration-300 group-hover:bg-ios-blue group-hover:text-white group-hover:shadow-ios-button">
                 <ArrowUpRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </span>
             )}

@@ -10,21 +10,21 @@
   }
 
   :root {
-    --color-bg-primary: #F8F9FA;
+    --color-bg-primary: #F2F2F7;
     --color-bg-surface: #FFFFFF;
-    --color-bg-elevated: #F1F3F5;
-    --color-text-primary: #1A1A1A;
-    --color-text-secondary: #495057;
-    --color-text-tertiary: #868E96;
-    --color-accent: #1A1A1A;
-    --color-accent-hover: #333333;
-    --color-success: #1A1A1A;
-    --color-border: rgba(0, 0, 0, 0.08);
-    --color-border-hover: rgba(0, 0, 0, 0.15);
-    --elevation-1: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02);
-    --elevation-2: 0 4px 6px rgba(0,0,0,0.05), 0 2px 4px rgba(0,0,0,0.03);
-    --elevation-3: 0 10px 20px rgba(0,0,0,0.06), 0 3px 6px rgba(0,0,0,0.03);
-    --focus-ring: 0 0 0 3px rgba(0, 0, 0, 0.12);
+    --color-bg-elevated: #FFFFFF;
+    --color-text-primary: #1C1C1E;
+    --color-text-secondary: #3C3C43;
+    --color-text-tertiary: #8E8E93;
+    --color-accent: #007AFF;
+    --color-accent-hover: #0062CC;
+    --color-success: #34C759;
+    --color-border: rgba(60, 60, 67, 0.12);
+    --color-border-hover: rgba(60, 60, 67, 0.24);
+    --elevation-1: 0 1px 2px rgba(0,0,0,0.04), 0 12px 32px -20px rgba(0,0,0,0.25);
+    --elevation-2: 0 2px 4px rgba(0,0,0,0.04), 0 24px 56px -28px rgba(0,0,0,0.32);
+    --elevation-3: 0 4px 8px rgba(0,0,0,0.04), 0 32px 72px -32px rgba(0,0,0,0.4);
+    --focus-ring: 0 0 0 4px rgba(0, 122, 255, 0.25);
   }
 
   html {
@@ -38,8 +38,6 @@
     width: 100%;
     max-width: 100%;
     background-color: var(--color-bg-primary);
-    background-image: radial-gradient(circle at 1px 1px, rgba(17, 19, 26, 0.05) 1px, transparent 0);
-    background-size: 22px 22px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -62,47 +60,78 @@
   :focus-visible {
     outline: none;
     box-shadow: var(--focus-ring);
-    border-radius: 4px;
+    border-radius: 10px;
   }
 
   ::selection {
-    background-color: rgba(0, 0, 0, 0.15);
-    color: #FFFFFF;
+    background-color: rgba(0, 122, 255, 0.22);
+    color: #1C1C1E;
   }
 }
 
 @layer components {
   .card {
-    background-color: var(--color-bg-surface);
+    background-color: rgba(255, 255, 255, 0.82);
     border: 1px solid var(--color-border);
-    border-radius: 12px;
+    border-radius: 22px;
     box-shadow: var(--elevation-1);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    transition:
+      transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 0.2s ease,
+      box-shadow 0.2s ease,
+      background-color 0.2s ease;
   }
 
   .card:hover {
+    transform: translateY(-2px);
     border-color: var(--color-border-hover);
+    background-color: #ffffff;
     box-shadow: var(--elevation-2);
   }
 
   .chip {
     display: inline-flex;
     align-items: center;
-    padding: 0.25rem 0.75rem;
+    padding: 0.3rem 0.75rem;
     border-radius: 9999px;
     font-size: 0.75rem;
     font-weight: 500;
-    line-height: 1.5;
-    letter-spacing: 0.02em;
-    background-color: rgba(0, 0, 0, 0.05);
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    background-color: rgba(120, 120, 128, 0.12);
     color: var(--color-text-secondary);
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    border: 1px solid transparent;
   }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* Reusable iOS surface: translucent material with a hairline border. */
+  .ios-glass {
+    background-color: rgba(255, 255, 255, 0.82);
+    border: 1px solid rgba(60, 60, 67, 0.12);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+  }
+
+  .ios-grouped {
+    background-color: #f2f2f7;
+  }
+
+  .ios-press {
+    transition:
+      transform 0.15s ease,
+      background-color 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .ios-press:active {
+    transform: scale(0.97);
   }
 
   .marquee-fade-x {
@@ -119,35 +148,14 @@
     animation-play-state: paused;
   }
 
-  /* White hero surface: fine dot grid that fades toward the edges,
-     plus a subtle film grain on top of the flat white. */
+  /* White hero surface with a soft iOS-blue glow at the top. */
   .bg-hero {
     position: relative;
     isolation: isolate;
     background-color: #ffffff;
-  }
-
-  .bg-hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background-image: radial-gradient(circle at 1px 1px, rgba(17, 19, 26, 0.07) 1px, transparent 0);
-    background-size: 24px 24px;
-    -webkit-mask-image: radial-gradient(ellipse 75% 70% at 50% 40%, #000 35%, transparent 100%);
-    mask-image: radial-gradient(ellipse 75% 70% at 50% 40%, #000 35%, transparent 100%);
-  }
-
-  .bg-hero::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    opacity: 0.55;
-    mix-blend-mode: multiply;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23g)' opacity='0.5'/%3E%3C/svg%3E");
-    background-size: 160px 160px;
+    background-image:
+      radial-gradient(120% 85% at 50% -15%, rgba(0, 122, 255, 0.1), transparent 60%),
+      linear-gradient(180deg, #ffffff 0%, #ffffff 70%, #f7f7fb 100%);
   }
 
   /* Vertical layout grid lines that fade toward the edges. */

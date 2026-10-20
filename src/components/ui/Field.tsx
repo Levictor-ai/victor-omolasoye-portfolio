@@ -32,16 +32,16 @@ export function FieldShell({
   return (
     <div className={cn('flex flex-col gap-1.5', className)}>
       {label && (
-        <label htmlFor={htmlFor} className="text-sm font-medium text-gray-900">
+        <label htmlFor={htmlFor} className="text-sm font-ios font-medium text-ios-label">
           {label}
-          {required && <span className="ml-0.5 text-blue-600">*</span>}
+          {required && <span className="ml-0.5 text-ios-blue">*</span>}
         </label>
       )}
       {children}
       {error ? (
-        <p className="text-xs font-medium text-red-600">{error}</p>
+        <p className="text-xs font-medium text-ios-red">{error}</p>
       ) : (
-        hint && <p className="text-xs text-gray-500">{hint}</p>
+        hint && <p className="text-xs text-ios-secondary">{hint}</p>
       )}
     </div>
   );
@@ -49,12 +49,11 @@ export function FieldShell({
 
 function controlClass(error?: boolean) {
   return cn(
-    'w-full rounded-xl border bg-white px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400',
-    'transition-colors duration-200 focus:outline-none focus:ring-2',
-    error
-      ? 'border-red-300 focus:border-red-400 focus:ring-red-500/20'
-      : 'border-gray-200 focus:border-blue-500 focus:ring-blue-500/20',
-    'disabled:cursor-not-allowed disabled:bg-gray-50 disabled:opacity-60',
+    'w-full rounded-ios border border-transparent bg-ios-fill px-4 py-3.5 text-sm font-ios text-ios-label placeholder:text-ios-tertiary',
+    'transition-all duration-200 focus:border-ios-blue/40 focus:bg-white focus:outline-none focus:ring-2 focus:ring-ios-blue/20',
+    error &&
+      'border-ios-red/40 bg-ios-red/5 focus:border-ios-red/50 focus:ring-ios-red/20',
+    'disabled:cursor-not-allowed disabled:bg-ios-fill disabled:opacity-60',
   );
 }
 
@@ -84,7 +83,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
     >
       <div className="relative">
         {icon && (
-          <span className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400">
+          <span className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-ios-tertiary">
             {icon}
           </span>
         )}
@@ -174,7 +173,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(function Select
         <svg
           aria-hidden="true"
           viewBox="0 0 20 20"
-          className="pointer-events-none absolute right-4 top-1/2 size-4 -translate-y-1/2 fill-gray-400"
+          className="pointer-events-none absolute right-4 top-1/2 size-4 -translate-y-1/2 fill-ios-tertiary"
         >
           <path d="M5.5 7.5 10 12l4.5-4.5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
         </svg>
@@ -201,12 +200,12 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Che
         id={checkboxId}
         type="checkbox"
         className={cn(
-          'mt-0.5 size-4 flex-none cursor-pointer accent-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/40',
+          'mt-0.5 size-4 flex-none cursor-pointer accent-[#007AFF] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ios-blue/40',
           className,
         )}
         {...rest}
       />
-      <label htmlFor={checkboxId} className="text-sm leading-relaxed text-gray-600">
+      <label htmlFor={checkboxId} className="text-sm leading-relaxed text-ios-secondary">
         {children}
       </label>
     </div>

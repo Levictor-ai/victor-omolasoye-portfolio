@@ -52,9 +52,9 @@ export function Nav({ avatar }: { avatar: string }) {
   }, [pathname]);
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-gray-200 bg-white/80 backdrop-blur-lg">
+    <nav className="sticky top-0 z-50 border-b border-ios-separator bg-ios-grouped/80 font-ios backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-center px-6 py-2.5 sm:px-8">
-        <div className="relative flex w-auto items-center justify-between gap-3 rounded-full border border-gray-200 bg-white px-3 py-2 shadow-lg shadow-gray-900/5 sm:px-4 sm:py-2">
+        <div className="relative flex w-auto items-center justify-between gap-3 rounded-full border border-ios-separator bg-white/80 px-3 py-2 shadow-ios backdrop-blur-xl sm:px-4 sm:py-2">
           <Link
             href="/#home"
             aria-label="Home"
@@ -66,21 +66,21 @@ export function Nav({ avatar }: { avatar: string }) {
               alt="Victor Omolasoye"
               width={36}
               height={36}
-              className="size-8 rounded-full object-cover ring-1 ring-black/10"
+              className="size-8 rounded-full object-cover ring-1 ring-ios-separator"
               style={{ objectPosition: 'top' }}
               priority
             />
           </Link>
           <div className="flex items-center gap-0.5">
             {links.map((link) => {
-              const base = `shrink-0 rounded-full px-3 py-1.5 text-sm font-medium transition-colors ${
+              const base = `shrink-0 rounded-full px-3 py-1.5 text-sm font-medium transition-all duration-200 active:scale-95 ${
                 link.hiddenMobile ? 'hidden md:block' : ''
               }`;
               return link.label === 'Contact' ? (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`${base} bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:from-blue-500 hover:to-blue-700`}
+                  className={`${base} bg-ios-blue text-white shadow-ios-button hover:bg-ios-bluePressed`}
                 >
                   {link.label}
                 </Link>
@@ -90,8 +90,8 @@ export function Nav({ avatar }: { avatar: string }) {
                   href={link.href}
                   className={`${base} ${
                     active === link.id
-                      ? 'bg-gray-100 text-gray-900'
-                      : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
+                      ? 'bg-ios-fill text-ios-label'
+                      : 'text-ios-secondary hover:bg-ios-fill hover:text-ios-label'
                   }`}
                 >
                   {link.label}
