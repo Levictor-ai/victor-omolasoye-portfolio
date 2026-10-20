@@ -59,14 +59,14 @@ export function ResultsSection() {
           eyebrow="Concrete outcomes from my projects and experience"
         />
       </Reveal>
-      <div className="mx-auto max-w-3xl space-y-5">
+      <div className="mx-auto max-w-3xl space-y-5 sm:mx-0 sm:grid sm:max-w-none sm:grid-cols-2 sm:gap-6 sm:space-y-0 lg:grid-cols-3">
         {results.map((result, i) => (
           <div
             key={result.title}
-            className="sticky"
-            style={{ top: `calc(4.5rem + ${i * 0.5}rem)` }}
+            className="sticky sm:static sm:h-full"
+            style={{ top: `calc(1rem + ${i * 0.5}rem)` }}
           >
-            <Card href={result.href} variant="flat" hover className="min-h-[200px] shadow-ios-lg">
+            <Card href={result.href} variant="flat" hover className="h-full min-h-[200px] sm:min-h-0">
               <span className="text-[11px] font-semibold uppercase tracking-wider text-ios-blue">
                 {result.project}
               </span>

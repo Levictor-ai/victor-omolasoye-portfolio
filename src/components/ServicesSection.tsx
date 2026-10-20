@@ -89,14 +89,14 @@ export function ServicesSection() {
       <Reveal className="mb-8">
         <SectionHeading display title="Services" eyebrow="What I can do for you" />
       </Reveal>
-      <div className="mx-auto max-w-3xl space-y-5">
+      <div className="mx-auto max-w-3xl space-y-5 sm:mx-0 sm:grid sm:max-w-none sm:grid-cols-2 sm:gap-6 sm:space-y-0 lg:grid-cols-3">
         {services.map((service, i) => (
           <div
             key={service.title}
-            className="sticky"
-            style={{ top: `calc(4.5rem + ${i * 0.5}rem)` }}
+            className="sticky sm:static sm:h-full"
+            style={{ top: `calc(1rem + ${i * 0.5}rem)` }}
           >
-            <Card variant="flat" hover className="min-h-[210px] shadow-ios-lg">
+            <Card variant="flat" hover className="h-full min-h-[210px] sm:min-h-0">
               <IconTile size="lg">{service.icon}</IconTile>
               <h3 className="text-xl font-bold tracking-tight text-ios-label">{service.title}</h3>
               <p className="max-w-2xl text-body-md leading-relaxed text-ios-secondary">
