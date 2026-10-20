@@ -1,7 +1,7 @@
 'use client';
 
 import { Card } from '@/components/ui/Card';
-import { Reveal, RevealGroup, RevealItem } from '@/components/ui/Reveal';
+import { Reveal } from '@/components/ui/Reveal';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 
 const results = [
@@ -59,19 +59,25 @@ export function ResultsSection() {
           eyebrow="Concrete outcomes from my projects and experience"
         />
       </Reveal>
-      <RevealGroup className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {results.map((result) => (
-          <RevealItem key={result.title} className="h-full">
-            <Card href={result.href} hover className="h-full">
-              <span className="text-[11px] font-semibold uppercase tracking-tightr text-ios-blue">
+      <div className="mx-auto max-w-3xl space-y-5">
+        {results.map((result, i) => (
+          <div
+            key={result.title}
+            className="sticky"
+            style={{ top: `calc(4.5rem + ${i * 0.5}rem)` }}
+          >
+            <Card href={result.href} variant="flat" hover className="min-h-[200px] shadow-ios-lg">
+              <span className="text-[11px] font-semibold uppercase tracking-wider text-ios-blue">
                 {result.project}
               </span>
               <h3 className="text-lg font-bold tracking-tight text-ios-label">{result.title}</h3>
-              <p className="text-body-md leading-relaxed text-ios-secondary">{result.description}</p>
+              <p className="max-w-2xl text-body-md leading-relaxed text-ios-secondary">
+                {result.description}
+              </p>
             </Card>
-          </RevealItem>
+          </div>
         ))}
-      </RevealGroup>
+      </div>
     </section>
   );
 }

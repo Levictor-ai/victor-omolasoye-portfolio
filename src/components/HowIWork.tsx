@@ -2,7 +2,7 @@
 
 import { Card } from '@/components/ui/Card';
 import { IconTile } from '@/components/ui/IconTile';
-import { Reveal, RevealGroup, RevealItem } from '@/components/ui/Reveal';
+import { Reveal } from '@/components/ui/Reveal';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 
 const steps = [
@@ -20,21 +20,25 @@ export function HowIWork() {
       <Reveal className="mb-8">
         <SectionHeading display title="How I Work" eyebrow="Understand. Explore. Build. Refine." />
       </Reveal>
-      <RevealGroup className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto max-w-3xl space-y-5">
         {steps.map((step, i) => (
-          <RevealItem key={step.title} className="h-full">
-            <Card hover className="h-full">
+          <div
+            key={step.title}
+            className="sticky"
+            style={{ top: `calc(4.5rem + ${i * 0.5}rem)` }}
+          >
+            <Card variant="flat" hover className="min-h-[180px] shadow-ios-lg sm:min-h-[200px]">
               <IconTile variant="soft" size="sm" className="font-ios text-xl font-bold">
                 {String(i + 1).padStart(2, '0')}
               </IconTile>
               <h3 className="text-lg font-bold tracking-tight text-ios-label sm:text-xl">
                 {step.title}
               </h3>
-              <p className="text-body-md leading-relaxed text-ios-secondary">{step.body}</p>
+              <p className="max-w-2xl text-body-md leading-relaxed text-ios-secondary">{step.body}</p>
             </Card>
-          </RevealItem>
+          </div>
         ))}
-      </RevealGroup>
+      </div>
     </section>
   );
 }

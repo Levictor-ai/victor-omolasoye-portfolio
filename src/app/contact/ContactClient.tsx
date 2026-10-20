@@ -110,7 +110,7 @@ export function ContactClient() {
           </Card>
 
           <div className="rounded-ios-2xl bg-gradient-to-br from-ios-blue to-ios-bluePressed p-6 shadow-ios-lg sm:p-8 lg:p-10">
-            <p className="mb-3 text-label-sm uppercase tracking-tightr text-white/70">
+            <p className="mb-3 text-label-sm uppercase tracking-wider text-white/70">
               Send a message
             </p>
             <h3 className="mb-6 text-3xl font-bold leading-tight text-white sm:text-4xl">

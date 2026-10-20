@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/Card';
 import { IconTile } from '@/components/ui/IconTile';
-import { Reveal, RevealGroup, RevealItem } from '@/components/ui/Reveal';
+import { Reveal } from '@/components/ui/Reveal';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 
 function BrandIcon() {
@@ -89,18 +89,26 @@ export function ServicesSection() {
       <Reveal className="mb-8">
         <SectionHeading display title="Services" eyebrow="What I can do for you" />
       </Reveal>
-      <RevealGroup className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {services.map((service) => (
-          <RevealItem key={service.title} className="h-full">
-            <Card hover className="h-full">
+      <div className="mx-auto max-w-3xl space-y-5">
+        {services.map((service, i) => (
+          <div
+            key={service.title}
+            className="sticky"
+            style={{ top: `calc(4.5rem + ${i * 0.5}rem)` }}
+          >
+            <Card variant="flat" hover className="min-h-[210px] shadow-ios-lg">
               <IconTile size="lg">{service.icon}</IconTile>
               <h3 className="text-xl font-bold tracking-tight text-ios-label">{service.title}</h3>
-              <p className="text-body-md leading-relaxed text-ios-secondary">{service.description}</p>
-              <p className="mt-auto text-sm leading-relaxed text-ios-tertiary">{service.skills}</p>
+              <p className="max-w-2xl text-body-md leading-relaxed text-ios-secondary">
+                {service.description}
+              </p>
+              <p className="mt-auto max-w-2xl text-sm leading-relaxed text-ios-tertiary">
+                {service.skills}
+              </p>
             </Card>
-          </RevealItem>
+          </div>
         ))}
-      </RevealGroup>
+      </div>
     </section>
   );
 }
