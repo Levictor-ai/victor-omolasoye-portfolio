@@ -188,9 +188,9 @@ function HeroSection({ profile }: { profile: ProfileData }) {
       variants={container}
       initial="hidden"
       animate="show"
-      className="bg-hero flex min-h-[calc(100dvh-57px)] w-full flex-col justify-center px-6 pb-16 pt-10 sm:px-8 lg:min-h-[calc(100vh-57px)] lg:px-12 lg:py-0 lg:pb-24"
+      className="bg-hero flex min-h-[calc(100dvh-57px)] w-full flex-col justify-center pb-16 pt-10 lg:min-h-[calc(100vh-57px)] lg:py-0 lg:pb-24"
     >
-      <div className="grid w-full items-center gap-14 lg:grid-cols-[1.35fr_0.65fr] lg:gap-10">
+      <div className="mx-auto grid w-full max-w-7xl items-center gap-14 px-6 sm:px-8 lg:grid-cols-[1.35fr_0.65fr] lg:gap-10 lg:px-12">
         <div>
           <motion.div variants={item}><AvailableBanner /></motion.div>
           <motion.div variants={item}>
