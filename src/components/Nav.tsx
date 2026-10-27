@@ -21,7 +21,11 @@ export function Nav({ avatar }: { avatar: string }) {
       setActive('about');
       return;
     }
-    if (pathname === '/projects') {
+    if (
+      pathname === '/projects' ||
+      pathname === '/brand' ||
+      pathname === '/product'
+    ) {
       setActive('projects');
       return;
     }

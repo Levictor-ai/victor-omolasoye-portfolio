@@ -1,6 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { ArrowUpRight } from 'lucide-react';
 import { usePortfolio } from '@/context/PortfolioContext';
 import { Nav } from '@/components/Nav';
 import { ProjectCard } from '@/components/ProjectCard';
@@ -42,6 +44,23 @@ export function ProjectsContent({ projects }: { projects: ProjectData[] }) {
                 <span aria-hidden="true">Projects</span>
               </h1>
               <Eyebrow className="mt-2">A selection of work I&rsquo;m proud of</Eyebrow>
+              <div className="mt-4 flex flex-wrap items-center gap-2 text-sm">
+                <span className="text-ios-tertiary">Focused views:</span>
+                <Link
+                  href="/brand"
+                  className="inline-flex items-center gap-1 rounded-full bg-ios-fill px-3 py-1 font-medium text-ios-secondary transition-colors hover:text-ios-label"
+                >
+                  Brand design
+                  <ArrowUpRight className="size-3.5" />
+                </Link>
+                <Link
+                  href="/product"
+                  className="inline-flex items-center gap-1 rounded-full bg-ios-fill px-3 py-1 font-medium text-ios-secondary transition-colors hover:text-ios-label"
+                >
+                  Product design
+                  <ArrowUpRight className="size-3.5" />
+                </Link>
+              </div>
             </div>
             {profile.socials.behance && (
               <a
