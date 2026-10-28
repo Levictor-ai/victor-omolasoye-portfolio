@@ -10,21 +10,21 @@
   }
 
   :root {
-    --color-bg-primary: #F2F2F7;
+    --color-bg-primary: #FAFAF7;
     --color-bg-surface: #FFFFFF;
     --color-bg-elevated: #FFFFFF;
-    --color-text-primary: #1C1C1E;
-    --color-text-secondary: #3C3C43;
-    --color-text-tertiary: #8E8E93;
-    --color-accent: #314CB6;
-    --color-accent-hover: #293F94;
-    --color-success: #34C759;
-    --color-border: rgba(60, 60, 67, 0.12);
-    --color-border-hover: rgba(60, 60, 67, 0.24);
-    --elevation-1: 0 1px 2px rgba(0,0,0,0.04), 0 12px 32px -20px rgba(0,0,0,0.25);
-    --elevation-2: 0 2px 4px rgba(0,0,0,0.04), 0 24px 56px -28px rgba(0,0,0,0.32);
-    --elevation-3: 0 4px 8px rgba(0,0,0,0.04), 0 32px 72px -32px rgba(0,0,0,0.4);
-    --focus-ring: 0 0 0 4px rgba(49, 76, 182, 0.25);
+    --color-text-primary: #141414;
+    --color-text-secondary: #3A3A3A;
+    --color-text-tertiary: #6E6E6E;
+    --color-accent: #141414;
+    --color-accent-hover: #000000;
+    --color-success: #1F7A4D;
+    --color-border: #E6E4DF;
+    --color-border-hover: #D6D3CC;
+    --elevation-1: 0 1px 2px rgba(0,0,0,0.03);
+    --elevation-2: 0 2px 8px rgba(0,0,0,0.05);
+    --elevation-3: 0 8px 24px rgba(0,0,0,0.07);
+    --focus-ring: 0 0 0 3px rgba(20, 20, 20, 0.18);
   }
 
   html {
@@ -60,12 +60,12 @@
   :focus-visible {
     outline: none;
     box-shadow: var(--focus-ring);
-    border-radius: 10px;
+    border-radius: 4px;
   }
 
   ::selection {
-    background-color: rgba(49, 76, 182, 0.22);
-    color: #1C1C1E;
+    background-color: rgba(20, 20, 20, 0.14);
+    color: #141414;
   }
 }
 
@@ -256,6 +256,27 @@
   .animate-logo-scroll {
     animation: logo-scroll 40s linear infinite;
   }
+
+  .editorial-link {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.28em;
+    text-decoration-color: rgba(20, 20, 20, 0.28);
+    transition: text-decoration-color 200ms ease, color 200ms ease;
+  }
+
+  .editorial-link:hover {
+    text-decoration-color: currentColor;
+  }
+
+  .media-zoom img {
+    transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .media-zoom:hover img,
+  .media-zoom:focus-visible img {
+    transform: scale(1.035);
+  }
 }
 
 @keyframes marquee-scroll {
@@ -313,10 +334,23 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .animate-ping,
   .marquee-track,
   *[style*='animation'] {
     animation: none !important;
+  }
+
+  .media-zoom img {
+    transition: none;
+  }
+
+  .media-zoom:hover img,
+  .media-zoom:focus-visible img {
+    transform: none;
   }
 
   .marquee-fade-x {

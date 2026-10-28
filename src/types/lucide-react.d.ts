@@ -14,6 +14,9 @@ declare module 'lucide-react' {
   export const Calendar: Icon;
   export const ArrowUpRight: Icon;
   export const ArrowLeft: Icon;
+  export const ArrowRight: Icon;
+  export const Menu: Icon;
+  export const X: Icon;
   export const CheckCircle: Icon;
   export const CheckCircle2: Icon;
   export const Check: Icon;
