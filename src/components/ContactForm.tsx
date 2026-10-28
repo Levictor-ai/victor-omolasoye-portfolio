@@ -1,13 +1,12 @@
 'use client';
 
 import { useState } from 'react';
-import { site } from '@/lib/seo';
+import { motion } from 'framer-motion';
 import { track } from '@/lib/analytics';
+import { Button } from '@/components/ui/Button';
 
 const inputClass =
-  'mt-2 w-full border-b border-line bg-transparent py-3 text-sm text-ink placeholder:text-ink-faint focus:border-ink focus:outline-none focus-visible:shadow-none';
-
-const labelClass = 'text-xs font-medium uppercase tracking-[0.12em] text-ink-faint';
+  'w-full rounded-ios-sm border border-white/20 bg-white/15 px-4 py-3.5 font-ios text-sm text-white placeholder-white/60 shadow-none outline-none transition-all duration-200 focus:border-white/50 focus:bg-white/20 focus-visible:shadow-none focus-visible:ring-2 focus-visible:ring-white/30';
 
 export function ContactForm({ className = '' }: { className?: string }) {
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
@@ -41,87 +40,90 @@ export function ContactForm({ className = '' }: { className?: string }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={`space-y-6 ${className}`} noValidate={false}>
+    <motion.form
+      onSubmit={handleSubmit}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-50px' }}
+      transition={{ duration: 0.5 }}
+      className={`space-y-4 ${className}`}
+    >
       <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
         <label htmlFor="company">Company</label>
         <input id="company" type="text" name="company" tabIndex={-1} autoComplete="off" />
       </div>
-
-      <div className="grid gap-6 sm:grid-cols-2">
-        <div>
-          <label htmlFor="contact-name" className={labelClass}>
-            Name
-          </label>
-          <input
-            id="contact-name"
-            type="text"
-            name="name"
-            required
-            autoComplete="name"
-            maxLength={120}
-            placeholder="Your name"
-            className={inputClass}
-          />
-        </div>
-        <div>
-          <label htmlFor="contact-email" className={labelClass}>
-            Email
-          </label>
-          <input
-            id="contact-email"
-            type="email"
-            name="email"
-            required
-            autoComplete="email"
-            maxLength={200}
-            placeholder="you@example.com"
-            className={inputClass}
-          />
-        </div>
-      </div>
-
       <div>
-        <label htmlFor="contact-message" className={labelClass}>
-          Message
+        <label htmlFor="contact-name" className="sr-only">
+          Your Name
+        </label>
+        <input
+          id="contact-name"
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          required
+          autoComplete="name"
+          maxLength={120}
+          className={inputClass}
+        />
+      </div>
+      <div>
+        <label htmlFor="contact-email" className="sr-only">
+          Your Email
+        </label>
+        <input
+          id="contact-email"
+          type="email"
+          name="email"
+          placeholder="Your Email"
+          required
+          autoComplete="email"
+          maxLength={200}
+          className={inputClass}
+        />
+      </div>
+      <div>
+        <label htmlFor="contact-message" className="sr-only">
+          Your Message
         </label>
         <textarea
           id="contact-message"
           name="message"
-          placeholder="Tell me about the project or opportunity"
-          rows={5}
+          placeholder="Your Message"
+          rows={4}
           required
           maxLength={4000}
-          className={`${inputClass} resize-y`}
+          className={inputClass}
         />
       </div>
-
-      <button
+      <Button
         type="submit"
-        disabled={status === 'sending'}
-        className="inline-flex w-full items-center justify-center rounded-full bg-ink px-8 py-4 text-sm font-medium text-paper transition-opacity hover:opacity-85 disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
+        variant="light"
+        block
+        loading={status === 'sending'}
+        className="py-4"
       >
-        {status === 'sending' ? 'Sending…' : 'Send message'}
-      </button>
-
-      <p aria-live="polite" className="min-h-[1.25rem] text-sm">
+        {status === 'sending' ? 'Sending...' : 'Send Message'}
+      </Button>
+      <p aria-live="polite" className="min-h-[1.25rem] text-center text-sm">
         {status === 'sent' && (
-          <span className="text-ink">
-            Message sent. I&rsquo;ll get back to you shortly.
+          <span className="text-white">
+            Message sent! I&rsquo;ll get back to you shortly.
           </span>
         )}
         {status === 'error' && (
-          <span className="text-[#9B2C2C]">
-            Something went wrong. Please email me directly at{' '}
+          <span className="text-white/90">
+            Something went wrong — please email me directly at{' '}
             <a
-              href={`mailto:${site.email}`}
-              className="underline underline-offset-4"
+              href="mailto:omolasoyevictorakinyemi@gmail.com"
+              className="font-medium underline"
             >
-              {site.email}
+              omolasoyevictorakinyemi@gmail.com
             </a>
             .
           </span>
         )}
       </p>
-    </form>
+    </motion.form>
   );
 }

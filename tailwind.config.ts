@@ -7,8 +7,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-manrope)', 'system-ui', 'sans-serif'],
-        display: ['var(--font-instrument-serif)', 'Georgia', 'serif'],
+        sans: ['var(--font-jakarta)', 'system-ui', 'sans-serif'],
+        display: ['var(--font-bebas-neue)', 'sans-serif'],
         mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
         ios: [
           '-apple-system',
@@ -34,21 +34,6 @@ const config: Config = {
         'label-sm': ['0.75rem', { lineHeight: '1.5', fontWeight: '500' }],
       },
       colors: {
-        paper: {
-          DEFAULT: '#FAFAF7',
-          raised: '#FFFFFF',
-          sunken: '#F3F2EE',
-        },
-        ink: {
-          DEFAULT: '#141414',
-          soft: '#3A3A3A',
-          muted: '#6E6E6E',
-          faint: '#9B9B9B',
-        },
-        line: {
-          DEFAULT: '#E6E4DF',
-          strong: '#D6D3CC',
-        },
         surface: {
           DEFAULT: '#F8F9FA',
           light: '#FFFFFF',

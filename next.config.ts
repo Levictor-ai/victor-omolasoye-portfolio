@@ -6,13 +6,6 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 2592000,
     deviceSizes: [360, 480, 640, 750, 828, 1080, 1200, 1920, 2048],
   },
-  async redirects() {
-    return [
-      { source: '/brand', destination: '/brand-design', permanent: true },
-      { source: '/product', destination: '/product-design', permanent: true },
-      { source: '/projects', destination: '/', permanent: true },
-    ];
-  },
   async headers() {
     return [
       {

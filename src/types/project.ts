@@ -77,12 +77,4 @@ export interface ProjectData {
   color?: string;
   layout?: 'case-study' | 'gallery';
   galleryColumns?: 1 | 2;
-  /** Industry or sector, when known. Omit rather than guess. */
-  industry?: string;
-  /** Disciplines shown on index cards. Falls back to techStack names. */
-  disciplines?: string[];
-  /** Honest classification of the work. Derived when omitted. */
-  projectType?: 'Client project' | 'Personal project' | 'Concept' | 'Prototype';
-  /** Short status label, e.g. "Coming soon". */
-  status?: string;
 }

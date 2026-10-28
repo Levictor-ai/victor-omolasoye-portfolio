@@ -15,6 +15,3 @@ prd/
 desktop.ini
 JSON
 TypeScript
-
-# local dev server logs
-*.log

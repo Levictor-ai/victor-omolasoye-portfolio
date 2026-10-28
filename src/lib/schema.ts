@@ -16,7 +16,7 @@ export function personSchema() {
       '@type': 'ImageObject',
       url: absoluteUrl(site.image),
     },
-    jobTitle: 'Multidisciplinary Designer',
+    jobTitle: 'Product Designer, Brand Designer & UI/UX Designer',
     description: site.description,
     email: `mailto:${site.email}`,
     address: {
@@ -25,17 +25,15 @@ export function personSchema() {
       addressCountry: 'NG',
     },
     knowsAbout: [
-      'Brand Identity Design',
-      'Visual Systems',
-      'Typography',
-      'Art Direction',
       'Product Design',
       'User Experience Design',
       'UI/UX Design',
+      'Brand Identity',
       'Design Systems',
       'User Research',
       'Prototyping',
-      'Digital Experience Design',
+      'Web Design',
+      'Front-End Development',
     ],
     knowsLanguage: ['en'],
     alumniOf: [
@@ -94,22 +92,20 @@ export function projectSchema(project: {
   overview: string;
   coverImage: string;
   slug: string;
-  path?: string;
   role: string;
   company: string;
   period: string;
   techStack: { name: string }[];
   links: { url: string; label: string; type: string }[];
 }) {
-  const path = project.path ?? `/projects/${project.slug}`;
   return {
     '@context': 'https://schema.org',
     '@type': 'CreativeWork',
-    '@id': `${absoluteUrl(path)}#project`,
+    '@id': `${absoluteUrl(`/projects/${project.slug}`)}#project`,
     name: project.title,
     headline: `${project.title} — ${project.subtitle}`,
     description: project.overview,
-    url: absoluteUrl(path),
+    url: absoluteUrl(`/projects/${project.slug}`),
     image: absoluteUrl(project.coverImage),
     author: { '@id': PERSON_ID },
     creator: { '@id': PERSON_ID },

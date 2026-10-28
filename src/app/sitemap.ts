@@ -1,11 +1,19 @@
 import type { MetadataRoute } from 'next';
+import fs from 'fs';
+import path from 'path';
 import { getAllBlogPosts } from '@/data/blog';
-import { getAllProjects } from '@/lib/projects';
 import { absoluteUrl } from '@/lib/seo';
-import { isUpcoming, trackForCategory, workPath } from '@/lib/work';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const projects = getAllProjects();
+  const dir = path.join(process.cwd(), 'data', 'projects');
+  let projectSlugs: string[] = [];
+  try {
+    projectSlugs = fs
+      .readdirSync(dir)
+      .filter((f) => f.endsWith('.json'))
+      .map((f) => f.replace(/\.json$/, ''));
+  } catch {}
+
   const posts = getAllBlogPosts();
   const now = new Date();
 
@@ -17,16 +25,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: absoluteUrl('/brand-design'),
+      url: absoluteUrl('/projects'),
       lastModified: now,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
-      url: absoluteUrl('/product-design'),
+      url: absoluteUrl('/brand'),
       lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.9,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: absoluteUrl('/product'),
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.85,
     },
     {
       url: absoluteUrl('/about'),
@@ -44,16 +58,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: absoluteUrl('/blog'),
       lastModified: now,
       changeFrequency: 'weekly',
-      priority: 0.7,
+      priority: 0.8,
     },
-    ...projects
-      .filter((project) => !isUpcoming(project))
-      .map((project) => ({
-        url: absoluteUrl(workPath(trackForCategory(project.category), project.slug)),
-        lastModified: now,
-        changeFrequency: 'monthly' as const,
-        priority: 0.7,
-      })),
+    ...projectSlugs.map((slug) => ({
+      url: absoluteUrl(`/projects/${slug}`),
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
     ...posts.map((post) => ({
       url: absoluteUrl(`/blog/${post.slug}`),
       lastModified: new Date(post.dateModified ?? post.datePublished),

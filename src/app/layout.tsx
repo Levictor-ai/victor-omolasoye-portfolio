@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Manrope, Instrument_Serif } from 'next/font/google';
+import { Plus_Jakarta_Sans, Bebas_Neue, Inter } from 'next/font/google';
 import { PortfolioProvider } from '@/context/PortfolioContext';
 import { PageScrollReset } from '@/components/PageScrollReset';
 import { Analytics } from '@/components/Analytics';
@@ -9,29 +9,34 @@ import { personSchema, websiteSchema } from '@/lib/schema';
 import './globals.css';
 
 export const viewport: Viewport = {
-  themeColor: '#FAFAF7',
+  themeColor: '#F2F2F7',
   width: 'device-width',
   initialScale: 1,
 };
 
-const manrope = Manrope({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
-  variable: '--font-manrope',
+  variable: '--font-jakarta',
   display: 'swap',
 });
 
-const instrumentSerif = Instrument_Serif({
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+});
+
+const bebasNeue = Bebas_Neue({
   subsets: ['latin'],
   weight: '400',
-  style: ['normal', 'italic'],
-  variable: '--font-instrument-serif',
+  variable: '--font-bebas-neue',
   display: 'swap',
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${site.name} | ${site.role}`,
+    default: `${site.name} | ${site.role} in Lagos, Nigeria`,
     template: `%s | ${site.name}`,
   },
   description: site.description,
@@ -47,7 +52,7 @@ export const metadata: Metadata = {
   },
   formatDetection: { email: true, address: false, telephone: false },
   openGraph: {
-    title: `${site.name} | ${site.role}`,
+    title: `${site.name} | ${site.role} in Lagos, Nigeria`,
     description: site.description,
     url: SITE_URL,
     siteName: `${site.name} — ${site.roleShort}`,
@@ -57,7 +62,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${site.name} | ${site.role}`,
+    title: `${site.name} | ${site.role} in Lagos, Nigeria`,
     description: site.description,
     site: '@mlevictor21',
     creator: '@mlevictor21',
@@ -89,11 +94,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${manrope.variable} ${instrumentSerif.variable} antialiased`}
-    >
-      <body className="min-h-screen bg-paper font-sans text-ink">
+    <html lang="en" className={`${jakarta.variable} ${bebasNeue.variable} ${inter.variable} antialiased`}>
+      <body className="min-h-screen bg-ios-grouped font-ios text-ios-label">
         <JsonLd data={[personSchema(), websiteSchema()]} />
         <PageScrollReset />
         <PortfolioProvider>{children}</PortfolioProvider>

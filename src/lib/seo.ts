@@ -5,17 +5,17 @@ export const SITE_URL = 'https://omolasoyevictor.com';
 export const site = {
   name: 'Victor Omolasoye',
   title: 'Victor Omolasoye',
-  role: 'Multidisciplinary Designer',
-  roleShort: 'Brand & Product Designer',
-  tagline: 'I design brands and digital experiences.',
+  role: 'Product Designer, Brand Designer & UI/UX Designer',
+  roleShort: 'Product Designer & Engineer',
+  tagline: 'Designing what ideas become.',
   description:
-    'Victor Omolasoye is a multidisciplinary designer working across brand identity and digital product design. He brings ideas to life through thoughtful visual identities and intuitive digital experiences.',
+    'Victor Omolasoye is a product designer, brand designer and UI/UX designer in Lagos, Nigeria. He builds brands, digital products and web experiences with 4+ years of experience across UX research, product design, design systems and front-end development.',
   shortDescription:
-    'Multidisciplinary designer working across brand identity and digital product design.',
+    'Product designer, brand designer and UI/UX designer in Lagos, Nigeria, crafting brands, digital products and web experiences.',
   location: 'Lagos, Nigeria',
   email: 'omolasoyevictorakinyemi@gmail.com',
   image: '/images/victor-profile.jpg',
-  imageAlt: 'Victor Omolasoye, multidisciplinary designer',
+  imageAlt: 'Victor Omolasoye, product and brand designer',
   locale: 'en_NG',
   language: 'en',
   socials: {
@@ -29,23 +29,24 @@ export const site = {
 } as const;
 
 export const primaryKeywords = [
-  'multidisciplinary designer',
-  'brand designer',
   'product designer',
-  'brand identity designer',
+  'brand designer',
   'ui ux designer',
-  'digital experience designer',
-  'brand designer lagos',
+  'web designer',
   'product designer lagos',
-  'brand designer nigeria',
+  'brand designer lagos',
+  'ui ux designer nigeria',
   'product designer nigeria',
-  'brand identity portfolio',
   'product design portfolio',
+  'ux designer portfolio',
+  'brand designer portfolio',
+  'product engineer',
   'design systems designer',
-  'visual identity',
-  'art direction',
-  'freelance brand designer',
+  'user research ux designer',
   'freelance product designer',
+  'visual designer',
+  'graphic designer lagos',
+  'product design services',
 ];
 
 export function absoluteUrl(path = '/'): string {
