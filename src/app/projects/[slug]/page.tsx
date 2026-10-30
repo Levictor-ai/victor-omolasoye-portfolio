@@ -87,6 +87,10 @@ function categoryLabel(category: ProjectData['category']) {
   }
 }
 
+function galleryLabel(project: ProjectData) {
+  return project.category === 'brand' ? 'Gallery' : 'Screens';
+}
+
 function slugify(value: string) {
   return value
     .toLowerCase()
@@ -107,7 +111,7 @@ function getNavItems(project: ProjectData): CaseStudyNavItem[] {
     items.push({ id: 'architecture', label: 'Architecture' });
   if (project.results.length > 0) items.push({ id: 'results', label: 'Results' });
   if (project.testimonial) items.push({ id: 'testimonial', label: 'Testimonial' });
-  if (project.images.length > 0) items.push({ id: 'gallery', label: 'Screens' });
+  if (project.images.length > 0) items.push({ id: 'gallery', label: galleryLabel(project) });
   project.sections?.forEach((section) =>
     items.push({ id: slugify(section.title), label: section.title }),
   );
@@ -418,7 +422,7 @@ function CaseStudyView({ project }: { project: ProjectData }) {
           {/* Screens Gallery */}
           {project.images.length > 0 && (
             <section id="gallery" className="scroll-mt-8">
-              <SectionHeading index={num('gallery')} title="Screens" />
+              <SectionHeading index={num('gallery')} title={galleryLabel(project)} />
               {isStraightLayout ? (
                 <div
                   className={

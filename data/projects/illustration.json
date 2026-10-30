@@ -1,0 +1,87 @@
+{
+  "slug": "illustration",
+  "category": "brand",
+  "personal": true,
+  "title": "Illustration",
+  "subtitle": "Flat Vector & Geometric Character Studies",
+  "role": "Illustrator / Visual Designer",
+  "company": "Independent",
+  "companyUrl": null,
+  "period": "2026",
+  "coverImage": "/images/projects/illustration/cover.png",
+  "color": "#F7B32B",
+  "overview": "A personal series of vector illustrations built from flat colour and simple geometry. Portraits, animals and everyday scenes are reduced to their most recognisable shapes, then given depth through shade, light and confident cropping.",
+  "problem": "Most of my work is systems and interfaces, where every decision has to survive a handoff. I wanted a practice that worked the opposite way: fast, expressive, and judged only on whether the image lands in the first second. The challenge was building a consistent visual language without repeating myself.",
+  "solution": "A single method applied across eight pieces: find the silhouette, block it in flat shapes, add one light source, then let the composition do the rest. Bold crops and limited palettes keep each illustration readable at thumbnail size while still feeling crafted up close.",
+  "targetAudience": ["Brand & Marketing Teams", "Editorial & Content Teams", "Creative Studios"],
+  "regions": ["Global"],
+  "timeline": "Ongoing — 2026",
+  "features": [
+    {
+      "title": "Shape-First Construction",
+      "description": "Every subject starts as a silhouette and is rebuilt from overlapping geometric forms before any detail is added."
+    },
+    {
+      "title": "Flat Colour & Light",
+      "description": "Limited palettes with one clear light source — shadow shapes carry the depth instead of gradients or texture."
+    },
+    {
+      "title": "Character & Animal Studies",
+      "description": "Roughly half the series focuses on faces and animals, testing how much can be removed before the subject loses its character."
+    },
+    {
+      "title": "Editorial Framing",
+      "description": "Tight crops and negative space make each piece work as an article visual, social asset or campaign graphic."
+    }
+  ],
+  "techStack": [
+    { "name": "Adobe Illustrator", "category": "design" },
+    { "name": "Adobe Photoshop", "category": "design" },
+    { "name": "Vector Illustration", "category": "design" },
+    { "name": "Character Design", "category": "design" }
+  ],
+  "architecture": {
+    "title": "",
+    "description": "",
+    "highlights": []
+  },
+  "results": [
+    {
+      "metric": "Illustrations",
+      "value": "8",
+      "description": "Self-initiated pieces in the series"
+    },
+    {
+      "metric": "Style",
+      "value": "Flat & Geometric",
+      "description": "Limited palette, shape-built forms, bold crops"
+    }
+  ],
+  "layout": "case-study",
+  "galleryColumns": 2,
+  "links": [],
+  "images": [
+    { "src": "/images/projects/illustration/01.png", "alt": "Geometric dog portrait in black, cream and red" },
+    { "src": "/images/projects/illustration/02.png", "alt": "Flat vector portrait of a man in a pink cap and blue jacket" },
+    { "src": "/images/projects/illustration/03.png", "alt": "Black cat holding a red apple, flat illustration" },
+    { "src": "/images/projects/illustration/04.png", "alt": "Overhead illustration of a person working on a laptop" },
+    { "src": "/images/projects/illustration/05.png", "alt": "Low-poly study of Girl with a Pearl Earring" },
+    { "src": "/images/projects/illustration/06.png", "alt": "Poodle beside a purple high heel illustration" },
+    { "src": "/images/projects/illustration/07.png", "alt": "Barista pouring milk into a cup, flat illustration" },
+    { "src": "/images/projects/illustration/08.png", "alt": "Two women shoulder to shoulder in a blue and cream flat illustration" }
+  ],
+  "sections": [
+    {
+      "title": "Approach",
+      "content": "Each piece moves through the same five stages: reference, silhouette study, shape blocking, colour, and a single lighting pass. Keeping the steps fixed made the series feel like one body of work instead of eight separate experiments — and made it much easier to spot when an image was drifting off-style."
+    },
+    {
+      "title": "Constraints",
+      "content": "Two rules did most of the heavy lifting. No more than five colours per piece, and every form had to be buildable with the pen tool and a handful of circles. Constraints forced cleaner decisions than any amount of detail would have."
+    },
+    {
+      "title": "Takeaway",
+      "content": "Illustration makes me a better interface designer. Deciding what to remove — from a face, a scene, or a screen — is the same skill in both disciplines, and this series gave me a low-stakes place to practise it weekly."
+    }
+  ]
+}
