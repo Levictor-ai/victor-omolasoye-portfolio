@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import type { ProjectData } from '@/types/project';
+import { projectCategories, projectInCategory } from '@/lib/projectCategories';
 
 const projectsDir = path.join(process.cwd(), 'data', 'projects');
 
@@ -46,7 +47,9 @@ export function getSuggestedProjects(
   if (others.length === 0) return [];
 
   const sameCategory = current
-    ? others.filter((p) => p.category === current.category)
+    ? others.filter((p) =>
+        projectCategories(current).some((cat) => projectInCategory(p, cat)),
+      )
     : [];
 
   const sameCategoryCompleted = sameCategory.filter(

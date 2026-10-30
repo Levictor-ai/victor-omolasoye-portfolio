@@ -14,6 +14,7 @@ import {
 import type { ProjectData } from '@/types/project';
 import { getProject, getSuggestedProjects } from '@/lib/projects';
 import { JsonLd } from '@/components/JsonLd';
+import { projectCategories, projectInCategory } from '@/lib/projectCategories';
 import { breadcrumbSchema, projectSchema } from '@/lib/schema';
 import { pageMetadata } from '@/lib/seo';
 import { ProjectCard } from '@/components/ProjectCard';
@@ -46,12 +47,23 @@ export async function generateMetadata({
       .map((t) => t.name)
       .join(', ')}.`;
 
+  const cats = projectCategories(project);
   const categoryLabel =
-    project.category === 'product'
-      ? 'Product Design'
-      : project.category === 'brand'
-        ? 'Brand Design'
-        : 'Engineering';
+    cats.length > 1
+      ? cats
+          .map((c) =>
+            c === 'product'
+              ? 'Product Design'
+              : c === 'brand'
+                ? 'Brand Design'
+                : 'Engineering',
+          )
+          .join(' & ')
+      : project.category === 'product'
+        ? 'Product Design'
+        : project.category === 'brand'
+          ? 'Brand Design'
+          : 'Engineering';
 
   return pageMetadata({
     title: `${project.title} — ${project.subtitle} | ${categoryLabel} Case Study`,
@@ -88,7 +100,7 @@ function categoryLabel(category: ProjectData['category']) {
 }
 
 function galleryLabel(project: ProjectData) {
-  return project.category === 'brand' ? 'Gallery' : 'Screens';
+  return projectInCategory(project, 'brand') ? 'Gallery' : 'Screens';
 }
 
 function slugify(value: string) {
@@ -201,7 +213,7 @@ function CaseStudyView({ project }: { project: ProjectData }) {
     return i >= 0 ? i + 1 : 0;
   };
 
-  const isStraightLayout = project.category === 'brand' || project.slug === 'veyra';
+  const isStraightLayout = projectInCategory(project, 'brand') || project.slug === 'veyra';
 
   const meta: CaseStudyMetaRow[] = [
     { label: 'Role', value: project.role },
@@ -232,9 +244,16 @@ function CaseStudyView({ project }: { project: ProjectData }) {
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/5" />
           <div className="absolute inset-x-0 bottom-0 p-6 sm:p-10">
-            <span className="inline-flex items-center rounded-full bg-white/15 px-3 py-1 text-xs font-medium uppercase tracking-widest text-white ring-1 ring-inset ring-white/25 backdrop-blur">
-              {categoryLabel(project.category)}
-            </span>
+            <div className="flex flex-wrap items-center gap-2">
+              {projectCategories(project).map((cat) => (
+                <span
+                  key={cat}
+                  className="inline-flex items-center rounded-full bg-white/15 px-3 py-1 text-xs font-medium uppercase tracking-widest text-white ring-1 ring-inset ring-white/25 backdrop-blur"
+                >
+                  {categoryLabel(cat)}
+                </span>
+              ))}
+            </div>
             <h1 className="mt-4 font-ios text-5xl leading-none tracking-tight text-white sm:text-6xl lg:text-7xl">
               <span className="sr-only">
                 {project.title} case study by Victor Omolasoye, {project.role} —{' '}

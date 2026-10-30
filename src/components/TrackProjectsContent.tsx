@@ -12,6 +12,7 @@ import { Eyebrow } from '@/components/ui/Badge';
 import { buttonClass } from '@/components/ui/Button';
 import { cn } from '@/lib/cn';
 import { getOtherTrack, tracks, type Track, type TrackSlug } from '@/lib/tracks';
+import { projectInCategory } from '@/lib/projectCategories';
 import type { ProjectData } from '@/types/project';
 
 const trackOrder: TrackSlug[] = ['brand', 'product'];
@@ -60,9 +61,13 @@ export function TrackProjectsContent({
   const profile = usePortfolio();
   const other = getOtherTrack(track);
 
-  const focused = projects.filter((project) => project.category === track.category);
+  const focused = projects.filter((project) => projectInCategory(project, track.category));
+  const focusedSlugs = new Set(focused.map((project) => project.slug));
   const crossOver = projects
-    .filter((project) => project.category === other.category)
+    .filter(
+      (project) =>
+        projectInCategory(project, other.category) && !focusedSlugs.has(project.slug),
+    )
     .slice(0, 3);
 
   return (

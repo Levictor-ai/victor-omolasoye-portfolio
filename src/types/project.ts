@@ -52,6 +52,8 @@ export type ProjectCategory = 'brand' | 'product' | 'engineering';
 export interface ProjectData {
   slug: string;
   category: ProjectCategory;
+  /** Extra tracks this project belongs to, e.g. work that sits in both brand and product. */
+  categories?: ProjectCategory[];
   personal?: boolean;
   title: string;
   subtitle: string;

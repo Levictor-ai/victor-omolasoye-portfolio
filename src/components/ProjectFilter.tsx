@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { LayoutGrid, PenTool, Smartphone, type Icon } from 'lucide-react';
 import type { ProjectData } from '@/types/project';
+import { projectInCategory } from '@/lib/projectCategories';
 
 export type FilterValue = 'all' | 'brand' | 'product';
 
@@ -52,14 +53,14 @@ export function useProjectFilter(projects: ProjectData[]) {
 
   const counts = {
     all: pool.length,
-    brand: pool.filter((p) => p.category === 'brand').length,
-    product: pool.filter((p) => p.category === 'product').length,
+    brand: pool.filter((p) => projectInCategory(p, 'brand')).length,
+    product: pool.filter((p) => projectInCategory(p, 'product')).length,
   };
 
   const filtered =
     activeCategory === 'all'
       ? pool
-      : pool.filter((project) => project.category === activeCategory);
+      : pool.filter((project) => projectInCategory(project, activeCategory));
 
   const activeLabel =
     projectCategories.find((category) => category.value === activeCategory)?.label ?? 'All';

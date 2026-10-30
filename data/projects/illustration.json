@@ -1,18 +1,19 @@
 {
   "slug": "illustration",
   "category": "brand",
-  "personal": true,
+  "categories": ["brand", "product"],
+  "personal": false,
   "title": "Illustration",
-  "subtitle": "Flat Vector & Geometric Character Studies",
+  "subtitle": "Flat Vector & Geometric Illustration",
   "role": "Illustrator / Visual Designer",
   "company": "Independent",
   "companyUrl": null,
   "period": "2026",
   "coverImage": "/images/projects/illustration/cover.png",
   "color": "#F7B32B",
-  "overview": "A personal series of vector illustrations built from flat colour and simple geometry. Portraits, animals and everyday scenes are reduced to their most recognisable shapes, then given depth through shade, light and confident cropping.",
+  "overview": "A personal series of vector illustrations built from flat colour and simple geometry. Portraits, animals, everyday scenes and pattern work are reduced to their most recognisable shapes, then given depth through shade, light and confident cropping.",
   "problem": "Most of my work is systems and interfaces, where every decision has to survive a handoff. I wanted a practice that worked the opposite way: fast, expressive, and judged only on whether the image lands in the first second. The challenge was building a consistent visual language without repeating myself.",
-  "solution": "A single method applied across eight pieces: find the silhouette, block it in flat shapes, add one light source, then let the composition do the rest. Bold crops and limited palettes keep each illustration readable at thumbnail size while still feeling crafted up close.",
+  "solution": "A single method applied across nine pieces: find the silhouette, block it in flat shapes, add one light source, then let the composition do the rest. Bold crops and limited palettes keep each illustration readable at thumbnail size while still feeling crafted up close.",
   "targetAudience": ["Brand & Marketing Teams", "Editorial & Content Teams", "Creative Studios"],
   "regions": ["Global"],
   "timeline": "Ongoing — 2026",
@@ -32,6 +33,10 @@
     {
       "title": "Editorial Framing",
       "description": "Tight crops and negative space make each piece work as an article visual, social asset or campaign graphic."
+    },
+    {
+      "title": "Pattern & Abstract Work",
+      "description": "Repeatable starburst and wave patterns that push the same flat palette into backgrounds, covers and campaign surfaces."
     }
   ],
   "techStack": [
@@ -48,7 +53,7 @@
   "results": [
     {
       "metric": "Illustrations",
-      "value": "8",
+      "value": "9",
       "description": "Self-initiated pieces in the series"
     },
     {
@@ -68,12 +73,13 @@
     { "src": "/images/projects/illustration/05.png", "alt": "Low-poly study of Girl with a Pearl Earring" },
     { "src": "/images/projects/illustration/06.png", "alt": "Poodle beside a purple high heel illustration" },
     { "src": "/images/projects/illustration/07.png", "alt": "Barista pouring milk into a cup, flat illustration" },
-    { "src": "/images/projects/illustration/08.png", "alt": "Two women shoulder to shoulder in a blue and cream flat illustration" }
+    { "src": "/images/projects/illustration/08.png", "alt": "Two women shoulder to shoulder in a blue and cream flat illustration" },
+    { "src": "/images/projects/illustration/09.png", "alt": "Abstract geometric starburst and wave pattern in a warm flat palette" }
   ],
   "sections": [
     {
       "title": "Approach",
-      "content": "Each piece moves through the same five stages: reference, silhouette study, shape blocking, colour, and a single lighting pass. Keeping the steps fixed made the series feel like one body of work instead of eight separate experiments — and made it much easier to spot when an image was drifting off-style."
+      "content": "Each piece moves through the same five stages: reference, silhouette study, shape blocking, colour, and a single lighting pass. Keeping the steps fixed made the series feel like one body of work instead of nine separate experiments — and made it much easier to spot when an image was drifting off-style."
     },
     {
       "title": "Constraints",

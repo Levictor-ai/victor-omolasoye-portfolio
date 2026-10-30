@@ -3,6 +3,7 @@ import { PortfolioProvider } from '@/context/PortfolioContext';
 import { TrackProjectsContent } from '@/components/TrackProjectsContent';
 import { JsonLd } from '@/components/JsonLd';
 import { getAllProjects } from '@/lib/projects';
+import { projectInCategory } from '@/lib/projectCategories';
 import { breadcrumbSchema, collectionSchema } from '@/lib/schema';
 import { pageMetadata } from '@/lib/seo';
 import { getTrack } from '@/lib/tracks';
@@ -19,7 +20,7 @@ export const metadata: Metadata = pageMetadata({
 export default function BrandTrackPage() {
   const projects = getAllProjects();
   const items = projects
-    .filter((project) => project.category === 'brand')
+    .filter((project) => projectInCategory(project, 'brand'))
     .map((project) => ({ name: project.title, path: `/projects/${project.slug}` }));
 
   return (
