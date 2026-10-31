@@ -40,6 +40,7 @@
     }
   ],
   "techStack": [
+    { "name": "Figma", "category": "design" },
     { "name": "Adobe Illustrator", "category": "design" },
     { "name": "Adobe Photoshop", "category": "design" },
     { "name": "Vector Illustration", "category": "design" },

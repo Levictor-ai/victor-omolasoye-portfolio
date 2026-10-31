@@ -102,7 +102,7 @@ function HeroFrame({ avatar, name, priority = false }: { avatar: string; name: s
       </div>
 
       <div
-        className="absolute -right-4 top-8 w-[8.5rem] rounded-[1.4rem] border border-white/70 bg-white/75 p-3 font-ios shadow-ios backdrop-blur-2xl"
+        className="absolute -right-4 top-8 w-[8.5rem] rounded-[1.4rem] border border-white/70 bg-white/95 p-3 font-ios shadow-ios"
         style={{ animation: 'chip-sway 6s ease-in-out infinite' }}
         aria-hidden="true"
       >
@@ -116,7 +116,7 @@ function HeroFrame({ avatar, name, priority = false }: { avatar: string; name: s
       </div>
 
       <div
-        className="absolute -left-5 bottom-20 flex items-center gap-2 rounded-[1.4rem] border border-white/70 bg-white/75 px-3 py-2.5 font-ios shadow-ios backdrop-blur-2xl"
+        className="absolute -left-5 bottom-20 flex items-center gap-2 rounded-[1.4rem] border border-white/70 bg-white/95 px-3 py-2.5 font-ios shadow-ios"
         style={{ animation: 'chip-sway 7s ease-in-out 0.8s infinite' }}
         aria-hidden="true"
       >
@@ -346,31 +346,16 @@ function ProjectsSection({ projects }: { projects: ProjectData[] }) {
         count={filteredProjects.length}
       />
       {filteredProjects.length > 0 ? (
-        <motion.div layout className="space-y-5 sm:grid sm:gap-6 sm:space-y-0 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {visibleProjects.map((project, i) => (
-            <motion.div
-              key={project.slug}
-              layout
-              initial={{ opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3 }}
-              className="sticky sm:static"
-              style={{ top: `calc(4.5rem + ${Math.min(i, 3) * 0.5}rem)` }}
-            >
+            <div key={project.slug} className="h-full">
               <ProjectCard project={project} index={i} />
-            </motion.div>
+            </div>
           ))}
-          <motion.div
-            layout
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.3 }}
-            className="sticky sm:static"
-            style={{ top: `calc(4.5rem + ${Math.min(visibleProjects.length, 3) * 0.5}rem)` }}
-          >
+          <div className="h-full">
             <Link
               href="/projects"
-              className="group flex h-full min-h-[260px] flex-col items-center justify-center gap-3 rounded-[1.75rem] border border-dashed border-ios-separator-strong bg-white/60 p-6 text-center shadow-ios backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-ios-blue/30 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ios-blue/40"
+              className="group flex h-full min-h-[260px] flex-col items-center justify-center gap-3 rounded-[1.75rem] border border-dashed border-ios-separator-strong bg-white/80 p-6 text-center shadow-ios transition-all duration-300 hover:-translate-y-1 hover:border-ios-blue/30 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ios-blue/40"
             >
               <span className="flex size-12 items-center justify-center rounded-full bg-white text-ios-blue shadow-ios transition-transform duration-300 group-hover:scale-110">
                 <ArrowUpRight className="size-5" strokeWidth={2.2} />
@@ -380,8 +365,8 @@ function ProjectsSection({ projects }: { projects: ProjectData[] }) {
                 See the full collection of work
               </span>
             </Link>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       ) : (
         <p className="text-body-md text-ios-tertiary">
           No projects in this category yet.

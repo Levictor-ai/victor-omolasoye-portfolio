@@ -120,14 +120,13 @@ export function BlogContent({
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: '-50px' }}
-        className="space-y-5 sm:grid sm:gap-5 sm:space-y-0 sm:grid-cols-2"
+        className="grid grid-cols-1 gap-5 sm:grid-cols-2"
       >
         {rest.map((post, i) => (
           <motion.article
             key={post.slug}
             variants={gridItem}
-            className="sticky h-full sm:static"
-            style={{ top: `calc(4.5rem + ${Math.min(i, 3) * 0.5}rem)` }}
+            className="h-full"
           >
             <Card href={`/blog/${post.slug}`} hover className="group h-full">
               <div className="mb-4 flex items-start justify-between gap-4">

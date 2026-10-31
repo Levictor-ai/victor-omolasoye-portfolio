@@ -14,7 +14,7 @@ interface ProjectCardProps {
 }
 
 const CARD_CLASSES =
-  'group relative flex h-full flex-col overflow-hidden rounded-ios-xl border border-ios-separator bg-white/80 font-ios shadow-ios backdrop-blur-xl transition-all duration-300 ease-out hover:-translate-y-1 hover:border-ios-separator-strong hover:bg-white hover:shadow-ios-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ios-blue/40';
+  'group relative flex h-full flex-col overflow-hidden rounded-ios-xl border border-ios-separator bg-white/95 sm:bg-white/80 font-ios shadow-ios sm:backdrop-blur-xl transition-all duration-300 ease-out hover:-translate-y-1 hover:border-ios-separator-strong hover:bg-white hover:shadow-ios-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ios-blue/40';
 
 export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
   const [imgError, setImgError] = useState(false);
@@ -118,7 +118,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      transition={{ duration: 0.4, delay: Math.min(index, 3) * 0.08 }}
       className="h-full"
     >
       {isUpcoming ? (

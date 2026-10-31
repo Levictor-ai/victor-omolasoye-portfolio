@@ -27,10 +27,9 @@ export function AboutSection({
         hidden: {},
         show: { transition: { staggerChildren: 0.1 } },
       }}
-      className="mb-8 bg-ios-grouped py-28 font-ios lg:mb-16 lg:py-40"
-      style={{ width: '100vw', marginLeft: 'calc(50% - 50vw)', overflowX: 'clip' }}
+      className="mb-8 font-ios py-12 lg:mb-16 lg:py-20"
     >
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+      <div className="w-full">
         <motion.div
           variants={{
             hidden: { opacity: 0, y: 20 },

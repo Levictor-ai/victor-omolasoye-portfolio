@@ -20,12 +20,11 @@ export function HowIWork() {
       <Reveal className="mb-8">
         <SectionHeading display title="How I Work" eyebrow="Understand. Explore. Build. Refine." />
       </Reveal>
-      <div className="mx-auto max-w-3xl space-y-5 sm:mx-0 sm:grid sm:max-w-none sm:grid-cols-2 sm:gap-6 sm:space-y-0 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {steps.map((step, i) => (
           <div
             key={step.title}
-            className="sticky sm:static sm:h-full"
-            style={{ top: `calc(4.5rem + ${i * 0.5}rem)` }}
+            className="h-full"
           >
             <Card variant="flat" hover className="h-full min-h-[180px] sm:min-h-[200px]">
               <IconTile variant="soft" size="sm" className="font-ios text-xl font-bold">

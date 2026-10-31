@@ -22,13 +22,13 @@ export function PersonalProjectCard({ project, index = 0 }: PersonalProjectCardP
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      transition={{ duration: 0.4, delay: Math.min(index, 3) * 0.08 }}
     >
       <Link
         href={`/projects/${project.slug}`}
         aria-label={`View ${project.title} case study`}
         onClick={() => track('project_open', { project: project.slug })}
-        className="group relative grid overflow-hidden rounded-ios-xl border border-ios-separator bg-white/80 font-ios shadow-ios backdrop-blur-xl transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-ios-separator-strong hover:bg-white hover:shadow-ios-lg md:grid-cols-[2fr_5fr]"
+        className="group relative grid overflow-hidden rounded-ios-xl border border-ios-separator bg-white/95 sm:bg-white/80 font-ios shadow-ios sm:backdrop-blur-xl transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-ios-separator-strong hover:bg-white hover:shadow-ios-lg md:grid-cols-[2fr_5fr]"
       >
         {/* Cover Image */}
         <div className="relative aspect-video overflow-hidden bg-ios-fill md:aspect-auto md:min-h-[150px]">

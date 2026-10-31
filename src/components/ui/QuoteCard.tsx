@@ -6,7 +6,7 @@ import { cn } from '@/lib/cn';
 export type QuoteVariant = 'default' | 'accent' | 'dark';
 
 const QUOTE_VARIANT: Record<QuoteVariant, string> = {
-  default: 'bg-white/80 border border-ios-separator shadow-ios backdrop-blur-xl',
+  default: 'bg-white/95 sm:bg-white/80 border border-ios-separator shadow-ios sm:backdrop-blur-xl',
   accent: 'bg-ios-blue/10 border border-ios-blue/15',
   dark: 'bg-ios-label border border-white/10 text-white/80',
 };
