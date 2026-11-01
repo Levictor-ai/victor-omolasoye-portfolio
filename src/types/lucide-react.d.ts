@@ -37,4 +37,13 @@ declare module 'lucide-react' {
   export const Mail: Icon;
   export const BadgeCheck: Icon;
   export const FileText: Icon;
+  export const Lock: Icon;
+  export const LogOut: Icon;
+  export const Globe: Icon;
+  export const Globe2: Icon;
+  export const TrendingUp: Icon;
+  export const MousePointerClick: Icon;
+  export const KeyRound: Icon;
+  export const RefreshCw: Icon;
+  export const ShieldCheck: Icon;
 }

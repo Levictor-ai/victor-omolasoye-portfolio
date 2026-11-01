@@ -5,15 +5,20 @@ const APEX_HOST = 'omolasoyevictor.com';
 export function middleware(request: NextRequest) {
   const url = request.nextUrl;
 
-  if (url.hostname === `www.${APEX_HOST}` || url.hostname === APEX_HOST) {
-    if (url.hostname === `www.${APEX_HOST}`) {
-      url.hostname = APEX_HOST;
-      return NextResponse.redirect(url, 308);
-    }
-    return NextResponse.next();
+  if (url.hostname === `www.${APEX_HOST}`) {
+    url.hostname = APEX_HOST;
+    return NextResponse.redirect(url, 308);
   }
 
-  return NextResponse.next();
+  const response = NextResponse.next();
+
+  // The private analytics dashboard must never be indexed or cached.
+  if (url.pathname === '/admin' || url.pathname.startsWith('/admin/')) {
+    response.headers.set('X-Robots-Tag', 'noindex, nofollow, noarchive');
+    response.headers.set('Cache-Control', 'no-store, max-age=0');
+  }
+
+  return response;
 }
 
 export const config = {

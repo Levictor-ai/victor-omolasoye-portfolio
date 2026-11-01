@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans, Bebas_Neue, Inter } from 'next/font/google';
 import { PortfolioProvider } from '@/context/PortfolioContext';
 import { PageScrollReset } from '@/components/PageScrollReset';
 import { Analytics } from '@/components/Analytics';
+import { VisitTracker } from '@/components/VisitTracker';
 import { JsonLd } from '@/components/JsonLd';
 import { primaryKeywords, SITE_URL, site } from '@/lib/seo';
 import { personSchema, websiteSchema } from '@/lib/schema';
@@ -99,6 +100,7 @@ export default function RootLayout({
         <JsonLd data={[personSchema(), websiteSchema()]} />
         <PageScrollReset />
         <PortfolioProvider>{children}</PortfolioProvider>
+        <VisitTracker />
         <Analytics />
       </body>
     </html>
