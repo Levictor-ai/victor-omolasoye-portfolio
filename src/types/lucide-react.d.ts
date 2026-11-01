@@ -46,4 +46,5 @@ declare module 'lucide-react' {
   export const KeyRound: Icon;
   export const RefreshCw: Icon;
   export const ShieldCheck: Icon;
+  export const Download: Icon;
 }

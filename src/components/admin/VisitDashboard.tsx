@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import Link from 'next/link';
-import { LogOut, ShieldCheck } from 'lucide-react';
+import { Download, LogOut, ShieldCheck } from 'lucide-react';
 import { countryFlag, countryName } from '@/lib/countries';
 import {
   RANGE_OPTIONS,
@@ -8,6 +8,7 @@ import {
   type RangeDays,
   type VisitSummary,
 } from '@/lib/visit-store';
+import { LiveSnapshot } from './LiveSnapshot';
 import { SetupNotice } from './SetupNotice';
 import { TrendChart } from './TrendChart';
 
@@ -21,7 +22,10 @@ interface VisitDashboardProps {
 }
 
 export function VisitDashboard({ summary, range, error, storeConfigured }: VisitDashboardProps) {
+  const timeZone = process.env.ANALYTICS_TIMEZONE?.trim() || 'Africa/Lagos';
   const topCountry = summary?.countries[0];
+  const viewsDelta = summary ? change(summary.rangeViews, summary.previousViews) : null;
+  const visitorsDelta = summary ? change(summary.rangeVisitors, summary.previousVisitors) : null;
 
   return (
     <div className="min-h-screen bg-ios-grouped font-ios text-ios-label">
@@ -30,33 +34,43 @@ export function VisitDashboard({ summary, range, error, storeConfigured }: Visit
           <div className="max-w-lg">
             <p className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-ios-tertiary">
               <span className="size-1.5 rounded-full bg-ios-green" aria-hidden="true" />
-              Private
+              Private · hidden from visitors
             </p>
             <h1 className="mt-2 text-[2rem] font-semibold leading-tight tracking-[-0.03em]">
               Portfolio analytics
             </h1>
             <p className="mt-2 text-sm leading-relaxed text-ios-secondary">
-              Page views, visitors, countries, and sources. Hidden from visitors and search
+              Page views, visitors, countries, cities and sources. Hidden from visitors and search
               engines — no public counters anywhere on the site.
             </p>
           </div>
 
           <div className="flex flex-col items-start gap-3 sm:items-end">
-            <div className="inline-flex rounded-full bg-ios-fill p-1">
-              {RANGE_OPTIONS.map((option) => (
-                <Link
-                  key={option}
-                  href={`/admin?range=${option}`}
-                  className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition-colors ${
-                    option === range
-                      ? 'bg-white text-ios-label shadow-ios'
-                      : 'text-ios-tertiary hover:text-ios-label'
-                  }`}
-                  aria-current={option === range ? 'page' : undefined}
-                >
-                  {option}d
-                </Link>
-              ))}
+            <div className="flex flex-wrap items-center gap-2">
+              <div className="inline-flex rounded-full bg-ios-fill p-1">
+                {RANGE_OPTIONS.map((option) => (
+                  <Link
+                    key={option}
+                    href={`/admin?range=${option}`}
+                    className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition-colors ${
+                      option === range
+                        ? 'bg-white text-ios-label shadow-ios'
+                        : 'text-ios-tertiary hover:text-ios-label'
+                    }`}
+                    aria-current={option === range ? 'page' : undefined}
+                  >
+                    {option}d
+                  </Link>
+                ))}
+              </div>
+
+              <a
+                href={`/api/admin/export?range=${range}`}
+                className="inline-flex items-center gap-1.5 rounded-full border border-ios-separator bg-white/80 px-3 py-1.5 text-xs font-semibold text-ios-secondary transition-colors hover:border-ios-separator-strong hover:text-ios-label"
+              >
+                <Download size={13} />
+                CSV
+              </a>
             </div>
 
             <form action="/api/admin/logout" method="post">
@@ -90,11 +104,13 @@ export function VisitDashboard({ summary, range, error, storeConfigured }: Visit
                   label={`Views · ${range}d`}
                   value={number.format(summary.rangeViews)}
                   note={`${number.format(summary.totalViews)} all time`}
+                  badge={viewsDelta}
                 />
                 <StatCard
                   label={`Visitors · ${range}d`}
                   value={number.format(summary.rangeVisitors)}
                   note={`${number.format(summary.totalVisitors)} all time`}
+                  badge={visitorsDelta}
                 />
                 <StatCard
                   label="Countries"
@@ -112,22 +128,27 @@ export function VisitDashboard({ summary, range, error, storeConfigured }: Visit
                 />
               </section>
 
-              <Card title="Daily views" subtitle={`Last ${range} days`}>
-                <TrendChart data={summary.daily} />
-              </Card>
+              <div className="grid gap-4 lg:grid-cols-3">
+                <div className="lg:col-span-2">
+                  <Card title="Daily views" subtitle={`Last ${range} days · ${timeZone}`}>
+                    <TrendChart data={summary.daily} />
+                  </Card>
+                </div>
+
+                <Card title="Right now" subtitle="Refreshes every minute">
+                  <LiveSnapshot
+                    initialHourViews={summary.hourViews}
+                    initialLastVisit={summary.lastVisit}
+                  />
+                </Card>
+              </div>
 
               {summary.rangeViews === 0 ? (
                 <Card title="No visits in this range yet" subtitle="Your tracker is live">
                   <p className="text-sm leading-relaxed text-ios-secondary">
-                    Open the site in another tab or on your phone, then reload this page. If you
-                    just deployed, give it a minute and make sure the Redis variables are set.
+                    Open the site in another tab or on your phone, then this page updates within a
+                    minute. If you just deployed, make sure the Redis variables are set.
                   </p>
-                  <Link
-                    href={`/admin?range=${range}`}
-                    className="mt-4 inline-flex w-fit rounded-full bg-ios-blue px-5 py-2.5 text-sm font-semibold text-white shadow-ios-button transition-colors hover:bg-ios-bluePressed"
-                  >
-                    Refresh
-                  </Link>
                 </Card>
               ) : (
                 <div className="grid gap-4 lg:grid-cols-2">
@@ -141,6 +162,14 @@ export function VisitDashboard({ summary, range, error, storeConfigured }: Visit
                           <span className="truncate">{countryName(row.label)}</span>
                         </span>
                       )}
+                    />
+                  </Card>
+
+                  <Card title="Cities" subtitle="From Vercel edge location">
+                    <Breakdown
+                      rows={summary.cities}
+                      emptyLabel="No city data yet"
+                      renderLabel={(row) => <span className="truncate">{row.label}</span>}
                     />
                   </Card>
 
@@ -186,6 +215,13 @@ export function VisitDashboard({ summary, range, error, storeConfigured }: Visit
                   <Card title="Devices" subtitle="Mobile vs desktop">
                     <Breakdown rows={summary.devices} emptyLabel="No device data yet" />
                   </Card>
+
+                  <Card title="New vs returning" subtitle="Share of visits">
+                    <AudienceSplit
+                      newVisitors={summary.newVisitors}
+                      returning={summary.returningVisitors}
+                    />
+                  </Card>
                 </div>
               )}
             </>
@@ -195,9 +231,10 @@ export function VisitDashboard({ summary, range, error, storeConfigured }: Visit
         <footer className="mt-10 flex items-start gap-2 border-t border-ios-separator pt-6 text-xs leading-relaxed text-ios-tertiary">
           <ShieldCheck size={14} className="mt-0.5 shrink-0" />
           <p>
-            First-party, cookieless tracking. IP addresses are hashed and never stored; country
-            comes from Vercel&apos;s edge headers. Data is kept for 180 days, and visitors who send
-            Do Not Track or Global Privacy Control are not counted at all.
+            First-party, cookieless tracking. IP addresses are hashed and never stored; country and
+            city come from Vercel&apos;s edge headers. Unique visitors are estimated with HyperLogLog
+            (±1%). Data is kept for 180 days, days follow the {timeZone} timezone, and visitors who
+            send Do Not Track or Global Privacy Control are not counted at all.
           </p>
         </footer>
       </div>
@@ -205,12 +242,56 @@ export function VisitDashboard({ summary, range, error, storeConfigured }: Visit
   );
 }
 
-function StatCard({ label, value, note }: { label: string; value: string; note: string }) {
+interface Delta {
+  label: string;
+  tone: 'up' | 'down' | 'flat';
+}
+
+function change(current: number, previous: number): Delta | null {
+  if (previous === 0) {
+    return current > 0 ? { label: 'new activity', tone: 'up' } : null;
+  }
+
+  const percent = Math.round(((current - previous) / previous) * 100);
+  if (percent === 0) return { label: 'same as prev', tone: 'flat' };
+
+  return {
+    label: `${percent > 0 ? '+' : ''}${percent}% vs prev`,
+    tone: percent > 0 ? 'up' : 'down',
+  };
+}
+
+const TONE: Record<Delta['tone'], string> = {
+  up: 'bg-ios-green/10 text-ios-green',
+  down: 'bg-ios-red/10 text-ios-red',
+  flat: 'bg-ios-fill text-ios-tertiary',
+};
+
+function StatCard({
+  label,
+  value,
+  note,
+  badge,
+}: {
+  label: string;
+  value: string;
+  note: string;
+  badge?: Delta | null;
+}) {
   return (
     <div className="rounded-ios-xl border border-ios-separator bg-white/85 p-5 shadow-ios backdrop-blur-xl">
-      <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ios-tertiary">
-        {label}
-      </p>
+      <div className="flex items-start justify-between gap-2">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ios-tertiary">
+          {label}
+        </p>
+        {badge ? (
+          <span
+            className={`shrink-0 rounded-full px-2 py-0.5 text-[10px] font-semibold ${TONE[badge.tone]}`}
+          >
+            {badge.label}
+          </span>
+        ) : null}
+      </div>
       <p className="mt-2 text-3xl font-semibold tracking-[-0.03em] text-ios-label">{value}</p>
       <p className="mt-1 truncate text-xs text-ios-tertiary">{note}</p>
     </div>
@@ -273,5 +354,48 @@ function Breakdown({
         </li>
       ))}
     </ul>
+  );
+}
+
+function AudienceSplit({ newVisitors, returning }: { newVisitors: number; returning: number }) {
+  const total = newVisitors + returning;
+
+  if (total === 0) {
+    return <p className="text-sm text-ios-tertiary">No visits in this range yet.</p>;
+  }
+
+  const newPercent = Math.round((newVisitors / total) * 100);
+  const returningPercent = 100 - newPercent;
+
+  return (
+    <div>
+      <div className="flex h-2 overflow-hidden rounded-full bg-ios-fill">
+        <div className="h-full bg-ios-blue" style={{ width: `${newPercent}%` }} />
+        <div className="h-full bg-ios-teal" style={{ width: `${returningPercent}%` }} />
+      </div>
+
+      <dl className="mt-4 space-y-2 text-sm">
+        <div className="flex items-center justify-between gap-3">
+          <dt className="flex items-center gap-2 text-ios-secondary">
+            <span className="size-2 rounded-full bg-ios-blue" aria-hidden="true" />
+            New visitors
+          </dt>
+          <dd className="font-semibold tabular-nums text-ios-label">
+            {number.format(newVisitors)} · {newPercent}%
+          </dd>
+        </div>
+        <div className="flex items-center justify-between gap-3">
+          <dt className="flex items-center gap-2 text-ios-secondary">
+            <span className="size-2 rounded-full bg-ios-teal" aria-hidden="true" />
+            Returning
+          </dt>
+          <dd className="font-semibold tabular-nums text-ios-label">
+            {number.format(returning)} · {returningPercent}%
+          </dd>
+        </div>
+      </dl>
+
+      <p className="mt-3 text-xs text-ios-tertiary">Returning = seen in the previous 30 days.</p>
+    </div>
   );
 }

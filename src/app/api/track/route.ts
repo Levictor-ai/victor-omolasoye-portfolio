@@ -55,6 +55,17 @@ function countryFromRequest(req: Request): string {
   return code && /^[A-Z]{2}$/.test(code) ? code : 'XX';
 }
 
+function cityFromRequest(req: Request): string {
+  const raw = req.headers.get('x-vercel-ip-city');
+  if (!raw) return 'Unknown';
+
+  try {
+    return decodeURIComponent(raw).trim().slice(0, 80) || 'Unknown';
+  } catch {
+    return raw.trim().slice(0, 80) || 'Unknown';
+  }
+}
+
 export async function POST(req: Request) {
   try {
     if (!isStoreConfigured()) {
@@ -105,6 +116,7 @@ export async function POST(req: Request) {
     await recordVisit({
       path,
       country: countryFromRequest(req),
+      city: cityFromRequest(req),
       referrer: referrerLabel(rawReferrer, host),
       device: deviceFromUserAgent(userAgent),
       visitorId,
