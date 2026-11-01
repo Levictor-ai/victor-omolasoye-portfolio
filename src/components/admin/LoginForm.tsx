@@ -40,7 +40,7 @@ export function LoginForm({ configured }: { configured: boolean }) {
   }
 
   return (
-    <div className="w-full max-w-md rounded-ios-2xl border border-ios-separator bg-white/85 p-7 shadow-ios-lg backdrop-blur-xl sm:p-8">
+    <div className="w-full max-w-md rounded-ios-2xl border border-ios-separator bg-white/85 p-7 shadow-ios-soft-lg backdrop-blur-xl sm:p-8">
       <div className="flex size-11 items-center justify-center rounded-full bg-ios-fill text-ios-blue">
         <Lock size={20} />
       </div>
@@ -79,7 +79,7 @@ export function LoginForm({ configured }: { configured: boolean }) {
           <button
             type="submit"
             disabled={pending || !password}
-            className="w-full rounded-full bg-ios-blue px-6 py-3 text-sm font-semibold text-white shadow-ios-button transition-colors hover:bg-ios-bluePressed disabled:cursor-not-allowed disabled:opacity-50"
+            className="w-full rounded-full bg-ios-blue px-6 py-3 text-sm font-semibold text-white shadow-ios-button-soft transition-colors hover:bg-ios-bluePressed disabled:cursor-not-allowed disabled:opacity-50"
           >
             {pending ? 'Checking…' : 'Open dashboard'}
           </button>

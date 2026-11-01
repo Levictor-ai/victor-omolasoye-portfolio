@@ -54,7 +54,7 @@ export function VisitDashboard({ summary, range, error, storeConfigured }: Visit
                     href={`/admin?range=${option}`}
                     className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition-colors ${
                       option === range
-                        ? 'bg-white text-ios-label shadow-ios'
+                        ? 'bg-white text-ios-label shadow-sm'
                         : 'text-ios-tertiary hover:text-ios-label'
                     }`}
                     aria-current={option === range ? 'page' : undefined}
@@ -89,7 +89,7 @@ export function VisitDashboard({ summary, range, error, storeConfigured }: Visit
           {!storeConfigured ? <SetupNotice compact /> : null}
 
           {error ? (
-            <div className="rounded-ios-xl border border-ios-red/25 bg-white/80 p-5 text-sm text-ios-secondary shadow-ios">
+            <div className="rounded-ios-xl border border-ios-red/25 bg-white/80 p-5 text-sm text-ios-secondary shadow-ios-soft">
               <p className="font-semibold text-ios-label">Could not load analytics</p>
               <p className="mt-1">
                 {error} Check the Redis URL/token in your environment variables and try again.
@@ -279,7 +279,7 @@ function StatCard({
   badge?: Delta | null;
 }) {
   return (
-    <div className="rounded-ios-xl border border-ios-separator bg-white/85 p-5 shadow-ios backdrop-blur-xl">
+    <div className="rounded-ios-xl border border-ios-separator bg-white/85 p-5 shadow-ios-soft backdrop-blur-xl">
       <div className="flex items-start justify-between gap-2">
         <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ios-tertiary">
           {label}
@@ -308,7 +308,7 @@ function Card({
   children: ReactNode;
 }) {
   return (
-    <section className="rounded-ios-xl border border-ios-separator bg-white/85 p-5 shadow-ios backdrop-blur-xl sm:p-6">
+    <section className="rounded-ios-xl border border-ios-separator bg-white/85 p-5 shadow-ios-soft backdrop-blur-xl sm:p-6">
       <div className="flex flex-wrap items-baseline justify-between gap-2">
         <h2 className="text-sm font-semibold tracking-[-0.01em] text-ios-label">{title}</h2>
         {subtitle ? <p className="text-xs text-ios-tertiary">{subtitle}</p> : null}

@@ -8,7 +8,7 @@ const VARS: Array<{ name: string; note: string }> = [
 
 export function SetupNotice({ compact = false }: { compact?: boolean }) {
   return (
-    <div className="rounded-ios-xl border border-ios-orange/30 bg-white/80 p-5 shadow-ios sm:p-6">
+    <div className="rounded-ios-xl border border-ios-orange/30 bg-white/80 p-5 shadow-ios-soft sm:p-6">
       <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-ios-orange">
         Setup needed
       </p>
