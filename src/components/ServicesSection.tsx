@@ -93,12 +93,14 @@ export function ServicesSection() {
         {services.map((service) => (
           <div
             key={service.title}
-            className="h-full"
+            className="h-full group"
           >
-            <div className="h-full min-h-[210px] sm:min-h-0">
-              <IconTile size="lg">{service.icon}</IconTile>
-              <h3 className="text-xl font-bold tracking-tight text-ios-label">{service.title}</h3>
-              <p className="max-w-2xl text-body-md leading-relaxed text-ios-secondary">
+            <div className="relative h-full min-h-[210px] sm:min-h-0 rounded-ios-xl border border-white/70 bg-white/80 px-6 py-6 shadow-sm sm:backdrop-blur-sm transition-all duration-300 ease-out group-hover:-translate-y-1 group-hover:border-ios-blue/30 group-hover:ring-1 group-hover:ring-ios-blue/20 group-hover:shadow-ios-lg">
+              <div className="transition-transform duration-300 group-hover:scale-105 group-hover:text-ios-blue">
+                <IconTile size="lg">{service.icon}</IconTile>
+              </div>
+              <h3 className="mt-4 text-xl font-bold tracking-tight text-ios-label">{service.title}</h3>
+              <p className="mt-2 max-w-2xl text-body-md leading-relaxed text-ios-secondary">
                 {service.description}
               </p>
               <p className="mt-auto max-w-2xl text-sm leading-relaxed text-ios-tertiary">
