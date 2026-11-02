@@ -24,7 +24,7 @@ export function ProjectCard({ project, index = 0, compactPreview = false }: Proj
   const cardContent = (
     <>
       {/* Cover Image */}
-      <div className={`relative m-1.5 mb-0 overflow-hidden rounded-ios-lg bg-ios-fill ${compactPreview ? 'aspect-[3/1]' : 'aspect-[16/10]'}`}>
+      <div className={`relative m-1.5 mb-0 overflow-hidden rounded-ios-lg bg-ios-fill ${compactPreview ? 'aspect-[2/1]' : 'aspect-[16/10]'}`}>
         {project.coverImage && !imgError ? (
           <Image
             src={project.coverImage}
