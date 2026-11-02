@@ -16,6 +16,12 @@ export function ContactForm({ className = '' }: { className?: string }) {
     setStatus('sending');
     const form = e.currentTarget;
     const formData = new FormData(form);
+
+    // Project pages link here with ?project=<slug> so the enquiry can be
+    // attributed to the project that prompted it.
+    const requestedProject = new URLSearchParams(window.location.search).get('project') ?? '';
+    const project = /^[a-z0-9-]{1,80}$/i.test(requestedProject) ? requestedProject : '';
+
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
@@ -24,16 +30,12 @@ export function ContactForm({ className = '' }: { className?: string }) {
           email: formData.get('email'),
           message: formData.get('message'),
           company: formData.get('company'),
+          project,
         }),
         headers: { 'Content-Type': 'application/json' },
       });
       if (res.ok) {
         setStatus('sent');
-
-        // Project pages link here with ?project=<slug> so the enquiry can be
-        // attributed to the project that prompted it.
-        const requestedProject = new URLSearchParams(window.location.search).get('project') ?? '';
-        const project = /^[a-z0-9-]{1,80}$/i.test(requestedProject) ? requestedProject : '';
 
         if (project) {
           track('generate_lead', { method: 'project_enquiry', project });

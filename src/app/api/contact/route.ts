@@ -7,7 +7,7 @@ const TO = process.env.CONTACT_TO_EMAIL ?? 'omolasoyevictorakinyemi@gmail.com';
 
 export async function POST(req: Request) {
   try {
-    const { name, email, message, company } = await req.json();
+    const { name, email, message, company, project } = await req.json();
 
     if (company) {
       return Response.json({ ok: true });
@@ -32,14 +32,26 @@ export async function POST(req: Request) {
       return Response.json({ error: 'Message is too long' }, { status: 400 });
     }
 
+    const projectSlug =
+      typeof project === 'string' && /^[a-z0-9-]{1,80}$/i.test(project) ? project : '';
+
     const resend = new Resend(process.env.RESEND_API_KEY!);
 
     await resend.emails.send({
       from: FROM,
       to: [TO],
-      subject: `Portfolio message from ${name.trim()}`,
+      subject: projectSlug
+        ? `Portfolio project enquiry: ${projectSlug}`
+        : `Portfolio message from ${name.trim()}`,
       replyTo: email.trim(),
-      text: `Name: ${name.trim()}\nEmail: ${email.trim()}\n\nMessage:\n${message.trim()}`,
+      text: [
+        `Name: ${name.trim()}`,
+        `Email: ${email.trim()}`,
+        ...(projectSlug ? [`Project: ${projectSlug}`] : []),
+        '',
+        'Message:',
+        message.trim(),
+      ].join('\n'),
     });
 
     return Response.json({ ok: true });
