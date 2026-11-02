@@ -32,7 +32,7 @@ export function AboutSection({
         hidden: {},
         show: { transition: { staggerChildren: 0.1 } },
       }}
-      className="mb-8 font-ios py-12 lg:mb-16 lg:py-20"
+      className="mb-20 font-ios py-16 lg:py-24"
     >
       <div className="w-full">
         <motion.div
@@ -40,7 +40,7 @@ export function AboutSection({
             hidden: { opacity: 0, y: 20 },
             show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
           }}
-          className="mb-8 sm:mb-10"
+          className="mb-10 lg:mb-16"
         >
           <SectionHeading
             eyebrow="A little context"
@@ -51,7 +51,7 @@ export function AboutSection({
 
         <div
           className={`grid items-start gap-10 ${
-            hasImage ? 'lg:grid-cols-[0.85fr_1.15fr] lg:gap-14' : ''
+            hasImage ? 'lg:grid-cols-[0.85fr_1.15fr] lg:gap-16' : ''
           }`}
         >
           {hasImage && (
@@ -118,7 +118,7 @@ export function AboutSection({
               )}
             </div>
 
-            <div className="mt-8 flex w-full flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <div className="mt-10 flex w-full flex-col gap-4 sm:flex-row sm:flex-wrap">
               <ButtonLink href="/contact" className="w-full px-5 py-4 sm:w-auto">
                 Get in touch
               </ButtonLink>
