@@ -29,8 +29,23 @@ export function ContactForm({ className = '' }: { className?: string }) {
       });
       if (res.ok) {
         setStatus('sent');
-        track('generate_lead', { method: 'contact_form' });
-        trackEvent('contact_form_submit', { label: 'Contact form' });
+
+        // Project pages link here with ?project=<slug> so the enquiry can be
+        // attributed to the project that prompted it.
+        const requestedProject = new URLSearchParams(window.location.search).get('project') ?? '';
+        const project = /^[a-z0-9-]{1,80}$/i.test(requestedProject) ? requestedProject : '';
+
+        if (project) {
+          track('generate_lead', { method: 'project_enquiry', project });
+          trackEvent('project_enquiry_submit', {
+            project,
+            label: `Project enquiry: ${project}`,
+          });
+        } else {
+          track('generate_lead', { method: 'contact_form' });
+          trackEvent('contact_form_submit', { label: 'Contact form' });
+        }
+
         form.reset();
       } else {
         setStatus('error');

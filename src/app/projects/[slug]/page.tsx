@@ -22,6 +22,7 @@ import { BackToTop } from '@/components/BackToTop';
 import { CaseStudySidebar } from '@/components/CaseStudySidebar';
 import type { CaseStudyNavItem, CaseStudyMetaRow } from '@/components/CaseStudySidebar';
 import { Chip } from '@/components/ui/Badge';
+import { ButtonLink } from '@/components/ui/Button';
 import { QuoteCard } from '@/components/ui/QuoteCard';
 import { SiteFooter } from '@/components/SiteFooter';
 import { defaultProfile } from '@/data/profile';
@@ -616,6 +617,40 @@ function MoreProjects({ projects }: { projects: ProjectData[] }) {
   );
 }
 
+function ProjectEnquiry({ project }: { project: ProjectData }) {
+  const tracking = {
+    'data-vo-track': 'contact_button_click',
+    'data-vo-project': project.slug,
+    'data-vo-label': `Project enquiry: ${project.title}`,
+  };
+
+  return (
+    <section className="mt-16 rounded-ios-2xl border border-ios-separator bg-white/80 p-6 shadow-ios-soft sm:p-8">
+      <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ios-tertiary">
+            Next step
+          </p>
+          <h2 className="mt-1 text-xl font-bold tracking-tight text-ios-label sm:text-2xl">
+            Have a similar project in mind?
+          </h2>
+          <p className="mt-1 max-w-xl text-sm leading-relaxed text-ios-secondary">
+            Tell me what you&rsquo;re building and I&rsquo;ll help you shape the next step.
+          </p>
+        </div>
+        <ButtonLink
+          href={`/contact?project=${encodeURIComponent(project.slug)}`}
+          icon={<ArrowUpRight className="size-4" />}
+          className="shrink-0"
+          {...tracking}
+        >
+          Start a conversation
+        </ButtonLink>
+      </div>
+    </section>
+  );
+}
+
 export default async function ProjectPage({
   params,
 }: {
@@ -665,6 +700,7 @@ export default async function ProjectPage({
         </a>
 
         {isGallery ? <GalleryView project={project} /> : <CaseStudyView project={project} />}
+        <ProjectEnquiry project={project} />
         <MoreProjects projects={suggestedProjects} />
       </article>
       <SiteFooter profile={defaultProfile} />

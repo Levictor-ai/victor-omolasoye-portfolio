@@ -24,6 +24,7 @@ import {
   isScrollDepth,
 } from './analytics-events';
 import { getAllProjects } from './projects';
+import { projectCategories } from './projectCategories';
 import type { ProjectData } from '@/types/project';
 
 /* -------------------------------------------------------------------------- */
@@ -88,6 +89,7 @@ export interface ProjectRow {
   name: string;
   url: string;
   category: ProjectCategoryLabel;
+  categories: ProjectCategoryLabel[];
   views: number;
   visitors: number;
   engagementMs: number;
@@ -456,11 +458,14 @@ function projectFromPath(path: string): string {
   return match ? match[1] : '';
 }
 
-function projectCategory(project: ProjectData): ProjectCategoryLabel {
-  if (project.category === 'brand') return 'Brand Design';
-  if (project.category === 'product') return 'Product Design';
-  if (project.category === 'engineering') return 'Web Design';
-  return 'Other';
+const CATEGORY_LABELS: Record<ProjectData['category'], ProjectCategoryLabel> = {
+  brand: 'Brand Design',
+  product: 'Product Design',
+  engineering: 'Web Design',
+};
+
+function projectCategoryLabels(project: ProjectData): ProjectCategoryLabel[] {
+  return Array.from(new Set(projectCategories(project).map((category) => CATEGORY_LABELS[category])));
 }
 
 function splitField(field: string): [string, string] {
@@ -895,10 +900,30 @@ export async function getOverview(range: AnalyticsRange): Promise<OverviewData> 
 
   const rangeVisitors = asNumber(results[union.currentVisitors]);
   const previousVisitors = asNumber(results[union.previousVisitors]);
-  const newVisitors = asNumber(results[union.currentNew]);
-  const returningVisitors = asNumber(results[union.currentReturning]);
-  const previousNewVisitors = asNumber(results[union.previousNew]);
-  const previousReturningVisitors = asNumber(results[union.previousReturning]);
+  const firstTimeVisitors = asNumber(results[union.currentNew]);
+  const firstTimePreviousVisitors = asNumber(results[union.previousNew]);
+  const returningSetVisitors = asNumber(results[union.currentReturning]);
+  const returningSetPreviousVisitors = asNumber(results[union.previousReturning]);
+
+  const v2Covered = Boolean(v2Since && dates[0] >= v2Since);
+  const previousV2Covered = Boolean(v2Since && previousDates[0] >= v2Since);
+
+  // When the whole range uses persistent browser IDs, new visitors are the
+  // first-ever visits inside the range and everyone else is returning. This
+  // keeps the two buckets mutually exclusive and summing to range visitors.
+  const newVisitors = v2Covered
+    ? Math.min(firstTimeVisitors, rangeVisitors)
+    : firstTimeVisitors;
+  const returningVisitors = v2Covered
+    ? Math.max(0, rangeVisitors - newVisitors)
+    : returningSetVisitors;
+
+  const previousNewVisitors = previousV2Covered
+    ? Math.min(firstTimePreviousVisitors, previousVisitors)
+    : firstTimePreviousVisitors;
+  const previousReturningVisitors = previousV2Covered
+    ? Math.max(0, previousVisitors - previousNewVisitors)
+    : returningSetPreviousVisitors;
 
   const avgEngagementMs = sessions > 0 ? engagedMs / sessions : 0;
   const previousAvgEngagementMs = previousSessions > 0 ? previousEngagedMs / previousSessions : 0;
@@ -907,9 +932,6 @@ export async function getOverview(range: AnalyticsRange): Promise<OverviewData> 
   const conversionRate = sessions > 0 ? (conversions / sessions) * 100 : 0;
   const previousConversionRate =
     previousSessions > 0 ? (previousConversions / previousSessions) * 100 : 0;
-
-  const v2Covered = Boolean(v2Since && dates[0] >= v2Since);
-  const previousV2Covered = Boolean(v2Since && previousDates[0] >= v2Since);
 
   return {
     range,
@@ -1081,6 +1103,7 @@ export async function getPagesProjects(
 
   const projectRows: ProjectRow[] = projects.map((project) => {
     const metrics = projectMetrics.get(project.slug) ?? new Map<string, number>();
+    const categories = projectCategoryLabels(project);
     const views = metrics.get('views') ?? 0;
     const engagementMs = metrics.get('engaged_ms') ?? 0;
     const scrollEvents = SCROLL_DEPTHS.reduce(
@@ -1096,7 +1119,8 @@ export async function getPagesProjects(
       slug: project.slug,
       name: project.title,
       url: `/projects/${project.slug}`,
-      category: projectCategory(project),
+      category: categories[0] ?? 'Other',
+      categories,
       views,
       visitors: projectVisitors.get(project.slug) ?? 0,
       engagementMs,
@@ -1112,7 +1136,9 @@ export async function getPagesProjects(
   const filteredProjects =
     category === 'all'
       ? projectRows
-      : projectRows.filter((project) => project.category === category);
+      : projectRows.filter((project) =>
+          project.categories.includes(category as ProjectCategoryLabel),
+        );
 
   const metricKey = ['views', 'visitors', 'engagement', 'clicks', 'conversions'].includes(metric)
     ? metric

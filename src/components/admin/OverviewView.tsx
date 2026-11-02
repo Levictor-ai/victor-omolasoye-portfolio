@@ -31,6 +31,10 @@ export function OverviewView({
       }. Older totals below come from page-view history only.`
     : null;
 
+  const newShare = data.rangeVisitors > 0 ? (data.newVisitors / data.rangeVisitors) * 100 : 0;
+  const returningShare =
+    data.rangeVisitors > 0 ? (data.returningVisitors / data.rangeVisitors) * 100 : 0;
+
   return (
     <div className="space-y-4">
       <SectionHeading
@@ -55,20 +59,20 @@ export function OverviewView({
 
       <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
         <StatCard
-          label="Visitors"
-          value={formatNumber(data.rangeVisitors)}
-          description="Unique anonymous visitors in the selected range."
-          delta={formatDelta(data.rangeVisitors, data.previousVisitors)}
-          hint="Counted with a persistent random ID stored in the visitor's browser. No fingerprinting."
-          note={`All time: ${formatNumber(data.totalVisitors)} visitors`}
-        />
-        <StatCard
           label="Page views"
           value={formatNumber(data.rangeViews)}
           description="Pages viewed in the selected range."
           delta={formatDelta(data.rangeViews, data.previousViews)}
           hint="Every page view is counted, including repeat views in the same session."
           note={`All time: ${formatNumber(data.totalViews)} views`}
+        />
+        <StatCard
+          label="Visitors"
+          value={formatNumber(data.rangeVisitors)}
+          description="Unique anonymous visitors in the selected range."
+          delta={formatDelta(data.rangeVisitors, data.previousVisitors)}
+          hint="Counted with a persistent random ID stored in the visitor's browser. No fingerprinting."
+          note={`All time: ${formatNumber(data.totalVisitors)} visitors`}
         />
         <StatCard
           label="Sessions"
@@ -78,20 +82,28 @@ export function OverviewView({
           hint="A new session starts after 30 minutes of inactivity or in a new browser tab."
         />
         <StatCard
-          label="Conversion rate"
-          value={formatPercent(data.conversionRate)}
-          description="Conversions divided by sessions."
-          delta={formatDelta(data.conversionRate, data.previousConversionRate)}
-          hint="Conversions include contact form submissions, email clicks, CV downloads and booking clicks."
-          note={`${formatNumber(data.conversions)} conversions`}
-        />
-        <StatCard
           label="New visitors"
           value={formatNumber(data.newVisitors)}
           description="First-time anonymous visitors in the range."
           delta={formatDelta(data.newVisitors, data.previousNewVisitors)}
-          hint="A visitor is new when this is the first time their browser ID has been seen."
-          note={`${formatNumber(data.returningVisitors)} returning visitors`}
+          hint="A visitor is new only when their browser ID is seen for the first time, not on every page or session."
+          note={
+            data.v2Covered && data.rangeVisitors > 0
+              ? `${formatPercent(newShare)} of visitors`
+              : undefined
+          }
+        />
+        <StatCard
+          label="Returning visitors"
+          value={formatNumber(data.returningVisitors)}
+          description="Visitors who had been seen before this range."
+          delta={formatDelta(data.returningVisitors, data.previousReturningVisitors)}
+          hint="Unique visitors in the range minus first-time visitors. The two buckets never overlap."
+          note={
+            data.v2Covered && data.rangeVisitors > 0
+              ? `${formatPercent(returningShare)} of visitors`
+              : undefined
+          }
         />
         <StatCard
           label="Avg. engagement"
@@ -108,11 +120,12 @@ export function OverviewView({
           hint="Page views divided by sessions for the selected range."
         />
         <StatCard
-          label="Interactions"
-          value={formatNumber(data.interactions)}
-          description="Clicks and engagement events, excluding page views."
-          delta={formatDelta(data.interactions, data.previousInteractions)}
-          hint="Project cards, navigation, contact, email, LinkedIn, CV, booking and external link clicks."
+          label="Conversion rate"
+          value={formatPercent(data.conversionRate)}
+          description="Conversions divided by sessions."
+          delta={formatDelta(data.conversionRate, data.previousConversionRate)}
+          hint="Conversions include contact form submissions, project enquiries, email clicks, CV downloads and booking clicks."
+          note={`${formatNumber(data.conversions)} conversions`}
         />
       </div>
 

@@ -222,7 +222,7 @@ function pageSections(
         data.projects.map((project) => [
           project.name,
           project.slug,
-          project.category,
+          project.categories.join(' / '),
           project.views,
           project.visitors,
           Math.round(project.avgEngagementMs),

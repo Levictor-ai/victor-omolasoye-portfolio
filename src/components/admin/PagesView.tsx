@@ -127,7 +127,13 @@ export function PagesView({
                 <p className="mt-0.5 truncate font-mono text-[11px] text-ios-tertiary">{project.url}</p>
               </div>
             ),
-            category: <Pill>{project.category}</Pill>,
+            category: (
+              <div className="flex flex-wrap gap-1">
+                {project.categories.map((category) => (
+                  <Pill key={category}>{category}</Pill>
+                ))}
+              </div>
+            ),
             views: formatNumber(project.views),
             visitors: formatNumber(project.visitors),
             engagement: formatDuration(project.avgEngagementMs),

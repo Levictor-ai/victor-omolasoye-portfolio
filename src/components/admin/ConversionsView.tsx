@@ -16,13 +16,13 @@ export function ConversionsView({ data }: { data: ConversionsData }) {
     <div className="space-y-4">
       <SectionHeading
         title="Conversions"
-        description="The moments that create an opportunity: contact form submissions, email clicks, CV downloads and booking clicks."
+        description="The moments that create an opportunity: contact form submissions, project enquiries, email clicks, CV downloads and booking clicks."
       />
 
       {!data.hasData ? (
         <EmptyState
           title="No conversions in this range"
-          description="Conversions are recorded when a visitor submits the contact form, clicks an email link, downloads the CV or starts a booking. Try a wider range."
+          description="Conversions are recorded when a visitor submits the contact form or a project enquiry, clicks an email link, downloads the CV or starts a booking. Try a wider range."
         />
       ) : null}
 
