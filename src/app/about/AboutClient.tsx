@@ -21,6 +21,8 @@ export function AboutClient() {
         <AboutSection
           profile={profile}
           headingClassName="font-ios text-6xl font-bold leading-none tracking-tight text-ios-label sm:text-7xl"
+          showImage={false}
+          extraImage={profile.avatar}
         />
         <ServicesSection />
         <HowIWork />

@@ -1,8 +1,7 @@
 'use client';
 
 import type { ProfileData } from '@/context/PortfolioContext';
-import { renderInline } from '@/lib/inline';
-import { Badge } from '@/components/ui/Badge';
+import { Chip } from '@/components/ui/Badge';
 import { Card } from '@/components/ui/Card';
 import { Reveal, RevealGroup, RevealItem } from '@/components/ui/Reveal';
 import { SectionHeading } from '@/components/ui/SectionHeading';
@@ -45,19 +44,16 @@ export function ExperienceTimeline({
                   <span className="size-2 rounded-full bg-ios-blue" />
                 </span>
                 <Card className="transition-colors hover:border-ios-blue/25">
-                  <Badge variant="muted" size="md">
-                    {exp.period}
-                  </Badge>
-                  <h3 className="mt-3 text-lg font-bold tracking-tight text-ios-label sm:text-xl">
-                    {exp.role}
-                  </h3>
-                  <p className="mt-0.5 text-xs font-bold uppercase tracking-[0.08em] text-ios-blue">
-                    {exp.company}
-                  </p>
-                  {exp.description && (
-                    <div className="mt-3 space-y-3 text-body-sm leading-relaxed text-ios-secondary">
-                      {exp.description.split('\n\n').map((paragraph, pi) => (
-                        <p key={pi}>{renderInline(paragraph)}</p>
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                    <p className="text-sm font-bold tracking-tight text-ios-label">
+                      {exp.company}
+                    </p>
+                    <span className="text-xs text-ios-tertiary">{exp.period}</span>
+                  </div>
+                  {exp.keywords.length > 0 && (
+                    <div className="mt-3 flex flex-wrap gap-1.5">
+                      {exp.keywords.map((keyword) => (
+                        <Chip key={keyword}>{keyword}</Chip>
                       ))}
                     </div>
                   )}

@@ -23,6 +23,7 @@ export function TestimonialsSection({ profile }: { profile: ProfileData }) {
               name={item.author}
               role={item.role}
               company={item.company}
+              avatar={item.avatar ? { src: item.avatar, alt: item.author } : undefined}
             />
           </RevealItem>
         ))}

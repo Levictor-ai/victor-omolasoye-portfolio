@@ -161,6 +161,21 @@
     animation-play-state: paused;
   }
 
+  .marquee-track-reverse {
+    animation: marquee-scroll-reverse var(--marquee-duration, 50s) linear infinite;
+    will-change: transform;
+    transform: translateZ(0);
+  }
+
+  .marquee-track-reverse:hover {
+    animation-play-state: paused;
+  }
+
+  .marquee-fade-y {
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 7%, #000 93%, transparent);
+    mask-image: linear-gradient(to bottom, transparent, #000 7%, #000 93%, transparent);
+  }
+
   /* White hero surface with a soft iOS-blue glow at the top. */
   .bg-hero {
     position: relative;
@@ -276,6 +291,11 @@
   to { transform: translate3d(-50%, 0, 0); }
 }
 
+@keyframes marquee-scroll-reverse {
+  from { transform: translate3d(-50%, 0, 0); }
+  to { transform: translate3d(0, 0, 0); }
+}
+
 @keyframes cursor-blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
@@ -328,12 +348,18 @@
 @media (prefers-reduced-motion: reduce) {
   .animate-ping,
   .marquee-track,
+  .marquee-track-reverse,
   *[style*='animation'] {
     animation: none !important;
   }
 
   .marquee-fade-x {
     overflow-x: auto;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .marquee-fade-y {
     -webkit-mask-image: none;
     mask-image: none;
   }

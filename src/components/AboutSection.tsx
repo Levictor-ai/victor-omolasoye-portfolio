@@ -11,12 +11,17 @@ import { SectionHeading } from '@/components/ui/SectionHeading';
 export function AboutSection({
   profile,
   headingClassName,
-  showImages = true,
+  showImage = true,
+  extraImage,
 }: {
   profile: ProfileData;
   headingClassName?: string;
-  showImages?: boolean;
+  showImage?: boolean;
+  extraImage?: string;
 }) {
+  const hasImage = showImage || !!extraImage;
+  const imageSrc = extraImage ?? profile.avatar;
+
   return (
     <motion.section
       id="about"
@@ -38,89 +43,24 @@ export function AboutSection({
           className="mb-8 sm:mb-10"
         >
           <SectionHeading
+            eyebrow="A little context"
             title="About Me"
             titleClassName={headingClassName}
-            action={
-              <div className="flex w-full shrink-0 flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">
-                {profile.socials.contra && (
-                  <a
-                    href={profile.socials.contra}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={buttonClass({ variant: 'outline', className: 'w-full sm:w-auto' })}
-                  >
-                    <BadgeCheck className="size-4 text-ios-blue" strokeWidth={2.2} />
-                    Hire me on Contra
-                  </a>
-                )}
-                <a
-                  href={profile.resumeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={buttonClass({ variant: 'outline', className: 'w-full sm:w-auto' })}
-                >
-                  <FileText className="size-4 text-ios-blue" strokeWidth={2.2} />
-                  Resume
-                </a>
-              </div>
-            }
           />
         </motion.div>
-        <motion.div
-          variants={{
-            hidden: { opacity: 0, y: 24 },
-            show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-          }}
+
+        <div
+          className={`grid items-start gap-10 ${
+            hasImage ? 'lg:grid-cols-[1.15fr_0.85fr] lg:gap-14' : ''
+          }`}
         >
-          {showImages && (
-            <div className="grid grid-cols-2 gap-4 sm:gap-6">
-            <motion.div
-              initial={{ opacity: 0, x: -40, rotate: -2 }}
-              whileInView={{ opacity: 1, x: 0, rotate: 0 }}
-              viewport={{ once: true, margin: '-60px' }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              whileHover={{ y: -6, scale: 1.02 }}
-              className="group relative aspect-[4/5] w-full overflow-hidden rounded-ios-xl shadow-ios"
-            >
-              <Image
-                src={profile.avatar}
-                alt={profile.name}
-                fill
-                className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                style={{ objectPosition: 'top' }}
-                sizes="(max-width: 1024px) 50vw, 40vw"
-                priority
-              />
-            </motion.div>
-            {profile.avatarAlt ? (
-              <motion.div
-                initial={{ opacity: 0, x: 40, rotate: 2 }}
-                whileInView={{ opacity: 1, x: 0, rotate: 0 }}
-                viewport={{ once: true, margin: '-60px' }}
-                transition={{ duration: 0.6, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
-                whileHover={{ y: -6, scale: 1.02 }}
-                className="group relative aspect-[4/5] w-full overflow-hidden rounded-ios-xl shadow-ios"
-              >
-                <Image
-                  src={profile.avatarAlt}
-                  alt={`${profile.name} working`}
-                  fill
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  style={{ objectPosition: 'top' }}
-                  sizes="(max-width: 1024px) 50vw, 40vw"
-                  priority
-                />
-              </motion.div>
-            ) : (
-              <div className="flex aspect-[4/5] w-full items-center justify-center rounded-ios-xl border border-dashed border-ios-separator-strong bg-white/60">
-                <span className="text-label-sm uppercase tracking-[0.08em] text-ios-tertiary">
-                  Photo coming soon
-                </span>
-              </div>
-            )}
-          </div>
-          )}
-          <div className={showImages ? 'mt-10 lg:mt-12' : ''}>
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 24 },
+              show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+            }}
+            className={hasImage ? 'order-2 lg:order-1' : ''}
+          >
             <div className="prose max-w-none">
               {profile.about.split('\n\n').map((paragraph, i) =>
                 paragraph.startsWith('### ') ? (
@@ -140,16 +80,72 @@ export function AboutSection({
                 ),
               )}
             </div>
-            <div className="mt-8 w-full sm:w-auto">
-              <ButtonLink
-                href="/contact"
-                className="w-full px-5 py-4 sm:w-auto"
-              >
+
+            <div className="mt-8 flex w-full flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <ButtonLink href="/contact" className="w-full px-5 py-4 sm:w-auto">
                 Get in touch
               </ButtonLink>
+              <a
+                href={profile.resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={buttonClass({ variant: 'outline', className: 'w-full sm:w-auto' })}
+              >
+                <FileText className="size-4 text-ios-blue" strokeWidth={2.2} />
+                Resume
+              </a>
+              {profile.socials.contra && (
+                <a
+                  href={profile.socials.contra}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={buttonClass({ variant: 'outline', className: 'w-full sm:w-auto' })}
+                >
+                  <BadgeCheck className="size-4 text-ios-blue" strokeWidth={2.2} />
+                  Hire me on Contra
+                </a>
+              )}
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+
+          {hasImage && (
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              className="order-1 lg:sticky lg:top-24 lg:order-2"
+            >
+              <div className="relative mx-auto w-full max-w-sm">
+                <div
+                  className="pointer-events-none absolute -inset-5 rounded-[2.75rem] bg-gradient-to-br from-ios-blue/20 via-ios-purple/15 to-ios-teal/20 blur-2xl"
+                  aria-hidden="true"
+                />
+                <div className="relative aspect-[4/5] w-full overflow-hidden rounded-ios-xl border border-white/70 bg-ios-fill shadow-ios-lg">
+                  <Image
+                    src={imageSrc}
+                    alt={profile.name}
+                    fill
+                    className="object-cover"
+                    style={{ objectPosition: 'top' }}
+                    sizes="(max-width: 1024px) 80vw, 32vw"
+                    priority
+                  />
+                  <div
+                    className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent"
+                    aria-hidden="true"
+                  />
+                  <div className="absolute inset-x-3 bottom-3 rounded-ios-lg border border-white/40 bg-white/80 px-4 py-3 backdrop-blur-xl">
+                    <p className="text-sm font-semibold text-ios-label">{profile.name}</p>
+                    <p className="mt-0.5 text-xs text-ios-secondary">
+                      {profile.titles[0]} · {profile.location}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </div>
       </div>
     </motion.section>
   );

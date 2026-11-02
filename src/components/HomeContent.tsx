@@ -1,10 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type CSSProperties } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowUpRight, PenTool } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { track } from '@/lib/analytics';
 import { usePortfolio } from '@/context/PortfolioContext';
 import type { ProfileData } from '@/context/PortfolioContext';
@@ -12,13 +12,10 @@ import type { ProjectData } from '@/types/project';
 import { ProjectCard } from '@/components/ProjectCard';
 import { BackToTop } from '@/components/BackToTop';
 import { Nav } from '@/components/Nav';
-import { AboutSection } from '@/components/AboutSection';
-import { ExperienceTimeline } from '@/components/ExperienceTimeline';
 import { SiteFooter } from '@/components/SiteFooter';
 import { Accordion } from '@/components/ui/Accordion';
 import { ButtonLink, buttonClass } from '@/components/ui/Button';
 import { CtaSection } from '@/components/ui/CtaSection';
-import { QuoteCard } from '@/components/ui/QuoteCard';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import {
   useProjectFilter,
@@ -73,57 +70,92 @@ function TypewriterText({ text, className }: { text: string; className?: string 
   );
 }
 
-function HeroFrame({ avatar, name, priority = false }: { avatar: string; name: string; priority?: boolean }) {
+const FLOW_LIMIT = 9;
+
+function ProjectFlowRow({
+  projects,
+  reverse,
+  duration,
+}: {
+  projects: ProjectData[];
+  reverse: boolean;
+  duration: number;
+}) {
+  const loop = [...projects, ...projects];
+
   return (
-    <div className="relative mx-auto w-full max-w-[19rem] sm:max-w-[21rem] xl:max-w-[24rem]">
+    <div className="overflow-hidden">
       <div
-        className="pointer-events-none absolute -inset-8 rounded-[3.5rem] bg-gradient-to-br from-ios-blue/25 via-ios-purple/20 to-ios-teal/25 blur-2xl"
+        className={`flex w-max gap-3 pr-3 ${
+          reverse ? 'marquee-track-reverse' : 'marquee-track'
+        }`}
+        style={{ '--marquee-duration': `${duration}s` } as CSSProperties}
+      >
+        {loop.map((project, i) => (
+          <Link
+            key={`${project.slug}-${i}`}
+            href={`/projects/${project.slug}`}
+            aria-hidden={i >= projects.length || undefined}
+            tabIndex={i >= projects.length ? -1 : undefined}
+            aria-label={i < projects.length ? `View ${project.title}` : undefined}
+            className="group relative aspect-[4/3] w-[11.5rem] shrink-0 overflow-hidden rounded-ios-lg border border-white/70 bg-ios-fill shadow-ios sm:w-[13.5rem] xl:w-[12rem]"
+          >
+            <Image
+              src={project.coverImage}
+              alt={project.title}
+              fill
+              sizes="(max-width: 640px) 184px, 216px"
+              className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+            />
+            <div
+              className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"
+              aria-hidden="true"
+            />
+            <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2 px-3 pb-2.5 pt-6">
+              <div className="min-w-0">
+                <p className="truncate text-[13px] font-semibold leading-tight text-white">
+                  {project.title}
+                </p>
+                <p className="mt-0.5 truncate text-[10px] uppercase tracking-[0.08em] text-white/65">
+                  {project.role}
+                </p>
+              </div>
+              <span className="inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-white/20 text-white opacity-0 backdrop-blur transition-opacity duration-300 group-hover:opacity-100">
+                <ArrowUpRight className="size-3.5" strokeWidth={2.2} />
+              </span>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ProjectFlow({ projects }: { projects: ProjectData[] }) {
+  const showcased = projects.filter((project) => project.coverImage).slice(0, FLOW_LIMIT);
+  if (showcased.length === 0) return null;
+
+  const rowCount = showcased.length >= 6 ? 3 : showcased.length >= 3 ? 2 : 1;
+  const rows = Array.from({ length: rowCount }, (_, row) =>
+    showcased.filter((_, index) => index % rowCount === row),
+  );
+
+  return (
+    <div className="relative w-full">
+      <div
+        className="pointer-events-none absolute -inset-6 rounded-[3rem] bg-gradient-to-br from-ios-blue/20 via-ios-purple/15 to-ios-teal/20 blur-2xl"
         aria-hidden="true"
       />
-
-      <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2.75rem] border-[6px] border-white bg-ios-fill shadow-ios-lg">
-        <Image
-          src={avatar}
-          alt={name}
-          fill
-          className="object-cover"
-          style={{ objectPosition: 'top' }}
-          sizes="(max-width: 768px) 60vw, 24vw"
-          priority={priority}
-        />
-        <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-white/10"
-          aria-hidden="true"
-        />
-        <div className="absolute inset-x-3 bottom-3 rounded-[1.4rem] border border-white/40 bg-white/25 px-4 py-3 backdrop-blur-2xl">
-          <p className="text-sm font-semibold text-white drop-shadow-sm">{name}</p>
-          <p className="text-xs text-white/80">Product Designer · Lagos, NG</p>
-        </div>
-      </div>
-
-      <div
-        className="absolute -right-4 top-8 w-[8.5rem] rounded-[1.4rem] border border-white/70 bg-white/95 p-3 font-ios shadow-ios"
-        style={{ animation: 'chip-sway 6s ease-in-out infinite' }}
-        aria-hidden="true"
-      >
-        <span className="text-[10px] font-semibold uppercase tracking-[0.08em] text-ios-tertiary">
-          Status
-        </span>
-        <div className="mt-1 flex items-center gap-1.5">
-          <span className="size-2 rounded-full bg-ios-green" />
-          <span className="text-xs font-semibold text-ios-label">Open to work</span>
-        </div>
-      </div>
-
-      <div
-        className="absolute -left-5 bottom-20 flex items-center gap-2 rounded-[1.4rem] border border-white/70 bg-white/95 px-3 py-2.5 font-ios shadow-ios"
-        style={{ animation: 'chip-sway 7s ease-in-out 0.8s infinite' }}
-        aria-hidden="true"
-      >
-        <span className="flex size-7 items-center justify-center rounded-[0.6rem] bg-ios-blue text-white shadow-ios-button">
-          <PenTool className="size-3.5" strokeWidth={2.2} />
-        </span>
-        <span className="text-xs font-semibold text-ios-label">Design &amp; Code</span>
+      <div className="marquee-fade-y relative flex flex-col gap-3">
+        {rows.map((row, index) => (
+          <div key={index} className={index === 2 ? 'hidden sm:block' : ''}>
+            <ProjectFlowRow
+              projects={row}
+              reverse={index % 2 === 1}
+              duration={38 + index * 9}
+            />
+          </div>
+        ))}
       </div>
     </div>
   );
@@ -147,7 +179,7 @@ function HeroHeadline() {
       }}
     >
       <span className="sr-only">
-        I design products people understand, trust, and use. â€” Victor Omolasoye, Product
+        I design products people understand, trust, and use. &mdash; Victor Omolasoye, Product
         Designer in Lagos, Nigeria
       </span>
       <span aria-hidden="true" className="block w-full text-balance">
@@ -169,7 +201,21 @@ function HeroHeadline() {
   );
 }
 
-function HeroSection({ profile }: { profile: ProfileData }) {
+function AvailableBanner() {
+  return (
+    <div className="mb-6 flex items-center gap-2.5">
+      <span className="relative flex size-3">
+        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ios-green opacity-75" />
+        <span className="relative inline-flex size-3 rounded-full bg-ios-green" />
+      </span>
+      <span className="text-sm font-medium text-ios-label">
+        Open to work
+      </span>
+    </div>
+  );
+}
+
+function HeroSection({ profile, projects }: { profile: ProfileData; projects: ProjectData[] }) {
   const container = {
     hidden: {},
     show: {
@@ -190,13 +236,26 @@ function HeroSection({ profile }: { profile: ProfileData }) {
       animate="show"
       className="bg-hero flex min-h-[calc(100dvh-57px)] w-full flex-col justify-center pb-16 pt-10 lg:min-h-[calc(100vh-57px)] lg:py-0 lg:pb-24"
     >
-      <div className="mx-auto grid w-full max-w-7xl items-center gap-14 px-6 sm:px-8 lg:grid-cols-[1.35fr_0.65fr] lg:gap-10 lg:px-12">
+      <div className="mx-auto grid w-full max-w-7xl items-center gap-12 px-6 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 lg:px-12">
         <div>
           <motion.div variants={item}><AvailableBanner /></motion.div>
           <motion.div variants={item}>
-              <p className="mb-3 text-2xl font-normal tracking-tight text-ios-label sm:text-3xl">
+            <div className="mb-3 flex items-center gap-3">
+              <div className="relative size-12 shrink-0 overflow-hidden rounded-full border-2 border-white shadow-ios">
+                <Image
+                  src={profile.avatar}
+                  alt={profile.name}
+                  fill
+                  className="object-cover"
+                  style={{ objectPosition: 'top' }}
+                  sizes="48px"
+                  priority
+                />
+              </div>
+              <p className="text-2xl font-normal tracking-tight text-ios-label sm:text-3xl">
                 Hi, <TypewriterText text="I'm Victor Omolasoye" />
               </p>
+            </div>
           </motion.div>
           <motion.div variants={item}>
             <HeroHeadline />
@@ -244,60 +303,12 @@ function HeroSection({ profile }: { profile: ProfileData }) {
               Resume
             </motion.a>
           </motion.div>
-          <motion.div variants={item} className="mt-14 w-full lg:hidden">
-            <HeroFrame avatar="/images/hero-portrait.jpg" name={profile.name} />
-          </motion.div>
         </div>
-        <motion.div variants={item} className="hidden w-full lg:block">
-          <HeroFrame avatar="/images/hero-portrait.jpg" name={profile.name} priority />
+        <motion.div variants={item} className="w-full">
+          <ProjectFlow projects={projects} />
         </motion.div>
       </div>
     </motion.section>
-  );
-}
-
-function AvailableBanner() {
-  return (
-    <div className="mb-6 flex items-center gap-2.5">
-      <span className="relative flex size-3">
-        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ios-green opacity-75" />
-        <span className="relative inline-flex size-3 rounded-full bg-ios-green" />
-      </span>
-      <span className="text-sm font-medium text-ios-label">
-        Open to work
-      </span>
-    </div>
-  );
-}
-
-function TestimonialsCarousel({ profile }: { profile: ProfileData }) {
-  const items = profile.testimonials;
-  if (items.length === 0) return null;
-
-  const loop = [...items, ...items];
-
-  return (
-    <section id="testimonials" className="mb-20">
-      <SectionHeading display title="Testimonials" className="mb-10" />
-      <div className="marquee-fade-x overflow-hidden">
-        <div className="marquee-track flex w-max items-stretch gap-4 py-2 sm:gap-5">
-          {loop.map((item, i) => (
-            <div
-              key={`${item.author}-${i}`}
-              aria-hidden={i >= items.length || undefined}
-              className="w-[82vw] max-w-[470px] shrink-0"
-            >
-              <QuoteCard
-                quote={<>&ldquo;{item.quote}&rdquo;</>}
-                name={item.author}
-                role={item.role}
-                company={item.company}
-              />
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
   );
 }
 
@@ -458,17 +469,10 @@ export function HomeContent({ projects }: { projects: ProjectData[] }) {
     <>
       <Nav avatar={profile.avatar} />
       <main className="min-h-screen">
-        <HeroSection profile={profile} />
+        <HeroSection profile={profile} projects={projects} />
         <div className="mx-auto max-w-7xl px-6 py-6 sm:py-8 sm:px-8 lg:px-12">
           <ProjectsSection projects={projects} />
-        <AboutSection profile={profile} />
-        <ExperienceTimeline
-          profile={profile}
-          eyebrow="Where I’ve worked"
-          headingClassName="mb-1 text-heading-lg font-bold tracking-tight text-ios-label"
-        />
-        <TestimonialsCarousel profile={profile} />
-        <FAQSection profile={profile} />
+          <FAQSection profile={profile} />
           <HomeCtaSection />
         </div>
       </main>
