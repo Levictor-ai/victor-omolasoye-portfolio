@@ -64,7 +64,7 @@ export function ResultsSection() {
         {results.map((result, i) => {
           const row = (
             <div className="group grid gap-4 py-8 transition-transform duration-300 hover:translate-x-1 sm:grid-cols-[4.5rem_1fr] sm:gap-6">
-              <span className="text-5xl font-bold leading-none tracking-tight bg-gradient-to-br from-ios-blue via-ios-purple to-ios-teal bg-clip-text text-transparent">
+              <span className="text-5xl font-bold leading-none tracking-tight bg-gradient-to-br from-ios-blue to-ios-teal bg-clip-text text-transparent">
                 {String(i + 1).padStart(2, '0')}
               </span>
               <div>

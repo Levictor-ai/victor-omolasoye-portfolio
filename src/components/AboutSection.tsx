@@ -64,7 +64,7 @@ export function AboutSection({
             >
               <div className="relative mx-auto w-full max-w-sm rotate-[-3deg] transition-transform duration-500 hover:rotate-0">
                 <div
-                  className="pointer-events-none absolute -inset-5 rounded-[2.75rem] bg-gradient-to-br from-ios-blue/30 via-ios-purple/20 to-ios-teal/30 blur-2xl"
+                  className="pointer-events-none absolute -inset-5 rounded-[2.75rem] bg-gradient-to-br from-ios-blue/30 to-ios-teal/30 blur-2xl"
                   aria-hidden="true"
                 />
                 <div className="relative aspect-[4/5] w-full overflow-hidden rounded-ios-xl border border-white/70 bg-ios-fill shadow-ios-lg ring-1 ring-ios-blue/10">

@@ -138,7 +138,7 @@ function ProjectFlow({ projects }: { projects: ProjectData[] }) {
   return (
     <div className="relative w-full">
       <div
-        className="pointer-events-none absolute -inset-6 rounded-[3rem] bg-gradient-to-br from-ios-blue/20 via-ios-purple/15 to-ios-teal/20 blur-2xl"
+        className="pointer-events-none absolute -inset-6 rounded-[3rem] bg-gradient-to-br from-ios-blue/20 to-ios-teal/20 blur-2xl"
         aria-hidden="true"
       />
       <div className="marquee-fade-x relative">
@@ -402,6 +402,7 @@ function HomeCtaSection() {
           eyebrow="Get in touch"
           title="Let&rsquo;s build something"
           lead="Have an idea? Let&rsquo;s turn it into something people understand, trust, and use."
+          className="max-w-none w-full"
           actions={
             <ButtonLink
               href="/contact"
