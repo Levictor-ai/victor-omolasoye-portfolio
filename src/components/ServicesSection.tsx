@@ -95,7 +95,7 @@ export function ServicesSection() {
             key={service.title}
             className="h-full"
           >
-            <Card variant="flat" hover className="h-full min-h-[210px] sm:min-h-0">
+            <div className="h-full min-h-[210px] sm:min-h-0">
               <IconTile size="lg">{service.icon}</IconTile>
               <h3 className="text-xl font-bold tracking-tight text-ios-label">{service.title}</h3>
               <p className="max-w-2xl text-body-md leading-relaxed text-ios-secondary">
@@ -104,7 +104,7 @@ export function ServicesSection() {
               <p className="mt-auto max-w-2xl text-sm leading-relaxed text-ios-tertiary">
                 {service.skills}
               </p>
-            </Card>
+            </div>
           </div>
         ))}
       </div>
