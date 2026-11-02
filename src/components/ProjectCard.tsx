@@ -11,19 +11,20 @@ import type { ProjectData } from '@/types/project';
 interface ProjectCardProps {
   project: ProjectData;
   index?: number;
+  compactPreview?: boolean;
 }
 
 const CARD_CLASSES =
   'group relative flex h-full flex-col overflow-hidden rounded-ios-xl border border-ios-separator bg-white/95 sm:bg-white/80 font-ios shadow-ios sm:backdrop-blur-xl transition-all duration-300 ease-out hover:-translate-y-1 hover:border-ios-separator-strong hover:bg-white hover:shadow-ios-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ios-blue/40';
 
-export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
+export function ProjectCard({ project, index = 0, compactPreview = false }: ProjectCardProps) {
   const [imgError, setImgError] = useState(false);
   const isUpcoming = !project.period;
 
   const cardContent = (
     <>
       {/* Cover Image */}
-      <div className="relative m-1.5 mb-0 aspect-[16/10] overflow-hidden rounded-ios-lg bg-ios-fill">
+      <div className={`relative m-1.5 mb-0 overflow-hidden rounded-ios-lg bg-ios-fill ${compactPreview ? 'aspect-[2/1]' : 'aspect-[16/10]'}`}>
         {project.coverImage && !imgError ? (
           <Image
             src={project.coverImage}
