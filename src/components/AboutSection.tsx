@@ -51,15 +51,52 @@ export function AboutSection({
 
         <div
           className={`grid items-start gap-10 ${
-            hasImage ? 'lg:grid-cols-[1.15fr_0.85fr] lg:gap-14' : ''
+            hasImage ? 'lg:grid-cols-[0.85fr_1.15fr] lg:gap-14' : ''
           }`}
         >
+          {hasImage && (
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              className="lg:sticky lg:top-24"
+            >
+              <div className="relative mx-auto w-full max-w-sm rotate-[-3deg] transition-transform duration-500 hover:rotate-0">
+                <div
+                  className="pointer-events-none absolute -inset-5 rounded-[2.75rem] bg-gradient-to-br from-ios-blue/30 via-ios-purple/20 to-ios-teal/30 blur-2xl"
+                  aria-hidden="true"
+                />
+                <div className="relative aspect-[4/5] w-full overflow-hidden rounded-ios-xl border border-white/70 bg-ios-fill shadow-ios-lg ring-1 ring-ios-blue/10">
+                  <Image
+                    src={imageSrc}
+                    alt={profile.name}
+                    fill
+                    className="object-cover"
+                    style={{ objectPosition: 'top' }}
+                    sizes="(max-width: 1024px) 80vw, 32vw"
+                    priority
+                  />
+                  <div
+                    className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent"
+                    aria-hidden="true"
+                  />
+                  <div className="absolute inset-x-3 bottom-3 rounded-ios-lg border border-white/40 bg-white/80 px-4 py-3 backdrop-blur-xl">
+                    <p className="text-sm font-semibold text-ios-label">{profile.name}</p>
+                    <p className="mt-0.5 text-xs text-ios-secondary">
+                      {profile.titles[0]} · {profile.location}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          )}
+
           <motion.div
             variants={{
               hidden: { opacity: 0, y: 24 },
               show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
             }}
-            className={hasImage ? 'order-2 lg:order-1' : ''}
           >
             <div className="prose max-w-none">
               {profile.about.split('\n\n').map((paragraph, i) =>
@@ -107,44 +144,6 @@ export function AboutSection({
               )}
             </div>
           </motion.div>
-
-          {hasImage && (
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-60px' }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="order-1 lg:sticky lg:top-24 lg:order-2"
-            >
-              <div className="relative mx-auto w-full max-w-sm">
-                <div
-                  className="pointer-events-none absolute -inset-5 rounded-[2.75rem] bg-gradient-to-br from-ios-blue/20 via-ios-purple/15 to-ios-teal/20 blur-2xl"
-                  aria-hidden="true"
-                />
-                <div className="relative aspect-[4/5] w-full overflow-hidden rounded-ios-xl border border-white/70 bg-ios-fill shadow-ios-lg">
-                  <Image
-                    src={imageSrc}
-                    alt={profile.name}
-                    fill
-                    className="object-cover"
-                    style={{ objectPosition: 'top' }}
-                    sizes="(max-width: 1024px) 80vw, 32vw"
-                    priority
-                  />
-                  <div
-                    className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent"
-                    aria-hidden="true"
-                  />
-                  <div className="absolute inset-x-3 bottom-3 rounded-ios-lg border border-white/40 bg-white/80 px-4 py-3 backdrop-blur-xl">
-                    <p className="text-sm font-semibold text-ios-label">{profile.name}</p>
-                    <p className="mt-0.5 text-xs text-ios-secondary">
-                      {profile.titles[0]} · {profile.location}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          )}
         </div>
       </div>
     </motion.section>

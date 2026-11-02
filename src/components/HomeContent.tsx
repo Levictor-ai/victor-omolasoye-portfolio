@@ -10,6 +10,7 @@ import { usePortfolio } from '@/context/PortfolioContext';
 import type { ProfileData } from '@/context/PortfolioContext';
 import type { ProjectData } from '@/types/project';
 import { ProjectCard } from '@/components/ProjectCard';
+import { projectInCategory } from '@/lib/projectCategories';
 import { BackToTop } from '@/components/BackToTop';
 import { Nav } from '@/components/Nav';
 import { SiteFooter } from '@/components/SiteFooter';
@@ -69,7 +70,7 @@ function TypewriterText({ text, className }: { text: string; className?: string 
   );
 }
 
-const FLOW_LIMIT = 5;
+
 
 function ProjectFlowRow({
   projects,
@@ -131,13 +132,8 @@ function ProjectFlowRow({
 }
 
 function ProjectFlow({ projects }: { projects: ProjectData[] }) {
-  const showcased = projects.filter((project) => project.coverImage).slice(0, FLOW_LIMIT);
+  const showcased = projects.filter((project) => project.coverImage).slice(0, 6);
   if (showcased.length === 0) return null;
-
-  const rowCount = showcased.length >= 6 ? 3 : showcased.length >= 3 ? 2 : 1;
-  const rows = Array.from({ length: rowCount }, (_, row) =>
-    showcased.filter((_, index) => index % rowCount === row),
-  );
 
   return (
     <div className="relative w-full">
@@ -145,16 +141,8 @@ function ProjectFlow({ projects }: { projects: ProjectData[] }) {
         className="pointer-events-none absolute -inset-6 rounded-[3rem] bg-gradient-to-br from-ios-blue/20 via-ios-purple/15 to-ios-teal/20 blur-2xl"
         aria-hidden="true"
       />
-      <div className="marquee-fade-y relative flex flex-col gap-3">
-        {rows.map((row, index) => (
-          <div key={index} className={index === 2 ? 'hidden sm:block' : ''}>
-            <ProjectFlowRow
-              projects={row}
-              reverse={index % 2 === 1}
-              duration={38 + index * 9}
-            />
-          </div>
-        ))}
+      <div className="marquee-fade-x relative">
+        <ProjectFlowRow projects={showcased} reverse={false} duration={46} />
       </div>
     </div>
   );
@@ -226,6 +214,11 @@ function HeroSection({ profile, projects }: { profile: ProfileData; projects: Pr
     hidden: { opacity: 0, y: 24 },
     show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
   };
+
+  const heroProjects = [
+    ...projects.filter((project) => projectInCategory(project, 'product')).slice(0, 3),
+    ...projects.filter((project) => projectInCategory(project, 'brand')).slice(0, 3),
+  ];
 
   return (
     <motion.section
@@ -304,7 +297,7 @@ function HeroSection({ profile, projects }: { profile: ProfileData; projects: Pr
           </motion.div>
         </div>
         <motion.div variants={item} className="w-full">
-          <ProjectFlow projects={projects} />
+          <ProjectFlow projects={heroProjects} />
         </motion.div>
       </div>
     </motion.section>
