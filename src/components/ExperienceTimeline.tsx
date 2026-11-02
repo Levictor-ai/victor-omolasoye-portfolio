@@ -50,6 +50,9 @@ export function ExperienceTimeline({
                     </p>
                     <span className="text-xs text-ios-tertiary">{exp.period}</span>
                   </div>
+                  <p className="mt-1 text-sm font-medium tracking-tight text-ios-secondary">
+                    {exp.role}
+                  </p>
                   {exp.keywords.length > 0 && (
                     <div className="mt-3 flex flex-wrap gap-1.5">
                       {exp.keywords.map((keyword) => (
