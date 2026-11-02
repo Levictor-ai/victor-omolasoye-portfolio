@@ -1,6 +1,7 @@
 'use client';
 
-import { Card } from '@/components/ui/Card';
+import Link from 'next/link';
+import { ArrowUpRight } from 'lucide-react';
 import { Reveal } from '@/components/ui/Reveal';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 
@@ -59,23 +60,42 @@ export function ResultsSection() {
           eyebrow="Concrete outcomes from my projects and experience"
         />
       </Reveal>
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {results.map((result) => (
-          <div
-            key={result.title}
-            className="h-full"
-          >
-            <Card href={result.href} variant="flat" hover className="h-full min-h-[200px] sm:min-h-0">
-              <span className="text-[11px] font-semibold uppercase tracking-wider text-ios-blue">
-                {result.project}
+      <div className="divide-y divide-ios-separator/80">
+        {results.map((result, i) => {
+          const row = (
+            <div className="group grid gap-4 py-8 transition-transform duration-300 hover:translate-x-1 sm:grid-cols-[4.5rem_1fr] sm:gap-6">
+              <span className="text-5xl font-bold leading-none tracking-tight bg-gradient-to-br from-ios-blue via-ios-purple to-ios-teal bg-clip-text text-transparent">
+                {String(i + 1).padStart(2, '0')}
               </span>
-              <h3 className="text-lg font-bold tracking-tight text-ios-label">{result.title}</h3>
-              <p className="max-w-2xl text-body-md leading-relaxed text-ios-secondary">
-                {result.description}
-              </p>
-            </Card>
-          </div>
-        ))}
+              <div>
+                <div className="flex items-center gap-3">
+                  <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-ios-blue">
+                    {result.project}
+                  </span>
+                  {result.href && (
+                    <span className="grid size-7 place-items-center rounded-full bg-ios-fill text-ios-secondary transition-all duration-300 group-hover:bg-ios-blue group-hover:text-white">
+                      <ArrowUpRight className="size-3.5" strokeWidth={2.2} />
+                    </span>
+                  )}
+                </div>
+                <h3 className="mt-3 text-2xl font-bold tracking-tight text-ios-label sm:text-3xl">
+                  {result.title}
+                </h3>
+                <p className="mt-3 max-w-3xl text-body-md leading-relaxed text-ios-secondary">
+                  {result.description}
+                </p>
+              </div>
+            </div>
+          );
+
+          return result.href ? (
+            <Link key={result.title} href={result.href} className="block">
+              {row}
+            </Link>
+          ) : (
+            <div key={result.title}>{row}</div>
+          );
+        })}
       </div>
     </section>
   );

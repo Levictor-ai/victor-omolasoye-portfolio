@@ -1,7 +1,5 @@
 'use client';
 
-import { Card } from '@/components/ui/Card';
-import { IconTile } from '@/components/ui/IconTile';
 import { Reveal } from '@/components/ui/Reveal';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 
@@ -20,23 +18,35 @@ export function HowIWork() {
       <Reveal className="mb-8">
         <SectionHeading display title="How I Work" eyebrow="Understand. Explore. Build. Refine." />
       </Reveal>
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {steps.map((step, i) => (
-          <div
-            key={step.title}
-            className="h-full"
-          >
-            <Card variant="flat" hover className="h-full min-h-[180px] sm:min-h-[200px]">
-              <IconTile variant="soft" size="sm" className="font-ios text-xl font-bold">
+      <div className="relative pl-8 sm:pl-12">
+        <div
+          className="absolute left-[15px] top-3 bottom-3 w-px bg-gradient-to-b from-ios-blue via-ios-purple to-ios-teal sm:left-[23px]"
+          aria-hidden="true"
+        />
+        <div className="space-y-6 sm:space-y-8">
+          {steps.map((step, i) => (
+            <div key={step.title} className="relative">
+              <div className="absolute -left-8 top-1 flex size-8 items-center justify-center rounded-full border border-white/70 bg-gradient-to-br from-ios-blue to-ios-purple text-xs font-bold text-white shadow-ios sm:-left-12 sm:size-10 sm:text-sm">
                 {String(i + 1).padStart(2, '0')}
-              </IconTile>
-              <h3 className="text-lg font-bold tracking-tight text-ios-label sm:text-xl">
-                {step.title}
-              </h3>
-              <p className="max-w-2xl text-body-md leading-relaxed text-ios-secondary">{step.body}</p>
-            </Card>
-          </div>
-        ))}
+              </div>
+              <div className="rounded-ios-xl border border-ios-separator bg-white/80 p-5 shadow-ios backdrop-blur-xl transition-transform duration-300 hover:-translate-y-0.5 sm:p-6">
+                <div className="flex items-center gap-3">
+                  <h3 className="text-lg font-bold tracking-tight text-ios-label sm:text-xl">
+                    {step.title}
+                  </h3>
+                  {i < steps.length - 1 && (
+                    <span className="hidden text-xs font-medium uppercase tracking-[0.18em] text-ios-tertiary sm:inline">
+                      then
+                    </span>
+                  )}
+                </div>
+                <p className="mt-2 max-w-2xl text-body-md leading-relaxed text-ios-secondary">
+                  {step.body}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
