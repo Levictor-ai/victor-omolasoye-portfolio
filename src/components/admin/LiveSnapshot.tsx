@@ -1,21 +1,18 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { eventLabel } from '@/lib/analytics-events';
+import { formatDateTime, formatNumber, pageLabel, timeAgo } from '@/lib/analytics-format';
+import type { LiveStats } from '@/lib/analytics-store';
 import { countryFlag, countryName } from '@/lib/countries';
-import type { LastVisit } from '@/lib/visit-store';
+import { Breakdown } from './ui';
 
-const number = new Intl.NumberFormat('en-US');
+const POLL_MS = 60_000;
 
-interface LiveSnapshotProps {
-  initialHourViews: number;
-  initialLastVisit: LastVisit | null;
-}
-
-/** Polls a two-command endpoint so the busy card stays fresh cheaply. */
-export function LiveSnapshot({ initialHourViews, initialLastVisit }: LiveSnapshotProps) {
-  const [hourViews, setHourViews] = useState(initialHourViews);
-  const [lastVisit, setLastVisit] = useState<LastVisit | null>(initialLastVisit);
+export function LiveSnapshot({ initial }: { initial: LiveStats }) {
+  const [stats, setStats] = useState<LiveStats>(initial);
   const [now, setNow] = useState<number | null>(null);
+  const [failed, setFailed] = useState(false);
 
   useEffect(() => {
     setNow(Date.now());
@@ -31,21 +28,18 @@ export function LiveSnapshot({ initialHourViews, initialLastVisit }: LiveSnapsho
         const response = await fetch('/api/admin/live', { cache: 'no-store' });
         if (!response.ok || cancelled) return;
 
-        const data = (await response.json()) as {
-          hourViews?: number;
-          lastVisit?: LastVisit | null;
-        };
+        const data = (await response.json()) as Partial<LiveStats>;
+        if (cancelled || typeof data.activeVisitors !== 'number') return;
 
-        if (cancelled) return;
-        if (typeof data.hourViews === 'number') setHourViews(data.hourViews);
-        setLastVisit(data.lastVisit ?? null);
+        setStats((current) => ({ ...current, ...data }));
+        setFailed(false);
         setNow(Date.now());
       } catch {
-        // Keep the last known values.
+        if (!cancelled) setFailed(true);
       }
     };
 
-    const timer = window.setInterval(load, 60_000);
+    const timer = window.setInterval(load, POLL_MS);
     return () => {
       cancelled = true;
       window.clearInterval(timer);
@@ -54,44 +48,74 @@ export function LiveSnapshot({ initialHourViews, initialLastVisit }: LiveSnapsho
 
   return (
     <div>
-      <p className="text-3xl font-semibold tracking-[-0.03em]">{number.format(hourViews)}</p>
-      <p className="mt-1 text-xs text-ios-tertiary">views this hour</p>
+      <div className="grid grid-cols-3 gap-2">
+        <LiveMetric value={formatNumber(stats.activeVisitors)} label="active now" />
+        <LiveMetric value={formatNumber(stats.last60mViews)} label="views · 60 min" />
+        <LiveMetric value={formatNumber(stats.hourViews)} label="views · this hour" />
+      </div>
 
-      {lastVisit ? (
-        <div className="mt-4 border-t border-ios-separator pt-4 text-sm">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ios-tertiary">
-            Last visit
-          </p>
-          <p className="mt-1.5 font-medium text-ios-label">
-            {now === null ? 'just now' : timeAgo(lastVisit.timestamp, now)}
-          </p>
-          <p className="mt-1 text-ios-secondary">
-            {countryFlag(lastVisit.country)}{' '}
-            {lastVisit.city !== 'Unknown' ? `${lastVisit.city}, ` : ''}
-            {countryName(lastVisit.country)}
-          </p>
-          <p className="mt-1 truncate font-mono text-xs text-ios-tertiary">{lastVisit.path}</p>
-        </div>
-      ) : (
-        <p className="mt-4 border-t border-ios-separator pt-4 text-sm text-ios-tertiary">
-          No visits recorded yet.
+      <div className="mt-4 border-t border-ios-separator pt-4">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ios-tertiary">
+          Most active pages
         </p>
-      )}
+        <div className="mt-2">
+          <Breakdown
+            rows={stats.mostActivePages}
+            emptyLabel="No page views in the last hour."
+            showPercent={false}
+            limit={4}
+            renderLabel={(row) => (
+              <span className="truncate" title={row.label}>
+                {pageLabel(row.label)}
+              </span>
+            )}
+          />
+        </div>
+      </div>
+
+      <div className="mt-4 border-t border-ios-separator pt-4">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ios-tertiary">
+          Recent activity
+        </p>
+        {stats.recent.length > 0 ? (
+          <ul className="mt-2 space-y-2.5">
+            {stats.recent.slice(0, 5).map((item) => (
+              <li key={item.id} className="flex items-start justify-between gap-3 text-sm">
+                <div className="min-w-0">
+                  <p className="truncate font-medium text-ios-label">
+                    {eventLabel(item.event)}
+                    <span className="font-normal text-ios-tertiary"> · {pageLabel(item.path)}</span>
+                  </p>
+                  <p className="mt-0.5 truncate text-[11px] text-ios-tertiary">
+                    {countryFlag(item.country)} {countryName(item.country)} · {item.device}
+                  </p>
+                </div>
+                <span
+                  className="shrink-0 text-[11px] tabular-nums text-ios-tertiary"
+                  title={formatDateTime(item.ts)}
+                >
+                  {now ? timeAgo(item.ts, now) : formatDateTime(item.ts)}
+                </span>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="mt-2 text-sm text-ios-tertiary">No activity recorded yet today.</p>
+        )}
+      </div>
+
+      <p className="mt-4 text-[11px] text-ios-tertiary">
+        {failed ? 'Live updates paused — showing the last known values.' : 'Updates every 60 seconds while this tab is visible.'}
+      </p>
     </div>
   );
 }
 
-function timeAgo(timestamp: number, now: number): string {
-  const seconds = Math.max(0, Math.floor((now - timestamp) / 1000));
-
-  if (seconds < 45) return 'just now';
-
-  const minutes = Math.round(seconds / 60);
-  if (minutes < 60) return `${minutes} min ago`;
-
-  const hours = Math.round(minutes / 60);
-  if (hours < 24) return `${hours} hour${hours === 1 ? '' : 's'} ago`;
-
-  const days = Math.round(hours / 24);
-  return `${days} day${days === 1 ? '' : 's'} ago`;
+function LiveMetric({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="rounded-ios border border-ios-separator bg-ios-grouped/70 px-2.5 py-2">
+      <p className="text-xl font-semibold tracking-[-0.02em] text-ios-label">{value}</p>
+      <p className="mt-0.5 text-[10px] leading-tight text-ios-tertiary">{label}</p>
+    </div>
+  );
 }

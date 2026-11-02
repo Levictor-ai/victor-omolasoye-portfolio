@@ -21,3 +21,17 @@ export function track(name: string, params?: EventParams) {
     window.gtag('event', name, params ?? {});
   }
 }
+
+/**
+ * Sends a first-party analytics event through the VisitTracker.
+ * Used for events that cannot be inferred from a click, such as form success.
+ */
+export function trackEvent(name: string, params?: EventParams) {
+  if (typeof window === 'undefined') return;
+
+  window.dispatchEvent(
+    new CustomEvent('vo:track', {
+      detail: { name, params: params ?? {} },
+    }),
+  );
+}

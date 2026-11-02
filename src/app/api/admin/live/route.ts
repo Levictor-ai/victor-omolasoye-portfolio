@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { hasAdminSession } from '@/lib/admin-auth';
 import { isStoreConfigured } from '@/lib/redis';
-import { getLiveStats } from '@/lib/visit-store';
+import { getLiveStats } from '@/lib/analytics-store';
 
 export const dynamic = 'force-dynamic';
 
@@ -16,7 +16,12 @@ export async function GET() {
 
   try {
     const stats = await getLiveStats();
-    return NextResponse.json(stats, { headers: { 'Cache-Control': 'no-store' } });
+    return NextResponse.json(stats, {
+      headers: {
+        'Cache-Control': 'no-store',
+        'X-Robots-Tag': 'noindex, nofollow, noarchive',
+      },
+    });
   } catch {
     return NextResponse.json({ error: 'Unavailable' }, { status: 500 });
   }

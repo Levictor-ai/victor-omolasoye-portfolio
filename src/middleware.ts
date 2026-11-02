@@ -13,7 +13,11 @@ export function middleware(request: NextRequest) {
   const response = NextResponse.next();
 
   // The private analytics dashboard must never be indexed or cached.
-  if (url.pathname === '/admin' || url.pathname.startsWith('/admin/')) {
+  if (
+    url.pathname === '/admin' ||
+    url.pathname.startsWith('/admin/') ||
+    url.pathname.startsWith('/api/admin')
+  ) {
     response.headers.set('X-Robots-Tag', 'noindex, nofollow, noarchive');
     response.headers.set('Cache-Control', 'no-store, max-age=0');
   }

@@ -47,29 +47,43 @@ export async function redisCommand<T = unknown>(command: RedisCommand): Promise<
   return data.result ?? null;
 }
 
-/** Runs several commands in a single round trip. Returns results in order. */
+/**
+ * Runs several commands in as few round trips as possible. Returns results in order.
+ * Large pipelines are chunked so a 90-day dashboard query stays within Upstash limits.
+ */
 export async function redisPipeline<T = unknown>(commands: RedisCommand[]): Promise<T[]> {
   const cfg = config();
   if (!cfg) return [];
   if (commands.length === 0) return [];
 
-  const res = await fetch(`${cfg.url}/pipeline`, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${cfg.token}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(commands),
-    cache: 'no-store',
-  });
+  const CHUNK_SIZE = 250;
+  const results: T[] = [];
 
-  if (!res.ok) {
-    throw new Error(`Redis pipeline failed with status ${res.status}`);
+  for (let start = 0; start < commands.length; start += CHUNK_SIZE) {
+    const chunk = commands.slice(start, start + CHUNK_SIZE);
+
+    const res = await fetch(`${cfg.url}/pipeline`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${cfg.token}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(chunk),
+      cache: 'no-store',
+    });
+
+    if (!res.ok) {
+      throw new Error(`Redis pipeline failed with status ${res.status}`);
+    }
+
+    const data = (await res.json()) as RedisResponse<T>[];
+    results.push(
+      ...data.map((entry) => {
+        if (entry.error) throw new Error(entry.error);
+        return entry.result as T;
+      }),
+    );
   }
 
-  const data = (await res.json()) as RedisResponse<T>[];
-  return data.map((entry) => {
-    if (entry.error) throw new Error(entry.error);
-    return entry.result as T;
-  });
+  return results;
 }

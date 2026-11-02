@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { track } from '@/lib/analytics';
+import { track, trackEvent } from '@/lib/analytics';
 import { Button } from '@/components/ui/Button';
 
 const inputClass =
@@ -30,6 +30,7 @@ export function ContactForm({ className = '' }: { className?: string }) {
       if (res.ok) {
         setStatus('sent');
         track('generate_lead', { method: 'contact_form' });
+        trackEvent('contact_form_submit', { label: 'Contact form' });
         form.reset();
       } else {
         setStatus('error');
