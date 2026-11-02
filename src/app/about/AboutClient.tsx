@@ -9,6 +9,8 @@ import { ResultsSection } from '@/components/ResultsSection';
 import { ToolsSection } from '@/components/ToolsSection';
 import { TestimonialsSection } from '@/components/TestimonialsSection';
 import { ExperienceTimeline } from '@/components/ExperienceTimeline';
+import { Accordion } from '@/components/ui/Accordion';
+import { SectionHeading } from '@/components/ui/SectionHeading';
 import { BackToTop } from '@/components/BackToTop';
 
 export function AboutClient() {
@@ -29,6 +31,14 @@ export function AboutClient() {
         <ResultsSection />
         <ToolsSection />
         <TestimonialsSection profile={profile} />
+        {profile.faqs.length > 0 && (
+          <section id="faq" className="mb-20">
+            <div className="mb-8">
+              <SectionHeading title="Frequently Asked Questions" />
+            </div>
+            <Accordion items={profile.faqs} variant="card" />
+          </section>
+        )}
         <ExperienceTimeline profile={profile} />
       </main>
       <BackToTop />

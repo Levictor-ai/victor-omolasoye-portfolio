@@ -13,7 +13,6 @@ import { ProjectCard } from '@/components/ProjectCard';
 import { BackToTop } from '@/components/BackToTop';
 import { Nav } from '@/components/Nav';
 import { SiteFooter } from '@/components/SiteFooter';
-import { Accordion } from '@/components/ui/Accordion';
 import { ButtonLink, buttonClass } from '@/components/ui/Button';
 import { CtaSection } from '@/components/ui/CtaSection';
 import { SectionHeading } from '@/components/ui/SectionHeading';
@@ -70,7 +69,7 @@ function TypewriterText({ text, className }: { text: string; className?: string 
   );
 }
 
-const FLOW_LIMIT = 9;
+const FLOW_LIMIT = 5;
 
 function ProjectFlowRow({
   projects,
@@ -236,7 +235,7 @@ function HeroSection({ profile, projects }: { profile: ProfileData; projects: Pr
       animate="show"
       className="bg-hero flex min-h-[calc(100dvh-57px)] w-full flex-col justify-center pb-16 pt-10 lg:min-h-[calc(100vh-57px)] lg:py-0 lg:pb-24"
     >
-      <div className="mx-auto grid w-full max-w-7xl items-center gap-12 px-6 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 lg:px-12">
+      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-6 sm:px-8 lg:gap-10 lg:px-12">
         <div>
           <motion.div variants={item}><AvailableBanner /></motion.div>
           <motion.div variants={item}>
@@ -315,7 +314,7 @@ function HeroSection({ profile, projects }: { profile: ProfileData; projects: Pr
 function ProjectsSection({ projects }: { projects: ProjectData[] }) {
   const { activeCategory, setActiveCategory, counts, filtered: filteredProjects, activeLabel } =
     useProjectFilter(projects);
-  const visibleProjects = filteredProjects.slice(0, 4);
+  const visibleProjects = filteredProjects.slice(0, 5);
 
   return (
     <motion.section
@@ -357,7 +356,7 @@ function ProjectsSection({ projects }: { projects: ProjectData[] }) {
         count={filteredProjects.length}
       />
       {filteredProjects.length > 0 ? (
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2">
           {visibleProjects.map((project, i) => (
             <div key={project.slug} className="h-full">
               <ProjectCard project={project} index={i} />
@@ -383,42 +382,6 @@ function ProjectsSection({ projects }: { projects: ProjectData[] }) {
           No projects in this category yet.
         </p>
       )}
-    </motion.section>
-  );
-}
-
-function FAQSection({ profile }: { profile: ProfileData }) {
-  if (profile.faqs.length === 0) return null;
-
-  return (
-    <motion.section
-      id="faq"
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, margin: '-50px' }}
-      variants={{
-        hidden: {},
-        show: { transition: { staggerChildren: 0.08 } },
-      }}
-      className="mb-20"
-    >
-      <motion.div
-        variants={{
-          hidden: { opacity: 0, y: 20 },
-          show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-        }}
-        className="mb-8"
-      >
-        <SectionHeading title="Frequently Asked Questions" />
-      </motion.div>
-      <motion.div
-        variants={{
-          hidden: { opacity: 0, y: 20 },
-          show: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 } },
-        }}
-      >
-        <Accordion items={profile.faqs} variant="card" />
-      </motion.div>
     </motion.section>
   );
 }
@@ -472,7 +435,6 @@ export function HomeContent({ projects }: { projects: ProjectData[] }) {
         <HeroSection profile={profile} projects={projects} />
         <div className="mx-auto max-w-7xl px-6 py-6 sm:py-8 sm:px-8 lg:px-12">
           <ProjectsSection projects={projects} />
-          <FAQSection profile={profile} />
           <HomeCtaSection />
         </div>
       </main>

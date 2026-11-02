@@ -136,7 +136,7 @@ export function TrackProjectsContent({
           </div>
 
           {focused.length > 0 ? (
-            <div className="space-y-5 sm:grid sm:grid-cols-2 sm:gap-6 sm:space-y-0 lg:grid-cols-3">
+            <div className="space-y-5 sm:grid sm:grid-cols-2 sm:gap-6 sm:space-y-0 lg:grid-cols-2">
               {focused.map((project, i) => (
                 <ProjectCard key={project.slug} project={project} index={i} />
               ))}
@@ -164,7 +164,7 @@ export function TrackProjectsContent({
                   : 'These brand systems are where the product language starts. Seeing both together shows how the visual decisions hold from identity through to interface.'}
               </p>
             </div>
-            <div className="space-y-5 sm:grid sm:grid-cols-2 sm:gap-6 sm:space-y-0 lg:grid-cols-3">
+            <div className="space-y-5 sm:grid sm:grid-cols-2 sm:gap-6 sm:space-y-0 lg:grid-cols-2">
               {crossOver.map((project, i) => (
                 <ProjectCard key={project.slug} project={project} index={i} />
               ))}

@@ -56,7 +56,15 @@ export const defaultProfile: ProfileData = {
   tagline: 'Designing what ideas become.',
   bio: 'Product engineer with a passion for crafting scalable digital experiences.',
   about:
-    'I’m Victor Omolasoye, a multidisciplinary designer with a background in English and Education and over three years of experience designing across brand, product, and digital experiences.\n\nI started designing out of a fascination with visual communication, but over time, my interest grew beyond how things look into how they work, how people interact with them, and how ideas can be transformed into meaningful experiences.\n\nToday, I work across **brand design, UI/UX, product design, and web experiences**. I combine design thinking, visual communication, and AI powered tools to take ideas from concept to tangible digital experiences. I enjoy being involved throughout the process, from understanding the problem and shaping the experience to developing visual systems, prototyping solutions, and bringing ideas to life.\n\nMy background in English has strengthened the way I think about communication. I care about clarity, storytelling, structure, and creating experiences where both the visual and verbal language feel intentional.\n\nI’m especially interested in the intersection of **design, technology, AI, and human behaviour**, and I’m constantly exploring new ways to create products that are useful, intuitive, accessible, and meaningful.\n\nTo me, design is not simply about making things look good. **It’s about giving ideas form, making them understandable, and creating experiences that work.**',
+    `## A little about me
+
+I'm Victor Omolasoye, a curious and creative person who enjoys exploring ideas, learning new things, and understanding how the world works.
+
+Outside design, I'm drawn to storytelling, films (especially K-dramas), music, faith, and technology. I'm naturally observant and reflective, and I enjoy finding inspiration in everyday experiences.
+
+My journey into design began in 2020 through curiosity and experimentation. What started with graphic design has evolved into brand identity, product design, web experiences, and AI-assisted development. I enjoy turning ideas into meaningful experiences, solving problems, and making complex things easier to understand.
+
+I'm always exploring the intersection of creativity, technology, and human experiences, driven by a desire to keep growing, create with purpose, and make meaningful contributions.`,
   avatar: '/images/victor-profile.jpg',
   email: 'omolasoyevictorakinyemi@gmail.com',
   location: 'Lagos, Nigeria',

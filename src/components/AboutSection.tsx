@@ -63,12 +63,12 @@ export function AboutSection({
           >
             <div className="prose max-w-none">
               {profile.about.split('\n\n').map((paragraph, i) =>
-                paragraph.startsWith('### ') ? (
+                paragraph.startsWith('### ') || paragraph.startsWith('## ') ? (
                   <h3
                     key={i}
                     className="mb-5 text-heading-md font-bold tracking-tight text-ios-label"
                   >
-                    {renderInline(paragraph.slice(4))}
+                    {renderInline(paragraph.startsWith('### ') ? paragraph.slice(4) : paragraph.slice(3))}
                   </h3>
                 ) : (
                   <p
