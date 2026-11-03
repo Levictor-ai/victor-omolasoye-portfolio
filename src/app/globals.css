@@ -345,10 +345,21 @@
   to { transform: translate3d(-50%, 0, 0); }
 }
 
+/* Slowly drifting ambient glow used by the footer motion. */
+@keyframes footer-drift {
+  0%, 100% { transform: translate3d(-8%, -6%, 0) scale(1); }
+  50% { transform: translate3d(8%, 6%, 0) scale(1.12); }
+}
+
+.animate-footer-drift {
+  animation: footer-drift 18s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-ping,
   .marquee-track,
   .marquee-track-reverse,
+  .animate-footer-drift,
   *[style*='animation'] {
     animation: none !important;
   }

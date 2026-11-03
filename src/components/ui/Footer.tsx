@@ -37,8 +37,12 @@ export function Footer({
   className,
 }: FooterProps) {
   return (
-    <footer className={cn('border-t border-white/20 bg-ios-navy font-ios', className)}>
-      <div className="mx-auto w-full max-w-7xl px-6 py-12 sm:px-8 sm:py-16 lg:px-12">
+    <footer className={cn('relative overflow-hidden border-t border-white/20 bg-ios-navy font-ios', className)}>
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute -top-24 -left-24 h-96 w-96 animate-footer-drift rounded-full bg-ios-electric/25 blur-[120px]" />
+        <div className="absolute -bottom-24 -right-24 h-96 w-96 animate-footer-drift rounded-full bg-ios-teal/20 blur-[120px] [animation-delay:9s]" />
+      </div>
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-12 sm:px-8 sm:py-16 lg:px-12">
         <div className="lg:grid lg:grid-cols-[1.4fr_repeat(3,1fr)] lg:gap-12">
           <div className="flex flex-col gap-4">
             <Link href={brand.href ?? '/'} className="flex w-fit items-center gap-3">
@@ -51,10 +55,10 @@ export function Footer({
                   className="size-10 rounded-full object-cover ring-1 ring-ios-separator"
                 />
               )}
-              <span className="text-lg font-bold tracking-tight text-ios-label">{brand.name}</span>
+              <span className="text-lg font-bold tracking-tight text-white">{brand.name}</span>
             </Link>
             {brand.tagline && (
-              <p className="max-w-xs text-sm leading-relaxed text-ios-secondary">{brand.tagline}</p>
+              <p className="max-w-xs text-sm leading-relaxed text-white/70">{brand.tagline}</p>
             )}
             {socials.length > 0 && (
               <div className="flex gap-2">
