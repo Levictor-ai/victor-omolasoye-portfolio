@@ -26,7 +26,7 @@ export function HowIWork() {
         <div className="space-y-6 sm:space-y-8">
           {steps.map((step, i) => (
             <div key={step.title} className="relative">
-              <div className="absolute -left-8 top-1 flex size-8 items-center justify-center rounded-full border border-white/70 bg-gradient-to-br from-ios-blue to-ios-teal text-xs font-bold text-white shadow-ios sm:-left-12 sm:size-10 sm:text-sm">
+              <div               className="absolute -left-8 top-1 flex size-8 items-center justify-center rounded-full border border-white/70 bg-ios-blue text-xs font-bold text-white shadow-ios sm:-left-12 sm:size-10 sm:text-sm">
                 {String(i + 1).padStart(2, '0')}
               </div>
               <div className="rounded-ios-xl border border-ios-separator bg-white/80 p-5 shadow-ios backdrop-blur-xl transition-transform duration-300 hover:-translate-y-0.5 sm:p-6">
@@ -34,11 +34,6 @@ export function HowIWork() {
                   <h3 className="text-lg font-bold tracking-tight text-ios-label sm:text-xl">
                     {step.title}
                   </h3>
-                  {i < steps.length - 1 && (
-                    <span className="hidden text-xs font-medium uppercase tracking-[0.18em] text-ios-tertiary sm:inline">
-                      then
-                    </span>
-                  )}
                 </div>
                 <p className="mt-2 max-w-2xl text-body-md leading-relaxed text-ios-secondary">
                   {step.body}

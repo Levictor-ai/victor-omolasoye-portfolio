@@ -159,7 +159,7 @@ function HeroHeadline() {
         fontFamily:
           '-apple-system, BlinkMacSystemFont, "SF Pro Display", var(--font-inter), system-ui, sans-serif',
         color: '#1C1C1E',
-        fontWeight: 700,
+        fontWeight: 600,
         fontSize: 'clamp(2.75rem,6.5vw,5.25rem)',
         lineHeight: 1.02,
         letterSpacing: '-0.045em',
