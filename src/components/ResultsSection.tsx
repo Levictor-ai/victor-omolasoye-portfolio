@@ -61,7 +61,7 @@ export function ResultsSection() {
           />
         </Reveal>
       </div>
-      <div className="divide-y divide-ios-separator/80 py-12">
+      <div className="divide-y divide-ios-separator/80 py-12 px-6 sm:px-8 lg:px-12">
         {results.map((result, i) => {
           const row = (
             <div className="group grid gap-4 py-8 transition-transform duration-300 hover:translate-x-1 sm:grid-cols-[4.5rem_1fr] sm:gap-6">
