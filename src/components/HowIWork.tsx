@@ -29,7 +29,7 @@ export function HowIWork() {
               <div               className="absolute -left-8 top-1 flex size-8 items-center justify-center rounded-full border border-ios-electric/30 bg-ios-electric text-xs font-bold text-white shadow-ios sm:-left-12 sm:size-10 sm:text-sm">
                 {String(i + 1).padStart(2, '0')}
               </div>
-              <div className="rounded-ios-xl border border-ios-electric/20 bg-ios-pale p-5 shadow-ios backdrop-blur-xl transition-transform duration-300 hover:-translate-y-0.5 sm:p-6">
+              <div className="rounded-ios-xl border border-ios-electric/20 bg-white p-5 shadow-ios backdrop-blur-xl transition-transform duration-300 hover:-translate-y-0.5 sm:p-6">
                 <div className="flex items-center gap-3">
                   <h3 className="text-lg font-bold tracking-tight text-ios-ink sm:text-xl">
                     {step.title}

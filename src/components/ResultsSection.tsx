@@ -50,7 +50,7 @@ const results = [
 
 export function ResultsSection() {
   return (
-    <section id="results" className="mb-20 bg-ios-navy text-white">
+    <section id="results" className="mb-20 bg-ios-navy text-white mx-[calc(50%-50vw)]">
       <Reveal className="mb-8">
         <SectionHeading
           display

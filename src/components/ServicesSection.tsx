@@ -85,7 +85,7 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <section id="services" className="mb-20 bg-ios-pale">
+    <section id="services" className="mb-20">
       <Reveal className="mb-8">
         <SectionHeading display title="Services" eyebrow="What I can do for you" />
       </Reveal>

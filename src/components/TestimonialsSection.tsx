@@ -14,7 +14,7 @@ export function TestimonialsSection({ profile }: { profile: ProfileData }) {
   const loop = [...items, ...items];
 
   return (
-    <section id="testimonials" className="mb-20 bg-ios-pale">
+    <section id="testimonials" className="mb-20">
       <Reveal className="mb-8">
         <SectionHeading display title="Testimonials" eyebrow="What people say about working with me" />
       </Reveal>
