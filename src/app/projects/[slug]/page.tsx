@@ -693,11 +693,11 @@ export default async function ProjectPage({
       <article className="w-full px-6 py-12">
           <a
             href="/projects"
-            className="mb-10 inline-flex items-center gap-2 text-sm text-white/70 transition-colors hover:text-white"
+            className="mb-10 inline-flex items-center gap-2 text-sm text-ios-ink transition-colors hover:text-ios-electric"
           >
-          <ArrowUpRight className="size-4 rotate-180" />
-          Back to projects
-        </a>
+            <ArrowUpRight className="size-4 rotate-180" />
+            Back to projects
+          </a>
 
         {isGallery ? <GalleryView project={project} /> : <CaseStudyView project={project} />}
         <ProjectEnquiry project={project} />
