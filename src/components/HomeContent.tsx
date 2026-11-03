@@ -226,7 +226,7 @@ function HeroSection({ profile, projects }: { profile: ProfileData; projects: Pr
       variants={container}
       initial="hidden"
       animate="show"
-      className="bg-hero flex min-h-[calc(100dvh-57px)] w-full flex-col justify-center pb-16 pt-10 lg:min-h-[calc(100vh-57px)] lg:py-0 lg:pb-24"
+      className="bg-hero flex min-h-[calc(100dvh-57px)] w-full flex-col pt-16 pb-16 lg:min-h-[calc(100vh-57px)] lg:pt-24 lg:pb-24"
     >
       <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-6 sm:px-8 lg:gap-10 lg:px-12">
         <div>
