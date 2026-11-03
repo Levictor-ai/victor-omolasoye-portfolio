@@ -484,11 +484,11 @@ function CaseStudyView({ project }: { project: ProjectData }) {
           {/* My Role */}
           {project.role && (
             <section id="my-role" className="scroll-mt-8">
-              <SectionHeading index={num('my-role')} title="My Role" />
+              <SectionHeading index={num('my-role')} title="Product Designer" />
               <div className="max-w-3xl space-y-6">
                 <p className="text-xl font-semibold text-ios-label">{project.role}</p>
                 <p className="text-sm leading-relaxed text-ios-tertiary">
-                  TODO: Add detail on what Victor personally owned vs. what was handled collaboratively for this project.
+                  As a Product Designer, I contributed to translating the team's ideas into a functional and user-centred product experience. My individual responsibilities included developing user flows, structuring interface layouts, creating wireframes, designing UI screens, and prototyping key interactions. I collaborated with other team members on product ideation, feature discussions, refining requirements, reviewing design decisions, and improving the overall user experience.
                 </p>
               </div>
             </section>
@@ -532,7 +532,7 @@ function CaseStudyView({ project }: { project: ProjectData }) {
                             <p className="mt-2 text-sm leading-relaxed text-ios-tertiary">{block.description}</p>
                           )}
                           {block.images.length > 0 && (
-                            <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+                            <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-2">
                               {block.images.map((img) => (
                                 <figure
                                   key={img.src}
@@ -553,7 +553,7 @@ function CaseStudyView({ project }: { project: ProjectData }) {
                       {remaining.length > 0 && (
                         <div className="border-t border-ios-separator pt-5">
                           <h3 className="font-semibold text-ios-label">Additional screens</h3>
-                          <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+                          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-2">
                             {remaining.map((img) => (
                               <figure
                                 key={img.src}
