@@ -226,8 +226,9 @@ type SolutionBlock = {
   images: ProjectImage[];
 };
 
-function getSolutionBlocks(project: ProjectData): SolutionBlock[] {
+function getSolutionBlocks(project: ProjectData): { blocks: SolutionBlock[]; remaining: ProjectImage[] } {
   const blocks: SolutionBlock[] = [];
+  const usedImageSrcs = new Set<string>();
 
   if (project.slug === 'hapnan') {
     const onboarding = project.images.filter((img) =>
@@ -255,11 +256,13 @@ function getSolutionBlocks(project: ProjectData): SolutionBlock[] {
       description: featureDescription('Event Reminders & Notifications'),
       images: planning,
     });
-    return blocks;
+
+    const used = new Set([...onboarding, ...discovery, ...planning].map((i) => i.src));
+    const remaining = project.images.filter((img) => !used.has(img.src));
+    return { blocks, remaining };
   }
 
   const screensByFeature: Record<string, ProjectImage[]> = {};
-  const usedImageSrcs = new Set<string>();
   for (const feature of project.features) {
     const words = feature.title
       .toLowerCase()
@@ -282,7 +285,9 @@ function getSolutionBlocks(project: ProjectData): SolutionBlock[] {
       images: screensByFeature[feature.title] ?? [],
     });
   }
-  return blocks;
+
+  const remaining = project.images.filter((img) => !usedImageSrcs.has(img.src));
+  return { blocks, remaining };
 }
 
 function CaseStudyView({ project }: { project: ProjectData }) {
@@ -516,31 +521,58 @@ function CaseStudyView({ project }: { project: ProjectData }) {
             <section id="solution" className="scroll-mt-8">
               <SectionHeading index={num('solution')} title="The Solution" />
               <div className="space-y-0">
-                {getSolutionBlocks(project).map((block) => (
-                  <div key={block.key} className="border-t border-ios-separator pt-5">
-                    <h3 className="font-semibold text-ios-label">{block.title}</h3>
-                    {block.description && (
-                      <p className="mt-2 text-sm leading-relaxed text-ios-tertiary">{block.description}</p>
-                    )}
-                    {block.images.length > 0 && (
-                      <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-                        {block.images.map((img) => (
-                          <figure
-                            key={img.src}
-                            className="overflow-hidden rounded-ios-xl bg-white/80 shadow-ios ring-1 ring-ios-separator"
-                          >
-                            <Image src={img.src} alt={img.alt} width={1200} height={900} className="h-auto w-full object-cover" />
-                            {img.caption && (
-                              <figcaption className="px-3 py-2 text-xs text-ios-tertiary">
-                                {img.caption}
-                              </figcaption>
-                            )}
-                          </figure>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ))}
+                {(() => {
+                  const { blocks, remaining } = getSolutionBlocks(project);
+                  return (
+                    <>
+                      {blocks.map((block) => (
+                        <div key={block.key} className="border-t border-ios-separator pt-5">
+                          <h3 className="font-semibold text-ios-label">{block.title}</h3>
+                          {block.description && (
+                            <p className="mt-2 text-sm leading-relaxed text-ios-tertiary">{block.description}</p>
+                          )}
+                          {block.images.length > 0 && (
+                            <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+                              {block.images.map((img) => (
+                                <figure
+                                  key={img.src}
+                                  className="overflow-hidden rounded-ios-xl bg-white/80 shadow-ios ring-1 ring-ios-separator"
+                                >
+                                  <Image src={img.src} alt={img.alt} width={1200} height={900} className="h-auto w-full object-cover" />
+                                  {img.caption && (
+                                    <figcaption className="px-3 py-2 text-xs text-ios-tertiary">
+                                      {img.caption}
+                                    </figcaption>
+                                  )}
+                                </figure>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                      {remaining.length > 0 && (
+                        <div className="border-t border-ios-separator pt-5">
+                          <h3 className="font-semibold text-ios-label">Additional screens</h3>
+                          <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+                            {remaining.map((img) => (
+                              <figure
+                                key={img.src}
+                                className="overflow-hidden rounded-ios-xl bg-white/80 shadow-ios ring-1 ring-ios-separator"
+                              >
+                                <Image src={img.src} alt={img.alt} width={1200} height={900} className="h-auto w-full object-cover" />
+                                {img.caption && (
+                                  <figcaption className="px-3 py-2 text-xs text-ios-tertiary">
+                                    {img.caption}
+                                  </figcaption>
+                                )}
+                              </figure>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </>
+                  );
+                })()}
               </div>
             </section>
           )}
