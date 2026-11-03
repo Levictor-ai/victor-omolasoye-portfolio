@@ -49,7 +49,11 @@ export function useProjectFilter(projects: ProjectData[]) {
     return () => window.removeEventListener('popstate', onPopState);
   }, []);
 
-  const pool = projects.filter((p) => !p.personal);
+  const pool = projects.filter((p) => !p.personal).sort((a, b) => {
+    if (a.featured && !b.featured) return -1;
+    if (!a.featured && b.featured) return 1;
+    return 0;
+  });
 
   const counts = {
     all: pool.length,

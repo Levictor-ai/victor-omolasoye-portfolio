@@ -55,6 +55,8 @@ export interface ProjectData {
   /** Extra tracks this project belongs to, e.g. work that sits in both brand and product. */
   categories?: ProjectCategory[];
   personal?: boolean;
+  /** When true, the project is pinned to the top of its category on the projects page. */
+  featured?: boolean;
   title: string;
   subtitle: string;
   role: string;
