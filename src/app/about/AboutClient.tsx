@@ -19,7 +19,7 @@ export function AboutClient() {
   return (
     <>
       <Nav avatar={profile.avatar} />
-      <main className="mx-auto max-w-7xl px-6 pt-16 pb-28 sm:px-8 lg:px-12">
+      <main className="w-full px-6 pt-16 pb-28">
         <AboutSection
           profile={profile}
           headingClassName="font-ios text-6xl font-bold leading-none tracking-tight text-ios-label sm:text-7xl"

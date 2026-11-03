@@ -26,7 +26,7 @@ export function ContactClient() {
   return (
     <>
       <Nav avatar={profile.avatar} />
-      <main className="mx-auto max-w-7xl px-6 py-10 sm:px-8 lg:px-12 lg:py-16">
+      <main className="w-full px-6 py-10 lg:py-16">
         <div className="mb-10 max-w-2xl lg:mb-14">
           <SectionHeading
             display
