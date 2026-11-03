@@ -264,7 +264,7 @@ function getSolutionBlocks(project: ProjectData): SolutionBlock[] {
     const words = feature.title
       .toLowerCase()
       .split(/[^a-z0-9]+/)
-      .filter(Boolean);
+      .filter((w) => w.length >= 3);
     const matched = project.images.filter(
       (img) =>
         !usedImageSrcs.has(img.src) &&
@@ -328,9 +328,6 @@ function CaseStudyView({ project }: { project: ProjectData }) {
   const meta: CaseStudyMetaRow[] = [
     { label: 'Role', value: project.role },
     { label: 'Company', value: project.company },
-    ...(project.techStack.length > 0
-      ? [{ label: 'Tools', value: project.techStack.map((t) => t.name).join(', ') }]
-      : []),
     ...(project.timeline && project.timeline !== project.period
       ? [{ label: 'Timeline', value: project.timeline }]
       : []),
