@@ -516,23 +516,6 @@ function CaseStudyView({ project }: { project: ProjectData }) {
             </section>
           )}
 
-          {/* Gallery */}
-          {project.layout === 'gallery' && project.images.length > 0 && (
-            <section id="gallery" className="scroll-mt-8">
-              <SectionHeading index={num('gallery')} title="Gallery" />
-              <div className={`grid gap-4 sm:grid-cols-${project.galleryColumns ?? 1}`}>
-                {project.images.map((img) => (
-                  <figure key={img.src} className="overflow-hidden rounded-ios-xl bg-white/80 shadow-ios ring-1 ring-ios-separator">
-                    <Image src={img.src} alt={img.alt} width={1200} height={900} className="h-auto w-full object-cover" />
-                    {img.caption && (
-                      <figcaption className="px-3 py-2 text-xs text-ios-tertiary">{img.caption}</figcaption>
-                    )}
-                  </figure>
-                ))}
-              </div>
-            </section>
-          )}
-
           {/* The Solution */}
           {project.features.length > 0 && (
             <section id="solution" className="scroll-mt-8">
