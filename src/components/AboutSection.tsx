@@ -64,10 +64,10 @@ export function AboutSection({
             >
               <div className="relative mx-auto w-full max-w-sm rotate-[-3deg] transition-transform duration-500 hover:rotate-0">
                 <div
-                  className="pointer-events-none absolute -inset-5 rounded-[2.75rem] bg-gradient-to-br from-ios-blue/30 to-ios-teal/30 blur-2xl"
+                  className="pointer-events-none absolute -inset-5 rounded-[2.75rem] bg-gradient-to-br from-ios-electric/20 to-ios-navy/20 blur-2xl"
                   aria-hidden="true"
                 />
-                <div className="relative aspect-[4/5] w-full overflow-hidden rounded-ios-xl border border-white/70 bg-ios-fill shadow-ios-lg ring-1 ring-ios-blue/10">
+                <div className="relative aspect-[4/5] w-full overflow-hidden rounded-ios-xl border border-white/70 bg-white shadow-ios-lg ring-1 ring-ios-electric/20">
                   <Image
                     src={imageSrc}
                     alt={profile.name}
@@ -82,7 +82,7 @@ export function AboutSection({
                     aria-hidden="true"
                   />
                   <div className="absolute inset-x-3 bottom-3 rounded-ios-lg border border-white/40 bg-white/80 px-4 py-3 backdrop-blur-xl">
-                    <p className="text-sm font-semibold text-ios-label">{profile.name}</p>
+                    <p className="text-sm font-semibold text-ios-ink">{profile.name}</p>
                     <p className="mt-0.5 text-xs text-ios-secondary">
                       {profile.titles[0]} · {profile.location}
                     </p>
@@ -103,7 +103,7 @@ export function AboutSection({
                 paragraph.startsWith('### ') || paragraph.startsWith('## ') ? (
                   <h3
                     key={i}
-                    className="mb-5 text-heading-md font-bold tracking-tight text-ios-label"
+                    className="mb-5 text-heading-md font-bold tracking-tight text-ios-ink"
                   >
                     {renderInline(paragraph.startsWith('### ') ? paragraph.slice(4) : paragraph.slice(3))}
                   </h3>
@@ -112,7 +112,7 @@ export function AboutSection({
                     key={i}
                     className="mb-5 last:mb-0 text-body-lg leading-relaxed text-ios-secondary"
                   >
-                    {renderInline(paragraph, 'font-semibold text-ios-label')}
+                    {renderInline(paragraph, 'font-semibold text-ios-ink')}
                   </p>
                 ),
               )}
@@ -128,7 +128,7 @@ export function AboutSection({
                 rel="noopener noreferrer"
                 className={buttonClass({ variant: 'outline', className: 'w-full sm:w-auto' })}
               >
-                <FileText className="size-4 text-ios-blue" strokeWidth={2.2} />
+                <FileText className="size-4 text-ios-electric" strokeWidth={2.2} />
                 Resume
               </a>
               {profile.socials.contra && (
@@ -138,7 +138,7 @@ export function AboutSection({
                   rel="noopener noreferrer"
                   className={buttonClass({ variant: 'outline', className: 'w-full sm:w-auto' })}
                 >
-                  <BadgeCheck className="size-4 text-ios-blue" strokeWidth={2.2} />
+                  <BadgeCheck className="size-4 text-ios-electric" strokeWidth={2.2} />
                   Hire me on Contra
                 </a>
               )}

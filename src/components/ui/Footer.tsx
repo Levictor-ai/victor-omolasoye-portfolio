@@ -37,7 +37,7 @@ export function Footer({
   className,
 }: FooterProps) {
   return (
-    <footer className={cn('border-t border-ios-separator bg-white/60 font-ios backdrop-blur-xl', className)}>
+    <footer className={cn('border-t border-white/20 bg-ios-navy font-ios', className)}>
       <div className="mx-auto w-full max-w-7xl px-6 py-12 sm:px-8 sm:py-16 lg:px-12">
         <div className="lg:grid lg:grid-cols-[1.4fr_repeat(3,1fr)] lg:gap-12">
           <div className="flex flex-col gap-4">
@@ -64,7 +64,7 @@ export function Footer({
                     href={social.href}
                     aria-label={social.label}
                     title={social.label}
-                    className="grid size-10 place-items-center rounded-full bg-ios-fill text-ios-secondary transition-colors hover:bg-ios-blue/10 hover:text-ios-blue"
+                    className="grid size-10 place-items-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 hover:text-white"
                   >
                     {social.icon}
                   </Link>
@@ -82,7 +82,7 @@ export function Footer({
                   index === columns.length - 1 && 'col-span-2 sm:col-span-1 lg:col-span-1',
                 )}
               >
-                <h3 className="text-xs font-semibold uppercase tracking-[0.08em] text-ios-tertiary">
+                <h3 className="text-xs font-semibold uppercase tracking-[0.08em] text-white/70">
                   {column.title}
                 </h3>
                 <ul className="flex flex-col gap-2.5">
@@ -90,7 +90,7 @@ export function Footer({
                     <li key={link.href}>
                       <Link
                         href={link.href}
-                        className="text-sm text-ios-secondary transition-colors hover:text-ios-blue"
+                        className="text-sm text-white/70 transition-colors hover:text-white"
                       >
                         {link.label}
                       </Link>
@@ -102,17 +102,17 @@ export function Footer({
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-6 border-t border-ios-separator pt-8 sm:mt-12">
+        <div className="mt-10 flex flex-col gap-6 border-t border-white/20 pt-8 sm:mt-12">
           {wordmark && (
             <span
               aria-hidden="true"
-              className="select-none font-ios text-4xl font-bold leading-none tracking-tight text-ios-fill-strong break-words sm:text-6xl lg:text-8xl"
+              className="select-none font-ios text-4xl font-bold leading-none tracking-tight text-white break-words sm:text-6xl lg:text-8xl"
             >
               {wordmark}
             </span>
           )}
           {legal && (
-            <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-ios-tertiary">
+            <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-white/70">
               {legal}
             </div>
           )}

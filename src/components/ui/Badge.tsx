@@ -5,11 +5,11 @@ export type BadgeVariant = 'accent' | 'subtle' | 'outline' | 'muted' | 'dark';
 export type BadgeSize = 'sm' | 'md';
 
 const BADGE_VARIANT: Record<BadgeVariant, string> = {
-  accent: 'bg-ios-blue text-white border-transparent',
-  subtle: 'bg-ios-blue/10 text-ios-blue border-transparent',
-  outline: 'bg-white/70 text-ios-label border-ios-separator',
+  accent: 'bg-ios-electric text-white border-transparent',
+  subtle: 'bg-ios-electric/10 text-ios-electric border-transparent',
+  outline: 'bg-white/70 text-ios-ink border-ios-separator',
   muted: 'bg-ios-fill text-ios-secondary border-transparent',
-  dark: 'bg-ios-label text-white border-transparent',
+  dark: 'bg-ios-navy text-white border-transparent',
 };
 
 const BADGE_SIZE: Record<BadgeSize, string> = {
@@ -52,7 +52,7 @@ export function Eyebrow({ children, accent = false, className }: EyebrowProps) {
     <span
       className={cn(
         'inline-block text-xs font-ios font-semibold uppercase tracking-[0.08em]',
-        accent ? 'text-ios-blue' : 'text-ios-tertiary',
+        accent ? 'text-ios-electric' : 'text-ios-tertiary',
         className,
       )}
     >

@@ -7,8 +7,8 @@ export type QuoteVariant = 'default' | 'accent' | 'dark';
 
 const QUOTE_VARIANT: Record<QuoteVariant, string> = {
   default: 'bg-white/95 sm:bg-white/80 border border-ios-separator shadow-ios sm:backdrop-blur-xl',
-  accent: 'bg-ios-blue/10 border border-ios-blue/15',
-  dark: 'bg-ios-label border border-white/10 text-white/80',
+  accent: 'bg-ios-electric/10 border border-ios-electric/15',
+  dark: 'bg-ios-navy border border-white/10 text-white/80',
 };
 
 export interface QuoteCardProps {
@@ -51,12 +51,12 @@ export function QuoteCard({
           {Array.from({ length: 5 }).map((_, i) => (
             <Star
               key={i}
-              className={cn('size-4', i < rating ? 'fill-ios-blue text-ios-blue' : 'text-ios-quaternary')}
+              className={cn('size-4', i < rating ? 'fill-ios-electric text-ios-electric' : 'text-ios-quaternary')}
             />
           ))}
         </div>
       ) : (
-        <Quote className={cn('size-7', dark ? 'text-ios-teal' : 'text-ios-blue')} />
+              <Quote className={cn('size-7', dark ? 'text-ios-electric' : 'text-ios-electric')} />
       )}
 
       <blockquote
@@ -80,7 +80,7 @@ export function QuoteCard({
       )}
 
       <figcaption className="flex items-center gap-3">
-        <span className="relative grid size-11 flex-none place-items-center overflow-hidden rounded-full bg-ios-blue text-sm font-semibold text-white">
+        <span className="relative grid size-11 flex-none place-items-center overflow-hidden rounded-full bg-ios-electric text-sm font-semibold text-white">
           {avatar ? (
             <Image src={avatar.src} alt={avatar.alt ?? name} fill className="object-cover" sizes="44px" />
           ) : (

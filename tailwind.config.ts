@@ -59,6 +59,12 @@ const config: Config = {
           'fill-strong': 'rgba(120, 120, 128, 0.2)',
           grouped: '#F2F2F7',
           surface: '#FFFFFF',
+          // New palette
+          navy: '#0B1B3F',
+          electric: '#2F5BFF',
+          pale: '#E8EEFF',
+          ink: '#101828',
+          paper: '#FFFFFF',
         },
       },
       borderRadius: {

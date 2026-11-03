@@ -22,7 +22,7 @@ export function AboutClient() {
       <main className="w-full px-6 pt-16 pb-28">
         <AboutSection
           profile={profile}
-          headingClassName="font-ios text-6xl font-bold leading-none tracking-tight text-ios-label sm:text-7xl"
+          headingClassName="font-ios text-6xl font-bold leading-none tracking-tight text-ios-ink sm:text-7xl"
           showImage={false}
           extraImage={profile.avatar}
         />

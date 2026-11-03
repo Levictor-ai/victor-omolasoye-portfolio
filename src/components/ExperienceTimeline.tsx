@@ -30,7 +30,7 @@ export function ExperienceTimeline({
 
       <div className="relative font-ios">
         <span
-          className="absolute bottom-4 left-[9px] top-4 w-px bg-gradient-to-b from-ios-blue via-ios-separator to-transparent sm:left-[11px]"
+          className="absolute bottom-4 left-[9px] top-4 w-px bg-gradient-to-b from-ios-electric via-white/20 to-transparent sm:left-[11px]"
           aria-hidden="true"
         />
         <RevealGroup className="space-y-8">
@@ -38,14 +38,14 @@ export function ExperienceTimeline({
             <RevealItem key={`${exp.company}-${i}`}>
               <div className="relative pl-9 sm:pl-14">
                 <span
-                  className="absolute left-0 top-1.5 flex size-5 items-center justify-center rounded-full border-2 border-ios-blue bg-white sm:size-6"
+                  className="absolute left-0 top-1.5 flex size-5 items-center justify-center rounded-full border-2 border-ios-electric bg-white sm:size-6"
                   aria-hidden="true"
                 >
-                  <span className="size-2 rounded-full bg-ios-blue" />
+                  <span className="size-2 rounded-full bg-ios-electric" />
                 </span>
-                <Card className="transition-colors hover:border-ios-blue/25">
+                <Card className="transition-colors hover:border-ios-electric/25">
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                    <p className="text-sm font-bold tracking-tight text-ios-label">
+                    <p className="text-sm font-bold tracking-tight text-ios-ink">
                       {exp.company}
                     </p>
                     <span className="text-xs text-ios-tertiary">{exp.period}</span>

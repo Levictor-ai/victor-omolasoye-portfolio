@@ -56,9 +56,9 @@ export function Nav({ avatar }: { avatar: string }) {
   }, [pathname]);
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-ios-separator bg-ios-grouped/80 font-ios backdrop-blur-xl">
+    <nav className="sticky top-0 z-50 border-b border-white/20 bg-white/90 font-ios backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-center px-6 py-2.5 sm:px-8">
-        <div className="relative flex w-auto items-center justify-between gap-3 rounded-full border border-ios-separator bg-white/80 px-3 py-2 shadow-ios backdrop-blur-xl sm:px-4 sm:py-2">
+        <div className="relative flex w-auto items-center justify-between gap-3 rounded-full border border-white/20 bg-white/90 px-3 py-2 shadow-ios backdrop-blur-xl sm:px-4 sm:py-2">
           <Link
             href="/#home"
             aria-label="Home"
@@ -70,7 +70,7 @@ export function Nav({ avatar }: { avatar: string }) {
               alt="Victor Omolasoye"
               width={36}
               height={36}
-              className="size-8 rounded-full object-cover ring-1 ring-ios-separator"
+              className="size-8 rounded-full object-cover ring-1 ring-white/30"
               style={{ objectPosition: 'top' }}
               priority
             />
@@ -84,7 +84,7 @@ export function Nav({ avatar }: { avatar: string }) {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`${base} bg-ios-blue text-white shadow-ios-button hover:bg-ios-bluePressed`}
+                  className={`${base} bg-ios-electric text-white shadow-ios-button hover:bg-ios-bluePressed`}
                 >
                   {link.label}
                 </Link>
@@ -94,8 +94,8 @@ export function Nav({ avatar }: { avatar: string }) {
                   href={link.href}
                   className={`${base} ${
                     active === link.id
-                      ? 'bg-ios-fill text-ios-label'
-                      : 'text-ios-secondary hover:bg-ios-fill hover:text-ios-label'
+                      ? 'bg-ios-electric/10 text-ios-ink'
+                      : 'text-ios-secondary hover:bg-white/10 hover:text-ios-ink'
                   }`}
                 >
                   {link.label}

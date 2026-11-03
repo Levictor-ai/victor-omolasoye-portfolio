@@ -41,8 +41,8 @@ export function SectionHeading({
           className={cn(
             'text-balance',
             display
-              ? 'font-ios text-6xl font-bold leading-none tracking-tight text-ios-label sm:text-7xl'
-              : 'text-3xl font-bold tracking-tight text-ios-label sm:text-4xl',
+              ? 'font-ios text-6xl font-bold leading-none tracking-tight text-ios-ink sm:text-7xl'
+              : 'text-3xl font-bold tracking-tight text-ios-ink sm:text-4xl',
             titleClassName,
           )}
         >

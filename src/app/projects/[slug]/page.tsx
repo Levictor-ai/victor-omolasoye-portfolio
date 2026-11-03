@@ -232,7 +232,7 @@ function CaseStudyView({ project }: { project: ProjectData }) {
     <>
       {/* Hero */}
       <header className="mb-14">
-        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-ios-2xl border border-ios-separator bg-ios-fill">
+        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-ios-2xl border border-ios-separator bg-white">
           {project.coverImage && (
             <Image
               src={project.coverImage}
@@ -335,7 +335,7 @@ function CaseStudyView({ project }: { project: ProjectData }) {
                     <ul className="space-y-2">
                       {project.regions.map((r) => (
                         <li key={r} className="flex items-center gap-2 text-ios-secondary">
-                          <span className="size-1.5 shrink-0 rounded-full bg-ios-label" />
+                          <span className="size-1.5 shrink-0 rounded-full bg-ios-ink" />
                           {r}
                         </li>
                       ))}
@@ -395,7 +395,7 @@ function CaseStudyView({ project }: { project: ProjectData }) {
                 <ul className="space-y-2">
                   {project.architecture.highlights.map((h, i) => (
                     <li key={i} className="flex items-start gap-2 text-sm text-ios-tertiary">
-                      <span className="mt-1.5 inline-block size-1.5 shrink-0 rounded-full bg-ios-label" />
+                      <span className="mt-1.5 inline-block size-1.5 shrink-0 rounded-full bg-ios-ink" />
                       {h}
                     </li>
                   ))}
@@ -411,8 +411,8 @@ function CaseStudyView({ project }: { project: ProjectData }) {
               <div className="grid gap-px overflow-hidden rounded-ios-xl border border-ios-separator bg-ios-separator sm:grid-cols-3">
                 {project.results.map((result) => (
                   <div key={result.metric} className="bg-white p-6">
-                    <p className="text-3xl font-bold text-ios-label">{result.value}</p>
-                    <p className="mt-2 text-sm font-medium text-ios-label">{result.metric}</p>
+                    <p className="text-3xl font-bold text-ios-ink">{result.value}</p>
+                    <p className="mt-2 text-sm font-medium text-ios-ink">{result.metric}</p>
                     {result.description && (
                       <p className="mt-1 text-xs leading-relaxed text-ios-tertiary">
                         {result.description}
@@ -508,7 +508,7 @@ function CaseStudyView({ project }: { project: ProjectData }) {
                             key={j}
                             className="flex items-start gap-2 leading-relaxed text-ios-secondary"
                           >
-                            <span className="mt-2 block size-1.5 shrink-0 rounded-full bg-ios-quaternary" />
+                            <span className="mt-2 block size-1.5 shrink-0 rounded-full bg-ios-electric" />
                             {line.trimStart().replace(/^-\s+/, '')}
                           </li>
                         ))}
@@ -597,12 +597,12 @@ function MoreProjects({ projects }: { projects: ProjectData[] }) {
   return (
     <section className="mt-20 border-t border-ios-separator pt-12">
       <div className="mb-6 flex flex-wrap items-baseline justify-between gap-2">
-        <h2 className="text-2xl font-bold tracking-tight text-ios-label sm:text-3xl">
+        <h2 className="text-2xl font-bold tracking-tight text-ios-ink sm:text-3xl">
           More Projects
         </h2>
         <a
           href="/projects"
-          className="inline-flex items-center gap-1.5 text-sm font-medium text-ios-blue transition-colors hover:text-ios-blue"
+          className="inline-flex items-center gap-1.5 text-sm font-medium text-ios-electric transition-colors hover:text-ios-electric"
         >
           View all projects
           <ArrowUpRight className="size-4" />
@@ -689,12 +689,12 @@ export default async function ProjectPage({
           }),
         ]}
       />
-      <main className="min-h-screen bg-ios-grouped font-ios text-ios-label">
+      <main className="min-h-screen bg-white font-ios text-ios-ink">
       <article className="w-full px-6 py-12">
-        <a
-          href="/projects"
-          className="mb-10 inline-flex items-center gap-2 text-sm text-ios-tertiary transition-colors hover:text-ios-label"
-        >
+          <a
+            href="/projects"
+            className="mb-10 inline-flex items-center gap-2 text-sm text-white/70 transition-colors hover:text-white"
+          >
           <ArrowUpRight className="size-4 rotate-180" />
           Back to projects
         </a>

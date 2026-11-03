@@ -15,12 +15,12 @@ export interface ButtonStyleOptions {
 
 const VARIANT: Record<ButtonVariant, string> = {
   primary:
-    'bg-ios-blue text-white shadow-ios-button hover:bg-ios-bluePressed active:bg-ios-bluePressed',
-  secondary: 'bg-ios-label text-white hover:bg-black/80',
+    'bg-ios-electric text-white shadow-ios-button hover:bg-ios-bluePressed active:bg-ios-bluePressed',
+  secondary: 'bg-ios-ink text-white hover:bg-black/80',
   outline:
-    'bg-ios-fill text-ios-blue hover:bg-ios-fill-strong',
-  ghost: 'text-ios-blue hover:bg-ios-fill',
-  light: 'bg-white text-ios-label shadow-ios hover:bg-white/90',
+    'bg-ios-fill text-ios-electric hover:bg-ios-fill-strong',
+  ghost: 'text-ios-electric hover:bg-ios-fill',
+  light: 'bg-white text-ios-ink shadow-ios hover:bg-white/90',
 };
 
 const SIZE: Record<ButtonSize, string> = {
@@ -31,7 +31,7 @@ const SIZE: Record<ButtonSize, string> = {
 };
 
 const BASE =
-  'group inline-flex items-center justify-center gap-2 rounded-full font-semibold leading-none tracking-[-0.01em] whitespace-nowrap transition-all duration-200 ease-out active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ios-blue/40 disabled:pointer-events-none disabled:opacity-50 font-ios';
+  'group inline-flex items-center justify-center gap-2 rounded-full font-semibold leading-none tracking-[-0.01em] whitespace-nowrap transition-all duration-200 ease-out active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ios-electric/40 disabled:pointer-events-none disabled:opacity-50 font-ios';
 
 export function buttonClass({
   variant = 'primary',

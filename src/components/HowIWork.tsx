@@ -20,18 +20,18 @@ export function HowIWork() {
       </Reveal>
       <div className="relative pl-8 sm:pl-12">
         <div
-          className="absolute left-[15px] top-3 bottom-3 w-px bg-gradient-to-b from-ios-blue to-ios-teal sm:left-[23px]"
+          className="absolute left-[15px] top-3 bottom-3 w-px bg-gradient-to-b from-ios-electric to-ios-navy sm:left-[23px]"
           aria-hidden="true"
         />
         <div className="space-y-6 sm:space-y-8">
           {steps.map((step, i) => (
             <div key={step.title} className="relative">
-              <div               className="absolute -left-8 top-1 flex size-8 items-center justify-center rounded-full border border-white/70 bg-ios-blue text-xs font-bold text-white shadow-ios sm:-left-12 sm:size-10 sm:text-sm">
+              <div               className="absolute -left-8 top-1 flex size-8 items-center justify-center rounded-full border border-ios-electric/30 bg-ios-electric text-xs font-bold text-white shadow-ios sm:-left-12 sm:size-10 sm:text-sm">
                 {String(i + 1).padStart(2, '0')}
               </div>
-              <div className="rounded-ios-xl border border-ios-separator bg-white/80 p-5 shadow-ios backdrop-blur-xl transition-transform duration-300 hover:-translate-y-0.5 sm:p-6">
+              <div className="rounded-ios-xl border border-ios-electric/20 bg-ios-pale p-5 shadow-ios backdrop-blur-xl transition-transform duration-300 hover:-translate-y-0.5 sm:p-6">
                 <div className="flex items-center gap-3">
-                  <h3 className="text-lg font-bold tracking-tight text-ios-label sm:text-xl">
+                  <h3 className="text-lg font-bold tracking-tight text-ios-ink sm:text-xl">
                     {step.title}
                   </h3>
                 </div>

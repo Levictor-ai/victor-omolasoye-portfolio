@@ -96,7 +96,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${jakarta.variable} ${bebasNeue.variable} ${inter.variable} antialiased`}>
-      <body className="min-h-screen bg-ios-grouped font-ios text-ios-label">
+      <body className="min-h-screen bg-white font-ios text-ios-ink">
         <JsonLd data={[personSchema(), websiteSchema()]} />
         <PageScrollReset />
         <PortfolioProvider>{children}</PortfolioProvider>

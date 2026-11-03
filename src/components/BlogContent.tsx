@@ -50,10 +50,10 @@ export function BlogContent({
       >
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -left-24 -top-24 -z-10 h-64 w-64 rounded-full bg-ios-blue/10 blur-3xl"
+          className="pointer-events-none absolute -left-24 -top-24 -z-10 h-64 w-64 rounded-full bg-ios-electric/10 blur-3xl"
         />
         <div className="mb-3 flex items-center gap-2">
-          <span className="inline-block size-1.5 rounded-full bg-ios-blue" />
+          <span className="inline-block size-1.5 rounded-full bg-ios-electric" />
           <Eyebrow accent>Writing</Eyebrow>
         </div>
         <h1 className="mb-4 max-w-3xl text-4xl font-bold tracking-tight text-ios-label sm:text-5xl">
@@ -82,7 +82,7 @@ export function BlogContent({
           >
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute -right-16 -top-16 h-72 w-72 rounded-full bg-ios-blue/30 blur-3xl transition-opacity duration-500 group-hover:opacity-80"
+              className="pointer-events-none absolute -right-16 -top-16 h-72 w-72 rounded-full bg-ios-electric/30 blur-3xl transition-opacity duration-500 group-hover:opacity-80"
             />
             <div
               aria-hidden="true"
@@ -139,7 +139,7 @@ export function BlogContent({
                   {String(i + 2).padStart(2, '0')}
                 </span>
               </div>
-              <h2 className="mb-2 text-xl font-bold tracking-tight text-ios-label transition-colors group-hover:text-ios-blue">
+              <h2 className="mb-2 text-xl font-bold tracking-tight text-ios-ink transition-colors group-hover:text-ios-electric">
                 {post.title}
               </h2>
               <p className="mb-5 text-sm leading-relaxed text-ios-secondary">{post.description}</p>
@@ -149,7 +149,7 @@ export function BlogContent({
                     {tag}
                   </Badge>
                 ))}
-                <span className="ml-auto inline-flex size-7 shrink-0 items-center justify-center rounded-full bg-ios-fill text-ios-secondary transition-colors group-hover:bg-ios-blue group-hover:text-white">
+                <span className="ml-auto inline-flex size-7 shrink-0 items-center justify-center rounded-full bg-white/10 text-white/70 transition-colors group-hover:bg-ios-electric group-hover:text-white">
                   <ArrowUpRight className="size-4" />
                 </span>
               </div>
@@ -164,7 +164,7 @@ export function BlogContent({
           href={site.socials.medium}
           target="_blank"
           rel="noopener noreferrer"
-          className="font-medium text-ios-blue hover:text-ios-bluePressed"
+          className="font-medium text-ios-electric hover:text-ios-bluePressed"
         >
           Medium
         </a>

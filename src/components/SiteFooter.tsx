@@ -92,7 +92,7 @@ export function SiteFooter({ profile }: { profile: ProfileData }) {
           </span>
           <a
             href={`mailto:${profile.email}`}
-            className="inline-flex items-center gap-1.5 transition-colors hover:text-ios-blue"
+            className="inline-flex items-center gap-1.5 transition-colors hover:text-white"
           >
             <Mail className="size-3.5" />
             {profile.email}

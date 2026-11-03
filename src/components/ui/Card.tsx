@@ -9,8 +9,8 @@ const CARD_VARIANT: Record<CardVariant, string> = {
   default: 'bg-white/80 border border-ios-separator backdrop-blur-xl',
   flat: 'bg-white border border-ios-separator',
   muted: 'bg-ios-fill border border-transparent',
-  accent: 'bg-white/80 border border-ios-blue/30 backdrop-blur-xl',
-  dark: 'bg-ios-label border border-white/10 text-white',
+  accent: 'bg-white/80 border border-ios-electric/30 backdrop-blur-xl',
+  dark: 'bg-ios-navy border border-white/10 text-white',
 };
 
 const CARD_PADDING: Record<CardPadding, string> = {
