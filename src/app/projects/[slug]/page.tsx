@@ -10,7 +10,7 @@ import {
 import type { ProjectData, ProjectImage } from '@/types/project';
 import { getProject, getSuggestedProjects } from '@/lib/projects';
 import { JsonLd } from '@/components/JsonLd';
-import { projectCategories } from '@/lib/projectCategories';
+import { projectCategories, projectInCategory } from '@/lib/projectCategories';
 import { breadcrumbSchema, projectSchema } from '@/lib/schema';
 import { pageMetadata } from '@/lib/seo';
 import { ProjectCard } from '@/components/ProjectCard';
@@ -87,16 +87,20 @@ function categoryLabel(category: ProjectData['category']) {
 
 function getNavItems(project: ProjectData): CaseStudyNavItem[] {
   const items: CaseStudyNavItem[] = [];
+  const briefStrategy = projectInCategory(project, 'brand');
   if (executiveSummaryContent(project) || project.overview)
     items.push({ id: 'summary', label: 'Summary' });
   if (project.problem || project.solution)
     items.push({ id: 'context', label: 'Context & Problem' });
   if (project.role) items.push({ id: 'my-role', label: 'My Role' });
-  if (findSectionContent(project, 'design thinking: empathize'))
-    items.push({ id: 'research', label: 'Research & Discovery' });
+  if (findSectionContent(project, /empath|research|insight|discover/i))
+    items.push({
+      id: 'research',
+      label: briefStrategy ? 'Brief & Strategy' : 'Research & Discovery',
+    });
   if (
-    findSectionContent(project, 'design thinking: define') ||
-    findSectionContent(project, 'design thinking: ideate')
+    findSectionContent(project, /define|problem statement/i) ||
+    findSectionContent(project, /ideate|how might we|direction/i)
   )
     items.push({ id: 'define', label: 'Define & Ideate' });
   if (project.features.length > 0) items.push({ id: 'solution', label: 'The Solution' });
@@ -183,14 +187,12 @@ function SectionHeading({ index, title }: { index: number; title: string }) {
   );
 }
 
-function findSectionContent(project: ProjectData, title: string) {
-  return project.sections?.find((s) => s.title.trim().toLowerCase() === title)?.content;
+function findSectionContent(project: ProjectData, pattern: RegExp) {
+  return project.sections?.find((s) => pattern.test(s.title))?.content;
 }
 
 function executiveSummaryContent(project: ProjectData) {
-  const executive = findSectionContent(project, 'executive summary');
-  if (executive) return executive;
-  return findSectionContent(project, 'product overview');
+  return findSectionContent(project, /executive summary|product overview/i);
 }
 
 function contentBlocks(content?: string) {
@@ -257,13 +259,19 @@ function getSolutionBlocks(project: ProjectData): SolutionBlock[] {
   }
 
   const screensByFeature: Record<string, ProjectImage[]> = {};
-  if (project.slug === 'veyra') {
-    screensByFeature['Hero & Value Proposition'] = project.images.filter((img) => /hero/i.test(img.src));
-    screensByFeature['Three Service Pillars'] = project.images.filter((img) => /service-pillars/i.test(img.src));
-    screensByFeature['Team Showcase'] = project.images.filter((img) => /team-showcase/i.test(img.src));
-    screensByFeature['Why Work With Us'] = project.images.filter((img) => /why-work-with-us/i.test(img.src));
-    screensByFeature['Support & FAQ'] = project.images.filter((img) => /support-faq/i.test(img.src));
-    screensByFeature['Client Social Proof'] = project.images.filter((img) => /client-social/i.test(img.src));
+  const usedImageSrcs = new Set<string>();
+  for (const feature of project.features) {
+    const words = feature.title
+      .toLowerCase()
+      .split(/[^a-z0-9]+/)
+      .filter(Boolean);
+    const matched = project.images.filter(
+      (img) =>
+        !usedImageSrcs.has(img.src) &&
+        words.some((word) => img.src.toLowerCase().includes(word)),
+    );
+    matched.forEach((img) => usedImageSrcs.add(img.src));
+    screensByFeature[feature.title] = matched;
   }
 
   for (const feature of project.features) {
@@ -292,24 +300,29 @@ function CaseStudyView({ project }: { project: ProjectData }) {
     'design thinking: ideate',
     'design strengths',
     'growth opportunities',
+    // Veyra solution sections now rendered through The Solution with screens attached.
+    'hero & value proposition',
+    'core service pillars',
+    'a team that works with you',
+    'why work with us',
+    'support & faq',
+    'client social proof',
+    'conversion & footer',
+    // Research & Discovery consumed by the research slot.
+    'research & discovery',
   ]);
 
   const contextExtras = (project.sections ?? []).filter(
     (section) => !consumedCustomTitles.has(section.title.trim().toLowerCase()),
   );
 
-  const executiveSummary =
-    findSectionContent(project, 'executive summary') ?? findSectionContent(project, 'product overview');
-  const designEmpathize =
-    findSectionContent(project, 'design thinking: empathize') ?? undefined;
-  const designDefine =
-    findSectionContent(project, 'design thinking: define') ?? undefined;
-  const designIdeate =
-    findSectionContent(project, 'design thinking: ideate') ?? undefined;
-  const designStrengths =
-    findSectionContent(project, 'design strengths') ?? undefined;
-  const growthOpportunities =
-    findSectionContent(project, 'growth opportunities') ?? undefined;
+  const executiveSummary = executiveSummaryContent(project);
+  const designEmpathize = findSectionContent(project, /empath|research|insight|discover/i);
+  const designDefine = findSectionContent(project, /define|problem statement/i);
+  const designIdeate = findSectionContent(project, /ideate|how might we|direction/i);
+  const designStrengths = findSectionContent(project, /design strengths/i);
+  const growthOpportunities = findSectionContent(project, /growth opportunities/i);
+  const reflectionContent = designStrengths ?? growthOpportunities;
   const summaryContent = executiveSummary ?? project.overview;
 
   const meta: CaseStudyMetaRow[] = [
@@ -482,7 +495,10 @@ function CaseStudyView({ project }: { project: ProjectData }) {
           {/* Research & Discovery */}
           {designEmpathize && (
             <section id="research" className="scroll-mt-8">
-              <SectionHeading index={num('research')} title="Research & Discovery" />
+              <SectionHeading
+                index={num('research')}
+                title={projectInCategory(project, 'brand') ? 'Brief & Strategy' : 'Research & Discovery'}
+              />
               <div className="max-w-3xl space-y-6">{contentBlocks(designEmpathize)}</div>
             </section>
           )}
@@ -570,10 +586,11 @@ function CaseStudyView({ project }: { project: ProjectData }) {
                   </div>
                 ))}
               </div>
-              {(designStrengths || growthOpportunities) && (
+              {(designStrengths || growthOpportunities || reflectionContent) && (
                 <div className="mt-10 max-w-3xl space-y-6">
                   {contentBlocks(designStrengths)}
                   {contentBlocks(growthOpportunities)}
+                  {contentBlocks(reflectionContent)}
                 </div>
               )}
             </section>
