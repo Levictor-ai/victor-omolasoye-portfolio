@@ -6,22 +6,17 @@ import {
   Calendar,
   ArrowUpRight,
   CheckCircle,
-  Layers,
-  Server,
-  Palette,
-  Wrench,
 } from 'lucide-react';
-import type { ProjectData } from '@/types/project';
+import type { ProjectData, ProjectImage } from '@/types/project';
 import { getProject, getSuggestedProjects } from '@/lib/projects';
 import { JsonLd } from '@/components/JsonLd';
-import { projectCategories, projectInCategory } from '@/lib/projectCategories';
+import { projectCategories } from '@/lib/projectCategories';
 import { breadcrumbSchema, projectSchema } from '@/lib/schema';
 import { pageMetadata } from '@/lib/seo';
 import { ProjectCard } from '@/components/ProjectCard';
 import { BackToTop } from '@/components/BackToTop';
 import { CaseStudySidebar } from '@/components/CaseStudySidebar';
 import type { CaseStudyNavItem, CaseStudyMetaRow } from '@/components/CaseStudySidebar';
-import { Chip } from '@/components/ui/Badge';
 import { ButtonLink } from '@/components/ui/Button';
 import { QuoteCard } from '@/components/ui/QuoteCard';
 import { SiteFooter } from '@/components/SiteFooter';
@@ -82,16 +77,6 @@ export async function generateMetadata({
   });
 }
 
-function techIcon(category: ProjectData['techStack'][number]['category']) {
-  switch (category) {
-    case 'frontend': return <Layers className="size-4" />;
-    case 'backend':  return <Server className="size-4" />;
-    case 'infra':    return <Server className="size-4" />;
-    case 'design':   return <Palette className="size-4" />;
-    case 'tools':    return <Wrench className="size-4" />;
-  }
-}
-
 function categoryLabel(category: ProjectData['category']) {
   switch (category) {
     case 'product': return 'Product Design';
@@ -100,34 +85,25 @@ function categoryLabel(category: ProjectData['category']) {
   }
 }
 
-function galleryLabel(project: ProjectData) {
-  return projectInCategory(project, 'brand') ? 'Gallery' : 'Screens';
-}
-
-function slugify(value: string) {
-  return value
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/(^-|-$)/g, '');
-}
-
 function getNavItems(project: ProjectData): CaseStudyNavItem[] {
   const items: CaseStudyNavItem[] = [];
-  if (project.overview) items.push({ id: 'overview', label: 'Overview' });
+  if (executiveSummaryContent(project) || project.overview)
+    items.push({ id: 'summary', label: 'Summary' });
   if (project.problem || project.solution)
-    items.push({ id: 'problem', label: 'Problem & Solution' });
-  if (project.targetAudience.length > 0 || project.regions.length > 0)
-    items.push({ id: 'audience', label: 'Target & Reach' });
-  if (project.features.length > 0) items.push({ id: 'features', label: 'Key Features' });
-  if (project.techStack.length > 0) items.push({ id: 'stack', label: 'Tech Stack' });
+    items.push({ id: 'context', label: 'Context & Problem' });
+  if (project.role) items.push({ id: 'my-role', label: 'My Role' });
+  if (findSectionContent(project, 'design thinking: empathize'))
+    items.push({ id: 'research', label: 'Research & Discovery' });
+  if (
+    findSectionContent(project, 'design thinking: define') ||
+    findSectionContent(project, 'design thinking: ideate')
+  )
+    items.push({ id: 'define', label: 'Define & Ideate' });
+  if (project.features.length > 0) items.push({ id: 'solution', label: 'The Solution' });
   if (project.architecture.description || project.architecture.highlights.length > 0)
-    items.push({ id: 'architecture', label: 'Architecture' });
-  if (project.results.length > 0) items.push({ id: 'results', label: 'Results' });
+    items.push({ id: 'design', label: 'Design Decisions' });
+  if (project.results.length > 0) items.push({ id: 'results', label: 'Results & Reflection' });
   if (project.testimonial) items.push({ id: 'testimonial', label: 'Testimonial' });
-  if (project.images.length > 0) items.push({ id: 'gallery', label: galleryLabel(project) });
-  project.sections?.forEach((section) =>
-    items.push({ id: slugify(section.title), label: section.title }),
-  );
   return items;
 }
 
@@ -207,6 +183,100 @@ function SectionHeading({ index, title }: { index: number; title: string }) {
   );
 }
 
+function findSectionContent(project: ProjectData, title: string) {
+  return project.sections?.find((s) => s.title.trim().toLowerCase() === title)?.content;
+}
+
+function executiveSummaryContent(project: ProjectData) {
+  const executive = findSectionContent(project, 'executive summary');
+  if (executive) return executive;
+  return findSectionContent(project, 'product overview');
+}
+
+function contentBlocks(content?: string) {
+  if (!content) return [];
+  return content.split('\n\n').map((paragraph, i) => {
+    const lines = paragraph.split('\n').filter((l) => l.trim());
+    if (lines.length > 0 && lines.every((l) => l.trimStart().startsWith('-'))) {
+      return (
+        <ul key={`ul-${i}`} className="max-w-3xl space-y-2">
+          {lines.map((line, j) => (
+            <li key={j} className="flex items-start gap-2 leading-relaxed text-ios-secondary">
+              <span className="mt-2 block size-1.5 shrink-0 rounded-full bg-ios-electric" />
+              {line.trimStart().replace(/^-\s+/, '')}
+            </li>
+          ))}
+        </ul>
+      );
+    }
+    return (
+      <p key={`p-${i}`} className="max-w-3xl leading-relaxed text-ios-secondary">
+        {paragraph}
+      </p>
+    );
+  });
+}
+
+type SolutionBlock = {
+  key: string;
+  title: string;
+  description?: string;
+  images: ProjectImage[];
+};
+
+function getSolutionBlocks(project: ProjectData): SolutionBlock[] {
+  const blocks: SolutionBlock[] = [];
+
+  if (project.slug === 'hapnan') {
+    const onboarding = project.images.filter((img) =>
+      /(onboarding|sign[-_]?in|sign[-_]?up|forgot[-_]?pass)/i.test(img.src),
+    );
+    const discovery = project.images.filter((img) =>
+      /(home|trending|event[-_]?details)/i.test(img.src),
+    );
+    const planning = project.images.filter((img) =>
+      /(saved[-_]?events|ticket|payment|notification)/i.test(img.src),
+    );
+    const featureDescription = (title: string) =>
+      project.features.find((f) => f.title.toLowerCase() === title.toLowerCase())?.description;
+
+    blocks.push({ key: 'onboarding', title: 'Onboarding & Account', images: onboarding });
+    blocks.push({
+      key: 'discovery',
+      title: 'Discovery',
+      description: featureDescription('Centralized Event Feed'),
+      images: discovery,
+    });
+    blocks.push({
+      key: 'planning',
+      title: 'Planning & Tickets',
+      description: featureDescription('Event Reminders & Notifications'),
+      images: planning,
+    });
+    return blocks;
+  }
+
+  const screensByFeature: Record<string, ProjectImage[]> = {};
+  if (project.slug === 'veyra') {
+    screensByFeature['Hero & Value Proposition'] = project.images.filter((img) => /hero/i.test(img.src));
+    screensByFeature['Three Service Pillars'] = project.images.filter((img) => /service-pillars/i.test(img.src));
+    screensByFeature['Team Showcase'] = project.images.filter((img) => /team-showcase/i.test(img.src));
+    screensByFeature['Why Work With Us'] = project.images.filter((img) => /why-work-with-us/i.test(img.src));
+    screensByFeature['Support & FAQ'] = project.images.filter((img) => /support-faq/i.test(img.src));
+    screensByFeature['Client Social Proof'] = project.images.filter((img) => /client-social/i.test(img.src));
+  }
+
+  for (const feature of project.features) {
+    blocks.push({
+      key: feature.title,
+      title: feature.title,
+      description: feature.description,
+      images: screensByFeature[feature.title] ?? [],
+    });
+  }
+  return blocks;
+}
+
 function CaseStudyView({ project }: { project: ProjectData }) {
   const navItems = getNavItems(project);
   const num = (id: string) => {
@@ -214,11 +284,40 @@ function CaseStudyView({ project }: { project: ProjectData }) {
     return i >= 0 ? i + 1 : 0;
   };
 
-  const isStraightLayout = projectInCategory(project, 'brand') || project.slug === 'veyra';
+  const consumedCustomTitles = new Set([
+    'executive summary',
+    'product overview',
+    'design thinking: empathize',
+    'design thinking: define',
+    'design thinking: ideate',
+    'design strengths',
+    'growth opportunities',
+  ]);
+
+  const contextExtras = (project.sections ?? []).filter(
+    (section) => !consumedCustomTitles.has(section.title.trim().toLowerCase()),
+  );
+
+  const executiveSummary =
+    findSectionContent(project, 'executive summary') ?? findSectionContent(project, 'product overview');
+  const designEmpathize =
+    findSectionContent(project, 'design thinking: empathize') ?? undefined;
+  const designDefine =
+    findSectionContent(project, 'design thinking: define') ?? undefined;
+  const designIdeate =
+    findSectionContent(project, 'design thinking: ideate') ?? undefined;
+  const designStrengths =
+    findSectionContent(project, 'design strengths') ?? undefined;
+  const growthOpportunities =
+    findSectionContent(project, 'growth opportunities') ?? undefined;
+  const summaryContent = executiveSummary ?? project.overview;
 
   const meta: CaseStudyMetaRow[] = [
     { label: 'Role', value: project.role },
     { label: 'Company', value: project.company },
+    ...(project.techStack.length > 0
+      ? [{ label: 'Tools', value: project.techStack.map((t) => t.name).join(', ') }]
+      : []),
     ...(project.timeline && project.timeline !== project.period
       ? [{ label: 'Timeline', value: project.timeline }]
       : []),
@@ -272,20 +371,39 @@ function CaseStudyView({ project }: { project: ProjectData }) {
         <CaseStudySidebar meta={meta} links={project.links} items={navItems} />
 
         <div className="min-w-0 space-y-16">
-          {/* Overview */}
-          {project.overview && (
-            <section id="overview" className="scroll-mt-8">
-              <SectionHeading index={num('overview')} title="Overview" />
-              <p className="max-w-3xl text-xl leading-relaxed text-ios-secondary">
-                {project.overview}
-              </p>
+          {/* Summary */}
+          {(summaryContent || project.results.length > 0) && (
+            <section id="summary" className="scroll-mt-8">
+              <SectionHeading index={num('summary')} title="Summary" />
+              <div className="max-w-3xl space-y-6">
+                {contentBlocks(summaryContent).map((block, i) => (
+                  <div key={i} className={i === 0 ? 'text-xl leading-relaxed text-ios-secondary' : undefined}>
+                    {block}
+                  </div>
+                ))}
+              </div>
+              {project.results.length > 0 && (
+                <div className="mt-8 grid max-w-3xl gap-px overflow-hidden rounded-ios-xl border border-ios-separator bg-ios-separator sm:grid-cols-3">
+                  {project.results.slice(0, 3).map((result) => (
+                    <div key={result.metric} className="bg-white p-6">
+                      <p className="text-3xl font-bold text-ios-ink">{result.value}</p>
+                      <p className="mt-2 text-sm font-medium text-ios-ink">{result.metric}</p>
+                      {result.description && (
+                        <p className="mt-1 text-xs leading-relaxed text-ios-tertiary">
+                          {result.description}
+                        </p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
             </section>
           )}
 
-          {/* Problem & Solution */}
+          {/* Context & Problem */}
           {(project.problem || project.solution) && (
-            <section id="problem" className="scroll-mt-8">
-              <SectionHeading index={num('problem')} title="Problem & Solution" />
+            <section id="context" className="scroll-mt-8">
+              <SectionHeading index={num('context')} title="Context & Problem" />
               <div className="grid gap-10 md:grid-cols-2">
                 {project.problem && (
                   <div>
@@ -304,92 +422,125 @@ function CaseStudyView({ project }: { project: ProjectData }) {
                   </div>
                 )}
               </div>
+
+              {(project.targetAudience.length > 0 || project.regions.length > 0) && (
+                <div className="mt-10 grid gap-10 sm:grid-cols-2">
+                  {project.targetAudience.length > 0 && (
+                    <div>
+                      <p className="mb-3 text-xs font-medium uppercase tracking-widest text-ios-tertiary">
+                        Audience
+                      </p>
+                      <ul className="space-y-2">
+                        {project.targetAudience.map((a) => (
+                          <li key={a} className="flex items-center gap-2 text-ios-secondary">
+                            <CheckCircle className="size-4 shrink-0 text-ios-tertiary" />
+                            {a}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  {project.regions.length > 0 && (
+                    <div>
+                      <p className="mb-3 text-xs font-medium uppercase tracking-widest text-ios-tertiary">
+                        Regions
+                      </p>
+                      <ul className="space-y-2">
+                        {project.regions.map((r) => (
+                          <li key={r} className="flex items-center gap-2 text-ios-secondary">
+                            <span className="size-1.5 shrink-0 rounded-full bg-ios-ink" />
+                            {r}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {contextExtras.map((section) => (
+                <div key={section.title} className="mt-10 max-w-3xl space-y-5">
+                  {contentBlocks(section.content)}
+                </div>
+              ))}
             </section>
           )}
 
-          {/* Target & Reach */}
-          {(project.targetAudience.length > 0 || project.regions.length > 0) && (
-            <section id="audience" className="scroll-mt-8">
-              <SectionHeading index={num('audience')} title="Target & Reach" />
-              <div className="grid gap-10 sm:grid-cols-2">
-                {project.targetAudience.length > 0 && (
-                  <div>
-                    <p className="mb-3 text-xs font-medium uppercase tracking-widest text-ios-tertiary">
-                      Audience
-                    </p>
-                    <ul className="space-y-2">
-                      {project.targetAudience.map((a) => (
-                        <li key={a} className="flex items-center gap-2 text-ios-secondary">
-                          <CheckCircle className="size-4 shrink-0 text-ios-tertiary" />
-                          {a}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-                {project.regions.length > 0 && (
-                  <div>
-                    <p className="mb-3 text-xs font-medium uppercase tracking-widest text-ios-tertiary">
-                      Regions
-                    </p>
-                    <ul className="space-y-2">
-                      {project.regions.map((r) => (
-                        <li key={r} className="flex items-center gap-2 text-ios-secondary">
-                          <span className="size-1.5 shrink-0 rounded-full bg-ios-ink" />
-                          {r}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </div>
-            </section>
-          )}
-
-          {/* Features */}
-          {project.features.length > 0 && (
-            <section id="features" className="scroll-mt-8">
-              <SectionHeading index={num('features')} title="Key Features" />
-              <div className="grid gap-x-10 gap-y-8 sm:grid-cols-2">
-                {project.features.map((feature) => (
-                  <div key={feature.title} className="border-t border-ios-separator pt-5">
-                    <h3 className="font-semibold text-ios-label">{feature.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-ios-tertiary">
-                      {feature.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </section>
-          )}
-
-          {/* Tech Stack */}
-          {project.techStack.length > 0 && (
-            <section id="stack" className="scroll-mt-8">
-              <SectionHeading index={num('stack')} title="Technology Stack" />
-              <div className="flex flex-wrap gap-2">
-                {project.techStack.map((tech) => (
-                  <Chip key={tech.name} icon={techIcon(tech.category)} className="bg-white px-3 py-1.5">
-                    {tech.name}
-                  </Chip>
-                ))}
-              </div>
-            </section>
-          )}
-
-          {/* Architecture */}
-          {(project.architecture.description || project.architecture.highlights.length > 0) && (
-            <section id="architecture" className="scroll-mt-8">
-              <SectionHeading index={num('architecture')} title="Architecture" />
-              {project.architecture.title && (
-                <p className="mb-3 text-sm font-semibold text-ios-label">
-                  {project.architecture.title}
+          {/* My Role */}
+          {project.role && (
+            <section id="my-role" className="scroll-mt-8">
+              <SectionHeading index={num('my-role')} title="My Role" />
+              <div className="max-w-3xl space-y-6">
+                <p className="text-xl font-semibold text-ios-label">{project.role}</p>
+                <p className="text-sm leading-relaxed text-ios-tertiary">
+                  TODO: Add detail on what Victor personally owned vs. what was handled collaboratively for this project.
                 </p>
+              </div>
+            </section>
+          )}
+
+          {/* Research & Discovery */}
+          {designEmpathize && (
+            <section id="research" className="scroll-mt-8">
+              <SectionHeading index={num('research')} title="Research & Discovery" />
+              <div className="max-w-3xl space-y-6">{contentBlocks(designEmpathize)}</div>
+            </section>
+          )}
+
+          {/* Define & Ideate */}
+          {(designDefine || designIdeate) && (
+            <section id="define" className="scroll-mt-8">
+              <SectionHeading index={num('define')} title="Define & Ideate" />
+              <div className="max-w-3xl space-y-6">
+                {contentBlocks(designDefine)}
+                {contentBlocks(designIdeate)}
+              </div>
+            </section>
+          )}
+
+          {/* The Solution */}
+          {project.features.length > 0 && (
+            <section id="solution" className="scroll-mt-8">
+              <SectionHeading index={num('solution')} title="The Solution" />
+              <div className="space-y-0">
+                {getSolutionBlocks(project).map((block) => (
+                  <div key={block.key} className="border-t border-ios-separator pt-5">
+                    <h3 className="font-semibold text-ios-label">{block.title}</h3>
+                    {block.description && (
+                      <p className="mt-2 text-sm leading-relaxed text-ios-tertiary">{block.description}</p>
+                    )}
+                    {block.images.length > 0 && (
+                      <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+                        {block.images.map((img) => (
+                          <figure
+                            key={img.src}
+                            className="overflow-hidden rounded-ios-xl bg-white/80 shadow-ios ring-1 ring-ios-separator"
+                          >
+                            <Image src={img.src} alt={img.alt} width={1200} height={900} className="h-auto w-full object-cover" />
+                            {img.caption && (
+                              <figcaption className="px-3 py-2 text-xs text-ios-tertiary">
+                                {img.caption}
+                              </figcaption>
+                            )}
+                          </figure>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* Design Decisions */}
+          {(project.architecture.description || project.architecture.highlights.length > 0) && (
+            <section id="design" className="scroll-mt-8">
+              <SectionHeading index={num('design')} title="Design Decisions" />
+              {project.architecture.title && (
+                <p className="mb-3 text-sm font-semibold text-ios-label">{project.architecture.title}</p>
               )}
               {project.architecture.description && (
-                <p className="mb-6 max-w-3xl leading-relaxed text-ios-secondary">
-                  {project.architecture.description}
-                </p>
+                <p className="mb-6 max-w-3xl leading-relaxed text-ios-secondary">{project.architecture.description}</p>
               )}
               {project.architecture.highlights.length > 0 && (
                 <ul className="space-y-2">
@@ -404,23 +555,27 @@ function CaseStudyView({ project }: { project: ProjectData }) {
             </section>
           )}
 
-          {/* Results */}
+          {/* Results & Reflection */}
           {project.results.length > 0 && (
             <section id="results" className="scroll-mt-8">
-              <SectionHeading index={num('results')} title="Results" />
+              <SectionHeading index={num('results')} title="Results & Reflection" />
               <div className="grid gap-px overflow-hidden rounded-ios-xl border border-ios-separator bg-ios-separator sm:grid-cols-3">
                 {project.results.map((result) => (
                   <div key={result.metric} className="bg-white p-6">
                     <p className="text-3xl font-bold text-ios-ink">{result.value}</p>
                     <p className="mt-2 text-sm font-medium text-ios-ink">{result.metric}</p>
                     {result.description && (
-                      <p className="mt-1 text-xs leading-relaxed text-ios-tertiary">
-                        {result.description}
-                      </p>
+                      <p className="mt-1 text-xs leading-relaxed text-ios-tertiary">{result.description}</p>
                     )}
                   </div>
                 ))}
               </div>
+              {(designStrengths || growthOpportunities) && (
+                <div className="mt-10 max-w-3xl space-y-6">
+                  {contentBlocks(designStrengths)}
+                  {contentBlocks(growthOpportunities)}
+                </div>
+              )}
             </section>
           )}
 
@@ -438,153 +593,6 @@ function CaseStudyView({ project }: { project: ProjectData }) {
               />
             </section>
           )}
-
-          {/* Screens Gallery */}
-          {project.images.length > 0 && (
-            <section id="gallery" className="scroll-mt-8">
-              <SectionHeading index={num('gallery')} title={galleryLabel(project)} />
-              {isStraightLayout ? (
-                <div
-                  className={
-                    project.galleryColumns === 2
-                      ? 'grid grid-cols-1 gap-6 sm:grid-cols-2'
-                      : 'space-y-6'
-                  }
-                >
-                  {project.images.map((img) => (
-                    <div
-                      key={img.src}
-                      className="overflow-hidden rounded-ios-xl bg-white/80 shadow-ios ring-1 ring-ios-separator"
-                    >
-                      <Image
-                        src={img.src}
-                        alt={img.alt}
-                        width={1600}
-                        height={2400}
-                        className="h-auto w-full"
-                        sizes={
-                          project.galleryColumns === 2
-                            ? '(max-width: 640px) 100vw, 50vw'
-                            : '(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw'
-                        }
-                      />
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-                  {project.images.map((img) => (
-                    <div
-                      key={img.src}
-                      className="overflow-hidden rounded-ios-xl bg-white/80 shadow-ios ring-1 ring-ios-separator"
-                    >
-                      <Image
-                        src={img.src}
-                        alt={img.alt}
-                        width={1200}
-                        height={900}
-                        className="h-auto w-full object-cover"
-                        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                      />
-                    </div>
-                  ))}
-                </div>
-              )}
-            </section>
-          )}
-
-          {/* Additional Sections */}
-          {project.sections?.map((section) => (
-            <section key={section.title} id={slugify(section.title)} className="scroll-mt-8">
-              <SectionHeading index={num(slugify(section.title))} title={section.title} />
-              <div className="space-y-5">
-                {section.content.split('\n\n').map((paragraph, i) => {
-                  const lines = paragraph.split('\n').filter((l) => l.trim());
-                  if (lines.every((l) => l.trimStart().startsWith('-'))) {
-                    return (
-                      <ul key={i} className="space-y-2">
-                        {lines.map((line, j) => (
-                          <li
-                            key={j}
-                            className="flex items-start gap-2 leading-relaxed text-ios-secondary"
-                          >
-                            <span className="mt-2 block size-1.5 shrink-0 rounded-full bg-ios-electric" />
-                            {line.trimStart().replace(/^-\s+/, '')}
-                          </li>
-                        ))}
-                      </ul>
-                    );
-                  }
-                  if (lines.every((l) => l.trimStart().startsWith('|')) && lines.length >= 3) {
-                    const rows = lines.filter(
-                      (l) => !/^[\s|]*[-:]+\s*[-:|]+\s*[-:| ]*$/.test(l),
-                    );
-                    return (
-                      <div key={i} className="overflow-x-auto rounded-xl border border-ios-separator bg-white">
-                        <table className="w-full text-left text-sm">
-                          <thead>
-                            <tr className="border-b border-ios-separator">
-                              {rows[0]
-                                .split('|')
-                                .filter((c) => c.trim())
-                                .map((cell, ci) => (
-                                  <th key={ci} className="px-4 py-3 font-semibold text-ios-label">
-                                    {cell.trim()}
-                                  </th>
-                                ))}
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {rows.slice(1).map((row, ri) => (
-                              <tr key={ri} className="border-b border-ios-separator last:border-0">
-                                {row
-                                  .split('|')
-                                  .filter((c) => c.trim())
-                                  .map((cell, ci) => (
-                                    <td key={ci} className="px-4 py-3 text-ios-secondary">
-                                      {cell.trim()}
-                                    </td>
-                                  ))}
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
-                      </div>
-                    );
-                  }
-                  return (
-                    <p key={i} className="max-w-3xl leading-relaxed text-ios-secondary">
-                      {paragraph}
-                    </p>
-                  );
-                })}
-              </div>
-              {section.images && section.images.length > 0 && (
-                <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-                  {section.images.map((img) => (
-                    <figure
-                      key={img.src}
-                      className="overflow-hidden rounded-ios-xl bg-white/80 shadow-ios ring-1 ring-ios-separator"
-                    >
-                      <Image
-                        src={img.src}
-                        alt={img.alt}
-                        width={390}
-                        height={844}
-                        className="h-auto w-full"
-                        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                      />
-                      {img.caption && (
-                        <figcaption className="px-3 py-2 text-xs text-ios-tertiary">
-                          {img.caption}
-                        </figcaption>
-                      )}
-                    </figure>
-                  ))}
-                </div>
-              )}
-            </section>
-          ))}
         </div>
       </div>
     </>
