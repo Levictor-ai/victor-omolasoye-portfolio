@@ -2,7 +2,6 @@
 
 import { Reveal } from '@/components/ui/Reveal';
 import { SectionHeading } from '@/components/ui/SectionHeading';
-import { Eyebrow } from '@/components/ui/Badge';
 
 const results = [
   {
@@ -51,18 +50,18 @@ const results = [
 
 export function ResultsSection() {
   return (
-    <section id="results" className="mb-20 bg-ios-navy text-white mx-[calc(50%-50vw)]">
+    <section id="results" className="mb-20">
       <div className="px-6 sm:px-8 lg:px-12">
         <Reveal className="mb-8">
           <SectionHeading
             display
             title="Results I&rsquo;ve delivered"
-            eyebrow={<Eyebrow className="text-white">Concrete outcomes from my projects and experience</Eyebrow>}
-            titleClassName="text-white"
+            eyebrow="Concrete outcomes from my projects and experience"
+            titleClassName="text-ios-ink"
           />
         </Reveal>
       </div>
-      <div className="divide-y divide-white/20 py-12 px-6 sm:px-8 lg:px-12">
+      <div className="divide-y divide-ios-separator/80 py-12">
         {results.map((result, i) => {
           const row = (
             <div className="group grid gap-4 py-8 transition-transform duration-300 hover:translate-x-1 sm:grid-cols-[4.5rem_1fr] sm:gap-6">
@@ -70,10 +69,10 @@ export function ResultsSection() {
                 {String(i + 1).padStart(2, '0')}
               </span>
               <div>
-                <h3 className="mt-3 text-2xl font-bold tracking-tight text-white sm:text-3xl">
+                <h3 className="mt-3 text-2xl font-bold tracking-tight text-ios-ink sm:text-3xl">
                   {result.title}
                 </h3>
-                <p className="mt-3 max-w-3xl text-body-md leading-relaxed text-white/70">
+                <p className="mt-3 max-w-3xl text-body-md leading-relaxed text-ios-secondary">
                   {result.description}
                 </p>
               </div>
