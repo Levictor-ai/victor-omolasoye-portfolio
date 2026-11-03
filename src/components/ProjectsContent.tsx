@@ -28,7 +28,7 @@ export function ProjectsContent({ projects }: { projects: ProjectData[] }) {
   return (
     <>
       <Nav avatar={profile.avatar} />
-      <main id="projects" className="mx-auto max-w-7xl px-6 py-20 sm:px-8">
+      <main id="projects" className="w-full px-6 py-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

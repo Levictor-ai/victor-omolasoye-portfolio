@@ -690,7 +690,7 @@ export default async function ProjectPage({
         ]}
       />
       <main className="min-h-screen bg-ios-grouped font-ios text-ios-label">
-      <article className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <article className="w-full px-6 py-12">
         <a
           href="/projects"
           className="mb-10 inline-flex items-center gap-2 text-sm text-ios-tertiary transition-colors hover:text-ios-label"

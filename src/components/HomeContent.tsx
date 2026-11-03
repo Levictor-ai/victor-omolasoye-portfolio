@@ -427,7 +427,7 @@ export function HomeContent({ projects }: { projects: ProjectData[] }) {
       <Nav avatar={profile.avatar} />
       <main className="min-h-screen">
         <HeroSection profile={profile} projects={projects} />
-        <div className="mx-auto max-w-7xl px-6 py-6 sm:py-8 sm:px-8 lg:px-12">
+        <div className="w-full px-6 py-6 sm:py-8">
           <ProjectsSection projects={projects} />
           <HomeCtaSection />
         </div>

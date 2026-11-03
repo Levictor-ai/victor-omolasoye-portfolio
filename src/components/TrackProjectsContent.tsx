@@ -73,7 +73,7 @@ export function TrackProjectsContent({
   return (
     <>
       <Nav avatar={profile.avatar} />
-      <main className="mx-auto max-w-7xl px-6 py-16 sm:px-8">
+      <main className="w-full px-6 py-16">
         <Link
           href="/projects"
           className="mb-8 inline-flex items-center gap-1.5 text-sm font-medium text-ios-secondary transition-colors hover:text-ios-label"
