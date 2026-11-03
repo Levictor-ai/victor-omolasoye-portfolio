@@ -2,6 +2,7 @@
 
 import { Reveal } from '@/components/ui/Reveal';
 import { SectionHeading } from '@/components/ui/SectionHeading';
+import { Eyebrow } from '@/components/ui/Badge';
 
 const results = [
   {
@@ -51,14 +52,16 @@ const results = [
 export function ResultsSection() {
   return (
     <section id="results" className="mb-20 bg-ios-navy text-white mx-[calc(50%-50vw)]">
-      <Reveal className="mb-8">
-        <SectionHeading
-          display
-          title="Results I&rsquo;ve delivered"
-          eyebrow="Concrete outcomes from my projects and experience"
-          titleClassName="text-white"
-        />
-      </Reveal>
+      <div className="px-6 sm:px-8 lg:px-12">
+        <Reveal className="mb-8">
+          <SectionHeading
+            display
+            title="Results I&rsquo;ve delivered"
+            eyebrow={<Eyebrow className="text-white">Concrete outcomes from my projects and experience</Eyebrow>}
+            titleClassName="text-white"
+          />
+        </Reveal>
+      </div>
       <div className="divide-y divide-white/20 py-12 px-6 sm:px-8 lg:px-12">
         {results.map((result, i) => {
           const row = (
