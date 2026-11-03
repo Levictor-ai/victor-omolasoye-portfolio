@@ -1,9 +1,8 @@
 'use client';
 
-import Link from 'next/link';
-import { ArrowUpRight } from 'lucide-react';
 import { Reveal } from '@/components/ui/Reveal';
 import { SectionHeading } from '@/components/ui/SectionHeading';
+import { ArrowUpRight } from 'lucide-react';
 
 const results = [
   {
@@ -68,8 +67,11 @@ export function ResultsSection() {
                 {String(i + 1).padStart(2, '0')}
               </span>
               <div>
-              <div className="flex items-center gap-3">
-                {result.href && (
+                <div className="flex items-center gap-3">
+                  <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-ios-blue">
+                    {result.project}
+                  </span>
+                  {result.href && (
                     <span className="grid size-7 place-items-center rounded-full bg-ios-fill text-ios-secondary transition-all duration-300 group-hover:bg-ios-blue group-hover:text-white">
                       <ArrowUpRight className="size-3.5" strokeWidth={2.2} />
                     </span>
@@ -85,13 +87,7 @@ export function ResultsSection() {
             </div>
           );
 
-          return result.href ? (
-            <Link key={result.title} href={result.href} className="block">
-              {row}
-            </Link>
-          ) : (
-            <div key={result.title}>{row}</div>
-          );
+          return <div key={result.title}>{row}</div>;
         })}
       </div>
     </section>
