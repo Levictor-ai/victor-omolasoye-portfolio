@@ -60,7 +60,7 @@ export function SiteFooter({ profile }: { profile: ProfileData }) {
       title: 'Services',
       links: [
         { label: 'Product Design', href: '/about#services' },
-        { label: 'Brand Design', href: '/about#services' },
+        { label: 'Brand & Graphic Design', href: '/about#services' },
         { label: 'Web Design', href: '/about#services' },
       ],
     },

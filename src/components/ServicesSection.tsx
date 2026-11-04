@@ -58,28 +58,28 @@ function WebIcon() {
 
 const services = [
   {
-    title: 'Brand Design',
+    title: 'Brand & Graphic Design',
     icon: <BrandIcon />,
     description:
-      'Building identities that give businesses and ideas a clear visual voice.',
+      'Creating distinctive brand identities and compelling visual communication that give businesses a recognisable presence, a consistent visual language, and a lasting impression.',
     skills:
-      'Identity systems \u00b7 Logo design \u00b7 Art direction \u00b7 Typography \u00b7 Colour \u00b7 Brand guidelines \u00b7 Packaging',
+      'Brand identity \u00b7 Logo design \u00b7 Art direction \u00b7 Typography \u00b7 Colour systems \u00b7 Brand guidelines \u00b7 Packaging \u00b7 Marketing design \u00b7 Digital graphics',
   },
   {
     title: 'Product Design',
     icon: <ProductIcon />,
     description:
-      'Designing digital products that turn complex problems into clear and useful experiences.',
+      'Transforming ideas and complex problems into intuitive digital products through thoughtful strategy, purposeful interactions, and user-centred design.',
     skills:
-      'Product strategy \u00b7 UX \u00b7 User flows \u00b7 UI design \u00b7 Design systems \u00b7 Prototyping \u00b7 AI-assisted product development',
+      'Product thinking \u00b7 UX research \u00b7 User flows \u00b7 Interface design \u00b7 Design systems \u00b7 Prototyping \u00b7 AI-assisted product development',
   },
   {
     title: 'Web Design',
     icon: <WebIcon />,
     description:
-      'Creating digital experiences that connect brand, content, interaction, and technology.',
+      'Designing and building engaging digital experiences that bring together brand identity, content, functionality, and technology.',
     skills:
-      'Website strategy \u00b7 UX/UI \u00b7 Responsive design \u00b7 Interaction design \u00b7 Framer \u00b7 AI-assisted development \u00b7 Design to build',
+      'Website strategy \u00b7 UX/UI design \u00b7 Responsive design \u00b7 Interaction design \u00b7 Framer \u00b7 AI-assisted development \u00b7 Design-to-build',
   },
 ];
 
