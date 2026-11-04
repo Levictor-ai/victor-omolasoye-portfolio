@@ -230,7 +230,7 @@ function getSolutionBlocks(project: ProjectData): { blocks: SolutionBlock[]; rem
   const blocks: SolutionBlock[] = [];
   const usedImageSrcs = new Set<string>();
 
-  if (project.slug === 'hapnan') {
+  if (project.slug === 'hapnin') {
     const onboarding = project.images.filter((img) =>
       /(onboarding|sign[-_]?in|sign[-_]?up|forgot[-_]?pass)/i.test(img.src),
     );
