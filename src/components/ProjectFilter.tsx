@@ -6,7 +6,7 @@ import { PenTool, Smartphone, type Icon } from 'lucide-react';
 import type { ProjectData } from '@/types/project';
 import { projectInCategory } from '@/lib/projectCategories';
 
-export type FilterValue = 'all' | 'brand' | 'product';
+export type FilterValue = 'brand' | 'product';
 
 export const projectCategories: {
   value: FilterValue;
@@ -22,7 +22,7 @@ function isFilterValue(value: string | null): value is FilterValue {
 }
 
 export function useProjectFilter(projects: ProjectData[]) {
-  const [activeCategory, setActiveCategory] = useState<FilterValue>('all');
+  const [activeCategory, setActiveCategory] = useState<FilterValue | null>(null);
 
   useEffect(() => {
     const param = new URLSearchParams(window.location.search).get('category');
@@ -31,10 +31,10 @@ export function useProjectFilter(projects: ProjectData[]) {
 
   useEffect(() => {
     const url = new URL(window.location.href);
-    if (activeCategory === 'all') {
-      url.searchParams.delete('category');
-    } else {
+    if (activeCategory) {
       url.searchParams.set('category', activeCategory);
+    } else {
+      url.searchParams.delete('category');
     }
     window.history.replaceState({}, '', url.toString());
   }, [activeCategory]);
@@ -42,7 +42,7 @@ export function useProjectFilter(projects: ProjectData[]) {
   useEffect(() => {
     const onPopState = () => {
       const param = new URLSearchParams(window.location.search).get('category');
-      setActiveCategory(isFilterValue(param) ? param : 'all');
+      setActiveCategory(isFilterValue(param) ? param : null);
     };
     window.addEventListener('popstate', onPopState);
     return () => window.removeEventListener('popstate', onPopState);
@@ -54,32 +54,26 @@ export function useProjectFilter(projects: ProjectData[]) {
     return 0;
   });
 
-  const counts = {
-    all: pool.length,
-    brand: pool.filter((p) => projectInCategory(p, 'brand')).length,
-    product: pool.filter((p) => projectInCategory(p, 'product')).length,
-  };
-
   const filtered =
-    activeCategory === 'all'
+    activeCategory === null
       ? pool
       : pool.filter((project) => projectInCategory(project, activeCategory));
 
   const activeLabel =
-    projectCategories.find((category) => category.value === activeCategory)?.label ?? 'All';
+    activeCategory === null
+      ? null
+      : projectCategories.find((category) => category.value === activeCategory)?.label ?? null;
 
-  return { activeCategory, setActiveCategory, counts, filtered, activeLabel };
+  return { activeCategory, setActiveCategory, filtered, activeLabel };
 }
 
 export function ProjectFilterTabs({
   activeCategory,
   onChange,
-  counts,
   className = '',
 }: {
-  activeCategory: FilterValue;
+  activeCategory: FilterValue | null;
   onChange: (value: FilterValue) => void;
-  counts: Record<FilterValue, number>;
   className?: string;
 }) {
   return (
@@ -120,14 +114,16 @@ export function ProjectFilterTabs({
 
 export function ProjectFilterStatus({
   activeCategory,
-  activeLabel,
   count,
 }: {
-  activeCategory: FilterValue;
-  activeLabel: string;
+  activeCategory: FilterValue | null;
   count: number;
 }) {
-  if (activeCategory === 'all') return null;
+  if (activeCategory === null) return null;
+
+  const label =
+    projectCategories.find((category) => category.value === activeCategory)?.label ??
+    activeCategory;
 
   return (
     <motion.p
@@ -135,7 +131,7 @@ export function ProjectFilterStatus({
       animate={{ opacity: 1, y: 0 }}
       className="mb-4 font-ios text-sm text-ios-secondary"
     >
-      Showing {count} {activeLabel} {count === 1 ? 'project' : 'projects'}
+      Showing {count} {label} {count === 1 ? 'project' : 'projects'}
     </motion.p>
   );
 }

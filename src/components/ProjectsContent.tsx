@@ -21,8 +21,7 @@ import type { ProjectData } from '@/types/project';
 
 export function ProjectsContent({ projects }: { projects: ProjectData[] }) {
   const profile = usePortfolio();
-  const { activeCategory, setActiveCategory, counts, filtered: featured } =
-    useProjectFilter(projects);
+  const { activeCategory, setActiveCategory, filtered: featured } = useProjectFilter(projects);
   const personal = projects.filter((p) => p.personal);
 
   return (
@@ -85,19 +84,11 @@ export function ProjectsContent({ projects }: { projects: ProjectData[] }) {
           <ProjectFilterTabs
             activeCategory={activeCategory}
             onChange={setActiveCategory}
-            counts={counts}
           />
         </motion.div>
 
         <ProjectFilterStatus
           activeCategory={activeCategory}
-          activeLabel={
-            activeCategory === 'brand'
-              ? 'Brand Design'
-              : activeCategory === 'product'
-                ? 'Product Design'
-                : 'All'
-          }
           count={featured.length}
         />
 
@@ -113,7 +104,7 @@ export function ProjectsContent({ projects }: { projects: ProjectData[] }) {
           <p className="text-ios-tertiary">No projects yet.</p>
         )}
 
-        {activeCategory === 'all' && personal.length > 0 && (
+        {activeCategory === null && personal.length > 0 && (
           <section className="mt-20">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

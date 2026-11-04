@@ -305,8 +305,9 @@ function HeroSection({ profile, projects }: { profile: ProfileData; projects: Pr
 }
 
 function ProjectsSection({ projects }: { projects: ProjectData[] }) {
-  const { activeCategory, setActiveCategory, counts, filtered: filteredProjects, activeLabel } =
-    useProjectFilter(projects);
+  const { activeCategory, setActiveCategory, filtered: filteredProjects } = useProjectFilter(
+    projects,
+  );
   const visibleProjects = filteredProjects.slice(0, 5);
 
   return (
@@ -340,12 +341,10 @@ function ProjectsSection({ projects }: { projects: ProjectData[] }) {
         <ProjectFilterTabs
           activeCategory={activeCategory}
           onChange={setActiveCategory}
-          counts={counts}
         />
       </motion.div>
       <ProjectFilterStatus
         activeCategory={activeCategory}
-        activeLabel={activeLabel}
         count={filteredProjects.length}
       />
       {filteredProjects.length > 0 ? (
