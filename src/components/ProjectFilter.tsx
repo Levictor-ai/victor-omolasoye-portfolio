@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { LayoutGrid, PenTool, Smartphone, type Icon } from 'lucide-react';
+import { PenTool, Smartphone, type Icon } from 'lucide-react';
 import type { ProjectData } from '@/types/project';
 import { projectInCategory } from '@/lib/projectCategories';
 
@@ -13,7 +13,6 @@ export const projectCategories: {
   label: string;
   icon: Icon;
 }[] = [
-  { value: 'all', label: 'All', icon: LayoutGrid },
   { value: 'brand', label: 'Brand Design', icon: PenTool },
   { value: 'product', label: 'Product Design', icon: Smartphone },
 ];
@@ -111,13 +110,6 @@ export function ProjectFilterTabs({
             <span className="relative z-10 flex items-center gap-1.5 sm:gap-2">
               <CategoryIcon className="hidden size-4 shrink-0 sm:block" strokeWidth={2.2} />
               {category.label}
-              <span
-                className={`rounded-full px-1.5 py-0.5 text-[10px] font-semibold leading-none ${
-                  isActive ? 'bg-ios-fill text-ios-secondary' : 'bg-ios-fill-strong text-ios-tertiary'
-                }`}
-              >
-                {counts[category.value]}
-              </span>
             </span>
           </button>
         );
