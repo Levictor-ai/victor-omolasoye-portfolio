@@ -148,8 +148,8 @@ function ProjectFlow({ projects }: { projects: ProjectData[] }) {
   );
 }
 
-const HEADLINE = ['I', 'design', 'products', 'people', 'understand,', 'trust,', 'and', 'use.'];
-const HEADLINE_HIGHLIGHT = new Set([4, 5, 7]);
+const HEADLINE = ['Designing', 'identities.', 'Building', 'experiences.'];
+const HEADLINE_HIGHLIGHT = new Set<number>([]);
 
 function HeroHeadline() {
   return (
@@ -165,10 +165,10 @@ function HeroHeadline() {
         letterSpacing: '-0.045em',
       }}
     >
-      <span className="sr-only">
-        I design products people understand, trust, and use. &mdash; Victor Omolasoye, Product
-        Designer in Lagos, Nigeria
-      </span>
+        <span className="sr-only">
+          Designing identities. Building experiences. &mdash; Victor Omolasoye, Brand &amp; Product
+          Designer
+        </span>
       <span aria-hidden="true" className="block w-full text-balance">
         {HEADLINE.map((word, i) => (
           <motion.span
@@ -258,9 +258,9 @@ function HeroSection({ profile, projects }: { profile: ProfileData; projects: Pr
               style={{ fontSize: 'clamp(1.05rem,1.4vw,1.3rem)' }}
             >
               <span className="font-semibold text-ios-label">
-                Product Designer + AI-assisted builder
+                Brand &amp; Product Designer
               </span>{' '}
-              creating digital products, experiences, and brands.
+              creating distinctive visual identities and intuitive digital products.
             </p>
           </motion.div>
           <motion.div variants={item} className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
