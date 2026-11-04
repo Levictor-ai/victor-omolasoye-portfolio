@@ -26,8 +26,21 @@ export function useProjectFilter(projects: ProjectData[]) {
 
   useEffect(() => {
     const param = new URLSearchParams(window.location.search).get('category');
-    if (isFilterValue(param)) setActiveCategory(param);
+    if (isFilterValue(param)) {
+      setActiveCategory(param);
+    } else {
+      try {
+        const stored = window.localStorage.getItem(`projectFilterCategory:${window.location.pathname}`);
+        if (isFilterValue(stored)) setActiveCategory(stored);
+      } catch {}
+    }
   }, []);
+
+  useEffect(() => {
+    try {
+      window.localStorage.setItem(`projectFilterCategory:${window.location.pathname}`, activeCategory);
+    } catch {}
+  }, [activeCategory]);
 
   useEffect(() => {
     const url = new URL(window.location.href);
@@ -38,7 +51,16 @@ export function useProjectFilter(projects: ProjectData[]) {
   useEffect(() => {
     const onPopState = () => {
       const param = new URLSearchParams(window.location.search).get('category');
-      setActiveCategory(isFilterValue(param) ? param : 'brand');
+      if (isFilterValue(param)) {
+        setActiveCategory(param);
+      } else {
+        try {
+          const stored = window.localStorage.getItem(`projectFilterCategory:${window.location.pathname}`);
+          setActiveCategory(isFilterValue(stored) ? stored : 'brand');
+        } catch {
+          setActiveCategory('brand');
+        }
+      }
     };
     window.addEventListener('popstate', onPopState);
     return () => window.removeEventListener('popstate', onPopState);
