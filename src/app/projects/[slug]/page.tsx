@@ -242,6 +242,7 @@ const manualScreenOverrides: Record<string, Record<string, string[]>> = {
     discovery: ['/images/projects/bunkie-ui/discover.png'],
   },
   fluxo: {
+    'centralized order management': ['/images/projects/fluxo/order-management.png'],
     'rider management & live tracking': ['/images/projects/fluxo/rider-management.png'],
   },
   payvo: {
