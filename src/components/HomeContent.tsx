@@ -10,6 +10,7 @@ import { usePortfolio } from '@/context/PortfolioContext';
 import type { ProfileData } from '@/context/PortfolioContext';
 import type { ProjectData } from '@/types/project';
 import { ProjectCard } from '@/components/ProjectCard';
+import { PersonalProjectCard } from '@/components/PersonalProjectCard';
 import { projectInCategory } from '@/lib/projectCategories';
 import { BackToTop } from '@/components/BackToTop';
 import { Nav } from '@/components/Nav';
@@ -378,6 +379,41 @@ function ProjectsSection({ projects }: { projects: ProjectData[] }) {
   );
 }
 
+function PersonalProjectsSection({ projects }: { projects: ProjectData[] }) {
+  const fadeUp = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
+  const personal = projects
+    .filter((p) => p.personal)
+    .sort((a, b) => Number(b.slug === 'token-forge') - Number(a.slug === 'token-forge'));
+
+  if (personal.length === 0) return null;
+
+  return (
+    <motion.section
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: '-50px' }}
+      variants={{
+        hidden: {},
+        show: { transition: { staggerChildren: 0.08 } },
+      }}
+      className="mb-20"
+    >
+      <motion.div variants={fadeUp}>
+        <SectionHeading title="Personal Projects" eyebrow="Built for the love of it" />
+      </motion.div>
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2">
+        {personal.map((project, i) => (
+          <PersonalProjectCard key={project.slug} project={project} index={i} />
+        ))}
+      </div>
+    </motion.section>
+  );
+}
+
 function HomeCtaSection() {
   const fadeUp = {
     hidden: { opacity: 0, y: 20 },
@@ -428,6 +464,7 @@ export function HomeContent({ projects }: { projects: ProjectData[] }) {
         <HeroSection profile={profile} projects={projects} />
         <div className="mx-auto max-w-7xl px-6 py-6 sm:py-8 sm:px-8 lg:px-12">
           <ProjectsSection projects={projects} />
+          <PersonalProjectsSection projects={projects} />
           <HomeCtaSection />
         </div>
       </main>

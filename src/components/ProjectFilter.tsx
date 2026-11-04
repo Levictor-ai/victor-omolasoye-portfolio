@@ -81,7 +81,7 @@ export function ProjectFilterTabs({
             key={category.value}
             onClick={() => onChange(category.value)}
             aria-pressed={isActive}
-            className={`relative flex flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-full px-2 py-2 text-xs font-semibold transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ios-blue/40 sm:flex-none sm:gap-2 sm:px-4 sm:py-2 sm:text-sm ${
+            className={`relative flex flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-full px-3 py-2.5 text-xs font-semibold transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ios-blue/40 sm:flex-none sm:gap-2 sm:px-6 sm:py-3.5 sm:text-sm ${
               isActive ? 'text-white' : 'text-ios-secondary hover:text-ios-label'
             }`}
           >
