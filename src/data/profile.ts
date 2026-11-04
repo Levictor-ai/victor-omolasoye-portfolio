@@ -35,8 +35,8 @@ export interface ProfileData {
     contra?: string;
     behance?: string;
     medium?: string;
+    whatsapp?: string;
   };
-  coreDisciplines: Skill[];
   tools: Skill[];
   technicalHandoff: Skill[];
   testimonials: Testimonial[];
@@ -75,15 +75,8 @@ I'm always exploring the intersection of creativity, technology, and human exper
     behance: 'https://www.behance.net/victoromo',
     twitter: 'https://x.com/mlevictor21',
     medium: 'https://medium.com/@omolasoyevictorakinyemi',
+    whatsapp: 'https://wa.me/2348168285728',
   },
-  coreDisciplines: [
-    { name: 'Brand Identity', level: 'Expert' },
-    { name: 'Typography', level: 'Proficient' },
-    { name: 'User Experience', level: 'Expert' },
-    { name: 'User Research', level: 'Expert' },
-    { name: 'Prototyping', level: 'Proficient' },
-    { name: 'Design Systems', level: 'Proficient' },
-  ],
   tools: [
     { name: 'Figma', level: 'Expert' },
     { name: 'Photoshop', level: 'Expert' },
