@@ -44,7 +44,7 @@ export function AboutSection({
         >
           <SectionHeading
             eyebrow="A little context"
-            title="About Me"
+            title="Who's the creative mind?"
             titleClassName={headingClassName}
           />
         </motion.div>
