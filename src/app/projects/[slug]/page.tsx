@@ -246,7 +246,9 @@ const manualScreenOverrides: Record<string, Record<string, string[]>> = {
     'rider management & live tracking': ['/images/projects/fluxo/rider-management.png'],
   },
   payvo: {
+    'request money: link': ['/images/projects/payvo/request-money.png'],
     'request money: qr code': ['/images/projects/payvo/request-money-qr.png'],
+    'transaction history': ['/images/projects/payvo/transactions-list.png'],
     'transaction pin': ['/images/projects/payvo/transaction-pin.png'],
   },
   'smartvendor-store': {
