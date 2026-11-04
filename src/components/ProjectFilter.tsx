@@ -22,7 +22,7 @@ function isFilterValue(value: string | null): value is FilterValue {
 }
 
 export function useProjectFilter(projects: ProjectData[]) {
-  const [activeCategory, setActiveCategory] = useState<FilterValue | null>(null);
+  const [activeCategory, setActiveCategory] = useState<FilterValue>('brand');
 
   useEffect(() => {
     const param = new URLSearchParams(window.location.search).get('category');
@@ -31,18 +31,14 @@ export function useProjectFilter(projects: ProjectData[]) {
 
   useEffect(() => {
     const url = new URL(window.location.href);
-    if (activeCategory) {
-      url.searchParams.set('category', activeCategory);
-    } else {
-      url.searchParams.delete('category');
-    }
+    url.searchParams.set('category', activeCategory);
     window.history.replaceState({}, '', url.toString());
   }, [activeCategory]);
 
   useEffect(() => {
     const onPopState = () => {
       const param = new URLSearchParams(window.location.search).get('category');
-      setActiveCategory(isFilterValue(param) ? param : null);
+      setActiveCategory(isFilterValue(param) ? param : 'brand');
     };
     window.addEventListener('popstate', onPopState);
     return () => window.removeEventListener('popstate', onPopState);
@@ -54,15 +50,10 @@ export function useProjectFilter(projects: ProjectData[]) {
     return 0;
   });
 
-  const filtered =
-    activeCategory === null
-      ? pool
-      : pool.filter((project) => projectInCategory(project, activeCategory));
+  const filtered = pool.filter((project) => projectInCategory(project, activeCategory));
 
   const activeLabel =
-    activeCategory === null
-      ? null
-      : projectCategories.find((category) => category.value === activeCategory)?.label ?? null;
+    projectCategories.find((category) => category.value === activeCategory)?.label ?? activeCategory;
 
   return { activeCategory, setActiveCategory, filtered, activeLabel };
 }
@@ -72,13 +63,13 @@ export function ProjectFilterTabs({
   onChange,
   className = '',
 }: {
-  activeCategory: FilterValue | null;
+  activeCategory: FilterValue;
   onChange: (value: FilterValue) => void;
   className?: string;
 }) {
   return (
     <div
-      className={`flex w-full items-center gap-1 overflow-x-auto rounded-ios bg-ios-fill p-1 font-ios sm:inline-flex sm:w-auto sm:max-w-full ${className}`}
+      className={`flex w-full items-center gap-1 overflow-x-auto rounded-full bg-ios-fill p-1 font-ios sm:inline-flex sm:w-auto sm:max-w-full ${className}`}
       role="group"
       aria-label="Filter projects by category"
     >
@@ -90,14 +81,14 @@ export function ProjectFilterTabs({
             key={category.value}
             onClick={() => onChange(category.value)}
             aria-pressed={isActive}
-            className={`relative flex flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-[9px] px-2 py-2 text-xs font-semibold transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ios-blue/40 sm:flex-none sm:gap-2 sm:px-4 sm:py-2 sm:text-sm ${
-              isActive ? 'text-ios-label' : 'text-ios-secondary hover:text-ios-label'
+            className={`relative flex flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-full px-2 py-2 text-xs font-semibold transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ios-blue/40 sm:flex-none sm:gap-2 sm:px-4 sm:py-2 sm:text-sm ${
+              isActive ? 'text-white' : 'text-ios-secondary hover:text-ios-label'
             }`}
           >
             {isActive && (
               <motion.span
                 layoutId="projectsCategoryToggle"
-                className="absolute inset-0 rounded-[9px] bg-white shadow-[0_1px_2px_rgba(0,0,0,0.06),0_4px_12px_-6px_rgba(0,0,0,0.18)]"
+                className="absolute inset-0 rounded-full bg-ios-blue shadow-[0_1px_2px_rgba(0,0,0,0.06),0_4px_12px_-6px_rgba(0,0,0,0.18)]"
                 transition={{ type: 'spring', stiffness: 450, damping: 34 }}
               />
             )}
@@ -116,14 +107,11 @@ export function ProjectFilterStatus({
   activeCategory,
   count,
 }: {
-  activeCategory: FilterValue | null;
+  activeCategory: FilterValue;
   count: number;
 }) {
-  if (activeCategory === null) return null;
-
   const label =
-    projectCategories.find((category) => category.value === activeCategory)?.label ??
-    activeCategory;
+    projectCategories.find((category) => category.value === activeCategory)?.label ?? activeCategory;
 
   return (
     <motion.p

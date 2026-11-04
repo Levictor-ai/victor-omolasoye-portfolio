@@ -104,7 +104,7 @@ export function ProjectsContent({ projects }: { projects: ProjectData[] }) {
           <p className="text-ios-tertiary">No projects yet.</p>
         )}
 
-        {activeCategory === null && personal.length > 0 && (
+        {personal.length > 0 && (
           <section className="mt-20">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
