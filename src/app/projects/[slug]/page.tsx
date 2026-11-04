@@ -226,6 +226,33 @@ type SolutionBlock = {
   images: ProjectImage[];
 };
 
+/**
+ * Manual screen-to-feature overrides, keyed by project slug and lowercased
+ * feature title. Used when filenames do not map cleanly onto feature names.
+ */
+const manualScreenOverrides: Record<string, Record<string, string[]>> = {
+  'bunkie-ui': {
+    'onboarding & authentication': [
+      '/images/projects/bunkie-ui/splash.png',
+      '/images/projects/bunkie-ui/welcome.png',
+      '/images/projects/bunkie-ui/intro.png',
+      '/images/projects/bunkie-ui/sign-up.png',
+      '/images/projects/bunkie-ui/sign-in.png',
+    ],
+    discovery: ['/images/projects/bunkie-ui/discover.png'],
+  },
+  fluxo: {
+    'rider management & live tracking': ['/images/projects/fluxo/rider-management.png'],
+  },
+  payvo: {
+    'request money: qr code': ['/images/projects/payvo/request-money-qr.png'],
+    'transaction pin': ['/images/projects/payvo/transaction-pin.png'],
+  },
+  'smartvendor-store': {
+    'wake up to sales': ['/images/projects/smartvendor-store/smartvendor-wake-up-to-sales-v01.png'],
+  },
+};
+
 function getSolutionBlocks(project: ProjectData): { blocks: SolutionBlock[]; remaining: ProjectImage[] } {
   const blocks: SolutionBlock[] = [];
   const usedImageSrcs = new Set<string>();
@@ -264,15 +291,17 @@ function getSolutionBlocks(project: ProjectData): { blocks: SolutionBlock[]; rem
 
   const screensByFeature: Record<string, ProjectImage[]> = {};
   for (const feature of project.features) {
+    const override = manualScreenOverrides[project.slug]?.[feature.title.toLowerCase()];
     const words = feature.title
       .toLowerCase()
       .split(/[^a-z0-9]+/)
       .filter((w) => w.length >= 3);
-    const matched = project.images.filter(
-      (img) =>
-        !usedImageSrcs.has(img.src) &&
-        words.some((word) => img.src.toLowerCase().includes(word)),
-    );
+    const matched = override
+      ? project.images.filter((img) => override.includes(img.src) && !usedImageSrcs.has(img.src))
+      : project.images.filter(
+          (img) =>
+            !usedImageSrcs.has(img.src) && words.some((word) => img.src.toLowerCase().includes(word)),
+        );
     matched.forEach((img) => usedImageSrcs.add(img.src));
     screensByFeature[feature.title] = matched;
   }
