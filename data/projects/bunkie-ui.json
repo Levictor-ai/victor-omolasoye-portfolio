@@ -46,7 +46,12 @@
   "architecture": {
     "title": "Information Architecture",
     "description": "The experience is structured around five core areas — onboarding, discovery, listings and requests, identity verification, and profile/settings — linked by a persistent bottom navigation.",
-    "highlights": []
+    "highlights": [
+      "Five core areas chained by persistent bottom navigation",
+      "Onboarding sequenced before discovery value",
+      "Listings and requests handled as one workflow",
+      "Verification and settings layered without cluttering the core flow"
+    ]
   },
   "results": [
     {

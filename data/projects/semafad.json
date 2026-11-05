@@ -39,9 +39,13 @@
     { "name": "Design Systems", "category": "design" }
   ],
   "architecture": {
-    "title": "",
-    "description": "",
-    "highlights": []
+    "title": "Brand System Architecture",
+    "description": "The brand system was architected to flex between digital and print while keeping identity recognition consistent.",
+    "highlights": [
+      "Logo mark system with clear applications",
+      "Colour and type foundations",
+      "Accessibility-aware usage guidelines"
+    ]
   },
   "results": [
     {

@@ -40,9 +40,13 @@
     { "name": "Brand Identity", "category": "design" }
   ],
   "architecture": {
-    "title": "",
-    "description": "",
-    "highlights": []
+    "title": "WhatsApp Commerce Architecture",
+    "description": "The commerce experience was architected around one chat-first storefront, with assets and flows that turned everyday WhatsApp conversations into structured sales.",
+    "highlights": [
+      "Chat-as-storefront positioning",
+      "Screenshot verification removal flows",
+      "Always-on sales capture"
+    ]
   },
   "results": [
     {

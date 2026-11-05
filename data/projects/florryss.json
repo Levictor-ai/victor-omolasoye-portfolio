@@ -17,8 +17,12 @@
   "features": [],
   "techStack": [],
   "architecture": {
-    "description": "",
-    "highlights": []
+    "description": "The visual language was architected as a compact system that scales across the client's core surfaces while keeping its distinctive character.",
+    "highlights": [
+      "Core visual principles defined once",
+      "Applied consistently across key touchpoints",
+      "Documented for reuse"
+    ]
   },
   "results": [],
   "links": [],

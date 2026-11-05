@@ -47,9 +47,14 @@
     { "name": "Character Design", "category": "design" }
   ],
   "architecture": {
-    "title": "",
-    "description": "",
-    "highlights": []
+    "title": "Illustration System Architecture",
+    "description": "The illustration practice was architected around a repeatable production pipeline: silhouette-first construction, flat colour and light, character studies, editorial framing and repeatable patterns.",
+    "highlights": [
+      "Silhouette-first construction before detail",
+      "Flat colour with light carrying depth",
+      "Character and animal studies",
+      "Editorial framing and pattern systems"
+    ]
   },
   "results": [
     {

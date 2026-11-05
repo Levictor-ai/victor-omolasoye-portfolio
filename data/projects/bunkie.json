@@ -39,9 +39,14 @@
     { "name": "Design Systems", "category": "design" }
   ],
   "architecture": {
-    "title": "",
-    "description": "",
-    "highlights": []
+    "title": "Brand System Architecture",
+    "description": "I designed the identity as a living system rather than a static toolkit: the logo, colour, typography and rules feed a single source of truth that spans product UI, social and marketing collateral.",
+    "highlights": [
+      "Tokenised logo variants with clear-space and scale guidance",
+      "Separated brand, product and accessibility colour roles",
+      "Shared typography scale across digital and print",
+      "Usage rules written for internal teams and vendors"
+    ]
   },
   "results": [
     {

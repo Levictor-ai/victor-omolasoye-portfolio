@@ -36,9 +36,14 @@
     { "name": "Brand Identity", "category": "design" }
   ],
   "architecture": {
-    "title": "",
-    "description": "",
-    "highlights": []
+    "title": "Social Brand Architecture",
+    "description": "The social identity was architected as a repeatable content system: palette, type and layout rules that could produce an infinite feed of on-brand assets.",
+    "highlights": [
+      "Monochrome brand core with functional gradient",
+      "Dynamic type pairing for high-impact headers and scannable body",
+      "Organic layout anchors that break rigid grids",
+      "High-contrast CTA system"
+    ]
   },
   "results": [
     {

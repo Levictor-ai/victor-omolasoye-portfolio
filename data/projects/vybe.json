@@ -40,9 +40,13 @@
     { "name": "Social Media Design", "category": "design" }
   ],
   "architecture": {
-    "title": "",
-    "description": "",
-    "highlights": []
+    "title": "Product Design Architecture",
+    "description": "The product design architecture centred on a 9-grid visual strategy that sequenced narrative, palette and layered imagery into one cohesive experience.",
+    "highlights": [
+      "9-grid narrative sequencing",
+      "Bold monochromatic palette",
+      "Layered imagery and masks"
+    ]
   },
   "results": [
     {
