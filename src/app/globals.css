@@ -281,6 +281,11 @@
     animation: tag-bob 4.6s cubic-bezier(0.65, 0, 0.35, 1) infinite alternate;
   }
 
+  .animate-footer-wordmark {
+    animation: footer-wordmark 6s ease-in-out infinite;
+    will-change: transform;
+  }
+
   .animate-logo-scroll {
     animation: logo-scroll 40s linear infinite;
   }
@@ -354,12 +359,18 @@
 .animate-footer-drift {
   animation: footer-drift 18s ease-in-out infinite;
 }
+@keyframes footer-wordmark {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -8px, 0); }
+}
+
 
 @media (prefers-reduced-motion: reduce) {
   .animate-ping,
   .marquee-track,
   .marquee-track-reverse,
   .animate-footer-drift,
+  .animate-footer-wordmark,
   *[style*='animation'] {
     animation: none !important;
   }

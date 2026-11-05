@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { cn } from '@/lib/cn';
+import { Reveal } from '@/components/ui/Reveal';
 
 export interface FooterLink {
   label: string;
@@ -106,14 +107,21 @@ export function Footer({
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-6 border-t border-white/20 pt-8 sm:mt-12">
+        <div
+    className="mt-10 flex flex-col gap-6 border-t border-white/20 pt-8 sm:mt-12"
+    style={{ containerType: 'inline-size' }}
+  >
           {wordmark && (
+      <Reveal>
+
             <span
               aria-hidden="true"
-              className="select-none font-ios text-4xl font-bold leading-none tracking-tight text-white break-words sm:text-6xl lg:text-8xl"
+              className="animate-footer-wordmark block w-full select-none font-ios text-[clamp(2rem,11cqi,13rem)] font-black leading-[0.85] tracking-[-0.05em] text-white whitespace-nowrap"
             >
               {wordmark}
             </span>
+      </Reveal>
+
           )}
           {legal && (
             <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-white/70">
