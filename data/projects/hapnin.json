@@ -42,9 +42,14 @@
     { "name": "Usability Testing", "category": "design" }
   ],
   "architecture": {
-    "title": "",
-    "description": "",
-    "highlights": []
+    "title": "Event Platform Design Architecture",
+    "description": "The platform design was driven by a single source of truth for event information, standardising how event details are captured and presented before discovery and reminder experiences were layered on top.",
+    "highlights": [
+      "Centralized event data model with structured fields",
+      "Discovery flow prioritising location, date and category filters",
+      "Event details presentation with verification-first layout",
+      "Reminder logic sequenced after core trust signals"
+    ]
   },
   "results": [
     {
