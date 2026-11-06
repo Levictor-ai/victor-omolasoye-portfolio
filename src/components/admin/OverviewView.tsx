@@ -184,7 +184,6 @@ export function OverviewView({
           <Breakdown
             rows={data.countries}
             emptyLabel="No location data yet."
-            limit={6}
             renderLabel={(row) => (
               <span className="truncate">
                 {countryFlag(row.label)} {countryName(row.label)}

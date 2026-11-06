@@ -958,7 +958,7 @@ export async function getOverview(range: AnalyticsRange): Promise<OverviewData> 
     conversionRate,
     previousConversionRate,
     daily,
-    countries: toBreakdown(countryMap, 8),
+    countries: toBreakdown(countryMap, 12),
     cities: toBreakdown(cityMap, 8),
     pages: toBreakdown(pageMap, 10),
     referrers: toBreakdown(referrerMap, 8),
