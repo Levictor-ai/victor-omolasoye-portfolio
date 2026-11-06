@@ -73,5 +73,10 @@
     { "src": "/images/projects/vybe/vybe ad17.png", "alt": "Vybe Ad Creative 8" },
     { "src": "/images/projects/vybe/vybes ad10.png", "alt": "Vybe Ad Creative 9" }
   ],
-  "sections": []
+  "sections": [
+    {
+      "title": "Research",
+      "content": "The brief asked for a narrative-led visual strategy. Research into audience storytelling rhythms shaped the nine-grid sequencing, palette and layered imagery approach."
+    }
+  ]
 }

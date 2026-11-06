@@ -72,5 +72,10 @@
     { "src": "/images/projects/hevaura/HEVAURA BRAND ASSET-14.png", "alt": "Hevaura Brand Asset 11" },
     { "src": "/images/projects/hevaura/HEVAURA BRAND ASSET-15.png", "alt": "Hevaura Brand Asset 12" }
   ],
-  "sections": []
+  "sections": [
+    {
+      "title": "Research",
+      "content": "The brief framed premium skincare identity across web, app and campaigns. Research into luxury positioning and accessibility requirements set the strategy for palette, typography and voice foundations."
+    }
+  ]
 }

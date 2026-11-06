@@ -75,5 +75,10 @@
     { "src": "/images/projects/semafad/15.jpg", "alt": "Semafad Brand Design 11" },
     { "src": "/images/projects/semafad/18.jpg", "alt": "Semafad Brand Design 12" }
   ],
-  "sections": []
+  "sections": [
+    {
+      "title": "Research",
+      "content": "The brief covered brand identity foundations across digital and print. Research into mark applications and audience contexts set strategy for logo, colour and type foundations."
+    }
+  ]
 }
