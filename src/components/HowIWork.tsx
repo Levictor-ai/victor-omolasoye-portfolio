@@ -1,6 +1,6 @@
 'use client';
 
-import { Reveal } from '@/components/ui/Reveal';
+import { Reveal, RevealGroup, RevealItem } from '@/components/ui/Reveal';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 
 const steps = [
@@ -25,28 +25,30 @@ export function HowIWork() {
               className="absolute left-[15px] top-3 bottom-3 w-px bg-gradient-to-b from-ios-electric to-ios-navy sm:left-[23px]"
               aria-hidden="true"
             />
-            <div className="space-y-6 sm:space-y-8">
+            <RevealGroup className="space-y-6 sm:space-y-8">
               {steps.map((step, i) => (
-                <div key={step.title} className="relative">
-                  <div
-                    className="absolute -left-8 top-1 flex size-8 items-center justify-center rounded-full border border-ios-electric/30 bg-ios-electric text-xs font-bold text-white shadow-ios sm:-left-12 sm:size-10 sm:text-sm"
-                    aria-hidden="true"
-                  >
-                    {String(i + 1).padStart(2, '0')}
-                  </div>
-                  <div className="rounded-ios-xl border border-ios-electric/20 bg-white p-5 shadow-ios backdrop-blur-xl transition-transform duration-300 hover:-translate-y-0.5 sm:p-6">
-                    <div className="flex items-center gap-3">
-                      <h3 className="text-lg font-bold tracking-tight text-ios-ink sm:text-xl">
-                        {step.title}
-                      </h3>
+                <RevealItem key={step.title}>
+                  <div className="relative">
+                    <div
+                      className="absolute -left-8 top-1 flex size-8 items-center justify-center rounded-full border border-ios-electric/30 bg-ios-electric text-xs font-bold text-white shadow-ios sm:-left-12 sm:size-10 sm:text-sm"
+                      aria-hidden="true"
+                    >
+                      {String(i + 1).padStart(2, '0')}
                     </div>
-                    <p className="mt-2 max-w-2xl text-body-md leading-relaxed text-ios-secondary">
-                      {step.body}
-                    </p>
+                    <div className="rounded-ios-xl border border-ios-electric/20 bg-white p-5 shadow-ios backdrop-blur-xl transition-transform duration-300 hover:-translate-y-0.5 sm:p-6">
+                      <div className="flex items-center gap-3">
+                        <h3 className="text-lg font-bold tracking-tight text-ios-ink sm:text-xl">
+                          {step.title}
+                        </h3>
+                      </div>
+                      <p className="mt-2 max-w-2xl text-body-md leading-relaxed text-ios-secondary">
+                        {step.body}
+                      </p>
+                    </div>
                   </div>
-                </div>
+                </RevealItem>
               ))}
-            </div>
+            </RevealGroup>
           </div>
         </Reveal>
       </div>
