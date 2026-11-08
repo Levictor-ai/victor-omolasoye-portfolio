@@ -15,33 +15,40 @@ const steps = [
 export function HowIWork() {
   return (
     <section id="how-i-work" className="mb-20">
-      <Reveal className="mb-8">
-        <SectionHeading display title="How I Work" eyebrow="Understand. Explore. Build. Refine." />
-      </Reveal>
-      <div className="relative pl-8 sm:pl-12">
-        <div
-          className="absolute left-[15px] top-3 bottom-3 w-px bg-gradient-to-b from-ios-electric to-ios-navy sm:left-[23px]"
-          aria-hidden="true"
-        />
-        <div className="space-y-6 sm:space-y-8">
-          {steps.map((step, i) => (
-            <div key={step.title} className="relative">
-              <div               className="absolute -left-8 top-1 flex size-8 items-center justify-center rounded-full border border-ios-electric/30 bg-ios-electric text-xs font-bold text-white shadow-ios sm:-left-12 sm:size-10 sm:text-sm">
-                {String(i + 1).padStart(2, '0')}
-              </div>
-              <div className="rounded-ios-xl border border-ios-electric/20 bg-white p-5 shadow-ios backdrop-blur-xl transition-transform duration-300 hover:-translate-y-0.5 sm:p-6">
-                <div className="flex items-center gap-3">
-                  <h3 className="text-lg font-bold tracking-tight text-ios-ink sm:text-xl">
-                    {step.title}
-                  </h3>
+      <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
+        <Reveal>
+          <SectionHeading display title="How I Work" eyebrow="Understand. Explore. Build. Refine." />
+        </Reveal>
+        <Reveal>
+          <div className="relative pl-8 sm:pl-12">
+            <div
+              className="absolute left-[15px] top-3 bottom-3 w-px bg-gradient-to-b from-ios-electric to-ios-navy sm:left-[23px]"
+              aria-hidden="true"
+            />
+            <div className="space-y-6 sm:space-y-8">
+              {steps.map((step, i) => (
+                <div key={step.title} className="relative">
+                  <div
+                    className="absolute -left-8 top-1 flex size-8 items-center justify-center rounded-full border border-ios-electric/30 bg-ios-electric text-xs font-bold text-white shadow-ios sm:-left-12 sm:size-10 sm:text-sm"
+                    aria-hidden="true"
+                  >
+                    {String(i + 1).padStart(2, '0')}
+                  </div>
+                  <div className="rounded-ios-xl border border-ios-electric/20 bg-white p-5 shadow-ios backdrop-blur-xl transition-transform duration-300 hover:-translate-y-0.5 sm:p-6">
+                    <div className="flex items-center gap-3">
+                      <h3 className="text-lg font-bold tracking-tight text-ios-ink sm:text-xl">
+                        {step.title}
+                      </h3>
+                    </div>
+                    <p className="mt-2 max-w-2xl text-body-md leading-relaxed text-ios-secondary">
+                      {step.body}
+                    </p>
+                  </div>
                 </div>
-                <p className="mt-2 max-w-2xl text-body-md leading-relaxed text-ios-secondary">
-                  {step.body}
-                </p>
-              </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
