@@ -1,5 +1,7 @@
 'use client';
 
+import { useRef } from 'react';
+import { motion, useScroll, useTransform, type MotionValue } from 'framer-motion';
 import { Reveal } from '@/components/ui/Reveal';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 
@@ -12,7 +14,53 @@ const steps = [
   { title: 'Deliver', body: 'Bring everything together into a clear, cohesive, and ready-to-use final experience.' },
 ];
 
+interface StepCardProps {
+  step: { title: string; body: string };
+  index: number;
+  total: number;
+  scrollYProgress: MotionValue<number>;
+}
+
+function StepCard({ step, index, total, scrollYProgress }: StepCardProps) {
+  const active = useTransform(scrollYProgress, [index / total, (index + 1) / total], [0, 1]);
+  const opacity = useTransform(active, [0, 1], [0, 1]);
+  const scale = useTransform(active, [0, 1], [0.94, 1]);
+  const y = useTransform(active, [0, 1], [40, 0]);
+
+  return (
+    <motion.div
+      className={index > 0 ? '-mt-16 sm:-mt-20' : undefined}
+      style={{ opacity, scale, y }}
+    >
+      <div className="relative">
+        <div
+          className="absolute -left-8 top-1 flex size-8 items-center justify-center rounded-full border border-ios-electric/30 bg-ios-electric text-xs font-bold text-white shadow-ios sm:-left-12 sm:size-10 sm:text-sm"
+          aria-hidden="true"
+        >
+          {String(index + 1).padStart(2, '0')}
+        </div>
+        <div className="rounded-ios-xl border border-ios-electric/20 bg-white p-5 shadow-ios backdrop-blur-xl transition-transform duration-300 hover:-translate-y-0.5 sm:p-6">
+          <div className="flex items-center gap-3">
+            <h3 className="text-lg font-bold tracking-tight text-ios-ink sm:text-xl">
+              {step.title}
+            </h3>
+          </div>
+          <p className="mt-2 max-w-2xl text-body-md leading-relaxed text-ios-secondary">
+            {step.body}
+          </p>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
 export function HowIWork() {
+  const listRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: listRef,
+    offset: ['start end', 'end start'],
+  });
+
   return (
     <section id="how-i-work" className="mb-20">
       <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
@@ -20,33 +68,20 @@ export function HowIWork() {
           <SectionHeading display title="How I Bring Ideas to Life" eyebrow="Understand. Explore. Build. Refine." />
         </Reveal>
         <Reveal>
-          <div className="relative pl-8 sm:pl-12">
+          <div ref={listRef} className="relative pl-8 sm:pl-12">
             <div
               className="absolute left-[15px] top-3 bottom-3 w-px bg-gradient-to-b from-ios-electric to-ios-navy sm:left-[23px]"
               aria-hidden="true"
             />
-            <div className="space-y-6 sm:space-y-8">
+            <div>
               {steps.map((step, i) => (
-                <Reveal key={step.title} delay={i * 0.1}>
-                  <div className="relative">
-                    <div
-                      className="absolute -left-8 top-1 flex size-8 items-center justify-center rounded-full border border-ios-electric/30 bg-ios-electric text-xs font-bold text-white shadow-ios sm:-left-12 sm:size-10 sm:text-sm"
-                      aria-hidden="true"
-                    >
-                      {String(i + 1).padStart(2, '0')}
-                    </div>
-                    <div className="rounded-ios-xl border border-ios-electric/20 bg-white p-5 shadow-ios backdrop-blur-xl transition-transform duration-300 hover:-translate-y-0.5 sm:p-6">
-                      <div className="flex items-center gap-3">
-                        <h3 className="text-lg font-bold tracking-tight text-ios-ink sm:text-xl">
-                          {step.title}
-                        </h3>
-                      </div>
-                      <p className="mt-2 max-w-2xl text-body-md leading-relaxed text-ios-secondary">
-                        {step.body}
-                      </p>
-                    </div>
-                  </div>
-                </Reveal>
+                <StepCard
+                  key={step.title}
+                  step={step}
+                  index={i}
+                  total={steps.length}
+                  scrollYProgress={scrollYProgress}
+                />
               ))}
             </div>
           </div>
