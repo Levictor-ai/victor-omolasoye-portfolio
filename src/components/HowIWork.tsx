@@ -17,7 +17,7 @@ export function HowIWork() {
     <section id="how-i-work" className="mb-20">
       <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
         <Reveal>
-          <SectionHeading display title="How I Work" eyebrow="Understand. Explore. Build. Refine." />
+          <SectionHeading display title="How I Bring Ideas to Life" eyebrow="Understand. Explore. Build. Refine." />
         </Reveal>
         <Reveal>
           <div className="relative pl-8 sm:pl-12">
