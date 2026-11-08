@@ -31,6 +31,7 @@ function StepCard({ step, index, total, scrollYProgress }: StepCardProps) {
     <motion.div
       className={index > 0 ? '-mt-16 sm:-mt-20' : undefined}
       style={{ opacity, scale, y }}
+      transition={{ duration: 0.7, ease: 'easeOut' }}
     >
       <div className="relative">
         <div
