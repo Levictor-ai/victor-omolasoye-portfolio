@@ -1,6 +1,6 @@
 'use client';
 
-import { Reveal, RevealGroup, RevealItem } from '@/components/ui/Reveal';
+import { Reveal } from '@/components/ui/Reveal';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 
 const steps = [
@@ -25,9 +25,9 @@ export function HowIWork() {
               className="absolute left-[15px] top-3 bottom-3 w-px bg-gradient-to-b from-ios-electric to-ios-navy sm:left-[23px]"
               aria-hidden="true"
             />
-            <RevealGroup className="space-y-6 sm:space-y-8">
+            <div className="space-y-6 sm:space-y-8">
               {steps.map((step, i) => (
-                <RevealItem key={step.title}>
+                <Reveal key={step.title} delay={i * 0.1}>
                   <div className="relative">
                     <div
                       className="absolute -left-8 top-1 flex size-8 items-center justify-center rounded-full border border-ios-electric/30 bg-ios-electric text-xs font-bold text-white shadow-ios sm:-left-12 sm:size-10 sm:text-sm"
@@ -46,9 +46,9 @@ export function HowIWork() {
                       </p>
                     </div>
                   </div>
-                </RevealItem>
+                </Reveal>
               ))}
-            </RevealGroup>
+            </div>
           </div>
         </Reveal>
       </div>
