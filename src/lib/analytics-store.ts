@@ -230,6 +230,8 @@ export interface ActivityItem {
   project: string;
   label: string;
   depth: number | null;
+  visitorId: string;
+  sessionId: string;
   country: string;
   city: string;
   device: string;
@@ -240,6 +242,28 @@ export interface ActivityData {
   range: AnalyticsRange;
   items: ActivityItem[];
   eventFilter: string;
+  hasData: boolean;
+}
+
+export interface VisitorRow {
+  visitorId: string;
+  firstSeen: number | null;
+  lastSeen: number | null;
+  events: number;
+  sessions: number;
+  newVisitor: boolean;
+  country: string;
+  city: string;
+  device: string;
+  source: string;
+  pages: BreakdownRow[];
+  timeline: ActivityItem[];
+}
+
+export interface VisitorsData {
+  range: AnalyticsRange;
+  visitors: VisitorRow[];
+  selectedVisitorId: string | null;
   hasData: boolean;
 }
 
@@ -415,11 +439,12 @@ function mergeBreakdown(target: Map<string, number>, rows: Array<[string, number
   });
 }
 
-function toBreakdown(map: Map<string, number>, limit: number): BreakdownRow[] {
-  return Array.from(map.entries())
+function toBreakdown(map: Map<string, number>, limit?: number): BreakdownRow[] {
+  const rows = Array.from(map.entries())
     .map(([label, count]) => ({ label, count }))
-    .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label))
-    .slice(0, limit);
+    .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
+
+  return typeof limit === 'number' ? rows.slice(0, limit) : rows;
 }
 
 function parseActivity(value: unknown): ActivityItem | null {
@@ -438,6 +463,8 @@ function parseActivity(value: unknown): ActivityItem | null {
       project: typeof parsed.project === 'string' ? parsed.project : '',
       label: typeof parsed.label === 'string' ? parsed.label : '',
       depth: typeof parsed.depth === 'number' ? parsed.depth : null,
+      visitorId: typeof parsed.visitorId === 'string' ? parsed.visitorId : '',
+      sessionId: typeof parsed.sessionId === 'string' ? parsed.sessionId : '',
       country: typeof parsed.country === 'string' ? parsed.country : 'XX',
       city: typeof parsed.city === 'string' ? parsed.city : 'Unknown',
       device: typeof parsed.device === 'string' ? parsed.device : 'Desktop',
@@ -544,6 +571,8 @@ export async function recordAnalyticsEvent(input: RecordAnalyticsInput): Promise
     project: eventProject || viewProject,
     label: input.label,
     depth: isScroll ? input.depth : null,
+    visitorId: input.visitorId,
+    sessionId: input.sessionId,
     country: input.geo.country,
     city: input.geo.city,
     device: input.device,
@@ -958,8 +987,8 @@ export async function getOverview(range: AnalyticsRange): Promise<OverviewData> 
     conversionRate,
     previousConversionRate,
     daily,
-    countries: toBreakdown(countryMap, 12),
-    cities: toBreakdown(cityMap, 8),
+    countries: toBreakdown(countryMap),
+    cities: toBreakdown(cityMap),
     pages: toBreakdown(pageMap, 10),
     referrers: toBreakdown(referrerMap, 8),
     devices: toBreakdown(deviceMap, 4),
@@ -1563,8 +1592,8 @@ export async function getAudience(range: AnalyticsRange): Promise<AudienceData> 
 
   return {
     range,
-    countries: toBreakdown(countryMap, 12),
-    cities: toBreakdown(cityMap, 12),
+    countries: toBreakdown(countryMap),
+    cities: toBreakdown(cityMap),
     devices: toBreakdown(deviceMap, 4),
     browsers: toBreakdown(browserMap, 8),
     operatingSystems: toBreakdown(osMap, 8),
@@ -1605,6 +1634,144 @@ export async function getActivity(
     items,
     eventFilter,
     hasData: items.length > 0,
+  };
+}
+
+/**
+ * Builds one row per visitor for the selected range, merging the visitors that
+ * sent activity events with the visitor IDs collected from the per-day
+ * new/returning sets, so visitors from before the current tracking format are
+ * still listed with the details we already have.
+ *
+ * When a single `visitorId` is passed the response is narrowed to that
+ * visitor's own timeline. Nothing is deleted; only reads are performed.
+ */
+export async function getVisitors(range: AnalyticsRange, visitorId?: string): Promise<VisitorsData> {
+  const dates = dayListBetween(range.from, range.to);
+  const activityDates = dates.slice(-60);
+
+  const grouped = new Map<string, ActivityItem[]>();
+  const activityCommands: RedisCommand[] = activityDates.map((day) => [
+    'LRANGE',
+    `v2:activity:${day}`,
+    '0',
+    '499',
+  ]);
+  const activityResults = activityCommands.length > 0 ? await redisPipeline<unknown[]>(activityCommands) : [];
+  activityResults.flatMap((list) => parseActivityList(list)).forEach((item) => {
+    if (!item.visitorId) return;
+    const bucket = grouped.get(item.visitorId);
+    if (bucket) bucket.push(item);
+    else grouped.set(item.visitorId, [item]);
+  });
+
+  const setCommands: RedisCommand[] = [];
+  dates.forEach((day) => {
+    setCommands.push(['SMEMBERS', `v2:new:${day}`], ['SMEMBERS', `v2:returning:${day}`]);
+  });
+  let setResults: unknown[] = [];
+  try {
+    setResults = setCommands.length > 0 ? await redisPipeline<unknown[]>(setCommands) : [];
+  } catch {
+    setResults = [];
+  }
+
+  const visitorIdSet = new Set<string>();
+  let setCursor = 0;
+  dates.forEach((day) => {
+    for (const key of [`v2:new:${day}`, `v2:returning:${day}`]) {
+      const members = setResults[setCursor];
+      if (Array.isArray(members)) {
+        for (const member of members) {
+          const id = String(member ?? '');
+          if (id) visitorIdSet.add(id);
+        }
+      }
+      setCursor += 1;
+    }
+  });
+
+  const visitorIds = Array.from(new Set([...grouped.keys(), ...visitorIdSet]));
+
+  const firstCommands: RedisCommand[] = visitorIds.map((id) => ['HGET', `v2:first:${id}`, ''] as RedisCommand);
+  const firstResults = visitorIds.length > 0 ? await redisPipeline<string | null>(firstCommands) : [];
+  const firstDays = new Map<string, string>();
+  visitorIds.forEach((id, index) => {
+    const value = firstResults[index];
+    if (typeof value === 'string') firstDays.set(id, value);
+  });
+
+  const visitors = new Map<string, VisitorRow>();
+  Array.from(grouped.entries()).forEach(([id, items]) => {
+    const row = buildVisitorRow(id, items);
+    const firstDay = firstDays.get(id);
+    row.newVisitor = Boolean(firstDay && firstDay >= range.from && firstDay <= range.to);
+    visitors.set(id, row);
+  });
+
+  Array.from(visitorIdSet).forEach((id) => {
+    if (visitors.has(id)) return;
+    const row = buildVisitorRow(id, []);
+    const firstDay = firstDays.get(id);
+    row.firstSeen = firstDay ? Date.parse(`${firstDay}T00:00:00.000Z`) : null;
+    row.newVisitor = Boolean(firstDay && firstDay >= range.from && firstDay <= range.to);
+    visitors.set(id, row);
+  });
+
+  const selectedId = visitorId ?? '';
+  const selectedRow = selectedId ? visitors.get(selectedId) ?? null : null;
+  const rows = selectedRow ? [selectedRow] : selectedId ? [] : Array.from(visitors.values());
+
+  rows.sort((a, b) => (b.lastSeen ?? b.firstSeen ?? 0) - (a.lastSeen ?? a.firstSeen ?? 0));
+
+  return {
+    range,
+    visitors: rows,
+    selectedVisitorId: selectedId && rows.length > 0 ? selectedId : null,
+    hasData: rows.length > 0,
+  };
+}
+
+function buildVisitorRow(visitorId: string, items: ActivityItem[]): VisitorRow {
+  const timeline = [...items].sort((a, b) => a.ts - b.ts);
+  const firstSeen = timeline.length > 0 ? timeline[0].ts : null;
+  const lastSeen = timeline.length > 0 ? timeline[timeline.length - 1].ts : null;
+
+  const sessionIds = new Set<string>();
+  const pageCounts = new Map<string, number>();
+  let country = 'XX';
+  let city = 'Unknown';
+  let device = 'Desktop';
+  let source = 'Direct';
+
+  for (const item of timeline) {
+    if (item.sessionId) sessionIds.add(item.sessionId);
+    if (item.event === 'pageview') {
+      pageCounts.set(item.path, (pageCounts.get(item.path) ?? 0) + 1);
+    }
+    country = item.country;
+    city = item.city;
+    device = item.device;
+    source = item.source;
+  }
+
+  const pages = Array.from(pageCounts.entries())
+    .map(([label, count]) => ({ label, count }))
+    .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
+
+  return {
+    visitorId,
+    firstSeen,
+    lastSeen,
+    events: timeline.length,
+    sessions: sessionIds.size,
+    newVisitor: false,
+    country,
+    city,
+    device,
+    source,
+    pages,
+    timeline,
   };
 }
 
@@ -1823,6 +1990,8 @@ export async function getLiveStats(): Promise<LiveStats> {
       project: '',
       label: '',
       depth: null,
+      visitorId: '',
+      sessionId: '',
       country: 'XX',
       city: 'Unknown',
       device: 'Desktop',

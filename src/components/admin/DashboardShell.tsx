@@ -11,6 +11,7 @@ export const VIEWS = [
   { id: 'acquisition', label: 'Acquisition' },
   { id: 'audience', label: 'Audience' },
   { id: 'activity', label: 'Activity' },
+  { id: 'visitors', label: 'Visitors' },
   { id: 'conversions', label: 'Conversions' },
   { id: 'settings', label: 'Settings' },
 ] as const;
@@ -136,7 +137,7 @@ export function DashboardShell({
             return (
               <Link
                 key={item.id}
-                href={adminHref(item.id, range, filters)}
+                href={adminHref(item.id, range, item.id === 'visitors' ? {} : filters)}
                 aria-current={active ? 'page' : undefined}
                 className={`shrink-0 rounded-[10px] px-3 py-2 text-xs font-semibold transition-colors sm:px-3.5 ${
                   active

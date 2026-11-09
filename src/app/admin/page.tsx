@@ -12,6 +12,7 @@ import { EngagementView } from '@/components/admin/EngagementView';
 import { AcquisitionView } from '@/components/admin/AcquisitionView';
 import { AudienceView } from '@/components/admin/AudienceView';
 import { ActivityView } from '@/components/admin/ActivityView';
+import { VisitorsView } from '@/components/admin/VisitorsView';
 import { ConversionsView } from '@/components/admin/ConversionsView';
 import { SettingsView } from '@/components/admin/SettingsView';
 import { Card, EmptyState } from '@/components/admin/ui';
@@ -29,6 +30,7 @@ import {
   getOverview,
   getPagesProjects,
   getSettings,
+  getVisitors,
   type AcquisitionData,
   type ActivityData,
   type AudienceData,
@@ -38,6 +40,7 @@ import {
   type OverviewData,
   type PagesProjectsData,
   type SettingsData,
+  type VisitorsData,
 } from '@/lib/analytics-store';
 
 export const dynamic = 'force-dynamic';
@@ -102,6 +105,9 @@ export default async function AdminPage({ searchParams }: AdminPageProps) {
   const eventFilter = EVENT_FILTERS.includes(first(params.event) ?? '')
     ? (first(params.event) as string)
     : 'all';
+  const visitorFilterRaw = first(params.visitor);
+  const visitorFilter =
+    typeof visitorFilterRaw === 'string' && visitorFilterRaw.trim() ? visitorFilterRaw.trim() : '';
 
   let error: string | null = null;
   let lastUpdated: number | undefined;
@@ -114,6 +120,7 @@ export default async function AdminPage({ searchParams }: AdminPageProps) {
   let audience: AudienceData | null = null;
   let activity: ActivityData | null = null;
   let conversions: ConversionsData | null = null;
+  let visitors: VisitorsData | null = null;
   let settings: SettingsData | null = null;
 
   if (storeConfigured) {
@@ -144,6 +151,14 @@ export default async function AdminPage({ searchParams }: AdminPageProps) {
         case 'activity':
           activity = await getActivity(range, eventFilter);
           break;
+        case 'visitors': {
+          const visitor =
+            typeof visitorFilter === 'string' && visitorFilter !== 'all'
+              ? visitorFilter
+              : undefined;
+          visitors = await getVisitors(range, visitor);
+          break;
+        }
         case 'conversions':
           conversions = await getConversions(range);
           break;
@@ -161,6 +176,7 @@ export default async function AdminPage({ searchParams }: AdminPageProps) {
     category: view === 'pages' ? category : undefined,
     metric: view === 'pages' ? metric : undefined,
     event: view === 'activity' ? eventFilter : undefined,
+    visitor: view === 'visitors' && visitorFilter ? visitorFilter : undefined,
   };
 
   return (
@@ -194,6 +210,9 @@ export default async function AdminPage({ searchParams }: AdminPageProps) {
             {view === 'activity' && activity ? (
               <ActivityView data={activity} range={range} />
             ) : null}
+            {view === 'visitors' && visitors ? (
+              <VisitorsView data={visitors} range={range} />
+            ) : null}
             {view === 'conversions' && conversions ? (
               <ConversionsView data={conversions} />
             ) : null}
@@ -205,6 +224,7 @@ export default async function AdminPage({ searchParams }: AdminPageProps) {
             !audience &&
             !activity &&
             !conversions &&
+            !visitors &&
             !settings ? (
               <EmptyState
                 title="Nothing to show yet"

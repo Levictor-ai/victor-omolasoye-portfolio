@@ -66,8 +66,15 @@ function normaliseCountry(value: unknown): string {
   return /^[A-Z]{2}$/.test(code) ? code : 'XX';
 }
 
-function normaliseText(value: unknown): string {
-  return typeof value === 'string' ? value.trim().slice(0, 80) : '';
+/**
+ * Normalises a free-form place name. Some geolocation providers return
+ * compound values such as "Falkenstein/Vogtl.", where the first segment is the
+ * real place name; keep only that so dashboards render clean labels.
+ */
+function normalisePlace(value: unknown): string {
+  const cleaned = typeof value === 'string' ? value.trim().replace(/\s+/g, ' ').slice(0, 80) : '';
+  const primary = cleaned.split('/')[0]?.trim() ?? '';
+  return primary || cleaned;
 }
 
 async function lookupIp(ip: string): Promise<GeoResult | null> {
@@ -100,8 +107,8 @@ async function lookupIp(ip: string): Promise<GeoResult | null> {
     if (data.success === false) return null;
 
     const country = normaliseCountry(data.country_code);
-    const city = normaliseText(data.city) || 'Unknown';
-    const region = normaliseText(data.region);
+    const city = normalisePlace(data.city) || 'Unknown';
+    const region = normalisePlace(data.region);
 
     if (country === 'XX' && city === 'Unknown' && !region) return null;
 

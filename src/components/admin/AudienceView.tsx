@@ -61,7 +61,6 @@ export function AudienceView({ data }: { data: AudienceData }) {
           <Breakdown
             rows={data.countries}
             emptyLabel="No country data yet."
-            limit={12}
             renderLabel={(row) => (
               <span className="truncate">
                 {countryFlag(row.label)} {countryName(row.label)}
