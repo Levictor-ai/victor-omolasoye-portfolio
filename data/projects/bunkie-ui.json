@@ -116,7 +116,10 @@
     { "src": "/images/projects/bunkie-ui/verification-result.png", "alt": "Bunkie verification result screen" },
     { "src": "/images/projects/bunkie-ui/profile.png", "alt": "Bunkie profile screen" },
     { "src": "/images/projects/bunkie-ui/personal-information.png", "alt": "Bunkie personal information screen" },
-    { "src": "/images/projects/bunkie-ui/settings.png", "alt": "Bunkie settings screen" }
+    { "src": "/images/projects/bunkie-ui/settings.png", "alt": "Bunkie settings screen" },
+    { "src": "/images/projects/bunkie-ui/figjam-2026-11-02-204308.png", "alt": "Bunkie FigJam screenshot 1" },
+    { "src": "/images/projects/bunkie-ui/figjam-2026-11-10-155031.png", "alt": "Bunkie FigJam screenshot 2" },
+    { "src": "/images/projects/bunkie-ui/figjam-2026-11-10-155056.png", "alt": "Bunkie FigJam screenshot 3" }
   ],
   "sections": [
     {
