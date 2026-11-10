@@ -232,14 +232,15 @@ type SolutionBlock = {
  */
 const manualScreenOverrides: Record<string, Record<string, string[]>> = {
   'bunkie-ui': {
-    'onboarding & authentication': [
+    'onboarding & profile creation': [
       '/images/projects/bunkie-ui/splash.png',
       '/images/projects/bunkie-ui/welcome.png',
       '/images/projects/bunkie-ui/intro.png',
       '/images/projects/bunkie-ui/sign-up.png',
       '/images/projects/bunkie-ui/sign-in.png',
     ],
-    discovery: ['/images/projects/bunkie-ui/discover.png'],
+    'roommate discovery': ['/images/projects/bunkie-ui/profile.png'],
+    'housing discovery': ['/images/projects/bunkie-ui/discover.png'],
   },
   fluxo: {
     'centralized order management': ['/images/projects/fluxo/order-management.png'],

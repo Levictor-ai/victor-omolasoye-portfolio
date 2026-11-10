@@ -1,73 +1,80 @@
 {
   "slug": "bunkie-ui",
   "category": "product",
-  "title": "Bunkie UI",
-  "subtitle": "Mobile Marketplace App Design",
   "featured": true,
-  "role": "Product Designer",
+  "title": "Bunkie",
+  "subtitle": "Roommate & Housing Discovery",
+  "role": "UI Designer",
   "company": "Cowrywise",
   "period": "2024",
   "coverImage": "/images/projects/bunkie-ui/cover.png",
-  "color": "#1A1A1A",
-  "overview": "The Bunkie mobile app lets people list items, discover what's nearby, send and receive requests, and manage a verified profile. The work covers the full interface across onboarding, discovery, listings, identity verification and settings.",
-  "problem": "Bunkie needed a clear, trustworthy mobile experience for a marketplace built on user-to-user listings. New users had to understand how to browse, list and send requests quickly, while the product also had to verify identity before anyone could transact.",
-  "solution": "A mobile UI spanning splash, onboarding, sign up and sign in, discovery, listings and requests, saved items, a guided create-listing flow, and a multi-step identity verification flow (ID, selfie and a short behaviour matrix) to build trust before transacting.",
-  "targetAudience": ["Everyday Sellers", "Marketplace Buyers", "Window Shoppers"],
-  "regions": ["Nigeria"],
-  "timeline": "2024",
+  "color": "#663398",
+  "overview": "Bunkie is a roommate and shared-housing discovery platform designed to make finding compatible roommates and affordable accommodation easier, safer and more reliable. The platform connects people searching for accommodation with individuals who have available rooms, while helping users discover potential roommates based on lifestyle preferences, budget, location and personal compatibility. The work covers the full interface across onboarding and profile creation, roommate discovery, housing discovery, messaging and dashboard.",
+  "problem": "Finding shared accommodation in Nigeria often involves navigating fragmented and unreliable channels. People typically depend on property agents, Facebook groups, WhatsApp communities and social media posts, which introduces high agency fees, trust and safety concerns, poor roommate compatibility, scattered information and time-consuming searches. Bunkie needed a clear, trustworthy mobile-first experience that simplified roommate and housing discovery.",
+  "solution": "A mobile-first UI covering onboarding and profile creation, roommate discovery, housing discovery, messaging and dashboard. Structured compatibility preferences were paired with traditional housing filters, verification indicators and a unified flow to help users find affordable accommodation and compatible roommates with confidence.",
+  "targetAudience": [
+    "The New City Graduate",
+    "The Budget-Conscious Student",
+    "The Room Lister"
+  ],
+  "regions": [
+    "Nigeria"
+  ],
+  "timeline": "8 weeks",
   "features": [
     {
-      "title": "Onboarding & Authentication",
-      "description": "Splash, welcome and intro screens lead into clean sign up and sign in flows that get new users into the product quickly."
+      "title": "Onboarding & Profile Creation",
+      "description": "Splash, welcome and intro screens lead into clean sign up and sign in flows that capture personal information and lifestyle preferences to support roommate compatibility."
     },
     {
-      "title": "Discovery",
-      "description": "A discover feed for browsing listings with clear imagery, pricing and listing details, plus saved items for later."
+      "title": "Roommate Discovery",
+      "description": "Browse potential roommate matches based on lifestyle preferences, budget, location and compatibility criteria, with profile details and verification signals."
     },
     {
-      "title": "Listings & Requests",
-      "description": "A guided multi-step create-listing flow, plus screens to track your listings and the requests you send and receive."
+      "title": "Housing Discovery",
+      "description": "Explore available rooms and shared accommodation, narrowing options by location, price, room type and availability."
     },
     {
-      "title": "Identity Verification",
-      "description": "A trust flow with ID capture, a selfie check and a short behaviour matrix, gating transactions until a user is verified."
+      "title": "Messaging & Connections",
+      "description": "Connect with potential roommates and discuss living arrangements through an in-app messaging flow."
     },
     {
-      "title": "Profile & Settings",
-      "description": "Profile completion, personal information management and app settings for a complete account experience."
+      "title": "Dashboard & Navigation",
+      "description": "A dashboard bringing matches, messages, saved listings and discovery activity together."
     }
   ],
   "techStack": [
     { "name": "Figma", "category": "design" },
     { "name": "Prototyping", "category": "design" },
     { "name": "Design Systems", "category": "design" },
-    { "name": "Mobile UI", "category": "design" }
+    { "name": "Mobile UI", "category": "design" },
+    { "name": "User Research", "category": "design" }
   ],
   "architecture": {
-    "title": "Information Architecture",
-    "description": "The experience is structured around five core areas — onboarding, discovery, listings and requests, identity verification, and profile/settings — linked by a persistent bottom navigation.",
+    "title": "Journey and Information Architecture",
+    "description": "The experience was structured around the shared-housing discovery journey: onboarding and lifestyle preference capture, roommate discovery, housing discovery, messaging and dashboard, linked by a persistent mobile navigation.",
     "highlights": [
-      "Five core areas chained by persistent bottom navigation",
-      "Onboarding sequenced before discovery value",
-      "Listings and requests handled as one workflow",
-      "Verification and settings layered without cluttering the core flow"
+      "Onboarding sequenced before roommate and housing discovery",
+      "Compatibility preferences paired with traditional housing filters",
+      "Messaging layered onto discovery without leaving the flow",
+      "Dashboard consolidates matches, messages and saved listings"
     ]
   },
   "results": [
     {
-      "metric": "Screens",
-      "value": "32",
-      "description": "End-to-end mobile UI covering onboarding through verified profile"
+      "metric": "Design Phase",
+      "value": "Complete",
+      "description": "High-fidelity mobile-first UI design completed for the roommate and shared-housing discovery experience."
     },
     {
-      "metric": "Core Flows",
+      "metric": "Core Journeys",
       "value": "5",
-      "description": "Onboarding, discovery, listing creation, verification and profile management"
+      "description": "Onboarding, roommate discovery, housing discovery, messaging and dashboard covered end to end."
     },
     {
-      "metric": "Verification Steps",
-      "value": "3",
-      "description": "ID capture, selfie check and behaviour matrix build trust before transacting"
+      "metric": "Compatibility Signals",
+      "value": "4",
+      "description": "Budget, lifestyle, schedule and verification inputs shaped the roommate compatibility experience."
     }
   ],
   "links": [
@@ -113,12 +120,24 @@
   ],
   "sections": [
     {
-      "title": "Design Approach",
-      "content": "The UI was designed around the core marketplace loop: browse, list and transact. Each flow was kept short and legible, with a consistent component set and clear empty, loading and success states so users always know what happens next."
+      "title": "Executive Summary",
+      "content": "Bunkie is a roommate and shared-housing discovery platform designed to make finding compatible roommates and affordable accommodation easier, safer and more reliable.\n\nThe platform connects people searching for accommodation with individuals who have available rooms, while helping users discover potential roommates based on lifestyle preferences, budget, location and personal compatibility.\n\nFinding a place to live is challenging enough. Finding someone compatible to share that space with makes the process even more complicated. Bunkie was created so finding a place to live and someone to live with feels less stressful and more reassuring."
     },
     {
-      "title": "Flows Covered",
-      "content": "- Onboarding & authentication: splash, welcome, intro, sign up and sign in\n- Discovery: browse listings and save items for later\n- Listings & requests: guided create-listing flow, my listings and my requests\n- Identity verification: ID capture, selfie check and behaviour matrix\n- Profile & settings: profile completion, personal information and settings"
+      "title": "Research & Discovery",
+      "content": "Finding a place to live is challenging enough. Finding someone compatible to share that space with makes the process even more complicated.\n\nTo better understand the problem, the team conducted UX research with prospective users across Lagos, Ilorin, Bauchi and Port Harcourt. The research included students, NYSC members and young professionals with previous experience searching for shared accommodation.\n\nKey research insights\n\n- Affordability is a major concern, with expensive agency fees and limited affordable housing options among the most frequently reported frustrations.\n- Trust is essential, with concerns about fake listings, financial scams and the difficulty of verifying potential roommates.\n- Finding accommodation takes time, with many respondents spending more than a month securing their current accommodation.\n- Compatibility goes beyond location and budget, covering cleanliness, lifestyle habits, noise levels, personality, security and work or study schedules.\n\nWhat this meant for the design\n\n- Simplify housing and roommate discovery.\n- Make compatibility information accessible during the discovery process.\n- Introduce trust-building elements that help users make informed decisions."
+    },
+    {
+      "title": "Design Thinking: Define",
+      "content": "The product was designed around three primary user groups.\n\n- The New City Graduate: a young professional relocating to a new city who needs affordable accommodation and a compatible roommate without relying entirely on unfamiliar agents or social networks.\n- The Budget-Conscious Student: a student searching for affordable accommodation close to school, with a roommate whose lifestyle and routines align with theirs.\n- The Room Lister: an existing tenant or homeowner looking for a responsible person to share an available room or apartment.\n\nThe core product experience was structured around six major capabilities.\n\n- User onboarding and profile creation.\n- Room and roommate listings.\n- Search and filtering.\n- User profiles and verification.\n- Roommate compatibility discovery.\n- In-app messaging.\n\nA proposed booking request flow was designed to help users express interest in available accommodation."
+    },
+    {
+      "title": "Design Thinking: Ideate",
+      "content": "How Might We\n\n- How might we make finding the right roommate feel less stressful?\n- How might we help users find affordable accommodation without high agency fees?\n- How might we make compatibility information accessible during discovery?\n- How might we build trust before users commit to a shared living arrangement?\n- How might we reduce the time and effort of finding shared accommodation?\n\nDirections\n\n- Simplify housing and roommate discovery into one connected experience.\n- Combine lifestyle preferences with traditional housing filters such as location, price, room type and availability.\n- Introduce trust-building elements through user profiles and verification.\n- Sequence roommate compatibility discovery before connecting users for messaging."
+    },
+    {
+      "title": "Design Strengths",
+      "content": "Finding accommodation is not simply about finding an available room. It also involves affordability, personal safety, lifestyle compatibility and the confidence to share a living space with another person.\n\nBunkie reinforced an important aspect of product design: solving the problem requires understanding the decisions people make beyond the immediate task. It also highlighted the importance of collaboration between UX, UI, product management and brand design in building a coherent product experience."
     }
   ]
 }

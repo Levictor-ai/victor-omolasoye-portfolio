@@ -19,10 +19,10 @@ const results = [
     href: '/projects/moovabletech',
   },
   {
-    project: 'Bunkie UI',
-    title: '32 screens · 5 core flows',
+    project: 'Bunkie',
+    title: '6 core capabilities · UI complete',
     description:
-      'Delivered the end-to-end mobile marketplace UI across onboarding, discovery, listings, identity verification, and profile management.',
+      'Designed the full roommate and shared-housing discovery interface — onboarding, roommate discovery, housing discovery, messaging and dashboard — covering affordability, compatibility and trust in one cohesive design system.',
     href: '/projects/bunkie-ui',
   },
   {
