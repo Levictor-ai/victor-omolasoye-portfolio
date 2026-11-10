@@ -14,7 +14,7 @@ export const dynamic = 'force-dynamic';
  * so we still filter obvious automation by user agent.
  */
 const BOT_RE =
-  /bot\b|bot\/|crawler|spider|crawling|slurp|preview|headless|lighthouse|pingdom|uptime|monitor|curl\/|wget\/|python-requests|python-urllib|go-http-client|node-fetch|axios\/|facebookexternalhit|embedly|quora link preview|whatsapp|telegrambot|discordbot|slackbot|applebot|petalbot|semrush|ahrefs|mj12|dotbot|bytespider/i;
+  /bot\b|bot\/|crawler|spider|crawling|slurp|preview|headless|lighthouse|pingdom|uptime|monitor|curl\/|wget\/|python-requests|python-urllib|go-http-client|node-fetch|axios\/|facebookexternalhit|embedly|quora link preview|whatsapp|telegrambot|discordbot|slackbot|applebot|petalbot|semrush|ahrefs|mj12|dotbot|bytespider|chatgpt|openai/i;
 
 const ID_RE = /^[a-zA-Z0-9_-]{8,80}$/;
 const EVENT_ID_RE = /^[a-zA-Z0-9_:-]{8,120}$/;
