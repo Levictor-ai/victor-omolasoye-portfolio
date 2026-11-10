@@ -153,6 +153,12 @@ I'm always exploring the intersection of creativity, technology, and human exper
   resumeUrl: 'https://drive.google.com/file/d/18bYWCcV4bx5f2rkG3M-CyvL-rkh3gCdn/view?usp=sharing',
   experience: [
     {
+      company: 'Cowrywise',
+      role: 'Co-Lead, Brand Design',
+      period: 'Apr. 2026 — Present',
+      keywords: ['Brand Design', 'Product Design', 'Design Systems', 'Remote'],
+    },
+    {
       company: 'Forgelayers',
       role: 'Founding Designer · Graphic Designer',
       period: 'Mar. 2026 — Jul. 2026',
