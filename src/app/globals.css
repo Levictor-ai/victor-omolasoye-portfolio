@@ -289,6 +289,12 @@
   .animate-logo-scroll {
     animation: logo-scroll 40s linear infinite;
   }
+
+  /* Animated equalizer bars used by the about music player pill. */
+  .animate-eq {
+    transform-origin: bottom;
+    animation: eq-bounce 0.9s ease-in-out infinite;
+  }
 }
 
 @keyframes marquee-scroll {
@@ -350,6 +356,11 @@
   to { transform: translate3d(-50%, 0, 0); }
 }
 
+@keyframes eq-bounce {
+  0%, 100% { transform: scaleY(0.3); }
+  50% { transform: scaleY(1); }
+}
+
 /* Slowly drifting ambient glow used by the footer motion. */
 @keyframes footer-drift {
   0%, 100% { transform: translate3d(-8%, -6%, 0) scale(1); }
@@ -371,6 +382,7 @@
   .marquee-track-reverse,
   .animate-footer-drift,
   .animate-footer-wordmark,
+  .animate-eq,
   *[style*='animation'] {
     animation: none !important;
   }

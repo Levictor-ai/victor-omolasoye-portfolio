@@ -2,6 +2,7 @@
 
 import { usePortfolio } from '@/context/PortfolioContext';
 import { Nav } from '@/components/Nav';
+import { AboutMusicPlayer } from '@/components/AboutMusicPlayer';
 import { AboutSection } from '@/components/AboutSection';
 import { ServicesSection } from '@/components/ServicesSection';
 import { HowIWork } from '@/components/HowIWork';
@@ -20,6 +21,7 @@ export function AboutClient() {
     <>
       <Nav avatar={profile.avatar} />
       <main className="mx-auto max-w-7xl px-6 pt-16 pb-28 sm:px-8 lg:px-12">
+        <AboutMusicPlayer />
         <AboutSection
           profile={profile}
           headingClassName="font-ios text-6xl font-bold leading-none tracking-tight text-ios-ink sm:text-7xl"
