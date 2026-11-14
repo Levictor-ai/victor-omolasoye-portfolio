@@ -296,6 +296,21 @@
   to { transform: translate3d(-50%, 0, 0); }
 }
 
+/* Autoplay progress rail for the hero cover carousel. */
+@keyframes hero-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.hero-progress {
+  transform-origin: left center;
+  animation: hero-progress var(--hero-progress-duration, 5.2s) linear forwards;
+}
+
+.hero-progress[data-reduced='true'] {
+  display: none;
+}
+
 @keyframes marquee-scroll-reverse {
   from { transform: translate3d(-50%, 0, 0); }
   to { transform: translate3d(0, 0, 0); }
@@ -369,6 +384,7 @@
   .animate-ping,
   .marquee-track,
   .marquee-track-reverse,
+  .hero-progress,
   .animate-footer-drift,
   .animate-footer-wordmark,
   *[style*='animation'] {

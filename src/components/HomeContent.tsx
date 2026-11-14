@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, type CSSProperties } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -11,6 +11,7 @@ import type { ProfileData } from '@/context/PortfolioContext';
 import type { ProjectData } from '@/types/project';
 import { ProjectCard } from '@/components/ProjectCard';
 import { PersonalProjectCard } from '@/components/PersonalProjectCard';
+import { HeroCoverCarousel } from '@/components/HeroCoverCarousel';
 import { projectInCategory } from '@/lib/projectCategories';
 import { BackToTop } from '@/components/BackToTop';
 import { Nav } from '@/components/Nav';
@@ -72,82 +73,6 @@ function TypewriterText({ text, className }: { text: string; className?: string 
 }
 
 
-
-function ProjectFlowRow({
-  projects,
-  reverse,
-  duration,
-}: {
-  projects: ProjectData[];
-  reverse: boolean;
-  duration: number;
-}) {
-  const loop = [...projects, ...projects];
-
-  return (
-    <div className="overflow-hidden">
-      <div
-        className={`flex w-max gap-3 pr-3 ${
-          reverse ? 'marquee-track-reverse' : 'marquee-track'
-        }`}
-        style={{ '--marquee-duration': `${duration}s` } as CSSProperties}
-      >
-        {loop.map((project, i) => (
-          <Link
-            key={`${project.slug}-${i}`}
-            href={`/projects/${project.slug}`}
-            aria-hidden={i >= projects.length || undefined}
-            tabIndex={i >= projects.length ? -1 : undefined}
-            aria-label={i < projects.length ? `View ${project.title}` : undefined}
-            className="group relative aspect-[4/3] w-[11.5rem] shrink-0 overflow-hidden rounded-ios-lg border border-white/70 bg-ios-fill shadow-ios sm:w-[13.5rem] xl:w-[12rem]"
-          >
-            <Image
-              src={project.coverImage}
-              alt={project.title}
-              fill
-              sizes="(max-width: 640px) 184px, 216px"
-              className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-            />
-            <div
-              className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"
-              aria-hidden="true"
-            />
-            <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2 px-3 pb-2.5 pt-6">
-              <div className="min-w-0">
-                <p className="truncate text-[13px] font-semibold leading-tight text-white">
-                  {project.title}
-                </p>
-                <p className="mt-0.5 truncate text-[10px] uppercase tracking-[0.08em] text-white/65">
-                  {project.role}
-                </p>
-              </div>
-              <span className="inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-white/20 text-white opacity-0 backdrop-blur transition-opacity duration-300 group-hover:opacity-100">
-                <ArrowUpRight className="size-3.5" strokeWidth={2.2} />
-              </span>
-            </div>
-          </Link>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function ProjectFlow({ projects }: { projects: ProjectData[] }) {
-  const showcased = projects.filter((project) => project.coverImage).slice(0, 6);
-  if (showcased.length === 0) return null;
-
-  return (
-    <div className="relative w-full">
-      <div
-        className="pointer-events-none absolute -inset-6 rounded-[3rem] bg-gradient-to-br from-ios-blue/20 to-ios-teal/20 blur-2xl"
-        aria-hidden="true"
-      />
-      <div className="marquee-fade-x relative">
-        <ProjectFlowRow projects={showcased} reverse={false} duration={46} />
-      </div>
-    </div>
-  );
-}
 
 const HEADLINE = ['Designing', 'identities.', 'Building', 'experiences.'];
 const HEADLINE_HIGHLIGHT = new Set<number>([]);
@@ -219,7 +144,7 @@ function HeroSection({ profile, projects }: { profile: ProfileData; projects: Pr
   const heroProjects = [
     ...projects.filter((project) => projectInCategory(project, 'product')).slice(0, 3),
     ...projects.filter((project) => projectInCategory(project, 'brand')).slice(0, 3),
-  ];
+  ].filter((project, i, list) => list.findIndex((item) => item.slug === project.slug) === i);
 
   return (
     <motion.section
@@ -229,8 +154,11 @@ function HeroSection({ profile, projects }: { profile: ProfileData; projects: Pr
       animate="show"
       className="bg-hero flex min-h-[calc(100dvh-57px)] w-full flex-col pt-16 pb-16 lg:min-h-[calc(100vh-57px)] lg:pt-24 lg:pb-24"
     >
-      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-6 sm:px-8 lg:gap-10 lg:px-12">
-        <div>
+      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-6 sm:px-8 lg:grid-cols-[1.05fr_1fr] lg:items-stretch lg:gap-12 lg:px-12 xl:gap-16">
+        <motion.div variants={item} className="w-full min-w-0">
+          <HeroCoverCarousel projects={heroProjects} />
+        </motion.div>
+        <div className="min-w-0">
           <motion.div variants={item}><AvailableBanner /></motion.div>
           <motion.div variants={item}>
             <div className="mb-3 flex items-center gap-3">
@@ -297,9 +225,6 @@ function HeroSection({ profile, projects }: { profile: ProfileData; projects: Pr
             </motion.a>
           </motion.div>
         </div>
-        <motion.div variants={item} className="w-full">
-          <ProjectFlow projects={heroProjects} />
-        </motion.div>
       </div>
     </motion.section>
   );
