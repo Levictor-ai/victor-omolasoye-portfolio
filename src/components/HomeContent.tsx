@@ -155,10 +155,7 @@ function HeroSection({ profile, projects }: { profile: ProfileData; projects: Pr
       className="bg-hero flex min-h-[calc(100dvh-57px)] w-full flex-col pt-16 pb-16 lg:min-h-[calc(100vh-57px)] lg:pt-24 lg:pb-24"
     >
       <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-6 sm:px-8 lg:grid-cols-[1.05fr_1fr] lg:items-stretch lg:gap-12 lg:px-12 xl:gap-16">
-        <motion.div variants={item} className="w-full min-w-0">
-          <HeroCoverCarousel projects={heroProjects} />
-        </motion.div>
-        <div className="min-w-0">
+        <div className="min-w-0 lg:order-2">
           <motion.div variants={item}><AvailableBanner /></motion.div>
           <motion.div variants={item}>
             <div className="mb-3 flex items-center gap-3">
@@ -225,6 +222,9 @@ function HeroSection({ profile, projects }: { profile: ProfileData; projects: Pr
             </motion.a>
           </motion.div>
         </div>
+        <motion.div variants={item} className="w-full min-w-0 lg:order-1">
+          <HeroCoverCarousel projects={heroProjects} />
+        </motion.div>
       </div>
     </motion.section>
   );
