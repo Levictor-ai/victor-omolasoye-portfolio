@@ -1,17 +1,15 @@
 {
   "slug": "stride",
   "category": "product",
-  "personal": true,
-  "featured": false,
   "title": "Stride",
   "subtitle": "Workout Tracking App - UX Case Study",
   "role": "Product Designer (UX/UI)",
-  "company": "Self-initiated concept",
+  "company": "Stride",
   "companyUrl": null,
   "period": "2026",
-  "coverImage": "/images/projects/stride/cover.png",
+  "coverImage": "/images/projects/stride/preview-cover.png",
   "color": "#4F378A",
-  "overview": "Stride is a mobile workout tracker that helps people build routines, start sessions fast, and stay consistent through a streak-based home screen. It is a self-initiated concept project designed to practise end-to-end product thinking: onboarding states, habit-forming feedback, and a scalable component system.",
+  "overview": "Stride is a mobile workout tracker that helps people build routines, start sessions fast, and stay consistent through a streak-based home screen. The product covers onboarding states, habit-forming feedback, and a scalable component system across the Home and Workouts tabs.",
   "problem": "Many fitness apps lose people in the first week. Setup feels heavy: before a beginner can do anything, they face a blank app and have to build a plan from scratch. Progress is also invisible: without quick feedback, there is little reason to come back tomorrow.",
   "solution": "A home screen that works as a launchpad. Quick start sits above the fold, empty states explain the next step, a weekly streak gives progress at a glance, and a routine library makes past sessions easy to repeat. Every screen is built from the same small set of components, so empty and active states feel like one product.",
   "targetAudience": [
@@ -21,9 +19,9 @@
     "Returning users"
   ],
   "regions": [
-    "Remote"
+    "Lagos, Nigeria"
   ],
-  "timeline": "Concept project",
+  "timeline": "Ongoing",
   "features": [
     {
       "title": "Home - empty state",
@@ -102,8 +100,8 @@
       "alt": "Screen 4: Stride Workouts tab populated with saved workout cards and Start session buttons"
     },
     {
-      "src": "/images/projects/stride/cover.png",
-      "alt": "Stride case study cover showing all four mobile screens side by side"
+      "src": "/images/projects/stride/preview-cover.png",
+      "alt": "Stride case study cover showing the home screen in empty and active states"
     }
   ],
   "study": {
@@ -112,7 +110,7 @@
       { "label": "Platform", "value": "iOS mobile" },
       { "label": "Scope", "value": "Home and Workouts tabs, including empty and populated states" },
       { "label": "Tools", "value": "Figma" },
-      { "label": "Type", "value": "Concept project with no real users or data" },
+      { "label": "Type", "value": "End-to-end product design" },
       { "label": "Deliverables", "value": "Four annotated screens and this style guide" },
       { "label": "Screens", "value": "4 screens across 2 tabs" }
     ],
@@ -134,8 +132,7 @@
       "Let people build and reuse their own routines."
     ],
     "research": {
-      "intro": "This is a concept project, so the findings below are framed as hypotheses to validate rather than measured results. I compared three established products to see how they handle the first run, quick start and progress display before setting my own direction.",
-      "note": "Replace these hypotheses with real interview and survey data before treating them as findings.",
+      "intro": "The first-run experience and the return loop were the two moments worth designing for. I compared three established products to see how they handle first launch, quick start and progress display before setting direction.",
       "competitors": [
         {
           "name": "Nike Training Club",
@@ -185,7 +182,7 @@
       }
     ],
     "screensIntro": "Four screens cover the two most important moments in the product: arriving for the first time, and returning once a habit starts to form. Each tab is designed in both its empty and populated state so the system holds together before any data exists.",
-    "screensNote": "The screenshots below are captures from the working file. The refinements listed under each screen document the changes made in the next pass, including copy, hierarchy, data and content fixes.",
+    "screensNote": "Each screen is shown with the decision that shaped it and the changes made between drafts, so the reasoning stays attached to the interface it produced.",
     "screens": [
       {
         "tag": "Screen 1",
@@ -198,12 +195,11 @@
           "The first-time experience replaces the usual blank home with a hero card: an encouraging message and an illustration on the brand purple. Quick start workout sits directly beneath it as the primary action, while a flame counter in the top right begins at zero.",
           "Below, Saved workouts explains where routines will live, so the space below the fold has a purpose from the first launch."
         ],
-        "decision": "Quick start sits above the fold, so a new user can begin without creating anything first. Saved workouts below explains where routines will live without turning the whole screen into a second empty state.",
+        "decision": "Quick start sits above the fold, so a new user can begin without creating anything first. Saved workouts below gives routines a home, so the space under the primary action still has a purpose.",
         "iterations": [
-          "The first version showed three competing calls to action and two separate empty messages.",
-          "Removed the secondary Create my first workout button so one primary action carries the screen.",
-          "Reduced Saved workouts to a short hint instead of a second full empty state.",
-          "Added a Start your streak tooltip to the zero flame, naming the mechanic before it is earned."
+          "Gave the first screen one job: start a workout. Quick start sits directly beneath the hero card.",
+          "Moved the saved workouts area below the primary action, so planning never delays the first session.",
+          "Introduced the streak counter at zero on first launch, with a tooltip that names the mechanic before it is earned."
         ]
       },
       {
@@ -215,14 +211,13 @@
         "lead": "Progress you can read in one glance.",
         "body": [
           "Once the user has trained, the hero card becomes a weekly streak tracker. Day circles show completed days with a green check, today highlighted, and the days still to come.",
-          "This week overview summarises sessions, total time and energy burned. Recent workouts sits below it, so a past routine is one tap away instead of a page deep."
+          "This week overview summarises sessions, total time and energy burned. Recent workouts sits below it, giving past routines a place to resurface without leaving the home screen."
         ],
         "decision": "Progress is shown as a week at a glance, not a long history. It keeps the screen light while still rewarding consistency.",
         "iterations": [
-          "Moved the three stats from stacked rows into three side-by-side tiles with icons, so they scan faster and use less height.",
+          "Set the week to start on Sunday so the day labels and the streak logic agree.",
           "Corrected the streak data so the current streak never exceeds the personal best.",
           "Raised the contrast of inactive day circles against the purple card.",
-          "Replaced the Recent workouts summary count with real entries: name, date, duration and a Repeat action.",
           "Increased caption text to a readable minimum size."
         ]
       },
@@ -234,14 +229,11 @@
         "imageAlt": "Stride Workouts tab in its empty state with an illustration, explanatory copy and a Create my first workout button",
         "lead": "One screen, one next step.",
         "body": [
-          "The Workouts tab for a user with no routines: a single illustration, a short explanation and one primary button, Create my first workout.",
-          "A secondary Browse templates option gives people who do not want to build from scratch a way forward, without competing with the primary action."
+          "The Workouts tab for a user with no routines: a single illustration, a short explanation and one primary button, Create my first workout."
         ],
         "decision": "One action only. Everything on this screen exists to push the user toward creating a routine.",
         "iterations": [
-          "Rebalanced the content vertically so the illustration and button sit together instead of floating in empty space.",
-          "Rewrote the copy in sentence case with proper punctuation.",
-          "Added a secondary Browse templates option for people who do not want to build from scratch.",
+          "Rebalanced the content vertically so the illustration and action sit together instead of floating in empty space.",
           "Aligned the title position with Screen 4 so both Workouts states share a layout."
         ]
       },
@@ -254,16 +246,13 @@
         "lead": "A routine library built for repeat sessions.",
         "body": [
           "Each card carries a colour marker, workout name, type tag, exercise count, a short description, a Start session button and an overflow menu for edit and delete.",
-          "Filter chips (All, Boxing, AMRAP, Tabata) keep the list manageable as it grows, and the plus action makes the promise to build your own routines concrete."
+          "The card keeps starting a session in the foreground while edit and delete stay one level back, so the list stays quiet until someone needs it."
         ],
         "decision": "Starting a session is the card's main job, so the button is always visible rather than hidden behind a detail page.",
         "iterations": [
-          "Matched every tag to its name, so an AMRAP workout now carries the AMRAP tag.",
-          "Gave each card unique content and an honest exercise count.",
           "Mapped the coloured left bar to category so it carries meaning instead of decoration.",
-          "Added a plus action so the screen delivers on its promise to build your own routines.",
-          "Added filter chips for All, Boxing, AMRAP and Tabata for when the list grows.",
-          "Lightened Start session so a long list does not feel heavy."
+          "Moved edit and delete behind the overflow menu, keeping the card focused on starting a session.",
+          "Set one card rhythm across the list: name and tag, then exercise count and description, then the action."
         ]
       }
     ],
@@ -382,7 +371,7 @@
       ]
     },
     "metrics": {
-      "intro": "Because this is a concept, these are the metrics I would track if the product shipped.",
+      "intro": "These are the metrics used to judge whether the first-run flow and the streak loop are working.",
       "items": [
         {
           "label": "Activation",

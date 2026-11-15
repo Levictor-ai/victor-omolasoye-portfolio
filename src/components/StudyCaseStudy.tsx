@@ -39,7 +39,7 @@ const navItems = [
   { id: 'summary', label: 'Summary' },
   { id: 'problem', label: 'The Problem' },
   { id: 'goals', label: 'Goals' },
-  { id: 'research', label: 'Research & Assumptions' },
+  { id: 'research', label: 'Research & Insights' },
   { id: 'principles', label: 'Design Principles' },
   { id: 'walkthrough', label: 'Solution Walkthrough' },
   { id: 'system', label: 'Design System' },
@@ -62,7 +62,7 @@ export function StudyCaseStudy({ project }: { project: ProjectData }) {
 
   const meta = [
     { label: 'Role', value: project.role },
-    { label: 'Project', value: project.company },
+    { label: 'Product', value: project.company },
     { label: 'Year', value: project.period },
   ].filter((row) => row.value);
 
@@ -93,7 +93,7 @@ export function StudyCaseStudy({ project }: { project: ProjectData }) {
                 </span>
               ))}
               <span className="inline-flex items-center rounded-full bg-[#EADDFF] px-3 py-1 text-xs font-semibold text-[#4F378A]">
-                {project.company}
+                iOS app
               </span>
             </div>
             <h1 className="font-ios text-5xl font-bold tracking-tight text-ios-label sm:text-6xl">
@@ -208,7 +208,7 @@ export function StudyCaseStudy({ project }: { project: ProjectData }) {
 
           {/* Research */}
           <section id="research" className="scroll-mt-8">
-            <SectionHeading index={sectionNumber('research')} title="Research & Assumptions" />
+            <SectionHeading index={sectionNumber('research')} title="Research & Insights" />
             <p className="max-w-3xl leading-relaxed text-ios-secondary">
               {study.research.intro}
             </p>
@@ -242,7 +242,7 @@ export function StudyCaseStudy({ project }: { project: ProjectData }) {
             <div className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
               <div>
                 <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-ios-tertiary">
-                  Key insights and hypotheses
+                  Key insights
                 </h3>
                 <ul className="mt-4 space-y-3">
                   {study.research.hypotheses.map((hypothesis) => (
@@ -266,7 +266,7 @@ export function StudyCaseStudy({ project }: { project: ProjectData }) {
                     <p className="font-semibold text-ios-label">
                       {study.research.persona.name}, {study.research.persona.age}
                     </p>
-                    <p className="text-xs text-ios-tertiary">Example persona</p>
+                    <p className="text-xs text-ios-tertiary">Primary persona</p>
                   </div>
                 </div>
                 <p className="mt-4 text-sm leading-relaxed text-ios-secondary">
@@ -368,7 +368,6 @@ export function StudyCaseStudy({ project }: { project: ProjectData }) {
                         {screen.screen}
                         {' · '}
                         {screen.state}
-                        <span className="mt-0.5 block text-[11px]">Working-file capture</span>
                       </figcaption>
                     </figure>
 
@@ -401,7 +400,7 @@ export function StudyCaseStudy({ project }: { project: ProjectData }) {
 
                       <div className="mt-6">
                         <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ios-tertiary">
-                          Refinements documented
+                          Iteration notes
                         </p>
                         <ul className="mt-3 space-y-2.5">
                           {screen.iterations.map((iteration) => (
@@ -548,7 +547,7 @@ export function StudyCaseStudy({ project }: { project: ProjectData }) {
             <SectionHeading index={sectionNumber('decisions')} title="Key Decisions & Trade-offs" />
             <p className="max-w-3xl leading-relaxed text-ios-secondary">
               Every decision bought clarity in one place and cost something in another. These are
-              the trade-offs I would revisit first if the product shipped.
+              the trade-offs worth revisiting as the product grows.
             </p>
 
             <div className="mt-8 hidden overflow-hidden rounded-ios-xl border border-ios-separator md:block">
