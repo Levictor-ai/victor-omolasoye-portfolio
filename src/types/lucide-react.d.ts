@@ -13,6 +13,7 @@ declare module 'lucide-react' {
   export const MapPin: Icon;
   export const Calendar: Icon;
   export const ArrowUpRight: Icon;
+  export const ArrowRight: Icon;
   export const ArrowLeft: Icon;
   export const CheckCircle: Icon;
   export const CheckCircle2: Icon;
@@ -49,4 +50,9 @@ declare module 'lucide-react' {
   export const Download: Icon;
   export const Rss: Icon;
   export const Sparkles: Icon;
+  export const CircleUserRound: Icon;
+  export const Dumbbell: Icon;
+  export const House: Icon;
+  export const Lightbulb: Icon;
+  export const Ruler: Icon;
 }

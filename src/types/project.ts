@@ -47,6 +47,108 @@ export interface ProjectSection {
   images?: ProjectImage[];
 }
 
+/**
+ * Optional long-form structure for concept case studies. When present, the
+ * project page renders the richer StudyCaseStudy layout instead of the
+ * standard marketing case study sections.
+ */
+export interface StudyMeta {
+  label: string;
+  value: string;
+}
+
+export interface StudyPoint {
+  title: string;
+  description: string;
+}
+
+export interface StudyCompetitor {
+  name: string;
+  focus: string;
+}
+
+export interface StudyPersona {
+  name: string;
+  age: string;
+  summary: string;
+  needs: string[];
+}
+
+export interface StudyPrinciple {
+  title: string;
+  description: string;
+}
+
+export interface StudyScreen {
+  tag: string;
+  screen: string;
+  state: string;
+  image: string;
+  imageAlt: string;
+  lead: string;
+  body: string[];
+  decision: string;
+  iterations: string[];
+}
+
+export interface StudySwatch {
+  name: string;
+  value: string;
+  usage: string;
+}
+
+export interface StudyTypeRow {
+  role: string;
+  px: number;
+  weight: string;
+  usage: string;
+}
+
+export interface StudySystem {
+  intro: string;
+  colors: StudySwatch[];
+  type: StudyTypeRow[];
+  spacing: string;
+  components: string[];
+  navigation: string;
+  note?: string;
+}
+
+export interface StudyTable {
+  headers: string[];
+  rows: string[][];
+}
+
+export interface StudyMetric {
+  label: string;
+  description: string;
+}
+
+export interface ProjectStudy {
+  tagline: string;
+  meta: StudyMeta[];
+  problemPoints: StudyPoint[];
+  problemStatement: string;
+  goals: string[];
+  research: {
+    intro: string;
+    note?: string;
+    competitors: StudyCompetitor[];
+    hypotheses: string[];
+    persona: StudyPersona;
+  };
+  principles: StudyPrinciple[];
+  screensIntro: string;
+  screensNote: string;
+  screens: StudyScreen[];
+  system: StudySystem;
+  tradeoffs: StudyTable;
+  metrics: { intro: string; items: StudyMetric[] };
+  learnings: string[];
+  nextSteps: string[];
+}
+
+
 export type ProjectCategory = 'brand' | 'product' | 'engineering';
 
 export interface ProjectData {
@@ -78,6 +180,7 @@ export interface ProjectData {
   links: ProjectLink[];
   images: ProjectImage[];
   sections?: ProjectSection[];
+  study?: ProjectStudy;
   color?: string;
   layout?: 'case-study' | 'gallery';
   galleryColumns?: 1 | 2;
