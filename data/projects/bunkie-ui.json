@@ -3,15 +3,15 @@
   "category": "product",
   "featured": true,
   "title": "Bunkie",
-  "subtitle": "Roommate & Housing Discovery",
+  "subtitle": "Finding safe, compatible roommates and shared housing in Nigeria",
   "role": "UI Designer",
   "company": "Cowrywise",
   "period": "2024",
-  "coverImage": "/images/projects/bunkie-ui/cover.png",
+  "coverImage": "/images/projects/bunkie-ui/cover-wide.png",
   "color": "#663398",
-  "overview": "Bunkie is a roommate and shared-housing discovery platform designed to make finding compatible roommates and affordable accommodation easier, safer and more reliable. The platform connects people searching for accommodation with individuals who have available rooms, while helping users discover potential roommates based on lifestyle preferences, budget, location and personal compatibility. The work covers the full interface across onboarding and profile creation, roommate discovery, housing discovery, messaging and dashboard.",
-  "problem": "Finding shared accommodation in Nigeria often involves navigating fragmented and unreliable channels. People typically depend on property agents, Facebook groups, WhatsApp communities and social media posts, which introduces high agency fees, trust and safety concerns, poor roommate compatibility, scattered information and time-consuming searches. Bunkie needed a clear, trustworthy mobile-first experience that simplified roommate and housing discovery.",
-  "solution": "A mobile-first UI covering onboarding and profile creation, roommate discovery, housing discovery, messaging and dashboard. Structured compatibility preferences were paired with traditional housing filters, verification indicators and a unified flow to help users find affordable accommodation and compatible roommates with confidence.",
+  "overview": "Bunkie is a roommate and housing discovery app that helps people in Nigeria find compatible roommates and trustworthy shared accommodation with less stress, lower cost and more confidence. The product combines roommate matching, housing listings, identity verification, in-app messaging and booking into one mobile-first experience.",
+  "problem": "Finding a roommate or shared home in Nigeria has no dedicated, structured platform. People post on Twitter, Facebook and WhatsApp groups, ask friends and family, or approach random landlords. These routes are scattered, slow and often unsafe: there is no central place, no trust layer, no structured matching, and too much money is lost to inspection fees, transport and fake listings.",
+  "solution": "Bunkie gives people one safe, structured place to find a roommate or a shared home. Compatibility questions replace guesswork, ID verification replaces blind trust, and in-app messaging and booking keep the whole journey in one place, without agent fees.",
   "targetAudience": [
     "The New City Graduate",
     "The Budget-Conscious Student",
@@ -23,58 +23,69 @@
   "timeline": "8 weeks",
   "features": [
     {
-      "title": "Onboarding & Profile Creation",
-      "description": "Splash, welcome and intro screens lead into clean sign up and sign in flows that capture personal information and lifestyle preferences to support roommate compatibility."
+      "title": "Onboarding & Lifestyle Questionnaire",
+      "description": "Email, Google and Apple sign-up lead into a profile and a short lifestyle questionnaire covering schedule, cleanliness, noise, pets, smoking, guests, religion, gender preference and budget."
     },
     {
-      "title": "Roommate Discovery",
-      "description": "Browse potential roommate matches based on lifestyle preferences, budget, location and compatibility criteria, with profile details and verification signals."
+      "title": "Profile & ID Verification",
+      "description": "Profiles carry the compatibility information roommates need, with a verified badge once government ID and selfie checks are complete."
     },
     {
-      "title": "Housing Discovery",
-      "description": "Explore available rooms and shared accommodation, narrowing options by location, price, room type and availability."
+      "title": "Roommate & Housing Discovery",
+      "description": "Search rooms or roommates, filter by price, location, room type and lifestyle, and move between ranked matches and shared-housing listings."
     },
     {
-      "title": "Messaging & Connections",
-      "description": "Connect with potential roommates and discuss living arrangements through an in-app messaging flow."
+      "title": "Messaging & Booking Requests",
+      "description": "Chat unlocks on a mutual match, with report and block tools, while booking requests let a seeker express interest and a lister accept or decline."
     },
     {
-      "title": "Dashboard & Navigation",
-      "description": "A dashboard bringing matches, messages, saved listings and discovery activity together."
+      "title": "Listing Creation & Management",
+      "description": "Listers post a room in a guided flow, manage availability and publish, unpublish, mark as taken or extend a listing."
+    },
+    {
+      "title": "Design System & Prototype",
+      "description": "A shared component library and interactive Figma prototype connect onboarding, verification, discovery, listing and booking before handoff."
     }
   ],
   "techStack": [
     { "name": "Figma", "category": "design" },
-    { "name": "Prototyping", "category": "design" },
     { "name": "Design Systems", "category": "design" },
-    { "name": "Mobile UI", "category": "design" },
-    { "name": "User Research", "category": "design" }
+    { "name": "Prototyping", "category": "design" },
+    { "name": "User Research", "category": "tools" },
+    { "name": "Product Management", "category": "tools" },
+    { "name": "ClickUp", "category": "tools" }
   ],
   "architecture": {
-    "title": "Journey and Information Architecture",
-    "description": "The experience was structured around the shared-housing discovery journey: onboarding and lifestyle preference capture, roommate discovery, housing discovery, messaging and dashboard, linked by a persistent mobile navigation.",
+    "title": "Three journeys, one connected product",
+    "description": "The experience is organised around three journeys: onboarding and compatibility, roommate and housing discovery, and the handoff from interest to chat. A shared design system and persistent bottom navigation keep the flows connected.",
     "highlights": [
-      "Onboarding sequenced before roommate and housing discovery",
-      "Compatibility preferences paired with traditional housing filters",
-      "Messaging layered onto discovery without leaving the flow",
-      "Dashboard consolidates matches, messages and saved listings"
+      "Onboarding captures profile and lifestyle data before discovery",
+      "Rooms and roommates share one search surface with filters",
+      "Verification gates messaging, saving and listing",
+      "Booking requests keep the first conversation structured",
+      "Listing creation and lifecycle management sit with the lister"
     ]
   },
   "results": [
     {
-      "metric": "Design Phase",
-      "value": "Complete",
-      "description": "High-fidelity mobile-first UI design completed for the roommate and shared-housing discovery experience."
+      "metric": "Duration",
+      "value": "8 weeks",
+      "description": "Research through to handoff"
     },
     {
-      "metric": "Core Journeys",
-      "value": "5",
-      "description": "Onboarding, roommate discovery, housing discovery, messaging and dashboard covered end to end."
-    },
-    {
-      "metric": "Compatibility Signals",
+      "metric": "Teams",
       "value": "4",
-      "description": "Budget, lifestyle, schedule and verification inputs shaped the roommate compatibility experience."
+      "description": "UX, UI, brand and product management"
+    },
+    {
+      "metric": "Personas",
+      "value": "3",
+      "description": "Student, young professional and room lister"
+    },
+    {
+      "metric": "V1 features",
+      "value": "8",
+      "description": "Scoped for the first release"
     }
   ],
   "links": [
@@ -82,6 +93,11 @@
       "label": "View Figma file",
       "url": "https://www.figma.com/design/buuBN9Rbnql83P1VuFYbkC/Project-Bunkie?node-id=704-350&t=llGBsolPIUjNrDXM-1",
       "type": "figma"
+    },
+    {
+      "label": "View brand system",
+      "url": "/projects/bunkie",
+      "type": "case-study"
     }
   ],
   "images": [
@@ -116,28 +132,722 @@
     { "src": "/images/projects/bunkie-ui/verification-result.png", "alt": "Bunkie verification result screen" },
     { "src": "/images/projects/bunkie-ui/profile.png", "alt": "Bunkie profile screen" },
     { "src": "/images/projects/bunkie-ui/personal-information.png", "alt": "Bunkie personal information screen" },
-    { "src": "/images/projects/bunkie-ui/settings.png", "alt": "Bunkie settings screen" }
+    { "src": "/images/projects/bunkie-ui/settings.png", "alt": "Bunkie settings screen" },
+    { "src": "/images/projects/bunkie-ui/action-loop.png", "alt": "Bunkie action loop diagram" }
   ],
-  "sections": [
-    {
-      "title": "Executive Summary",
-      "content": "Bunkie is a roommate and shared-housing discovery platform designed to make finding compatible roommates and affordable accommodation easier, safer and more reliable.\n\nThe platform connects people searching for accommodation with individuals who have available rooms, while helping users discover potential roommates based on lifestyle preferences, budget, location and personal compatibility.\n\nFinding a place to live is challenging enough. Finding someone compatible to share that space with makes the process even more complicated. Bunkie was created so finding a place to live and someone to live with feels less stressful and more reassuring."
-    },
-    {
-      "title": "Research & Discovery",
-      "content": "Finding a place to live is challenging enough. Finding someone compatible to share that space with makes the process even more complicated.\n\nTo better understand the problem, the team conducted UX research with prospective users across Lagos, Ilorin, Bauchi and Port Harcourt. The research included students, NYSC members and young professionals with previous experience searching for shared accommodation.\n\nKey research insights\n\n- Affordability is a major concern, with expensive agency fees and limited affordable housing options among the most frequently reported frustrations.\n- Trust is essential, with concerns about fake listings, financial scams and the difficulty of verifying potential roommates.\n- Finding accommodation takes time, with many respondents spending more than a month securing their current accommodation.\n- Compatibility goes beyond location and budget, covering cleanliness, lifestyle habits, noise levels, personality, security and work or study schedules.\n\nWhat this meant for the design\n\n- Simplify housing and roommate discovery.\n- Make compatibility information accessible during the discovery process.\n- Introduce trust-building elements that help users make informed decisions."
-    },
-    {
-      "title": "Design Thinking: Define",
-      "content": "The product was designed around three primary user groups.\n\n- The New City Graduate: a young professional relocating to a new city who needs affordable accommodation and a compatible roommate without relying entirely on unfamiliar agents or social networks.\n- The Budget-Conscious Student: a student searching for affordable accommodation close to school, with a roommate whose lifestyle and routines align with theirs.\n- The Room Lister: an existing tenant or homeowner looking for a responsible person to share an available room or apartment.\n\nThe core product experience was structured around six major capabilities.\n\n- User onboarding and profile creation.\n- Room and roommate listings.\n- Search and filtering.\n- User profiles and verification.\n- Roommate compatibility discovery.\n- In-app messaging.\n\nA proposed booking request flow was designed to help users express interest in available accommodation."
-    },
-    {
-      "title": "Design Thinking: Ideate",
-      "content": "How Might We\n\n- How might we make finding the right roommate feel less stressful?\n- How might we help users find affordable accommodation without high agency fees?\n- How might we make compatibility information accessible during discovery?\n- How might we build trust before users commit to a shared living arrangement?\n- How might we reduce the time and effort of finding shared accommodation?\n\nDirections\n\n- Simplify housing and roommate discovery into one connected experience.\n- Combine lifestyle preferences with traditional housing filters such as location, price, room type and availability.\n- Introduce trust-building elements through user profiles and verification.\n- Sequence roommate compatibility discovery before connecting users for messaging."
-    },
-    {
-      "title": "Design Strengths",
-      "content": "Finding accommodation is not simply about finding an available room. It also involves affordability, personal safety, lifestyle compatibility and the confidence to share a living space with another person.\n\nBunkie reinforced an important aspect of product design: solving the problem requires understanding the decisions people make beyond the immediate task. It also highlighted the importance of collaboration between UX, UI, product management and brand design in building a coherent product experience."
-    }
-  ]
+  "studyDoc": {
+    "badge": "8-week team project",
+    "tagline": "A product and design case study",
+    "meta": [
+      { "label": "Duration", "value": "8 weeks" },
+      { "label": "Team", "value": "UX, UI, Brand and Product Management" },
+      { "label": "Project type", "value": "Mobile-first product design" },
+      { "label": "Platform", "value": "Mobile, iOS-first" },
+      { "label": "Tools", "value": "Figma, ClickUp, Google Workspace" },
+      { "label": "Deliverables", "value": "Research, user flows, brand kit, design system, high-fidelity screens, prototype and PRD" }
+    ],
+    "sections": [
+      {
+        "id": "summary",
+        "nav": "Summary",
+        "title": "Project Overview",
+        "blocks": [
+          {
+            "type": "paragraphs",
+            "lead": true,
+            "paragraphs": [
+              "Bunkie is a roommate and housing discovery app that helps people in Nigeria find compatible roommates and trustworthy shared accommodation with less stress, lower cost and more confidence.",
+              "This was an 8-week project by a cross-functional team of UX designers, UI designers, brand designers and product managers. Our job was to research, design and document Bunkie to a standard a development team could pick up and build from."
+            ]
+          },
+          {
+            "type": "stats",
+            "stats": [
+              { "value": "8", "label": "Weeks", "description": "Research through to handoff" },
+              { "value": "4", "label": "Teams", "description": "UX, UI, brand and product management" },
+              { "value": "3", "label": "Personas", "description": "Student, young professional and room lister" },
+              { "value": "8", "label": "V1 features", "description": "Scoped for the first release" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "problem",
+        "nav": "The Problem",
+        "title": "The Problem",
+        "blocks": [
+          {
+            "type": "paragraphs",
+            "paragraphs": [
+              "Finding a roommate or shared home in Nigeria has no dedicated, structured platform. People post on Twitter, Facebook and WhatsApp groups, ask friends and family, or approach random landlords. These routes are scattered, slow and often unsafe."
+            ]
+          },
+          {
+            "type": "cards",
+            "columns": 2,
+            "cards": [
+              {
+                "title": "No central place",
+                "body": "Listings are spread across social media with no consistency, so search starts from scratch every time."
+              },
+              {
+                "title": "No trust layer",
+                "body": "There is no easy way to verify that a person, landlord or listing is real, so scams are common."
+              },
+              {
+                "title": "Poor matching",
+                "body": "People with a spare room and people looking for one have no structured way to find each other."
+              },
+              {
+                "title": "Wasted money",
+                "body": "People pay inspection fees, transport costs and sometimes deposits for apartments that turn out to be fake or misrepresented."
+              }
+            ]
+          },
+          {
+            "type": "callout",
+            "callout": {
+              "label": "Design challenge",
+              "text": "How might we help people find a verified, compatible roommate and an affordable home without relying on expensive agents or risky social media posts?",
+              "tone": "brand"
+            }
+          }
+        ]
+      },
+      {
+        "id": "users",
+        "nav": "Who We Designed For",
+        "title": "Who We Designed For",
+        "intro": "We started with three assumed user groups and refined them through research.",
+        "blocks": [
+          {
+            "type": "cards",
+            "columns": 3,
+            "cards": [
+              {
+                "title": "Students",
+                "body": "Living away from home for the first time, on a tight budget, wanting affordable housing near campus."
+              },
+              {
+                "title": "Young professionals and relocators",
+                "body": "New to a city, with no network to rely on for referrals and a short window to find somewhere safe."
+              },
+              {
+                "title": "Existing tenants and homeowners",
+                "body": "People with a room or apartment who need a reliable person to share it with."
+              }
+            ]
+          },
+          {
+            "type": "personas",
+            "heading": "Research narrowed these into three personas",
+            "personas": [
+              {
+                "name": "Amara",
+                "age": "24",
+                "role": "Junior Software Engineer",
+                "summary": "Moving from Ibadan to Lagos. She wants a safe, affordable room near work, but she knows nobody, fears scams and feels overwhelmed by WhatsApp group listings.",
+                "quote": "I just want to know the person I'm moving in with is normal and we won't clash."
+              },
+              {
+                "name": "Tunde",
+                "age": "20",
+                "role": "University Student",
+                "summary": "Needs a room within budget and a study-focused roommate. Listings are overpriced or require guarantors, and roommates found on social media feel risky.",
+                "quote": "I need somewhere quiet, close to school, and someone who won't throw parties every night."
+              },
+              {
+                "name": "Chisom",
+                "age": "31",
+                "role": "Marketing Manager and Homeowner",
+                "summary": "Based in Abuja and wants a quiet, responsible flatmate for her two-bedroom apartment. Vetting strangers is stressful after bad tenant experiences.",
+                "quote": "I don't want to post on Facebook again. I need a platform that actually vets people."
+              }
+            ]
+          },
+          {
+            "type": "callout",
+            "callout": {
+              "label": "The common thread",
+              "text": "Every persona was making a high-trust decision with low-trust tools.",
+              "tone": "neutral"
+            }
+          }
+        ]
+      },
+      {
+        "id": "research",
+        "nav": "Research",
+        "title": "Research",
+        "blocks": [
+          {
+            "type": "paragraphs",
+            "paragraphs": [
+              "We ran a UX survey with prospective users across Lagos, Ilorin, Bauchi and Port Harcourt. Respondents were NYSC members, students and young professionals, mostly aged 18 to 35, living with family, with roommates or in temporary accommodation.",
+              "The survey was paired with interviews and affinity mapping to separate recurring frustrations from one-off complaints."
+            ]
+          },
+          {
+            "type": "stats",
+            "stats": [
+              {
+                "value": "99%",
+                "label": "Had searched before",
+                "description": "Respondents who had previously looked for shared accommodation or a roommate"
+              },
+              {
+                "value": "1+ month",
+                "label": "Search timeline",
+                "description": "Most respondents took more than a month to secure their current place"
+              },
+              {
+                "value": "18-35",
+                "label": "Age range",
+                "description": "Students, NYSC members and young professionals"
+              }
+            ]
+          },
+          {
+            "type": "bullets",
+            "heading": "What we found",
+            "items": [
+              "Almost everyone had searched before. Most had used agents.",
+              "Agents are the norm, and the main frustration. High agent and inspection fees were the top complaint, validating the idea of cutting agents out of the search.",
+              "Search takes too long. Most respondents took more than a month to secure their current place.",
+              "Scams are a real fear. Respondents specifically named financial scams and fake listings.",
+              "Roommate trust is a recurring issue. No trustworthy roommates and poor communication came up repeatedly.",
+              "Affordability decides everything. Budget had to be a primary filter, not an afterthought.",
+              "Compatibility criteria were consistent: cleanliness, gender, budget, lifestyle habits, noise level, safety, personality and location, with religion and work or study schedule also mattering to many, particularly outside Lagos."
+            ]
+          },
+          {
+            "type": "quotes",
+            "heading": "In their words",
+            "quotes": [
+              {
+                "quote": "Honestly I've been on the hunt for a house for the past two months. The agent fee is too high.",
+                "source": "NYSC member, Ilorin"
+              },
+              {
+                "quote": "A reliable app to find accommodation easily.",
+                "source": "Young professional, Bauchi"
+              },
+              {
+                "quote": "Eliminate or limit agency fees, including inspection fees.",
+                "source": "Young professional, Lagos"
+              }
+            ]
+          },
+          {
+            "type": "table",
+            "heading": "Prioritised pain points",
+            "table": {
+              "headers": ["Pain point", "Severity", "Frequency"],
+              "rows": [
+                ["High agent fees", "High", "Very common"],
+                ["Lack of affordable options", "High", "Very common"],
+                ["Scams and fake listings", "High", "Common"],
+                ["No trustworthy roommates", "High", "Common"],
+                ["Safety and security concerns", "High", "Common"],
+                ["Hard to find suitable locations", "Medium", "Very common"],
+                ["Long search timelines", "Medium", "Very common"]
+              ]
+            }
+          },
+          {
+            "type": "bullets",
+            "heading": "What this meant for the design",
+            "items": [
+              "Simplify housing and roommate discovery into one connected experience.",
+              "Make compatibility information accessible during discovery, not after commitment.",
+              "Introduce trust-building elements that help users make informed decisions before they message.",
+              "Make budget and location primary filters rather than settings buried in a form."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "competitors",
+        "nav": "Competitive Analysis",
+        "title": "Competitive Analysis",
+        "blocks": [
+          {
+            "type": "paragraphs",
+            "paragraphs": [
+              "We compared Bunkie with Roomies.com, Roomi, Facebook Marketplace, SpareRoom and WhatsApp groups across roommate matching, in-app messaging, identity verification, lifestyle filters and mobile availability. Most competitors offered limited or no structured lifestyle matching, and several had no real identity verification."
+            ]
+          },
+          {
+            "type": "cards",
+            "columns": 3,
+            "cards": [
+              {
+                "title": "Roomies.com",
+                "body": "Roommate profiles and a familiar search model, but lifestyle matching is shallow and verification is not the centre of the experience."
+              },
+              {
+                "title": "Roomi",
+                "body": "Combines rooms and roommates in one app, but the trust layer is thin for a decision this personal."
+              },
+              {
+                "title": "Facebook Marketplace",
+                "body": "Huge reach and a familiar posting flow, with no structured matching, verification or safe handoff into a conversation."
+              },
+              {
+                "title": "SpareRoom",
+                "body": "Strong listing filters and room search, weaker lifestyle compatibility, and not built around the Nigerian market."
+              },
+              {
+                "title": "WhatsApp groups",
+                "body": "Where people already search, but there is no search, no verification and no record of who is real."
+              }
+            ]
+          },
+          {
+            "type": "callout",
+            "callout": {
+              "label": "The opportunity",
+              "text": "Combine full lifestyle compatibility, integrated identity verification, and in-app messaging with a booking flow in a mobile-first product built for markets where phones, not desktops, are the main device.",
+              "tone": "brand"
+            }
+          }
+        ]
+      },
+      {
+        "id": "scope",
+        "nav": "Defining the Product",
+        "title": "Defining the Product",
+        "intro": "Research shaped our scope. Bunkie has two core functions: find a roommate for people with an existing apartment, and find shared accommodation for people looking for a place.",
+        "blocks": [
+          {
+            "type": "numbered",
+            "heading": "Version 1.0 features",
+            "items": [
+              "Onboarding and profiles with email, Google or Apple sign-up, and a profile that must reach 70% completion before appearing in search.",
+              "Lifestyle questionnaire covering schedule, cleanliness, noise, pets, smoking, guests, religion, gender preference and budget.",
+              "Smart compatibility matching with a ranked list of matches, plus like, skip and save.",
+              "Housing and roommate listings with photos, price, location and listers' roommate preferences.",
+              "Search and filters by price, location, room type and lifestyle, with real-time results.",
+              "In-app messaging unlocked by mutual match, with report and block tools.",
+              "Identity verification via government ID and selfie check, shown as a verified badge.",
+              "Booking request flow between seeker and lister."
+            ]
+          },
+          {
+            "type": "bullets",
+            "heading": "Deliberately out of scope for V1",
+            "items": [
+              "Payments",
+              "Tenancy agreements",
+              "Background checks",
+              "A landlord portal",
+              "External property integrations"
+            ]
+          },
+          {
+            "type": "callout",
+            "callout": {
+              "label": "Why we cut them",
+              "text": "Keeping payments, leases and integrations out of V1 let us focus on the trust and matching problems users cared about most.",
+              "tone": "warm"
+            }
+          },
+          {
+            "type": "stats",
+            "heading": "Success targets",
+            "intro": "Targets defined for the first three months after launch.",
+            "stats": [
+              { "value": "500", "label": "Registered users", "description": "Within the first three months" },
+              { "value": "75%", "label": "Match satisfaction", "description": "Roommate match satisfaction rate" },
+              { "value": "70%", "label": "Verified accounts", "description": "At least 70% of active accounts verified" },
+              { "value": "65%", "label": "Profile completion", "description": "Profiles completed past the visibility threshold" },
+              { "value": "40+", "label": "NPS", "description": "Net Promoter Score target" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "principles",
+        "nav": "Design Principles",
+        "title": "Design Principles",
+        "blocks": [
+          {
+            "type": "cards",
+            "columns": 3,
+            "cards": [
+              {
+                "title": "Mobile-first",
+                "body": "Every screen is designed for a 375px width minimum, with desktop as a secondary experience."
+              },
+              {
+                "title": "Progressive disclosure",
+                "body": "Show only what matters for the current task so new users are not overwhelmed."
+              },
+              {
+                "title": "Trustworthy aesthetic",
+                "body": "A clean, minimal language that signals safety and reliability at every step."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "flows",
+        "nav": "User Flows & IA",
+        "title": "User Flows & Information Architecture",
+        "intro": "We mapped three key journeys before any wireframing, and used them to sequence the work across UX, UI, brand and product.",
+        "blocks": [
+          {
+            "type": "cards",
+            "columns": 3,
+            "cards": [
+              {
+                "title": "Onboarding",
+                "body": "Splash, registration, OTP email verification, profile, lifestyle questionnaire, optional ID upload, personalised dashboard."
+              },
+              {
+                "title": "Roommate matching",
+                "body": "Browse ranked suggestions, view a full profile, like or skip, mutual like triggers a match, then chat."
+              },
+              {
+                "title": "Housing search and booking",
+                "body": "Search or map view, apply filters, view listing, save or request booking, lister accepts or declines, chat opens on acceptance."
+              }
+            ]
+          },
+          {
+            "type": "figure",
+            "figure": {
+              "src": "/images/projects/bunkie-ui/action-loop.png",
+              "alt": "Bunkie action loop diagram showing discovery, roommate, post-interaction, creation and lifecycle flows",
+              "caption": "Action loop: discovery, roommate, post-interaction, creation and lifecycle management."
+            }
+          },
+          {
+            "type": "bullets",
+            "heading": "Navigation model",
+            "items": [
+              "Discover: the shared entry point for rooms and roommates.",
+              "Saved: a shortlist of listings and profiles.",
+              "Create: the lister's entry point into the create-listing flow.",
+              "Inbox: conversations unlocked by a match or an accepted request.",
+              "Profile: identity, lifestyle preferences, listings, requests, FAQ and settings."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "brand",
+        "nav": "Brand Identity",
+        "title": "Brand Identity",
+        "intro": "The Bunkie brand needed to feel warm and friendly, but also dependable, because users are being asked to trust strangers with their homes.",
+        "blocks": [
+          {
+            "type": "paragraphs",
+            "paragraphs": [
+              "Purple carries trust, orange brings energy and action, and Manrope keeps the interface clear on small screens. The type scale starts at 32px headings and 16px body text.",
+              "The wordmark integrates a keyhole into the dot of the n, a small detail that signals access, privacy and housing discovery. It is subtle enough to feel like a mark rather than an illustration, and memorable enough to survive an app icon."
+            ]
+          },
+          {
+            "type": "swatches",
+            "heading": "Colour",
+            "swatches": [
+              { "name": "Bunkie purple", "value": "#663398", "usage": "Primary actions, identity and trust" },
+              { "name": "Signal orange", "value": "#FF522A", "usage": "Energy, alerts and accents" },
+              { "name": "Lime", "value": "#E3E98D", "usage": "Warmth, highlights and brand moments" },
+              { "name": "Ink", "value": "#1F1F1F", "usage": "Titles and primary text" },
+              { "name": "Paper", "value": "#FFFFFF", "usage": "Cards, forms and surfaces" }
+            ]
+          },
+          {
+            "type": "scale",
+            "heading": "Typography",
+            "scale": [
+              { "label": "Heading", "px": 32, "weight": "700", "usage": "Screen titles and section openers" },
+              { "label": "Body", "px": 16, "weight": "400", "usage": "Descriptions, profile copy and forms" }
+            ]
+          },
+          {
+            "type": "images",
+            "columns": 2,
+            "images": [
+              {
+                "src": "/images/projects/bunkie/2.png",
+                "alt": "Bunkie keyhole mark and rationale",
+                "label": "The keyhole inside the n represents access, privacy and housing discovery."
+              },
+              {
+                "src": "/images/projects/bunkie/4.png",
+                "alt": "Bunkie wordmark and keyhole pattern",
+                "label": "Wordmark and keyhole pattern applied across brand touchpoints."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "system",
+        "nav": "Design System",
+        "title": "Design System",
+        "blocks": [
+          {
+            "type": "paragraphs",
+            "paragraphs": [
+              "Before high-fidelity screens, we built a design system covering buttons, cards, forms, icons and spacing rules so every screen stayed consistent and handoff to developers would be smooth."
+            ]
+          },
+          {
+            "type": "cards",
+            "columns": 3,
+            "cards": [
+              {
+                "title": "Foundations",
+                "body": "Colour roles, type scale, spacing, radii and elevation, shared by product and brand."
+              },
+              {
+                "title": "Components",
+                "body": "Buttons, inputs, listing cards, profile cards, tags, filters and the bottom navigation."
+              },
+              {
+                "title": "Patterns",
+                "body": "Verification prompts, empty states, bottom sheets, booking requests and listing lifecycle actions."
+              }
+            ]
+          },
+          {
+            "type": "callout",
+            "callout": {
+              "label": "Why it mattered",
+              "text": "A shared system let UI and brand work in parallel without drifting, and gave the development team one set of rules instead of four interpretations.",
+              "tone": "brand"
+            }
+          }
+        ]
+      },
+      {
+        "id": "screens",
+        "nav": "Key Screens",
+        "title": "Key Screens",
+        "intro": "We moved from low-fidelity wireframes based on the flows into high-fidelity screens that applied the design system. The screens below follow the journey from first launch to a published listing.",
+        "blocks": [
+          {
+            "type": "screens",
+            "heading": "Onboarding and lifestyle questionnaire",
+            "intro": "A short questionnaire, kept to a maximum of eight questions with the benefit of better matches explained up front, to reduce drop-off. The prompt appears after the selfie check so the value is visible in context.",
+            "screens": [
+              { "src": "/images/projects/bunkie-ui/splash.png", "alt": "Bunkie splash screen", "label": "Splash" },
+              { "src": "/images/projects/bunkie-ui/welcome.png", "alt": "Bunkie welcome screen", "label": "Welcome" },
+              { "src": "/images/projects/bunkie-ui/sign-up.png", "alt": "Bunkie sign up screen", "label": "Sign up" },
+              { "src": "/images/projects/bunkie-ui/sign-in.png", "alt": "Bunkie sign in screen", "label": "Sign in" },
+              { "src": "/images/projects/bunkie-ui/behaviour-matrix-intro.png", "alt": "Bunkie questionnaire prompt bottom sheet", "label": "Questionnaire prompt" },
+              { "src": "/images/projects/bunkie-ui/behaviour-matrix-q1.png", "alt": "Bunkie cleanliness lifestyle question", "label": "Lifestyle question" }
+            ]
+          },
+          {
+            "type": "screens",
+            "heading": "Profile and verification",
+            "intro": "Profiles show the compatibility information roommates need, along with a verified badge once ID verification is complete. Verification gates messaging, saving and listing, and the gate explains exactly what is checked and what stays private.",
+            "screens": [
+              { "src": "/images/projects/bunkie-ui/profile.png", "alt": "Bunkie profile hub", "label": "Profile hub" },
+              { "src": "/images/projects/bunkie-ui/personal-information.png", "alt": "Bunkie personal information screen", "label": "Personal information" },
+              { "src": "/images/projects/bunkie-ui/verification-gate.png", "alt": "Bunkie verification gate", "label": "Verification gate" },
+              { "src": "/images/projects/bunkie-ui/id-verification.png", "alt": "Bunkie ID verification capture", "label": "ID capture" },
+              { "src": "/images/projects/bunkie-ui/selfie-verification-review.png", "alt": "Bunkie selfie verification review", "label": "Selfie review" },
+              { "src": "/images/projects/bunkie-ui/verification-result.png", "alt": "Bunkie verified state", "label": "Verified" }
+            ]
+          },
+          {
+            "type": "screens",
+            "heading": "Roommate and housing discovery",
+            "intro": "One search surface for rooms and roommates, with a clear compatibility signal and simple like, skip and save actions. Saved listings and empty states keep the shortlist usable before it fills up.",
+            "screens": [
+              { "src": "/images/projects/bunkie-ui/discover.png", "alt": "Bunkie discover screen with rooms and roommates tabs", "label": "Discover" },
+              { "src": "/images/projects/bunkie-ui/saved-listing.png", "alt": "Bunkie saved listings screen", "label": "Saved" },
+              { "src": "/images/projects/bunkie-ui/empty-saved-listing.png", "alt": "Bunkie empty saved listings state", "label": "Empty saved state" }
+            ]
+          },
+          {
+            "type": "screens",
+            "heading": "Housing, requests and listing creation",
+            "intro": "Seekers can save a room or send a booking request. Listers get a guided four-step creation flow, with photo upload, description, amenities and a verification step before publishing.",
+            "screens": [
+              { "src": "/images/projects/bunkie-ui/my-listings.png", "alt": "Bunkie my listings screen", "label": "My listings" },
+              { "src": "/images/projects/bunkie-ui/my-requests.png", "alt": "Bunkie my requests screen", "label": "My requests" },
+              { "src": "/images/projects/bunkie-ui/create-listing.png", "alt": "Bunkie create listing start", "label": "Create listing" },
+              { "src": "/images/projects/bunkie-ui/create-listing-5.png", "alt": "Bunkie create listing photos and details", "label": "Photos and details" },
+              { "src": "/images/projects/bunkie-ui/create-listing-7.png", "alt": "Bunkie create listing verification step", "label": "Verification step" },
+              { "src": "/images/projects/bunkie-ui/create-listing-10.png", "alt": "Bunkie create listing publish step", "label": "Publish" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "testing",
+        "nav": "Prototype & Testing",
+        "title": "Prototype and Usability Testing",
+        "blocks": [
+          {
+            "type": "paragraphs",
+            "paragraphs": [
+              "We built an interactive Figma prototype connecting onboarding, verification, roommate matching, housing discovery, saving and booking, and tested it with five participants."
+            ]
+          },
+          {
+            "type": "bullets",
+            "heading": "Tasks we set",
+            "items": [
+              "Create an account and complete the lifestyle questionnaire.",
+              "Verify an ID and explain what the badge means.",
+              "Find a roommate whose preferences match yours.",
+              "Save a room and send a booking request.",
+              "Publish a listing as a lister."
+            ]
+          },
+          {
+            "type": "table",
+            "heading": "What we tested",
+            "table": {
+              "headers": ["Area", "What we tested", "Why it mattered"],
+              "rows": [
+                ["Onboarding", "Sign-up, profile and the first questionnaire prompt", "Drop-off risk was highest before the first match"],
+                ["Verification", "The gate, ID capture and the verified state", "Trust had to be earned before a conversation started"],
+                ["Matching", "Switching between rooms and roommates, and reading a match", "The product had to make two different search intents feel like one"],
+                ["Listings", "Reading a listing, saving it and understanding the lister", "A listing is a trust decision, not just a card"],
+                ["Booking", "Sending a request and following its status", "The handoff from interest to chat had to feel safe"]
+              ]
+            }
+          },
+          {
+            "type": "callout",
+            "callout": {
+              "label": "Iteration",
+              "text": "The sessions informed the final screen pass, from the order of the questionnaire prompt to the wording around verification and the empty saved state.",
+              "tone": "warm"
+            }
+          }
+        ]
+      },
+      {
+        "id": "process",
+        "nav": "How We Worked",
+        "title": "How We Worked",
+        "intro": "Four teams ran in parallel across eight weeks, with weekly Friday syncs, ClickUp for task tracking, WhatsApp for quick updates and a shared Google Doc as the official record.",
+        "blocks": [
+          {
+            "type": "timeline",
+            "timeline": [
+              {
+                "when": "Weeks 1-2",
+                "title": "Research and definition",
+                "body": "Scope, survey, interviews, personas, competitive analysis and logo concepts."
+              },
+              {
+                "when": "Weeks 3-4",
+                "title": "Structure",
+                "body": "Affinity mapping, user flows, design system, wireframes and the PRD."
+              },
+              {
+                "when": "Weeks 5-6",
+                "title": "High fidelity",
+                "body": "High-fidelity screens, interactive prototype and usability test planning."
+              },
+              {
+                "when": "Weeks 7-8",
+                "title": "Testing and handoff",
+                "body": "Testing, iteration, handoff files, final documentation and demo day."
+              }
+            ]
+          },
+          {
+            "type": "table",
+            "heading": "Who owned what",
+            "table": {
+              "headers": ["Team", "Responsibilities"],
+              "rows": [
+                ["UX", "Scope, survey, interviews, personas, affinity mapping, user flows and the PRD."],
+                ["UI", "Design system, high-fidelity screens, interactive prototype and handoff."],
+                ["Brand", "Name, logo, colour, typography, brand kit and social templates."],
+                ["Product Management", "Roadmap, requirements, prioritisation, risk log and reviews."]
+              ]
+            }
+          },
+          {
+            "type": "bullets",
+            "heading": "Dependencies and rituals",
+            "items": [
+              "Dependencies were mapped early: UX waited for scope, UI waited for research insights and user flows, and brand waited for the confirmed name and tone.",
+              "Weekly Friday syncs kept all four teams aligned on the same decisions.",
+              "ClickUp held tasks and status; WhatsApp handled quick updates; the Google Doc was the single source of truth.",
+              "A risk log tracked blockers throughout the eight weeks."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "risks",
+        "nav": "Risks",
+        "title": "Risks We Planned For",
+        "blocks": [
+          {
+            "type": "table",
+            "table": {
+              "headers": ["Risk", "Mitigation"],
+              "rows": [
+                ["Low initial listings supply", "Seed with recruited listers and early adopters."],
+                ["Fake profiles", "ID verification badges, reporting and suspension workflows."],
+                ["Low questionnaire completion", "Short questionnaire with a clear value message."],
+                ["Poor match quality", "Tune the algorithm using accept and reject feedback."],
+                ["Data privacy", "Use a reputable third-party ID verification provider."]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "reflection",
+        "nav": "Reflection",
+        "title": "Reflection and Next Steps",
+        "blocks": [
+          {
+            "type": "cards",
+            "columns": 3,
+            "cards": [
+              {
+                "title": "What I'm proud of",
+                "body": "Grounding every feature in survey evidence, from the 99% prior search rate to the frustration with agent and inspection fees."
+              },
+              {
+                "title": "The challenge",
+                "body": "Sequencing work across four teams with strong dependencies, while balancing a rich questionnaire against onboarding drop-off."
+              },
+              {
+                "title": "What I learned",
+                "body": "Trust is a product surface. Verification, reporting and the tone of a listing card do as much work as the matching algorithm."
+              }
+            ]
+          },
+          {
+            "type": "bullets",
+            "heading": "Next steps",
+            "items": [
+              "Integrated rent payments and bill splitting.",
+              "In-app lease agreements with e-signing.",
+              "AI-powered compatibility scoring.",
+              "Landlord tools and a verified lister programme.",
+              "Community housing guides and neighbourhood reviews."
+            ]
+          },
+          {
+            "type": "callout",
+            "callout": {
+              "label": "Closing thought",
+              "text": "A home is not a listing. It is a person you can trust.",
+              "tone": "brand"
+            }
+          }
+        ]
+      }
+    ]
+  }
 }

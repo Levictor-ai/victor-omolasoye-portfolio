@@ -148,6 +148,74 @@ export interface ProjectStudy {
   nextSteps: string[];
 }
 
+/**
+ * Block-based long-form study, used for projects with several equally
+ * important sections (research, brand, system, screens, process). Rendered by
+ * StudyDocCaseStudy.
+ */
+export interface StudyDocBlock {
+  type:
+    | 'paragraphs'
+    | 'bullets'
+    | 'numbered'
+    | 'cards'
+    | 'personas'
+    | 'quotes'
+    | 'table'
+    | 'stats'
+    | 'images'
+    | 'screens'
+    | 'figure'
+    | 'callout'
+    | 'timeline'
+    | 'swatches'
+    | 'scale';
+  heading?: string;
+  intro?: string;
+  columns?: 2 | 3;
+  lead?: boolean;
+  paragraphs?: string[];
+  items?: string[];
+  cards?: { title: string; body: string }[];
+  personas?: {
+    name: string;
+    age: string;
+    role: string;
+    summary: string;
+    quote: string;
+  }[];
+  quotes?: { quote: string; source: string }[];
+  table?: {
+    headers: string[];
+    rows: string[][];
+    note?: string;
+  };
+  stats?: { value: string; label: string; description?: string }[];
+  images?: { src: string; alt: string; label?: string }[];
+  screens?: { src: string; alt: string; label?: string }[];
+  figure?: { src: string; alt: string; caption?: string };
+  callout?: { label?: string; text: string; tone?: 'brand' | 'warm' };
+  timeline?: { when: string; title: string; body: string }[];
+  swatches?: { name: string; value: string; usage: string }[];
+  scale?: { label: string; px: number; weight: string; usage: string }[];
+}
+
+export interface StudyDocSection {
+  id: string;
+  nav: string;
+  title: string;
+  intro?: string;
+  blocks: StudyDocBlock[];
+}
+
+export interface ProjectStudyDoc {
+  badge: string;
+  tagline: string;
+  meta: StudyMeta[];
+  sections: StudyDocSection[];
+}
+
+
 
 export type ProjectCategory = 'brand' | 'product' | 'engineering';
 
@@ -181,6 +249,7 @@ export interface ProjectData {
   images: ProjectImage[];
   sections?: ProjectSection[];
   study?: ProjectStudy;
+  studyDoc?: ProjectStudyDoc;
   color?: string;
   layout?: 'case-study' | 'gallery';
   galleryColumns?: 1 | 2;
