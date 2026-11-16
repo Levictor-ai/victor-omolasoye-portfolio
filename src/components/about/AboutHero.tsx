@@ -123,17 +123,16 @@ export function AboutHero({ profile }: { profile: ProfileData }) {
           >
             <span className="sr-only">
               About Victor Omolasoye, product designer, brand designer and UI/UX
-              designer in Lagos. Designing what ideas become.
+              designer in Lagos. Who is this creative mind?
             </span>
             <span aria-hidden="true">
-              Designing
+              Who is this
               <br />
-              what{' '}
               <span className="relative inline-block">
-                ideas
+                creative
                 <Scribble />
               </span>{' '}
-              become.
+              mind?
             </span>
           </motion.h1>
 

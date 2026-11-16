@@ -53,7 +53,7 @@ export interface ProfileData {
 export const defaultProfile: ProfileData = {
   name: 'Victor Omolasoye',
   titles: ['Product Designer', 'Product Engineer', 'Brand Designer'],
-  tagline: 'Designing what ideas become.',
+  tagline: 'Who is this creative mind?',
   bio: 'Product engineer with a passion for crafting scalable digital experiences.',
   about:
     `## A little about me

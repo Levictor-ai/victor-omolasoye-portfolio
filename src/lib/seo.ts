@@ -7,7 +7,7 @@ export const site = {
   title: 'Victor Omolasoye',
   role: 'Product Designer, Brand Designer & UI/UX Designer',
   roleShort: 'Product Designer & Engineer',
-  tagline: 'Designing what ideas become.',
+  tagline: 'Who is this creative mind?',
   description:
     'Victor Omolasoye is a product designer, brand designer and UI/UX designer in Lagos, Nigeria. He builds brands, digital products and web experiences with 4+ years of experience across UX research, product design, design systems and front-end development.',
   shortDescription:
