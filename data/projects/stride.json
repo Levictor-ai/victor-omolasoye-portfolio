@@ -7,7 +7,7 @@
   "company": "Stride",
   "companyUrl": null,
   "period": "2026",
-  "coverImage": "/images/projects/stride/preview-cover.png",
+  "coverImage": "/images/projects/stride/preview-home.png",
   "color": "#4F378A",
   "overview": "Stride is a mobile workout tracker that helps people build routines, start sessions fast, and stay consistent through a streak-based home screen. The product covers onboarding states, habit-forming feedback, and a scalable component system across the Home and Workouts tabs.",
   "problem": "Many fitness apps lose people in the first week. Setup feels heavy: before a beginner can do anything, they face a blank app and have to build a plan from scratch. Progress is also invisible: without quick feedback, there is little reason to come back tomorrow.",
@@ -100,8 +100,8 @@
       "alt": "Screen 4: Stride Workouts tab populated with saved workout cards and Start session buttons"
     },
     {
-      "src": "/images/projects/stride/preview-cover.png",
-      "alt": "Stride case study cover showing the home screen in empty and active states"
+      "src": "/images/projects/stride/preview-home.png",
+      "alt": "Stride case study cover showing the home screen in its active and empty states"
     }
   ],
   "study": {
