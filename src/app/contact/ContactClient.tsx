@@ -80,10 +80,7 @@ export function ContactClient() {
                 <span className="sr-only">
                   Contact Victor Omolasoye. Bring me the messy idea.
                 </span>
-                <span aria-hidden="true">
-                  Bring me the{' '}
-                  <span className="ns-highlight">messy</span> idea.
-                </span>
+                <span aria-hidden="true">Bring me the messy idea.</span>
               </h1>
 
               <p className="mt-7 max-w-xl text-lg leading-relaxed text-ios-secondary sm:text-xl">

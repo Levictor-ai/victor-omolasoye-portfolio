@@ -17,8 +17,8 @@ import { BackToTop } from '@/components/BackToTop';
 import { Nav } from '@/components/Nav';
 import { SiteFooter } from '@/components/SiteFooter';
 import { ButtonLink, buttonClass } from '@/components/ui/Button';
-import { CtaSection } from '@/components/ui/CtaSection';
 import { SectionHeading } from '@/components/ui/SectionHeading';
+import { AboutCta } from '@/components/about/AboutCta';
 import {
   useProjectFilter,
   ProjectFilterTabs,
@@ -339,46 +339,6 @@ function PersonalProjectsSection({ projects }: { projects: ProjectData[] }) {
   );
 }
 
-function HomeCtaSection() {
-  const fadeUp = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  };
-
-  return (
-    <motion.section
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, margin: '-50px' }}
-      variants={{
-        hidden: {},
-        show: { transition: { staggerChildren: 0.08 } },
-      }}
-      className="mb-20"
-    >
-      <motion.div variants={fadeUp}>
-        <CtaSection
-          variant="accent"
-          eyebrow="Get in touch"
-          title="Let&rsquo;s build something"
-          lead="Have an idea? Let&rsquo;s turn it into something people understand, trust, and use."
-          className="max-w-none w-full"
-          actions={
-            <ButtonLink
-              href="/contact"
-              variant="light"
-              onClick={() => track('cta_click', { location: 'home_cta', label: 'get_in_touch' })}
-              className="px-8 py-4"
-            >
-              Get in touch
-            </ButtonLink>
-          }
-        />
-      </motion.div>
-    </motion.section>
-  );
-}
-
 export function HomeContent({ projects }: { projects: ProjectData[] }) {
   const profile = usePortfolio();
 
@@ -390,8 +350,8 @@ export function HomeContent({ projects }: { projects: ProjectData[] }) {
         <div className="mx-auto max-w-7xl px-6 py-6 sm:py-8 sm:px-8 lg:px-12">
           <ProjectsSection projects={projects} />
           <PersonalProjectsSection projects={projects} />
-          <HomeCtaSection />
         </div>
+        <AboutCta profile={profile} />
       </main>
       <SiteFooter profile={profile} />
       <BackToTop />
