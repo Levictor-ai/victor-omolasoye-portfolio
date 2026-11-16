@@ -4,6 +4,7 @@ import { JsonLd } from '@/components/JsonLd';
 import { breadcrumbSchema, faqSchema } from '@/lib/schema';
 import { pageMetadata, site } from '@/lib/seo';
 import { defaultProfile } from '@/data/profile';
+import { getAllProjects } from '@/lib/projects';
 
 const title = `About ${site.name} | Product, Brand & UI/UX Designer in Lagos`;
 
@@ -24,6 +25,8 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default function AboutPage() {
+  const projects = getAllProjects();
+
   return (
     <>
       <JsonLd
@@ -35,10 +38,7 @@ export default function AboutPage() {
           faqSchema(defaultProfile.faqs),
         ]}
       />
-      <h1 className="sr-only">
-        About {site.name} — Product Designer, Brand Designer and UI/UX Designer in Lagos, Nigeria
-      </h1>
-      <AboutClient />
+      <AboutClient projects={projects} />
     </>
   );
 }

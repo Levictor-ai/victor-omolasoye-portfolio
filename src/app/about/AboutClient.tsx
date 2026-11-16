@@ -2,45 +2,38 @@
 
 import { usePortfolio } from '@/context/PortfolioContext';
 import { Nav } from '@/components/Nav';
-import { AboutSection } from '@/components/AboutSection';
-import { ServicesSection } from '@/components/ServicesSection';
-import { HowIWork } from '@/components/HowIWork';
-import { ResultsSection } from '@/components/ResultsSection';
-import { ToolsSection } from '@/components/ToolsSection';
-import { TestimonialsSection } from '@/components/TestimonialsSection';
-import { ExperienceTimeline } from '@/components/ExperienceTimeline';
-import { Accordion } from '@/components/ui/Accordion';
-import { SectionHeading } from '@/components/ui/SectionHeading';
+import { SiteFooter } from '@/components/SiteFooter';
 import { BackToTop } from '@/components/BackToTop';
+import type { ProjectData } from '@/types/project';
+import { AboutHero } from '@/components/about/AboutHero';
+import { AboutChapters, AboutReadingProgress } from '@/components/about/AboutChapters';
+import { AboutStory } from '@/components/about/AboutStory';
+import { AboutCraft } from '@/components/about/AboutCraft';
+import { AboutProcess } from '@/components/about/AboutProcess';
+import { AboutProof } from '@/components/about/AboutProof';
+import { AboutRecord } from '@/components/about/AboutRecord';
+import { AboutFaq } from '@/components/about/AboutFaq';
+import { AboutCta } from '@/components/about/AboutCta';
 
-export function AboutClient() {
+export function AboutClient({ projects }: { projects: ProjectData[] }) {
   const profile = usePortfolio();
 
   return (
     <>
       <Nav avatar={profile.avatar} />
-      <main className="mx-auto max-w-7xl px-6 pt-16 pb-28 sm:px-8 lg:px-12">
-        <AboutSection
-          profile={profile}
-          headingClassName="font-ios text-6xl font-bold leading-none tracking-tight text-ios-ink sm:text-7xl"
-          showImage={false}
-          extraImage={profile.avatar}
-        />
-        <ServicesSection />
-        <HowIWork />
-        <ResultsSection />
-        <ToolsSection />
-        <TestimonialsSection profile={profile} />
-        {profile.faqs.length > 0 && (
-          <section id="faq" className="mb-20">
-            <div className="mb-8">
-              <SectionHeading title="Frequently Asked Questions" />
-            </div>
-            <Accordion items={profile.faqs} variant="card" />
-          </section>
-        )}
-        <ExperienceTimeline profile={profile} />
+      <AboutReadingProgress />
+      <main className="font-ios">
+        <AboutHero profile={profile} />
+        <AboutChapters />
+        <AboutStory profile={profile} />
+        <AboutCraft profile={profile} />
+        <AboutProcess />
+        <AboutProof profile={profile} projects={projects} />
+        <AboutRecord profile={profile} />
+        <AboutFaq faqs={profile.faqs} />
+        <AboutCta profile={profile} />
       </main>
+      <SiteFooter profile={profile} />
       <BackToTop />
     </>
   );

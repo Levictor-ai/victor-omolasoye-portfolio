@@ -116,7 +116,7 @@ export function Footer({
 
             <span
               aria-hidden="true"
-              className="animate-footer-wordmark block w-full select-none font-ios text-[clamp(2rem,11cqi,13rem)] font-black leading-[0.85] tracking-[-0.05em] text-white whitespace-nowrap"
+              className="animate-footer-wordmark block w-full select-none font-ios text-[clamp(2rem,8.8cqi,13rem)] font-black leading-[0.85] tracking-[-0.05em] text-white whitespace-nowrap"
             >
               {wordmark}
             </span>
