@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Plus_Jakarta_Sans, Bebas_Neue, Inter } from 'next/font/google';
+import { Plus_Jakarta_Sans, Bebas_Neue, Roboto } from 'next/font/google';
 import { PortfolioProvider } from '@/context/PortfolioContext';
 import { PageScrollReset } from '@/components/PageScrollReset';
 import { Analytics } from '@/components/Analytics';
@@ -21,9 +21,10 @@ const jakarta = Plus_Jakarta_Sans({
   display: 'swap',
 });
 
-const inter = Inter({
+const roboto = Roboto({
   subsets: ['latin'],
-  variable: '--font-inter',
+  weight: 'variable',
+  variable: '--font-roboto',
   display: 'swap',
 });
 
@@ -95,7 +96,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${jakarta.variable} ${bebasNeue.variable} ${inter.variable} antialiased`}>
+    <html lang="en" className={`${jakarta.variable} ${bebasNeue.variable} ${roboto.variable} antialiased`}>
       <body className="min-h-screen bg-white font-ios text-ios-ink">
         <JsonLd data={[personSchema(), websiteSchema()]} />
         <PageScrollReset />

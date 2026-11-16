@@ -76,7 +76,7 @@ export function ContactClient() {
                 </span>
               </div>
 
-              <h1 className="mt-7 text-balance text-[clamp(2.5rem,6vw,4.75rem)] font-bold leading-[0.94] tracking-[-0.05em] text-ios-ink">
+              <h1 className="mt-7 text-balance text-[clamp(2.5rem,6vw,4.75rem)] font-bold leading-[0.94] tracking-tighter text-ios-ink">
                 <span className="sr-only">
                   Contact Victor Omolasoye. Bring me the messy idea.
                 </span>

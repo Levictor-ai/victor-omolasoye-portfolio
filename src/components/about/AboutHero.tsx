@@ -119,7 +119,7 @@ export function AboutHero({ profile }: { profile: ProfileData }) {
             initial={reduce ? false : { opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-7 text-balance font-ios text-[clamp(2.5rem,6vw,4.75rem)] font-bold leading-[0.94] tracking-[-0.05em] text-ios-ink"
+            className="mt-7 text-balance font-ios text-[clamp(2.5rem,6vw,4.75rem)] font-bold leading-[0.94] tracking-tighter text-ios-ink"
           >
             <span className="sr-only">
               About Victor Omolasoye, product designer, brand designer and UI/UX
