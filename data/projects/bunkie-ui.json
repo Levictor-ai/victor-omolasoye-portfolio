@@ -140,12 +140,10 @@
     "badge": "8-week team project",
     "tagline": "A product and design case study",
     "meta": [
+      { "label": "Role", "value": "UI Designer" },
       { "label": "Duration", "value": "8 weeks" },
-      { "label": "Team", "value": "UX, UI, Brand and Product Management" },
-      { "label": "Project type", "value": "Mobile-first product design" },
-      { "label": "Platform", "value": "Mobile, iOS-first" },
       { "label": "Tools", "value": "Figma, ClickUp, Google Workspace" },
-      { "label": "Deliverables", "value": "Research, user flows, brand kit, design system, high-fidelity screens, prototype and PRD" }
+      { "label": "Deliverables", "value": "Research, user flows, design system, high-fidelity screens, prototype" }
     ],
     "sections": [
       {
