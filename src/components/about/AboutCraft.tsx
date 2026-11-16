@@ -23,7 +23,6 @@ const services = [
       'Packaging',
       'Marketing design',
     ],
-    example: { label: 'See the Bunkie brand system', href: '/projects/bunkie' },
   },
   {
     title: 'Product design',
@@ -39,7 +38,6 @@ const services = [
       'Prototyping',
       'AI-assisted product development',
     ],
-    example: { label: 'See the Payvo product', href: '/projects/payvo' },
   },
   {
     title: 'Web design',
@@ -54,7 +52,6 @@ const services = [
       'Framer',
       'Design-to-build',
     ],
-    example: { label: 'See the Veyra landing page', href: '/projects/veyra' },
   },
 ];
 
@@ -69,39 +66,32 @@ function SkillList({ title, skills }: { title: string; skills: Skill[] }) {
     <div>
       <div className="flex items-center justify-between border-b border-ios-separator pb-3">
         <h3 className="text-sm font-semibold text-ios-label">{title}</h3>
-        <span className="text-[10px] uppercase tracking-[0.14em] text-ios-tertiary">
-          Familiar → Expert
-        </span>
       </div>
       <ul>
-        {skills.map((skill) => (
-          <li
-            key={skill.name}
-            className="flex items-center justify-between gap-4 border-b border-ios-separator py-3"
-          >
-            <span className="text-sm text-ios-secondary">{skill.name}</span>
-            <span className="flex items-center gap-3">
+        {skills.map((skill) => {
+          const filled = Math.max(2, levelDots[skill.level]);
+          return (
+            <li
+              key={skill.name}
+              className="flex items-center justify-between gap-4 border-b border-ios-separator py-3"
+            >
+              <span className="text-sm text-ios-secondary">{skill.name}</span>
               <span
                 className="flex items-center gap-1"
-                aria-label={`${skill.name}: ${skill.level}`}
+                aria-label={`${skill.name}: ${filled} out of 3`}
               >
                 {[1, 2, 3].map((dot) => (
                   <span
                     key={dot}
                     className={`size-1.5 rounded-full ${
-                      dot <= levelDots[skill.level]
-                        ? 'bg-ios-electric'
-                        : 'bg-ios-fill-strong'
+                      dot <= filled ? 'bg-ios-electric' : 'bg-ios-fill-strong'
                     }`}
                   />
                 ))}
               </span>
-              <span className="w-20 text-right text-[10px] uppercase tracking-[0.1em] text-ios-tertiary">
-                {skill.level}
-              </span>
-            </span>
-          </li>
-        ))}
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
@@ -124,7 +114,7 @@ export function AboutCraft({ profile }: { profile: ProfileData }) {
           <div className="grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-end">
             <div>
               <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-ios-tertiary">
-                02 &mdash; The craft
+                The craft
               </p>
               <h2 className="mt-4 max-w-2xl text-balance text-3xl font-bold leading-[1.05] tracking-tight text-ios-ink sm:text-4xl lg:text-5xl">
                 Three ways I help ideas take shape.
@@ -202,13 +192,6 @@ export function AboutCraft({ profile }: { profile: ProfileData }) {
                             </span>
                           ))}
                         </div>
-                        <Link
-                          href={service.example.href}
-                          className="group mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-ios-electric"
-                        >
-                          {service.example.label}
-                          <ArrowUpRight className="size-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                        </Link>
                       </div>
                     </div>
                   </div>
@@ -216,6 +199,16 @@ export function AboutCraft({ profile }: { profile: ProfileData }) {
               </div>
             );
           })}
+        </div>
+
+        <div className="mt-6 flex justify-end">
+          <Link
+            href="/projects"
+            className="group inline-flex items-center gap-1.5 text-sm font-semibold text-ios-electric"
+          >
+            Browse all projects
+            <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </Link>
         </div>
 
         <div className="mt-20">

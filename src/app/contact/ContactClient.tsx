@@ -1,145 +1,300 @@
 'use client';
 
+import { useState } from 'react';
 import Image from 'next/image';
-import { BadgeCheck, Mail } from 'lucide-react';
+import {
+  ArrowUpRight,
+  Check,
+  Clock,
+  Mail,
+  MapPin,
+  Sparkles,
+} from 'lucide-react';
 import { usePortfolio } from '@/context/PortfolioContext';
 import { Nav } from '@/components/Nav';
 import { ContactForm } from '@/components/ContactForm';
 import { BackToTop } from '@/components/BackToTop';
 import { SiteFooter } from '@/components/SiteFooter';
 import { ButtonLink } from '@/components/ui/Button';
-import { Card } from '@/components/ui/Card';
-import { IconTile } from '@/components/ui/IconTile';
-import { SectionHeading } from '@/components/ui/SectionHeading';
+import { testimonialIdentity } from '@/lib/testimonial';
 
-function LinkedInIcon() {
-  return (
-    <svg className="size-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-    </svg>
-  );
-}
+function CopyEmail({ email }: { email: string }) {
+  const [copied, setCopied] = useState(false);
 
-function WhatsAppIcon() {
+  async function copy() {
+    try {
+      await navigator.clipboard.writeText(email);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 1800);
+    } catch {
+      // Clipboard access can fail in older browsers; the mailto link still works.
+    }
+  }
+
   return (
-    <svg className="size-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
-    </svg>
+    <button
+      type="button"
+      onClick={copy}
+      className="inline-flex items-center justify-center gap-2 rounded-full border border-ios-separator bg-white px-4 py-2.5 text-xs font-semibold text-ios-secondary transition-colors hover:border-ios-electric/30 hover:text-ios-electric"
+    >
+      {copied ? <Check className="size-3.5" /> : <Mail className="size-3.5" />}
+      {copied ? 'Copied' : 'Copy email'}
+    </button>
   );
 }
 
 export function ContactClient() {
   const profile = usePortfolio();
+  const socials = [
+    profile.socials.linkedin && { label: 'LinkedIn', href: profile.socials.linkedin },
+    profile.socials.behance && { label: 'Behance', href: profile.socials.behance },
+    profile.socials.github && { label: 'GitHub', href: profile.socials.github },
+    profile.socials.twitter && { label: 'X', href: profile.socials.twitter },
+  ].filter((link): link is { label: string; href: string } => Boolean(link));
+
+  const quote = profile.testimonials[1] ?? profile.testimonials[0];
+  const quoteIdentity = quote ? testimonialIdentity(quote) : null;
 
   return (
     <>
       <Nav avatar={profile.avatar} />
-      <main className="w-full px-6 py-10 lg:py-16">
-        <div className="mb-10 max-w-2xl lg:mb-14">
-          <SectionHeading
-            display
-            eyebrow="Contact"
-            title="Let&rsquo;s build something"
-            titleClassName="font-ios text-5xl font-bold leading-[0.9] tracking-tight text-ios-label sm:text-6xl lg:text-7xl"
-            lead={
-              <>
-                Have a project in mind, need a designer to bring an idea from{' '}
-                <span className="font-semibold text-ios-label">0 &rarr; 1</span>, or just want to
-                talk through a design or product challenge?{' '}
-                <span className="font-semibold text-ios-label">Let&rsquo;s talk.</span>
-              </>
-            }
-          />
-        </div>
+      <main className="font-ios">
+        <section className="bg-hero fx-grid-lines relative overflow-hidden border-b border-ios-separator">
+          <div className="mx-auto grid max-w-7xl gap-12 px-6 pb-16 pt-14 sm:px-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-end lg:gap-16 lg:px-12 lg:pb-24 lg:pt-20">
+            <div className="relative z-10">
+              <div className="flex flex-wrap items-center gap-3 text-[11px]">
+                <span className="font-mono uppercase tracking-[0.22em] text-ios-tertiary">
+                  Contact
+                </span>
+                <span className="h-px w-8 bg-ios-separator-strong" aria-hidden="true" />
+                <span className="flex items-center gap-2 font-medium text-ios-secondary">
+                  <span className="relative flex size-2">
+                    <span className="absolute inline-flex size-full animate-ping rounded-full bg-ios-green opacity-75" />
+                    <span className="relative inline-flex size-2 rounded-full bg-ios-green" />
+                  </span>
+                  Open to select projects
+                </span>
+              </div>
 
-        <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start lg:gap-10">
-          <Card padding="md" className="shadow-ios-lg">
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-ios-lg bg-ios-fill">
-              <Image
-                src={profile.avatar}
-                alt={profile.name}
-                fill
-                className="object-cover"
-                style={{ objectPosition: 'top' }}
-                sizes="(max-width: 1024px) 100vw, 32vw"
-                priority
-              />
-            </div>
-            <div>
-              <h3 className="text-xl font-bold tracking-tight text-ios-label">{profile.name}</h3>
-              <p className="mt-1 text-sm text-ios-tertiary">
-                Product Designer + AI-assisted builder
+              <h1 className="mt-7 text-balance text-[clamp(3rem,6.8vw,6.2rem)] font-bold leading-[0.92] tracking-[-0.05em] text-ios-ink">
+                <span className="sr-only">
+                  Contact Victor Omolasoye. Bring me the messy idea.
+                </span>
+                <span aria-hidden="true">
+                  Bring me the{' '}
+                  <span className="ns-highlight">messy</span> idea.
+                </span>
+              </h1>
+
+              <p className="mt-7 max-w-xl text-lg leading-relaxed text-ios-secondary sm:text-xl">
+                A rough thought, a stalled product, or a brand that no longer
+                fits. Send it over &mdash; I&rsquo;ll help you find the shape.
               </p>
-            </div>
 
-            <div className="space-y-3 border-t border-ios-separator pt-6">
-              <a
-                href={`mailto:${profile.email}`}
-                className="flex items-center gap-3 break-all text-sm text-ios-secondary transition-colors hover:text-ios-blue"
-              >
-                <IconTile size="sm" className="size-9 rounded-full">
-                  <Mail className="size-4 text-ios-blue" strokeWidth={2.2} />
-                </IconTile>
-                {profile.email}
-              </a>
-              {profile.socials.linkedin && (
-                <a
-                  href={profile.socials.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-sm text-ios-secondary transition-colors hover:text-ios-blue"
-                >
-                  <IconTile size="sm" className="size-9 rounded-full">
-                    <LinkedInIcon />
-                  </IconTile>
-                  LinkedIn profile
-                </a>
-              )}
-              {profile.socials.whatsapp && (
-                <a
-                  href={profile.socials.whatsapp}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-sm text-ios-secondary transition-colors hover:text-ios-blue"
-                >
-                  <IconTile size="sm" className="size-9 rounded-full">
-                    <WhatsAppIcon />
-                  </IconTile>
-                  WhatsApp
-                </a>
-              )}
-            </div>
-
-            <div className="flex flex-col gap-3">
-              {profile.socials.contra && (
-                <ButtonLink
-                  href={profile.socials.contra}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  block
-                  className="py-4"
-                  icon={<BadgeCheck className="size-4" strokeWidth={2.2} />}
-                  iconPosition="left"
-                >
-                  Hire me on Contra
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+                <ButtonLink href="#brief" className="w-full px-7 py-4 sm:w-auto">
+                  Start a brief
+                  <ArrowUpRight className="size-4" />
                 </ButtonLink>
-              )}
-              <ButtonLink href="/projects" variant="outline" block className="py-4">
-                View my work
-              </ButtonLink>
-            </div>
-          </Card>
+                <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+                  <a
+                    href={`mailto:${profile.email}`}
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-ios-electric"
+                  >
+                    <Mail className="size-4" />
+                    {profile.email}
+                  </a>
+                  <CopyEmail email={profile.email} />
+                </div>
+              </div>
 
-          <div className="rounded-ios-2xl bg-gradient-to-br from-ios-blue to-ios-bluePressed p-6 shadow-ios-lg sm:p-8 lg:p-10">
-            <p className="mb-3 text-label-sm uppercase tracking-wider text-white/70">
-              Send a message
-            </p>
-            <h3 className="mb-6 text-3xl font-bold leading-tight text-white sm:text-4xl">
-              Tell me about your project
-            </h3>
-            <ContactForm />
+              <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-ios-separator pt-5 text-xs text-ios-tertiary">
+                <span className="flex items-center gap-1.5">
+                  <Clock className="size-3.5" />
+                  Replies within 24 hours
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <MapPin className="size-3.5" />
+                  Lagos, Nigeria
+                </span>
+                <span>Mon&ndash;Fri, WAT</span>
+              </div>
+            </div>
+
+            <div className="relative z-10 rounded-ios-2xl border border-ios-separator bg-white/90 p-6 shadow-ios backdrop-blur-sm">
+              <div className="flex items-center gap-4">
+                <div className="relative size-14 overflow-hidden rounded-full bg-ios-fill">
+                  <Image
+                    src={profile.avatar}
+                    alt={profile.name}
+                    fill
+                    className="object-cover"
+                    style={{ objectPosition: 'top' }}
+                    sizes="56px"
+                    priority
+                  />
+                </div>
+                <div>
+                  <p className="font-semibold text-ios-ink">{profile.name}</p>
+                  <p className="mt-0.5 text-xs leading-relaxed text-ios-tertiary">
+                    Product &amp; brand designer
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-6 space-y-3 border-t border-ios-separator pt-5 text-sm">
+                <p className="flex items-center gap-2 text-ios-secondary">
+                  <Sparkles className="size-4 text-ios-electric" />
+                  Product, brand and web
+                </p>
+                <p className="flex items-center gap-2 text-ios-secondary">
+                  <Clock className="size-4 text-ios-electric" />
+                  Usually replies in one working day
+                </p>
+                <p className="flex items-center gap-2 text-ios-secondary">
+                  <MapPin className="size-4 text-ios-electric" />
+                  Lagos, Nigeria &middot; working worldwide
+                </p>
+              </div>
+
+              <div className="mt-6 border-t border-ios-separator pt-5">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-ios-tertiary">
+                  Elsewhere
+                </p>
+                <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2">
+                  {socials.map((social) => (
+                    <a
+                      key={social.label}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-xs font-medium text-ios-secondary transition-colors hover:text-ios-electric"
+                    >
+                      {social.label}
+                      <ArrowUpRight className="size-3" />
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+        </section>
+
+        <section id="brief" className="scroll-mt-24 bg-[#F7F7FA]">
+          <div className="mx-auto max-w-7xl px-6 py-20 sm:px-8 lg:px-12 lg:py-28">
+            <div className="grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-10">
+              <div className="rounded-ios-2xl border border-ios-separator bg-white p-6 shadow-ios sm:p-8 lg:self-start">
+                <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-ios-tertiary">
+                  Project brief
+                </p>
+                <h2 className="mt-3 text-3xl font-bold tracking-tight text-ios-ink sm:text-4xl">
+                  Tell me what you&rsquo;re building.
+                </h2>
+                <p className="mt-3 max-w-xl text-sm leading-relaxed text-ios-secondary">
+                  A few details help me reply with something useful, not a
+                  generic deck. Short answers are fine.
+                </p>
+                <div className="mt-8">
+                  <ContactForm email={profile.email} />
+                </div>
+              </div>
+
+              <aside className="space-y-4">
+                <div className="rounded-ios-2xl bg-ios-navy p-6 text-white sm:p-7">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/45">
+                    What happens next
+                  </p>
+                  <ol className="mt-5 space-y-5">
+                    {[
+                      {
+                        title: 'I read the brief',
+                        body: 'Within one working day, you get a real reply with questions or a clear next step.',
+                      },
+                      {
+                        title: 'We talk it through',
+                        body: 'A 30-minute call to align on the problem, scope and constraints.',
+                      },
+                      {
+                        title: 'You get a plan',
+                        body: 'Approach, timeline and investment, written down before anything starts.',
+                      },
+                    ].map((step) => (
+                      <li key={step.title} className="flex gap-3">
+                        <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-ios-electric" />
+                        <div>
+                          <p className="text-sm font-semibold text-white">
+                            {step.title}
+                          </p>
+                          <p className="mt-1 text-xs leading-relaxed text-white/60">
+                            {step.body}
+                          </p>
+                        </div>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+
+                <div className="rounded-ios-2xl border border-ios-separator bg-white p-6">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-ios-tertiary">
+                    A useful brief includes
+                  </p>
+                  <ul className="mt-4 space-y-2.5">
+                    {[
+                      'The problem, not just the deliverable.',
+                      'Who it is for and what they need.',
+                      'Any constraints: time, budget or tech.',
+                      'What success looks like.',
+                    ].map((item) => (
+                      <li
+                        key={item}
+                        className="flex items-start gap-2 text-sm leading-relaxed text-ios-secondary"
+                      >
+                        <Check className="mt-0.5 size-3.5 shrink-0 text-ios-electric" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="mt-5 border-t border-ios-separator pt-4 text-xs leading-relaxed text-ios-tertiary">
+                    Not sure yet? That&rsquo;s fine. Send what you have.
+                  </p>
+                </div>
+
+                {quote && quoteIdentity && (
+                  <figure className="rounded-ios-2xl border border-ios-separator bg-white p-6">
+                    <blockquote className="text-sm leading-relaxed text-ios-secondary">
+                      &ldquo;{quote.quote}&rdquo;
+                    </blockquote>
+                    <figcaption className="mt-4 flex items-center gap-3">
+                      <span className="relative size-9 overflow-hidden rounded-full bg-ios-fill">
+                        {quote.avatar ? (
+                          <Image
+                            src={quote.avatar}
+                            alt={quoteIdentity.name}
+                            fill
+                            className="object-cover"
+                            sizes="36px"
+                          />
+                        ) : (
+                          <span className="grid h-full place-items-center text-xs font-semibold text-ios-secondary">
+                            {quoteIdentity.name.slice(0, 1)}
+                          </span>
+                        )}
+                      </span>
+                      <span>
+                        <span className="block text-xs font-semibold text-ios-ink">
+                          {quoteIdentity.name}
+                        </span>
+                        <span className="block text-[11px] text-ios-tertiary">
+                          {quoteIdentity.role}
+                        </span>
+                      </span>
+                    </figcaption>
+                  </figure>
+                )}
+              </aside>
+            </div>
+          </div>
+        </section>
       </main>
       <SiteFooter profile={profile} />
       <BackToTop />

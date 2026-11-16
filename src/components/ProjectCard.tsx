@@ -15,7 +15,7 @@ interface ProjectCardProps {
 }
 
 const CARD_CLASSES =
-  'group relative flex h-full flex-col overflow-hidden rounded-ios-xl border border-ios-separator bg-white/95 sm:bg-white/80 font-ios shadow-ios sm:backdrop-blur-xl transition-all duration-300 ease-out hover:-translate-y-1 hover:border-ios-separator-strong hover:bg-white hover:shadow-ios-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ios-blue/40';
+  'group relative flex h-full flex-col overflow-hidden rounded-ios-xl border border-ios-separator bg-white/95 sm:bg-white/80 font-ios shadow-ios sm:backdrop-blur-xl transition-all duration-300 ease-out hover:-translate-y-1 hover:border-ios-separator-strong hover:bg-white hover:shadow-ios-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ios-electric/40';
 
 export function ProjectCard({ project, index = 0, compactPreview = false }: ProjectCardProps) {
   const [imgError, setImgError] = useState(false);
@@ -71,7 +71,7 @@ export function ProjectCard({ project, index = 0, compactPreview = false }: Proj
 
         {/* Title & subtitle */}
         <div>
-          <h3 className="text-lg font-semibold tracking-tight text-ios-label transition-colors duration-300 group-hover:text-ios-blue">
+          <h3 className="text-lg font-semibold tracking-tight text-ios-label transition-colors duration-300 group-hover:text-ios-electric">
             {project.title}
           </h3>
           <p className="mt-1 text-sm leading-relaxed text-ios-secondary">{project.subtitle}</p>
@@ -105,7 +105,7 @@ export function ProjectCard({ project, index = 0, compactPreview = false }: Proj
               Coming soon
             </span>
           ) : (
-            <span className="ml-auto inline-flex size-8 shrink-0 items-center justify-center rounded-full bg-ios-fill text-ios-secondary transition-all duration-300 group-hover:bg-ios-blue group-hover:text-white group-hover:shadow-ios-button">
+            <span className="ml-auto inline-flex size-8 shrink-0 items-center justify-center rounded-full bg-ios-fill text-ios-secondary transition-all duration-300 group-hover:bg-ios-electric group-hover:text-white group-hover:shadow-ios-button">
               <ArrowUpRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </span>
           )}

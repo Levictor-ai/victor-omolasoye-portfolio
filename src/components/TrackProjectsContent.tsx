@@ -115,7 +115,7 @@ export function TrackProjectsContent({
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="mt-10 max-w-3xl border-l-2 border-ios-blue/30 pl-4 text-sm leading-relaxed text-ios-secondary sm:text-base"
+          className="mt-10 max-w-3xl border-l-2 border-ios-electric/30 pl-4 text-sm leading-relaxed text-ios-secondary sm:text-base"
         >
           {track.intro}
         </motion.p>

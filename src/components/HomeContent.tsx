@@ -100,7 +100,7 @@ function HeroHeadline() {
           <motion.span
             key={`${word}-${i}`}
             className={`mr-[0.28em] inline-block ${
-              HEADLINE_HIGHLIGHT.has(i) ? 'text-ios-blue' : ''
+              HEADLINE_HIGHLIGHT.has(i) ? 'text-ios-electric' : ''
             }`}
             initial={{ opacity: 0, y: '0.4em' }}
             animate={{ opacity: 1, y: 0 }}
@@ -283,9 +283,9 @@ function ProjectsSection({ projects }: { projects: ProjectData[] }) {
           <div className="h-full">
             <Link
               href="/projects"
-              className="group flex h-full min-h-[260px] flex-col items-center justify-center gap-3 rounded-[1.75rem] border border-dashed border-ios-separator-strong bg-white/80 p-6 text-center shadow-ios transition-all duration-300 hover:-translate-y-1 hover:border-ios-blue/30 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ios-blue/40"
+              className="group flex h-full min-h-[260px] flex-col items-center justify-center gap-3 rounded-[1.75rem] border border-dashed border-ios-separator-strong bg-white/80 p-6 text-center shadow-ios transition-all duration-300 hover:-translate-y-1 hover:border-ios-electric/30 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ios-electric/40"
             >
-              <span className="flex size-12 items-center justify-center rounded-full bg-white text-ios-blue shadow-ios transition-transform duration-300 group-hover:scale-110">
+              <span className="flex size-12 items-center justify-center rounded-full bg-white text-ios-electric shadow-ios transition-transform duration-300 group-hover:scale-110">
                 <ArrowUpRight className="size-5" strokeWidth={2.2} />
               </span>
               <span className="text-lg font-semibold text-ios-label">View all projects</span>

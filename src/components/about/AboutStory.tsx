@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowUpRight, Download, Sparkles } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 import type { ProfileData } from '@/context/PortfolioContext';
 import { Reveal } from '@/components/ui/Reveal';
 
@@ -15,14 +15,18 @@ export function AboutStory({ profile }: { profile: ProfileData }) {
         !paragraph.startsWith('###'),
     );
 
+  if (paragraphs[0]) {
+    paragraphs[0] = paragraphs[0].replace(/^I'm Victor Omolasoye,\s*/i, "I'm ");
+  }
+
   const currentRole = profile.experience[0];
 
   return (
-    <section id="story" className="relative scroll-mt-32 overflow-hidden bg-[#F6F2EA]">
+    <section id="story" className="relative scroll-mt-32 overflow-hidden bg-[#F7F7FA]">
       <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 sm:px-8 lg:grid-cols-[190px_minmax(0,1fr)_260px] lg:gap-14 lg:px-12 lg:py-28">
         <Reveal className="lg:sticky lg:top-24 lg:self-start">
           <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-ios-tertiary">
-            01 &mdash; The person
+            The person
           </p>
           <p className="mt-4 max-w-[16rem] text-sm leading-relaxed text-ios-secondary">
             The short version: curious by default, deliberate by practice, and
@@ -60,28 +64,10 @@ export function AboutStory({ profile }: { profile: ProfileData }) {
               finding inspiration in everyday experiences.&rdquo;
             </blockquote>
           </Reveal>
-
-          <Reveal delay={0.12}>
-            <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm">
-              <a
-                href={profile.resumeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 font-semibold text-ios-electric"
-              >
-                <Download className="size-4" strokeWidth={2.2} />
-                Download résumé
-                <ArrowUpRight className="size-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </a>
-              <span className="text-ios-tertiary">
-                Or keep scrolling to see how I work.
-              </span>
-            </div>
-          </Reveal>
         </div>
 
         <Reveal delay={0.15} className="lg:sticky lg:top-24 lg:self-start">
-          <div className="rounded-ios-xl border border-ios-ink/10 bg-white/60 p-5 backdrop-blur-sm">
+          <div className="rounded-ios-xl border border-ios-ink/10 bg-white p-5 shadow-ios-soft">
             <p className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-ios-tertiary">
               <Sparkles className="size-3.5 text-ios-electric" />
               Field notes
@@ -123,7 +109,8 @@ export function AboutStory({ profile }: { profile: ProfileData }) {
                   Off-screen
                 </dt>
                 <dd className="mt-1 font-medium text-ios-ink">
-                  K-dramas, films, music, faith
+                  Reading (fiction and non-fiction), K-dramas, films, music,
+                  faith
                 </dd>
               </div>
               <div>

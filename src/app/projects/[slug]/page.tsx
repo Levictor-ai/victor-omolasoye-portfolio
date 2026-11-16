@@ -19,6 +19,7 @@ import { CaseStudySidebar } from '@/components/CaseStudySidebar';
 import type { CaseStudyNavItem, CaseStudyMetaRow } from '@/components/CaseStudySidebar';
 import { StudyCaseStudy } from '@/components/StudyCaseStudy';
 import { StudyDocCaseStudy } from '@/components/StudyDocCaseStudy';
+import { buildStudyDoc } from '@/lib/projectStudyDoc';
 import { ButtonLink } from '@/components/ui/Button';
 import { QuoteCard } from '@/components/ui/QuoteCard';
 import { SiteFooter } from '@/components/SiteFooter';
@@ -752,7 +753,6 @@ export default async function ProjectPage({
     notFound();
   }
 
-  const isGallery = project.layout === 'gallery';
   const suggestedProjects = getSuggestedProjects(slug, 3);
 
   return (
@@ -788,14 +788,13 @@ export default async function ProjectPage({
             Back to projects
           </a>
 
-        {project.studyDoc ? (
-          <StudyDocCaseStudy project={project} />
-        ) : project.study ? (
+        {project.study ? (
           <StudyCaseStudy project={project} />
-        ) : isGallery ? (
-          <GalleryView project={project} />
         ) : (
-          <CaseStudyView project={project} />
+          <StudyDocCaseStudy
+            project={project}
+            doc={project.studyDoc ?? buildStudyDoc(project)}
+          />
         )}
         <ProjectEnquiry project={project} />
         <MoreProjects projects={suggestedProjects} />

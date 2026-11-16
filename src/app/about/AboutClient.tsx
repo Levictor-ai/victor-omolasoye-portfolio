@@ -6,7 +6,7 @@ import { SiteFooter } from '@/components/SiteFooter';
 import { BackToTop } from '@/components/BackToTop';
 import type { ProjectData } from '@/types/project';
 import { AboutHero } from '@/components/about/AboutHero';
-import { AboutChapters, AboutReadingProgress } from '@/components/about/AboutChapters';
+import { AboutReadingProgress } from '@/components/about/AboutProgress';
 import { AboutStory } from '@/components/about/AboutStory';
 import { AboutCraft } from '@/components/about/AboutCraft';
 import { AboutProcess } from '@/components/about/AboutProcess';
@@ -24,7 +24,6 @@ export function AboutClient({ projects }: { projects: ProjectData[] }) {
       <AboutReadingProgress />
       <main className="font-ios">
         <AboutHero profile={profile} />
-        <AboutChapters />
         <AboutStory profile={profile} />
         <AboutCraft profile={profile} />
         <AboutProcess />

@@ -114,7 +114,7 @@ export function HeroCoverCarousel({ projects }: { projects: ProjectData[] }) {
     >
       {/* Soft colour glow behind the print. */}
       <div
-        className="pointer-events-none absolute -inset-6 rounded-[3rem] bg-gradient-to-br from-ios-blue/20 via-ios-pale/40 to-ios-teal/20 blur-2xl"
+        className="pointer-events-none absolute -inset-6 rounded-[3rem] bg-gradient-to-br from-ios-electric/20 via-ios-pale/40 to-ios-teal/20 blur-2xl"
         aria-hidden="true"
       />
 

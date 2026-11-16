@@ -95,7 +95,7 @@ export function PersonalProjectCard({ project, index = 0 }: PersonalProjectCardP
                 Coming soon
               </span>
             ) : (
-              <span className="ml-auto inline-flex size-8 shrink-0 items-center justify-center rounded-full bg-ios-fill text-ios-secondary transition-all duration-300 group-hover:bg-ios-blue group-hover:text-white group-hover:shadow-ios-button">
+              <span className="ml-auto inline-flex size-8 shrink-0 items-center justify-center rounded-full bg-ios-fill text-ios-secondary transition-all duration-300 group-hover:bg-ios-electric group-hover:text-white group-hover:shadow-ios-button">
                 <ArrowUpRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </span>
             )}

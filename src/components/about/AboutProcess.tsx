@@ -46,7 +46,7 @@ export function AboutProcess() {
           <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)] lg:items-end">
             <div>
               <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-white/45">
-                03 &mdash; The process
+                The process
               </p>
               <h2 className="mt-4 max-w-2xl text-balance text-3xl font-bold leading-[1.05] tracking-tight text-white sm:text-4xl lg:text-5xl">
                 From first question to final handoff.
@@ -63,10 +63,8 @@ export function AboutProcess() {
           {steps.map((step, index) => (
             <Reveal key={step.title} delay={index * 0.04}>
               <div className="group h-full bg-ios-navy p-6 transition-colors duration-300 hover:bg-white/[0.045] sm:p-7">
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-[11px] text-white/40">
-                    0{index + 1}
-                  </span>
+                <div className="flex items-center gap-3">
+                  <span className="size-1.5 rounded-full bg-ios-electric/80" />
                   <span
                     className="h-px flex-1 bg-white/10 transition-colors group-hover:bg-ios-electric/50"
                     aria-hidden="true"

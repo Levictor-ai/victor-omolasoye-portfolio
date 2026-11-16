@@ -32,9 +32,6 @@ export default function ContactPage() {
           ]),
         ]}
       />
-      <h1 className="sr-only">
-        Contact {site.name} — Product Designer in Lagos, Nigeria
-      </h1>
       <ContactClient />
     </>
   );

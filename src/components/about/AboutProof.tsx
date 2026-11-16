@@ -6,18 +6,9 @@ import { ArrowUpRight, Quote } from 'lucide-react';
 import type { ProfileData } from '@/context/PortfolioContext';
 import type { ProjectData } from '@/types/project';
 import { Reveal } from '@/components/ui/Reveal';
+import { testimonialIdentity } from '@/lib/testimonial';
 
 const selectedSlugs = ['payvo', 'bunkie-ui', 'veyra', 'hapnin'];
-
-function testimonialIdentity(item: ProfileData['testimonials'][number]) {
-  if (item.author.trim().toLowerCase() === 'ceo' && item.company) {
-    return { name: item.company, role: item.role };
-  }
-  return {
-    name: item.author,
-    role: [item.role, item.company].filter(Boolean).join(' · '),
-  };
-}
 
 export function AboutProof({
   profile,
@@ -26,23 +17,21 @@ export function AboutProof({
   profile: ProfileData;
   projects: ProjectData[];
 }) {
-  const [featured, ...rest] = profile.testimonials;
+  const testimonials = profile.testimonials;
   const selected = selectedSlugs
     .map((slug) => projects.find((project) => project.slug === slug))
     .filter((project): project is ProjectData => Boolean(project));
 
-  if (!featured) return null;
-
-  const featuredIdentity = testimonialIdentity(featured);
+  if (testimonials.length === 0) return null;
 
   return (
-    <section id="proof" className="scroll-mt-32 bg-[#F6F2EA]">
+    <section id="proof" className="scroll-mt-32 bg-[#F7F7FA]">
       <div className="mx-auto max-w-7xl px-6 py-20 sm:px-8 lg:px-12 lg:py-28">
         <Reveal>
           <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.85fr)] lg:items-end">
             <div>
               <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-ios-tertiary">
-                04 &mdash; The proof
+                The proof
               </p>
               <h2 className="mt-4 max-w-2xl text-balance text-3xl font-bold leading-[1.05] tracking-tight text-ios-ink sm:text-4xl lg:text-5xl">
                 Good work travels by word of mouth.
@@ -55,88 +44,50 @@ export function AboutProof({
           </div>
         </Reveal>
 
-        <Reveal delay={0.05}>
-          <figure className="relative mt-12 overflow-hidden rounded-ios-2xl border border-ios-ink/10 bg-white p-7 shadow-ios sm:p-10">
-            <Quote
-              className="size-8 text-ios-electric"
-              strokeWidth={1.8}
-              aria-hidden="true"
-            />
-            <blockquote className="mt-6 max-w-4xl font-ios text-lg leading-relaxed text-ios-ink sm:text-2xl lg:text-3xl">
-              &ldquo;{featured.quote}&rdquo;
-            </blockquote>
-            <figcaption className="mt-8 flex flex-wrap items-center gap-4 border-t border-ios-separator pt-5">
-              <span className="relative size-12 overflow-hidden rounded-full bg-ios-electric">
-                {featured.avatar ? (
-                  <Image
-                    src={featured.avatar}
-                    alt={featuredIdentity.name}
-                    fill
-                    className="object-cover"
-                    sizes="48px"
+        <div className="mt-10 grid gap-4 md:grid-cols-2">
+          {testimonials.map((item, index) => {
+            const identity = testimonialIdentity(item);
+            return (
+              <Reveal key={`${item.author}-${index}`} delay={0.04 * index}>
+                <figure className="flex h-full flex-col rounded-ios-2xl border border-ios-ink/10 bg-white p-6 sm:p-7">
+                  <Quote
+                    className="size-6 text-ios-electric"
+                    strokeWidth={1.8}
+                    aria-hidden="true"
                   />
-                ) : (
-                  <span className="grid h-full place-items-center text-sm font-semibold text-white">
-                    {featuredIdentity.name.slice(0, 1)}
-                  </span>
-                )}
-              </span>
-              <span>
-                <span className="block text-sm font-semibold text-ios-ink">
-                  {featuredIdentity.name}
-                </span>
-                <span className="block text-xs text-ios-tertiary">
-                  {featuredIdentity.role}
-                </span>
-              </span>
-              <span className="ml-auto text-[10px] font-semibold uppercase tracking-[0.16em] text-ios-tertiary">
-                Featured note
-              </span>
-            </figcaption>
-          </figure>
-        </Reveal>
-
-        {rest.length > 0 && (
-          <div className="mt-4 grid gap-4 md:grid-cols-3">
-            {rest.map((item, index) => {
-              const identity = testimonialIdentity(item);
-              return (
-                <Reveal key={item.author} delay={0.05 * index}>
-                  <figure className="flex h-full flex-col border-t border-ios-ink/15 pt-5">
-                    <blockquote className="flex-1 text-sm leading-relaxed text-ios-secondary">
-                      &ldquo;{item.quote}&rdquo;
-                    </blockquote>
-                    <figcaption className="mt-5 flex items-center gap-3">
-                      <span className="relative size-9 overflow-hidden rounded-full bg-ios-fill">
-                        {item.avatar ? (
-                          <Image
-                            src={item.avatar}
-                            alt={identity.name}
-                            fill
-                            className="object-cover"
-                            sizes="36px"
-                          />
-                        ) : (
-                          <span className="grid h-full place-items-center text-xs font-semibold text-ios-secondary">
-                            {identity.name.slice(0, 1)}
-                          </span>
-                        )}
-                      </span>
-                      <span>
-                        <span className="block text-xs font-semibold text-ios-ink">
-                          {identity.name}
+                  <blockquote className="mt-4 flex-1 text-[15px] leading-relaxed text-ios-ink sm:text-base">
+                    &ldquo;{item.quote}&rdquo;
+                  </blockquote>
+                  <figcaption className="mt-6 flex items-center gap-3 border-t border-ios-separator pt-5">
+                    <span className="relative size-10 overflow-hidden rounded-full bg-ios-fill">
+                      {item.avatar ? (
+                        <Image
+                          src={item.avatar}
+                          alt={identity.name}
+                          fill
+                          className="object-cover"
+                          sizes="40px"
+                        />
+                      ) : (
+                        <span className="grid h-full place-items-center text-xs font-semibold text-ios-secondary">
+                          {identity.name.slice(0, 1)}
                         </span>
-                        <span className="block text-[11px] text-ios-tertiary">
-                          {identity.role}
-                        </span>
+                      )}
+                    </span>
+                    <span>
+                      <span className="block text-sm font-semibold text-ios-ink">
+                        {identity.name}
                       </span>
-                    </figcaption>
-                  </figure>
-                </Reveal>
-              );
-            })}
-          </div>
-        )}
+                      <span className="block text-xs text-ios-tertiary">
+                        {identity.role}
+                      </span>
+                    </span>
+                  </figcaption>
+                </figure>
+              </Reveal>
+            );
+          })}
+        </div>
 
         {selected.length > 0 && (
           <div className="mt-20">

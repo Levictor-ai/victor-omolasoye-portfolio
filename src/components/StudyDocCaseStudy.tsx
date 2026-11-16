@@ -1,11 +1,30 @@
 import Image from 'next/image';
 import { Quote } from 'lucide-react';
-import type { ProjectData, StudyDocBlock } from '@/types/project';
+import type { ProjectData, ProjectStudyDoc, StudyDocBlock } from '@/types/project';
 import { CaseStudySidebar } from '@/components/CaseStudySidebar';
 import { projectCategories } from '@/lib/projectCategories';
 
-const BRAND = '#663398';
-const ACCENT = '#FF522A';
+type Accent = {
+  bg: string;
+  text: string;
+  ink: string;
+};
+
+function readableAccent(hex: string): Accent {
+  const fallback = '#2F5BFF';
+  const value = /^#[0-9a-f]{6}$/i.test(hex) ? hex : fallback;
+  const r = parseInt(value.slice(1, 3), 16);
+  const g = parseInt(value.slice(3, 5), 16);
+  const b = parseInt(value.slice(5, 7), 16);
+  const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+  const light = luminance > 0.55;
+
+  return {
+    bg: value,
+    text: light ? '#101828' : '#FFFFFF',
+    ink: light ? '#101828' : value,
+  };
+}
 
 function categoryLabel(category: ProjectData['category']) {
   switch (category) {
@@ -46,7 +65,7 @@ function BlockHeading({ block }: { block: StudyDocBlock }) {
   );
 }
 
-function DocBlock({ block }: { block: StudyDocBlock }) {
+function DocBlock({ block, accent }: { block: StudyDocBlock; accent: Accent }) {
   switch (block.type) {
     case 'paragraphs':
       return (
@@ -81,7 +100,7 @@ function DocBlock({ block }: { block: StudyDocBlock }) {
               >
                 <span
                   className="mt-2.5 block size-1.5 shrink-0 rounded-full"
-                  style={{ backgroundColor: BRAND }}
+                  style={{ backgroundColor: accent.ink }}
                 />
                 {item}
               </li>
@@ -101,8 +120,8 @@ function DocBlock({ block }: { block: StudyDocBlock }) {
                 className="flex gap-3 rounded-ios-xl border border-ios-separator bg-white p-4 text-sm leading-relaxed text-ios-secondary"
               >
                 <span
-                  className="flex size-6 shrink-0 items-center justify-center rounded-full text-xs font-semibold text-white"
-                  style={{ backgroundColor: BRAND }}
+                  className="flex size-6 shrink-0 items-center justify-center rounded-full text-xs font-semibold"
+                  style={{ backgroundColor: accent.bg, color: accent.text }}
                 >
                   {i + 1}
                 </span>
@@ -149,8 +168,8 @@ function DocBlock({ block }: { block: StudyDocBlock }) {
               >
                 <div className="flex items-center gap-3">
                   <span
-                    className="flex size-12 shrink-0 items-center justify-center rounded-full font-ios text-lg font-semibold text-white"
-                    style={{ backgroundColor: BRAND }}
+                    className="flex size-12 shrink-0 items-center justify-center rounded-full font-ios text-lg font-semibold"
+                    style={{ backgroundColor: accent.bg, color: accent.text }}
                   >
                     {persona.name.charAt(0)}
                   </span>
@@ -168,7 +187,7 @@ function DocBlock({ block }: { block: StudyDocBlock }) {
                 </p>
                 <blockquote
                   className="mt-4 border-l-2 pl-3 text-sm italic leading-relaxed text-ios-secondary"
-                  style={{ borderColor: ACCENT }}
+                  style={{ borderColor: accent.ink }}
                 >
                   &ldquo;{persona.quote}&rdquo;
                 </blockquote>
@@ -191,7 +210,7 @@ function DocBlock({ block }: { block: StudyDocBlock }) {
                 <Quote
                   aria-hidden="true"
                   className="size-5"
-                  style={{ color: ACCENT }}
+                  style={{ color: accent.ink }}
                 />
                 <p className="mt-3 text-sm leading-relaxed text-ios-secondary">
                   {quote.quote}
@@ -283,18 +302,21 @@ function DocBlock({ block }: { block: StudyDocBlock }) {
 
     case 'stats': {
       const stats = block.stats ?? [];
-      const wide = stats.length >= 5;
+      const columns =
+        stats.length === 1
+          ? 'lg:grid-cols-1'
+          : stats.length === 2
+            ? 'lg:grid-cols-2'
+            : stats.length === 3
+              ? 'lg:grid-cols-3'
+              : stats.length >= 5
+                ? 'lg:grid-cols-5'
+                : 'lg:grid-cols-4';
       return (
         <div>
           <BlockHeading block={block} />
           <div
-            className={`grid gap-px overflow-hidden rounded-ios-xl border border-ios-separator bg-ios-separator sm:grid-cols-2 ${
-              stats.length === 3
-                ? 'lg:grid-cols-3'
-                : wide
-                  ? 'lg:grid-cols-5'
-                  : 'lg:grid-cols-4'
-            }`}
+            className={`grid gap-px overflow-hidden rounded-ios-xl border border-ios-separator bg-ios-separator sm:grid-cols-2 ${columns}`}
           >
             {stats.map((stat) => (
               <div key={stat.label} className="bg-white p-5">
@@ -405,20 +427,27 @@ function DocBlock({ block }: { block: StudyDocBlock }) {
         <div
           className={`rounded-ios-2xl p-6 sm:p-8 ${
             block.callout?.tone === 'brand'
-              ? 'text-white'
+              ? ''
               : block.callout?.tone === 'warm'
                 ? 'border border-[#F5D9A8] bg-[#FFF8EC] text-[#7A5200]'
                 : 'bg-ios-grouped text-ios-label'
           }`}
           style={
-            block.callout?.tone === 'brand' ? { backgroundColor: BRAND } : undefined
+            block.callout?.tone === 'brand'
+              ? { backgroundColor: accent.bg, color: accent.text }
+              : undefined
           }
         >
           {block.callout?.label && (
             <p
               className={`text-[11px] font-semibold uppercase tracking-[0.16em] ${
-                block.callout.tone === 'brand' ? 'text-white/70' : 'text-ios-tertiary'
+                block.callout.tone === 'brand' ? '' : 'text-ios-tertiary'
               }`}
+              style={
+                block.callout.tone === 'brand'
+                  ? { color: accent.text, opacity: 0.72 }
+                  : undefined
+              }
             >
               {block.callout.label}
             </p>
@@ -443,7 +472,7 @@ function DocBlock({ block }: { block: StudyDocBlock }) {
                 key={item.when}
                 className="grid gap-2 border-t border-ios-separator py-4 sm:grid-cols-[112px_1fr] sm:gap-6"
               >
-                <p className="font-mono text-xs font-semibold" style={{ color: BRAND }}>
+                <p className="font-mono text-xs font-semibold" style={{ color: accent.ink }}>
                   {item.when}
                 </p>
                 <div>
@@ -525,9 +554,17 @@ function DocBlock({ block }: { block: StudyDocBlock }) {
   }
 }
 
-export function StudyDocCaseStudy({ project }: { project: ProjectData }) {
-  const doc = project.studyDoc;
+export function StudyDocCaseStudy({
+  project,
+  doc: providedDoc,
+}: {
+  project: ProjectData;
+  doc?: ProjectStudyDoc;
+}) {
+  const doc = providedDoc ?? project.studyDoc;
   if (!doc) return null;
+
+  const accent = readableAccent(project.color ?? '#2F5BFF');
 
   const meta = [{ label: 'Role', value: project.role }, ...doc.meta].filter(
     (row) => row.value,
@@ -537,6 +574,10 @@ export function StudyDocCaseStudy({ project }: { project: ProjectData }) {
     id: section.id,
     label: section.nav,
   }));
+
+  const links = project.links.filter(
+    (link) => link.url !== `/projects/${project.slug}`,
+  );
 
   return (
     <>
@@ -564,8 +605,8 @@ export function StudyDocCaseStudy({ project }: { project: ProjectData }) {
                 </span>
               ))}
               <span
-                className="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold text-white"
-                style={{ backgroundColor: BRAND }}
+                className="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold"
+                style={{ backgroundColor: accent.bg, color: accent.text }}
               >
                 {doc.badge}
               </span>
@@ -579,7 +620,7 @@ export function StudyDocCaseStudy({ project }: { project: ProjectData }) {
             <p className="mt-3 max-w-2xl text-lg text-ios-secondary sm:text-xl">
               {project.subtitle}
             </p>
-            <p className="mt-2 text-sm font-medium" style={{ color: BRAND }}>
+            <p className="mt-2 text-sm font-medium" style={{ color: accent.ink }}>
               {doc.tagline}
             </p>
           </div>
@@ -591,11 +632,11 @@ export function StudyDocCaseStudy({ project }: { project: ProjectData }) {
       </header>
 
       <div className="grid gap-12 lg:grid-cols-[minmax(0,240px)_minmax(0,1fr)] lg:gap-16">
-        <CaseStudySidebar meta={meta} links={project.links} items={navItems} />
+        <CaseStudySidebar meta={meta} links={links} items={navItems} />
 
         <div className="min-w-0 space-y-16">
           {doc.sections.map((section, index) => (
-            <section key={section.id} id={section.id} className="scroll-mt-8">
+            <section key={section.id} id={section.id} className="scroll-mt-28">
               <SectionHeading index={index + 1} title={section.title} />
               {section.intro && (
                 <p className="mb-8 max-w-3xl text-lg leading-relaxed text-ios-secondary">
@@ -604,7 +645,7 @@ export function StudyDocCaseStudy({ project }: { project: ProjectData }) {
               )}
               <div className="space-y-10">
                 {section.blocks.map((block, i) => (
-                  <DocBlock key={`${section.id}-${i}`} block={block} />
+                  <DocBlock key={`${section.id}-${i}`} block={block} accent={accent} />
                 ))}
               </div>
             </section>

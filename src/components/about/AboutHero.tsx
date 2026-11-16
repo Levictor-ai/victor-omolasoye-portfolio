@@ -107,7 +107,7 @@ export function AboutHero({ profile }: { profile: ProfileData }) {
             className="flex flex-wrap items-center gap-3 text-[11px]"
           >
             <span className="font-mono uppercase tracking-[0.22em] text-ios-tertiary">
-              About / Vol. 01
+              About
             </span>
             <span className="h-px w-8 bg-ios-separator-strong" aria-hidden="true" />
             <span className="font-medium text-ios-secondary">
@@ -203,10 +203,6 @@ export function AboutHero({ profile }: { profile: ProfileData }) {
           transition={{ duration: 0.8, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
           className="relative z-10 mx-auto w-full max-w-[430px]"
         >
-          <div
-            className="absolute -inset-3 rotate-2 rounded-[2.4rem] bg-[#E8EEFF]"
-            aria-hidden="true"
-          />
           <div
             className="absolute -bottom-6 -left-6 h-32 w-32 rounded-full bg-ios-electric/15 blur-2xl"
             aria-hidden="true"

@@ -119,7 +119,7 @@ export function StudyCaseStudy({ project }: { project: ProjectData }) {
 
         <div className="min-w-0 space-y-16">
           {/* Summary */}
-          <section id="summary" className="scroll-mt-8">
+          <section id="summary" className="scroll-mt-28">
             <SectionHeading index={sectionNumber('summary')} title="Summary" />
             <p className="max-w-3xl text-xl leading-relaxed text-ios-secondary">
               {project.overview}
@@ -152,7 +152,7 @@ export function StudyCaseStudy({ project }: { project: ProjectData }) {
           </section>
 
           {/* Problem */}
-          <section id="problem" className="scroll-mt-8">
+          <section id="problem" className="scroll-mt-28">
             <SectionHeading index={sectionNumber('problem')} title="The Problem" />
             <p className="max-w-3xl leading-relaxed text-ios-secondary">{project.problem}</p>
             <p className="mt-4 max-w-3xl text-sm font-medium text-ios-label">
@@ -189,7 +189,7 @@ export function StudyCaseStudy({ project }: { project: ProjectData }) {
           </section>
 
           {/* Goals */}
-          <section id="goals" className="scroll-mt-8">
+          <section id="goals" className="scroll-mt-28">
             <SectionHeading index={sectionNumber('goals')} title="Goals" />
             <ul className="grid gap-4 sm:grid-cols-2">
               {study.goals.map((goal) => (
@@ -207,7 +207,7 @@ export function StudyCaseStudy({ project }: { project: ProjectData }) {
           </section>
 
           {/* Research */}
-          <section id="research" className="scroll-mt-8">
+          <section id="research" className="scroll-mt-28">
             <SectionHeading index={sectionNumber('research')} title="Research & Insights" />
             <p className="max-w-3xl leading-relaxed text-ios-secondary">
               {study.research.intro}
@@ -291,7 +291,7 @@ export function StudyCaseStudy({ project }: { project: ProjectData }) {
           </section>
 
           {/* Principles */}
-          <section id="principles" className="scroll-mt-8">
+          <section id="principles" className="scroll-mt-28">
             <SectionHeading index={sectionNumber('principles')} title="Design Principles" />
             <div className="grid gap-4 sm:grid-cols-2">
               {study.principles.map((principle, i) => (
@@ -317,7 +317,7 @@ export function StudyCaseStudy({ project }: { project: ProjectData }) {
           </section>
 
           {/* Walkthrough */}
-          <section id="walkthrough" className="scroll-mt-8">
+          <section id="walkthrough" className="scroll-mt-28">
             <SectionHeading index={sectionNumber('walkthrough')} title="Solution Walkthrough" />
             <p className="max-w-3xl leading-relaxed text-ios-secondary">{study.screensIntro}</p>
             <p
@@ -422,7 +422,7 @@ export function StudyCaseStudy({ project }: { project: ProjectData }) {
           </section>
 
           {/* Design system */}
-          <section id="system" className="scroll-mt-8">
+          <section id="system" className="scroll-mt-28">
             <SectionHeading index={sectionNumber('system')} title="Design System" />
             <p className="max-w-3xl leading-relaxed text-ios-secondary">
               {study.system.intro}
@@ -543,7 +543,7 @@ export function StudyCaseStudy({ project }: { project: ProjectData }) {
           </section>
 
           {/* Decisions and trade-offs */}
-          <section id="decisions" className="scroll-mt-8">
+          <section id="decisions" className="scroll-mt-28">
             <SectionHeading index={sectionNumber('decisions')} title="Key Decisions & Trade-offs" />
             <p className="max-w-3xl leading-relaxed text-ios-secondary">
               Every decision bought clarity in one place and cost something in another. These are
@@ -616,7 +616,7 @@ export function StudyCaseStudy({ project }: { project: ProjectData }) {
           </section>
 
           {/* Metrics */}
-          <section id="metrics" className="scroll-mt-8">
+          <section id="metrics" className="scroll-mt-28">
             <SectionHeading index={sectionNumber('metrics')} title="Success Metrics" />
             <p className="max-w-3xl leading-relaxed text-ios-secondary">
               {study.metrics.intro}
@@ -639,7 +639,7 @@ export function StudyCaseStudy({ project }: { project: ProjectData }) {
           </section>
 
           {/* Reflection */}
-          <section id="reflection" className="scroll-mt-8">
+          <section id="reflection" className="scroll-mt-28">
             <SectionHeading index={sectionNumber('reflection')} title="Reflection & Next Steps" />
 
             <div className="grid gap-10 lg:grid-cols-2">
