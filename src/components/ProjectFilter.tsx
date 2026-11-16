@@ -69,6 +69,9 @@ export function useProjectFilter(projects: ProjectData[]) {
   const pool = projects.filter((p) => !p.personal).sort((a, b) => {
     if (a.featured && !b.featured) return -1;
     if (!a.featured && b.featured) return 1;
+    if (a.featured && b.featured) {
+      return (a.featuredOrder ?? Number.MAX_SAFE_INTEGER) - (b.featuredOrder ?? Number.MAX_SAFE_INTEGER);
+    }
     return 0;
   });
 

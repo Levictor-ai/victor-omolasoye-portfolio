@@ -2,6 +2,7 @@
   "slug": "stride",
   "category": "product",
   "featured": true,
+  "featuredOrder": 2,
   "title": "Stride",
   "subtitle": "Workout Tracking App - UX Case Study",
   "role": "Product Designer (UX/UI)",

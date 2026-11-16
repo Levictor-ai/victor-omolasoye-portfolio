@@ -227,6 +227,8 @@ export interface ProjectData {
   personal?: boolean;
   /** When true, the project is pinned to the top of its category on the projects page. */
   featured?: boolean;
+  /** Sort order among featured projects (lower comes first). */
+  featuredOrder?: number;
   title: string;
   subtitle: string;
   role: string;
