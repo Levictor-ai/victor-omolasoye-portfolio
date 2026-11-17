@@ -1,16 +1,16 @@
 {
   "slug": "gabstick",
   "category": "brand",
-  "title": "Gabstick",
+  "title": "Gabbstickk",
   "subtitle": "Visual Brand Guidelines",
   "role": "Brand Designer",
-  "company": "Gabstick Visuals",
+  "company": "Gabbstickk Visuals",
   "companyUrl": null,
   "period": "2026",
   "coverImage": "/images/projects/gabstick/cover.png",
   "color": "#775039",
-  "overview": "Gabstick Visuals is a photography studio built on a simple belief: moments fade, but stories remain. This project shaped a complete visual identity for the studio, from an abstract logomark that fuses the lowercase letters \"g\" and \"s\" to a warm, earthy colour system, editorial typography, a logo-led pattern and a full set of brand applications. The result is a guideline that keeps every frame, post and printed touchpoint feeling like the same studio.",
-  "problem": "A photography brand is judged on feeling long before a client sees the work. Gabstick needed an identity that felt warm, intentional and premium, while staying flexible enough to carry portraits, studio sessions, lifestyle and event photography without slipping into generic camera-brand clichés.",
+  "overview": "Gabbstickk Visuals is a photography studio built on a simple belief: moments fade, but stories remain. This project shaped a complete visual identity for the studio, from an abstract logomark that fuses the lowercase letters \"g\" and \"s\" to a warm, earthy colour system, editorial typography, a logo-led pattern and a full set of brand applications. The result is a guideline that keeps every frame, post and printed touchpoint feeling like the same studio.",
+  "problem": "A photography brand is judged on feeling long before a client sees the work. Gabbstickk needed an identity that felt warm, intentional and premium, while staying flexible enough to carry portraits, studio sessions, lifestyle and event photography without slipping into generic camera-brand clichés.",
   "solution": "An abstract g/s monogram that reads as a mark rather than a letterform, grounded in a warm palette of cream, chestnut brown and charcoal. Bebas drives bold editorial headlines, Poppins handles quiet body copy and Fontellina adds a handwritten accent. A repeating logomark pattern, gradient art direction and consistent photography rules carry the identity across print, apparel and social.",
   "targetAudience": ["Portrait and Lifestyle Clients", "Event and Brand Clients", "Creative Studios"],
   "regions": ["Nigeria"],
@@ -115,7 +115,7 @@
     "badge": "2026",
     "tagline": "A brand identity case study",
     "meta": [
-      { "label": "Company", "value": "Gabstick Visuals" },
+      { "label": "Company", "value": "Gabbstickk Visuals" },
       { "label": "Year", "value": "2026" },
       { "label": "Location", "value": "Nigeria" },
       { "label": "Tools", "value": "Adobe Illustrator, Adobe Photoshop" }
@@ -131,7 +131,7 @@
             "type": "paragraphs",
             "lead": true,
             "paragraphs": [
-              "Gabstick Visuals photographs people, events and brand stories. The studio wanted an identity that felt as considered as its frames, warm enough for intimate portraits and confident enough for commercial work.",
+              "Gabbstickk Visuals photographs people, events and brand stories. The studio wanted an identity that felt as considered as its frames, warm enough for intimate portraits and confident enough for commercial work.",
               "The work began with the logomark. The brief asked for an abstract symbol inspired by the lowercase letters \"g\" and \"s\", merged into one cohesive form so the initials stayed recognisable without becoming a conventional lettermark.",
               "That mark became the anchor for everything else: a warm earth palette, an editorial type hierarchy, a logo-led pattern and a clear set of photography and application rules."
             ]
@@ -164,7 +164,7 @@
             "type": "paragraphs",
             "paragraphs": [
               "The logomark is drawn as one continuous, fluid form. The rounded upper stroke resolves into the lowercase g, while the lower teardrop completes the s, with negative space doing the work of separating the two letters.",
-              "Because the shape is simple, it holds up at every scale. It sits confidently as a standalone icon, locks up beside the Gabstick Visuals wordmark, or gets cropped off the edge of a layout as a graphic device.",
+              "Because the shape is simple, it holds up at every scale. It sits confidently as a standalone icon, locks up beside the Gabbstickk Visuals wordmark, or gets cropped off the edge of a layout as a graphic device.",
               "The identity also defines clear colour behaviour: cream on chestnut, chestnut on cream, and reversed treatments for photography, so the mark never competes with the image it sits on."
             ]
           },
@@ -174,7 +174,7 @@
             "images": [
               { "src": "/images/projects/gabstick/03-outline-logomark.jpg", "alt": "Outline logomark", "label": "Outline treatment for subtle, low-contrast placements." },
               { "src": "/images/projects/gabstick/04-logomark-color-variations.jpg", "alt": "Logomark colour variations", "label": "Approved colour combinations: cream on chestnut, chestnut on cream and reverse." },
-              { "src": "/images/projects/gabstick/05-logo-lockups.jpg", "alt": "Logo lockups", "label": "Primary lockup with the Gabstick Visuals wordmark on light and dark grounds." },
+              { "src": "/images/projects/gabstick/05-logo-lockups.jpg", "alt": "Logo lockups", "label": "Primary lockup with the Gabbstickk Visuals wordmark on light and dark grounds." },
               { "src": "/images/projects/gabstick/21-cropped-logomark-right.jpg", "alt": "Cropped logomark, right", "label": "Cropped mark used as an edge graphic in campaign layouts." },
               { "src": "/images/projects/gabstick/22-cropped-logomark-left.jpg", "alt": "Cropped logomark, left", "label": "The mirrored crop keeps long layouts balanced." },
               { "src": "/images/projects/gabstick/23-layered-logomark.jpg", "alt": "Layered logomark", "label": "Layered tones add depth for covers and large-format pieces." }
@@ -307,7 +307,7 @@
         "id": "applications",
         "nav": "Applications",
         "title": "The identity in the world",
-        "intro": "From a t-shirt and business card to a social profile and a closing slide, the system stays recognisably Gabstick.",
+        "intro": "From a t-shirt and business card to a social profile and a closing slide, the system stays recognisably Gabbstickk.",
         "blocks": [
           {
             "type": "paragraphs",
