@@ -1,0 +1,336 @@
+{
+  "slug": "gabstick",
+  "category": "brand",
+  "title": "Gabstick",
+  "subtitle": "Visual Brand Guidelines",
+  "role": "Brand Designer",
+  "company": "Gabstick Visuals",
+  "companyUrl": null,
+  "period": "2026",
+  "coverImage": "/images/projects/gabstick/cover.png",
+  "color": "#775039",
+  "overview": "Gabstick Visuals is a photography studio built on a simple belief: moments fade, but stories remain. This project shaped a complete visual identity for the studio, from an abstract logomark that fuses the lowercase letters \"g\" and \"s\" to a warm, earthy colour system, editorial typography, a logo-led pattern and a full set of brand applications. The result is a guideline that keeps every frame, post and printed touchpoint feeling like the same studio.",
+  "problem": "A photography brand is judged on feeling long before a client sees the work. Gabstick needed an identity that felt warm, intentional and premium, while staying flexible enough to carry portraits, studio sessions, lifestyle and event photography without slipping into generic camera-brand clichés.",
+  "solution": "An abstract g/s monogram that reads as a mark rather than a letterform, grounded in a warm palette of cream, chestnut brown and charcoal. Bebas drives bold editorial headlines, Poppins handles quiet body copy and Fontellina adds a handwritten accent. A repeating logomark pattern, gradient art direction and consistent photography rules carry the identity across print, apparel and social.",
+  "targetAudience": ["Portrait and Lifestyle Clients", "Event and Brand Clients", "Creative Studios"],
+  "regions": ["Nigeria"],
+  "timeline": "2026",
+  "features": [
+    {
+      "title": "Abstract g/s Logomark",
+      "description": "A single fluid mark that merges the letters g and s into one memorable, standalone symbol."
+    },
+    {
+      "title": "Warm Earth Palette",
+      "description": "Cream, chestnut and charcoal chosen to feel intimate, tactile and premium across every surface."
+    },
+    {
+      "title": "Editorial Type System",
+      "description": "Bebas for bold statements, Poppins for readable detail and Fontellina for emotional accents."
+    },
+    {
+      "title": "Logo-Led Pattern",
+      "description": "A repeating logomark pattern that gives the brand texture without introducing new shapes."
+    },
+    {
+      "title": "Photography Direction",
+      "description": "Portraiture, lifestyle, events and creative work framed by intentional storytelling."
+    },
+    {
+      "title": "Brand Applications",
+      "description": "Apparel, stationery, social profiles, framed prints and campaign layouts brought into one system."
+    }
+  ],
+  "techStack": [
+    { "name": "Adobe Illustrator", "category": "design" },
+    { "name": "Adobe Photoshop", "category": "design" },
+    { "name": "Brand Identity", "category": "design" },
+    { "name": "Art Direction", "category": "design" }
+  ],
+  "architecture": {
+    "title": "Identity System",
+    "description": "The guideline is built as one connected system: the logomark sets the shape language, the palette sets the mood, the type system sets the voice and the pattern and photography rules keep every application in the same family.",
+    "highlights": [
+      "One mark across every touchpoint",
+      "Three-colour core palette",
+      "Display, body and accent type roles",
+      "Pattern and photography rules"
+    ]
+  },
+  "results": [
+    {
+      "metric": "Guide Pages",
+      "value": "24",
+      "description": "A complete identity guideline from mark to applications"
+    },
+    {
+      "metric": "Core Colours",
+      "value": "3",
+      "description": "Cream, chestnut brown and charcoal"
+    },
+    {
+      "metric": "Typefaces",
+      "value": "3",
+      "description": "Bebas, Poppins and Fontellina"
+    }
+  ],
+  "layout": "case-study",
+  "links": [],
+  "images": [
+    { "src": "/images/projects/gabstick/02-logo-design-brief.jpg", "alt": "Logo design brief" },
+    { "src": "/images/projects/gabstick/03-outline-logomark.jpg", "alt": "Outline logomark" },
+    { "src": "/images/projects/gabstick/04-logomark-color-variations.jpg", "alt": "Logomark colour variations" },
+    { "src": "/images/projects/gabstick/05-logo-lockups.jpg", "alt": "Logo lockups" },
+    { "src": "/images/projects/gabstick/06-brand-pattern.jpg", "alt": "Brand pattern" },
+    { "src": "/images/projects/gabstick/07-logo-on-photography.jpg", "alt": "Logo on photography" },
+    { "src": "/images/projects/gabstick/08-social-profile-mockup.jpg", "alt": "Social profile mockup" },
+    { "src": "/images/projects/gabstick/09-typography.jpg", "alt": "Typography system" },
+    { "src": "/images/projects/gabstick/10-color-palette.jpg", "alt": "Colour palette" },
+    { "src": "/images/projects/gabstick/11-brand-gradient.jpg", "alt": "Brand gradient" },
+    { "src": "/images/projects/gabstick/12-photography-pillars.jpg", "alt": "Photography pillars" },
+    { "src": "/images/projects/gabstick/13-camera-photography.jpg", "alt": "Camera and lens" },
+    { "src": "/images/projects/gabstick/14-featured-statistic.jpg", "alt": "Featured statistic" },
+    { "src": "/images/projects/gabstick/15-photography-studio.jpg", "alt": "Photography studio" },
+    { "src": "/images/projects/gabstick/16-creative-process.jpg", "alt": "Creative process" },
+    { "src": "/images/projects/gabstick/17-framed-portrait-mockup.jpg", "alt": "Framed portrait mockup" },
+    { "src": "/images/projects/gabstick/18-our-approach.jpg", "alt": "Our approach" },
+    { "src": "/images/projects/gabstick/19-apparel-stationery.jpg", "alt": "Apparel and stationery" },
+    { "src": "/images/projects/gabstick/20-client-experience.jpg", "alt": "Client experience" },
+    { "src": "/images/projects/gabstick/21-cropped-logomark-right.jpg", "alt": "Cropped logomark, right" },
+    { "src": "/images/projects/gabstick/22-cropped-logomark-left.jpg", "alt": "Cropped logomark, left" },
+    { "src": "/images/projects/gabstick/23-layered-logomark.jpg", "alt": "Layered logomark" },
+    { "src": "/images/projects/gabstick/24-thank-you.jpg", "alt": "Thank you" }
+  ],
+  "sections": [
+    {
+      "title": "Brief & Strategy",
+      "content": "The brief was to build an identity around feeling rather than equipment. Research into how photography clients describe their favourite studios kept returning to the same words: warm, calm, personal and intentional. That language shaped the mark, the palette and the type."
+    },
+    {
+      "title": "Reflection",
+      "content": "The strongest outcome is restraint. Every element in the guide can be traced back to the same three colours, three typefaces and one shape, which makes the brand easy for the studio to apply without a designer present."
+    }
+  ],
+  "studyDoc": {
+    "badge": "2026",
+    "tagline": "A brand identity case study",
+    "meta": [
+      { "label": "Company", "value": "Gabstick Visuals" },
+      { "label": "Year", "value": "2026" },
+      { "label": "Location", "value": "Nigeria" },
+      { "label": "Tools", "value": "Adobe Illustrator, Adobe Photoshop" }
+    ],
+    "sections": [
+      {
+        "id": "brief",
+        "nav": "The Brief",
+        "title": "A photography brand built on feeling",
+        "intro": "The goal was not another camera logo. It was a visual identity that could hold emotion, memory and craft in one quiet system.",
+        "blocks": [
+          {
+            "type": "paragraphs",
+            "lead": true,
+            "paragraphs": [
+              "Gabstick Visuals photographs people, events and brand stories. The studio wanted an identity that felt as considered as its frames, warm enough for intimate portraits and confident enough for commercial work.",
+              "The work began with the logomark. The brief asked for an abstract symbol inspired by the lowercase letters \"g\" and \"s\", merged into one cohesive form so the initials stayed recognisable without becoming a conventional lettermark.",
+              "That mark became the anchor for everything else: a warm earth palette, an editorial type hierarchy, a logo-led pattern and a clear set of photography and application rules."
+            ]
+          },
+          {
+            "type": "callout",
+            "callout": {
+              "label": "The idea",
+              "text": "Photography is more than taking pictures. It is about preserving emotions, communicating ideas and creating visuals that leave a lasting impression.",
+              "tone": "brand"
+            }
+          },
+          {
+            "type": "figure",
+            "figure": {
+              "src": "/images/projects/gabstick/02-logo-design-brief.jpg",
+              "alt": "Logo design brief",
+              "caption": "The logo brief: an abstract g/s symbol with fluid connections and clever negative space."
+            }
+          }
+        ]
+      },
+      {
+        "id": "logomark",
+        "nav": "Logomark",
+        "title": "One mark, many moods",
+        "intro": "A single organic shape carries the initials, then adapts across fill, outline, lockup and crop without losing its character.",
+        "blocks": [
+          {
+            "type": "paragraphs",
+            "paragraphs": [
+              "The logomark is drawn as one continuous, fluid form. The rounded upper stroke resolves into the lowercase g, while the lower teardrop completes the s, with negative space doing the work of separating the two letters.",
+              "Because the shape is simple, it holds up at every scale. It sits confidently as a standalone icon, locks up beside the Gabstick Visuals wordmark, or gets cropped off the edge of a layout as a graphic device.",
+              "The identity also defines clear colour behaviour: cream on chestnut, chestnut on cream, and reversed treatments for photography, so the mark never competes with the image it sits on."
+            ]
+          },
+          {
+            "type": "images",
+            "columns": 2,
+            "images": [
+              { "src": "/images/projects/gabstick/03-outline-logomark.jpg", "alt": "Outline logomark", "label": "Outline treatment for subtle, low-contrast placements." },
+              { "src": "/images/projects/gabstick/04-logomark-color-variations.jpg", "alt": "Logomark colour variations", "label": "Approved colour combinations: cream on chestnut, chestnut on cream and reverse." },
+              { "src": "/images/projects/gabstick/05-logo-lockups.jpg", "alt": "Logo lockups", "label": "Primary lockup with the Gabstick Visuals wordmark on light and dark grounds." },
+              { "src": "/images/projects/gabstick/21-cropped-logomark-right.jpg", "alt": "Cropped logomark, right", "label": "Cropped mark used as an edge graphic in campaign layouts." },
+              { "src": "/images/projects/gabstick/22-cropped-logomark-left.jpg", "alt": "Cropped logomark, left", "label": "The mirrored crop keeps long layouts balanced." },
+              { "src": "/images/projects/gabstick/23-layered-logomark.jpg", "alt": "Layered logomark", "label": "Layered tones add depth for covers and large-format pieces." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "colour",
+        "nav": "Colour",
+        "title": "A warm, grounded palette",
+        "intro": "Three colours do all the work: a soft cream, a rich chestnut and a near-black charcoal.",
+        "blocks": [
+          {
+            "type": "paragraphs",
+            "paragraphs": [
+              "The palette is deliberately small. Cream creates breathing room and keeps layouts light, chestnut gives the brand its warmth and character, and charcoal supplies contrast and a modern editorial edge.",
+              "A soft brown gradient built from the same two tones is used for covers, backdrops and social canvases, giving the brand depth without adding a fourth colour."
+            ]
+          },
+          {
+            "type": "swatches",
+            "swatches": [
+              { "name": "Cream", "value": "#F2EADD", "usage": "Primary background, reversed type and the logomark on chestnut." },
+              { "name": "Chestnut", "value": "#775039", "usage": "Core brand colour for type, the mark, covers and print." },
+              { "name": "Charcoal", "value": "#151516", "usage": "High-contrast grounds, body copy and editorial layouts." }
+            ]
+          },
+          {
+            "type": "images",
+            "columns": 2,
+            "images": [
+              { "src": "/images/projects/gabstick/10-color-palette.jpg", "alt": "Colour palette", "label": "The full palette in ratio: cream, chestnut and charcoal." },
+              { "src": "/images/projects/gabstick/11-brand-gradient.jpg", "alt": "Brand gradient", "label": "The brand gradient used for covers and atmospheric backgrounds." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "typography",
+        "nav": "Typography",
+        "title": "Bold voice, quiet detail",
+        "intro": "Bebas gives the brand its confident headline voice, Poppins keeps information clear and Fontellina adds a human touch.",
+        "blocks": [
+          {
+            "type": "paragraphs",
+            "paragraphs": [
+              "Typography is split by role. Bebas is the primary display face for bold headings, large statistics, section titles and short statements. Its condensed proportions let the brand say a lot in a small space.",
+              "Poppins carries body copy, descriptions, captions and labels, with generous line height to keep long-form text comfortable. Fontellina Migenta is reserved for expressive words, handwritten-style accents and emotional brand statements, used sparingly so it never becomes decoration."
+            ]
+          },
+          {
+            "type": "scale",
+            "scale": [
+              { "label": "Display headline", "px": 64, "weight": "700", "usage": "Bebas for campaign statements and section openers." },
+              { "label": "Subheading", "px": 28, "weight": "600", "usage": "Bebas or Poppins for supporting headlines and stats." },
+              { "label": "Body copy", "px": 16, "weight": "400", "usage": "Poppins for paragraphs, descriptions and captions." },
+              { "label": "Accent", "px": 18, "weight": "400", "usage": "Fontellina Migenta for short emotional accents only." }
+            ]
+          },
+          {
+            "type": "figure",
+            "figure": {
+              "src": "/images/projects/gabstick/09-typography.jpg",
+              "alt": "Typography system",
+              "caption": "The type specimen: Bebas as primary display, Poppins as secondary and Fontellina Migenta as the decorative accent."
+            }
+          }
+        ]
+      },
+      {
+        "id": "pattern",
+        "nav": "Pattern",
+        "title": "The mark as texture",
+        "intro": "Instead of inventing a decorative motif, the identity repeats the logomark itself.",
+        "blocks": [
+          {
+            "type": "paragraphs",
+            "paragraphs": [
+              "The brand pattern tiles the mark at a consistent scale and rhythm, turning a single logo into a flexible surface treatment. It works as a full background, a packaging wrap or a quiet band inside a layout.",
+              "On photography, the mark is always placed as a cream overlay in a calm area of the frame. It should feel like a signature on the image, never a sticker on top of a face."
+            ]
+          },
+          {
+            "type": "images",
+            "columns": 2,
+            "images": [
+              { "src": "/images/projects/gabstick/06-brand-pattern.jpg", "alt": "Brand pattern", "label": "The repeating logomark pattern in chestnut on cream." },
+              { "src": "/images/projects/gabstick/07-logo-on-photography.jpg", "alt": "Logo on photography", "label": "The mark as a signature overlay on a portrait." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "photography",
+        "nav": "Photography",
+        "title": "Photography that speaks",
+        "intro": "Portraiture, lifestyle, events and creative work, all framed with the same intentionality.",
+        "blocks": [
+          {
+            "type": "paragraphs",
+            "paragraphs": [
+              "The identity sets a clear photography direction: warm skin tones, soft directional light and compositions that leave room for the subject to breathe. Editing stays natural and filmic rather than overly processed.",
+              "Every frame should feel like it was made on purpose. The guideline pairs this with a consistent studio aesthetic and a simple promise to clients: your vision, our lens."
+            ]
+          },
+          {
+            "type": "bullets",
+            "heading": "Photography pillars",
+            "items": [
+              "Portraiture: intimate, confident and softly lit.",
+              "Lifestyle: candid moments with a calm, editorial eye.",
+              "Events: story-first coverage that protects the atmosphere.",
+              "Creative: bold concepts carried by careful composition."
+            ]
+          },
+          {
+            "type": "images",
+            "columns": 2,
+            "images": [
+              { "src": "/images/projects/gabstick/12-photography-pillars.jpg", "alt": "Photography pillars", "label": "Photography that speaks: the studio's four pillars." },
+              { "src": "/images/projects/gabstick/15-photography-studio.jpg", "alt": "Photography studio", "label": "The studio setup that anchors the brand's warm light." },
+              { "src": "/images/projects/gabstick/13-camera-photography.jpg", "alt": "Camera and lens", "label": "Craft and equipment, shown as part of the story." },
+              { "src": "/images/projects/gabstick/17-framed-portrait-mockup.jpg", "alt": "Framed portrait mockup", "label": "A finished frame living in a real space." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "applications",
+        "nav": "Applications",
+        "title": "The identity in the world",
+        "intro": "From a t-shirt and business card to a social profile and a closing slide, the system stays recognisably Gabstick.",
+        "blocks": [
+          {
+            "type": "paragraphs",
+            "paragraphs": [
+              "Applications are where a guideline proves itself. Apparel carries the mark large on chestnut, stationery keeps it small on cream, and social profiles use the mark in a tight circular crop so it is legible at avatar size.",
+              "Campaign layouts pair big Bebas statements with a single supporting line and plenty of space. The same structure holds for statistics, process explainers and client-experience pages, which keeps the brand consistent as the studio grows."
+            ]
+          },
+          {
+            "type": "images",
+            "columns": 2,
+            "images": [
+              { "src": "/images/projects/gabstick/19-apparel-stationery.jpg", "alt": "Apparel and stationery", "label": "Apparel and stationery: the mark at large and small scales." },
+              { "src": "/images/projects/gabstick/08-social-profile-mockup.jpg", "alt": "Social profile mockup", "label": "The avatar crop keeps the mark readable on social." },
+              { "src": "/images/projects/gabstick/14-featured-statistic.jpg", "alt": "Featured statistic", "label": "Statistic layouts use Bebas at display scale." },
+              { "src": "/images/projects/gabstick/20-client-experience.jpg", "alt": "Client experience", "label": "Client experience: your vision, our lens." },
+              { "src": "/images/projects/gabstick/18-our-approach.jpg", "alt": "Our approach", "label": "The approach statement: beyond the frame." },
+              { "src": "/images/projects/gabstick/16-creative-process.jpg", "alt": "Creative process", "label": "Creative process explained in the brand's voice." },
+              { "src": "/images/projects/gabstick/24-thank-you.jpg", "alt": "Thank you", "label": "The closing slide: moments fade, stories remain." }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
