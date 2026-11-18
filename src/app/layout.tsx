@@ -5,6 +5,7 @@ import { PageScrollReset } from '@/components/PageScrollReset';
 import { Analytics } from '@/components/Analytics';
 import { VisitTracker } from '@/components/VisitTracker';
 import { JsonLd } from '@/components/JsonLd';
+import { PageLoader } from '@/components/PageLoader';
 import { primaryKeywords, SITE_URL, site } from '@/lib/seo';
 import { personSchema, websiteSchema } from '@/lib/schema';
 import './globals.css';
@@ -98,6 +99,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${jakarta.variable} ${bebasNeue.variable} ${roboto.variable} antialiased`}>
       <body className="min-h-screen bg-white font-ios text-ios-ink">
+        <PageLoader />
         <JsonLd data={[personSchema(), websiteSchema()]} />
         <PageScrollReset />
         <PortfolioProvider>{children}</PortfolioProvider>

@@ -1,6 +1,5 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -26,48 +25,10 @@ import {
 } from '@/components/ProjectFilter';
 
 function TypewriterText({ text, className }: { text: string; className?: string }) {
-  const [displayedText, setDisplayedText] = useState('');
-
-  useEffect(() => {
-    let i = 0;
-    let deleting = false;
-    let timeout: ReturnType<typeof setTimeout>;
-
-    const step = () => {
-      if (!deleting) {
-        if (i < text.length) {
-          i++;
-          setDisplayedText(text.slice(0, i));
-          timeout = setTimeout(step, 80);
-        } else {
-          timeout = setTimeout(() => {
-            deleting = true;
-            step();
-          }, 1800);
-        }
-      } else {
-        if (i > 0) {
-          i--;
-          setDisplayedText(text.slice(0, i));
-          timeout = setTimeout(step, 40);
-        } else {
-          deleting = false;
-          timeout = setTimeout(step, 500);
-        }
-      }
-    };
-
-    step();
-    return () => clearTimeout(timeout);
-  }, [text]);
-
   return (
-    <span className={className}>
-      {displayedText}
-      <span
-        className="ml-[2px] inline-block w-[1.5px] bg-ios-label"
-        style={{ height: '1em', verticalAlign: 'text-bottom', animation: 'cursor-blink 1s step-end infinite' }}
-      />
+    <span className={`typewriter ${className ?? ''}`}>
+      <span className="typewriter-text">{text}</span>
+      <span className="typewriter-caret" aria-hidden="true" />
     </span>
   );
 }
@@ -97,17 +58,15 @@ function HeroHeadline() {
         </span>
       <span aria-hidden="true" className="block w-full text-balance">
         {HEADLINE.map((word, i) => (
-          <motion.span
+          <span
             key={`${word}-${i}`}
-            className={`mr-[0.28em] inline-block ${
+            className={`hero-word mr-[0.28em] inline-block ${
               HEADLINE_HIGHLIGHT.has(i) ? 'text-ios-electric' : ''
             }`}
-            initial={{ opacity: 0, y: '0.4em' }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.35 + i * 0.07, ease: [0.22, 1, 0.36, 1] }}
+            style={{ animationDelay: `${0.16 + i * 0.055}s` }}
           >
             {word}
-          </motion.span>
+          </span>
         ))}
       </span>
     </h1>
@@ -129,35 +88,20 @@ function AvailableBanner() {
 }
 
 function HeroSection({ profile, projects }: { profile: ProfileData; projects: ProjectData[] }) {
-  const container = {
-    hidden: {},
-    show: {
-      transition: { staggerChildren: 0.12, delayChildren: 0.2 },
-    },
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: 24 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
-  };
-
   const heroProjects = [
     ...projects.filter((project) => projectInCategory(project, 'product')).slice(0, 3),
     ...projects.filter((project) => projectInCategory(project, 'brand')).slice(0, 3),
   ].filter((project, i, list) => list.findIndex((item) => item.slug === project.slug) === i);
 
   return (
-    <motion.section
+    <section
       id="home"
-      variants={container}
-      initial="hidden"
-      animate="show"
       className="bg-hero flex min-h-[calc(100dvh-57px)] w-full flex-col pt-16 pb-16 lg:min-h-[calc(100vh-57px)] lg:pt-24 lg:pb-24"
     >
       <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-6 sm:px-8 lg:grid-cols-[1.05fr_1fr] lg:items-stretch lg:gap-12 lg:px-12 xl:gap-16">
         <div className="min-w-0 lg:order-2">
-          <motion.div variants={item}><AvailableBanner /></motion.div>
-          <motion.div variants={item}>
+          <div className="hero-rise" style={{ animationDelay: '0.02s' }}><AvailableBanner /></div>
+          <div className="hero-rise" style={{ animationDelay: '0.07s' }}>
             <div className="mb-3 flex items-center gap-3">
               <div className="relative size-12 shrink-0 overflow-hidden rounded-full border-2 border-white shadow-ios">
                 <Image
@@ -174,11 +118,11 @@ function HeroSection({ profile, projects }: { profile: ProfileData; projects: Pr
                 Hi, <TypewriterText text="I'm Victor Omolasoye" />
               </p>
             </div>
-          </motion.div>
-          <motion.div variants={item}>
+          </div>
+          <div className="hero-rise" style={{ animationDelay: '0.1s' }}>
             <HeroHeadline />
-          </motion.div>
-          <motion.div variants={item}>
+          </div>
+          <div className="hero-rise" style={{ animationDelay: '0.14s' }}>
             <p
               className="mb-7 w-full leading-snug tracking-tight text-ios-secondary"
               style={{ fontSize: 'clamp(1.05rem,1.4vw,1.3rem)' }}
@@ -188,8 +132,11 @@ function HeroSection({ profile, projects }: { profile: ProfileData; projects: Pr
               </span>{' '}
               creating distinctive visual identities and intuitive digital products.
             </p>
-          </motion.div>
-          <motion.div variants={item} className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+          </div>
+          <div
+            className="hero-rise flex w-full flex-col gap-3 sm:w-auto sm:flex-row"
+            style={{ animationDelay: '0.18s' }}
+          >
             <motion.div
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
@@ -220,13 +167,13 @@ function HeroSection({ profile, projects }: { profile: ProfileData; projects: Pr
               </svg>
               Resume
             </motion.a>
-          </motion.div>
+          </div>
         </div>
-        <motion.div variants={item} className="w-full min-w-0 lg:order-1">
+        <div className="hero-rise w-full min-w-0 lg:order-1" style={{ animationDelay: '0.22s' }}>
           <HeroCoverCarousel projects={heroProjects} />
-        </motion.div>
+        </div>
       </div>
-    </motion.section>
+    </section>
   );
 }
 
