@@ -1,15 +1,6 @@
 const NAME = 'Victor';
 const SURNAME = 'Omolasoye';
 
-const ACCENT_FROM = [47, 91, 255];
-const ACCENT_TO = [168, 85, 247];
-
-function accentColor(index: number, total: number) {
-  const t = total <= 1 ? 0 : index / (total - 1);
-  const mix = (from: number, to: number) => Math.round(from + (to - from) * t);
-  return `rgb(${mix(ACCENT_FROM[0], ACCENT_TO[0])}, ${mix(ACCENT_FROM[1], ACCENT_TO[1])}, ${mix(ACCENT_FROM[2], ACCENT_TO[2])})`;
-}
-
 /**
  * First-paint brand loader.
  *
@@ -35,7 +26,7 @@ export function PageLoader() {
         <div className="page-loader-glow" aria-hidden="true" />
 
         <div className="page-loader-inner">
-          <p className="pl-kicker" aria-hidden="true">Portfolio — 2026</p>
+          <p className="pl-kicker" aria-hidden="true">Portfolio</p>
 
           <div className="pl-wordmark" aria-hidden="true">
             <span className="pl-line">
@@ -49,15 +40,12 @@ export function PageLoader() {
                 </span>
               ))}
             </span>
-            <span className="pl-line pl-line-accent">
+            <span className="pl-line">
               {SURNAME.split('').map((letter, i) => (
                 <span
                   key={`o-${i}`}
                   className="pl-letter"
-                  style={{
-                    animationDelay: `${0.14 + i * 0.03}s`,
-                    color: accentColor(i, SURNAME.length),
-                  }}
+                  style={{ animationDelay: `${0.14 + i * 0.03}s` }}
                 >
                   {letter}
                 </span>

@@ -464,7 +464,7 @@
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.32em;
-  color: #8e8e93;
+  color: #101828;
   opacity: 0;
   animation: pl-text-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.02s forwards;
 }
@@ -474,10 +474,11 @@
   flex-direction: column;
   align-items: center;
   margin: 0;
-  font-size: clamp(2.6rem, 8.5vw, 4.75rem);
+  font-size: clamp(2.35rem, 7.8vw, 4.35rem);
   font-weight: 600;
-  line-height: 0.98;
-  letter-spacing: -0.035em;
+  line-height: 0.94;
+  letter-spacing: -0.012em;
+  text-transform: uppercase;
   text-align: center;
 }
 
@@ -496,18 +497,13 @@
   will-change: opacity, transform;
 }
 
-.pl-line-accent {
-  /* Per-letter colours are set inline so the gradient always paints. */
-  font-weight: 600;
-}
-
 .pl-caret {
   display: inline-block;
   width: 2px;
   height: 0.7em;
   margin-left: 0.09em;
   border-radius: 2px;
-  background: linear-gradient(180deg, #2f5bff, #a855f7);
+  background: #101828;
   transform: translateY(0.06em);
   opacity: 0;
   animation: cursor-blink 1s step-end 0.95s infinite;
@@ -521,8 +517,7 @@
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(47, 91, 255, 0.55),
-    rgba(168, 85, 247, 0.55),
+    rgba(16, 24, 40, 0.45),
     transparent
   );
   transform: scaleX(0);
@@ -536,7 +531,7 @@
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.22em;
-  color: #8e8e93;
+  color: #101828;
   opacity: 0;
   animation: pl-text-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) 1.02s forwards;
 }
@@ -554,7 +549,7 @@
   width: 44%;
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(90deg, #2f5bff, #a855f7);
+  background: #101828;
   animation: pl-track-slide 1.15s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
