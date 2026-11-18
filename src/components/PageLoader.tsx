@@ -54,13 +54,7 @@ export function PageLoader() {
             </span>
           </div>
 
-          <span className="pl-rule" aria-hidden="true" />
-
           <p className="pl-role">Brand &amp; Product Designer</p>
-
-          <div className="pl-track" aria-hidden="true">
-            <span className="pl-fill" />
-          </div>
         </div>
       </div>
 
