@@ -441,7 +441,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 18px;
   padding: 24px;
   animation: pl-rise-in 0.62s cubic-bezier(0.22, 1, 0.36, 1) both;
   transition:
@@ -457,153 +457,88 @@
   filter: blur(4px);
 }
 
-.pl-stage {
-  position: relative;
-  display: grid;
-  place-items: center;
-  width: 132px;
-  height: 132px;
-}
-
-.pl-halo {
-  position: absolute;
-  width: 190px;
-  height: 190px;
-  border-radius: 9999px;
-  background: radial-gradient(circle, rgba(47, 91, 255, 0.20), rgba(175, 82, 222, 0.10) 48%, transparent 70%);
-  filter: blur(6px);
-}
-
-.pl-orbit {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  animation: pl-orbit-spin 7s linear infinite;
-  transform-origin: 50% 50%;
-}
-
-.pl-orbit-track {
-  stroke: rgba(47, 91, 255, 0.12);
-  stroke-width: 1.25;
-}
-
-.pl-orbit-arc {
-  stroke: rgba(47, 91, 255, 0.6);
-  stroke-width: 1.75;
-  stroke-linecap: round;
-  stroke-dasharray: 58 344;
-}
-
-.pl-crop {
-  position: absolute;
-  width: 11px;
-  height: 11px;
-  border: 0 solid rgba(16, 24, 40, 0.2);
-  pointer-events: none;
-}
-
-.pl-crop-tl {
-  top: -22px;
-  left: -22px;
-  border-top-width: 1px;
-  border-left-width: 1px;
-}
-
-.pl-crop-tr {
-  top: -22px;
-  right: -22px;
-  border-top-width: 1px;
-  border-right-width: 1px;
-}
-
-.pl-crop-bl {
-  bottom: -22px;
-  left: -22px;
-  border-bottom-width: 1px;
-  border-left-width: 1px;
-}
-
-.pl-crop-br {
-  bottom: -22px;
-  right: -22px;
-  border-bottom-width: 1px;
-  border-right-width: 1px;
-}
-
-.pl-card {
-  position: relative;
-  display: grid;
-  place-items: center;
-  width: 104px;
-  height: 104px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  border-radius: 28px;
-  background: linear-gradient(155deg, #ffffff 0%, rgba(255, 255, 255, 0.74) 100%);
-  box-shadow:
-    0 1px 2px rgba(16, 24, 40, 0.04),
-    0 28px 60px -26px rgba(47, 91, 255, 0.45);
-  isolation: isolate;
-}
-
-.pl-sheen {
-  position: absolute;
-  inset: -30%;
-  z-index: 0;
-  background: linear-gradient(
-    100deg,
-    transparent 40%,
-    rgba(47, 91, 255, 0.12) 50%,
-    transparent 60%
-  );
-  animation: pl-sheen-sweep 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-}
-
-.pl-glyph {
-  position: relative;
-  z-index: 1;
-  width: 58px;
-  height: 58px;
-  overflow: visible;
-}
-
-.pl-glyph-path {
-  stroke-dasharray: 210;
-  stroke-dashoffset: 210;
-  animation: pl-draw 1s cubic-bezier(0.65, 0, 0.35, 1) 0.08s forwards;
-}
-
-.pl-glyph-dot {
+/* Kinetic wordmark */
+.pl-kicker {
+  margin: 0;
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  color: #8e8e93;
   opacity: 0;
-  transform-origin: 60px 92px;
-  transform: scale(0.4);
-  animation: pl-dot-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.82s forwards;
+  animation: pl-text-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.02s forwards;
 }
 
-.pl-copy {
+.pl-wordmark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  font-size: clamp(2.6rem, 8.5vw, 4.75rem);
+  font-weight: 600;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
   text-align: center;
 }
 
-.pl-name {
-  margin: 0;
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: 0.01em;
+.pl-line {
+  display: block;
+  padding: 0 0.06em;
+  white-space: nowrap;
+}
+
+.pl-letter {
+  display: inline-block;
   color: #101828;
   opacity: 0;
-  animation: pl-text-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) 1.18s forwards;
+  transform: translateY(0.55em) rotate(3deg);
+  animation: pl-letter-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  will-change: opacity, transform;
+}
+
+.pl-line-accent {
+  /* Per-letter colours are set inline so the gradient always paints. */
+  font-weight: 600;
+}
+
+.pl-caret {
+  display: inline-block;
+  width: 2px;
+  height: 0.7em;
+  margin-left: 0.09em;
+  border-radius: 2px;
+  background: linear-gradient(180deg, #2f5bff, #a855f7);
+  transform: translateY(0.06em);
+  opacity: 0;
+  animation: cursor-blink 1s step-end 0.95s infinite;
+}
+
+.pl-rule {
+  width: 64px;
+  height: 1.5px;
+  margin-top: 4px;
+  border-radius: 9999px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(47, 91, 255, 0.55),
+    rgba(168, 85, 247, 0.55),
+    transparent
+  );
+  transform: scaleX(0);
+  transform-origin: center;
+  animation: pl-rule-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.9s forwards;
 }
 
 .pl-role {
-  margin: 4px 0 0;
+  margin: 0;
   font-size: 10.5px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.22em;
   color: #8e8e93;
   opacity: 0;
-  animation: pl-text-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) 1.32s forwards;
+  animation: pl-text-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) 1.02s forwards;
 }
 
 .pl-track {
@@ -634,22 +569,20 @@
   }
 }
 
-@keyframes pl-orbit-spin {
-  to {
-    transform: rotate(360deg);
+@keyframes pl-letter-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.55em) rotate(3deg);
   }
-}
-
-@keyframes pl-draw {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-@keyframes pl-dot-pop {
   to {
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+@keyframes pl-rule-in {
+  to {
+    transform: scaleX(1);
   }
 }
 
@@ -661,16 +594,6 @@
   to {
     opacity: 1;
     transform: none;
-  }
-}
-
-@keyframes pl-sheen-sweep {
-  0% {
-    transform: translateX(-140%) skewX(-14deg);
-  }
-  65%,
-  100% {
-    transform: translateX(150%) skewX(-14deg);
   }
 }
 
@@ -759,30 +682,33 @@
   }
 
   .page-loader-inner,
-  .pl-orbit,
-  .pl-sheen,
   .pl-fill,
-  .pl-glyph-path,
-  .pl-glyph-dot,
-  .pl-name,
+  .pl-kicker,
+  .pl-letter,
+  .pl-rule,
   .pl-role,
+  .pl-caret,
   .typewriter-text,
   .typewriter-caret {
     animation: none !important;
   }
 
-  .pl-name,
+  .pl-kicker,
+  .pl-letter,
   .pl-role {
     opacity: 1;
   }
 
-  .pl-glyph-path {
-    stroke-dashoffset: 0;
+  .pl-letter {
+    transform: none;
   }
 
-  .pl-glyph-dot {
+  .pl-rule {
+    transform: scaleX(1);
+  }
+
+  .pl-caret {
     opacity: 1;
-    transform: none;
   }
 
   .typewriter-text {

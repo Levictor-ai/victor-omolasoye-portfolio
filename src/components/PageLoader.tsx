@@ -1,3 +1,15 @@
+const NAME = 'Victor';
+const SURNAME = 'Omolasoye';
+
+const ACCENT_FROM = [47, 91, 255];
+const ACCENT_TO = [168, 85, 247];
+
+function accentColor(index: number, total: number) {
+  const t = total <= 1 ? 0 : index / (total - 1);
+  const mix = (from: number, to: number) => Math.round(from + (to - from) * t);
+  return `rgb(${mix(ACCENT_FROM[0], ACCENT_TO[0])}, ${mix(ACCENT_FROM[1], ACCENT_TO[1])}, ${mix(ACCENT_FROM[2], ACCENT_TO[2])})`;
+}
+
 /**
  * First-paint brand loader.
  *
@@ -23,45 +35,40 @@ export function PageLoader() {
         <div className="page-loader-glow" aria-hidden="true" />
 
         <div className="page-loader-inner">
-          <div className="pl-stage" aria-hidden="true">
-            <span className="pl-halo" />
-            <span className="pl-crop pl-crop-tl" />
-            <span className="pl-crop pl-crop-tr" />
-            <span className="pl-crop pl-crop-bl" />
-            <span className="pl-crop pl-crop-br" />
+          <p className="pl-kicker" aria-hidden="true">Portfolio — 2026</p>
 
-            <svg className="pl-orbit" viewBox="0 0 132 132" fill="none">
-              <circle className="pl-orbit-track" cx="66" cy="66" r="64" />
-              <circle className="pl-orbit-arc" cx="66" cy="66" r="64" />
-            </svg>
-
-            <div className="pl-card">
-              <span className="pl-sheen" />
-              <svg className="pl-glyph" viewBox="0 0 120 120" fill="none">
-                <defs>
-                  <linearGradient id="pl-glyph-gradient" x1="20" y1="20" x2="100" y2="100" gradientUnits="userSpaceOnUse">
-                    <stop offset="0" stopColor="#2F5BFF" />
-                    <stop offset="0.55" stopColor="#6C5BFF" />
-                    <stop offset="1" stopColor="#AF52DE" />
-                  </linearGradient>
-                </defs>
-                <path
-                  className="pl-glyph-path"
-                  d="M28 30L60 92L92 30"
-                  stroke="url(#pl-glyph-gradient)"
-                  strokeWidth="9"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <circle className="pl-glyph-dot" cx="60" cy="92" r="4.5" fill="#2F5BFF" />
-              </svg>
-            </div>
+          <div className="pl-wordmark" aria-hidden="true">
+            <span className="pl-line">
+              {NAME.split('').map((letter, i) => (
+                <span
+                  key={`v-${i}`}
+                  className="pl-letter"
+                  style={{ animationDelay: `${0.04 + i * 0.03}s` }}
+                >
+                  {letter}
+                </span>
+              ))}
+            </span>
+            <span className="pl-line pl-line-accent">
+              {SURNAME.split('').map((letter, i) => (
+                <span
+                  key={`o-${i}`}
+                  className="pl-letter"
+                  style={{
+                    animationDelay: `${0.14 + i * 0.03}s`,
+                    color: accentColor(i, SURNAME.length),
+                  }}
+                >
+                  {letter}
+                </span>
+              ))}
+              <span className="pl-caret" />
+            </span>
           </div>
 
-          <div className="pl-copy">
-            <p className="pl-name">Victor Omolasoye</p>
-            <p className="pl-role">Brand &amp; Product Designer</p>
-          </div>
+          <span className="pl-rule" aria-hidden="true" />
+
+          <p className="pl-role">Brand &amp; Product Designer</p>
 
           <div className="pl-track" aria-hidden="true">
             <span className="pl-fill" />
