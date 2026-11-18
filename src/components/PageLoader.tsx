@@ -26,8 +26,6 @@ export function PageLoader() {
         <div className="page-loader-glow" aria-hidden="true" />
 
         <div className="page-loader-inner">
-          <p className="pl-kicker" aria-hidden="true">Portfolio</p>
-
           <div className="pl-wordmark" aria-hidden="true">
             <span className="pl-line">
               {NAME.split('').map((letter, i) => (
@@ -50,7 +48,6 @@ export function PageLoader() {
                   {letter}
                 </span>
               ))}
-              <span className="pl-caret" />
             </span>
           </div>
 

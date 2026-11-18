@@ -458,17 +458,6 @@
 }
 
 /* Kinetic wordmark */
-.pl-kicker {
-  margin: 0;
-  font-size: 10px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.32em;
-  color: #101828;
-  opacity: 0;
-  animation: pl-text-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.02s forwards;
-}
-
 .pl-wordmark {
   display: flex;
   flex-direction: column;
@@ -495,18 +484,6 @@
   transform: translateY(0.55em) rotate(3deg);
   animation: pl-letter-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   will-change: opacity, transform;
-}
-
-.pl-caret {
-  display: inline-block;
-  width: 2px;
-  height: 0.7em;
-  margin-left: 0.09em;
-  border-radius: 2px;
-  background: #101828;
-  transform: translateY(0.06em);
-  opacity: 0;
-  animation: cursor-blink 1s step-end 0.95s infinite;
 }
 
 .pl-role {
@@ -629,16 +606,13 @@
   }
 
   .page-loader-inner,
-  .pl-kicker,
   .pl-letter,
   .pl-role,
-  .pl-caret,
   .typewriter-text,
   .typewriter-caret {
     animation: none !important;
   }
 
-  .pl-kicker,
   .pl-letter,
   .pl-role {
     opacity: 1;
@@ -646,10 +620,6 @@
 
   .pl-letter {
     transform: none;
-  }
-
-  .pl-caret {
-    opacity: 1;
   }
 
   .typewriter-text {
