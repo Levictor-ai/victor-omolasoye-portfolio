@@ -2,10 +2,9 @@
  * First-paint brand loader.
  *
  * Rendered in the server HTML so it covers the initial paint instantly, then
- * dissolves as soon as the document is ready (fonts raced with a short cap, so
- * it never waits on slow images). It is intentionally CSS-only for the visuals
- * and runs a tiny inline script for dismissal, so it does not depend on React
- * hydration to get out of the way.
+ * holds for a 2s brand beat and dissolves. It is intentionally CSS-only for
+ * the visuals and runs a tiny inline script for dismissal, so it does not
+ * depend on React hydration to get out of the way.
  */
 export function PageLoader() {
   return (
@@ -75,7 +74,7 @@ export function PageLoader() {
           __html: `(function(){try{
   var el=document.getElementById('page-loader');
   if(!el)return;
-  var start=Date.now(), MIN=240, MAX=1800, finished=false;
+  var start=Date.now(), MIN=2000, MAX=3200, finished=false;
   document.documentElement.classList.add('is-loading');
   function finish(){
     if(finished)return; finished=true;
