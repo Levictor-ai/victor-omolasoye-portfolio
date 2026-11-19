@@ -1,0 +1,450 @@
+{
+  "slug": "docintel",
+  "category": "product",
+  "categories": ["product", "engineering"],
+  "personal": true,
+  "title": "DocIntel",
+  "subtitle": "AI document intelligence for invoices and receipts",
+  "role": "Product Design, Strategy & AI-assisted Development",
+  "company": "Independent",
+  "companyUrl": "",
+  "period": "2026",
+  "coverImage": "/images/projects/docintel/cover.png",
+  "color": "#0F1115",
+  "timeline": "In development",
+  "overview": "DocIntel is an AI-powered document intelligence platform that turns invoices and receipts into structured, reviewable data. Users upload documents in batches, let AI extract the fields, validate uncertain values, correct anything that is wrong, and export clean CSV or Excel records.",
+  "problem": "Businesses process large volumes of invoices and receipts every day. The information is there, but it is trapped inside documents and has to be moved into spreadsheets or accounting systems by hand. At scale, that manual work is slow, repetitive and prone to error.",
+  "solution": "A single connected workflow that moves from raw files to usable information: upload, document understanding, extraction, validation, human review and export. AI accelerates the first pass while people keep final control over the accuracy of their records.",
+  "targetAudience": [
+    "Accountants",
+    "Finance teams",
+    "Business operators",
+    "Small business owners"
+  ],
+  "regions": ["Global"],
+  "features": [
+    {
+      "title": "A focused workspace",
+      "description": "A central dashboard for managing document processing, showing what needs attention, what is being processed and what is complete."
+    },
+    {
+      "title": "Batch document intake",
+      "description": "Upload a single invoice or a large batch of receipts, with clear processing states instead of technical detail."
+    },
+    {
+      "title": "AI extraction",
+      "description": "Extracts vendor, date, subtotal, tax, total and line items from each document into structured fields."
+    },
+    {
+      "title": "Validation",
+      "description": "Checks totals, tax and line items for missing fields, inconsistencies and uncertainty before anything is approved."
+    },
+    {
+      "title": "Human review",
+      "description": "Compare the original document with the extracted fields, correct mistakes and approve the final record."
+    },
+    {
+      "title": "Export",
+      "description": "Export approved records as structured CSV or Excel files for use in existing finance workflows."
+    }
+  ],
+  "techStack": [
+    { "name": "Next.js", "category": "frontend" },
+    { "name": "TypeScript", "category": "frontend" },
+    { "name": "Supabase", "category": "backend" },
+    { "name": "AI extraction", "category": "backend" },
+    { "name": "CSV / XLSX", "category": "tools" },
+    { "name": "Product strategy", "category": "design" }
+  ],
+  "architecture": {
+    "title": "A small, deliberate technical foundation",
+    "description": "DocIntel is being developed as a web-based SaaS application. The architecture is intended to support additional document types through dedicated extraction schemas and validation rules, without making the initial experience unnecessarily complex.",
+    "highlights": [
+      "Next.js and TypeScript for the application architecture and frontend",
+      "Supabase for authentication, database, file storage and backend services",
+      "AI processing for document understanding and structured extraction",
+      "CSV and Excel export for structured, reusable records"
+    ]
+  },
+  "results": [
+    {
+      "metric": "Current stage",
+      "value": "MVP",
+      "description": "Built and in active development"
+    },
+    {
+      "metric": "Workflow",
+      "value": "6",
+      "description": "Stages from upload to export"
+    },
+    {
+      "metric": "Export formats",
+      "value": "2",
+      "description": "Structured CSV and Excel files"
+    }
+  ],
+  "testimonial": null,
+  "links": [
+    {
+      "label": "View live MVP",
+      "url": "https://doc-intelligence-liart.vercel.app/",
+      "type": "live"
+    }
+  ],
+  "images": [],
+  "studyDoc": {
+    "badge": "In development",
+    "tagline": "A product design and AI case study",
+    "meta": [
+      { "label": "Status", "value": "In development" },
+      { "label": "Platform", "value": "Web application" },
+      { "label": "Focus", "value": "Invoices and receipts" },
+      { "label": "Tools", "value": "Next.js, TypeScript, Supabase, AI" }
+    ],
+    "sections": [
+      {
+        "id": "summary",
+        "nav": "Overview",
+        "title": "Project overview",
+        "blocks": [
+          {
+            "type": "paragraphs",
+            "lead": true,
+            "paragraphs": [
+              "Businesses process large volumes of documents every day. Invoices, receipts and other financial records contain valuable information, but extracting that information and organising it into usable formats is repetitive, time-consuming and prone to human error.",
+              "DocIntel is an AI-powered document processing platform designed to simplify that process. It transforms unstructured business documents into structured, organised data that users can review, validate and export. Rather than manually transferring information from documents into spreadsheets, users upload their files and let AI handle the initial extraction.",
+              "The goal is simple: reduce repetitive administrative work and make business information easier to access, manage and use."
+            ]
+          },
+          {
+            "type": "stats",
+            "stats": [
+              {
+                "value": "6",
+                "label": "Workflow stages",
+                "description": "Upload through to export"
+              },
+              {
+                "value": "2",
+                "label": "Export formats",
+                "description": "Structured CSV and Excel"
+              },
+              {
+                "value": "1",
+                "label": "V1 focus",
+                "description": "Invoices and receipts"
+              },
+              {
+                "value": "MVP",
+                "label": "Current stage",
+                "description": "In active development"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "problem",
+        "nav": "The Problem",
+        "title": "The problem",
+        "blocks": [
+          {
+            "type": "paragraphs",
+            "paragraphs": [
+              "For accountants, finance teams and business operators, document processing involves more than simply reading a document."
+            ]
+          },
+          {
+            "type": "bullets",
+            "heading": "A typical workflow asks someone to",
+            "items": [
+              "Open individual invoices or receipts.",
+              "Identify important information such as vendor names, dates, totals and tax amounts.",
+              "Manually transfer the information into spreadsheets or accounting systems.",
+              "Check entries for missing or inconsistent information.",
+              "Organise records for reporting and future reference."
+            ]
+          },
+          {
+            "type": "paragraphs",
+            "paragraphs": [
+              "When this process involves dozens or hundreds of documents, the workload increases significantly."
+            ]
+          },
+          {
+            "type": "callout",
+            "callout": {
+              "label": "The real problem",
+              "text": "The information is not unavailable. It is trapped inside documents and requires manual effort to become useful.",
+              "tone": "brand"
+            }
+          }
+        ]
+      },
+      {
+        "id": "opportunity",
+        "nav": "The Opportunity",
+        "title": "The opportunity",
+        "blocks": [
+          {
+            "type": "paragraphs",
+            "paragraphs": [
+              "I saw an opportunity to create a tool that bridges the gap between documents and structured business data. Instead of building another document storage platform, I wanted DocIntel to help users move from raw files to usable information through one connected workflow.",
+              "The product needed to do more than extract text. It needed to understand document content, organise extracted information, identify uncertainties, and give users control over the final output."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "goals",
+        "nav": "Product Goals",
+        "title": "Product goals",
+        "intro": "The initial product direction focused on five objectives.",
+        "blocks": [
+          {
+            "type": "numbered",
+            "items": [
+              "Simplify document intake: make uploading individual documents and processing batches straightforward.",
+              "Automate data extraction: use AI to identify and extract relevant information.",
+              "Improve data reliability: validate extracted fields and highlight missing or uncertain information.",
+              "Keep users in control: allow users to review, correct and approve extracted data.",
+              "Make data reusable: enable users to export structured information into formats such as CSV and Excel."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "workflow",
+        "nav": "The Workflow",
+        "title": "The core workflow",
+        "intro": "I approached the experience as a connected process rather than a collection of independent features.",
+        "blocks": [
+          {
+            "type": "figure",
+            "figure": {
+              "src": "/images/projects/docintel/workflow.png",
+              "alt": "DocIntel six-stage workflow from upload to export",
+              "caption": "Six stages, one connected process. Human review sits inside the workflow, not outside it."
+            }
+          },
+          {
+            "type": "timeline",
+            "timeline": [
+              {
+                "when": "01",
+                "title": "Upload",
+                "body": "Users upload invoices and receipts individually or in batches."
+              },
+              {
+                "when": "02",
+                "title": "Document understanding",
+                "body": "The system processes the files and identifies the relevant document type and information."
+              },
+              {
+                "when": "03",
+                "title": "Data extraction",
+                "body": "AI extracts key information such as document number, vendor, date, subtotal, tax and total amount."
+              },
+              {
+                "when": "04",
+                "title": "Validation",
+                "body": "Extracted information is checked for missing fields, inconsistencies and uncertainty."
+              },
+              {
+                "when": "05",
+                "title": "Human review",
+                "body": "Users inspect the original document alongside the extracted information, make corrections and approve the results."
+              },
+              {
+                "when": "06",
+                "title": "Export",
+                "body": "Approved information is exported into structured CSV or Excel files."
+              }
+            ]
+          },
+          {
+            "type": "callout",
+            "callout": {
+              "label": "Design decision",
+              "text": "Keep human review within the workflow. AI can accelerate extraction, but users should retain control over the accuracy of their business records.",
+              "tone": "brand"
+            }
+          }
+        ]
+      },
+      {
+        "id": "experience",
+        "nav": "Designing the Experience",
+        "title": "Designing the experience",
+        "intro": "The interface is organised around the work people actually do: bringing documents in, understanding their status, reviewing what the AI found, and getting clean data out.",
+        "blocks": [
+          {
+            "type": "cards",
+            "columns": 2,
+            "cards": [
+              {
+                "title": "A focused workspace",
+                "body": "The product is designed around a dashboard that gives users a central place to manage document processing. The experience prioritises clarity and functionality, helping users understand what needs attention, what is being processed and what has been completed."
+              },
+              {
+                "title": "Document processing",
+                "body": "Uploading documents should feel straightforward, whether users are processing one invoice or a large batch. The interface communicates processing progress and understandable statuses without exposing unnecessary technical details."
+              },
+              {
+                "title": "Extraction review",
+                "body": "Rather than presenting extracted information as automatically correct, the interface lets users compare the original document with the extracted fields. They can identify missing information, correct mistakes and approve the final data before exporting."
+              },
+              {
+                "title": "Organisation and export",
+                "body": "Extracted information needs to remain useful beyond the initial processing stage. DocIntel helps users organise processed records, revisit previous documents and export approved information for use in their existing workflows."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "trust",
+        "nav": "Designing for Trust",
+        "title": "Designing for trust",
+        "blocks": [
+          {
+            "type": "paragraphs",
+            "paragraphs": [
+              "Automation is only valuable when users can trust the information it produces. For this reason, reliability and transparency are important considerations in DocIntel's product direction."
+            ]
+          },
+          {
+            "type": "bullets",
+            "heading": "The experience is designed around a few principles",
+            "items": [
+              "Never invent information that is missing from a document.",
+              "Make uncertain or incomplete fields visible.",
+              "Allow users to correct extracted information.",
+              "Preserve the relationship between extracted data and its original document.",
+              "Protect business documents and keep account data isolated."
+            ]
+          },
+          {
+            "type": "callout",
+            "callout": {
+              "label": "Positioning",
+              "text": "DocIntel is a document intelligence tool, not an uncontrolled AI text generator.",
+              "tone": "brand"
+            }
+          }
+        ]
+      },
+      {
+        "id": "architecture",
+        "nav": "Product Architecture",
+        "title": "Product architecture",
+        "blocks": [
+          {
+            "type": "paragraphs",
+            "paragraphs": [
+              "DocIntel is being developed as a web-based SaaS application. The current technical direction is deliberately small, focused on the pieces the first version needs."
+            ]
+          },
+          {
+            "type": "bullets",
+            "heading": "Current technical direction",
+            "items": [
+              "Next.js and TypeScript for application architecture and frontend development.",
+              "Supabase for authentication, database, file storage and backend services.",
+              "AI processing for document understanding and structured information extraction.",
+              "CSV and Excel export for structured, reusable data."
+            ]
+          },
+          {
+            "type": "paragraphs",
+            "paragraphs": [
+              "The architecture is intended to support additional document types through dedicated extraction schemas and validation rules, without making the initial experience unnecessarily complex."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "challenges",
+        "nav": "Challenges",
+        "title": "Challenges and considerations",
+        "intro": "Building DocIntel involves more than connecting an AI model to a file upload interface.",
+        "blocks": [
+          {
+            "type": "cards",
+            "columns": 2,
+            "cards": [
+              {
+                "title": "Extraction accuracy",
+                "body": "AI can misinterpret information, especially when documents have inconsistent layouts or poor image quality. The product needs validation and human review rather than assuming every extraction is correct."
+              },
+              {
+                "title": "Data privacy",
+                "body": "Business documents can contain confidential financial information. Authentication, access control, storage permissions and account-level data isolation are essential."
+              },
+              {
+                "title": "Workflow continuity",
+                "body": "Users should be able to return to their workspace and access their original documents and processing history across sessions and devices."
+              },
+              {
+                "title": "Product abstraction",
+                "body": "The technical complexity behind AI processing should not become the user's responsibility. The experience should communicate clear, familiar statuses rather than exposing model names, API providers or backend configuration."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "next",
+        "nav": "What's Next",
+        "title": "What's next",
+        "blocks": [
+          {
+            "type": "paragraphs",
+            "paragraphs": [
+              "The initial focus is on invoice and receipt processing. The broader product vision extends beyond financial documents."
+            ]
+          },
+          {
+            "type": "bullets",
+            "heading": "Potential future capabilities",
+            "items": [
+              "Contract information extraction and analysis.",
+              "Structured information extraction from identification documents.",
+              "Accounting and business software integrations.",
+              "Automated financial summaries and reporting."
+            ]
+          },
+          {
+            "type": "paragraphs",
+            "paragraphs": [
+              "These extensions will build on the same core idea: turning unstructured documents into information that businesses can actually use."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "reflection",
+        "nav": "Final Thoughts",
+        "title": "Final thoughts",
+        "blocks": [
+          {
+            "type": "paragraphs",
+            "paragraphs": [
+              "DocIntel explores a simple but important idea: businesses should not have to spend so much time manually moving information from one document to another.",
+              "By combining AI-powered extraction, validation and human review, the product aims to make document processing more efficient without sacrificing user control.",
+              "For me, this project is also an exploration of how AI can be applied to practical business problems, moving beyond generating content to building useful tools that simplify real workflows."
+            ]
+          },
+          {
+            "type": "callout",
+            "callout": {
+              "label": "DocIntel",
+              "text": "From documents to intelligence.",
+              "tone": "brand"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
