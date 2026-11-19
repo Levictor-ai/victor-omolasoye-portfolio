@@ -13,6 +13,7 @@ export function getAllProjects(): ProjectData[] {
         const raw = fs.readFileSync(path.join(projectsDir, f), 'utf-8');
         return JSON.parse(raw) as ProjectData;
       })
+      .filter((project) => !project.showcase)
       .sort((a, b) => {
         const aComing = !a.period || a.subtitle === 'Project Coming Soon';
         const bComing = !b.period || b.subtitle === 'Project Coming Soon';

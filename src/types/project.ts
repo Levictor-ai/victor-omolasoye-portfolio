@@ -225,6 +225,8 @@ export interface ProjectData {
   /** Extra tracks this project belongs to, e.g. work that sits in both brand and product. */
   categories?: ProjectCategory[];
   personal?: boolean;
+  /** Showcased separately ("In the Lab") instead of in the project listings. */
+  showcase?: boolean;
   /** When true, the project is pinned to the top of its category on the projects page. */
   featured?: boolean;
   /** Sort order among featured projects (lower comes first). */

@@ -3,6 +3,7 @@
   "category": "product",
   "categories": ["product", "engineering"],
   "personal": true,
+  "showcase": true,
   "title": "DocIntel",
   "subtitle": "AI document intelligence for invoices and receipts",
   "role": "Product Design, Strategy & AI-assisted Development",

@@ -6,6 +6,15 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 2592000,
     deviceSizes: [360, 480, 640, 750, 828, 1080, 1200, 1920, 2048],
   },
+  async redirects() {
+    return [
+      {
+        source: '/projects/docintel',
+        destination: '/showcase/docintel',
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

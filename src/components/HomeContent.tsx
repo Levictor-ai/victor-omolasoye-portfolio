@@ -11,6 +11,7 @@ import type { ProjectData } from '@/types/project';
 import { ProjectCard } from '@/components/ProjectCard';
 import { PersonalProjectCard } from '@/components/PersonalProjectCard';
 import { HeroCoverCarousel } from '@/components/HeroCoverCarousel';
+import { ShowcaseSection } from '@/components/ShowcaseSection';
 import { projectInCategory } from '@/lib/projectCategories';
 import { BackToTop } from '@/components/BackToTop';
 import { Nav } from '@/components/Nav';
@@ -286,7 +287,13 @@ function PersonalProjectsSection({ projects }: { projects: ProjectData[] }) {
   );
 }
 
-export function HomeContent({ projects }: { projects: ProjectData[] }) {
+export function HomeContent({
+  projects,
+  showcase,
+}: {
+  projects: ProjectData[];
+  showcase?: ProjectData | null;
+}) {
   const profile = usePortfolio();
 
   return (
@@ -296,6 +303,7 @@ export function HomeContent({ projects }: { projects: ProjectData[] }) {
         <HeroSection profile={profile} projects={projects} />
         <div className="mx-auto max-w-7xl px-6 py-6 sm:py-8 sm:px-8 lg:px-12">
           <ProjectsSection projects={projects} />
+          {showcase && <ShowcaseSection project={showcase} />}
           <PersonalProjectsSection projects={projects} />
         </div>
         <AboutCta profile={profile} />
