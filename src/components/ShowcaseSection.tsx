@@ -32,7 +32,7 @@ export function ShowcaseSection({ project }: { project: ProjectData }) {
         }}
         className="mb-6"
       >
-        <SectionHeading title="In the Lab" eyebrow="Currently building" />
+        <SectionHeading title="Something I'm Building" eyebrow="From idea to product" />
       </motion.div>
 
       <motion.div
